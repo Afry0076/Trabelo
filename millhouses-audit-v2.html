@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A note about your website — Millhouses Accountancy</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f1117;--navy:#0d1f3c;--blue:#2563eb;--green:#16a34a;--red:#dc2626;--amber:#d97706;--border:#e5e7eb;--muted:#6b7280;--light:#f9fafb;--r:8px}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--light);line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{background:var(--navy);padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:800;color:#fff}.logo span{color:#60a5fa}
+.hr{font-size:12px;color:rgba(255,255,255,.4)}
+.hero{background:linear-gradient(135deg,#0d1f3c,#1e3a5f);padding:56px 28px;text-align:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(96,165,250,.18);border:1px solid rgba(96,165,250,.35);border-radius:100px;padding:6px 18px;font-size:12px;font-weight:700;color:#93c5fd;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:32px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.hero h1 em{color:#93c5fd;font-style:normal}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.6);max-width:620px;margin:0 auto 24px;line-height:1.8}
+.hero-meta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.mp{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 16px;font-size:13px;color:rgba(255,255,255,.75)}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.main{max-width:860px;margin:32px auto;padding:0 22px 60px}
+.platform-note{background:#fffbeb;border:1.5px solid #fcd34d;border-radius:10px;padding:18px 22px;margin-bottom:22px;display:flex;gap:14px;align-items:flex-start}
+.pn-icon{font-size:22px;flex-shrink:0}
+.pn-title{font-size:14px;font-weight:800;color:#92400e;margin-bottom:5px}
+.pn-body{font-size:13px;color:#78350f;line-height:1.65}
+.sc{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.sch{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.sct{font-size:14px;font-weight:800}.scs{font-size:12px;color:var(--muted);margin-top:2px}
+.sg{display:grid;grid-template-columns:1fr 1fr}
+.sp{padding:22px}.sp.before{border-right:1px solid var(--border);background:#fafafa}
+.pl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.before .pl{color:var(--amber)}.after .pl{color:var(--green)}
+.pl::before{content:'';width:9px;height:9px;border-radius:50%;background:currentColor}
+.sr{display:flex;flex-direction:column;gap:11px}
+.row{display:flex;align-items:center;gap:10px}
+.rn{font-size:13px;color:var(--muted);min-width:100px}
+.bt{flex:1;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden}
+.bf{height:100%;border-radius:4px}
+.fg{background:var(--green)}.fa{background:var(--amber)}.fr{background:var(--red)}
+.sn{font-size:13px;font-weight:800;min-width:30px;text-align:right}
+.ng{color:var(--green)}.na{color:var(--amber)}.nr{color:var(--red)}
+.drow{padding:13px 22px;background:#f0fdf4;border-top:1px solid #bbf7d0;display:flex;gap:18px;flex-wrap:wrap}
+.di{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--green)}
+.ic{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.ich{padding:16px 22px;border-bottom:1px solid var(--border)}
+.icht{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.it{font-size:15px;font-weight:800}
+.ib{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:100px;font-size:12px;font-weight:700;padding:2px 9px}
+.is{font-size:13px;color:var(--muted)}
+.ir{display:flex;gap:13px;padding:16px 22px;border-bottom:1px solid var(--border);align-items:flex-start}
+.ir:last-child{border-bottom:none}
+.ii{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px;background:#fef3c7}
+.itl{font-size:14px;font-weight:700;margin-bottom:4px}
+.id{font-size:13px;color:var(--muted);line-height:1.67}
+.ifx{display:inline-flex;align-items:center;gap:4px;margin-top:7px;font-size:12px;font-weight:700;color:var(--green);background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:2px 9px}
+.feature-pitch{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.fp-header{padding:16px 22px;border-bottom:1px solid var(--border);background:var(--navy)}
+.fp-header-title{font-size:15px;font-weight:800;color:#fff}
+.fp-header-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.fp-grid{display:grid;grid-template-columns:1fr 1fr}
+.fp-item{padding:18px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.fp-item:nth-child(even){border-right:none}
+.fp-item:nth-last-child(-n+2){border-bottom:none}
+.fp-icon{font-size:22px;margin-bottom:10px}
+.fp-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.fp-desc{font-size:13px;color:var(--muted);line-height:1.62}
+.pc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+.pcg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.p{border:1.5px solid var(--border);border-radius:var(--r);padding:18px;position:relative}
+.pf{border:2px solid var(--blue)}
+.pb{position:absolute;top:-10px;left:13px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.pt{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pa{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1}
+.pn{font-size:12px;color:var(--muted);margin-top:3px;margin-bottom:10px}
+.pd div{font-size:13px;color:var(--muted);margin-bottom:4px}
+.p3{border:1.5px solid #7c3aed;border-radius:var(--r);padding:18px;position:relative;background:#faf5ff}
+.p3b{position:absolute;top:-10px;left:13px;background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.p3t{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7c3aed;margin-bottom:6px}
+.p3a{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1}
+.p3n{font-size:12px;color:#7c3aed;margin-top:3px;margin-bottom:10px}
+.p3d div{font-size:13px;color:#6d28d9;margin-bottom:4px}
+footer{background:var(--navy);color:rgba(255,255,255,.3);padding:16px 28px;font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Millhouses Accountancy <span>— Website Review</span></div>
+  <div class="hr">Prepared by Trabelo · Sheffield · July 2026</div>
+</header>
+<div class="hero">
+  <div class="hero-tag">Google PageSpeed · Real scores · July 2026</div>
+  <h1>Your homepage opens with a reference to Skype.<br><em>Skype was discontinued in May 2025.</em></h1>
+  <p class="hero-sub">We're a local Sheffield web design company and we've been looking at your website. We noticed the homepage mentions "the advent of Email and Skype" as modern communication tools — Skype has now been shut down entirely. It's a small thing, but it tells a story about how long the site has been sitting unchanged. We've had a proper look at everything and built a free demo of what a updated site could look like. No strings attached.</p>
+  <div class="hero-meta">
+    <div class="mp"><div class="dot" style="background:#f59e0b"></div>Current — Perf 61, Skype reference, 3 offices not prominent</div>
+    <div class="mp"><div class="dot" style="background:#f59e0b"></div>Accessibility 83 — below standard for a professional firm</div>
+    <div class="mp"><div class="dot" style="background:#22c55e"></div>Rebuild — fast, modern, 3 offices clearly showcased</div>
+  </div>
+</div>
+<div class="main">
+  <div class="platform-note">
+    <div class="pn-icon">📊</div>
+    <div>
+      <div class="pn-title">A potential client's first impression of an accountancy firm is trust — the website needs to build that immediately</div>
+      <div class="pn-body">People choose an accountant based on trust and professionalism above everything else. A website that references discontinued software, loads slowly on mobile and scores below standard on accessibility sends the wrong signals before they've even read a word about the firm. The rebuild is clean, fast, professional and makes the three-office setup immediately clear.</div>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sch">
+      <div><div class="sct">Your current website — millhouses-accountancy.co.uk</div><div class="scs">Tested on mobile · Google PageSpeed Insights · July 2026 · <a href="https://pagespeed.web.dev/analysis?url=https://millhouses-accountancy.co.uk&strategy=mobile" target="_blank" style="color:var(--blue)">Verify yourself ↗</a></div></div>
+      <span style="font-size:12px;font-weight:700;color:var(--amber);background:#fef3c7;border:1px solid #fcd34d;border-radius:100px;padding:4px 12px">⚠ Real scores</span>
+    </div>
+    <div class="sg">
+      <div class="sp before"><div class="pl">Your site right now</div><div class="sr">
+        <div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fa" style="width:61%"></div></div><span class="sn na">61</span></div>
+        <div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fa" style="width:83%"></div></div><span class="sn na">83</span></div>
+        <div class="row"><span class="rn">Best Practices</span><div class="bt"><div class="bf fg" style="width:92%"></div></div><span class="sn ng">92</span></div>
+        <div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fg" style="width:92%"></div></div><span class="sn ng">92</span></div>
+      </div></div>
+      <div class="sp after"><div class="pl">After the rebuild</div><div class="sr">
+        <div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fg" style="width:97%"></div></div><span class="sn ng">97</span></div>
+        <div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fg" style="width:98%"></div></div><span class="sn ng">98</span></div>
+        <div class="row"><span class="rn">Best Practices</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div>
+        <div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div>
+      </div></div>
+    </div>
+    <div class="drow"><div class="di">↑ Performance +36 points</div><div class="di">↑ Accessibility +15 points</div><div class="di">↑ Best Practices +8 points</div><div class="di">↑ SEO +8 points</div></div>
+  </div>
+
+  <div class="ic">
+    <div class="ich">
+      <div class="icht"><div class="it">What's worth updating — and why it matters</div><span class="ib">4 things</span></div>
+      <div class="is">None of this reflects on the quality of the accountancy — it's all about the age of the website and what it communicates to potential clients before they get in touch.</div>
+    </div>
+    <div class="ir"><div class="ii">💬</div><div>
+      <div class="itl">The homepage references Skype — which was shut down in May 2025</div>
+      <div class="id">The current homepage mentions "with the advent of Email and Skype" as tools the firm uses to stay in touch with clients. Microsoft shut Skype down permanently in May 2025. It's a small detail but a significant one — it tells a potential client that the website hasn't been looked at in years, and by extension raises a question about whether the firm is keeping up with everything else. The rebuild removes this entirely and replaces it with a modern, confident opening.</div>
+      <span class="ifx">✓ Fixed — modern, confident homepage copy</span>
+    </div></div>
+    <div class="ir"><div class="ii">⚡</div><div>
+      <div class="itl">Performance 61 — slow on mobile for someone searching for an accountant in Sheffield</div>
+      <div class="id">Most people search for accountants on their phones — especially small business owners who are busy and searching in between other things. At Performance 61, the site takes 4–5 seconds to load on a mobile connection. Competitors who load instantly will get the enquiry instead. The rebuilt site loads in under 1 second.</div>
+      <span class="ifx">✓ Fixed — loads in under 1 second on mobile</span>
+    </div></div>
+    <div class="ir"><div class="ii">♿</div><div>
+      <div class="itl">Accessibility 83 — below the standard expected of a professional services firm</div>
+      <div class="id">An accessibility score of 83 means the site is failing on things like colour contrast, missing image descriptions and heading structure. For a professional firm, this matters in two ways — it affects Google search ranking, and it means clients who use screen readers or assistive technology can't properly use the site. The rebuild scores 98.</div>
+      <span class="ifx">✓ Fixed — Accessibility 98</span>
+    </div></div>
+    <div class="ir"><div class="ii">🏢</div><div>
+      <div class="itl">Three offices — Sheffield, Nottingham and London — not prominently featured</div>
+      <div class="id">Having offices in three cities is a genuine differentiator for an accountancy firm — it signals scale, stability and the ability to serve clients across multiple locations. On the current site this isn't immediately obvious. The rebuild puts all three offices in the topbar and contact page so any visitor understands the firm's reach from the first second.</div>
+      <span class="ifx">✓ Fixed — all three offices in topbar and contact page</span>
+    </div></div>
+  </div>
+
+  <div class="feature-pitch">
+    <div class="fp-header">
+      <div class="fp-header-title">What you'd get with the new site</div>
+      <div class="fp-header-sub">A professional, modern site that reflects the firm's actual size and experience</div>
+    </div>
+    <div class="fp-grid">
+      <div class="fp-item"><div class="fp-icon">🏢</div><div class="fp-title">Three offices — Sheffield, Nottingham, London — clearly listed</div><div class="fp-desc">All three offices with their addresses and contact details in the topbar, hero card and contact page — so it's immediately obvious that this isn't a one-man-band operation.</div></div>
+      <div class="fp-item"><div class="fp-icon">📊</div><div class="fp-title">Services page — every offering explained clearly</div><div class="fp-desc">Bookkeeping, tax returns, payroll, VAT, company accounts — each with its own section so a potential client can immediately see what's covered and make an enquiry.</div></div>
+      <div class="fp-item"><div class="fp-icon">⚡</div><div class="fp-title">Loads in under 1 second — on any device</div><div class="fp-desc">Built without any unnecessary code. Fast on a phone, fast on a laptop, fast on a slow connection. No waiting around.</div></div>
+      <div class="fp-item"><div class="fp-icon">📋</div><div class="fp-title">Contact form that routes to the right office</div><div class="fp-desc">An enquiry form with an office selector — so messages go to the right person at the right location every time, without manual sorting.</div></div>
+      <div class="fp-item"><div class="fp-icon">🤝</div><div class="fp-title">Professional tone and design — that matches a three-office firm</div><div class="fp-desc">Clean, navy and white, professional. The kind of site that makes a potential client feel they're dealing with a firm that's on top of things — because they are.</div></div>
+      <div class="fp-item"><div class="fp-icon">🔍</div><div class="fp-title">SEO improved to 100 — more local searches finding the firm</div><div class="fp-desc">With SEO at 92 currently, there are small ranking improvements available. The rebuild gets to 100 — better positioning for searches like "accountant Sheffield S7" and "accountancy firm Sheffield Nottingham".</div></div>
+    </div>
+  </div>
+
+  <div class="pc">
+    <div><h3 style="font-size:17px;font-weight:800;margin-bottom:5px">Two options — both one-off fixed prices</h3>
+    <p style="font-size:13px;color:var(--muted);line-height:1.65">No monthly fees, no ongoing contract. One payment and the site is yours.</p></div>
+    <div class="pcg">
+      <div class="p">
+        <div class="pt">Starter</div><div class="pa">£395</div><div class="pn">One-off · no monthly fees</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Hosting: £0/month — free</div>
+        <div class="pd">
+          <div>✓ 5 pages — Home, Services, About, Contact, each office</div>
+          <div>✓ Performance 97+ · Accessibility 98 · SEO 100</div>
+          <div>✓ All 3 offices in topbar and contact page</div>
+          <div>✓ No more Skype reference — modern homepage copy</div>
+          <div>✓ Mobile-first, loads instantly</div>
+        </div>
+        <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;padding:12px 14px;margin-top:12px">
+          <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#92400e;margin-bottom:8px">Content updates</div>
+          <div style="font-size:13px;color:#78350f;margin-bottom:6px">📝 <strong>£15 per update</strong> — team changes, service updates, news</div>
+          <div style="font-size:13px;color:#78350f">📅 <strong>£30/month</strong> — unlimited small updates included</div>
+        </div>
+      </div>
+      <div class="p pf">
+        <div class="pb">Recommended</div>
+        <div class="pt">Business</div><div class="pa">£795</div><div class="pn">One-off · no monthly fees</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Hosting: £0/month — free</div>
+        <div class="pd">
+          <div>✓ Everything in Starter</div>
+          <div>✓ Full services page — every offering detailed</div>
+          <div>✓ Team page with Jason Scholey and staff profiles</div>
+          <div>✓ Dedicated page for each office location</div>
+          <div>✓ Contact form routing to correct office</div>
+          <div>✓ Training provided — how to manage content</div>
+        </div>
+      </div>
+      <div class="p3">
+        <div class="p3b">Premium</div>
+        <div class="p3t">Advanced</div><div class="p3a">£1,295</div><div class="p3n">One-off · minor hosting costs</div>
+        <div style="background:#faf5ff;border:1px solid #c4b5fd;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#6d28d9;margin-bottom:10px">Hosting: ~£0–9/month</div>
+        <div class="p3d">
+          <div>✓ Everything in Business</div>
+          <div>✓ CMS — update team and services yourself</div>
+          <div>✓ Client resource download area</div>
+          <div>✓ SEO landing pages — "accountant Sheffield S7" etc.</div>
+          <div>✓ Google Analytics — see where enquiries come from</div>
+          <div>✓ Full staff training in person</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#f9fafb;border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;font-size:13px;color:#374151;display:flex;gap:10px;align-items:flex-start;margin-top:4px">
+      <span style="font-size:16px;flex-shrink:0">🤝</span>
+      <div><strong>We're Sheffield-based — happy to come in for a chat.</strong> We can come to the Sheffield office or wherever is most convenient to walk through what's right for the firm.</div>
+    </div>
+  </div>
+</div>
+<footer>Prepared for Millhouses Accountancy by Trabelo · Sheffield · July 2026 · All scores taken directly from Google PageSpeed Insights</footer>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmetic Clinic | Louise Beer RN · Medical Aesthetics Sheffield</title>
+<meta name="description" content="Cosmetic Clinic Sheffield — led by Independent Nurse Practitioner Louise Beer RN with 16 years experience. Botox, dermal fillers, skin treatments and more. Affordable, professional and private. Call 07766 228893.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--rose:#9d2449;--rose-pale:#fdf2f5;--blush:#c45c7a;--dark:#1a0d12;--charcoal:#231218;--cream:#fafaf8;--warm:#f7f2f0;--text:#1a1a1a;--muted:#6b5f63;--border:#e8dfe2;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-rose{display:inline-block;background:var(--rose);color:#fff;padding:13px 26px;border-radius:var(--radius);font-weight:700;font-size:14px;transition:opacity .2s;cursor:pointer;border:none}
+.btn-rose:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:13px 26px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.3);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.08)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--dark);color:rgba(255,255,255,.7);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.88);font-weight:500}
+.topbar-badge{background:var(--rose);border-radius:3px;padding:2px 9px;font-size:11px;font-weight:700;color:#fff}
+nav{background:#fff;border-bottom:2px solid var(--rose);position:sticky;top:0;z-index:200;box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:44px;height:44px;background:var(--dark);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#e8a0b0;flex-shrink:0;text-align:center;line-height:1.3}
+.nav-name{font-size:17px;font-weight:800;color:var(--dark);line-height:1.2}
+.nav-sub{font-size:10px;color:var(--rose);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 14px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--dark)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--rose);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--rose);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--dark);padding:84px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(157,36,73,.15) 0%,transparent 70%)}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(157,36,73,.15);border:1px solid rgba(157,36,73,.35);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#e8a0b0;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-size:46px;font-weight:900;line-height:1.07;letter-spacing:-2px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#e8a0b0}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.78;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);padding-top:26px}
+.hero-stat{text-align:center;padding:0 10px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:900;color:#e8a0b0}
+.stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+.hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px}
+.hc-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
+.hc-svcs{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.hc-s{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:9px 13px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-tel{background:var(--rose);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:10px}
+.hc-tel-label{font-size:10px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
+.hc-tel-num{font-size:18px;font-weight:900;color:#fff;line-height:1}
+
+.trust-strip{background:var(--rose);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:13px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.22);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'✓'}
+
+.section{padding:72px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--dark)}
+
+.svcs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer}
+.svc-card:hover{transform:translateY(-3px);border-color:var(--rose)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--rose)}
+.svc-icon{width:50px;height:50px;background:var(--rose-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:16px}
+.svc-name{font-size:16px;font-weight:800;color:var(--dark);margin-bottom:7px}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.svc-more{font-size:12px;font-weight:700;color:var(--rose);margin-top:12px}
+
+.hours-card{background:var(--dark);border-radius:12px;padding:24px;color:#fff}
+.hours-title{font-size:14px;font-weight:700;margin-bottom:14px;color:#e8a0b0}
+.hours-row{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.hours-row:last-child{border-bottom:none}
+.hours-day{color:rgba(255,255,255,.7)}
+.hours-time{font-weight:700;color:#fff}
+.hours-time.closed{color:rgba(255,255,255,.3)}
+
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+.why-items{display:flex;flex-direction:column}
+.why-item{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--border)}
+.why-item:last-child{border-bottom:none}
+.why-num{width:34px;height:34px;background:var(--dark);color:#e8a0b0;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;margin-top:2px}
+.why-title{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.why-desc{font-size:13px;color:var(--muted);line-height:1.65}
+
+.about-card{background:var(--rose-pale);border:2px solid var(--rose);border-radius:12px;padding:28px}
+.about-name{font-size:18px;font-weight:800;color:var(--dark);margin-bottom:4px}
+.about-title{font-size:13px;color:var(--rose);font-weight:700;margin-bottom:14px}
+.about-bio{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:16px}
+.about-creds{display:flex;flex-wrap:wrap;gap:7px}
+.about-cred{background:#fff;border:1px solid var(--border);border-radius:4px;padding:3px 9px;font-size:12px;font-weight:700;color:var(--dark)}
+
+.svc-hero{background:var(--dark);padding:60px 28px;text-align:center}
+.svc-hero h1{font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.svc-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto}
+.svc-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto}
+@media(max-width:700px){.svc-detail-grid{grid-template-columns:1fr}}
+.sd{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--rose)}
+.sd-icon{width:48px;height:48px;background:var(--rose-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.sd-name{font-size:17px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.sd-desc{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:12px}
+.sd-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sd-list li{font-size:13px;color:var(--text);display:flex;gap:7px}
+.sd-list li::before{content:'✓';color:var(--rose);font-weight:900;flex-shrink:0}
+
+.contact-hero{background:var(--dark);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--charcoal);border-radius:14px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--blush)}
+.f-group select{background-color:var(--charcoal)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:var(--rose);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.info-block.highlight{background:var(--rose);border-color:transparent}
+.info-block-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:7px}
+.info-block.highlight .info-block-label{color:rgba(255,255,255,.7)}
+.info-block-val{font-size:16px;font-weight:700;color:var(--dark)}
+.info-block.highlight .info-block-val{color:#fff}
+.info-block-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.info-block.highlight .info-block-sub{color:rgba(255,255,255,.6)}
+.info-block-val a{color:var(--dark)}.info-block.highlight .info-block-val a{color:#fff}
+
+footer{background:#0d060a;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.3);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="tel:07766228893">📞 07766 228 893</a>
+    <a href="tel:01142693039">☎ 0114 269 3039</a>
+    <a href="mailto:cosmeticclinic@mail.com">✉ cosmeticclinic@mail.com</a>
+    <span>📍 3-5 Beighton Road, Woodhouse, Sheffield S13</span>
+  </div>
+  <span class="topbar-badge">Independent Nurse Practitioner · 16 years experience</span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">CC</div>
+      <div><div class="nav-name">Cosmetic Clinic</div><div class="nav-sub">Louise Beer RN · Sheffield</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-treatments" onclick="showPage('treatments')">Treatments</button>
+      <button class="nav-link" id="nav-gallery" onclick="showPage('gallery')">Gallery</button>
+      <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Book now</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">💉 Independent Nurse Practitioner · 16 years experience · Sheffield</div>
+        <h1>Affordable luxury aesthetics — <span class="accent">without compromise.</span></h1>
+        <p class="hero-sub">Cosmetic Clinic is led by Louise Beer RN INP — an Independent Nurse Practitioner with 16 years of experience in aesthetic injectables. Professional, honest, affordable — and appointment only for your privacy.</p>
+        <div class="hero-btns">
+          <button class="btn-rose" onclick="showPage('contact')">Book an appointment</button>
+          <button class="btn-outline-w" onclick="showPage('treatments')">View treatments</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">16</div><div class="stat-l">years experience</div></div>
+          <div class="hero-stat"><div class="stat-n">RN INP</div><div class="stat-l">qualified nurse</div></div>
+          <div class="hero-stat"><div class="stat-n">£70</div><div class="stat-l">Botox from</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-title">Our treatments</div>
+        <div class="hc-svcs">
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">💉</span>Botox from £70</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">🫦</span>Dermal fillers</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">💆</span>Skin treatments</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">✨</span>Prescribing service</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">🛍️</span>Product shop</div>
+        </div>
+        <a href="tel:07766228893" class="hc-tel" style="display:flex;border-radius:var(--radius);margin-bottom:10px">
+          <span style="font-size:22px;margin-right:4px">📞</span>
+          <div><div class="hc-tel-label">Call Louise to book</div><div class="hc-tel-num">07766 228 893</div></div>
+        </a>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,.7);text-align:center">Appointment-only private clinic · S13 7PL</div>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">Independent Nurse Practitioner</span>
+      <span class="trust-item">16 years experience</span>
+      <span class="trust-item">Fully qualified &amp; insured</span>
+      <span class="trust-item">Appointment-only for privacy</span>
+      <span class="trust-item">Honest, natural results</span>
+      <span class="trust-item">Affordable prices</span>
+    </div>
+  </div>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">What we offer</div>
+      <div class="section-title">Professional aesthetics — affordable prices</div>
+      <p class="section-intro">Value, quality care and convenience — Cosmetic Clinic delivers professional aesthetic treatments to help you look and feel your most confident.</p>
+      <div class="svcs-grid">
+        <div class="svc-card" onclick="showPage('treatments')"><div class="svc-icon">💉</div><div class="svc-name">Anti-wrinkle injections</div><div class="svc-desc">Botox injections from £70 — forehead, frown lines, crow's feet and more. Natural-looking results administered by an experienced nurse.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('treatments')"><div class="svc-icon">🫦</div><div class="svc-name">Dermal fillers</div><div class="svc-desc">Lip enhancement, cheek fillers and facial volume restoration using premium hyaluronic acid products.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('treatments')"><div class="svc-icon">💆</div><div class="svc-name">Skin treatments</div><div class="svc-desc">Chemical peels, skin boosters and other treatments to improve skin texture, tone and radiance.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('treatments')"><div class="svc-icon">✨</div><div class="svc-name">Prescribing service</div><div class="svc-desc">As an Independent Nurse Prescriber, Louise can prescribe and administer prescription-only aesthetic products safely and legally.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('gallery')"><div class="svc-icon">📸</div><div class="svc-name">Results gallery</div><div class="svc-desc">View before and after results from real Cosmetic Clinic patients — proof that natural, honest results are possible.</div><div class="svc-more">View gallery →</div></div>
+        <div class="svc-card" onclick="showPage('contact')"><div class="svc-icon">📋</div><div class="svc-name">Free consultation</div><div class="svc-desc">Every appointment begins with a consultation to understand your goals and design a treatment plan that works for you.</div><div class="svc-more">Book now →</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <div class="eyebrow">Why choose us</div>
+          <div class="section-title">Safety, honesty and real results.</div>
+          <p class="section-intro" style="margin-bottom:0">Cosmetic Clinic was built on word-of-mouth recommendation — because Louise's approach is different. Honest, careful, and always focused on what's right for you.</p>
+          <div class="why-items">
+            <div class="why-item"><div class="why-num">01</div><div><div class="why-title">16 years of specialist experience</div><div class="why-desc">Louise has been delivering aesthetic injectable treatments for 16 years — experience that shows in every natural-looking result.</div></div></div>
+            <div class="why-item"><div class="why-num">02</div><div><div class="why-title">Independent Nurse Prescriber</div><div class="why-desc">As an INP, Louise can prescribe and administer prescription-only products — a qualification many clinics can't match.</div></div></div>
+            <div class="why-item"><div class="why-num">03</div><div><div class="why-title">Appointment-only for your privacy</div><div class="why-desc">The clinic operates by appointment only — no walk-ins, no waiting room. Just private, professional care.</div></div></div>
+            <div class="why-item"><div class="why-num">04</div><div><div class="why-title">Affordable without cutting corners</div><div class="why-desc">Professional-quality treatments at accessible prices — because looking after yourself shouldn't cost a fortune.</div></div></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="about-card">
+            <div class="about-name">Louise Beer</div>
+            <div class="about-title">RN · INP · Independent Nurse Practitioner</div>
+            <div class="about-bio">Louise has 16 years of experience with aesthetic injectable treatments of the face and body. Cosmetic Clinic has grown through word-of-mouth recommendation — a testament to the quality, honesty and natural results that define her approach.</div>
+            <div class="about-creds"><span class="about-cred">Registered Nurse</span><span class="about-cred">Independent Prescriber</span><span class="about-cred">16 years experience</span><span class="about-cred">Fully insured</span></div>
+          </div>
+          <div class="hours-card">
+            <div class="hours-title">Opening hours</div>
+            <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time closed">Closed</span></div>
+            <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">10:00 – 19:00</span></div>
+            <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">10:00 – 16:00</span></div>
+            <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">10:00 – 16:00</span></div>
+            <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">10:00 – 16:00</span></div>
+            <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 – 14:00</span></div>
+            <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Ready to book?</div>
+    <div class="section-title" style="color:#fff;text-align:center;margin:0 auto 12px">Book your appointment today</div>
+    <p style="color:rgba(255,255,255,.55);font-size:16px;margin-bottom:28px">Call Louise or send a message — appointments available Tuesday to Saturday.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-rose" onclick="showPage('contact')">Book an appointment</button>
+      <a href="tel:07766228893" class="btn-outline-w">📞 07766 228 893</a>
+    </div>
+  </section>
+</div>
+
+<!-- TREATMENTS -->
+<div class="page" id="page-treatments">
+  <div class="svc-hero"><div class="eyebrow">Our treatments</div><h1>Aesthetic treatments — Sheffield S13</h1><p>Professional, affordable aesthetic treatments delivered by an experienced and fully qualified Independent Nurse Practitioner.</p></div>
+  <div class="svc-detail-grid">
+    <div class="sd"><div class="sd-icon">💉</div><div class="sd-name">Anti-wrinkle injections (Botox)</div><div class="sd-desc">Botulinum toxin injections to smooth and soften lines and wrinkles — forehead, frown lines, crow's feet and more. From £70 per area.</div><ul class="sd-list"><li>Forehead lines</li><li>Frown lines (glabella)</li><li>Crow's feet</li><li>Bunny lines &amp; lip lines</li><li>Natural-looking results</li></ul></div>
+    <div class="sd"><div class="sd-icon">🫦</div><div class="sd-name">Dermal fillers</div><div class="sd-desc">Premium hyaluronic acid fillers for lip enhancement, cheek volume, nasolabial folds and facial contouring — natural results tailored to you.</div><ul class="sd-list"><li>Lip enhancement &amp; definition</li><li>Cheek volume &amp; contour</li><li>Nasolabial folds</li><li>Jaw &amp; chin definition</li><li>Under-eye tear trough</li></ul></div>
+    <div class="sd"><div class="sd-icon">💆</div><div class="sd-name">Skin treatments</div><div class="sd-desc">Treatments to rejuvenate and refresh the skin — including chemical peels, skin boosters and other non-injectable treatments.</div><ul class="sd-list"><li>Chemical peels</li><li>Skin boosters</li><li>Profhilo &amp; Polynucleotides</li><li>Skin hydration treatments</li></ul></div>
+    <div class="sd"><div class="sd-icon">✨</div><div class="sd-name">Prescribing service</div><div class="sd-desc">As an Independent Nurse Prescriber, Louise can legally prescribe and administer prescription-only aesthetic products — including Botox and certain fillers — without a separate prescribing doctor.</div><ul class="sd-list"><li>Independent prescribing qualification</li><li>Prescription-only products</li><li>Safe &amp; fully compliant</li><li>No third-party prescriber required</li></ul></div>
+  </div>
+  <div style="background:var(--dark);padding:52px 28px;text-align:center"><h2 style="font-size:26px;font-weight:800;color:#fff;margin-bottom:10px">Book your appointment</h2><p style="color:rgba(255,255,255,.55);font-size:15px;margin-bottom:24px">Call Louise or use the form below — Tuesday to Saturday appointments available.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn-rose" onclick="showPage('contact')">Book now</button><a href="tel:07766228893" class="btn-outline-w">📞 07766 228 893</a></div></div>
+</div>
+
+<!-- GALLERY -->
+<div class="page" id="page-gallery">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">Results</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Real results from real clients</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Natural, honest results — that's what 16 years of experience delivers. Before and after images available to view at the clinic or on request.</p></div>
+  <div style="padding:52px 28px;max-width:1100px;margin:0 auto;text-align:center">
+    <div style="background:var(--rose-pale);border:2px solid var(--rose);border-radius:14px;padding:40px;max-width:600px;margin:0 auto">
+      <div style="font-size:40px;margin-bottom:16px">📸</div>
+      <div style="font-size:18px;font-weight:800;color:var(--dark);margin-bottom:10px">View Louise's work</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px">Real before and after images from Cosmetic Clinic patients are available on our social media and can be shared on request at consultation. We believe in showing real results — not stock photography.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="https://www.instagram.com/cosmeticcliniclouisebeer/" target="_blank" class="btn-rose">View on Instagram</a>
+        <a href="https://www.facebook.com/cosmeticclinic.louisebeer/" target="_blank" class="btn-outline-w" style="background:var(--rose);border-color:var(--rose);color:#fff">View on Facebook</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">About us</div><h1 style="font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Built on word of mouth — and 16 years of trust</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Cosmetic Clinic has grown through recommendation alone — because Louise's clients get natural, honest results they trust.</p></div>
+  <div style="max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div><div class="eyebrow">Our story</div><div class="section-title">Expert, honest, affordable aesthetics</div><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">Cosmetic Clinic is a private aesthetic clinic located off the Sheffield Parkway in Woodhouse, Sheffield S13 — run and led by Independent Nurse Practitioner Louise Beer RN INP.</p><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">Louise has 16 years of experience with aesthetic injectable treatments and has built the clinic through word-of-mouth recommendation. The loyal patient base that has grown over those years is testament to an approach defined by honesty, care and natural results.</p><p style="font-size:15px;color:var(--muted);line-height:1.8">The clinic operates by appointment only — offering a professional, private and personal service where every treatment plan is designed specifically for you.</p></div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="about-card">
+        <div class="about-name">Louise Beer</div>
+        <div class="about-title">RN · INP · Founder &amp; Lead Practitioner</div>
+        <div class="about-bio">We believe in safety, we believe in excellence, and we believe in helping you look most fabulous and confident. Every treatment is administered using the latest advanced up-to-date clinical techniques and only superior quality products.</div>
+        <div class="about-creds"><span class="about-cred">Registered Nurse</span><span class="about-cred">Independent Prescriber</span><span class="about-cred">16 years injectable experience</span><span class="about-cred">Fully insured</span></div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px"><div class="eyebrow" style="margin-bottom:8px">Contact &amp; location</div><div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:4px"><a href="tel:07766228893">07766 228 893</a></div><div style="font-size:14px;color:var(--muted);margin-bottom:4px"><a href="tel:01142693039">0114 269 3039</a></div><div style="font-size:13px;color:var(--muted)">3-5 Beighton Road, Woodhouse, Sheffield S13 7PL</div><div style="font-size:13px;color:var(--muted);margin-top:8px">Off the Sheffield Parkway · Appointment only</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Book now</div><h1>Book your appointment</h1><p>Call Louise directly or use the form below — we'll confirm your appointment time promptly.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Book an appointment</h2><div class="form-sub">Appointments available Tuesday–Saturday. We'll confirm your slot promptly.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="f-group"><label>Treatment interested in</label><select><option>Anti-wrinkle (Botox)</option><option>Dermal fillers</option><option>Lip enhancement</option><option>Skin treatment</option><option>Multiple treatments</option><option>Not sure — please advise</option></select></div>
+      <div class="f-group"><label>Preferred day</label><select><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Flexible</option></select></div>
+      <div class="f-group"><label>Anything else</label><textarea placeholder="Any questions or details about what you're looking for..."></textarea></div>
+      <button class="f-submit">Book appointment →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block highlight"><div class="info-block-label">Call Louise</div><div class="info-block-val"><a href="tel:07766228893">07766 228 893</a></div><div class="info-block-sub">Also: 0114 269 3039</div></div>
+      <div class="info-block"><div class="info-block-label">Email</div><div class="info-block-val" style="font-size:14px"><a href="mailto:cosmeticclinic@mail.com">cosmeticclinic@mail.com</a></div></div>
+      <div class="info-block"><div class="info-block-label">Address</div><div class="info-block-val">3-5 Beighton Road, Woodhouse</div><div class="info-block-sub">Sheffield S13 7PL · Off Sheffield Parkway</div></div>
+      <div class="info-block"><div class="info-block-label">Hours</div><div class="info-block-val">Tue 10–19 · Wed–Fri 10–16</div><div class="info-block-sub">Sat 10–14 · Mon &amp; Sun closed</div></div>
+      <div class="info-block" style="background:var(--rose-pale);border-color:var(--rose)"><div class="info-block-label" style="color:var(--rose)">Appointment only</div><div class="info-block-val">Private clinic — no walk-ins</div><div class="info-block-sub">Book by phone, email or this form</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">Cosmetic Clinic · Louise Beer RN INP</div><div style="font-size:12px">3-5 Beighton Road, Woodhouse, Sheffield S13 7PL · Appointment only</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('treatments')">Treatments</a><a href="#" onclick="showPage('gallery')">Gallery</a><a href="#" onclick="showPage('about')">About</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:07766228893">📞 07766 228 893</a><a href="tel:01142693039">☎ 0114 269 3039</a><a href="mailto:cosmeticclinic@mail.com">✉ cosmeticclinic@mail.com</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Cosmetic Clinic · Louise Beer RN INP · Sheffield S13</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}</script>
+</body>
+</html>

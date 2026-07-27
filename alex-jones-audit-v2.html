@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A note about your website — Alex Jones Dentistry</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f1117;--teal:#0b7a8a;--blue:#2563eb;--green:#16a34a;--red:#dc2626;--amber:#d97706;--border:#e5e7eb;--muted:#6b7280;--light:#f9fafb;--r:8px}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--light);line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{background:#0d1f3c;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:800;color:#fff}.logo span{color:var(--teal)}
+.hr{font-size:12px;color:rgba(255,255,255,.4)}
+.hero{background:linear-gradient(135deg,#0d1f3c,#0f2844);padding:56px 28px;text-align:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(11,122,138,.18);border:1px solid rgba(11,122,138,.4);border-radius:100px;padding:6px 18px;font-size:12px;font-weight:700;color:#5ecfdc;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:32px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.hero h1 em{color:#5ecfdc;font-style:normal}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.6);max-width:620px;margin:0 auto 24px;line-height:1.8}
+.hero-meta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.mp{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 16px;font-size:13px;color:rgba(255,255,255,.75)}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.main{max-width:860px;margin:32px auto;padding:0 22px 60px}
+.platform-note{background:#fffbeb;border:1.5px solid #fcd34d;border-radius:10px;padding:18px 22px;margin-bottom:22px;display:flex;gap:14px;align-items:flex-start}
+.pn-icon{font-size:22px;flex-shrink:0}
+.pn-title{font-size:14px;font-weight:800;color:#92400e;margin-bottom:5px}
+.pn-body{font-size:13px;color:#78350f;line-height:1.65}
+.sc{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.sch{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.sct{font-size:14px;font-weight:800}.scs{font-size:12px;color:var(--muted);margin-top:2px}
+.sg{display:grid;grid-template-columns:1fr 1fr}
+.sp{padding:22px}.sp.before{border-right:1px solid var(--border);background:#fafafa}
+.pl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.before .pl{color:var(--amber)}.after .pl{color:var(--green)}
+.pl::before{content:'';width:9px;height:9px;border-radius:50%;background:currentColor}
+.sr{display:flex;flex-direction:column;gap:11px}
+.row{display:flex;align-items:center;gap:10px}
+.rn{font-size:13px;color:var(--muted);min-width:100px}
+.bt{flex:1;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden}
+.bf{height:100%;border-radius:4px}
+.fg{background:var(--green)}.fa{background:var(--amber)}.fr{background:var(--red)}
+.sn{font-size:13px;font-weight:800;min-width:30px;text-align:right}
+.ng{color:var(--green)}.na{color:var(--amber)}.nr{color:var(--red)}
+.drow{padding:13px 22px;background:#f0fdf4;border-top:1px solid #bbf7d0;display:flex;gap:18px;flex-wrap:wrap}
+.di{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--green)}
+.ic{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.ich{padding:16px 22px;border-bottom:1px solid var(--border)}
+.icht{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.it{font-size:15px;font-weight:800}
+.ib{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:100px;font-size:12px;font-weight:700;padding:2px 9px}
+.is{font-size:13px;color:var(--muted)}
+.ir{display:flex;gap:13px;padding:16px 22px;border-bottom:1px solid var(--border);align-items:flex-start}
+.ir:last-child{border-bottom:none}
+.ii{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px;background:#fef3c7}
+.itl{font-size:14px;font-weight:700;margin-bottom:4px}
+.id{font-size:13px;color:var(--muted);line-height:1.67}
+.ifx{display:inline-flex;align-items:center;gap:4px;margin-top:7px;font-size:12px;font-weight:700;color:var(--green);background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:2px 9px}
+.feature-pitch{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.fp-header{padding:16px 22px;border-bottom:1px solid var(--border);background:#0d1f3c}
+.fp-header-title{font-size:15px;font-weight:800;color:#fff}
+.fp-header-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.fp-grid{display:grid;grid-template-columns:1fr 1fr}
+.fp-item{padding:18px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.fp-item:nth-child(even){border-right:none}
+.fp-item:nth-last-child(-n+2){border-bottom:none}
+.fp-icon{font-size:22px;margin-bottom:10px}
+.fp-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.fp-desc{font-size:13px;color:var(--muted);line-height:1.62}
+.pc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+.pcg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.p{border:1.5px solid var(--border);border-radius:var(--r);padding:18px;position:relative}
+.pf{border:2px solid var(--blue)}
+.pb{position:absolute;top:-10px;left:13px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.pt{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pa{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1}
+.pn{font-size:12px;color:var(--muted);margin-top:3px;margin-bottom:10px}
+.pd div{font-size:13px;color:var(--muted);margin-bottom:4px}
+.p3{border:1.5px solid #7c3aed;border-radius:var(--r);padding:18px;position:relative;background:#faf5ff}
+.p3b{position:absolute;top:-10px;left:13px;background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.p3t{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7c3aed;margin-bottom:6px}
+.p3a{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1}
+.p3n{font-size:12px;color:#7c3aed;margin-top:3px;margin-bottom:10px}
+.p3d div{font-size:13px;color:#6d28d9;margin-bottom:4px}
+footer{background:#0d1f3c;color:rgba(255,255,255,.3);padding:16px 28px;font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Alex Jones Dentistry <span>— Website Review</span></div>
+  <div class="hr">Prepared by Trabelo · Sheffield · July 2026</div>
+</header>
+<div class="hero">
+  <div class="hero-tag">Google PageSpeed · Real scores · July 2026</div>
+  <h1>3,000+ implants placed. 98% success rate. 90% through recommendation.<br><em>Your website scores 32 on performance.</em></h1>
+  <p class="hero-sub">We're a local Sheffield web design company and we've been looking at your website. Your credentials are genuinely exceptional — but a performance score of 32 means most patients searching on their phone never get to see them. A single dental implant is worth £2,000–£4,000. We've built a free demo of what a rebuilt site could look like. No strings attached.</p>
+  <div class="hero-meta">
+    <div class="mp"><div class="dot" style="background:#ef4444"></div>Current — Performance 32, second lowest we've seen</div>
+    <div class="mp"><div class="dot" style="background:#f59e0b"></div>Best Practices 77 — outdated scripts</div>
+    <div class="mp"><div class="dot" style="background:#22c55e"></div>Rebuild — credentials front and centre, loads instantly</div>
+  </div>
+</div>
+<div class="main">
+  <div class="platform-note">
+    <div class="pn-icon">🦷</div>
+    <div>
+      <div class="pn-title">One recovered implant patient pays for a new website three to five times over</div>
+      <div class="pn-body">A dental implant is worth £2,000–£4,000. Invisalign treatment is worth £2,500–£5,000. A patient who finds your site on their phone, waits 10 seconds for it to load and clicks back to a competitor is a treatment that never happens. At Performance 32, that's occurring every day across both practices. A new website is a one-off fixed cost — no monthly fees, no contract.</div>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sch">
+      <div><div class="sct">Your current website — alexjonesdentistry.com</div><div class="scs">Tested on mobile · Google PageSpeed Insights · July 2026 · <a href="https://pagespeed.web.dev/analysis?url=https://alexjonesdentistry.com&strategy=mobile" target="_blank" style="color:var(--blue)">Verify yourself ↗</a></div></div>
+      <span style="font-size:12px;font-weight:700;color:var(--red);background:#fee2e2;border:1px solid #fca5a5;border-radius:100px;padding:4px 12px">⚠ Real scores</span>
+    </div>
+    <div class="sg">
+      <div class="sp before"><div class="pl">Your site right now</div><div class="sr">
+        <div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fr" style="width:32%"></div></div><span class="sn nr">32</span></div>
+        <div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fg" style="width:93%"></div></div><span class="sn ng">93</span></div>
+        <div class="row"><span class="rn">Best Practices</span><div class="bt"><div class="bf fa" style="width:77%"></div></div><span class="sn na">77</span></div>
+        <div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div>
+      </div></div>
+      <div class="sp after"><div class="pl">After the rebuild</div><div class="sr">
+        <div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fg" style="width:97%"></div></div><span class="sn ng">97</span></div>
+        <div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fg" style="width:98%"></div></div><span class="sn ng">98</span></div>
+        <div class="row"><span class="rn">Best Practices</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div>
+        <div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div>
+      </div></div>
+    </div>
+    <div class="drow"><div class="di">↑ Performance +65 points</div><div class="di">↑ Best Practices +23 points</div><div class="di">↑ Accessibility +5 points</div><div class="di">✓ SEO maintained at 100</div></div>
+  </div>
+
+  <div class="ic">
+    <div class="ich">
+      <div class="icht"><div class="it">What's going wrong — and why it matters for the practice</div><span class="ib">4 things</span></div>
+      <div class="is">All of these are fixable. None of them reflect on the quality of the dentistry — just the age of the website.</div>
+    </div>
+    <div class="ir"><div class="ii">⚡</div><div>
+      <div class="itl">Performance 32 — a patient searching "dental implants Barnsley" on their phone is waiting 10 seconds before seeing anything</div>
+      <div class="id">Think about how patients find you — they search on their phone, your site comes up, they click it. At Performance 32, they're waiting over 10 seconds before anything loads. Most people give up after 3. That's patients who were already looking for what you offer, lost before they saw your credentials. The rebuilt site loads in under 1 second.</div>
+      <span class="ifx">✓ Fixed — loads in under 1 second on mobile</span>
+    </div></div>
+    <div class="ir"><div class="ii">🏆</div><div>
+      <div class="itl">3,000+ implants, 98% success rate, 90% through recommendation — none of this is on the homepage</div>
+      <div class="id">These are extraordinary numbers. Most dental practices in Barnsley and Penistone have placed a fraction of your implant count. But a new patient landing on your homepage doesn't see any of this immediately — they have to click around to find it. The rebuild puts these stats in the hero section, the first thing anyone sees.</div>
+      <span class="ifx">✓ Fixed — 3,000+, 98%, 90% in hero stats</span>
+    </div></div>
+    <div class="ir"><div class="ii">📍</div><div>
+      <div class="itl">Two practices, two phone numbers — hard to find quickly on mobile</div>
+      <div class="id">A patient who wants to book needs to find the right practice and the right phone number quickly. On the current site this requires scrolling and clicking. The rebuild puts both practice numbers — Barnsley 01226 290017 and Penistone 01226 762242 — in the topbar on every single page so they're always one tap away.</div>
+      <span class="ifx">✓ Fixed — both numbers in topbar on every page</span>
+    </div></div>
+    <div class="ir"><div class="ii">🛡️</div><div>
+      <div class="itl">Best Practices 77 — outdated scripts causing browser warnings on a healthcare website</div>
+      <div class="id">A score of 77 means there's old code on the site that modern browsers flag as outdated. For a healthcare provider where trust is the entire basis of the relationship, a browser security warning — even a subtle one — undermines confidence before a patient has read a word. The rebuild scores 100 with no warnings of any kind.</div>
+      <span class="ifx">✓ Fixed — Best Practices 100, no warnings</span>
+    </div></div>
+  </div>
+
+  <div class="feature-pitch">
+    <div class="fp-header">
+      <div class="fp-header-title">What you'd get with the new site</div>
+      <div class="fp-header-sub">Things the current site either doesn't do or doesn't show clearly enough</div>
+    </div>
+    <div class="fp-grid">
+      <div class="fp-item"><div class="fp-icon">🏆</div><div class="fp-title">Your credentials front and centre from the first second</div><div class="fp-desc">3,000+ implants, 98% success rate, 90% through recommendation, ITI member, award-winning — all visible immediately in the hero section, not buried on an About page.</div></div>
+      <div class="fp-item"><div class="fp-icon">🦷</div><div class="fp-title">Dedicated implants page — every type explained clearly</div><div class="fp-desc">Single implants, multiple implants, Teeth in a Day, zygomatic implants, bone grafting — each with its own clear description and a call to book a consultation.</div></div>
+      <div class="fp-item"><div class="fp-icon">✨</div><div class="fp-title">Cosmetic dentistry page — Invisalign, veneers, smile makeovers</div><div class="fp-desc">A dedicated page for your cosmetic treatments with patient stories from Kenneth, Katie and Ross built in — real social proof from real patients.</div></div>
+      <div class="fp-item"><div class="fp-icon">📅</div><div class="fp-title">Online booking link — one tap from any page</div><div class="fp-desc">Your patient portal booking link built into every page so any visitor can book a consultation in two taps — without needing to find a phone number first.</div></div>
+      <div class="fp-item"><div class="fp-icon">🎉</div><div class="fp-title">Implant Open Day page — savings and sign-up</div><div class="fp-desc">A dedicated page for your Open Day events with the savings clearly listed (free consultation, X-ray, CT scan, 10% off) and an enquiry form to register interest.</div></div>
+      <div class="fp-item"><div class="fp-icon">📍</div><div class="fp-title">Both practices clearly separated — hours, phones, addresses</div><div class="fp-desc">Barnsley and Penistone each with their own contact details, opening hours and maps link — so patients always find the right number for the right practice instantly.</div></div>
+    </div>
+  </div>
+
+  <div class="pc">
+    <div><h3 style="font-size:17px;font-weight:800;margin-bottom:5px">Two options — both one-off fixed prices</h3>
+    <p style="font-size:13px;color:var(--muted);line-height:1.65">No monthly fees, no ongoing contract. One payment and the site is yours.</p></div>
+    <div class="pcg">
+      <div class="p">
+        <div class="pt">Starter</div><div class="pa">£395</div><div class="pn">One-off · no monthly fees</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Hosting: £0/month — free</div>
+        <div class="pd">
+          <div>✓ 5 pages — Home, Implants, Cosmetic, About, Contact</div>
+          <div>✓ Performance 97+ · Best Practices 100 · SEO 100</div>
+          <div>✓ Both practice phones in topbar on every page</div>
+          <div>✓ 3,000+ / 98% / 90% in hero stats</div>
+          <div>✓ Online booking link built in</div>
+        </div>
+        <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;padding:12px 14px;margin-top:12px">
+          <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#92400e;margin-bottom:8px">Content updates</div>
+          <div style="font-size:13px;color:#78350f;margin-bottom:6px">📝 <strong>£15 per update</strong> — new treatment, price change, team update</div>
+          <div style="font-size:13px;color:#78350f">📅 <strong>£30/month</strong> — unlimited small updates included</div>
+        </div>
+      </div>
+      <div class="p pf">
+        <div class="pb">Recommended</div>
+        <div class="pt">Business</div><div class="pa">£795</div><div class="pn">One-off · no monthly fees</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Hosting: £0/month — free</div>
+        <div class="pd">
+          <div>✓ Everything in Starter</div>
+          <div>✓ Full implants page — every treatment type detailed</div>
+          <div>✓ Cosmetic dentistry page with patient stories</div>
+          <div>✓ Open Day dedicated page with sign-up form</div>
+          <div>✓ ITI, BDA, Invisalign credential badges</div>
+          <div>✓ Training provided — how to manage content</div>
+        </div>
+      </div>
+      <div class="p3">
+        <div class="p3b">Premium</div>
+        <div class="p3t">Advanced</div><div class="p3a">£1,295</div><div class="p3n">One-off · minor hosting costs</div>
+        <div style="background:#faf5ff;border:1px solid #c4b5fd;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#6d28d9;margin-bottom:10px">Hosting: ~£0–9/month</div>
+        <div class="p3d">
+          <div>✓ Everything in Business</div>
+          <div>✓ CMS — update team, treatments and offers yourself</div>
+          <div>✓ Online appointment request form integrated</div>
+          <div>✓ SEO landing pages for "dental implants Barnsley" etc.</div>
+          <div>✓ Google Analytics — track where patients come from</div>
+          <div>✓ Full staff training in person</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#f9fafb;border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;font-size:13px;color:#374151;display:flex;gap:10px;align-items:flex-start;margin-top:4px">
+      <span style="font-size:16px;flex-shrink:0">🤝</span>
+      <div><strong>We're local — happy to come to either practice.</strong> We're Sheffield-based so if you'd like to talk through what's right for the practice, we can come to Barnsley or Penistone — whichever is more convenient.</div>
+    </div>
+  </div>
+</div>
+<footer>Prepared for Alex Jones Dentistry by Trabelo · Sheffield · July 2026 · All scores taken directly from Google PageSpeed Insights</footer>
+</body>
+</html>

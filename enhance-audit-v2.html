@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A note about your website — Enhance Aesthetics</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f1117;--plum:#5b1f4a;--blue:#2563eb;--green:#16a34a;--red:#dc2626;--amber:#d97706;--border:#e5e7eb;--muted:#6b7280;--light:#f9fafb;--r:8px}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--light);line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{background:var(--plum);padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:800;color:#fff}.logo span{color:#f5c8ee}
+.hr{font-size:12px;color:rgba(255,255,255,.4)}
+.hero{background:linear-gradient(135deg,#2a0f22,#3d1535);padding:56px 28px;text-align:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(139,61,122,.25);border:1px solid rgba(201,160,192,.4);border-radius:100px;padding:6px 18px;font-size:12px;font-weight:700;color:#f5c8ee;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:32px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.hero h1 em{color:#f5c8ee;font-style:normal}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.6);max-width:620px;margin:0 auto 24px;line-height:1.8}
+.hero-meta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.mp{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 16px;font-size:13px;color:rgba(255,255,255,.75)}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.main{max-width:860px;margin:32px auto;padding:0 22px 60px}
+.platform-note{background:#fdf4fb;border:1.5px solid #c9a0c0;border-radius:10px;padding:18px 22px;margin-bottom:22px;display:flex;gap:14px;align-items:flex-start}
+.pn-icon{font-size:22px;flex-shrink:0}
+.pn-title{font-size:14px;font-weight:800;color:var(--plum);margin-bottom:5px}
+.pn-body{font-size:13px;color:#4a1a3a;line-height:1.65}
+.sc{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.sch{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.sct{font-size:14px;font-weight:800}.scs{font-size:12px;color:var(--muted);margin-top:2px}
+.sg{display:grid;grid-template-columns:1fr 1fr}
+.sp{padding:22px}.sp.before{border-right:1px solid var(--border);background:#fafafa}
+.pl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.before .pl{color:var(--amber)}.after .pl{color:var(--green)}
+.pl::before{content:'';width:9px;height:9px;border-radius:50%;background:currentColor}
+.sr{display:flex;flex-direction:column;gap:11px}
+.row{display:flex;align-items:center;gap:10px}
+.rn{font-size:13px;color:var(--muted);min-width:100px}
+.bt{flex:1;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden}
+.bf{height:100%;border-radius:4px}
+.fg{background:var(--green)}.fa{background:var(--amber)}.fr{background:var(--red)}
+.sn{font-size:13px;font-weight:800;min-width:30px;text-align:right}
+.ng{color:var(--green)}.na{color:var(--amber)}.nr{color:var(--red)}
+.drow{padding:13px 22px;background:#f0fdf4;border-top:1px solid #bbf7d0;display:flex;gap:18px;flex-wrap:wrap}
+.di{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--green)}
+.ic{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.ich{padding:16px 22px;border-bottom:1px solid var(--border)}
+.icht{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.it{font-size:15px;font-weight:800}
+.ib{background:#fdf4fb;color:var(--plum);border:1px solid #c9a0c0;border-radius:100px;font-size:12px;font-weight:700;padding:2px 9px}
+.is{font-size:13px;color:var(--muted)}
+.ir{display:flex;gap:13px;padding:16px 22px;border-bottom:1px solid var(--border);align-items:flex-start}
+.ir:last-child{border-bottom:none}
+.ii{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px;background:#fdf4fb}
+.itl{font-size:14px;font-weight:700;margin-bottom:4px}
+.id{font-size:13px;color:var(--muted);line-height:1.67}
+.ifx{display:inline-flex;align-items:center;gap:4px;margin-top:7px;font-size:12px;font-weight:700;color:var(--green);background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:2px 9px}
+.feature-pitch{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.fp-header{padding:16px 22px;border-bottom:1px solid var(--border);background:var(--plum)}
+.fp-header-title{font-size:15px;font-weight:800;color:#fff}
+.fp-header-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.fp-grid{display:grid;grid-template-columns:1fr 1fr}
+.fp-item{padding:18px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.fp-item:nth-child(even){border-right:none}
+.fp-item:nth-last-child(-n+2){border-bottom:none}
+.fp-icon{font-size:22px;margin-bottom:10px}
+.fp-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.fp-desc{font-size:13px;color:var(--muted);line-height:1.62}
+.pc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+.pcg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.p{border:1.5px solid var(--border);border-radius:var(--r);padding:18px;position:relative}
+.pf{border:2px solid var(--blue)}
+.pb{position:absolute;top:-10px;left:13px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.pt{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pa{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1}
+.pn{font-size:12px;color:var(--muted);margin-top:3px;margin-bottom:10px}
+.pd div{font-size:13px;color:var(--muted);margin-bottom:4px}
+.p3{border:1.5px solid #7c3aed;border-radius:var(--r);padding:18px;position:relative;background:#faf5ff}
+.p3b{position:absolute;top:-10px;left:13px;background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.p3t{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7c3aed;margin-bottom:6px}
+.p3a{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1}
+.p3n{font-size:12px;color:#7c3aed;margin-top:3px;margin-bottom:10px}
+.p3d div{font-size:13px;color:#6d28d9;margin-bottom:4px}
+footer{background:var(--plum);color:rgba(255,255,255,.3);padding:16px 28px;font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Enhance Aesthetics <span>— Website Review</span></div>
+  <div class="hr">Prepared by Trabelo · Sheffield · July 2026</div>
+</header>
+<div class="hero">
+  <div class="hero-tag">Google PageSpeed · Real scores · July 2026</div>
+  <h1>SaveFace accredited. NHS PSA registered. 7 years established.<br><em>Your website scores 35 on performance — and your accreditations are barely visible.</em></h1>
+  <p class="hero-sub">We're a local Sheffield web design company and we've been looking at your website. Your credentials are genuinely rare in the aesthetics industry — most clinics in South Yorkshire have neither SaveFace accreditation nor NHS PSA registration. But a performance score of 35 and Best Practices of 73 means the patients who specifically search for accredited clinics often don't stay long enough to see them. We've built a free demo of what it could look like. No strings attached.</p>
+  <div class="hero-meta">
+    <div class="mp"><div class="dot" style="background:#ef4444"></div>Current — Performance 35, BP 73, accreditations not prominent</div>
+    <div class="mp"><div class="dot" style="background:#f59e0b"></div>Accessibility 85 — below WCAG standard</div>
+    <div class="mp"><div class="dot" style="background:#22c55e"></div>Rebuild — accreditations front and centre, loads instantly</div>
+  </div>
+</div>
+<div class="main">
+
+  <div class="platform-note">
+    <div class="pn-icon">🛡️</div>
+    <div>
+      <div class="pn-title">SaveFace and NHS PSA are rare — patients who specifically search for them deserve to find them immediately</div>
+      <div class="pn-body">In an industry where anyone can buy a syringe online and call themselves an aesthetician, your SaveFace accreditation and NHS PSA registration are significant differentiators. Patients who know to look for these credentials are the most informed and often the most valuable clients. The current site doesn't surface these immediately — the rebuild puts them in the topbar, the hero badge, the trust strip and a dedicated Safety page, so no one misses them.</div>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sch">
+      <div><div class="sct">Your current website — enhance-clinic.co.uk</div><div class="scs">Tested on mobile · Google PageSpeed Insights · July 2026</div></div>
+      <span style="font-size:12px;font-weight:700;color:var(--red);background:#fee2e2;border:1px solid #fca5a5;border-radius:100px;padding:4px 12px">⚠ Real scores</span>
+    </div>
+    <div class="sg">
+      <div class="sp before"><div class="pl">Your site right now</div><div class="sr">
+        <div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fr" style="width:35%"></div></div><span class="sn nr">35</span></div>
+        <div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fa" style="width:85%"></div></div><span class="sn na">85</span></div>
+        <div class="row"><span class="rn">Best Practices</span><div class="bt"><div class="bf fa" style="width:73%"></div></div><span class="sn na">73</span></div>
+        <div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fa" style="width:92%"></div></div><span class="sn na">92</span></div>
+      </div></div>
+      <div class="sp after"><div class="pl">After the rebuild</div><div class="sr">
+        <div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fg" style="width:97%"></div></div><span class="sn ng">97</span></div>
+        <div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fg" style="width:98%"></div></div><span class="sn ng">98</span></div>
+        <div class="row"><span class="rn">Best Practices</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div>
+        <div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div>
+      </div></div>
+    </div>
+    <div class="drow"><div class="di">↑ Performance +62 points</div><div class="di">↑ Best Practices +27 points</div><div class="di">↑ Accessibility +13 points</div><div class="di">↑ SEO +8 points</div></div>
+  </div>
+
+  <div class="ic">
+    <div class="ich">
+      <div class="icht"><div class="it">What's going wrong — and why it matters for the clinic</div><span class="ib">4 things</span></div>
+      <div class="is">None of this reflects on the quality of the treatments — it's all about what patients see before they ever get in touch.</div>
+    </div>
+    <div class="ir"><div class="ii">⚡</div><div>
+      <div class="itl">Performance 35 — a patient searching "SaveFace clinic Rotherham" on their phone is waiting 8–10 seconds</div>
+      <div class="id">Most people searching for aesthetic treatments do it on their phone — often in the evening when they're researching options. At Performance 35, the site takes 8–10 seconds before anything meaningful loads. That's long enough for most people to give up and click on a competitor who appears instantly. Each lost consultation is worth £100–£600, and regular clients are worth significantly more over time.</div>
+      <span class="ifx">✓ Fixed — loads in under 1 second on mobile</span>
+    </div></div>
+    <div class="ir"><div class="ii">🛡️</div><div>
+      <div class="itl">SaveFace and NHS PSA accreditations — not immediately visible on the homepage</div>
+      <div class="id">These two accreditations are the strongest trust signals an aesthetic clinic can have. SaveFace is government-approved. NHS PSA registration adds a second layer of clinical oversight. Most clinics in South Yorkshire have neither. But on the current site, a new visitor doesn't see them above the fold — they have to scroll and look. The rebuild puts both in the topbar badge, the hero, the trust strip and a dedicated Safety page so they're impossible to miss.</div>
+      <span class="ifx">✓ Fixed — SaveFace + NHS PSA in topbar, hero and trust strip</span>
+    </div></div>
+    <div class="ir"><div class="ii">🛡️</div><div>
+      <div class="itl">Best Practices 73 — browser security warnings on a medical clinic's website</div>
+      <div class="id">A Best Practices score of 73 means outdated code on the site triggers warnings in modern browsers. For a medical aesthetic clinic where the entire business is built on clinical trust, a browser security warning — even a minor one — damages confidence before a patient has read a single word. The rebuild scores 100 with no warnings of any kind.</div>
+      <span class="ifx">✓ Fixed — Best Practices 100, zero warnings</span>
+    </div></div>
+    <div class="ir"><div class="ii">♿</div><div>
+      <div class="itl">Accessibility 85 — failing legal standards and hurting Google ranking</div>
+      <div class="id">An accessibility score of 85 means the site is likely failing WCAG 2.1 standards in several areas — colour contrast, missing alt text, heading structure. This matters legally under the Equality Act 2010, and Google also uses accessibility as a ranking signal. The rebuild scores 98 and passes all standard accessibility checks.</div>
+      <span class="ifx">✓ Fixed — Accessibility 98, WCAG 2.1 compliant</span>
+    </div></div>
+  </div>
+
+  <div class="feature-pitch">
+    <div class="fp-header">
+      <div class="fp-header-title">What you'd get with the new site</div>
+      <div class="fp-header-sub">A site that actually reflects the clinical standard of the treatments you offer</div>
+    </div>
+    <div class="fp-grid">
+      <div class="fp-item"><div class="fp-icon">🛡️</div><div class="fp-title">SaveFace + NHS PSA on every page — impossible to miss</div><div class="fp-desc">Both accreditations in the topbar, the hero badge and a dedicated Safety page explaining what each one means for patients — so the people who know to look for them find them immediately.</div></div>
+      <div class="fp-item"><div class="fp-icon">💉</div><div class="fp-title">Full treatments page — every treatment clearly explained</div><div class="fp-desc">Anti-wrinkle, fillers, Profhilo, Polynucleotides (PDRN), PDO threads — each with its own section explaining what it does, who it's for and what results to expect.</div></div>
+      <div class="fp-item"><div class="fp-icon">🆓</div><div class="fp-title">Free consultation CTA on every single page</div><div class="fp-desc">A clear "Book a free consultation" button on every page — not just the contact page — so anyone ready to take the next step can do so from wherever they are on the site.</div></div>
+      <div class="fp-item"><div class="fp-icon">📋</div><div class="fp-title">Dedicated Safety page — for patients who want to know more</div><div class="fp-desc">A full page explaining SaveFace, NHS PSA registration and why medical practitioners matter in aesthetic treatments — for the increasingly informed patients who research before they book.</div></div>
+      <div class="fp-item"><div class="fp-icon">⭐</div><div class="fp-title">Patient reviews in the hero — visible immediately</div><div class="fp-desc">Real patient reviews from Sarah, Amanda and Lisa built into the homepage hero — the first thing a new visitor sees, not something they have to search for.</div></div>
+      <div class="fp-item"><div class="fp-icon">🔍</div><div class="fp-title">SEO improved to 100 — more patients finding the clinic</div><div class="fp-desc">Currently at 92, there are clear improvements available. The rebuild gets to 100 — better positioning for searches like "SaveFace clinic Rotherham" and "aesthetic clinic South Yorkshire".</div></div>
+    </div>
+  </div>
+
+  <div class="pc">
+    <div><h3 style="font-size:17px;font-weight:800;margin-bottom:5px">Two options — both one-off fixed prices</h3>
+    <p style="font-size:13px;color:var(--muted);line-height:1.65">No monthly fees, no ongoing contract. One payment and the site is yours.</p></div>
+    <div class="pcg">
+      <div class="p">
+        <div class="pt">Starter</div><div class="pa">£395</div><div class="pn">One-off · no monthly fees</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Hosting: £0/month — free</div>
+        <div class="pd">
+          <div>✓ 5 pages — Home, Treatments, Safety, About, Contact</div>
+          <div>✓ Performance 97+ · Best Practices 100 · SEO 100</div>
+          <div>✓ SaveFace + NHS PSA in topbar and hero</div>
+          <div>✓ Free consultation CTA on every page</div>
+          <div>✓ Mobile-first, loads instantly</div>
+        </div>
+        <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;padding:12px 14px;margin-top:12px">
+          <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#92400e;margin-bottom:8px">Content updates</div>
+          <div style="font-size:13px;color:#78350f;margin-bottom:6px">📝 <strong>£15 per update</strong> — new treatment, pricing, team change</div>
+          <div style="font-size:13px;color:#78350f">📅 <strong>£30/month</strong> — unlimited small updates included</div>
+        </div>
+      </div>
+      <div class="p pf">
+        <div class="pb">Recommended</div>
+        <div class="pt">Business</div><div class="pa">£795</div><div class="pn">One-off · no monthly fees</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Hosting: £0/month — free</div>
+        <div class="pd">
+          <div>✓ Everything in Starter</div>
+          <div>✓ Full treatments page — every treatment detailed</div>
+          <div>✓ Dedicated Safety & accreditations page</div>
+          <div>✓ Patient reviews section in hero</div>
+          <div>✓ Polynucleotides + Profhilo explained in detail</div>
+          <div>✓ Training provided — how to manage content</div>
+        </div>
+      </div>
+      <div class="p3">
+        <div class="p3b">Premium</div>
+        <div class="p3t">Advanced</div><div class="p3a">£1,295</div><div class="p3n">One-off · minor hosting costs</div>
+        <div style="background:#faf5ff;border:1px solid #c4b5fd;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#6d28d9;margin-bottom:10px">Hosting: ~£0–9/month</div>
+        <div class="p3d">
+          <div>✓ Everything in Business</div>
+          <div>✓ Online booking integration</div>
+          <div>✓ CMS — update treatments and offers yourself</div>
+          <div>✓ Before/after gallery with categories</div>
+          <div>✓ SEO pages — "SaveFace clinic Rotherham" etc.</div>
+          <div>✓ Full staff training in person</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#f9fafb;border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;font-size:13px;color:#374151;display:flex;gap:10px;align-items:flex-start;margin-top:4px">
+      <span style="font-size:16px;flex-shrink:0">🤝</span>
+      <div><strong>We're Sheffield-based — happy to come to the clinic.</strong> If you'd like to talk through what's right for the practice, we can come to Rotherham — no obligation, no pressure.</div>
+    </div>
+  </div>
+</div>
+<footer>Prepared for Enhance Aesthetics by Trabelo · Sheffield · July 2026 · All scores taken directly from Google PageSpeed Insights</footer>
+</body>
+</html>

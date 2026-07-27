@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhance Aesthetics | Medical Aesthetics Rotherham · SaveFace Accredited</title>
+<meta name="description" content="Enhance Aesthetics Rotherham — SaveFace accredited, NHS PSA registered aesthetic clinic. 7 years established. Botox, fillers, skin treatments and more. Led by qualified medical practitioners. Book a free consultation today.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--plum:#5b1f4a;--plum-pale:#fdf4fb;--mauve:#8b3d7a;--lilac:#c9a0c0;--cream:#fafaf8;--warm:#f6f2f5;--text:#1a1218;--muted:#6b5668;--border:#e4d8e0;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-plum{display:inline-block;background:var(--plum);color:#fff;padding:13px 28px;border-radius:var(--radius);font-weight:700;font-size:14px;transition:opacity .2s;cursor:pointer;border:none}
+.btn-plum:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:13px 28px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.32);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.08)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--mauve);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--plum);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.82;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--plum);color:rgba(255,255,255,.7);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.9);font-weight:500}
+.topbar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border-radius:3px;padding:2px 10px;font-size:11px;font-weight:700;color:#fff}
+
+nav{background:#fff;border-bottom:2px solid var(--plum);position:sticky;top:0;z-index:200;box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:46px;height:46px;background:var(--plum);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#f5c8ee;flex-shrink:0;text-align:center;line-height:1.3;letter-spacing:.3px}
+.nav-name{font-size:17px;font-weight:800;color:var(--plum);line-height:1.2}
+.nav-sub{font-size:10px;color:var(--mauve);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 13px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--plum)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:13px;right:13px;height:2px;background:var(--plum);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--plum);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--plum);padding:88px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,160,192,.12) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 390px;gap:60px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#f5c8ee;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-size:46px;font-weight:900;line-height:1.07;letter-spacing:-2px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#f5c8ee}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.8;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.12);padding-top:26px}
+.hero-stat{text-align:center;padding:0 10px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:900;color:#f5c8ee}
+.stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:26px}
+.hc-accred{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.hc-accred-text{font-size:12px;font-weight:700;color:#fff;line-height:1.4}
+.hc-accred-sub{font-size:11px;color:rgba(255,255,255,.55)}
+.hc-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
+.hc-svcs{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.hc-s{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:8px 12px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-tel{background:#fff;border-radius:8px;padding:13px 16px;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.hc-tel-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:1px}
+.hc-tel-val{font-size:17px;font-weight:900;color:var(--plum);line-height:1}
+
+.trust-strip{background:var(--plum);border-top:1px solid rgba(255,255,255,.1);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:12px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.18);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'✓'}
+
+.section{padding:72px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--plum)}
+
+.treats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:18px}
+.tr-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer}
+.tr-card:hover{transform:translateY(-3px);border-color:var(--mauve)}
+.tr-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--plum),var(--mauve))}
+.tr-icon{width:48px;height:48px;background:var(--plum-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.tr-name{font-size:16px;font-weight:800;color:var(--plum);margin-bottom:6px}
+.tr-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.tr-more{font-size:12px;font-weight:700;color:var(--mauve);margin-top:10px}
+
+.accred-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.accred-badge{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+.accred-name{font-size:13px;font-weight:700;color:var(--plum)}
+.accred-sub{font-size:11px;color:var(--muted);margin-top:1px}
+
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:768px){.safety-grid{grid-template-columns:1fr}}
+.safety-items{display:flex;flex-direction:column;gap:0}
+.safety-item{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--border)}
+.safety-item:last-child{border-bottom:none}
+.safety-num{width:36px;height:36px;background:var(--plum);color:#f5c8ee;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0;margin-top:2px}
+.safety-title{font-size:15px;font-weight:700;color:var(--plum);margin-bottom:4px}
+.safety-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.accred-card{background:var(--plum);border-radius:14px;padding:28px;color:#fff}
+.ac-title{font-size:16px;font-weight:800;color:#f5c8ee;margin-bottom:14px}
+.ac-item{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;font-size:14px;color:rgba(255,255,255,.75);line-height:1.5}
+.ac-item::before{content:'✓';color:#f5c8ee;font-weight:900;flex-shrink:0}
+
+.revs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:#fff;border-radius:12px;padding:24px;border:1px solid var(--border)}
+.rev-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:14px;color:var(--muted);line-height:1.78;font-style:italic;margin-bottom:14px;padding-left:14px;border-left:3px solid var(--plum-pale)}
+.rev-author{font-size:14px;font-weight:700;color:var(--plum)}
+.rev-treat{font-size:12px;color:var(--muted);margin-top:2px}
+
+.svc-hero{background:var(--plum);padding:60px 28px;text-align:center}
+.svc-hero h1{font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.svc-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto}
+.svc-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto}
+@media(max-width:700px){.svc-detail-grid{grid-template-columns:1fr}}
+.sd{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--plum)}
+.sd-icon{width:46px;height:46px;background:var(--plum-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:13px}
+.sd-name{font-size:16px;font-weight:800;color:var(--plum);margin-bottom:7px}
+.sd-desc{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:12px}
+.sd-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sd-list li{font-size:13px;color:var(--text);display:flex;gap:7px}
+.sd-list li::before{content:'✓';color:var(--mauve);font-weight:900;flex-shrink:0}
+
+.contact-hero{background:var(--plum);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--plum);border-radius:14px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:rgba(255,255,255,.45)}
+.f-group select{background-color:var(--plum)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:#fff;color:var(--plum);border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:800;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.info-block.hl{background:var(--plum);border-color:transparent}
+.ibl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mauve);margin-bottom:7px}
+.hl .ibl{color:rgba(255,255,255,.6)}
+.ibv{font-size:16px;font-weight:700;color:var(--plum)}
+.hl .ibv{color:#fff}
+.ibs{font-size:13px;color:var(--muted);margin-top:3px}
+.hl .ibs{color:rgba(255,255,255,.55)}
+.ibv a{color:var(--plum)}.hl .ibv a{color:#fff}
+
+footer{background:#160a12;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.35);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:18px;flex-wrap:wrap">
+    <a href="tel:01709379866">📞 01709 379866</a>
+    <a href="mailto:info@enhance-clinic.co.uk">✉ info@enhance-clinic.co.uk</a>
+    <span>📍 Rotherham · South Yorkshire</span>
+  </div>
+  <div class="topbar-badge">✓ SaveFace Accredited · NHS PSA Registered</div>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">EN<br>HA</div>
+      <div><div class="nav-name">Enhance Aesthetics</div><div class="nav-sub">SaveFace Accredited · Rotherham</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-treatments" onclick="showPage('treatments')">Treatments</button>
+      <button class="nav-link" id="nav-safety" onclick="showPage('safety')">Safety</button>
+      <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Free consult</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">✓ SaveFace Accredited · NHS PSA Registered · 7 years established</div>
+        <h1>Medical aesthetics<br>done <span class="accent">properly.</span></h1>
+        <p class="hero-sub">Enhance Aesthetics is a SaveFace accredited, NHS PSA registered aesthetic clinic in Rotherham — with 7 years of experience delivering safe, natural results by qualified medical practitioners.</p>
+        <div class="hero-btns">
+          <button class="btn-plum" onclick="showPage('contact')">Book a free consultation</button>
+          <button class="btn-outline-w" onclick="showPage('treatments')">View treatments</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">7 years</div><div class="stat-l">established</div></div>
+          <div class="hero-stat"><div class="stat-n">SaveFace</div><div class="stat-l">accredited</div></div>
+          <div class="hero-stat"><div class="stat-n">NHS PSA</div><div class="stat-l">registered</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-accred">
+          <span style="font-size:22px">🛡️</span>
+          <div><div class="hc-accred-text">SaveFace Accredited Clinic</div><div class="hc-accred-sub">NHS PSA Registered Provider</div></div>
+        </div>
+        <div class="hc-title">Popular treatments</div>
+        <div class="hc-svcs">
+          <div class="hc-s"><span style="font-size:14px;width:18px;text-align:center">💉</span>Anti-wrinkle injections (Botox)</div>
+          <div class="hc-s"><span style="font-size:14px;width:18px;text-align:center">🫦</span>Dermal fillers</div>
+          <div class="hc-s"><span style="font-size:14px;width:18px;text-align:center">💧</span>Profhilo skin booster</div>
+          <div class="hc-s"><span style="font-size:14px;width:18px;text-align:center">✨</span>Polynucleotides (PDRN)</div>
+          <div class="hc-s"><span style="font-size:14px;width:18px;text-align:center">🧵</span>Skin tightening &amp; threads</div>
+        </div>
+        <a href="tel:01709379866" class="hc-tel" style="display:flex;border-radius:var(--radius)">
+          <span style="font-size:20px;margin-right:6px">📞</span>
+          <div><div class="hc-tel-label">Book free consultation</div><div class="hc-tel-val">01709 379866</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">SaveFace accredited</span>
+      <span class="trust-item">NHS PSA registered</span>
+      <span class="trust-item">7 years established</span>
+      <span class="trust-item">Medical practitioners only</span>
+      <span class="trust-item">Free consultations</span>
+      <span class="trust-item">Natural results</span>
+    </div>
+  </div>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">Our treatments</div>
+      <div class="section-title">Safe, evidence-based aesthetic medicine</div>
+      <p class="section-intro">Every treatment at Enhance Aesthetics is carried out by qualified medical practitioners using clinically approved products — because your safety is never negotiable.</p>
+      <div class="treats-grid">
+        <div class="tr-card" onclick="showPage('treatments')"><div class="tr-icon">💉</div><div class="tr-name">Anti-wrinkle injections</div><div class="tr-desc">Botulinum toxin to smooth expression lines — forehead, frown lines, crow's feet and beyond. Natural-looking results.</div><div class="tr-more">Learn more →</div></div>
+        <div class="tr-card" onclick="showPage('treatments')"><div class="tr-icon">🫦</div><div class="tr-name">Dermal fillers</div><div class="tr-desc">Premium hyaluronic acid fillers for lips, cheeks, jawline, nasolabial folds and full facial volumisation.</div><div class="tr-more">Learn more →</div></div>
+        <div class="tr-card" onclick="showPage('treatments')"><div class="tr-icon">💧</div><div class="tr-name">Profhilo</div><div class="tr-desc">The original skin remodelling treatment — stimulating collagen and elastin for genuine skin quality improvement.</div><div class="tr-more">Learn more →</div></div>
+        <div class="tr-card" onclick="showPage('treatments')"><div class="tr-icon">✨</div><div class="tr-name">Polynucleotides (PDRN)</div><div class="tr-desc">The regenerative treatment that's transforming aesthetic medicine — tissue repair, hydration and skin renewal at a cellular level.</div><div class="tr-more">Learn more →</div></div>
+        <div class="tr-card" onclick="showPage('treatments')"><div class="tr-icon">🧵</div><div class="tr-name">Threads &amp; skin tightening</div><div class="tr-desc">PDO threads and skin tightening treatments for facial lifting — without the downtime of surgery.</div><div class="tr-more">Learn more →</div></div>
+        <div class="tr-card" onclick="showPage('safety')"><div class="tr-icon">🛡️</div><div class="tr-name">Why safety matters</div><div class="tr-desc">SaveFace accreditation. NHS PSA registration. Medical practitioners only. Find out what this means for you.</div><div class="tr-more">Our safety standards →</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="safety-grid">
+        <div>
+          <div class="eyebrow">Why choose Enhance</div>
+          <div class="section-title">Accreditation matters. Here's why.</div>
+          <p class="section-intro" style="margin-bottom:0">In an industry where anyone can buy a syringe online, our accreditations are your guarantee that what happens at Enhance Aesthetics meets the highest possible standards of safety and practice.</p>
+          <div class="safety-items">
+            <div class="safety-item"><div class="safety-num">01</div><div><div class="safety-title">SaveFace accredited</div><div class="safety-desc">SaveFace is the government-approved register of practitioners who provide non-surgical cosmetic treatments to the highest standards.</div></div></div>
+            <div class="safety-item"><div class="safety-num">02</div><div><div class="safety-title">NHS PSA registered</div><div class="safety-desc">The NHS Primary Support Agency register confirms we meet NHS standards for clinical practice and patient safety.</div></div></div>
+            <div class="safety-item"><div class="safety-num">03</div><div><div class="safety-title">Medical practitioners only</div><div class="safety-desc">All injectable treatments at Enhance Aesthetics are carried out by qualified medical practitioners — not beauticians.</div></div></div>
+            <div class="safety-item"><div class="safety-num">04</div><div><div class="safety-title">7 years of proven results</div><div class="safety-desc">Established in Rotherham for 7 years — with a loyal client base who return because results are consistently natural and excellent.</div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="accred-card">
+            <div class="ac-title">Our accreditations</div>
+            <div class="ac-item">SaveFace — government-approved practitioner register</div>
+            <div class="ac-item">NHS PSA — NHS Primary Support Agency registered</div>
+            <div class="ac-item">Medical practitioners carrying out all injectable treatments</div>
+            <div class="ac-item">Clinically approved products only — no grey-market sourcing</div>
+            <div class="ac-item">Full clinical governance and patient safety protocols</div>
+            <div class="ac-item">Emergency procedures and reversal agents always available</div>
+            <div class="ac-item">7 years of established practice in Rotherham</div>
+          </div>
+          <div style="background:var(--plum-pale);border:1.5px solid var(--border);border-radius:12px;padding:20px;margin-top:14px">
+            <div class="eyebrow" style="margin-bottom:6px">Free consultations</div>
+            <div style="font-size:14px;color:var(--muted);margin-bottom:14px">Every treatment starts with a consultation — no obligation, no pressure. We'll discuss your goals, medical history and recommend the right treatment.</div>
+            <button class="btn-plum" onclick="showPage('contact')">Book yours →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:36px"><div class="eyebrow">Patient reviews</div><div class="section-title" style="color:#fff;text-align:center">What clients say about Enhance</div></div>
+      <div class="revs-grid">
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"I've been coming to Enhance for 4 years now. The results are always natural and I never feel pressured into anything. The consultation process is genuinely reassuring."</div><div class="rev-author">Sarah P.</div><div class="rev-treat">Anti-wrinkle & fillers · Rotherham</div></div>
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"As someone who was nervous about getting Botox for the first time, the team at Enhance made me feel completely comfortable. The results are exactly what I wanted — subtle and natural."</div><div class="rev-author">Amanda H.</div><div class="rev-treat">First-time anti-wrinkle treatment</div></div>
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"Had Profhilo and I can see the difference in my skin quality. Really impressed with the whole experience — clean, professional, knowledgeable staff."</div><div class="rev-author">Lisa T.</div><div class="rev-treat">Profhilo skin booster</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Ready to start?</div>
+    <div class="section-title" style="text-align:center;margin:0 auto 12px">Book your free consultation</div>
+    <p style="color:var(--muted);font-size:16px;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto">Call us or use the form below — we'll discuss your goals and recommend the right treatment for you, at no obligation.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-plum" onclick="showPage('contact')">Book free consultation</button>
+      <a href="tel:01709379866" class="btn-outline-w" style="background:var(--plum);border-color:var(--plum)">📞 01709 379866</a>
+    </div>
+  </section>
+</div>
+
+<!-- TREATMENTS -->
+<div class="page" id="page-treatments">
+  <div class="svc-hero"><div class="eyebrow">Treatments</div><h1>Safe, evidence-based aesthetic treatments</h1><p>Every treatment is carried out by qualified medical practitioners using clinically approved products — your safety is our priority.</p></div>
+  <div class="svc-detail-grid">
+    <div class="sd"><div class="sd-icon">💉</div><div class="sd-name">Anti-wrinkle injections</div><div class="sd-desc">Botulinum toxin injections to relax expression lines and restore a rested, refreshed appearance. Customised for your face.</div><ul class="sd-list"><li>Forehead, frown lines, crow's feet</li><li>Bunny lines &amp; lip lines</li><li>Neck &amp; décolletage treatments</li><li>Brow lifting</li><li>Hyperhidrosis (excessive sweating)</li></ul></div>
+    <div class="sd"><div class="sd-icon">🫦</div><div class="sd-name">Dermal fillers</div><div class="sd-desc">Premium hyaluronic acid fillers for natural volume enhancement and restoration — from subtle lip enhancement to full facial rejuvenation.</div><ul class="sd-list"><li>Lip enhancement &amp; definition</li><li>Cheek volumisation &amp; contour</li><li>Nasolabial folds &amp; marionette lines</li><li>Jawline definition</li><li>Tear trough (under-eye)</li></ul></div>
+    <div class="sd"><div class="sd-icon">💧</div><div class="sd-name">Profhilo</div><div class="sd-desc">Profhilo is a skin remodelling treatment — not a filler. It stimulates collagen and elastin production for genuine improvement in skin quality, laxity and hydration.</div><ul class="sd-list"><li>Face, neck &amp; hands</li><li>Improves skin quality (not just volume)</li><li>2-session treatment protocol</li><li>Results develop over 4–6 weeks</li></ul></div>
+    <div class="sd"><div class="sd-icon">✨</div><div class="sd-name">Polynucleotides (PDRN)</div><div class="sd-desc">One of the most exciting advances in aesthetic medicine — polynucleotides stimulate tissue repair at a cellular level. Excellent for skin quality, dark circles and delicate areas.</div><ul class="sd-list"><li>Skin renewal &amp; repair</li><li>Under-eye dark circles &amp; hollowing</li><li>Improves texture and hydration</li><li>Works alongside other treatments</li></ul></div>
+    <div class="sd"><div class="sd-icon">🧵</div><div class="sd-name">PDO threads</div><div class="sd-desc">Absorbable threads inserted beneath the skin for instant lift and ongoing collagen stimulation — an alternative to surgical lifting for the face and neck.</div><ul class="sd-list"><li>Jawline &amp; jowls</li><li>Cheeks &amp; midface</li><li>Brow lifting</li><li>Neck tightening</li></ul></div>
+    <div class="sd"><div class="sd-icon">🌟</div><div class="sd-name">Skin boosters &amp; peels</div><div class="sd-desc">A range of skin quality treatments including prescription-grade skincare, chemical peels and skin booster injections for hydration, radiance and texture.</div><ul class="sd-list"><li>Chemical peels</li><li>Skin booster injections</li><li>Prescription skincare</li><li>Combination treatment plans</li></ul></div>
+  </div>
+  <div style="background:var(--plum);padding:48px 28px;text-align:center"><h2 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:10px">All consultations are free</h2><p style="color:rgba(255,255,255,.55);font-size:15px;margin-bottom:22px">Book a no-obligation consultation — we'll discuss your goals and recommend the right treatment plan for you.</p><button class="btn-outline-w" onclick="showPage('contact')" style="background:rgba(255,255,255,.1)">Book free consultation →</button></div>
+</div>
+
+<!-- SAFETY -->
+<div class="page" id="page-safety">
+  <div class="svc-hero"><div class="eyebrow">Safety &amp; accreditation</div><h1>Why our accreditations matter to you</h1><p>In an unregulated industry, SaveFace accreditation and NHS PSA registration are your guarantee of safe, ethical practice.</p></div>
+  <div style="max-width:800px;margin:0 auto;padding:52px 28px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="accred-card" style="background:var(--plum-pale);border:2px solid var(--plum)"><div class="ac-title" style="color:var(--plum)">SaveFace Accredited</div><p style="font-size:14px;color:var(--muted);line-height:1.75">SaveFace is the government-approved quality mark for non-surgical cosmetic treatments in the UK. Accreditation means we have been independently assessed to meet high standards of clinical practice, practitioner qualifications, patient safety, complaints handling and clinical governance. It is the gold standard for aesthetic clinics in the UK.</p></div>
+      <div class="accred-card" style="background:var(--plum-pale);border:2px solid var(--plum)"><div class="ac-title" style="color:var(--plum)">NHS PSA Registered</div><p style="font-size:14px;color:var(--muted);line-height:1.75">The NHS Primary Support Agency registration confirms that Enhance Aesthetics meets NHS standards for clinical practice and patient safety — providing an additional layer of oversight and accountability above and beyond what most aesthetic clinics hold.</p></div>
+      <div class="accred-card" style="background:var(--plum-pale);border:2px solid var(--plum)"><div class="ac-title" style="color:var(--plum)">Medical practitioners only</div><p style="font-size:14px;color:var(--muted);line-height:1.75">All injectable treatments at Enhance Aesthetics are administered by qualified medical practitioners — not beauticians or non-medically trained injectors. This matters because complications, though rare, require medical training and emergency medications to manage safely.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div style="background:var(--plum);padding:60px 28px;text-align:center"><div class="eyebrow">About us</div><h1 style="font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">7 years of safe aesthetic practice in Rotherham</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Enhance Aesthetics has been delivering safe, natural aesthetic results in Rotherham for 7 years — built on medical standards, patient safety and word-of-mouth recommendation.</p></div>
+  <div style="max-width:800px;margin:0 auto;padding:52px 28px"><div class="eyebrow">Our approach</div><div class="section-title">Medical standards. Natural results. Always.</div><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">Enhance Aesthetics was founded on the belief that aesthetic medicine should be exactly that — medicine. In an industry where regulation has historically been weak and anyone can obtain syringes and dermal fillers without training, we have always held ourselves to the highest possible standards.</p><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">Our SaveFace accreditation and NHS PSA registration aren't just badges — they represent a genuine commitment to clinical governance, patient safety, proper qualifications and ethical practice. Every consultation begins with a proper medical history. Every treatment plan is created around your individual goals and anatomy, not a price list.</p><p style="font-size:15px;color:var(--muted);line-height:1.8">After 7 years in Rotherham, our reputation is built on clients who return and clients who recommend us — because the results are consistently natural, the care is consistently excellent, and the standards are consistently medical.</p>
+    <div class="accred-strip"><div class="accred-badge"><div class="cred-icon" style="font-size:20px;margin-right:6px">🛡️</div><div><div class="accred-name">SaveFace Accredited</div><div class="accred-sub">Government-approved</div></div></div><div class="accred-badge"><div class="cred-icon" style="font-size:20px;margin-right:6px">🏥</div><div><div class="accred-name">NHS PSA Registered</div><div class="accred-sub">NHS standard</div></div></div><div class="accred-badge"><div class="cred-icon" style="font-size:20px;margin-right:6px">👩‍⚕️</div><div><div class="accred-name">Medical practitioners</div><div class="accred-sub">All injectors qualified</div></div></div></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Book now</div><h1>Book your free consultation</h1><p>Every treatment at Enhance starts with a free, no-obligation consultation. Call or use the form below.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Book a consultation</h2><div class="form-sub">Free, no obligation. We'll discuss your goals and recommend the right treatment.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="f-group"><label>Treatment interested in</label><select><option>Anti-wrinkle injections</option><option>Dermal fillers</option><option>Profhilo</option><option>Polynucleotides (PDRN)</option><option>PDO threads</option><option>Skin treatment / peel</option><option>Not sure — please advise</option></select></div>
+      <div class="f-group"><label>Message</label><textarea placeholder="Any questions or details about what you're looking for..."></textarea></div>
+      <button class="f-submit">Book free consultation →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block hl"><div class="ibl">Call us</div><div class="ibv"><a href="tel:01709379866">01709 379866</a></div><div class="ibs">Rotherham · South Yorkshire</div></div>
+      <div class="info-block"><div class="ibl">Email</div><div class="ibv" style="font-size:14px"><a href="mailto:info@enhance-clinic.co.uk">info@enhance-clinic.co.uk</a></div></div>
+      <div class="info-block"><div class="ibl">Accreditation</div><div class="ibv" style="font-size:14px">SaveFace Accredited</div><div class="ibs">NHS PSA Registered · 7 years established</div></div>
+      <div class="info-block" style="background:var(--plum-pale);border-color:var(--border)"><div class="ibl" style="color:var(--mauve)">Consultations</div><div class="ibv">Free — no obligation</div><div class="ibs">Every treatment plan personalised to you</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">Enhance Aesthetics</div><div style="font-size:12px">Rotherham · South Yorkshire · SaveFace Accredited · NHS PSA Registered</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('treatments')">Treatments</a><a href="#" onclick="showPage('safety')">Safety</a><a href="#" onclick="showPage('about')">About</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:01709379866">📞 01709 379866</a><a href="mailto:info@enhance-clinic.co.uk">✉ info@enhance-clinic.co.uk</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Enhance Aesthetics · Rotherham · SaveFace Accredited</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}</script>
+</body>
+</html>

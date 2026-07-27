@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sheffield Clinic | Private GP & Aesthetic Treatments Sheffield S10</title>
+<meta name="description" content="The Sheffield Clinic — private GP services, aesthetic treatments, Botox, dermal fillers, SmartLipo and laser hair removal in Sheffield S10. Doctor-led. CQC registered. Call 0345 508 1448.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0e1b2e;--teal:#0d7377;--teal-light:#14a3a8;--teal-pale:#e6f7f7;--cream:#fafaf8;--warm:#f4f2ee;--text:#1a1a1a;--muted:#5f6b74;--border:#e0e8ec;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-teal{display:inline-block;background:var(--teal);color:#fff;padding:13px 26px;border-radius:var(--radius);font-weight:700;font-size:14px;transition:opacity .2s;cursor:pointer;border:none}
+.btn-teal:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:13px 26px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.3);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.08)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--navy);color:rgba(255,255,255,.7);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.88);font-weight:500;transition:color .2s}
+.topbar a:hover{color:#fff}
+.topbar-badge{background:var(--teal);border-radius:3px;padding:2px 9px;font-size:11px;font-weight:700;color:#fff}
+
+nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:200;box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:44px;height:44px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:var(--teal-light);flex-shrink:0;letter-spacing:-.5px;text-align:center;line-height:1.2}
+.nav-name{font-size:17px;font-weight:800;color:var(--navy);line-height:1.2}
+.nav-sub{font-size:10px;color:var(--teal);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 14px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--navy)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:3px;background:var(--teal);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--teal);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--navy);padding:84px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(13,115,119,.15) 0%,transparent 70%)}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(13,115,119,.2);border:1px solid rgba(13,115,119,.4);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#5dd8db;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-size:46px;font-weight:900;line-height:1.07;letter-spacing:-2px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#5dd8db}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.78;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);padding-top:28px}
+.hero-stat{text-align:center;padding:0 12px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:24px;font-weight:900;color:#5dd8db}
+.stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+.hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px}
+.hc-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
+.hc-services{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.hc-svc{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:9px 13px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-svc-icon{font-size:15px;width:20px;text-align:center}
+.hc-tel{background:var(--teal);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.hc-tel-label{font-size:10px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
+.hc-tel-num{font-size:18px;font-weight:900;color:#fff;line-height:1}
+.hc-cqc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,.7);text-align:center;display:flex;align-items:center;gap:8px;justify-content:center}
+
+.trust-strip{background:var(--teal);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:13px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.22);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'✓';font-size:15px}
+
+.section{padding:72px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--navy)}
+
+.svcs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer}
+.svc-card:hover{transform:translateY(-3px);border-color:var(--teal)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal)}
+.svc-icon{width:50px;height:50px;background:var(--teal-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:16px}
+.svc-name{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:7px}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.svc-more{font-size:12px;font-weight:700;color:var(--teal);margin-top:12px}
+
+.pricing-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:40px}
+.price-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center}
+.price-card.featured{border:2px solid var(--teal);background:var(--teal-pale)}
+.price-treatment{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.price-amount{font-size:26px;font-weight:900;color:var(--teal);margin-bottom:4px}
+.price-detail{font-size:12px;color:var(--muted);line-height:1.5}
+
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+.why-items{display:flex;flex-direction:column}
+.why-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border)}
+.why-item:last-child{border-bottom:none}
+.why-num{width:36px;height:36px;background:var(--navy);color:#5dd8db;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;margin-top:2px}
+.why-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.why-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.cqc-card{background:var(--teal-pale);border:2px solid var(--teal);border-radius:12px;padding:28px;text-align:center}
+.cqc-badge{font-size:40px;margin-bottom:12px}
+.cqc-title{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.cqc-desc{font-size:14px;color:var(--muted);line-height:1.7}
+
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px}
+@media(max-width:700px){.proc-steps{grid-template-columns:1fr 1fr;gap:16px}}
+.proc-step{padding:22px 20px;border-right:1px solid rgba(255,255,255,.08)}
+.proc-step:last-child{border-right:none}
+.proc-n{font-size:38px;font-weight:900;color:rgba(255,255,255,.07);line-height:1;margin-bottom:8px}
+.proc-g{font-size:11px;font-weight:700;color:#5dd8db;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.proc-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:5px}
+.proc-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6}
+
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev-card{background:#fff;border-radius:12px;padding:24px;border:1px solid var(--border)}
+.rev-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:14px;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:12px;padding-left:14px;border-left:3px solid var(--teal-pale)}
+.rev-author{font-size:13px;font-weight:700;color:var(--navy)}
+.rev-source{font-size:12px;color:var(--muted);margin-top:2px}
+
+.svc-hero{background:var(--navy);padding:60px 28px;text-align:center}
+.svc-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.svc-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto}
+.svc-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto}
+@media(max-width:700px){.svc-detail-grid{grid-template-columns:1fr}}
+.sd{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--teal)}
+.sd-icon{width:48px;height:48px;background:var(--teal-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.sd-name{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.sd-desc{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:12px}
+.sd-price{font-size:13px;font-weight:700;color:var(--teal);margin-bottom:10px}
+.sd-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sd-list li{font-size:13px;color:var(--text);display:flex;gap:7px;align-items:flex-start}
+.sd-list li::before{content:'✓';color:var(--teal);font-weight:900;flex-shrink:0}
+
+.contact-hero{background:var(--navy);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--navy);border-radius:14px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--teal-light)}
+.f-group select{background-color:var(--navy)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:var(--teal);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.info-block.highlight{background:var(--teal);border-color:transparent}
+.info-block-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:7px}
+.info-block.highlight .info-block-label{color:rgba(255,255,255,.7)}
+.info-block-val{font-size:16px;font-weight:700;color:var(--navy)}
+.info-block.highlight .info-block-val{color:#fff;font-size:18px}
+.info-block-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.info-block.highlight .info-block-sub{color:rgba(255,255,255,.6)}
+.info-block-val a{color:var(--navy)}
+.info-block.highlight .info-block-val a{color:#fff}
+
+footer{background:#060e1a;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.3);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="tel:03455081448">📞 0345 508 1448</a>
+    <a href="mailto:info@thesheffieldclinic.co.uk">✉ info@thesheffieldclinic.co.uk</a>
+    <span>📍 Rutledge Mews, 1 Southbourne Road, Sheffield S10 2QN</span>
+  </div>
+  <span class="topbar-badge">CQC Registered · Doctor-led</span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">TSC</div>
+      <div><div class="nav-name">The Sheffield Clinic</div><div class="nav-sub">Private GP &amp; Aesthetics · S10</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-gp" onclick="showPage('gp')">Private GP</button>
+      <button class="nav-link" id="nav-aesthetics" onclick="showPage('aesthetics')">Aesthetics</button>
+      <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Book now</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">🏥 CQC registered · Doctor-led · Sheffield S10</div>
+        <h1>Private healthcare and aesthetics <span class="accent">you can trust.</span></h1>
+        <p class="hero-sub">The Sheffield Clinic offers private GP consultations, aesthetic treatments, minor surgery and laser services — all delivered by our experienced doctor in a calm, confidential clinical environment.</p>
+        <div class="hero-btns">
+          <button class="btn-teal" onclick="showPage('contact')">Book a consultation</button>
+          <button class="btn-outline-w" onclick="showPage('aesthetics')">View treatments</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">Dr.</div><div class="stat-l">J.P. O'Connell MBChB</div></div>
+          <div class="hero-stat"><div class="stat-n">CQC</div><div class="stat-l">Registered clinic</div></div>
+          <div class="hero-stat"><div class="stat-n">30+</div><div class="stat-l">Years of Botox safety</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-title">Our services</div>
+        <div class="hc-services">
+          <div class="hc-svc"><span class="hc-svc-icon">🩺</span>Private GP consultations</div>
+          <div class="hc-svc"><span class="hc-svc-icon">💉</span>Botox &amp; dermal fillers</div>
+          <div class="hc-svc"><span class="hc-svc-icon">✂️</span>Minor surgery</div>
+          <div class="hc-svc"><span class="hc-svc-icon">⚡</span>SmartLipo laserlipolysis</div>
+          <div class="hc-svc"><span class="hc-svc-icon">✨</span>Laser hair removal</div>
+          <div class="hc-svc"><span class="hc-svc-icon">💊</span>Joint &amp; soft tissue injections</div>
+        </div>
+        <a href="tel:03455081448" class="hc-tel" style="display:flex;border-radius:var(--radius)">
+          <span style="font-size:22px;margin-right:4px">📞</span>
+          <div><div class="hc-tel-label">Call to book</div><div class="hc-tel-num">0345 508 1448</div></div>
+        </a>
+        <div class="hc-cqc">🏥 CQC registered · Company No. 06037657</div>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">Doctor-led treatments</span>
+      <span class="trust-item">CQC registered clinic</span>
+      <span class="trust-item">Free initial consultation for aesthetics</span>
+      <span class="trust-item">Cannula technique for safer fillers</span>
+      <span class="trust-item">Confidential &amp; professional</span>
+    </div>
+  </div>
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">Our services</div>
+      <div class="section-title">Private healthcare and aesthetic treatments</div>
+      <p class="section-intro">Whether you need a private GP appointment or an aesthetic treatment, The Sheffield Clinic delivers both under one roof — led by our experienced doctor.</p>
+      <div class="svcs-grid">
+        <div class="svc-card" onclick="showPage('gp')">
+          <div class="svc-icon">🩺</div><div class="svc-name">Private GP</div>
+          <div class="svc-desc">Fast-access private GP consultations without the NHS wait. Same-day and next-day appointments available.</div>
+          <div class="svc-more">Learn more →</div>
+        </div>
+        <div class="svc-card" onclick="showPage('aesthetics')">
+          <div class="svc-icon">💉</div><div class="svc-name">Botox &amp; dermal fillers</div>
+          <div class="svc-desc">Doctor-administered Botulinum toxin and hyaluronic acid fillers from £200. Free initial consultation.</div>
+          <div class="svc-more">Learn more →</div>
+        </div>
+        <div class="svc-card" onclick="showPage('aesthetics')">
+          <div class="svc-icon">✂️</div><div class="svc-name">Minor surgery</div>
+          <div class="svc-desc">Skin lesion removal, mole removal, cyst excision and other minor surgical procedures in clinic.</div>
+          <div class="svc-more">Learn more →</div>
+        </div>
+        <div class="svc-card" onclick="showPage('aesthetics')">
+          <div class="svc-icon">⚡</div><div class="svc-name">SmartLipo</div>
+          <div class="svc-desc">Laser-assisted body contouring treatment for targeted fat reduction — a minimally invasive alternative to traditional liposuction.</div>
+          <div class="svc-more">Learn more →</div>
+        </div>
+        <div class="svc-card" onclick="showPage('aesthetics')">
+          <div class="svc-icon">✨</div><div class="svc-name">Laser hair removal</div>
+          <div class="svc-desc">Pain-Free, Hair-Free™ system for permanent hair reduction on any area of the face or body.</div>
+          <div class="svc-more">Learn more →</div>
+        </div>
+        <div class="svc-card" onclick="showPage('gp')">
+          <div class="svc-icon">💊</div><div class="svc-name">Joint injections</div>
+          <div class="svc-desc">Steroid injections and soft tissue treatments for joint pain, inflammation and musculoskeletal conditions.</div>
+          <div class="svc-more">Learn more →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <div class="eyebrow">Why choose us</div>
+          <div class="section-title">Doctor-led. Safe. Confidential.</div>
+          <p class="section-intro" style="margin-bottom:0">At The Sheffield Clinic, every treatment is led by Dr J.P. O'Connell MBChB — a fully qualified doctor with the medical expertise to ensure your safety and your results.</p>
+          <div class="why-items">
+            <div class="why-item"><div class="why-num">01</div><div><div class="why-title">Doctor-administered treatments</div><div class="why-desc">Unlike many clinics, every aesthetic treatment at The Sheffield Clinic is carried out by a qualified doctor — not a nurse or technician.</div></div></div>
+            <div class="why-item"><div class="why-num">02</div><div><div class="why-title">Safer filler technique</div><div class="why-desc">We use a cannula rather than needles for dermal fillers — significantly reducing the risk of inadvertent vascular injection.</div></div></div>
+            <div class="why-item"><div class="why-num">03</div><div><div class="why-title">Free initial consultation</div><div class="why-desc">All aesthetic consultations are free. For GP consultations, the £35 fee is incorporated into your treatment cost if you proceed.</div></div></div>
+            <div class="why-item"><div class="why-num">04</div><div><div class="why-title">CQC registered clinic</div><div class="why-desc">The Sheffield Clinic is registered with the Care Quality Commission — the independent regulator of health services in England.</div></div></div>
+          </div>
+        </div>
+        <div class="cqc-card">
+          <div class="cqc-badge">🏥</div>
+          <div class="cqc-title">CQC Registered</div>
+          <div class="cqc-desc">The Sheffield Clinic is registered with the Care Quality Commission — the independent body that regulates health and social care in England. This means our standards, safety procedures and clinical governance are independently verified.</div>
+          <div style="margin-top:20px;font-size:13px;color:var(--muted)">Company No. 06037657 · Sheffield S10 2QN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-dark">
+    <div class="container">
+      <div class="eyebrow">How it works</div>
+      <div class="section-title" style="color:#fff">From first enquiry to your appointment</div>
+      <div class="proc-steps">
+        <div class="proc-step"><div class="proc-n">01</div><div class="proc-g">Enquire</div><div class="proc-title">Contact us</div><div class="proc-desc">Call, email or use our online form. We'll confirm your appointment time and what to expect.</div></div>
+        <div class="proc-step"><div class="proc-n">02</div><div class="proc-g">Consult</div><div class="proc-title">Free consultation</div><div class="proc-desc">Dr O'Connell assesses your needs and explains all options — no pressure, full information.</div></div>
+        <div class="proc-step"><div class="proc-n">03</div><div class="proc-g">Treat</div><div class="proc-title">Your treatment</div><div class="proc-desc">Carried out by the doctor in our clean, calm clinical environment at Southbourne Road.</div></div>
+        <div class="proc-step"><div class="proc-n">04</div><div class="proc-g">Follow up</div><div class="proc-title">Free review appointment</div><div class="proc-desc">Every aesthetic treatment includes a free follow-up appointment 2 weeks after your procedure.</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="eyebrow">Patient reviews</div>
+      <div class="section-title">What patients say about The Sheffield Clinic</div>
+      <div class="reviews-grid">
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Dr O'Connell is thorough, professional and really puts you at ease. I had Botox and fillers and the results are natural and exactly what I wanted. The follow-up appointment is a really nice touch."</div><div class="rev-author">Sarah M.</div><div class="rev-source">Google Reviews · Sheffield</div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Seen as a private GP after weeks of not being able to get an NHS appointment. Diagnosed and treated same day. The clinic is clean and professional and I felt well looked after throughout."</div><div class="rev-author">James T.</div><div class="rev-source">WhatClinic · Sheffield</div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Had the SmartLipo procedure — a significant investment but the results are fantastic. The doctor is very experienced and I felt safe throughout. The aftercare has been excellent."</div><div class="rev-author">Rachel P.</div><div class="rev-source">Google Reviews · Sheffield</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-dark" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Book now</div>
+    <div class="section-title" style="color:#fff;text-align:center;margin:0 auto 12px">Ready to book a consultation?</div>
+    <p style="color:rgba(255,255,255,.55);font-size:16px;margin-bottom:28px">Call us on 0345 508 1448 or complete our online enquiry form and we'll get back to you promptly.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-teal" onclick="showPage('contact')">Make an enquiry</button>
+      <a href="tel:03455081448" class="btn-outline-w">📞 0345 508 1448</a>
+    </div>
+  </section>
+</div>
+
+<!-- GP PAGE -->
+<div class="page" id="page-gp">
+  <div class="svc-hero"><div class="eyebrow">Private GP services</div><h1>Private GP consultations — Sheffield S10</h1><p>Fast-access private healthcare without the wait. GP consultations, joint injections and medical services at Rutledge Mews.</p></div>
+  <div class="svc-detail-grid">
+    <div class="sd"><div class="sd-icon">🩺</div><div class="sd-name">GP consultation</div><div class="sd-desc">A full private GP consultation with Dr O'Connell — covering any health concern, referrals, sick notes, prescription requests and more.</div><div class="sd-price">From £35 (incorporated into treatment cost if you proceed)</div><ul class="sd-list"><li>Same or next-day appointments</li><li>No NHS waiting list</li><li>Referral letters if required</li><li>Private prescriptions</li><li>Sick notes &amp; certificates</li></ul></div>
+    <div class="sd"><div class="sd-icon">💊</div><div class="sd-name">Joint &amp; soft tissue injections</div><div class="sd-desc">Steroid injections for knee, hip, shoulder, elbow and other joints — providing rapid relief from pain and inflammation.</div><div class="sd-price">Pricing confirmed at consultation</div><ul class="sd-list"><li>Knee, hip &amp; shoulder injections</li><li>Tennis elbow &amp; soft tissue</li><li>Plantar fasciitis</li><li>Carpal tunnel</li><li>Rapid pain relief</li></ul></div>
+    <div class="sd"><div class="sd-icon">✂️</div><div class="sd-name">Minor surgery</div><div class="sd-desc">Skin lesion removal, mole removal, cyst excision, wart treatment and other minor surgical procedures carried out in clinic.</div><div class="sd-price">Pricing confirmed at consultation</div><ul class="sd-list"><li>Mole &amp; skin lesion removal</li><li>Sebaceous cyst excision</li><li>Wart &amp; verruca treatment</li><li>Skin tag removal</li><li>Local anaesthetic used throughout</li></ul></div>
+    <div class="sd"><div class="sd-icon">💉</div><div class="sd-name">Hyperhidrosis treatment</div><div class="sd-desc">Treatment for excessive sweating (hyperhidrosis) using Botulinum toxin injections to block the nerve impulses that trigger sweat glands.</div><div class="sd-price">From £400</div><ul class="sd-list"><li>Axillary (underarm) treatment</li><li>Results visible within days</li><li>Lasts several months</li><li>Doctor-administered</li></ul></div>
+  </div>
+  <div style="background:var(--navy);padding:52px 28px;text-align:center"><h2 style="font-size:26px;font-weight:800;color:#fff;margin-bottom:10px">Book a GP consultation</h2><p style="color:rgba(255,255,255,.55);font-size:15px;margin-bottom:24px">Call us or complete our online form — we'll confirm your appointment promptly.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn-teal" onclick="showPage('contact')">Make an enquiry</button><a href="tel:03455081448" class="btn-outline-w">📞 0345 508 1448</a></div></div>
+</div>
+
+<!-- AESTHETICS PAGE -->
+<div class="page" id="page-aesthetics">
+  <div class="svc-hero"><div class="eyebrow">Aesthetic treatments</div><h1>Doctor-led aesthetic treatments — Sheffield S10</h1><p>Botox, dermal fillers, SmartLipo and laser hair removal — all carried out by our experienced doctor at The Sheffield Clinic.</p></div>
+  <div class="svc-detail-grid">
+    <div class="sd"><div class="sd-icon">💉</div><div class="sd-name">Botox (Botulinum toxin)</div><div class="sd-desc">Doctor-administered anti-wrinkle injections for crow's feet, forehead lines, frown lines and hyperhidrosis. Over 1 million patients treated worldwide with an excellent safety record.</div><div class="sd-price">£200–£300 per treatment · Initial consultation £35 (waived if you proceed)</div><ul class="sd-list"><li>Crow's feet, forehead &amp; frown lines</li><li>Results visible in 24–72 hours</li><li>Full effect at 7–12 days</li><li>Lasts 3–4 months</li><li>Free follow-up at 2 weeks</li></ul></div>
+    <div class="sd"><div class="sd-icon">🫦</div><div class="sd-name">Dermal fillers</div><div class="sd-desc">Hyaluronic acid fillers injected using a cannula (not needles) for enhanced safety — treating lines, wrinkles, hollow cheeks, lip enhancement and acne scars.</div><div class="sd-price">From £300 · pricing depends on area and quantity</div><ul class="sd-list"><li>Cannula technique for safety</li><li>Lines, wrinkles &amp; volume restoration</li><li>Lip enhancement &amp; border definition</li><li>Hollow cheeks &amp; acne scars</li><li>Biodegradable, naturally absorbed</li></ul></div>
+    <div class="sd"><div class="sd-icon">⚡</div><div class="sd-name">SmartLipo laserlipolysis</div><div class="sd-desc">Laser-assisted fat reduction — a minimally invasive alternative to traditional liposuction for targeted body contouring, with faster recovery time.</div><div class="sd-price">Pricing confirmed at consultation</div><ul class="sd-list"><li>Targeted body contouring</li><li>Minimally invasive procedure</li><li>Local anaesthetic used</li><li>Faster recovery than liposuction</li><li>Doctor-led throughout</li></ul></div>
+    <div class="sd"><div class="sd-icon">✨</div><div class="sd-name">Laser hair removal</div><div class="sd-desc">Pain-Free, Hair-Free™ laser hair removal system for permanent hair reduction on face, underarms, legs, bikini line and more.</div><div class="sd-price">Pricing by area — confirmed at consultation</div><ul class="sd-list"><li>Pain-free system</li><li>Face, body &amp; bikini</li><li>Long-lasting reduction</li><li>Safe for most skin types</li><li>Course of sessions recommended</li></ul></div>
+  </div>
+  <div style="background:var(--teal-pale);border-top:1px solid var(--border);padding:32px 28px;text-align:center;max-width:100%"><div style="max-width:680px;margin:0 auto"><div class="eyebrow">Pricing &amp; booking</div><div style="font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:20px">All aesthetic consultations are free of charge with no obligation. The £35 GP consultation fee is incorporated into your treatment cost if you proceed. Call us or use the form to arrange your free consultation.</div><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn-teal" onclick="showPage('contact')">Book free consultation</button><a href="tel:03455081448" class="btn-outline-w" style="background:var(--teal);border-color:var(--teal);color:#fff">📞 0345 508 1448</a></div></div></div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div style="background:var(--navy);padding:60px 28px;text-align:center"><div class="eyebrow">About us</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Doctor-led private healthcare in Sheffield</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">The Sheffield Clinic is a CQC-registered private clinic offering GP services and aesthetic treatments at Rutledge Mews, Sheffield S10.</p></div>
+  <div style="max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div><div class="eyebrow">Our clinic</div><div class="section-title">Private healthcare you can trust</div><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">The Sheffield Clinic is a private medical clinic located at Rutledge Mews, 1 Southbourne Road, Sheffield S10 2QN — a calm, clean, professional environment close to Sheffield's western suburbs.</p><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">The clinic is led by Dr J.P. O'Connell MBChB — a fully qualified doctor with extensive experience in both general practice and aesthetic medicine. All treatments at The Sheffield Clinic are doctor-led, ensuring the highest standards of safety and clinical care.</p><p style="font-size:15px;color:var(--muted);line-height:1.8">We are registered with the Care Quality Commission (CQC) — the independent regulator of health and social care in England — and operate to the standards required of all registered healthcare providers.</p></div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="background:var(--teal-pale);border:2px solid var(--teal);border-radius:12px;padding:22px"><div class="eyebrow" style="margin-bottom:8px">Our doctor</div><div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:4px">Dr J.P. O'Connell MBChB</div><div style="font-size:14px;color:var(--muted);line-height:1.7">Fully qualified medical doctor with extensive experience in aesthetic medicine and private general practice. All treatments administered personally by Dr O'Connell at the Sheffield clinic.</div></div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px"><div class="info-block-label" style="color:var(--teal);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Contact details</div><div style="font-size:14px;color:var(--navy);font-weight:700;margin-bottom:4px"><a href="tel:03455081448">0345 508 1448</a></div><div style="font-size:14px;color:var(--muted);margin-bottom:4px"><a href="mailto:info@thesheffieldclinic.co.uk">info@thesheffieldclinic.co.uk</a></div><div style="font-size:13px;color:var(--muted)">Rutledge Mews, 1 Southbourne Road, Sheffield S10 2QN</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Book now</div><h1>Book a consultation at The Sheffield Clinic</h1><p>GP appointments, aesthetic consultations and treatment bookings — call us or use the form below.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Make an enquiry</h2><div class="form-sub">We'll confirm your appointment promptly.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="f-group"><label>Type of enquiry</label><select><option>Private GP consultation</option><option>Botox / anti-wrinkle</option><option>Dermal fillers</option><option>SmartLipo</option><option>Laser hair removal</option><option>Minor surgery</option><option>Joint injections</option><option>Other</option></select></div>
+      <div class="f-group"><label>Tell us more</label><textarea placeholder="Brief details of what you're looking for..."></textarea></div>
+      <button class="f-submit">Send enquiry →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block highlight"><div class="info-block-label">Clinic phone</div><div class="info-block-val"><a href="tel:03455081448">0345 508 1448</a></div><div class="info-block-sub">Call to book or enquire</div></div>
+      <div class="info-block"><div class="info-block-label">Email</div><div class="info-block-val" style="font-size:14px"><a href="mailto:info@thesheffieldclinic.co.uk">info@thesheffieldclinic.co.uk</a></div></div>
+      <div class="info-block"><div class="info-block-label">Address</div><div class="info-block-val">Rutledge Mews, Office 1</div><div class="info-block-sub">1 Southbourne Road, Sheffield S10 2QN</div></div>
+      <div class="info-block"><div class="info-block-label">Aesthetic consultations</div><div class="info-block-val" style="font-size:15px">Free — no obligation</div></div>
+      <div class="info-block"><div class="info-block-label">GP consultation fee</div><div class="info-block-val" style="font-size:15px">£35 (waived if treatment proceeds)</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">The Sheffield Clinic</div><div style="font-size:12px">Rutledge Mews, 1 Southbourne Road, Sheffield S10 2QN · CQC Registered</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('gp')">Private GP</a><a href="#" onclick="showPage('aesthetics')">Aesthetics</a><a href="#" onclick="showPage('about')">About</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Treatments</div><a href="#" onclick="showPage('aesthetics')">Botox</a><a href="#" onclick="showPage('aesthetics')">Dermal fillers</a><a href="#" onclick="showPage('aesthetics')">SmartLipo</a><a href="#" onclick="showPage('aesthetics')">Laser hair removal</a><a href="#" onclick="showPage('gp')">Minor surgery</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:03455081448">📞 0345 508 1448</a><a href="mailto:info@thesheffieldclinic.co.uk">✉ info@thesheffieldclinic.co.uk</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 The Sheffield Clinic Ltd · Company No. 06037657 · Sheffield</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+</body>
+</html>

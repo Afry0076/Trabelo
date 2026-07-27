@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trafalgar Warehouse | Sheffield's Industrial Events Venue · Weddings, Parties & Corporate</title>
+<meta name="description" content="Trafalgar Warehouse — Sheffield's iconic industrial events venue in the heart of the city. Weddings, birthday parties, corporate events and private dining. Raw brick, exposed steel, unforgettable atmosphere. Book your event today.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--steel:#1c2533;--copper:#b5561a;--copper-pale:#fdf4ee;--gunmetal:#2c3545;--cream:#fafaf8;--warm:#f4f1ed;--text:#1a1c20;--muted:#5c6170;--border:#ddd8d0;--radius:6px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-copper{display:inline-block;background:var(--copper);color:#fff;padding:13px 28px;border-radius:var(--radius);font-weight:700;font-size:14px;letter-spacing:.03em;transition:opacity .2s;cursor:pointer;border:none}
+.btn-copper:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:13px 28px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.32);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.08)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--copper);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--steel);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.82;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--steel);color:rgba(255,255,255,.65);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.9);font-weight:500}
+nav{background:#fff;border-bottom:3px solid var(--copper);position:sticky;top:0;z-index:200;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:46px;height:46px;background:var(--steel);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#e8a07a;flex-shrink:0;text-align:center;line-height:1.3;letter-spacing:.3px}
+.nav-name{font-size:17px;font-weight:800;color:var(--steel)}
+.nav-sub{font-size:10px;color:var(--copper);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 13px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--steel)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:13px;right:13px;height:3px;background:var(--copper);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--copper);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--steel);padding:96px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(181,86,26,.08) 0%,transparent 55%)}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 390px;gap:60px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(181,86,26,.18);border:1px solid rgba(181,86,26,.4);border-radius:var(--radius);padding:6px 14px;font-size:12px;font-weight:700;color:#e8a07a;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:50px;font-weight:900;line-height:1.04;letter-spacing:-2.5px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#e8a07a}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.63);line-height:1.8;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);padding-top:26px}
+.hero-stat{text-align:center;padding:0 10px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:900;color:#e8a07a}
+.stat-l{font-size:11px;color:rgba(255,255,255,.38);margin-top:3px}
+.hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:24px}
+.hc-label{font-size:11px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
+.hc-events{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.hc-event{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:9px 12px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-cap{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.hc-cap-item{background:rgba(181,86,26,.15);border:1px solid rgba(181,86,26,.3);border-radius:5px;padding:10px;text-align:center}
+.hc-cap-n{font-size:18px;font-weight:900;color:#e8a07a;line-height:1}
+.hc-cap-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+.hc-cta{background:var(--copper);border-radius:var(--radius);padding:13px 16px;display:flex;align-items:center;gap:10px}
+.hc-cta-label{font-size:10px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
+.hc-cta-val{font-size:15px;font-weight:800;color:#fff;line-height:1}
+
+.trust-strip{background:var(--copper);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:12px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.22);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'◆';font-size:9px;opacity:.7}
+
+.section{padding:76px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--steel)}
+
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.ev-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer}
+.ev-card:hover{transform:translateY(-3px);border-color:var(--copper)}
+.ev-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--copper)}
+.ev-icon{font-size:30px;margin-bottom:14px}
+.ev-name{font-size:16px;font-weight:800;color:var(--steel);margin-bottom:6px}
+.ev-desc{font-size:13px;color:var(--muted);line-height:1.72}
+.ev-more{font-size:12px;font-weight:700;color:var(--copper);margin-top:12px}
+
+.venue-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:768px){.venue-feature-grid{grid-template-columns:1fr}}
+.features-list{display:flex;flex-direction:column}
+.feat{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--border)}
+.feat:last-child{border-bottom:none}
+.feat-num{width:36px;height:36px;background:var(--steel);color:#e8a07a;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0;margin-top:2px}
+.feat-title{font-size:15px;font-weight:700;color:var(--steel);margin-bottom:4px}
+.feat-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.venue-specs{background:var(--steel);border-radius:12px;padding:28px;color:#fff}
+.vs-title{font-size:14px;font-weight:800;color:#e8a07a;margin-bottom:14px}
+.vs-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:14px}
+.vs-row:last-child{border-bottom:none}
+.vs-label{color:rgba(255,255,255,.5)}
+.vs-val{color:#fff;font-weight:600}
+
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:#fff;border-radius:10px;padding:24px;border:1px solid var(--border)}
+.rev-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:14px;color:var(--muted);line-height:1.78;font-style:italic;margin-bottom:14px;padding-left:14px;border-left:3px solid var(--copper-pale)}
+.rev-author{font-size:14px;font-weight:700;color:var(--steel)}
+.rev-event{font-size:12px;color:var(--copper);font-weight:600;margin-top:2px}
+
+.contact-hero{background:var(--steel);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--steel);border-radius:12px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--copper)}
+.f-group select{background-color:var(--gunmetal)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:var(--copper);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:20px 22px}
+.info-block.hl{background:var(--copper);border-color:transparent}
+.ibl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);margin-bottom:7px}
+.hl .ibl{color:rgba(255,255,255,.65)}
+.ibv{font-size:16px;font-weight:700;color:var(--steel)}
+.hl .ibv{color:#fff}
+.ibs{font-size:13px;color:var(--muted);margin-top:3px}
+.hl .ibs{color:rgba(255,255,255,.6)}
+.ibv a{color:var(--steel)}.hl .ibv a{color:#fff}
+
+footer{background:#0d1018;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.35);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:18px;flex-wrap:wrap">
+    <a href="tel:01142766950">📞 0114 276 6950</a>
+    <a href="mailto:events@trafalgarwarehouse.co.uk">✉ events@trafalgarwarehouse.co.uk</a>
+    <span>📍 Trafalgar Street, Sheffield S1 4JH — City centre</span>
+  </div>
+  <span style="font-size:12px;color:rgba(255,255,255,.4)">Sheffield's most distinctive event space</span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">TW</div>
+      <div><div class="nav-name">Trafalgar Warehouse</div><div class="nav-sub">Sheffield S1 · Industrial event space</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-events" onclick="showPage('events')">Events</button>
+      <button class="nav-link" id="nav-venue" onclick="showPage('venue')">The Venue</button>
+      <button class="nav-link" id="nav-weddings" onclick="showPage('weddings')">Weddings</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Book enquiry</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">◆ Sheffield city centre · Unique industrial venue</div>
+        <h1>Sheffield's most<br>distinctive <span class="accent">event space.</span></h1>
+        <p class="hero-sub">Trafalgar Warehouse is a stunning industrial-chic venue in the heart of Sheffield S1 — raw brick, exposed steel and a unique character that creates unforgettable events. Weddings, parties, corporate events and private dining.</p>
+        <div class="hero-btns">
+          <button class="btn-copper" onclick="showPage('contact')">Book an enquiry</button>
+          <button class="btn-outline-w" onclick="showPage('venue')">Explore the venue</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">Sheffield</div><div class="stat-l">city centre S1</div></div>
+          <div class="hero-stat"><div class="stat-n">350</div><div class="stat-l">max capacity</div></div>
+          <div class="hero-stat"><div class="stat-n">Unique</div><div class="stat-l">industrial setting</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-label">Events we host</div>
+        <div class="hc-events">
+          <div class="hc-event"><span style="font-size:14px;width:18px;text-align:center">💍</span>Weddings &amp; civil ceremonies</div>
+          <div class="hc-event"><span style="font-size:14px;width:18px;text-align:center">🎉</span>Birthday &amp; celebration parties</div>
+          <div class="hc-event"><span style="font-size:14px;width:18px;text-align:center">💼</span>Corporate events &amp; conferences</div>
+          <div class="hc-event"><span style="font-size:14px;width:18px;text-align:center">🎓</span>Proms &amp; graduation balls</div>
+          <div class="hc-event"><span style="font-size:14px;width:18px;text-align:center">🍽️</span>Private dining &amp; Christmas parties</div>
+        </div>
+        <div class="hc-label">Capacities</div>
+        <div class="hc-cap">
+          <div class="hc-cap-item"><div class="hc-cap-n">350</div><div class="hc-cap-l">standing</div></div>
+          <div class="hc-cap-item"><div class="hc-cap-n">180</div><div class="hc-cap-l">seated dining</div></div>
+        </div>
+        <a href="mailto:events@trafalgarwarehouse.co.uk" class="hc-cta" style="display:flex;border-radius:var(--radius)">
+          <span style="font-size:18px;margin-right:6px">✉</span>
+          <div><div class="hc-cta-label">Send an enquiry</div><div class="hc-cta-val">events@trafalgarwarehouse.co.uk</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">Sheffield city centre S1</span>
+      <span class="trust-item">Up to 350 capacity</span>
+      <span class="trust-item">Industrial-chic setting</span>
+      <span class="trust-item">Weddings licensed</span>
+      <span class="trust-item">In-house bar</span>
+      <span class="trust-item">Full AV &amp; production support</span>
+    </div>
+  </div>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">Events we host</div>
+      <div class="section-title">Every event. One iconic venue.</div>
+      <p class="section-intro">Trafalgar Warehouse is Sheffield's most versatile event space — equally at home hosting a wedding breakfast, a corporate gala or a night your friends will talk about for years.</p>
+      <div class="events-grid">
+        <div class="ev-card" onclick="showPage('weddings')"><div class="ev-icon">💍</div><div class="ev-name">Weddings</div><div class="ev-desc">Civil ceremonies and receptions in a Sheffield venue unlike any other. Raw brick, dramatic lighting, your vision brought to life.</div><div class="ev-more">Wedding packages →</div></div>
+        <div class="ev-card" onclick="showPage('events')"><div class="ev-icon">🎉</div><div class="ev-name">Celebration parties</div><div class="ev-desc">Birthday parties, anniversaries, retirements — from intimate dinners to full evening parties for up to 350 guests.</div><div class="ev-more">Enquire →</div></div>
+        <div class="ev-card" onclick="showPage('events')"><div class="ev-icon">💼</div><div class="ev-name">Corporate events</div><div class="ev-desc">Conferences, away days, product launches, gala dinners and awards ceremonies with a Sheffield venue that makes an impression.</div><div class="ev-more">Enquire →</div></div>
+        <div class="ev-card" onclick="showPage('events')"><div class="ev-icon">🎓</div><div class="ev-name">Proms & balls</div><div class="ev-desc">Prom nights, graduation balls and black-tie events — the industrial backdrop adds a drama that traditional venues just can't match.</div><div class="ev-more">Enquire →</div></div>
+        <div class="ev-card" onclick="showPage('events')"><div class="ev-icon">🍽️</div><div class="ev-name">Private dining</div><div class="ev-desc">Intimate private dining events, Christmas parties and business dinners in a space that creates conversation from the moment guests walk in.</div><div class="ev-more">Enquire →</div></div>
+        <div class="ev-card" onclick="showPage('contact')"><div class="ev-icon">📋</div><div class="ev-name">Bespoke events</div><div class="ev-desc">Something that doesn't fit a standard package? We work with event planners and clients to create fully bespoke event experiences.</div><div class="ev-more">Get in touch →</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="venue-feature-grid">
+        <div>
+          <div class="eyebrow">About the venue</div>
+          <div class="section-title">Raw brick. Exposed steel. Unforgettable atmosphere.</div>
+          <p class="section-intro" style="margin-bottom:0">Trafalgar Warehouse is Sheffield's original industrial-chic event space — a converted Victorian warehouse that combines raw architecture with modern event facilities in the heart of S1.</p>
+          <div class="features-list">
+            <div class="feat"><div class="feat-num">01</div><div><div class="feat-title">Sheffield city centre — Trafalgar Street S1</div><div class="feat-desc">Right in the heart of Sheffield's Cultural Industries Quarter — easy for guests travelling from any direction, moments from bars and hotels.</div></div></div>
+            <div class="feat"><div class="feat-num">02</div><div><div class="feat-title">Up to 350 standing, 180 seated</div><div class="feat-desc">Flexible floor plan accommodates everything from intimate dinners of 40 to full-capacity evening events for 350 guests.</div></div></div>
+            <div class="feat"><div class="feat-num">03</div><div><div class="feat-title">Full AV, lighting and production</div><div class="feat-desc">Professional lighting rigs, sound system and AV setup included — with technical support available for more complex productions.</div></div></div>
+            <div class="feat"><div class="feat-num">04</div><div><div class="feat-title">In-house bar — your own drinks packages</div><div class="feat-desc">Full bar operation with flexible packages — from open bars to drinks receptions, prosecco walls and cocktail menus.</div></div></div>
+          </div>
+        </div>
+        <div class="venue-specs">
+          <div class="vs-title">Venue specifications</div>
+          <div class="vs-row"><span class="vs-label">Location</span><span class="vs-val">Trafalgar Street, Sheffield S1 4JH</span></div>
+          <div class="vs-row"><span class="vs-label">Standing capacity</span><span class="vs-val">Up to 350</span></div>
+          <div class="vs-row"><span class="vs-label">Seated dining</span><span class="vs-val">Up to 180</span></div>
+          <div class="vs-row"><span class="vs-label">Style</span><span class="vs-val">Victorian industrial warehouse</span></div>
+          <div class="vs-row"><span class="vs-label">Features</span><span class="vs-val">Raw brick, exposed steel beams</span></div>
+          <div class="vs-row"><span class="vs-label">AV & sound</span><span class="vs-val">Full professional setup</span></div>
+          <div class="vs-row"><span class="vs-label">Licence</span><span class="vs-val">Licensed for weddings & events</span></div>
+          <div class="vs-row"><span class="vs-label">Parking</span><span class="vs-val">City centre — public car parks nearby</span></div>
+          <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)"><button class="btn-copper" onclick="showPage('contact')" style="width:100%;font-size:14px;padding:12px">Book a venue viewing →</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:36px"><div class="eyebrow">Reviews</div><div class="section-title" style="color:#fff;text-align:center">What event hosts say</div></div>
+      <div class="rev-grid">
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"We had our wedding reception at Trafalgar Warehouse and it was absolutely stunning. The industrial aesthetic is unique — every single guest commented on how amazing the venue looked. Staff were brilliant throughout."</div><div class="rev-author">Emma & James</div><div class="rev-event">Wedding reception</div></div>
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"Organised our company's annual awards evening here for 200 guests. The AV setup is excellent, the bar team were professional and the space looked incredible. Will be booking again this year."</div><div class="rev-author">Corporate event organiser</div><div class="rev-event">Awards evening for 200</div></div>
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"The best prom venue in Sheffield — our students were absolutely blown away. The atmosphere is unlike anything else and the team made the whole evening run perfectly. Cannot recommend highly enough."</div><div class="rev-author">School events coordinator</div><div class="rev-event">Year 13 prom night</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Ready to plan your event?</div>
+    <div class="section-title" style="text-align:center;margin:0 auto 12px">Send us an enquiry</div>
+    <p style="color:var(--muted);font-size:16px;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto">Tell us about your event and we'll come back to you with availability, pricing and everything you need to get planning.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-copper" onclick="showPage('contact')">Send an enquiry</button>
+      <a href="tel:01142766950" class="btn-outline-w" style="background:var(--steel);border-color:var(--steel)">📞 0114 276 6950</a>
+    </div>
+  </section>
+</div>
+
+<!-- EVENTS -->
+<div class="page" id="page-events">
+  <div style="background:var(--steel);padding:64px 28px;text-align:center"><div class="eyebrow">Events</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px">Every kind of event. One iconic space.</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">From intimate private dinners to full-capacity celebrations — Trafalgar Warehouse is Sheffield's most flexible and distinctive event venue.</p></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto">
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px;border-top:4px solid var(--copper)"><div style="font-size:28px;margin-bottom:12px">🎉</div><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:8px">Birthday &amp; celebration parties</div><p style="font-size:13px;color:var(--muted);line-height:1.7">21sts, 30ths, 40ths, 50ths and beyond. Standing parties up to 350 or seated dinners for 40–180 guests. Bar packages tailored to your event.</p></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px;border-top:4px solid var(--copper)"><div style="font-size:28px;margin-bottom:12px">💼</div><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:8px">Corporate &amp; conferences</div><p style="font-size:13px;color:var(--muted);line-height:1.7">Product launches, conferences, away days, gala dinners and awards ceremonies. Full AV and technical support. City centre location for easy access.</p></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px;border-top:4px solid var(--copper)"><div style="font-size:28px;margin-bottom:12px">🎓</div><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:8px">Proms &amp; graduation balls</div><p style="font-size:13px;color:var(--muted);line-height:1.7">Sheffield's most popular prom venue — the industrial atmosphere creates a night students genuinely remember. Capacity for 350 standing.</p></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px;border-top:4px solid var(--copper)"><div style="font-size:28px;margin-bottom:12px">🍽️</div><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:8px">Private dining</div><p style="font-size:13px;color:var(--muted);line-height:1.7">Intimate private dining for 40–180 seated guests. Business dinners, Christmas parties and private celebration meals with full catering options.</p></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px;border-top:4px solid var(--copper)"><div style="font-size:28px;margin-bottom:12px">🎄</div><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:8px">Christmas parties</div><p style="font-size:13px;color:var(--muted);line-height:1.7">Shared Christmas party nights or exclusive hire for your team — Sheffield's most atmospheric festive venue. Book early for December dates.</p></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px;border-top:4px solid var(--copper)"><div style="font-size:28px;margin-bottom:12px">🎤</div><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:8px">Live events &amp; performances</div><p style="font-size:13px;color:var(--muted);line-height:1.7">Live music nights, comedy events, spoken word, art exhibitions and more — the warehouse space lends itself to creative performance events.</p></div>
+  </div>
+  <div style="background:var(--steel);padding:48px 28px;text-align:center"><h2 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:10px">Interested in hosting an event?</h2><p style="color:rgba(255,255,255,.55);font-size:15px;margin-bottom:22px">Tell us about your event — we'll come back with availability and pricing.</p><button class="btn-copper" onclick="showPage('contact')">Send an enquiry →</button></div>
+</div>
+
+<!-- VENUE -->
+<div class="page" id="page-venue">
+  <div style="background:var(--steel);padding:64px 28px;text-align:center"><div class="eyebrow">The venue</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px">Raw brick. Exposed steel. No venue like it.</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Trafalgar Warehouse is a converted Victorian warehouse in Sheffield's Cultural Industries Quarter — with a character and atmosphere that event venues can't manufacture.</p></div>
+  <div style="max-width:900px;margin:0 auto;padding:52px 28px">
+    <div class="venue-specs" style="margin-bottom:20px">
+      <div class="vs-title">Venue specifications</div>
+      <div class="vs-row"><span class="vs-label">Address</span><span class="vs-val">Trafalgar Street, Sheffield S1 4JH</span></div>
+      <div class="vs-row"><span class="vs-label">Standing capacity</span><span class="vs-val">Up to 350 guests</span></div>
+      <div class="vs-row"><span class="vs-label">Seated capacity</span><span class="vs-val">Up to 180 for dining</span></div>
+      <div class="vs-row"><span class="vs-label">Architecture</span><span class="vs-val">Victorian industrial warehouse — raw brick, steel beams</span></div>
+      <div class="vs-row"><span class="vs-label">Sound system</span><span class="vs-val">Full professional PA and speaker system</span></div>
+      <div class="vs-row"><span class="vs-label">Lighting</span><span class="vs-val">Programmable lighting rig — fully customisable</span></div>
+      <div class="vs-row"><span class="vs-label">AV facilities</span><span class="vs-val">Projector, screen and AV inputs</span></div>
+      <div class="vs-row"><span class="vs-label">Bar</span><span class="vs-val">Full in-house bar — packages available</span></div>
+      <div class="vs-row"><span class="vs-label">Catering</span><span class="vs-val">In-house and approved external caterers</span></div>
+      <div class="vs-row"><span class="vs-label">Wedding licence</span><span class="vs-val">Licensed for civil ceremonies</span></div>
+      <div class="vs-row"><span class="vs-label">Parking</span><span class="vs-val">On-street and public car parks nearby</span></div>
+      <div class="vs-row"><span class="vs-label">Accessibility</span><span class="vs-val">Fully accessible venue</span></div>
+    </div>
+    <div style="text-align:center"><button class="btn-copper" onclick="showPage('contact')">Book a viewing or send an enquiry</button></div>
+  </div>
+</div>
+
+<!-- WEDDINGS -->
+<div class="page" id="page-weddings">
+  <div style="background:var(--steel);padding:64px 28px;text-align:center"><div class="eyebrow">Weddings at Trafalgar Warehouse</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px">An unforgettable Sheffield wedding.</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">A Sheffield wedding venue unlike any other — licensed for civil ceremonies, with a raw industrial atmosphere that creates the most unforgettable memories.</p></div>
+  <div style="max-width:900px;margin:0 auto;padding:52px 28px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;border-left:4px solid var(--copper)"><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:6px">💍 Civil ceremony &amp; reception</div><p style="font-size:14px;color:var(--muted);line-height:1.7">Trafalgar Warehouse is licensed for civil wedding ceremonies. Host your ceremony and reception in the same extraordinary space — no guest transfers, no venue changes.</p></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;border-left:4px solid var(--copper)"><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:6px">🌙 Evening reception only</div><p style="font-size:14px;color:var(--muted);line-height:1.7">Host your evening reception at Trafalgar Warehouse following your ceremony elsewhere. Up to 350 standing for your evening celebration.</p></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;border-left:4px solid var(--copper)"><div style="font-size:16px;font-weight:800;color:var(--steel);margin-bottom:6px">🍽️ Wedding breakfast &amp; reception</div><p style="font-size:14px;color:var(--muted);line-height:1.7">Seated wedding breakfast for up to 180 guests in a space that creates conversation from the moment guests walk in — followed by your evening celebration.</p></div>
+    </div>
+    <div style="background:var(--steel);border-radius:10px;padding:28px;margin-top:22px;text-align:center"><p style="color:rgba(255,255,255,.6);font-size:15px;margin-bottom:18px">Wedding packages are tailored to each couple — pricing and availability on request.</p><button class="btn-copper" onclick="showPage('contact')">Send a wedding enquiry →</button></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Get in touch</div><h1>Send an events enquiry</h1><p>Tell us about your event — we'll come back with availability, pricing and everything you need.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Events enquiry</h2><div class="form-sub">We aim to respond to all enquiries within 24 hours.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="f-group"><label>Type of event</label><select><option>Wedding — ceremony &amp; reception</option><option>Wedding — evening reception only</option><option>Birthday / celebration party</option><option>Corporate event / conference</option><option>Prom / graduation ball</option><option>Christmas party</option><option>Private dining</option><option>Live event / performance</option><option>Other</option></select></div>
+      <div class="f-row"><div class="f-group"><label>Approximate date</label><input type="text" placeholder="e.g. August 2027"></div><div class="f-group"><label>Number of guests</label><input type="text" placeholder="e.g. 150"></div></div>
+      <div class="f-group"><label>Message</label><textarea placeholder="Any details about your event, requirements or questions..."></textarea></div>
+      <button class="f-submit">Send enquiry →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block hl"><div class="ibl">Phone</div><div class="ibv"><a href="tel:01142766950">0114 276 6950</a></div><div class="ibs">Sheffield city centre S1</div></div>
+      <div class="info-block"><div class="ibl">Email</div><div class="ibv" style="font-size:14px"><a href="mailto:events@trafalgarwarehouse.co.uk">events@trafalgarwarehouse.co.uk</a></div></div>
+      <div class="info-block"><div class="ibl">Address</div><div class="ibv">Trafalgar Street</div><div class="ibs">Sheffield S1 4JH · Cultural Industries Quarter</div></div>
+      <div class="info-block"><div class="ibl">Capacity</div><div class="ibv">350 standing · 180 seated</div><div class="ibs">Flexible floor plan for all event types</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">Trafalgar Warehouse</div><div style="font-size:12px">Trafalgar Street · Sheffield S1 4JH · Industrial event venue</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('events')">Events</a><a href="#" onclick="showPage('venue')">The Venue</a><a href="#" onclick="showPage('weddings')">Weddings</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Events</div><a href="#" onclick="showPage('weddings')">Weddings</a><a href="#" onclick="showPage('events')">Parties</a><a href="#" onclick="showPage('events')">Corporate</a><a href="#" onclick="showPage('events')">Proms</a><a href="#" onclick="showPage('events')">Christmas parties</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:01142766950">📞 0114 276 6950</a><a href="mailto:events@trafalgarwarehouse.co.uk">✉ events@...</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Trafalgar Warehouse · Trafalgar Street · Sheffield S1 4JH</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}</script>
+</body>
+</html>

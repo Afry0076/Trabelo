@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Millhouses Accountancy | Sheffield Accountants · Nottingham · London</title>
+<meta name="description" content="Millhouses Accountancy — modern, forward-thinking accountants in Sheffield S7, Nottingham and London. Fixed-fee packages, Xero certified, small business specialists. Call 0114 345 0960.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0f1d35;--blue:#1d4ed8;--blue-pale:#eff6ff;--slate:#1e293b;--cream:#fafaf8;--warm:#f4f1ee;--text:#1a1a1a;--muted:#5f6b74;--border:#e0e6ec;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-blue{display:inline-block;background:var(--blue);color:#fff;padding:13px 26px;border-radius:var(--radius);font-weight:700;font-size:14px;transition:opacity .2s;cursor:pointer;border:none}
+.btn-blue:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:13px 26px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.3);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.08)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--navy);color:rgba(255,255,255,.7);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.88);font-weight:500}
+.topbar-badge{background:var(--blue);border-radius:3px;padding:2px 9px;font-size:11px;font-weight:700;color:#fff}
+nav{background:#fff;border-bottom:3px solid var(--blue);position:sticky;top:0;z-index:200;box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:44px;height:44px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#93c5fd;flex-shrink:0;text-align:center;line-height:1.2}
+.nav-name{font-size:17px;font-weight:800;color:var(--navy);line-height:1.2}
+.nav-sub{font-size:10px;color:var(--blue);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 14px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--navy)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:3px;background:var(--blue);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--blue);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--navy);padding:84px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(29,78,216,.18) 0%,transparent 70%)}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,78,216,.2);border:1px solid rgba(29,78,216,.4);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#93c5fd;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-size:46px;font-weight:900;line-height:1.07;letter-spacing:-2px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#93c5fd}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.78;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);padding-top:28px}
+.hero-stat{text-align:center;padding:0 12px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:24px;font-weight:900;color:#93c5fd}
+.stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+.hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px}
+.hc-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
+.hc-services{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.hc-svc{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:9px 13px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-tel{background:var(--blue);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.hc-tel-label{font-size:10px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
+.hc-tel-num{font-size:18px;font-weight:900;color:#fff;line-height:1}
+
+.trust-strip{background:var(--blue);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:13px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.22);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'✓';font-size:15px}
+
+.section{padding:72px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--navy)}
+
+.svcs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer}
+.svc-card:hover{transform:translateY(-3px);border-color:var(--blue)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue)}
+.svc-icon{width:50px;height:50px;background:var(--blue-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:16px}
+.svc-name{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:7px}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.svc-more{font-size:12px;font-weight:700;color:var(--blue);margin-top:12px}
+
+.packages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.pkg{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;text-align:center;transition:border-color .2s}
+.pkg:hover{border-color:var(--blue)}
+.pkg.featured{border:2px solid var(--blue);background:var(--blue-pale)}
+.pkg-name{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.pkg-price{font-size:28px;font-weight:900;color:var(--blue);margin-bottom:4px}
+.pkg-period{font-size:12px;color:var(--muted);margin-bottom:16px}
+.pkg-features{list-style:none;display:flex;flex-direction:column;gap:6px;text-align:left}
+.pkg-features li{font-size:13px;color:var(--muted);display:flex;gap:7px;align-items:flex-start}
+.pkg-features li::before{content:'✓';color:var(--blue);font-weight:900;flex-shrink:0}
+
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+.why-items{display:flex;flex-direction:column}
+.why-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border)}
+.why-item:last-child{border-bottom:none}
+.why-num{width:36px;height:36px;background:var(--navy);color:#93c5fd;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;margin-top:2px}
+.why-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.why-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.offices-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:28px}
+.office-row{padding:14px 0;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start}
+.office-row:last-child{border-bottom:none}
+.office-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.office-city{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.office-addr{font-size:13px;color:var(--muted);line-height:1.5}
+.office-tel{font-size:13px;font-weight:600;color:var(--blue);margin-top:3px}
+
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev-card{background:#fff;border-radius:12px;padding:24px;border:1px solid var(--border)}
+.rev-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:14px;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:12px;padding-left:14px;border-left:3px solid var(--blue-pale)}
+.rev-author{font-size:13px;font-weight:700;color:var(--navy)}
+.rev-company{font-size:12px;color:var(--muted);margin-top:2px}
+
+.contact-hero{background:var(--navy);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--navy);border-radius:14px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:#93c5fd}
+.f-group select{background-color:var(--navy)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:var(--blue);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.info-block.highlight{background:var(--blue);border-color:transparent}
+.info-block-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:7px}
+.info-block.highlight .info-block-label{color:rgba(255,255,255,.7)}
+.info-block-val{font-size:16px;font-weight:700;color:var(--navy)}
+.info-block.highlight .info-block-val{color:#fff}
+.info-block-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.info-block.highlight .info-block-sub{color:rgba(255,255,255,.6)}
+.info-block-val a{color:var(--navy)}.info-block.highlight .info-block-val a{color:#fff}
+
+footer{background:#060e1a;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.3);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="tel:01143450960">📞 Sheffield: 0114 345 0960</a>
+    <a href="tel:02031464808">📞 London: 0203 146 4808</a>
+    <a href="mailto:info@millhouses-accountancy.co.uk">✉ info@millhouses-accountancy.co.uk</a>
+  </div>
+  <span class="topbar-badge">Xero Certified · Fixed-fee packages</span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">MA</div>
+      <div><div class="nav-name">Millhouses Accountancy</div><div class="nav-sub">Sheffield · Nottingham · London</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-services" onclick="showPage('services')">Services</button>
+      <button class="nav-link" id="nav-packages" onclick="showPage('packages')">Packages</button>
+      <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Get in touch</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">📊 Sheffield · Nottingham · London · Xero Certified</div>
+        <h1>Accountancy that works <span class="accent">as hard as you do.</span></h1>
+        <p class="hero-sub">Millhouses Accountancy provides bookkeeping, accounting and taxation services to small and medium-sized businesses across Sheffield, South Yorkshire and beyond. Plain English. Fixed fees. No nasty surprises.</p>
+        <div class="hero-btns">
+          <button class="btn-blue" onclick="showPage('contact')">Get in touch</button>
+          <button class="btn-outline-w" onclick="showPage('packages')">See our packages</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">3</div><div class="stat-l">UK offices</div></div>
+          <div class="hero-stat"><div class="stat-n">£35/hr</div><div class="stat-l">bookkeeping rate</div></div>
+          <div class="hero-stat"><div class="stat-n">24hr</div><div class="stat-l">response guaranteed</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-title">Our core services</div>
+        <div class="hc-services">
+          <div class="hc-svc"><span style="font-size:15px;width:20px;text-align:center">📚</span>Bookkeeping &amp; VAT returns</div>
+          <div class="hc-svc"><span style="font-size:15px;width:20px;text-align:center">📋</span>Year end accounts</div>
+          <div class="hc-svc"><span style="font-size:15px;width:20px;text-align:center">💰</span>Self assessment tax returns</div>
+          <div class="hc-svc"><span style="font-size:15px;width:20px;text-align:center">👥</span>Payroll services</div>
+          <div class="hc-svc"><span style="font-size:15px;width:20px;text-align:center">🏢</span>Company formation</div>
+          <div class="hc-svc"><span style="font-size:15px;width:20px;text-align:center">📊</span>Xero training &amp; advisory</div>
+        </div>
+        <a href="tel:01143450960" class="hc-tel" style="display:flex;border-radius:var(--radius)">
+          <span style="font-size:22px;margin-right:4px">📞</span>
+          <div><div class="hc-tel-label">Sheffield office</div><div class="hc-tel-num">0114 345 0960</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">Xero certified advisor</span>
+      <span class="trust-item">Fixed-fee monthly packages</span>
+      <span class="trust-item">24-hour response guarantee</span>
+      <span class="trust-item">No charge for calls or emails</span>
+      <span class="trust-item">Out-of-hours meetings available</span>
+      <span class="trust-item">CIS &amp; trades specialists</span>
+    </div>
+  </div>
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">What we do</div>
+      <div class="section-title">Every accounting service your business needs</div>
+      <p class="section-intro">From start-up bookkeeping to complex company accounts — Millhouses Accountancy covers the full range of accounting and taxation services for small and medium businesses.</p>
+      <div class="svcs-grid">
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">📚</div><div class="svc-name">Bookkeeping</div><div class="svc-desc">Accurate day-to-day bookkeeping, bank reconciliation and financial records — keeping you MTD compliant.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">💼</div><div class="svc-name">Year end accounts</div><div class="svc-desc">Full year end accounts preparation and submission to HMRC and Companies House on time, every time.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">📊</div><div class="svc-name">VAT returns</div><div class="svc-desc">VAT return preparation, submission and advice — including Making Tax Digital compliance.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">💰</div><div class="svc-name">Self assessment</div><div class="svc-desc">Self assessment tax returns for sole traders, landlords, directors and individuals — stress-free and on time.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">👥</div><div class="svc-name">Payroll</div><div class="svc-desc">Full payroll management, RTI submissions, PAYE compliance and CIS returns for construction businesses.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">📊</div><div class="svc-name">Xero training</div><div class="svc-desc">One-to-one and group Xero training — from introduction to advanced features. Certified Xero advisor.</div><div class="svc-more">Learn more →</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <div class="eyebrow">Why choose Millhouses</div>
+          <div class="section-title">Accountancy in plain English. No surprises.</div>
+          <p class="section-intro" style="margin-bottom:0">Jason Scholey has run Millhouses Accountancy since 2011 — and the philosophy has never changed: put the client first, be easy to reach, and never charge for things you haven't done.</p>
+          <div class="why-items">
+            <div class="why-item"><div class="why-num">01</div><div><div class="why-title">Fixed fees — no nasty surprises</div><div class="why-desc">Our monthly packages cover everything. No charges for calls, emails or quick questions — ever.</div></div></div>
+            <div class="why-item"><div class="why-num">02</div><div><div class="why-title">24-hour response guaranteed</div><div class="why-desc">We respond to every email and call within 24 hours — usually the same day. That's a promise, not a target.</div></div></div>
+            <div class="why-item"><div class="why-num">03</div><div><div class="why-title">Out-of-hours meetings available</div><div class="why-desc">We meet at times that suit you — including evenings and weekends if that's what your business needs.</div></div></div>
+            <div class="why-item"><div class="why-num">04</div><div><div class="why-title">Xero certified advisor</div><div class="why-desc">We're a certified Xero advisor — so we can set you up, train you, and manage your books all in one place.</div></div></div>
+          </div>
+        </div>
+        <div class="offices-card">
+          <div class="eyebrow" style="margin-bottom:16px">Our offices</div>
+          <div class="office-row"><div class="office-icon">📍</div><div><div class="office-city">Sheffield (Head Office)</div><div class="office-addr">Millhouses Business Centre<br>2-4 Abbeydale Road South, S7 2QN</div><div class="office-tel"><a href="tel:01143450960">0114 345 0960</a></div></div></div>
+          <div class="office-row"><div class="office-icon">📍</div><div><div class="office-city">Nottingham</div><div class="office-addr">Gothic House, Barker Gate<br>The Lace Market, NG1 1JU</div><div class="office-tel"><a href="tel:01158820356">0115 882 0356</a></div></div></div>
+          <div class="office-row"><div class="office-icon">📍</div><div><div class="office-city">London</div><div class="office-addr">Level 30, The Leadenhall Building<br>122 Leadenhall Street, EC3V 1LR</div><div class="office-tel"><a href="tel:02031464808">0203 146 4808</a></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-dark">
+    <div class="container">
+      <div class="eyebrow">Testimonials</div>
+      <div class="section-title" style="color:#fff">What our clients say</div>
+      <div class="reviews-grid">
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Jason is always punctual and I have found him to be a tidy, fastidious worker. I have no hesitation in recommending him to whoever may be seeking his services."</div><div class="rev-author">Roger Unwin</div><div class="rev-company">RS Heating and Building Company · Sheffield</div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"I have always found Jason to be diligent, efficient, knowledgeable, and most importantly, always available on the phone when I need him. He genuinely cares about his customers."</div><div class="rev-author">Chris Day</div><div class="rev-company">360 Virtual View</div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Millhouses Accountancy took the stress out of our year end and have kept our books in perfect order. Fixed monthly fee means we always know what we're paying — no surprises."</div><div class="rev-author">Sheffield SME client</div><div class="rev-company">Google Reviews</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-warm" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Get started</div>
+    <div class="section-title" style="text-align:center;margin:0 auto 12px">Ready to simplify your accounts?</div>
+    <p style="color:var(--muted);font-size:16px;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto">Call our Sheffield office or send us a message — we'll discuss your needs and recommend the right package or service.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-blue" onclick="showPage('contact')">Get in touch</button>
+      <a href="tel:01143450960" class="btn-outline-w" style="background:var(--blue);border-color:var(--blue);color:#fff">📞 0114 345 0960</a>
+    </div>
+  </section>
+</div>
+
+<!-- SERVICES PAGE -->
+<div class="page" id="page-services">
+  <div style="background:var(--navy);padding:60px 28px;text-align:center"><div class="eyebrow">Our services</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Accounting services for small businesses</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto">Everything from bookkeeping and payroll to company formation and Xero training — handled by our team across Sheffield, Nottingham and London.</p></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto">
+    <div class="sd" style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--blue)"><div style="width:48px;height:48px;background:var(--blue-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px">📚</div><div style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px">Bookkeeping</div><div style="font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:10px">Accurate, up-to-date bookkeeping so you always know where you stand financially. £35+VAT/hr, minimum £175+VAT per quarter.</div><ul style="list-style:none;display:flex;flex-direction:column;gap:5px"><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Bank reconciliation</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Sales &amp; purchase ledgers</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>MTD compliant</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Xero, QuickBooks, Sage</li></ul></div>
+    <div class="sd" style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--blue)"><div style="width:48px;height:48px;background:var(--blue-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px">💼</div><div style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px">Year end accounts</div><div style="font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:10px">Full preparation and submission of annual accounts to HMRC and Companies House. Sole traders, partnerships and limited companies.</div><ul style="list-style:none;display:flex;flex-direction:column;gap:5px"><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Sole trader &amp; partnerships</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Limited company accounts</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Abbreviated accounts option</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Electronic filing</li></ul></div>
+    <div class="sd" style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--blue)"><div style="width:48px;height:48px;background:var(--blue-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px">💰</div><div style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px">Self assessment tax returns</div><div style="font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:10px">Personal tax returns for sole traders, directors, landlords and individuals — filed accurately and on time.</div><ul style="list-style:none;display:flex;flex-direction:column;gap:5px"><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Sole traders &amp; self-employed</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Directors &amp; shareholders</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Landlords &amp; rental income</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Capital gains</li></ul></div>
+    <div class="sd" style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--blue)"><div style="width:48px;height:48px;background:var(--blue-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px">👥</div><div style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px">Payroll &amp; CIS</div><div style="font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:10px">Full payroll management including RTI, PAYE, pension enrolment and CIS returns for construction businesses.</div><ul style="list-style:none;display:flex;flex-direction:column;gap:5px"><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Payslips &amp; RTI submissions</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Pension auto-enrolment</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>CIS for trades businesses</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>HMRC compliance</li></ul></div>
+    <div class="sd" style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--blue)"><div style="width:48px;height:48px;background:var(--blue-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px">🏢</div><div style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px">Company formation</div><div style="font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:10px">Full company formation and secretarial services — including advice on the most tax-efficient structure for your business.</div><ul style="list-style:none;display:flex;flex-direction:column;gap:5px"><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Limited company formation</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Sole trader registration</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Tax structure advice</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Statutory filings</li></ul></div>
+    <div class="sd" style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--blue)"><div style="width:48px;height:48px;background:var(--blue-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px">📊</div><div style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px">Xero training &amp; advisory</div><div style="font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:10px">One-to-one and group Xero training courses from our certified Xero advisor — introduction through to advanced features.</div><ul style="list-style:none;display:flex;flex-direction:column;gap:5px"><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Introduction to Xero</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Advanced features</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Payroll &amp; expenses</li><li style="font-size:13px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue);font-weight:900">✓</span>Group training available</li></ul></div>
+  </div>
+  <div style="background:var(--navy);padding:52px 28px;text-align:center"><h2 style="font-size:26px;font-weight:800;color:#fff;margin-bottom:10px">Not sure which service you need?</h2><p style="color:rgba(255,255,255,.55);font-size:15px;margin-bottom:24px">Call Jason on 0114 345 0960 and we'll work out the right solution for your business.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn-blue" onclick="showPage('contact')">Get in touch</button><a href="tel:01143450960" class="btn-outline-w">📞 0114 345 0960</a></div></div>
+</div>
+
+<!-- PACKAGES PAGE -->
+<div class="page" id="page-packages">
+  <div style="background:var(--navy);padding:60px 28px;text-align:center"><div class="eyebrow">Fixed-fee packages</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">One monthly fee. No surprises.</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Our fixed-fee monthly packages cover everything your business needs — bookkeeping, accounts, payroll, tax and more, for one agreed monthly cost.</p></div>
+  <div style="padding:52px 28px;max-width:1100px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:40px"><div class="eyebrow">Choose your package</div><div class="section-title" style="text-align:center">Simple, transparent pricing</div><p style="font-size:15px;color:var(--muted);max-width:560px;margin:0 auto">All packages include unlimited support, no charges for calls or emails, and a dedicated accountant. Prices below are a guide — we tailor every package to your specific business needs.</p></div>
+    <div class="packages-grid">
+      <div class="pkg"><div class="pkg-name">Starter</div><div class="pkg-price">From £75</div><div class="pkg-period">+VAT per month</div><ul class="pkg-features"><li>Self assessment tax return</li><li>Bookkeeping review</li><li>Basic tax advice</li><li>Email support</li></ul></div>
+      <div class="pkg featured"><div class="pkg-name">Small Business</div><div class="pkg-price">From £150</div><div class="pkg-period">+VAT per month</div><ul class="pkg-features"><li>Year end accounts</li><li>Bookkeeping &amp; VAT returns</li><li>Self assessment</li><li>Payroll (up to 5 employees)</li><li>Unlimited support</li></ul></div>
+      <div class="pkg"><div class="pkg-name">Business Plus</div><div class="pkg-price">From £250</div><div class="pkg-period">+VAT per month</div><ul class="pkg-features"><li>Everything in Small Business</li><li>Management accounts</li><li>Virtual FD advisory</li><li>Larger payroll</li><li>Priority response</li></ul></div>
+    </div>
+    <div style="background:var(--blue-pale);border:1.5px solid var(--blue);border-radius:12px;padding:28px;margin-top:28px;text-align:center"><div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:8px">All packages include:</div><div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:8px"><span style="font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center"><span style="color:var(--blue);font-weight:900">✓</span>No charges for calls or emails</span><span style="font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center"><span style="color:var(--blue);font-weight:900">✓</span>24-hour response guarantee</span><span style="font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center"><span style="color:var(--blue);font-weight:900">✓</span>Out-of-hours meetings</span><span style="font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center"><span style="color:var(--blue);font-weight:900">✓</span>Xero setup &amp; support</span></div></div>
+    <div style="text-align:center;margin-top:32px"><button class="btn-blue" onclick="showPage('contact')">Get a tailored quote →</button></div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div style="background:var(--navy);padding:60px 28px;text-align:center"><div class="eyebrow">About us</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Modern accountancy for modern businesses</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Millhouses Accountancy has been run by Jason Scholey since 2011 — with a simple philosophy: great service, transparent pricing, and no jargon.</p></div>
+  <div style="max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div><div class="eyebrow">Our story</div><div class="section-title">Plain English accountancy since 2011</div><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">Millhouses Accountancy was founded by Jason Scholey in Sheffield in 2011. Since then, the business has grown to operate from offices in Sheffield, Nottingham and London — whilst maintaining the personal, responsive service that characterises everything we do.</p><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">We're a Xero certified advisor, a member of the Barnsley &amp; Rotherham Chamber of Commerce, and we're registered with HMRC. All our work is carried out to the highest professional standards.</p><p style="font-size:15px;color:var(--muted);line-height:1.8">Whether you're a start-up, a sole trader, a small limited company or an established SME — we have a package or service that works for you. And you'll always deal with the same person, not a different team member every time you call.</p></div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="background:var(--blue-pale);border:2px solid var(--blue);border-radius:12px;padding:22px"><div class="eyebrow" style="margin-bottom:8px">Our director</div><div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:4px">Jason Scholey</div><div style="font-size:13px;color:var(--blue);font-weight:700;margin-bottom:10px">Managing Director &amp; Founder</div><div style="font-size:14px;color:var(--muted);line-height:1.7">"We only charge for the work we do. We don't charge for responding to emails and telephone calls. Our philosophy is to put the client first and provide a professional service for a reasonable fee."</div></div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px"><div class="info-block-label" style="color:var(--blue);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Accreditations</div><div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;color:var(--navy);font-weight:600;display:flex;gap:7px"><span style="color:var(--blue)">✓</span>Xero Certified Advisor</div><div style="font-size:13px;color:var(--navy);font-weight:600;display:flex;gap:7px"><span style="color:var(--blue)">✓</span>Barnsley &amp; Rotherham Chamber of Commerce</div><div style="font-size:13px;color:var(--navy);font-weight:600;display:flex;gap:7px"><span style="color:var(--blue)">✓</span>HMRC registered</div><div style="font-size:13px;color:var(--navy);font-weight:600;display:flex;gap:7px"><span style="color:var(--blue)">✓</span>Registered in England &amp; Wales (Co. No. 07870715)</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Get in touch</div><h1>Contact Millhouses Accountancy</h1><p>Call our Sheffield office, email us, or use the form below — we respond within 24 hours, usually the same day.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Send us a message</h2><div class="form-sub">Tell us about your business and what you need — we'll get back to you promptly.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Business name</label><input type="text" placeholder="Your company name"></div>
+      <div class="f-group"><label>What do you need?</label><select><option>Bookkeeping</option><option>Year end accounts</option><option>Self assessment</option><option>VAT returns</option><option>Payroll / CIS</option><option>Company formation</option><option>Xero training</option><option>Fixed-fee package</option><option>Not sure — please advise</option></select></div>
+      <div class="f-group"><label>Tell us more</label><textarea placeholder="Brief details about your business and what you're looking for..."></textarea></div>
+      <button class="f-submit">Send message →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block highlight"><div class="info-block-label">Sheffield office</div><div class="info-block-val"><a href="tel:01143450960">0114 345 0960</a></div><div class="info-block-sub">Millhouses Business Centre, S7 2QN</div></div>
+      <div class="info-block"><div class="info-block-label">Mobile</div><div class="info-block-val"><a href="tel:07450989048">07450 989048</a></div></div>
+      <div class="info-block"><div class="info-block-label">Email</div><div class="info-block-val" style="font-size:14px"><a href="mailto:info@millhouses-accountancy.co.uk">info@millhouses-accountancy.co.uk</a></div></div>
+      <div class="info-block"><div class="info-block-label">Nottingham</div><div class="info-block-val" style="font-size:14px"><a href="tel:01158820356">0115 882 0356</a></div><div class="info-block-sub">Gothic House, Barker Gate, NG1 1JU</div></div>
+      <div class="info-block"><div class="info-block-label">London</div><div class="info-block-val" style="font-size:14px"><a href="tel:02031464808">0203 146 4808</a></div><div class="info-block-sub">The Leadenhall Building, EC3V 1LR</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">Millhouses Accountancy Ltd</div><div style="font-size:12px">Sheffield · Nottingham · London · Co. No. 07870715 · VAT 156 8545 75</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('services')">Services</a><a href="#" onclick="showPage('packages')">Packages</a><a href="#" onclick="showPage('about')">About</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Services</div><a href="#" onclick="showPage('services')">Bookkeeping</a><a href="#" onclick="showPage('services')">Year end accounts</a><a href="#" onclick="showPage('services')">Self assessment</a><a href="#" onclick="showPage('services')">Payroll &amp; CIS</a><a href="#" onclick="showPage('services')">Xero training</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:01143450960">📞 0114 345 0960 (Sheffield)</a><a href="tel:02031464808">📞 0203 146 4808 (London)</a><a href="mailto:info@millhouses-accountancy.co.uk">✉ info@millhouses-accountancy.co.uk</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Millhouses Accountancy Ltd · Registered in England &amp; Wales</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+</body>
+</html>

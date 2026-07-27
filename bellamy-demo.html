@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bellamy Builders | Extensions, Conversions & Renovations · Barnsley & South Yorkshire</title>
+<meta name="description" content="Bellamy Builders — 40+ years of quality building work across Barnsley and South Yorkshire. Extensions, garage conversions, loft conversions, renovations and new builds. Free quotes. Fully insured. Call today.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--brick:#8b3a1a;--brick-pale:#fdf5f2;--orange:#c04a1f;--dark:#1a1008;--charcoal:#201408;--cream:#faf9f6;--warm:#f5f0eb;--text:#1a1208;--muted:#6b5c4e;--border:#e0d5c8;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-brick{display:inline-block;background:var(--brick);color:#fff;padding:13px 28px;border-radius:var(--radius);font-weight:700;font-size:14px;transition:opacity .2s;cursor:pointer;border:none}
+.btn-brick:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:13px 28px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.32);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.08)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--brick);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.82;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--dark);color:rgba(255,255,255,.7);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.9);font-weight:500}
+.topbar-badge{background:var(--brick);border-radius:3px;padding:2px 9px;font-size:11px;font-weight:700;color:#fff}
+nav{background:#fff;border-bottom:3px solid var(--brick);position:sticky;top:0;z-index:200;box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:46px;height:46px;background:var(--dark);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#f5a07a;flex-shrink:0;text-align:center;line-height:1.3}
+.nav-name{font-size:17px;font-weight:800;color:var(--dark);line-height:1.2}
+.nav-sub{font-size:10px;color:var(--brick);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 13px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--dark)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:13px;right:13px;height:3px;background:var(--brick);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--brick);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--dark);padding:88px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(139,58,26,.14) 0%,transparent 65%)}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(139,58,26,.2);border:1px solid rgba(139,58,26,.4);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#f5a07a;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-size:46px;font-weight:900;line-height:1.07;letter-spacing:-2px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#f5a07a}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);padding-top:26px}
+.hero-stat{text-align:center;padding:0 10px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:24px;font-weight:900;color:#f5a07a}
+.stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+.hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:26px}
+.hc-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
+.hc-svcs{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.hc-s{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:9px 12px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-tel{background:var(--brick);border-radius:8px;padding:13px 16px;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.hc-tel-label{font-size:10px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:1px}
+.hc-tel-val{font-size:17px;font-weight:900;color:#fff;line-height:1}
+.hc-free{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:9px 13px;font-size:12px;color:rgba(255,255,255,.7);text-align:center}
+
+.trust-strip{background:var(--brick);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:12px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.22);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'✓'}
+
+.section{padding:72px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--dark)}
+
+.svcs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer}
+.svc-card:hover{transform:translateY(-3px);border-color:var(--brick)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brick),var(--orange))}
+.svc-icon{width:50px;height:50px;background:var(--brick-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.svc-name{font-size:16px;font-weight:800;color:var(--dark);margin-bottom:6px}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.svc-more{font-size:12px;font-weight:700;color:var(--brick);margin-top:10px}
+
+.promise-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:768px){.promise-grid{grid-template-columns:1fr}}
+.promises{display:flex;flex-direction:column}
+.promise-item{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--border)}
+.promise-item:last-child{border-bottom:none}
+.pnum{width:36px;height:36px;background:var(--dark);color:#f5a07a;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0;margin-top:2px}
+.promise-title{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.promise-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.creds-card{background:var(--dark);border-radius:14px;padding:28px;color:#fff}
+.cc-title{font-size:14px;font-weight:800;color:#f5a07a;margin-bottom:14px}
+.cc-item{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;font-size:14px;color:rgba(255,255,255,.72);line-height:1.5}
+.cc-item::before{content:'✓';color:#f5a07a;font-weight:900;flex-shrink:0}
+.cc-yrs{font-size:44px;font-weight:900;color:#f5a07a;line-height:1;margin-bottom:4px}
+.cc-yrs-label{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:20px}
+
+.svc-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto}
+@media(max-width:700px){.svc-detail-grid{grid-template-columns:1fr}}
+.sd{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--brick)}
+.sd-icon{width:46px;height:46px;background:var(--brick-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:13px}
+.sd-name{font-size:16px;font-weight:800;color:var(--dark);margin-bottom:7px}
+.sd-desc{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:12px}
+.sd-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sd-list li{font-size:13px;color:var(--text);display:flex;gap:7px}
+.sd-list li::before{content:'✓';color:var(--brick);font-weight:900;flex-shrink:0}
+
+.contact-hero{background:var(--dark);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--charcoal);border-radius:14px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--brick)}
+.f-group select{background-color:var(--charcoal)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:var(--brick);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.info-block.hl{background:var(--brick);border-color:transparent}
+.ibl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brick);margin-bottom:7px}
+.hl .ibl{color:rgba(255,255,255,.65)}
+.ibv{font-size:16px;font-weight:700;color:var(--dark)}
+.hl .ibv{color:#fff}
+.ibs{font-size:13px;color:var(--muted);margin-top:3px}
+.hl .ibs{color:rgba(255,255,255,.6)}
+.ibv a{color:var(--dark)}.hl .ibv a{color:#fff}
+
+footer{background:#0a0804;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.35);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:18px;flex-wrap:wrap">
+    <a href="tel:01226123456">📞 01226 [contact for number]</a>
+    <span>📍 Barnsley · Covering all of South Yorkshire</span>
+  </div>
+  <span class="topbar-badge">40+ years in the trade · Free quotes</span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">BB</div>
+      <div><div class="nav-name">Bellamy Builders</div><div class="nav-sub">Barnsley · Est. 40+ years</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-services" onclick="showPage('services')">Services</button>
+      <button class="nav-link" id="nav-projects" onclick="showPage('projects')">Projects</button>
+      <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Free quote</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">🏗️ 40+ years in the trade · Barnsley & South Yorkshire</div>
+        <h1>Built right.<br>Built to <span class="accent">last.</span></h1>
+        <p class="hero-sub">Bellamy Builders has been delivering quality building work across Barnsley and South Yorkshire for over 40 years. Extensions, conversions, renovations and new builds — done properly, with proper tradespeople.</p>
+        <div class="hero-btns">
+          <button class="btn-brick" onclick="showPage('contact')">Get a free quote</button>
+          <button class="btn-outline-w" onclick="showPage('services')">Our services</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">40+</div><div class="stat-l">years in the trade</div></div>
+          <div class="hero-stat"><div class="stat-n">Free</div><div class="stat-l">quotes every time</div></div>
+          <div class="hero-stat"><div class="stat-n">All S. Yorks</div><div class="stat-l">covered</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-title">Our services</div>
+        <div class="hc-svcs">
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">🏠</span>House extensions — single & double storey</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">🚗</span>Garage conversions</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">🔝</span>Loft conversions</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">🔨</span>Renovations & refurbishments</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">🧱</span>New builds & groundworks</div>
+        </div>
+        <div class="hc-tel" style="display:flex;border-radius:var(--radius)">
+          <span style="font-size:20px;margin-right:6px">📞</span>
+          <div><div class="hc-tel-label">Call for a free quote</div><div class="hc-tel-val">Bellamy Builders</div></div>
+        </div>
+        <div class="hc-free">Free quotes · No obligation · All South Yorkshire</div>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">40+ years in the trade</span>
+      <span class="trust-item">Free quotes</span>
+      <span class="trust-item">Fully insured</span>
+      <span class="trust-item">Local to Barnsley</span>
+      <span class="trust-item">All South Yorkshire covered</span>
+      <span class="trust-item">No obligation</span>
+    </div>
+  </div>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">What we do</div>
+      <div class="section-title">Quality building work across South Yorkshire</div>
+      <p class="section-intro">From single-storey kitchen extensions to full loft conversions — Bellamy Builders has been doing this for over 40 years, and the quality shows in every job.</p>
+      <div class="svcs-grid">
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">🏠</div><div class="svc-name">House extensions</div><div class="svc-desc">Single storey, double storey, wrap-arounds, orangeries and garden rooms. The right design for your home and budget.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">🚗</div><div class="svc-name">Garage conversions</div><div class="svc-desc">Transform your unused garage into a bedroom, home office, playroom or gym. One of the highest-value home improvements available.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">🔝</div><div class="svc-name">Loft conversions</div><div class="svc-desc">Dormer, hip-to-gable, Velux and mansard conversions — creating a new bedroom, bathroom or home office without losing garden space.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">🔨</div><div class="svc-name">Renovations</div><div class="svc-desc">Full property renovations, kitchen and bathroom refits, internal reconfigurations and period property restoration.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">🧱</div><div class="svc-name">New builds & groundworks</div><div class="svc-desc">New build homes, outbuildings, driveways, patios and groundworks. Full project management from foundations to finish.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('contact')"><div class="svc-icon">📋</div><div class="svc-name">Free quote</div><div class="svc-desc">Tell us about your project and we'll arrange a free, no-obligation site visit and quote. No pressure, no hard sell.</div><div class="svc-more">Get a quote →</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="promise-grid">
+        <div>
+          <div class="eyebrow">Why Bellamy Builders</div>
+          <div class="section-title">40 years. Proper tradespeople. No shortcuts.</div>
+          <p class="section-intro" style="margin-bottom:0">We're a Barnsley building company that's been doing this since before most of our competitors were born — and we'll still be here when a job needs a revisit.</p>
+          <div class="promises">
+            <div class="promise-item"><div class="pnum">01</div><div><div class="promise-title">40+ years of experience</div><div class="promise-desc">Four decades of building work across South Yorkshire. We've seen every challenge and know how to handle it properly — not the cheap way.</div></div></div>
+            <div class="promise-item"><div class="pnum">02</div><div><div class="promise-title">Proper tradespeople on every job</div><div class="promise-desc">No cutting corners, no subcontracting to whoever's cheap that week. Our team are experienced, reliable tradespeople who take pride in their work.</div></div></div>
+            <div class="promise-item"><div class="pnum">03</div><div><div class="promise-title">Free, honest quotes</div><div class="promise-desc">We come and look at the job properly before we quote. No ballpark figures over the phone — a proper price for a proper job.</div></div></div>
+            <div class="promise-item"><div class="pnum">04</div><div><div class="promise-title">Covering all of South Yorkshire</div><div class="promise-desc">Based in Barnsley but covering Sheffield, Rotherham, Doncaster and the surrounding areas. If you're in South Yorkshire, we can help.</div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="creds-card">
+            <div class="cc-yrs">40+</div>
+            <div class="cc-yrs-label">years building in South Yorkshire</div>
+            <div class="cc-title">What you can count on</div>
+            <div class="cc-item">Free site visit and honest written quote</div>
+            <div class="cc-item">Fully insured — public liability and employers' liability</div>
+            <div class="cc-item">No upfront payments demanded before work starts</div>
+            <div class="cc-item">Proper planning advice — we know what needs permission</div>
+            <div class="cc-item">All building regulations and structural work covered</div>
+            <div class="cc-item">Tidy, respectful working — we treat your home as our own</div>
+            <div class="cc-item">Based in Barnsley · All South Yorkshire covered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Get started</div>
+    <div class="section-title" style="color:#fff;text-align:center;margin:0 auto 12px">Get your free quote</div>
+    <p style="color:rgba(255,255,255,.55);font-size:16px;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto">Tell us about your project. We'll arrange a free site visit and give you a proper written quote — no obligation.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-brick" onclick="showPage('contact')">Get a free quote</button>
+    </div>
+  </section>
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="page-services">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">Our services</div><h1 style="font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Building services across South Yorkshire</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto">From single-storey extensions to full new builds — 40+ years of experience means we've done it all, properly.</p></div>
+  <div class="svc-detail-grid">
+    <div class="sd"><div class="sd-icon">🏠</div><div class="sd-name">House extensions</div><div class="sd-desc">Extend your home to add the space you need — without the cost and upheaval of moving. Single storey, double storey and wraparound options.</div><ul class="sd-list"><li>Single storey kitchen / living extensions</li><li>Double storey extensions</li><li>Wraparound and L-shaped extensions</li><li>Garden rooms and orangeries</li><li>Planning permission advice</li></ul></div>
+    <div class="sd"><div class="sd-icon">🚗</div><div class="sd-name">Garage conversions</div><div class="sd-desc">One of the most cost-effective ways to add living space to your home. A converted garage can add significant value and usable space.</div><ul class="sd-list"><li>Home office conversion</li><li>Additional bedroom</li><li>Gym or playroom</li><li>Games room or hobby space</li><li>Generally doesn't need planning permission</li></ul></div>
+    <div class="sd"><div class="sd-icon">🔝</div><div class="sd-name">Loft conversions</div><div class="sd-desc">Add a bedroom and bathroom without losing garden space — one of the highest-return home improvements available.</div><ul class="sd-list"><li>Dormer loft conversions</li><li>Hip-to-gable conversions</li><li>Velux roof light conversions</li><li>Mansard conversions</li><li>Structural engineer coordination included</li></ul></div>
+    <div class="sd"><div class="sd-icon">🔨</div><div class="sd-name">Renovations & refurbishments</div><div class="sd-desc">Full property renovations, kitchen and bathroom refits, internal wall removal and period property restoration.</div><ul class="sd-list"><li>Full property renovation</li><li>Kitchen and bathroom refits</li><li>Internal reconfigurations</li><li>Period property restoration</li><li>Damp, structural and drainage work</li></ul></div>
+    <div class="sd"><div class="sd-icon">🧱</div><div class="sd-name">New builds</div><div class="sd-desc">New build homes, garden buildings, outbuildings and garages. Full project management from groundworks to handover.</div><ul class="sd-list"><li>Residential new builds</li><li>Garden offices and studios</li><li>Garages and outbuildings</li><li>Groundworks and foundations</li><li>Full project management</li></ul></div>
+    <div class="sd"><div class="sd-icon">🏡</div><div class="sd-name">Driveways & external works</div><div class="sd-desc">Driveways, patios, garden walls, block paving and external groundworks — the finishing touches that make the difference.</div><ul class="sd-list"><li>Block paving driveways</li><li>Patios and pathways</li><li>Garden walls and fencing</li><li>Drainage and groundworks</li></ul></div>
+  </div>
+  <div style="background:var(--dark);padding:48px 28px;text-align:center"><h2 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:10px">Free quotes for all work</h2><p style="color:rgba(255,255,255,.55);font-size:15px;margin-bottom:22px">Tell us about your project — we'll arrange a free site visit and give you a proper written quote with no pressure.</p><button class="btn-brick" onclick="showPage('contact')">Get a free quote →</button></div>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="page-projects">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">Our work</div><h1 style="font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">40+ years of projects across South Yorkshire</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Extensions, conversions, renovations and new builds — in Barnsley, Sheffield, Rotherham and beyond.</p></div>
+  <div style="padding:52px 28px;max-width:1100px;margin:0 auto;text-align:center">
+    <div style="background:var(--brick-pale);border:2px solid var(--brick);border-radius:14px;padding:40px;max-width:600px;margin:0 auto">
+      <div style="font-size:40px;margin-bottom:16px">🏗️</div>
+      <div style="font-size:18px;font-weight:800;color:var(--dark);margin-bottom:10px">View our completed projects</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:22px">Photos of our recent work — extensions, loft conversions, garage conversions and renovations across Barnsley and South Yorkshire — are available on our Facebook page and on request.</p>
+      <button class="btn-brick" onclick="showPage('contact')">Get in touch for references →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">About us</div><h1 style="font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Built on reputation. 40+ years in the trade.</div><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Bellamy Builders is a Barnsley-based building company with over 40 years of experience — built entirely on the quality of our work and the recommendations of satisfied customers.</p></div>
+  <div style="max-width:900px;margin:0 auto;padding:52px 28px"><div class="eyebrow">Our story</div><div class="section-title">Proper builders. Honest prices. No nonsense.</div><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">Bellamy Builders has been trading in Barnsley and across South Yorkshire for over 40 years. In an industry where companies come and go, that kind of longevity means something — it means we've built our reputation one job at a time, and we're still here because we do it properly.</p><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">We specialise in house extensions, garage conversions, loft conversions and renovations for homeowners across Barnsley, Sheffield, Rotherham and Doncaster. Every job gets a proper free quote after a site visit — not a ballpark figure over the phone — and every job is done by experienced tradespeople who take pride in their work.</p><p style="font-size:15px;color:var(--muted);line-height:1.8">We're fully insured, work clean and tidy, and we don't disappear when something needs sorting out. That's been our approach for 40 years, and it's not changing.</p></div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Get in touch</div><h1>Get your free quote</h1><p>Tell us about your project. We'll arrange a free site visit and give you an honest written quote.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Request a free quote</h2><div class="form-sub">We'll get back to you promptly to arrange a site visit.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Address / postcode</label><input type="text" placeholder="Where the work is needed"></div>
+      <div class="f-group"><label>Type of work</label><select><option>House extension</option><option>Garage conversion</option><option>Loft conversion</option><option>Renovation / refurbishment</option><option>New build</option><option>Driveway / external works</option><option>Other / not sure</option></select></div>
+      <div class="f-group"><label>Tell us about your project</label><textarea placeholder="Brief description — size, timescale, any other details..."></textarea></div>
+      <button class="f-submit">Request free quote →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block hl"><div class="ibl">Call us</div><div class="ibv">Bellamy Builders</div><div class="ibs">Barnsley · All South Yorkshire · Free quotes</div></div>
+      <div class="info-block"><div class="ibl">Location</div><div class="ibv" style="font-size:15px">Based in Barnsley</div><div class="ibs">Covering Barnsley, Sheffield, Rotherham &amp; Doncaster</div></div>
+      <div class="info-block"><div class="ibl">Experience</div><div class="ibv">40+ years in the trade</div><div class="ibs">Fully insured · All South Yorkshire</div></div>
+      <div class="info-block" style="background:var(--brick-pale);border-color:var(--border)"><div class="ibl" style="color:var(--brick)">Free quotes</div><div class="ibv">No obligation, ever</div><div class="ibs">Proper written quote after free site visit</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">Bellamy Builders</div><div style="font-size:12px">Barnsley · South Yorkshire · 40+ years in the trade · Fully insured</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('services')">Services</a><a href="#" onclick="showPage('projects')">Projects</a><a href="#" onclick="showPage('about')">About</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Services</div><a href="#" onclick="showPage('services')">Extensions</a><a href="#" onclick="showPage('services')">Garage conversions</a><a href="#" onclick="showPage('services')">Loft conversions</a><a href="#" onclick="showPage('services')">Renovations</a></div>
+      <div class="footer-col"><div class="footer-col-title">Coverage</div><a>Barnsley</a><a>Sheffield</a><a>Rotherham</a><a>Doncaster</a><a>All South Yorkshire</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Bellamy Builders · Barnsley · South Yorkshire · 40+ years in the trade</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}</script>
+</body>
+</html>

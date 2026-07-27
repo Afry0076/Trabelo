@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wigtox Sculpt & Rejuvenate | Medical Aesthetics Sheffield & South Yorkshire</title>
+<meta name="description" content="Wigtox Sculpt & Rejuvenate — expert-led aesthetic treatments across Sheffield, Rotherham, Doncaster, Barnsley and South Yorkshire. Botox, fillers, HiFU, PDO threads, laser hair removal. 4.9★ rated. Call 07301 000081.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#ba963f;--gold-light:#f5e6c8;--dark:#0a0c10;--charcoal:#13161d;--slate:#1e2330;--cream:#fafaf7;--warm:#f4f1eb;--text:#1a1a1a;--muted:#5f6474;--border:#e0dbd0;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-gold{display:inline-block;background:var(--gold);color:#fff;padding:14px 28px;border-radius:var(--radius);font-weight:700;font-size:14px;transition:opacity .2s;cursor:pointer;border:none;letter-spacing:.02em}
+.btn-gold:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:14px 28px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.3);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.1)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--dark);color:rgba(255,255,255,.65);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.88);font-weight:500;transition:color .2s}
+.topbar a:hover{color:#fff}
+.topbar-stars{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--gold)}
+
+nav{background:#fff;border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,.09)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:44px;height:44px;background:var(--dark);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:var(--gold);flex-shrink:0;text-align:center;line-height:1.3;letter-spacing:-.3px}
+.nav-name{font-size:17px;font-weight:800;color:var(--dark);line-height:1.2}
+.nav-sub{font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 14px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--dark)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--gold);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--dark);padding:88px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:600px;height:600px;background:radial-gradient(circle,rgba(186,150,63,.1) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(186,150,63,.15);border:1px solid rgba(186,150,63,.3);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#e8c46a;letter-spacing:.04em;margin-bottom:22px}
+.hero h1{font-size:50px;font-weight:900;line-height:1.06;letter-spacing:-2px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#e8c46a}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.78;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);padding-top:28px}
+.hero-stat{text-align:center;padding:0 12px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:26px;font-weight:900;color:#e8c46a}
+.stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+
+.hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:26px}
+.hc-rating{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.hc-stars{color:var(--gold);font-size:22px;letter-spacing:2px}
+.hc-num{font-size:30px;font-weight:900;color:#fff}
+.hc-label{font-size:12px;color:rgba(255,255,255,.45);margin-top:3px}
+.hc-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
+.hc-treatments{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.hc-t{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:9px 13px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-t-icon{font-size:15px;width:20px;text-align:center}
+.hc-cta{background:var(--gold);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.hc-cta-label{font-size:10px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
+.hc-cta-val{font-size:18px;font-weight:900;color:#fff;line-height:1}
+
+.trust-strip{background:var(--gold);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:13px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.22);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'✓';font-size:15px}
+
+.section{padding:76px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--dark)}
+
+.treatments-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.t-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px 24px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer}
+.t-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 32px rgba(186,150,63,.12)}
+.t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#e8c46a)}
+.t-icon{width:52px;height:52px;background:var(--gold-light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.t-name{font-size:17px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.t-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:10px}
+.t-detail{font-size:12px;color:var(--gold);font-weight:700}
+
+.locations-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.loc-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;transition:border-color .2s}
+.loc-card:hover{border-color:var(--gold)}
+.loc-icon{font-size:20px;margin-bottom:8px}
+.loc-name{font-size:14px;font-weight:700;color:var(--dark)}
+.loc-sub{font-size:12px;color:var(--muted);margin-top:3px}
+
+.practitioner-card{background:var(--dark);border-radius:16px;padding:32px;color:#fff;margin-top:40px}
+.prac-name{font-size:20px;font-weight:800;margin-bottom:4px}
+.prac-title{font-size:13px;color:rgba(186,150,63,.9);font-weight:700;margin-bottom:16px}
+.prac-bio{font-size:14px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:16px}
+.prac-creds{display:flex;flex-wrap:wrap;gap:8px}
+.prac-cred{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:4px 10px;font-size:12px;font-weight:700;color:rgba(255,255,255,.75)}
+
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px}
+@media(max-width:700px){.proc-steps{grid-template-columns:1fr 1fr;gap:16px}}
+.proc-step{padding:22px 20px;border-right:1px solid rgba(255,255,255,.08)}
+.proc-step:last-child{border-right:none}
+.proc-n{font-size:38px;font-weight:900;color:rgba(255,255,255,.06);line-height:1;margin-bottom:8px}
+.proc-g{font-size:11px;font-weight:700;color:#e8c46a;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.proc-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:5px}
+.proc-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6}
+
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev-card{background:#fff;border-radius:14px;padding:26px;border:1px solid var(--border)}
+.rev-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:14px;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:14px;padding-left:14px;border-left:3px solid var(--gold-light)}
+.rev-author{font-size:14px;font-weight:700;color:var(--dark)}
+.rev-loc{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* TREATMENTS PAGE */
+.t-hero{background:var(--dark);padding:60px 28px;text-align:center}
+.t-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.t-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto}
+.t-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto}
+@media(max-width:700px){.t-detail-grid{grid-template-columns:1fr}}
+.td{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;border-top:4px solid var(--gold)}
+.td-icon{width:50px;height:50px;background:var(--gold-light);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:16px}
+.td-name{font-size:17px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.td-desc{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:12px}
+.td-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.td-detail{background:var(--warm);border-radius:6px;padding:8px 12px}
+.td-detail-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+.td-detail-val{font-size:13px;font-weight:700;color:var(--dark)}
+.td-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.td-list li{font-size:13px;color:var(--text);display:flex;gap:7px;align-items:flex-start}
+.td-list li::before{content:'✓';color:var(--gold);font-weight:900;flex-shrink:0}
+
+/* CONTACT */
+.contact-hero{background:var(--dark);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--charcoal);border-radius:16px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--gold)}
+.f-group select{background-color:var(--charcoal)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:var(--gold);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.info-block.highlight{background:var(--gold);border-color:transparent}
+.info-block-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.info-block.highlight .info-block-label{color:rgba(255,255,255,.7)}
+.info-block-val{font-size:16px;font-weight:700;color:var(--dark)}
+.info-block.highlight .info-block-val{color:#fff;font-size:18px}
+.info-block-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.info-block.highlight .info-block-sub{color:rgba(255,255,255,.6)}
+.info-block-val a{color:var(--dark)}.info-block.highlight .info-block-val a{color:#fff}
+
+footer{background:#05060a;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.3);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="tel:07301000081">📞 07301 000 081</a>
+    <a href="mailto:wigtoxsculpt@mail.com">✉ wigtoxsculpt@mail.com</a>
+    <span>📍 Sheffield · Rotherham · Doncaster · Barnsley · and more</span>
+  </div>
+  <div class="topbar-stars">★★★★★ 4.9 · 623 Google reviews</div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">WIG<br>TOX</div>
+      <div><div class="nav-name">Wigtox Sculpt & Rejuvenate</div><div class="nav-sub">Medical aesthetics · South Yorkshire</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-treatments" onclick="showPage('treatments')">Treatments</button>
+      <button class="nav-link" id="nav-locations" onclick="showPage('locations')">Locations</button>
+      <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Book free consult</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">★★★★★ 4.9 stars · 623 Google reviews · South Yorkshire</div>
+        <h1>Medical aesthetics <span class="accent">you can trust.</span></h1>
+        <p class="hero-sub">Wigtox Sculpt & Rejuvenate delivers expert-led aesthetic treatments across South Yorkshire — Botox, dermal fillers, HiFU, PDO threads, laser hair removal and more. Led by Catrionna, a Registered Nurse with 23 years of clinical experience.</p>
+        <div class="hero-btns">
+          <button class="btn-gold" onclick="showPage('contact')">Book free consultation</button>
+          <button class="btn-outline-w" onclick="showPage('treatments')">Our treatments</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">4.9★</div><div class="stat-l">Google rating</div></div>
+          <div class="hero-stat"><div class="stat-n">623</div><div class="stat-l">reviews</div></div>
+          <div class="hero-stat"><div class="stat-n">11</div><div class="stat-l">South Yorks locations</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-rating">
+          <div><div class="hc-stars">★★★★★</div><div class="hc-label">Google Reviews</div></div>
+          <div class="hc-num">4.9</div>
+        </div>
+        <div class="hc-title">Popular treatments</div>
+        <div class="hc-treatments">
+          <div class="hc-t"><span class="hc-t-icon">💉</span>Botox &amp; dermal fillers</div>
+          <div class="hc-t"><span class="hc-t-icon">✨</span>HiFU skin tightening</div>
+          <div class="hc-t"><span class="hc-t-icon">🧵</span>PDO thread lift</div>
+          <div class="hc-t"><span class="hc-t-icon">⚡</span>Laser hair removal</div>
+          <div class="hc-t"><span class="hc-t-icon">❄️</span>Fat freeze</div>
+        </div>
+        <a href="tel:07301000081" class="hc-cta" style="display:flex;border-radius:var(--radius)">
+          <span style="font-size:22px;margin-right:4px">📞</span>
+          <div><div class="hc-cta-label">Book your free consultation</div><div class="hc-cta-val">07301 000 081</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">Free consultations</span>
+      <span class="trust-item">Registered Nurse practitioner</span>
+      <span class="trust-item">23 years clinical experience</span>
+      <span class="trust-item">Advanced Life Support trained</span>
+      <span class="trust-item">11 South Yorkshire locations</span>
+      <span class="trust-item">4.9★ Google rated</span>
+    </div>
+  </div>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">Our treatments</div>
+      <div class="section-title">Expert aesthetic care across South Yorkshire</div>
+      <p class="section-intro">Every treatment at Wigtox is delivered by our medically qualified team — safe, personalised and focused on natural-looking results.</p>
+      <div class="treatments-grid">
+        <div class="t-card" onclick="showPage('treatments')">
+          <div class="t-icon">💉</div><div class="t-name">Botox &amp; anti-wrinkle</div>
+          <div class="t-desc">Smooth forehead lines, crow's feet, frown lines and more. Our 'No More Lines' packages cover 1–5 areas.</div>
+          <div class="t-detail">Results in 3–5 days · Lasts 10–12 weeks</div>
+        </div>
+        <div class="t-card" onclick="showPage('treatments')">
+          <div class="t-icon">🫦</div><div class="t-name">Dermal fillers</div>
+          <div class="t-desc">Lips, cheeks, nasolabial folds and full facial volume restoration. Our '10 Years Younger' package combines Botox and 6.6ml of premium filler.</div>
+          <div class="t-detail">Immediate results · Lasts up to 12 months</div>
+        </div>
+        <div class="t-card" onclick="showPage('treatments')">
+          <div class="t-icon">✨</div><div class="t-name">HiFU skin tightening</div>
+          <div class="t-desc">Focused ultrasound lifts and sculpts the face and neck without surgery — stimulating collagen at depth. FDA-approved.</div>
+          <div class="t-detail">No downtime · Results last 12–18 months</div>
+        </div>
+        <div class="t-card" onclick="showPage('treatments')">
+          <div class="t-icon">🧵</div><div class="t-name">PDO thread lift</div>
+          <div class="t-desc">Absorbable threads inserted beneath the skin for instant lift and long-term collagen boost — jawline, jowls, brows.</div>
+          <div class="t-detail">Visible immediately · Lasts 12–18 months</div>
+        </div>
+        <div class="t-card" onclick="showPage('treatments')">
+          <div class="t-icon">⚡</div><div class="t-name">Laser hair removal</div>
+          <div class="t-desc">Advanced Diode and SHR systems for all skin tones and hair types — face, underarms, legs, bikini and more.</div>
+          <div class="t-detail">6–8 sessions for best results · No downtime</div>
+        </div>
+        <div class="t-card" onclick="showPage('treatments')">
+          <div class="t-icon">❄️</div><div class="t-name">Fat freeze &amp; body</div>
+          <div class="t-desc">Non-surgical fat reduction, B12 injections, weight loss support and tanning treatments for complete body confidence.</div>
+          <div class="t-detail">Multiple body treatments available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Our practitioner</div>
+      <div class="section-title">Led by Catrionna — 23 years of clinical expertise</div>
+      <p class="section-intro">Every treatment at Wigtox is delivered with the medical precision and care that only comes from genuine clinical experience.</p>
+      <div class="practitioner-card">
+        <div class="prac-name">Catrionna</div>
+        <div class="prac-title">Head Medical Aesthetic Practitioner · Registered Nurse &amp; Independent Prescriber</div>
+        <div class="prac-bio">Catrionna brings over 23 years of clinical experience to every treatment — including advanced roles in A&E and primary care, and a Postgraduate Certificate in Advanced Clinical Practice. Specialising in anti-wrinkle injections, dermal fillers, PDO threads, HiFU and skin health, she is passionate about natural, subtle aesthetic results that enhance your features without changing who you are. Trained in Advanced Life Support, every treatment is delivered with medical integrity and care.</div>
+        <div class="prac-creds">
+          <span class="prac-cred">Registered Nurse</span>
+          <span class="prac-cred">Independent Prescriber</span>
+          <span class="prac-cred">PGCert Advanced Clinical Practice</span>
+          <span class="prac-cred">Advanced Life Support trained</span>
+          <span class="prac-cred">23 years clinical experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark">
+    <div class="container">
+      <div class="eyebrow">How it works</div>
+      <div class="section-title" style="color:#fff">From first call to confident results</div>
+      <div class="proc-steps">
+        <div class="proc-step"><div class="proc-n">01</div><div class="proc-g">Free consultation</div><div class="proc-title">Talk to us first</div><div class="proc-desc">Every treatment begins with a complimentary consultation — no obligation, no pressure. We'll create your ideal plan.</div></div>
+        <div class="proc-step"><div class="proc-n">02</div><div class="proc-g">Your plan</div><div class="proc-title">Tailored to you</div><div class="proc-desc">Catrionna assesses your needs and recommends the right treatments to achieve your goals naturally.</div></div>
+        <div class="proc-step"><div class="proc-n">03</div><div class="proc-g">Treatment</div><div class="proc-title">Expert delivery</div><div class="proc-desc">Treatments are delivered with precision and care at one of our 11 South Yorkshire clinic locations.</div></div>
+        <div class="proc-step"><div class="proc-n">04</div><div class="proc-g">Results</div><div class="proc-title">Look &amp; feel yourself</div><div class="proc-desc">Natural, confident results — and we're here for any follow-up questions or appointments.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="eyebrow">4.9★ Google reviews</div>
+      <div class="section-title">What our clients say</div>
+      <div style="display:flex;align-items:center;gap:20px;margin-bottom:36px">
+        <div style="font-size:56px;font-weight:900;color:var(--dark);letter-spacing:-2px;line-height:1">4.9</div>
+        <div><div style="color:var(--gold);font-size:22px;letter-spacing:3px">★★★★★</div><div style="font-size:13px;color:var(--muted);margin-top:4px">623 Google Reviews · South Yorkshire</div></div>
+      </div>
+      <div class="reviews-grid">
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Absolutely amazing results. Catrionna is so professional and knowledgeable — really listens to what you want and delivers natural-looking results. Wouldn't go anywhere else now."</div><div class="rev-author">Sarah M.</div><div class="rev-loc">Sheffield · Google Reviews</div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Had the '10 Years Younger' package and I genuinely look like a fresher, more awake version of myself. Nobody can tell — which is exactly what I wanted. The consultation was so reassuring."</div><div class="rev-author">Rachel K.</div><div class="rev-loc">Rotherham · Google Reviews</div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"HiFU treatment on my jawline. The results have been gradual but significant — I can see the difference clearly at 3 months. Catrionna was incredibly thorough about what to expect throughout."</div><div class="rev-author">Joanne T.</div><div class="rev-loc">Doncaster · Google Reviews</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Ready to start?</div>
+    <div class="section-title" style="color:#fff;text-align:center;margin:0 auto 12px">Book your free consultation</div>
+    <p style="color:rgba(255,255,255,.55);font-size:16px;margin-bottom:28px">Every treatment begins with a complimentary consultation — call us or send a message and we'll find your nearest clinic location.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-gold" onclick="showPage('contact')">Book free consultation</button>
+      <a href="tel:07301000081" class="btn-outline-w">📞 07301 000 081</a>
+    </div>
+  </section>
+</div>
+
+<!-- TREATMENTS -->
+<div class="page" id="page-treatments">
+  <div class="t-hero"><div class="eyebrow">All treatments</div><h1>Aesthetic treatments across South Yorkshire</h1><p>Expert-led, medically safe treatments — personalised to your goals and delivered by our Registered Nurse practitioner.</p></div>
+  <div class="t-detail-grid">
+    <div class="td"><div class="td-icon">💉</div><div class="td-name">Botox — anti-wrinkle injections</div><div class="td-desc">Target fine lines and wrinkles caused by expression and muscle activity. Customisable from 1 to 5 treatment areas for a rested, natural appearance.</div><div class="td-details"><div class="td-detail"><div class="td-detail-label">Downtime</div><div class="td-detail-val">None</div></div><div class="td-detail"><div class="td-detail-label">Results last</div><div class="td-detail-val">10–12 weeks</div></div><div class="td-detail"><div class="td-detail-label">Results appear</div><div class="td-detail-val">3–5 days</div></div><div class="td-detail"><div class="td-detail-label">Full effect</div><div class="td-detail-val">14 days</div></div></div><ul class="td-list"><li>Forehead &amp; frown lines</li><li>Crow's feet</li><li>Bunny lines &amp; chin dimples</li><li>1–5 areas customisable</li><li>Free initial consultation</li></ul></div>
+    <div class="td"><div class="td-icon">🫦</div><div class="td-name">Dermal fillers &amp; '10 Years Younger' package</div><div class="td-desc">Our signature '10 Years Younger' package delivers a complete facial refresh — up to 5 Botox areas plus 6.6ml of premium filler. Or choose targeted filler for lips, cheeks or lines.</div><div class="td-details"><div class="td-detail"><div class="td-detail-label">Downtime</div><div class="td-detail-val">Minimal</div></div><div class="td-detail"><div class="td-detail-label">Results last</div><div class="td-detail-val">Up to 12 months</div></div></div><ul class="td-list"><li>Lips, cheeks &amp; marionette lines</li><li>Nasolabial folds</li><li>Full facial volume restoration</li><li>'10 Years Younger' signature package</li><li>Premium filler products only</li></ul></div>
+    <div class="td"><div class="td-icon">✨</div><div class="td-name">HiFU — skin tightening &amp; lifting</div><div class="td-desc">High Intensity Focused Ultrasound stimulates collagen at depth — lifting and sculpting the face and neck without surgery. FDA-approved. The pain-free alternative to a surgical facelift.</div><div class="td-details"><div class="td-detail"><div class="td-detail-label">Downtime</div><div class="td-detail-val">None</div></div><div class="td-detail"><div class="td-detail-label">Results last</div><div class="td-detail-val">12–18 months</div></div><div class="td-detail"><div class="td-detail-label">Results appear</div><div class="td-detail-val">Gradually over 2–3 months</div></div></div><ul class="td-list"><li>Jawline sagging &amp; double chin</li><li>Drooping brows</li><li>Loose skin under eyes</li><li>FDA-approved technology</li><li>Non-invasive &amp; pain-free</li></ul></div>
+    <div class="td"><div class="td-icon">🧵</div><div class="td-name">PDO thread lift</div><div class="td-desc">Ultra-fine absorbable threads inserted beneath the skin to provide an instant lift and long-term collagen stimulation — for cheeks, jowls, nasolabial folds and brows.</div><div class="td-details"><div class="td-detail"><div class="td-detail-label">Downtime</div><div class="td-detail-val">2–3 days mild swelling</div></div><div class="td-detail"><div class="td-detail-label">Results last</div><div class="td-detail-val">12–18 months</div></div></div><ul class="td-list"><li>Instant lift with gradual collagen boost</li><li>Cheeks, jowls &amp; brows</li><li>Natural-looking lift</li><li>Absorbable — no removal needed</li><li>Continues to improve for 3 months</li></ul></div>
+    <div class="td"><div class="td-icon">⚡</div><div class="td-name">Laser hair removal</div><div class="td-desc">Advanced Diode and SHR (Super Hair Removal) systems for long-lasting hair reduction on all skin tones — face, underarms, legs, bikini and more.</div><div class="td-details"><div class="td-detail"><div class="td-detail-label">Downtime</div><div class="td-detail-val">None</div></div><div class="td-detail"><div class="td-detail-label">Sessions needed</div><div class="td-detail-val">6–8 for best results</div></div></div><ul class="td-list"><li>All skin tones including darker</li><li>Face, legs, underarms &amp; bikini</li><li>Semi-permanent reduction</li><li>Quick &amp; comfortable</li></ul></div>
+    <div class="td"><div class="td-icon">❄️</div><div class="td-name">Fat freeze &amp; body treatments</div><div class="td-desc">Non-surgical fat reduction, B12 booster injections, weight management support and spray tanning — a complete range of body confidence treatments.</div><div class="td-details"><div class="td-detail"><div class="td-detail-label">Fat freeze downtime</div><div class="td-detail-val">Minimal</div></div><div class="td-detail"><div class="td-detail-label">B12 results</div><div class="td-detail-val">Immediate boost</div></div></div><ul class="td-list"><li>Fat freeze — targeted reduction</li><li>B12 energy injections</li><li>Weight loss pen</li><li>Spray tanning</li><li>Mole &amp; skin tag removal</li></ul></div>
+  </div>
+  <div style="background:var(--dark);padding:52px 28px;text-align:center"><h2 style="font-size:26px;font-weight:800;color:#fff;margin-bottom:10px">All consultations are free</h2><p style="color:rgba(255,255,255,.55);font-size:15px;margin-bottom:24px">Every treatment begins with a complimentary consultation — Catrionna will assess your goals and recommend the right approach for you.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn-gold" onclick="showPage('contact')">Book free consultation</button><a href="tel:07301000081" class="btn-outline-w">📞 07301 000 081</a></div></div>
+</div>
+
+<!-- LOCATIONS -->
+<div class="page" id="page-locations">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">Find us</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">11 locations across South Yorkshire</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Wigtox operates from clinic spaces across the region — there's likely one near you.</p></div>
+  <div style="padding:52px 28px;max-width:1100px;margin:0 auto">
+    <div class="locations-grid">
+      <div class="loc-card"><div class="loc-icon">🏙️</div><div class="loc-name">Sheffield</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Rotherham</div><div class="loc-sub">Rawmarsh (HQ)</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Wickersley</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Mexborough</div></div>
+      <div class="loc-card"><div class="loc-icon">🏙️</div><div class="loc-name">Doncaster</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Barnsley</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Wombwell</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Maltby</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Worksop</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Gainsborough</div></div>
+      <div class="loc-card"><div class="loc-icon">🏘️</div><div class="loc-name">Dronfield</div></div>
+    </div>
+    <div style="background:var(--gold-light);border:1.5px solid var(--gold);border-radius:12px;padding:24px;margin-top:28px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px">Not sure which location to visit?</div><div style="font-size:14px;color:var(--muted);margin-bottom:16px">Call or message us and we'll point you to your nearest available clinic appointment.</div><button class="btn-gold" onclick="showPage('contact')">Contact us</button></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">About Wigtox</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Expert-led aesthetics across South Yorkshire</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Wigtox Sculpt & Rejuvenate is a medical aesthetics clinic operating across 11 South Yorkshire locations, led by Registered Nurse Catrionna.</p></div>
+  <div style="max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div><div class="eyebrow">Our mission</div><div class="section-title">Safe, natural, expert-led results</div><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">At Wigtox Sculpt & Rejuvenate, we believe aesthetic treatments should be safe, personalised and focused on natural-looking results. We help people feel confident in their own skin — not like a different person.</p><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">Our head practitioner Catrionna brings 23 years of clinical experience to every appointment — including A&E and primary care roles, and a Postgraduate Certificate in Advanced Clinical Practice. She is trained in Advanced Life Support, so every treatment is delivered with the medical safety standards that injectable aesthetics demand.</p><p style="font-size:15px;color:var(--muted);line-height:1.8">We operate from 11 clinics across South Yorkshire — making professional aesthetic treatments accessible across the region, not just in city centres.</p></div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="practitioner-card" style="margin-top:0">
+        <div class="prac-name">Catrionna</div>
+        <div class="prac-title">Head Medical Aesthetic Practitioner</div>
+        <div class="prac-bio">"It's all about delivering safe, personalised care — and helping people feel confident in their own skin."</div>
+        <div class="prac-creds"><span class="prac-cred">RN</span><span class="prac-cred">Independent Prescriber</span><span class="prac-cred">PGCert</span><span class="prac-cred">ALS trained</span></div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px"><div class="eyebrow" style="margin-bottom:8px">Contact</div><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px"><a href="tel:07301000081">07301 000 081</a></div><div style="font-size:14px;color:var(--muted);margin-bottom:4px"><a href="mailto:wigtoxsculpt@mail.com">wigtoxsculpt@mail.com</a></div><div style="font-size:13px;color:var(--muted)">Head office: 33 South Street, Rawmarsh, Rotherham S62 5RF</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Book now</div><h1>Book your free consultation</h1><p>All treatments begin with a complimentary consultation — call, email or use the form below.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Book a consultation</h2><div class="form-sub">We'll confirm your nearest location and appointment time promptly.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="f-group"><label>Treatment interested in</label><select><option>Botox / anti-wrinkle</option><option>Dermal fillers</option><option>10 Years Younger package</option><option>HiFU skin tightening</option><option>PDO thread lift</option><option>Laser hair removal</option><option>Fat freeze</option><option>Other / not sure</option></select></div>
+      <div class="f-group"><label>Preferred location area</label><select><option>Sheffield</option><option>Rotherham</option><option>Doncaster</option><option>Barnsley</option><option>Worksop / Gainsborough</option><option>Dronfield</option><option>Nearest available</option></select></div>
+      <div class="f-group"><label>Anything else</label><textarea placeholder="Any questions, concerns or other details..."></textarea></div>
+      <button class="f-submit">Request consultation →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block highlight"><div class="info-block-label">Call or WhatsApp</div><div class="info-block-val"><a href="tel:07301000081">07301 000 081</a></div><div class="info-block-sub">Free consultation bookings</div></div>
+      <div class="info-block"><div class="info-block-label">Email</div><div class="info-block-val" style="font-size:14px"><a href="mailto:wigtoxsculpt@mail.com">wigtoxsculpt@mail.com</a></div></div>
+      <div class="info-block"><div class="info-block-label">Head office</div><div class="info-block-val" style="font-size:14px">33 South Street, Rawmarsh</div><div class="info-block-sub">Rotherham S62 5RF</div></div>
+      <div class="info-block"><div class="info-block-label">Social media</div><div class="info-block-val" style="font-size:14px"><a href="https://www.instagram.com/wigtox/" target="_blank">Instagram: @wigtox</a></div><div class="info-block-sub"><a href="https://www.facebook.com/wigtox/" target="_blank" style="color:var(--muted)">Facebook: wigtox</a></div></div>
+      <div class="info-block" style="background:var(--gold-light);border-color:var(--gold)"><div class="info-block-label" style="color:var(--gold)">All consultations</div><div class="info-block-val">Free — no obligation</div><div class="info-block-sub">We'll create your personalised treatment plan at no cost</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">Wigtox Sculpt & Rejuvenate</div><div style="font-size:12px">33 South Street, Rawmarsh, Rotherham S62 5RF · 11 South Yorkshire locations</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('treatments')">Treatments</a><a href="#" onclick="showPage('locations')">Locations</a><a href="#" onclick="showPage('about')">About</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Treatments</div><a href="#" onclick="showPage('treatments')">Botox</a><a href="#" onclick="showPage('treatments')">Dermal fillers</a><a href="#" onclick="showPage('treatments')">HiFU</a><a href="#" onclick="showPage('treatments')">PDO threads</a><a href="#" onclick="showPage('treatments')">Laser hair removal</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:07301000081">📞 07301 000 081</a><a href="mailto:wigtoxsculpt@mail.com">✉ wigtoxsculpt@mail.com</a><a href="https://www.instagram.com/wigtox/" target="_blank">Instagram ↗</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Wigtox Sculpt & Rejuvenate · Rawmarsh, Rotherham S62 5RF</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}</script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yorkshire Accountancy | Small Business Accountants · Sheffield & Yorkshire</title>
+<meta name="description" content="Yorkshire Accountancy — modern, friendly, 5-star rated accountants serving Sheffield and businesses across Yorkshire. Bookkeeping, tax, VAT, payroll and self assessment. Fixed fees. Free 30-minute consultation. Call today.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#15803d;--green-pale:#f0fdf4;--dark:#0d1f14;--charcoal:#162012;--cream:#fafaf8;--warm:#f3f7f3;--text:#1a1a1a;--muted:#5a6e60;--border:#d4e4d8;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-green{display:inline-block;background:var(--green);color:#fff;padding:13px 26px;border-radius:var(--radius);font-weight:700;font-size:14px;transition:opacity .2s;cursor:pointer;border:none}
+.btn-green:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:13px 26px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.3);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.08)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--dark);color:rgba(255,255,255,.7);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.88);font-weight:500}
+.topbar-badge{background:var(--green);border-radius:3px;padding:2px 9px;font-size:11px;font-weight:700;color:#fff}
+nav{background:#fff;border-bottom:3px solid var(--green);position:sticky;top:0;z-index:200;box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:44px;height:44px;background:var(--dark);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#86efac;flex-shrink:0;text-align:center;line-height:1.3}
+.nav-name{font-size:17px;font-weight:800;color:var(--dark);line-height:1.2}
+.nav-sub{font-size:10px;color:var(--green);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 14px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--dark)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:3px;background:var(--green);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--green);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--dark);padding:84px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(21,128,61,.15) 0%,transparent 70%)}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(21,128,61,.18);border:1px solid rgba(21,128,61,.35);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#86efac;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-size:46px;font-weight:900;line-height:1.07;letter-spacing:-2px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#86efac}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.78;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);padding-top:26px}
+.hero-stat{text-align:center;padding:0 10px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:900;color:#86efac}
+.stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+.hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px}
+.hc-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
+.hc-svcs{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.hc-s{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:9px 13px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-tel{background:var(--green);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.hc-tel-label{font-size:10px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
+.hc-tel-num{font-size:18px;font-weight:900;color:#fff;line-height:1}
+.hc-free{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,.7);text-align:center}
+
+.trust-strip{background:var(--green);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:13px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.22);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'✓'}
+
+.section{padding:72px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--dark)}
+
+.svcs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer}
+.svc-card:hover{transform:translateY(-3px);border-color:var(--green)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
+.svc-icon{width:50px;height:50px;background:var(--green-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:16px}
+.svc-name{font-size:15px;font-weight:800;color:var(--dark);margin-bottom:7px}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.svc-more{font-size:12px;font-weight:700;color:var(--green);margin-top:12px}
+
+.promise-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
+.promise-item{background:var(--green-pale);border:1px solid var(--border);border-radius:10px;padding:18px 20px;display:flex;gap:12px}
+.promise-icon{font-size:22px;flex-shrink:0}
+.promise-title{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.promise-desc{font-size:13px;color:var(--muted);line-height:1.5}
+
+.locations-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.loc{background:var(--green-pale);border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--dark)}
+
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev-card{background:#fff;border-radius:12px;padding:24px;border:1px solid var(--border)}
+.rev-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:14px;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:12px;padding-left:14px;border-left:3px solid var(--green-pale)}
+.rev-author{font-size:13px;font-weight:700;color:var(--dark)}
+.rev-loc{font-size:12px;color:var(--muted);margin-top:2px}
+
+.svc-hero{background:var(--dark);padding:60px 28px;text-align:center}
+.svc-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.svc-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto}
+.svc-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto}
+@media(max-width:700px){.svc-detail-grid{grid-template-columns:1fr}}
+.sd{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--green)}
+.sd-icon{width:48px;height:48px;background:var(--green-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.sd-name{font-size:17px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.sd-desc{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:12px}
+.sd-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sd-list li{font-size:13px;color:var(--text);display:flex;gap:7px}
+.sd-list li::before{content:'✓';color:var(--green);font-weight:900;flex-shrink:0}
+
+.contact-hero{background:var(--dark);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--charcoal);border-radius:14px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:#86efac}
+.f-group select{background-color:var(--charcoal)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:var(--green);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.info-block.highlight{background:var(--green);border-color:transparent}
+.info-block-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:7px}
+.info-block.highlight .info-block-label{color:rgba(255,255,255,.7)}
+.info-block-val{font-size:16px;font-weight:700;color:var(--dark)}
+.info-block.highlight .info-block-val{color:#fff}
+.info-block-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.info-block.highlight .info-block-sub{color:rgba(255,255,255,.6)}
+.info-block-val a{color:var(--dark)}.info-block.highlight .info-block-val a{color:#fff}
+
+footer{background:#05100a;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.3);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="tel:01482123456">📞 Call for local number</a>
+    <a href="mailto:info@yorkshireaccountancy.co.uk">✉ info@yorkshireaccountancy.co.uk</a>
+    <span>📍 Sheffield · Hull · Leeds · York · and across Yorkshire</span>
+  </div>
+  <span class="topbar-badge">5★ Google rated · Free 30-min consultation</span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">YA</div>
+      <div><div class="nav-name">Yorkshire Accountancy</div><div class="nav-sub">Small business specialists · Yorkshire</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-services" onclick="showPage('services')">Services</button>
+      <button class="nav-link" id="nav-locations" onclick="showPage('locations')">Locations</button>
+      <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Free consultation</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">⭐ 5-star Google rated · 500+ UK clients · Yorkshire &amp; beyond</div>
+        <h1>Accountancy that <span class="accent">works for you.</span></h1>
+        <p class="hero-sub">Yorkshire Accountancy is a modern, friendly and proactive accountancy service for small businesses, sole traders and individuals across Sheffield, Hull, Leeds, York and beyond. Fixed fees, unlimited support, free 30-minute consultation.</p>
+        <div class="hero-btns">
+          <button class="btn-green" onclick="showPage('contact')">Book free consultation</button>
+          <button class="btn-outline-w" onclick="showPage('services')">Our services</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">5★</div><div class="stat-l">Google rated</div></div>
+          <div class="hero-stat"><div class="stat-n">500+</div><div class="stat-l">UK clients</div></div>
+          <div class="hero-stat"><div class="stat-n">24hr</div><div class="stat-l">response promise</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-title">Our services</div>
+        <div class="hc-svcs">
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">📚</span>Bookkeeping — from £35+VAT/hr</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">📊</span>VAT returns &amp; Making Tax Digital</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">💰</span>Self assessment tax returns</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">👥</span>Payroll services</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">📋</span>Year end accounts</div>
+        </div>
+        <div class="hc-tel" style="display:flex;border-radius:var(--radius);margin-bottom:8px">
+          <span style="font-size:22px;margin-right:4px">📞</span>
+          <div><div class="hc-tel-label">Book free 30-min consultation</div><div class="hc-tel-num">Free — no obligation</div></div>
+        </div>
+        <div class="hc-free">Unlimited support · No charges for calls or emails</div>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">5-star Google rated</span>
+      <span class="trust-item">Free 30-min consultation</span>
+      <span class="trust-item">24-hour response promise</span>
+      <span class="trust-item">Fixed monthly fees</span>
+      <span class="trust-item">Unlimited support included</span>
+      <span class="trust-item">500+ UK clients</span>
+    </div>
+  </div>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">What we do</div>
+      <div class="section-title">Accountancy built for small businesses</div>
+      <p class="section-intro">From bookkeeping and VAT to self assessment and year end accounts — we handle everything so you can focus on running your business.</p>
+      <div class="svcs-grid">
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">📚</div><div class="svc-name">Bookkeeping</div><div class="svc-desc">Accurate bookkeeping from £35+VAT per hour. Bank reconciliation, purchase and sales ledgers, MTD compliant.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">📊</div><div class="svc-name">VAT returns</div><div class="svc-desc">VAT return preparation and submission — Making Tax Digital compliant for all VAT-registered businesses.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">💰</div><div class="svc-name">Self assessment</div><div class="svc-desc">Personal tax returns for sole traders, directors, landlords and individuals — filed accurately and on time.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">📋</div><div class="svc-name">Year end accounts</div><div class="svc-desc">Year end accounts preparation and submission to HMRC and Companies House for sole traders and limited companies.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('services')"><div class="svc-icon">👥</div><div class="svc-name">Payroll</div><div class="svc-desc">Payroll management, RTI submissions, PAYE compliance and pension auto-enrolment for businesses of any size.</div><div class="svc-more">Learn more →</div></div>
+        <div class="svc-card" onclick="showPage('contact')"><div class="svc-icon">🎯</div><div class="svc-name">Free consultation</div><div class="svc-desc">Book your free 30-minute consultation — we'll discuss your needs and recommend the right service or package.</div><div class="svc-more">Book free →</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Our promise</div>
+      <div class="section-title">Modern, friendly and proactive — that's our approach</div>
+      <p class="section-intro">We're not a faceless firm. We're local, approachable and focused on building long-term relationships with clients across Yorkshire and the UK.</p>
+      <div class="promise-grid">
+        <div class="promise-item"><div class="promise-icon">⏱️</div><div><div class="promise-title">24-hour response</div><div class="promise-desc">We promise to respond to every message within 24 hours — usually much sooner.</div></div></div>
+        <div class="promise-item"><div class="promise-icon">💷</div><div><div class="promise-title">Fixed transparent fees</div><div class="promise-desc">You pay a fixed amount monthly. No unexpected costs, no nasty surprises — ever.</div></div></div>
+        <div class="promise-item"><div class="promise-icon">📞</div><div><div class="promise-title">Unlimited support</div><div class="promise-desc">Calls and emails are included — we never charge for answering your questions.</div></div></div>
+        <div class="promise-item"><div class="promise-icon">🤝</div><div><div class="promise-title">Free initial review</div><div class="promise-desc">We offer a free initial tax review for every new client — just get in touch to arrange it.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark">
+    <div class="container">
+      <div class="eyebrow">What clients say</div>
+      <div class="section-title" style="color:#fff">5★ rated across Yorkshire</div>
+      <div class="reviews-grid">
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"From the very first meeting they took the time to understand my business and gave clear, practical advice. They're always quick to respond and their support has taken the stress out of managing my accounts."</div><div class="rev-author">Google reviewer</div><div class="rev-loc">Sheffield · 5 stars</div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Excellent service as always and a pleasure to deal with. Affordable for all. Lisa on reception is always friendly both on the phone and when visiting. All staff very helpful."</div><div class="rev-author">Google reviewer</div><div class="rev-loc">Yorkshire · 5 stars</div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Yorkshire Accountancy provides outstanding service — efficient, reliable, and always professional. They expertly manage our day-to-day accounts and year-end reporting and offer invaluable advice."</div><div class="rev-author">Business client</div><div class="rev-loc">Yorkshire · Google Reviews</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Get started</div>
+    <div class="section-title" style="text-align:center;margin:0 auto 12px">Book your free 30-minute consultation</div>
+    <p style="color:var(--muted);font-size:16px;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto">Tell us about your business and what you need — we'll discuss the right service and give you a clear, transparent price.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-green" onclick="showPage('contact')">Book free consultation</button>
+    </div>
+  </section>
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="page-services">
+  <div class="svc-hero"><div class="eyebrow">Our services</div><h1>Accounting services for businesses across Yorkshire</h1><p>Everything from bookkeeping and VAT to company formation and payroll — handled by our friendly team with fixed, transparent fees.</p></div>
+  <div class="svc-detail-grid">
+    <div class="sd"><div class="sd-icon">📚</div><div class="sd-name">Bookkeeping</div><div class="sd-desc">Accurate, up-to-date bookkeeping so you always know where you stand. From £35+VAT per hour, minimum £175+VAT per quarter.</div><ul class="sd-list"><li>Bank reconciliation</li><li>Sales &amp; purchase ledgers</li><li>Making Tax Digital compliant</li><li>Xero, QuickBooks, Sage &amp; FreeAgent</li><li>Monthly or quarterly options</li></ul></div>
+    <div class="sd"><div class="sd-icon">📊</div><div class="sd-name">VAT returns</div><div class="sd-desc">VAT return preparation and submission — including Making Tax Digital compliance for all VAT-registered businesses.</div><ul class="sd-list"><li>Quarterly VAT returns</li><li>MTD-compliant software</li><li>VAT scheme advice</li><li>HMRC submissions</li><li>Flat rate scheme management</li></ul></div>
+    <div class="sd"><div class="sd-icon">💰</div><div class="sd-name">Self assessment</div><div class="sd-desc">Personal tax returns for sole traders, directors, landlords and individuals — filed accurately and on time every year.</div><ul class="sd-list"><li>Sole traders &amp; self-employed</li><li>Company directors</li><li>Landlords &amp; rental income</li><li>Capital gains</li><li>Foreign income</li></ul></div>
+    <div class="sd"><div class="sd-icon">📋</div><div class="sd-name">Year end accounts</div><div class="sd-desc">Full preparation and submission of annual accounts to HMRC and Companies House — for sole traders, partnerships and limited companies.</div><ul class="sd-list"><li>Sole trader &amp; partnership accounts</li><li>Limited company accounts</li><li>Corporation tax returns</li><li>Companies House filing</li><li>HMRC submissions</li></ul></div>
+    <div class="sd"><div class="sd-icon">👥</div><div class="sd-name">Payroll services</div><div class="sd-desc">Full payroll management — from weekly and monthly payslips to RTI submissions and pension auto-enrolment compliance.</div><ul class="sd-list"><li>Payslips &amp; RTI submissions</li><li>Pension auto-enrolment</li><li>PAYE compliance</li><li>P11D &amp; P60 production</li><li>CIS for construction</li></ul></div>
+    <div class="sd"><div class="sd-icon">🏢</div><div class="sd-name">Company formation &amp; start-up</div><div class="sd-desc">New business? We handle company formation, HMRC registration and initial bookkeeping setup — getting you started right from day one.</div><ul class="sd-list"><li>Limited company formation</li><li>Sole trader registration</li><li>VAT registration</li><li>PAYE setup</li><li>Initial bookkeeping setup</li></ul></div>
+  </div>
+  <div style="background:var(--dark);padding:52px 28px;text-align:center"><h2 style="font-size:26px;font-weight:800;color:#fff;margin-bottom:10px">Not sure what you need?</h2><p style="color:rgba(255,255,255,.55);font-size:15px;margin-bottom:24px">Book your free 30-minute consultation — we'll work out the right service and give you a clear price.</p><button class="btn-green" onclick="showPage('contact')">Book free consultation →</button></div>
+</div>
+
+<!-- LOCATIONS -->
+<div class="page" id="page-locations">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">Where we work</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Yorkshire &amp; across the UK</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">With offices in Hull and clients across Yorkshire and the UK, we work with businesses wherever they are — in person or remotely.</p></div>
+  <div style="padding:52px 28px;max-width:1100px;margin:0 auto">
+    <div class="locations-strip">
+      <span class="loc">Sheffield</span><span class="loc">Hull (head office)</span><span class="loc">Leeds</span><span class="loc">York</span><span class="loc">Beverley</span><span class="loc">Bradford</span><span class="loc">Castleford</span><span class="loc">Doncaster</span><span class="loc">Goole</span><span class="loc">Rotherham</span><span class="loc">Scunthorpe</span><span class="loc">Selby</span><span class="loc">Wakefield</span><span class="loc">Across the UK</span>
+    </div>
+    <div style="background:var(--green-pale);border:1.5px solid var(--border);border-radius:12px;padding:28px;margin-top:28px">
+      <div style="font-size:16px;font-weight:800;color:var(--dark);margin-bottom:10px">We work remotely across the UK</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px">Most of our accounting work is handled online — bookkeeping, VAT, self assessment and payroll can all be managed remotely with minimal fuss. We support Xero, QuickBooks, Sage, FreeAgent and Pandle, and we're happy to set you up on whichever works best for your business.</p>
+      <button class="btn-green" onclick="showPage('contact')">Get in touch →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div style="background:var(--dark);padding:60px 28px;text-align:center"><div class="eyebrow">About us</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px">Modern, friendly and proactive — always</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Yorkshire Accountancy is built around one idea: give small businesses the same quality of accountancy support that larger companies take for granted.</p></div>
+  <div style="max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div><div class="eyebrow">Our story</div><div class="section-title">5-star accountancy for Yorkshire businesses</div><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">Yorkshire Accountancy is a team of young, skilled accounting professionals based in Hull, serving businesses across Sheffield, the wider Yorkshire region and the UK. We've grown to over 500 clients on the strength of our service quality, responsiveness and transparent pricing.</p><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">We offer flexible online accounting packages — from monthly bookkeeping and VAT to year end accounts and payroll. We support all major cloud accounting platforms including Xero, QuickBooks, Sage, FreeAgent and Pandle.</p><p style="font-size:15px;color:var(--muted);line-height:1.8">Every client gets unlimited support, a 24-hour response promise, and a free initial tax review. No hidden fees, no hourly billing on calls and emails — just straightforward, proactive accountancy.</p></div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="background:var(--green-pale);border:2px solid var(--green);border-radius:12px;padding:24px"><div class="eyebrow" style="margin-bottom:10px">Our promise to every client</div><ul style="list-style:none;display:flex;flex-direction:column;gap:8px"><li style="font-size:14px;color:var(--dark);display:flex;gap:8px"><span style="color:var(--green);font-weight:900">✓</span>Respond within 24 hours</li><li style="font-size:14px;color:var(--dark);display:flex;gap:8px"><span style="color:var(--green);font-weight:900">✓</span>Fixed fees — no surprise bills</li><li style="font-size:14px;color:var(--dark);display:flex;gap:8px"><span style="color:var(--green);font-weight:900">✓</span>Unlimited calls and emails included</li><li style="font-size:14px;color:var(--dark);display:flex;gap:8px"><span style="color:var(--green);font-weight:900">✓</span>Free initial tax review</li><li style="font-size:14px;color:var(--dark);display:flex;gap:8px"><span style="color:var(--green);font-weight:900">✓</span>Free 30-minute consultation</li></ul></div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px"><div class="eyebrow" style="margin-bottom:8px">Cloud accounting platforms</div><div class="locations-strip" style="margin-top:0"><span class="loc">Xero</span><span class="loc">QuickBooks</span><span class="loc">Sage</span><span class="loc">FreeAgent</span><span class="loc">Pandle</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Get in touch</div><h1>Book your free 30-min consultation</h1><p>Tell us about your business — we'll get back to you within 24 hours with a clear, transparent quote.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Contact us</h2><div class="form-sub">We respond within 24 hours — usually the same day.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Business name</label><input type="text" placeholder="Your business or trading name"></div>
+      <div class="f-group"><label>What do you need?</label><select><option>Bookkeeping</option><option>VAT returns</option><option>Self assessment</option><option>Year end accounts</option><option>Payroll</option><option>Company formation</option><option>Not sure — free consultation please</option></select></div>
+      <div class="f-group"><label>Location</label><select><option>Sheffield</option><option>Hull</option><option>Leeds</option><option>York</option><option>Elsewhere in Yorkshire</option><option>Outside Yorkshire</option></select></div>
+      <div class="f-group"><label>Tell us more</label><textarea placeholder="Brief details about your business and accounting needs..."></textarea></div>
+      <button class="f-submit">Send message →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block highlight"><div class="info-block-label">Free consultation</div><div class="info-block-val">30 minutes — no obligation</div><div class="info-block-sub">Book by email or form — we'll get back to you within 24 hours</div></div>
+      <div class="info-block"><div class="info-block-label">Email</div><div class="info-block-val" style="font-size:14px"><a href="mailto:info@yorkshireaccountancy.co.uk">info@yorkshireaccountancy.co.uk</a></div></div>
+      <div class="info-block"><div class="info-block-label">Head office</div><div class="info-block-val" style="font-size:14px">Cottingham, Hull, East Yorkshire</div><div class="info-block-sub">Serving Sheffield, Yorkshire &amp; UK</div></div>
+      <div class="info-block"><div class="info-block-label">Response time</div><div class="info-block-val">Within 24 hours</div><div class="info-block-sub">Usually the same day</div></div>
+      <div class="info-block" style="background:var(--green-pale);border-color:var(--border)"><div class="info-block-label">Bookkeeping rate</div><div class="info-block-val">£35+VAT per hour</div><div class="info-block-sub">Minimum £175+VAT per quarter</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">Yorkshire Accountancy</div><div style="font-size:12px">Cottingham, Hull · Sheffield · Leeds · York · 5★ Google rated</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('services')">Services</a><a href="#" onclick="showPage('locations')">Locations</a><a href="#" onclick="showPage('about')">About</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Services</div><a href="#" onclick="showPage('services')">Bookkeeping</a><a href="#" onclick="showPage('services')">VAT returns</a><a href="#" onclick="showPage('services')">Self assessment</a><a href="#" onclick="showPage('services')">Year end accounts</a><a href="#" onclick="showPage('services')">Payroll</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="mailto:info@yorkshireaccountancy.co.uk">✉ info@yorkshireaccountancy.co.uk</a><a href="#" onclick="showPage('contact')">Book free consultation</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Yorkshire Accountancy · Hull, East Yorkshire · Serving Yorkshire &amp; the UK</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}</script>
+</body>
+</html>

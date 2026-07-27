@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Jones Dentistry | Dental Implants & Cosmetic Dentistry · Barnsley & Penistone</title>
+<meta name="description" content="Alex Jones Dentistry — award-winning dental implant and cosmetic dentistry specialists in Barnsley and Penistone. Over 3,000 implants placed with 98% success rate. 90% of new patients come through recommendation. Book online today.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0d1f3c;--teal:#0b7a8a;--teal-light:#e6f4f6;--sky:#2196b8;--cream:#fafaf9;--warm:#f4f5f7;--text:#1a1d22;--muted:#5c6270;--border:#e0e4ea;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.btn-teal{display:inline-block;background:var(--teal);color:#fff;padding:13px 28px;border-radius:var(--radius);font-weight:700;font-size:14px;transition:opacity .2s;cursor:pointer;border:none}
+.btn-teal:hover{opacity:.88}
+.btn-outline-w{display:inline-block;background:transparent;color:#fff;padding:13px 28px;border-radius:var(--radius);font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,.35);transition:background .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.08)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.section-title{font-size:34px;font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.section-intro{font-size:16px;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:40px}
+.page{display:none}.page.active{display:block}
+
+.topbar{background:var(--navy);color:rgba(255,255,255,.65);padding:9px 28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.9);font-weight:500}
+.topbar-right{display:flex;gap:16px;flex-wrap:wrap}
+nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:200;box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:0 28px}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer}
+.nav-logo{width:46px;height:46px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--teal);flex-shrink:0;text-align:center;line-height:1.3;letter-spacing:.3px}
+.nav-name{font-size:17px;font-weight:800;color:var(--navy)}
+.nav-sub{font-size:10px;color:var(--teal);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.nav-links{display:flex}
+.nav-link{font-size:14px;font-weight:500;color:var(--muted);padding:20px 13px;cursor:pointer;position:relative;transition:color .2s;border:none;background:none}
+.nav-link:hover,.nav-link.active{color:var(--navy)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:13px;right:13px;height:3px;background:var(--teal);transform:scaleX(0);transition:transform .2s}
+.nav-link.active::after,.nav-link:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--teal);color:#fff;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;border:none;margin-left:8px}
+
+.hero{background:var(--navy);padding:88px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(11,122,138,.14) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:center;position:relative}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(11,122,138,.18);border:1px solid rgba(11,122,138,.35);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#5ecfdc;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-size:46px;font-weight:900;line-height:1.07;letter-spacing:-2px;color:#fff;margin-bottom:18px}
+.hero h1 .accent{color:#5ecfdc}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.65);line-height:1.78;margin-bottom:34px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);padding-top:26px}
+.hero-stat{text-align:center;padding:0 10px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:900;color:#5ecfdc}
+.stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+
+.hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:26px}
+.hc-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
+.hc-svcs{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.hc-s{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:9px 13px;font-size:13px;color:rgba(255,255,255,.82);font-weight:500}
+.hc-practice{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.hc-loc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px;text-align:center}
+.hc-loc-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.hc-loc-num{font-size:12px;color:#5ecfdc;font-weight:600}
+.hc-loc-addr{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+
+.trust-strip{background:var(--teal);padding:0 28px;overflow-x:auto}
+.trust-inner{display:flex;max-width:1100px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;padding:12px 20px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.22);flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-item::before{content:'✓'}
+
+.section{padding:72px 28px}
+.section.bg-cream{background:var(--cream)}
+.section.bg-warm{background:var(--warm)}
+.section.bg-dark{background:var(--navy)}
+
+.treatments-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.t-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer}
+.t-card:hover{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 8px 28px rgba(11,122,138,.1)}
+.t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--sky))}
+.t-icon{width:50px;height:50px;background:var(--teal-light);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:16px}
+.t-name{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:7px}
+.t-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.t-detail{font-size:12px;font-weight:700;color:var(--teal);margin-top:12px}
+
+.creds-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.cred-badge{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.cred-icon{font-size:20px;flex-shrink:0}
+.cred-name{font-size:13px;font-weight:700;color:var(--navy)}
+.cred-sub{font-size:11px;color:var(--muted);margin-top:1px}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.stat-block{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:24px;text-align:center}
+.sb-n{font-size:32px;font-weight:900;color:#5ecfdc;letter-spacing:-1px}
+.sb-l{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px}
+
+.practices-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+@media(max-width:640px){.practices-grid{grid-template-columns:1fr}}
+.practice-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;border-top:4px solid var(--teal)}
+.pc-name{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.pc-addr{font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.pc-hours{font-size:13px;color:var(--text);margin-bottom:12px;line-height:1.7}
+.pc-tel{font-size:15px;font-weight:700;color:var(--teal)}
+
+.revs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:#fff;border-radius:12px;padding:24px;border:1px solid var(--border)}
+.rev-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:14px;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:14px;padding-left:14px;border-left:3px solid var(--teal-light)}
+.rev-author{font-size:14px;font-weight:700;color:var(--navy)}
+.rev-treatment{font-size:12px;color:var(--teal);margin-top:3px;font-weight:600}
+
+.contact-hero{background:var(--navy);padding:60px 28px;text-align:center}
+.contact-hero h1{font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.contact-hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto}
+.contact-body{max-width:1100px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+@media(max-width:768px){.contact-body{grid-template-columns:1fr}}
+.form-box{background:var(--navy);border-radius:14px;padding:36px;color:#fff}
+.form-box h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.form-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);color:#fff;font-family:inherit;font-size:14px}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--teal)}
+.f-group select{background-color:var(--navy)}
+.f-group textarea{height:90px;resize:none}
+.f-submit{width:100%;background:var(--teal);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-block{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.info-block.hl{background:var(--teal);border-color:transparent}
+.ibl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:7px}
+.hl .ibl{color:rgba(255,255,255,.7)}
+.ibv{font-size:16px;font-weight:700;color:var(--navy)}
+.hl .ibv{color:#fff}
+.ibs{font-size:13px;color:var(--muted);margin-top:3px}
+.hl .ibs{color:rgba(255,255,255,.65)}
+.ibv a{color:var(--navy)}.hl .ibv a{color:#fff}
+
+footer{background:#060d1a;color:rgba(255,255,255,.3);padding:40px 28px;font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.4);display:block;margin-bottom:7px;font-size:13px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:rgba(255,255,255,.35);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="tel:01226290017">📞 Barnsley: 01226 290017</a>
+    <a href="tel:01226762242">📞 Penistone: 01226 762242</a>
+    <a href="mailto:enquiries@alexjonesdentistry.com">✉ enquiries@alexjonesdentistry.com</a>
+  </div>
+  <div class="topbar-right"><span>90% of new patients come through recommendation</span></div>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">AJD</div>
+      <div><div class="nav-name">Alex Jones Dentistry</div><div class="nav-sub">Barnsley & Penistone · Award-winning</div></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-implants" onclick="showPage('implants')">Implants</button>
+      <button class="nav-link" id="nav-cosmetic" onclick="showPage('cosmetic')">Cosmetic</button>
+      <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Book now</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">🏆 Award-winning · 90% through recommendation · 3,000+ implants</div>
+        <h1>Outstanding dentistry.<br><span class="accent">The warmest welcome.</span></h1>
+        <p class="hero-sub">Alex Jones Dentistry is an award-winning implant and cosmetic dental practice in Barnsley and Penistone. Over 20 years at the cutting edge of modern dentistry — with over 3,000 implants placed and a 98% success rate.</p>
+        <div class="hero-btns">
+          <button class="btn-teal" onclick="showPage('contact')">Book a consultation</button>
+          <button class="btn-outline-w" onclick="showPage('implants')">Dental implants</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-n">3,000+</div><div class="stat-l">implants placed</div></div>
+          <div class="hero-stat"><div class="stat-n">98%</div><div class="stat-l">implant success rate</div></div>
+          <div class="hero-stat"><div class="stat-n">90%</div><div class="stat-l">patients by recommendation</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-title">Our treatments</div>
+        <div class="hc-svcs">
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">🦷</span>Dental implants — from single to full arch</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">✨</span>Invisalign invisible braces</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">😊</span>Smile makeovers & veneers</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">⚡</span>Teeth whitening</div>
+          <div class="hc-s"><span style="font-size:15px;width:20px;text-align:center">👨‍👩‍👧</span>Family & general dentistry</div>
+        </div>
+        <div class="hc-title" style="margin-top:4px">Our two practices</div>
+        <div class="hc-practice">
+          <div class="hc-loc"><div class="hc-loc-name">Barnsley</div><div class="hc-loc-num">01226 290017</div><div class="hc-loc-addr">Gateway Plaza, Sackville St</div></div>
+          <div class="hc-loc"><div class="hc-loc-name">Penistone</div><div class="hc-loc-num">01226 762242</div><div class="hc-loc-addr">54 High Street, S36</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-item">3,000+ implants placed</span>
+      <span class="trust-item">98% success rate</span>
+      <span class="trust-item">Award-winning practice</span>
+      <span class="trust-item">ITI & BDA members</span>
+      <span class="trust-item">Invisalign provider</span>
+      <span class="trust-item">GDC registered</span>
+    </div>
+  </div>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="eyebrow">What we do</div>
+      <div class="section-title">Cutting-edge dentistry — two South Yorkshire locations</div>
+      <p class="section-intro">From dental implants and smile makeovers to routine care and emergency appointments — Alex Jones Dentistry sits at the cutting edge of modern dentistry in Barnsley and Penistone.</p>
+      <div class="treatments-grid">
+        <div class="t-card" onclick="showPage('implants')"><div class="t-icon">🦷</div><div class="t-name">Dental implants</div><div class="t-desc">Over 3,000 placed with a 98% success rate. Single implants, multiple implants, full arch restorations and Teeth in a Day.</div><div class="t-detail">Implant Open Day savings from £885 →</div></div>
+        <div class="t-card" onclick="showPage('cosmetic')"><div class="t-icon">✨</div><div class="t-name">Invisalign — invisible braces</div><div class="t-desc">Results you can see. Braces you can't. Transform your smile without traditional metal braces. Suitable for teens and adults.</div><div class="t-detail">Book a free smile assessment →</div></div>
+        <div class="t-card" onclick="showPage('cosmetic')"><div class="t-icon">😊</div><div class="t-name">Smile makeovers</div><div class="t-desc">Combine treatments — veneers, whitening, bonding, implants — for a complete smile transformation tailored to your face and goals.</div><div class="t-detail">View patient stories →</div></div>
+        <div class="t-card" onclick="showPage('cosmetic')"><div class="t-icon">💎</div><div class="t-name">Porcelain veneers</div><div class="t-desc">Thin ceramic shells that transform the appearance of your teeth — correcting colour, shape and alignment in two visits.</div><div class="t-detail">Book a consultation →</div></div>
+        <div class="t-card" onclick="showPage('about')"><div class="t-icon">👨‍👩‍👧</div><div class="t-name">Family & general dentistry</div><div class="t-desc">Routine checkups, hygiene therapy, children's dentistry, emergency care and membership plans for the whole family.</div><div class="t-detail">Membership plans available →</div></div>
+        <div class="t-card" onclick="showPage('contact')"><div class="t-icon">🆘</div><div class="t-name">Emergency dentistry</div><div class="t-desc">Tooth pain, chipped teeth, lost fillings, dental trauma — call your nearest practice for emergency appointments.</div><div class="t-detail">Call now →</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark">
+    <div class="container">
+      <div class="eyebrow">Why patients choose us</div>
+      <div class="section-title" style="color:#fff">20+ years. 3,000+ implants. 98% success.</div>
+      <p style="color:rgba(255,255,255,.6);font-size:15px;line-height:1.8;max-width:640px;margin-bottom:0">Over 90% of our new patients come through word of mouth — a statistic that reflects over two decades of outstanding dentistry, the warmest of welcomes, and results that patients are proud to recommend to their friends and family.</p>
+      <div class="stat-row">
+        <div class="stat-block"><div class="sb-n">3,000+</div><div class="sb-l">dental implants placed</div></div>
+        <div class="stat-block"><div class="sb-n">98%</div><div class="sb-l">implant success rate</div></div>
+        <div class="stat-block"><div class="sb-n">90%</div><div class="sb-l">new patients by recommendation</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">What our patients say</div>
+      <div class="section-title">Read about our happy patients</div>
+      <div class="revs-grid">
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"I've got my smile back! I'm overjoyed at the outcome. Don't let age hold you back. Alex Jones gets five stars from me."</div><div class="rev-author">Kenneth</div><div class="rev-treatment">Zygomatic Implants</div></div>
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"I'm over the moon with the treatment. The team are always friendly and very welcoming each time I visit."</div><div class="rev-author">Katie</div><div class="rev-treatment">Invisalign</div></div>
+        <div class="rev"><div class="rev-stars">★★★★★</div><div class="rev-text">"My Smile Makeover experience has been such an easy and relaxed process due to the highly skilled team at Alex Jones Dentistry."</div><div class="rev-author">Ross</div><div class="rev-treatment">Smile Makeover</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm" style="padding:56px 28px;text-align:center">
+    <div class="eyebrow">Ready to start?</div>
+    <div class="section-title" style="text-align:center;margin:0 auto 12px">Book your consultation today</div>
+    <p style="color:var(--muted);font-size:16px;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto">Call either of our practices directly or use the online booking system to reserve your appointment.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-teal" onclick="showPage('contact')">Book online</button>
+      <a href="tel:01226290017" class="btn-outline-w" style="background:var(--navy);border-color:var(--navy)">📞 Barnsley: 01226 290017</a>
+      <a href="tel:01226762242" class="btn-outline-w" style="background:var(--teal);border-color:var(--teal)">📞 Penistone: 01226 762242</a>
+    </div>
+  </section>
+</div>
+
+<!-- IMPLANTS -->
+<div class="page" id="page-implants">
+  <div style="background:var(--navy);padding:64px 28px;text-align:center"><div class="eyebrow">Dental implants</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px">3,000+ implants. 98% success rate.</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:580px;margin:0 auto">Alex Jones Dentistry specialises in dental implantology — from a single tooth replacement to full arch restorations. Over 20 years of experience. ITI member.</p></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto">
+    <div class="t-card"><div class="t-icon">🦷</div><div class="t-name">Single dental implant</div><div class="t-desc">Replace a single missing tooth with a permanent, natural-looking implant that looks and feels exactly like your own tooth.</div></div>
+    <div class="t-card"><div class="t-icon">🦷🦷</div><div class="t-name">Multiple implants</div><div class="t-desc">Restore several missing teeth with individual implants or implant-supported bridges — avoiding damage to healthy neighbouring teeth.</div></div>
+    <div class="t-card"><div class="t-icon">⚡</div><div class="t-name">Teeth in a Day</div><div class="t-desc">Walk in with missing or failing teeth, walk out with a full set of fixed teeth — all on the same day as your implant surgery.</div></div>
+    <div class="t-card"><div class="t-icon">🦷</div><div class="t-name">Zygomatic implants</div><div class="t-desc">An advanced solution for patients with severely reduced bone — zygomatic implants anchor to the cheekbone rather than the jaw.</div></div>
+    <div class="t-card"><div class="t-icon">💪</div><div class="t-name">Bone grafting</div><div class="t-desc">If bone loss has occurred, bone grafting can rebuild the jaw to create a stable foundation for implants.</div></div>
+    <div class="t-card"><div class="t-icon">💰</div><div class="t-name">Denture implants</div><div class="t-desc">Stabilise removable dentures with implants — no more slipping, clicking or adhesive. A life-changing solution for denture wearers.</div></div>
+  </div>
+  <div style="background:var(--teal-light);border-top:3px solid var(--teal);padding:32px 28px;max-width:1100px;margin:0 auto 0;border-radius:0 0 12px 12px">
+    <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:8px">🎉 Implant Open Day — minimum savings of £885</div>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Join us at our Penistone practice for exclusive savings including free consultation, free clinical photos, X-rays and CT scan, plus 10% off treatment. See our Offers page for current dates.</p>
+    <button class="btn-teal" onclick="showPage('contact')">Book your implant consultation →</button>
+  </div>
+</div>
+
+<!-- COSMETIC -->
+<div class="page" id="page-cosmetic">
+  <div style="background:var(--navy);padding:64px 28px;text-align:center"><div class="eyebrow">Cosmetic dentistry</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px">Your perfect smile starts here</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto">From Invisalign to smile makeovers — we specialise in creating beautiful, natural-looking smiles for patients in Barnsley and Penistone.</p></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:52px 28px;max-width:1100px;margin:0 auto">
+    <div class="t-card"><div class="t-icon">✨</div><div class="t-name">Invisalign invisible braces</div><div class="t-desc">Straighten your teeth without anyone knowing. Custom-made clear aligners, changed every two weeks. Results in as little as 6 months.</div></div>
+    <div class="t-card"><div class="t-icon">😊</div><div class="t-name">Smile makeover</div><div class="t-desc">A personalised combination of treatments — whitening, veneers, bonding, implants — designed around your face and your goals.</div></div>
+    <div class="t-card"><div class="t-icon">💎</div><div class="t-name">Porcelain veneers</div><div class="t-desc">Ultra-thin ceramic shells placed over the front of your teeth — transforming colour, shape and alignment with stunning results.</div></div>
+    <div class="t-card"><div class="t-icon">☀️</div><div class="t-name">Teeth whitening</div><div class="t-desc">Professional-grade whitening for a brighter, more confident smile. Take-home or in-practice options — safe and effective.</div></div>
+    <div class="t-card"><div class="t-icon">🔧</div><div class="t-name">Crowns & bridges</div><div class="t-desc">Restore damaged or missing teeth with natural-looking crowns and bridges — precision-crafted for comfort and longevity.</div></div>
+    <div class="t-card"><div class="t-icon">📸</div><div class="t-name">Composite bonding</div><div class="t-desc">A quick, painless and affordable way to reshape, resize or recolour teeth — using tooth-coloured resin applied in a single visit.</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div style="background:var(--navy);padding:64px 28px;text-align:center"><div class="eyebrow">About us</div><h1 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px">20+ years at the cutting edge</h1><p style="font-size:16px;color:rgba(255,255,255,.6);max-width:540px;margin:0 auto">Alex Jones Dentistry combines specialist expertise with the warmth of a family practice — in Barnsley and Penistone.</p></div>
+  <div style="max-width:1100px;margin:0 auto;padding:52px 28px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
+      <div><div class="eyebrow">Our credentials</div><div class="section-title">ITI. BDA. ADI. GDC. Straumann. Invisalign.</div><p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px">Alex Jones Dentistry sits at the cutting edge of modern dentistry, specialising in implantology and cosmetic procedures while maintaining the warmth and personal care of a trusted family practice.</p><p style="font-size:15px;color:var(--muted);line-height:1.8">With over 3,000 dental implants placed at a 98% success rate, and 90% of new patients arriving through recommendation, our reputation speaks for itself. We are proud members of the International Team for Implantology (ITI), the British Dental Association, the Association of Dental Implantology and are certified Invisalign and Straumann providers.</p><div class="creds-grid"><div class="cred-badge"><div class="cred-icon">🏆</div><div><div class="cred-name">ITI Member</div><div class="cred-sub">Int'l Team for Implantology</div></div></div><div class="cred-badge"><div class="cred-icon">🦷</div><div><div class="cred-name">BDA Member</div><div class="cred-sub">British Dental Association</div></div></div><div class="cred-badge"><div class="cred-icon">✨</div><div><div class="cred-name">Invisalign Provider</div><div class="cred-sub">Certified provider</div></div></div><div class="cred-badge"><div class="cred-icon">📋</div><div><div class="cred-name">GDC Registered</div><div class="cred-sub">General Dental Council</div></div></div></div></div>
+      <div>
+        <div class="eyebrow">Our two practices</div>
+        <div class="practices-grid" style="grid-template-columns:1fr;gap:14px;margin-top:0">
+          <div class="practice-card"><div class="pc-name">Barnsley Practice</div><div class="pc-addr">Gateway Plaza, Sackville Street<br>Barnsley, S70 2RD</div><div class="pc-hours">Mon: 10am–7pm · Tue–Thu: 8:30am–5pm · Fri: 9am–3pm</div><div class="pc-tel"><a href="tel:01226290017">01226 290017</a></div></div>
+          <div class="practice-card"><div class="pc-name">Penistone Practice</div><div class="pc-addr">54 High Street, Penistone<br>Sheffield, S36 6BS</div><div class="pc-hours">Mon: 10am–7pm · Tue–Wed: 8:30am–5pm · Thu: 8:30am–4:30pm · Fri: 9am–3pm</div><div class="pc-tel"><a href="tel:01226762242">01226 762242</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="contact-hero"><div class="eyebrow">Book now</div><h1>Book a consultation</h1><p>Choose your preferred practice — Barnsley or Penistone — and we'll confirm your appointment promptly.</p></div>
+  <div class="contact-body">
+    <div class="form-box">
+      <h2>Book a consultation</h2><div class="form-sub">Online bookings welcome. For urgent appointments, please call directly.</div>
+      <div class="f-row"><div class="f-group"><label>Name</label><input type="text" placeholder="Your name"></div><div class="f-group"><label>Phone</label><input type="tel" placeholder="07700 000000"></div></div>
+      <div class="f-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="f-group"><label>Preferred practice</label><select><option>Barnsley (Gateway Plaza)</option><option>Penistone (High Street)</option><option>No preference</option></select></div>
+      <div class="f-group"><label>Treatment interested in</label><select><option>Dental implants</option><option>Teeth in a Day</option><option>Invisalign</option><option>Smile makeover</option><option>Porcelain veneers</option><option>Teeth whitening</option><option>General / routine dentistry</option><option>Not sure — please advise</option></select></div>
+      <div class="f-group"><label>Message</label><textarea placeholder="Any details about what you're looking for..."></textarea></div>
+      <button class="f-submit">Book consultation →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-block hl"><div class="ibl">Barnsley</div><div class="ibv"><a href="tel:01226290017">01226 290017</a></div><div class="ibs">Gateway Plaza, Sackville Street, S70 2RD</div></div>
+      <div class="info-block hl"><div class="ibl">Penistone</div><div class="ibv"><a href="tel:01226762242">01226 762242</a></div><div class="ibs">54 High Street, Penistone, S36 6BS</div></div>
+      <div class="info-block"><div class="ibl">Email</div><div class="ibv" style="font-size:14px"><a href="mailto:enquiries@alexjonesdentistry.com">enquiries@alexjonesdentistry.com</a></div></div>
+      <div class="info-block"><div class="ibl">Book online</div><div class="ibv" style="font-size:14px"><a href="https://alexjonesdentistry.portal.dental" target="_blank">alexjonesdentistry.portal.dental ↗</a></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand-name">Alex Jones Dentistry</div><div style="font-size:12px">Barnsley · Penistone · Award-winning implant & cosmetic specialists</div></div>
+      <div class="footer-col"><div class="footer-col-title">Pages</div><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('implants')">Implants</a><a href="#" onclick="showPage('cosmetic')">Cosmetic</a><a href="#" onclick="showPage('about')">About</a><a href="#" onclick="showPage('contact')">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Barnsley</div><a href="tel:01226290017">📞 01226 290017</a><a href="mailto:barnsley@alexjonesdentistry.com">barnsley@alexjonesdentistry.com</a></div>
+      <div class="footer-col"><div class="footer-col-title">Penistone</div><a href="tel:01226762242">📞 01226 762242</a><a href="mailto:penistone@alexjonesdentistry.com">penistone@alexjonesdentistry.com</a></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Alex Jones Dentistry · Barnsley & Penistone · Part of Portman Healthcare Limited</div><div class="footer-credit">Demo built by <a href="https://trabelo.vercel.app" target="_blank">Trabelo</a> · Websites from £395</div></div>
+  </div>
+</footer>
+<script>function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nl=document.getElementById('nav-'+id);if(nl)nl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}</script>
+</body>
+</html>

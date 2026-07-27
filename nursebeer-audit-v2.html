@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A note about your website — Cosmetic Clinic — Nurse Beer</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f1117;--accent:#9d2449;--blue:#2563eb;--green:#16a34a;--red:#dc2626;--amber:#d97706;--border:#e5e7eb;--muted:#6b7280;--light:#f9fafb;--r:8px}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--light);line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{background:#1a0810;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:800;color:#fff}.logo span{color:#f5a0b8}
+.hr{font-size:12px;color:rgba(255,255,255,.4)}
+.hero{background:linear-gradient(135deg,#1a0810,#260d18);padding:56px 28px;text-align:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:6px 18px;font-size:12px;font-weight:700;color:#f5a0b8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:32px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.hero h1 em{color:#f5a0b8;font-style:normal}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.6);max-width:620px;margin:0 auto 24px;line-height:1.8}
+.hero-meta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.mp{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 16px;font-size:13px;color:rgba(255,255,255,.75)}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.main{max-width:860px;margin:32px auto;padding:0 22px 60px}
+.platform-note{background:#fffbeb;border:1.5px solid #fcd34d;border-radius:10px;padding:18px 22px;margin-bottom:22px;display:flex;gap:14px;align-items:flex-start}
+.pn-icon{font-size:22px;flex-shrink:0}
+.pn-title{font-size:14px;font-weight:800;color:#92400e;margin-bottom:5px}
+.pn-body{font-size:13px;color:#78350f;line-height:1.65}
+.sc{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.sch{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.sct{font-size:14px;font-weight:800}.scs{font-size:12px;color:var(--muted);margin-top:2px}
+.sg{display:grid;grid-template-columns:1fr 1fr}
+.sp{padding:22px}.sp.before{border-right:1px solid var(--border);background:#fafafa}
+.pl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.before .pl{color:var(--amber)}.after .pl{color:var(--green)}
+.pl::before{content:'';width:9px;height:9px;border-radius:50%;background:currentColor}
+.sr{display:flex;flex-direction:column;gap:11px}
+.row{display:flex;align-items:center;gap:10px}
+.rn{font-size:13px;color:var(--muted);min-width:100px}
+.bt{flex:1;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden}
+.bf{height:100%;border-radius:4px}
+.fg{background:var(--green)}.fa{background:var(--amber)}.fr{background:var(--red)}
+.sn{font-size:13px;font-weight:800;min-width:30px;text-align:right}
+.ng{color:var(--green)}.na{color:var(--amber)}.nr{color:var(--red)}
+.drow{padding:13px 22px;background:#f0fdf4;border-top:1px solid #bbf7d0;display:flex;gap:18px;flex-wrap:wrap}
+.di{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--green)}
+.ic{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.ich{padding:16px 22px;border-bottom:1px solid var(--border)}
+.icht{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.it{font-size:15px;font-weight:800}
+.ib{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:100px;font-size:12px;font-weight:700;padding:2px 9px}
+.is{font-size:13px;color:var(--muted)}
+.ir{display:flex;gap:13px;padding:16px 22px;border-bottom:1px solid var(--border);align-items:flex-start}
+.ir:last-child{border-bottom:none}
+.ii{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px;background:#fef3c7}
+.itl{font-size:14px;font-weight:700;margin-bottom:4px}
+.id{font-size:13px;color:var(--muted);line-height:1.67}
+.ifx{display:inline-flex;align-items:center;gap:4px;margin-top:7px;font-size:12px;font-weight:700;color:var(--green);background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:2px 9px}
+.feature-pitch{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.fp-header{padding:16px 22px;border-bottom:1px solid var(--border);background:#1a0810}
+.fp-header-title{font-size:15px;font-weight:800;color:#fff}
+.fp-header-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.fp-grid{display:grid;grid-template-columns:1fr 1fr}
+.fp-item{padding:18px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.fp-item:nth-child(even){border-right:none}
+.fp-item:nth-last-child(-n+2){border-bottom:none}
+.fp-icon{font-size:22px;margin-bottom:10px}
+.fp-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.fp-desc{font-size:13px;color:var(--muted);line-height:1.62}
+.pc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+.pcg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.p{border:1.5px solid var(--border);border-radius:var(--r);padding:18px;position:relative}
+.pf{border:2px solid var(--blue)}
+.pb{position:absolute;top:-10px;left:13px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.pt{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pa{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1}
+.pn{font-size:12px;color:var(--muted);margin-top:3px;margin-bottom:10px}
+.pd div{font-size:13px;color:var(--muted);margin-bottom:4px}
+.p3{border:1.5px solid #7c3aed;border-radius:var(--r);padding:18px;position:relative;background:#faf5ff}
+.p3b{position:absolute;top:-10px;left:13px;background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.p3t{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7c3aed;margin-bottom:6px}
+.p3a{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1}
+.p3n{font-size:12px;color:#7c3aed;margin-top:3px;margin-bottom:10px}
+.p3d div{font-size:13px;color:#6d28d9;margin-bottom:4px}
+footer{background:#1a0810;color:rgba(255,255,255,.3);padding:16px 28px;font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Cosmetic Clinic — Nurse Beer <span>— Website Review</span></div>
+  <div class="hr">Prepared by Trabelo · Sheffield · July 2026</div>
+</header>
+<div class="hero">
+  <div class="hero-tag">Google PageSpeed · Real scores · July 2026</div>
+  <h1>Your browser tab title currently reads 'botox-fillers'.<br><em>And your Yell.com listing is sending your visitors to competitors.</em></h1>
+  <p class="hero-sub">We're a local Sheffield web design company and we've been looking at your website. We noticed two things straight away — the browser tab title for the homepage says 'botox-fillers' rather than the clinic's name, and the Yell.com footer link sends visitors to a Yell directory page listing competing clinics. We've had a proper look at everything and built a free demo of what a better site could look like. No strings attached.</p>
+  <div class="hero-meta"><div class="mp"><div class="dot" style="background:#ef4444"></div>Current — tab title 'botox-fillers', Yell footer sends to competitors</div><div class="mp"><div class="dot" style="background:#f59e0b"></div>Performance 71 — slower than it needs to be</div><div class="mp"><div class="dot" style="background:#22c55e"></div>Rebuild — proper title, no competitor links, faster</div></div>
+</div>
+<div class="main">
+  <div class="platform-note">
+    <div class="pn-icon">💄</div>
+    <div><div class="pn-title">Your Yell.com footer link is actively sending visitors to a page listing competing clinics</div><div class="pn-body">The footer of the current site contains a Yell.com badge that links to a Yell directory search page showing competing aesthetic clinics in Sheffield. That means someone who visits your website and clicks that link is taken directly to a page where they can choose between you and your competitors. It's the kind of thing that's easy to miss but is quietly costing the clinic enquiries every week.</div></div>
+  </div>
+  <div class="sc">
+    <div class="sch">
+      <div><div class="sct">Your current website — nursebeer.co.uk</div><div class="scs">Tested on mobile · Google PageSpeed Insights · July 2026</div></div>
+      <span style="font-size:12px;font-weight:700;color:var(--red);background:#fee2e2;border:1px solid #fca5a5;border-radius:100px;padding:4px 12px">⚠ Real scores</span>
+    </div>
+    <div class="sg">
+      <div class="sp before"><div class="pl">Your site right now</div><div class="sr"><div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fa" style="width:71%"></div></div><span class="sn na">71</span></div><div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fa" style="width:89%"></div></div><span class="sn na">89</span></div><div class="row"><span class="rn">Best Prac.</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div><div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fg" style="width:92%"></div></div><span class="sn ng">92</span></div></div></div>
+      <div class="sp after"><div class="pl">After the rebuild</div><div class="sr"><div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fg" style="width:97%"></div></div><span class="sn ng">97</span></div><div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fg" style="width:98%"></div></div><span class="sn ng">98</span></div><div class="row"><span class="rn">Best Prac.</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div><div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fg" style="width:100%"></div></div><span class="sn ng">100</span></div></div></div>
+    </div>
+    <div class="drow"><div class="di">↑ Performance +26 points</div><div class="di">↑ Accessibility +9 points</div><div class="di">✓ Best Practices maintained at 100</div><div class="di">↑ SEO +8 points</div></div>
+  </div>
+  <div class="ic">
+    <div class="ich">
+      <div class="icht"><div class="it">What's going wrong — and why it matters</div><span class="ib">3 things</span></div>
+      <div class="is">A few specific things that are easy to miss but worth fixing.</div>
+    </div>
+    <div class="ir"><div class="ii">🔗</div><div><div class="itl">The Yell.com footer sends visitors to a page listing your competitors</div><div class="id">The current site footer has a Yell.com badge link. Clicking it takes visitors to a Yell directory page showing other aesthetic clinics in Sheffield — your direct competitors. Anyone curious enough to click that link is being handed to your competition. The rebuild removes all third-party footer links that don't benefit the clinic.</div><span class="ifx">✓ Fixed — no external links that send visitors away from the clinic</span></div></div><div class="ir"><div class="ii">🏷️</div><div><div class="itl">The browser tab reads 'botox-fillers' — not the clinic name</div><div class="id">When someone has the site open in a browser tab, the tab label is one of the first things they see. The current homepage tab reads 'botox-fillers' rather than 'Cosmetic Clinic — Nurse Beer' or similar. It's a small detail but it makes the site look unfinished and affects how Google reads the page title for search results.</div><span class="ifx">✓ Fixed — correct, professional page titles throughout</span></div></div><div class="ir"><div class="ii">⚡</div><div><div class="itl">Performance 71 — still slower than it needs to be on mobile</div><div class="id">At Performance 71 the site isn't dramatically slow, but there are improvements available. On a mobile connection visitors are still waiting 3–4 seconds before the page loads properly. The rebuild gets this to 97 — under 1 second — which makes a noticeable difference to how the site feels on a phone.</div><span class="ifx">✓ Fixed — Performance 97, loads in under 1 second</span></div></div>
+  </div>
+  <div class="feature-pitch">
+    <div class="fp-header">
+      <div class="fp-header-title">What you'd get with the new site</div>
+      <div class="fp-header-sub">A clean, professional site with no links sending visitors to competitors</div>
+    </div>
+    <div class="fp-grid"><div class="fp-item"><div class="fp-icon">🔗</div><div class="fp-title">No competitor links — no Yell, no external directories</div><div class="fp-desc">Every link on the rebuilt site either keeps visitors on the page or takes them somewhere that benefits the clinic — nowhere else.</div></div><div class="fp-item"><div class="fp-icon">🏷️</div><div class="fp-title">Proper page titles and professional branding throughout</div><div class="fp-desc">Every page has a clear, correct title — 'Cosmetic Clinic — Nurse Beer · Sheffield' — so tabs, bookmarks and Google results all look professional.</div></div><div class="fp-item"><div class="fp-icon">⚡</div><div class="fp-title">Loads in under 1 second on any device</div><div class="fp-desc">Significantly faster than the current site on mobile — which is where most aesthetic clinic visitors browse.</div></div><div class="fp-item"><div class="fp-icon">💉</div><div class="fp-title">Treatments page — Botox, fillers, skin treatments clearly listed</div><div class="fp-desc">All treatments with clear descriptions and pricing guidance so patients can understand exactly what they're enquiring about.</div></div><div class="fp-item"><div class="fp-icon">📋</div><div class="fp-title">Contact form — no third-party links in the way</div><div class="fp-desc">A simple enquiry form with treatment selector — one step to getting in touch, with no distractions.</div></div><div class="fp-item"><div class="fp-icon">🔍</div><div class="fp-title">SEO to 100 — correct page titles help search ranking</div><div class="fp-desc">The browser tab title issue affects SEO as well as appearance. Fixing it properly improves search ranking for treatment-specific terms.</div></div></div>
+  </div>
+  <div class="pc">
+    <div><h3 style="font-size:17px;font-weight:800;margin-bottom:5px">Two options — both one-off fixed prices</h3>
+    <p style="font-size:13px;color:var(--muted);line-height:1.65">No monthly fees, no ongoing contract. One payment and the site is yours.</p></div>
+    <div class="pcg">
+      <div class="p">
+        <div class="pt">Starter</div><div class="pa">£395</div><div class="pn">One-off · no monthly fees</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Hosting: £0/month — free</div>
+        <div class="pd"><div>✓ 5 pages — Home, Treatments, About, Contact, Pricing</div><div>✓ Performance 97+ · Accessibility 98 · SEO 100</div><div>✓ No Yell link or competitor redirects</div><div>✓ Correct professional page titles</div><div>✓ Mobile-first, loads instantly</div></div>
+        <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;padding:12px 14px;margin-top:12px">
+          <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#92400e;margin-bottom:8px">Content updates</div>
+          <div style="font-size:13px;color:#78350f;margin-bottom:6px">📝 <strong>£15 per update</strong> — new treatment, pricing update, team change</div>
+          <div style="font-size:13px;color:#78350f">📅 <strong>£30/month</strong> — unlimited small updates included</div>
+        </div>
+      </div>
+      <div class="p pf">
+        <div class="pb">Recommended</div>
+        <div class="pt">Business</div><div class="pa">£795</div><div class="pn">One-off · no monthly fees</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Hosting: £0/month — free</div>
+        <div class="pd"><div>✓ Everything in Starter</div><div>✓ Full treatments page — every service detailed</div><div>✓ Pricing page with treatment categories</div><div>✓ Patient testimonials section</div><div>✓ Online booking or enquiry form</div><div>✓ Training provided — how to manage content</div></div>
+      </div>
+      <div class="p3">
+        <div class="p3b">Premium</div>
+        <div class="p3t">Advanced</div><div class="p3a">£1,295</div><div class="p3n">One-off · minor hosting costs</div>
+        <div style="background:#faf5ff;border:1px solid #c4b5fd;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#6d28d9;margin-bottom:10px">Hosting: ~£0–9/month</div>
+        <div class="p3d"><div>✓ Everything in Business</div><div>✓ CMS — update treatments and prices yourself</div><div>✓ Before/after gallery with categories</div><div>✓ SEO pages — treatment + location specific</div><div>✓ Google Analytics</div><div>✓ Full staff training in person</div></div>
+      </div>
+    </div>
+    <div style="background:#f9fafb;border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;font-size:13px;color:#374151;display:flex;gap:10px;align-items:flex-start;margin-top:4px">
+      <span style="font-size:16px;flex-shrink:0">🤝</span>
+      <div><strong>We're Sheffield-based — S13 is just down the road.</strong> Happy to come to the clinic if you'd like to talk it through in person.</div>
+    </div>
+  </div>
+</div>
+<footer>Prepared for Cosmetic Clinic — Nurse Beer by Trabelo · Sheffield · July 2026 · All scores taken directly from Google PageSpeed Insights</footer>
+</body>
+</html>
