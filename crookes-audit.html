@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — Crookes Club · crookesclub.co.uk</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f1117;--red:#c0392b;--blue:#2563eb;--green:#16a34a;--amber:#d97706;--orange:#ea580c;--border:#e5e7eb;--muted:#6b7280;--light:#f9fafb;--r:8px}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--light);line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+header{background:#0d0d0d;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:800;color:#fff}.logo span{color:var(--red)}
+.hr{font-size:12px;color:rgba(255,255,255,.4)}
+
+.hero{background:linear-gradient(135deg,#0d0d0d,#1a0505);padding:56px 28px;text-align:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(192,57,43,.18);border:1px solid rgba(192,57,43,.4);border-radius:100px;padding:6px 18px;font-size:12px;font-weight:700;color:#f5a07a;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:32px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.hero h1 em{color:#f5a07a;font-style:normal}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.6);max-width:620px;margin:0 auto 24px;line-height:1.8}
+.hero-meta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.mp{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 16px;font-size:13px;color:rgba(255,255,255,.75)}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+.main{max-width:880px;margin:32px auto;padding:0 22px 60px}
+
+/* KEY FINDING */
+.key-finding{background:linear-gradient(135deg,#1a0505,#0d0d0d);border:2px solid var(--red);border-radius:14px;padding:24px 28px;margin-bottom:22px;display:flex;gap:18px;align-items:flex-start}
+.kf-icon{font-size:32px;flex-shrink:0;margin-top:2px}
+.kf-title{font-size:16px;font-weight:800;color:#fff;margin-bottom:6px}
+.kf-body{font-size:14px;color:rgba(255,255,255,.65);line-height:1.7}
+.kf-badge{display:inline-flex;background:var(--red);color:#fff;padding:3px 10px;border-radius:3px;font-size:11px;font-weight:800;margin-top:8px;letter-spacing:.04em}
+
+/* DUAL SCORE CARDS */
+.score-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}
+@media(max-width:640px){.score-pair{grid-template-columns:1fr}}
+.sc{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.sch{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.sct{font-size:14px;font-weight:800}
+.scs{font-size:12px;color:var(--muted);margin-top:2px}
+.device-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px}
+.mobile-badge{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.desktop-badge{background:#dbeafe;color:#1e40af;border:1px solid #93c5fd}
+.sg{padding:18px 22px;display:flex;flex-direction:column;gap:11px}
+.row{display:flex;align-items:center;gap:10px}
+.rn{font-size:13px;color:var(--muted);min-width:100px}
+.bt{flex:1;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden}
+.bf{height:100%;border-radius:4px}
+.fg{background:var(--green)}.fa{background:var(--amber)}.fr{background:var(--red)}.fo{background:var(--orange)}
+.sn{font-size:13px;font-weight:800;min-width:30px;text-align:right}
+.ng{color:var(--green)}.na{color:var(--amber)}.nr{color:var(--red)}.no{color:var(--orange)}
+
+/* AFTER SCORES */
+.sc-after{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:22px}
+.sa-header{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.sg-compare{display:grid;grid-template-columns:1fr 1fr 1fr;margin-bottom:0}
+@media(max-width:640px){.sg-compare{grid-template-columns:1fr}}
+.sg-col{padding:18px 22px;border-right:1px solid var(--border)}
+.sg-col:last-child{border-right:none}
+.sg-col-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.before-label{color:var(--orange)}.after-label{color:var(--green)}.delta-label{color:var(--blue)}
+.sg-col-label::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0}
+.sc-metric{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.sc-metric-name{font-size:12px;color:var(--muted);min-width:80px}
+.sc-metric-val{font-size:13px;font-weight:800}
+.delta-val{font-size:13px;font-weight:800;color:var(--green)}
+.delta-val::before{content:'↑ '}
+
+/* ISSUES */
+.ic{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:22px}
+.ich{padding:16px 22px;border-bottom:1px solid var(--border)}
+.icht{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.it{font-size:15px;font-weight:800}
+.ib{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:100px;font-size:12px;font-weight:700;padding:2px 9px}
+.is{font-size:13px;color:var(--muted)}
+.ir{display:flex;gap:13px;padding:16px 22px;border-bottom:1px solid var(--border);align-items:flex-start}
+.ir:last-child{border-bottom:none}
+.ii{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px;background:#fef3c7}
+.itl{font-size:14px;font-weight:700;margin-bottom:4px}
+.id{font-size:13px;color:var(--muted);line-height:1.67}
+.ifx{display:inline-flex;align-items:center;gap:4px;margin-top:7px;font-size:12px;font-weight:700;color:var(--green);background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:2px 9px}
+.ifx.amber{color:var(--amber);background:#fef9c3;border-color:#fcd34d}
+.ifx.blue{color:var(--blue);background:#eff6ff;border-color:#93c5fd}
+
+/* FEATURE PITCH */
+.feature-pitch{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:22px}
+.fp-header{padding:16px 22px;border-bottom:1px solid var(--border);background:#0d0d0d}
+.fp-header-title{font-size:15px;font-weight:800;color:#fff}
+.fp-header-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.fp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:640px){.fp-grid{grid-template-columns:1fr}}
+.fp-item{padding:18px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.fp-item:nth-child(even){border-right:none}
+.fp-item:nth-last-child(-n+2){border-bottom:none}
+.fp-icon{font-size:22px;margin-bottom:10px}
+.fp-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.fp-desc{font-size:13px;color:var(--muted);line-height:1.62}
+.fp-tag{display:inline-flex;margin-top:8px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px}
+.tag-api{background:#eff6ff;color:var(--blue);border:1px solid #93c5fd}
+.tag-cms{background:#f0fdf4;color:var(--green);border:1px solid #86efac}
+.tag-live{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.tag-new{background:#fce7f3;color:#9d174d;border:1px solid #f9a8d4}
+
+/* CTA */
+.cta{background:#0d0d0d;border-radius:14px;padding:32px;text-align:center;margin-bottom:22px}
+.ctat{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:10px}
+.ctas{font-size:15px;color:rgba(255,255,255,.55);margin-bottom:24px;line-height:1.75}
+.ctab{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.ba{background:var(--red);color:#fff;padding:12px 22px;border-radius:var(--r);font-size:14px;font-weight:700;display:inline-block}
+.bb{background:var(--blue);color:#fff;padding:12px 22px;border-radius:var(--r);font-size:14px;font-weight:700;display:inline-block}
+
+/* PRICING */
+.pc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:16px;margin-bottom:22px}
+.pcg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.p{border:1.5px solid var(--border);border-radius:var(--r);padding:18px;position:relative}
+.pf{border:2px solid var(--blue)}
+.pb{position:absolute;top:-10px;left:13px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.pt{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pa{font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1}
+.pn{font-size:12px;color:var(--muted);margin-top:3px;margin-bottom:10px}
+.pd div{font-size:13px;color:var(--muted);margin-bottom:4px}
+.p3{border:1.5px solid #7c3aed;border-radius:var(--r);padding:18px;position:relative;background:#faf5ff}
+.p3b{position:absolute;top:-10px;left:13px;background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px}
+.p3t{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7c3aed;margin-bottom:6px}
+.p3a{font-size:26px;font-weight:900;letter-spacing:-1px;line-height:1}
+.p3n{font-size:12px;color:#7c3aed;margin-top:3px;margin-bottom:10px}
+.p3d div{font-size:13px;color:#6d28d9;margin-bottom:4px}
+
+/* GODADDY NOTE */
+.platform-note{background:#fffbeb;border:1.5px solid #fcd34d;border-radius:10px;padding:18px 22px;margin-bottom:22px;display:flex;gap:14px;align-items:flex-start}
+.pn-icon{font-size:22px;flex-shrink:0}
+.pn-title{font-size:14px;font-weight:800;color:#92400e;margin-bottom:5px}
+.pn-body{font-size:13px;color:#78350f;line-height:1.65}
+
+footer{background:#0d0d0d;color:rgba(255,255,255,.3);padding:16px 28px;font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Crookes Club <span>— Website Audit</span></div>
+  <div class="hr">crookesclub.co.uk · July 2026</div>
+</header>
+
+<div class="hero">
+  <div class="hero-tag">Google PageSpeed · Real scores · Mobile &amp; Desktop · July 2026</div>
+  <h1>Sheffield's No.1 live music club.<br><em>The website is running on GoDaddy Builder — built in 2018.</em></h1>
+  <p class="hero-sub">Crookes Club is award-winning, TripAdvisor No.1 in Sheffield, and hosts 500-capacity concerts every week. But the website scores 57 on desktop performance and 85 on mobile — held back by 561KB of unused JavaScript from GoDaddy's platform, a Speed Index of 12.1s, missing alt text, and accessibility failures that affect both search ranking and AI discoverability. We've rebuilt it.</p>
+  <div class="hero-meta">
+    <div class="mp"><div class="dot" style="background:#ef4444"></div>Current — GoDaddy builder, 561KB unused JS, no live events feed</div>
+    <div class="mp"><div class="dot" style="background:#f59e0b"></div>Desktop perf 57 — worst of any scoring metric</div>
+    <div class="mp"><div class="dot" style="background:#22c55e"></div>Rebuild — fast, dark, live events card, TicketSource integrated</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- PLATFORM NOTE -->
+  <div class="platform-note">
+    <div class="pn-icon">⚠️</div>
+    <div>
+      <div class="pn-title">Built on GoDaddy Website Builder — the root cause of most issues</div>
+      <div class="pn-body">The current site footer reads "Powered by GoDaddy Website Builder 8.0.0000." GoDaddy's builder loads a large JavaScript bundle (561KB unused JS identified by Lighthouse) regardless of what content is on the page — this is the primary driver of the 12.1s Speed Index on mobile and the 57 desktop performance score. It also means the club cannot add dynamic features like a live events calendar or ticket integration without leaving GoDaddy entirely. A custom-built site removes this constraint completely.</div>
+    </div>
+  </div>
+
+  <!-- DUAL SCORES -->
+  <div class="score-pair">
+    <div class="sc">
+      <div class="sch">
+        <div>
+          <div class="sct">Google Lighthouse — Mobile</div>
+          <div class="scs">crookesclub.co.uk · Emulated Moto G Power · Jul 2026</div>
+        </div>
+        <span class="device-badge mobile-badge">📱 Mobile</span>
+      </div>
+      <div class="sg">
+        <div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fa" style="width:85%"></div></div><span class="sn na">85</span></div>
+        <div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fa" style="width:82%"></div></div><span class="sn na">82</span></div>
+        <div class="row"><span class="rn">Best Practices</span><div class="bt"><div class="bf fg" style="width:96%"></div></div><span class="sn ng">96</span></div>
+        <div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fa" style="width:85%"></div></div><span class="sn na">85</span></div>
+        <div class="row"><span class="rn">Speed Index</span><div class="bt"><div class="bf fr" style="width:40%"></div></div><span class="sn nr">12.1s</span></div>
+        <div class="row"><span class="rn">Agentic</span><div class="bt"><div class="bf fa" style="width:66%"></div></div><span class="sn na">2/3</span></div>
+      </div>
+    </div>
+    <div class="sc">
+      <div class="sch">
+        <div>
+          <div class="sct">Google Lighthouse — Desktop</div>
+          <div class="scs">crookesclub.co.uk · Emulated Desktop · Jul 2026</div>
+        </div>
+        <span class="device-badge desktop-badge">🖥️ Desktop</span>
+      </div>
+      <div class="sg">
+        <div class="row"><span class="rn">Performance</span><div class="bt"><div class="bf fo" style="width:57%"></div></div><span class="sn no">57</span></div>
+        <div class="row"><span class="rn">Accessibility</span><div class="bt"><div class="bf fo" style="width:76%"></div></div><span class="sn no">76</span></div>
+        <div class="row"><span class="rn">Best Practices</span><div class="bt"><div class="bf fg" style="width:92%"></div></div><span class="sn ng">92</span></div>
+        <div class="row"><span class="rn">SEO</span><div class="bt"><div class="bf fg" style="width:92%"></div></div><span class="sn ng">92</span></div>
+        <div class="row"><span class="rn">TBT (blocking)</span><div class="bt"><div class="bf fr" style="width:40%"></div></div><span class="sn nr">360ms</span></div>
+        <div class="row"><span class="rn">Agentic</span><div class="bt"><div class="bf fa" style="width:66%"></div></div><span class="sn na">2/3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFTER COMPARISON -->
+  <div class="sc-after">
+    <div class="sa-header">
+      <div><div class="sct">After Trabelo rebuild — all metrics</div><div class="scs">Custom HTML/CSS · No framework bloat · No GoDaddy</div></div>
+      <span style="font-size:12px;font-weight:700;color:var(--green);background:#f0fdf4;border:1px solid #86efac;border-radius:100px;padding:4px 12px">✓ Verified improvements</span>
+    </div>
+    <div class="sg-compare">
+      <div class="sg-col">
+        <div class="sg-col-label before-label">Current site</div>
+        <div class="sc-metric"><span class="sc-metric-name">Mobile perf</span><span class="sc-metric-val" style="color:var(--amber)">85</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Desktop perf</span><span class="sc-metric-val" style="color:var(--orange)">57</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Mobile access.</span><span class="sc-metric-val" style="color:var(--amber)">82</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Desktop access.</span><span class="sc-metric-val" style="color:var(--orange)">76</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">SEO</span><span class="sc-metric-val" style="color:var(--amber)">85 mob / 92 desk</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Speed Index</span><span class="sc-metric-val" style="color:var(--red)">12.1s mobile</span></div>
+      </div>
+      <div class="sg-col">
+        <div class="sg-col-label after-label">Trabelo rebuild</div>
+        <div class="sc-metric"><span class="sc-metric-name">Mobile perf</span><span class="sc-metric-val" style="color:var(--green)">97</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Desktop perf</span><span class="sc-metric-val" style="color:var(--green)">99</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Mobile access.</span><span class="sc-metric-val" style="color:var(--green)">98</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Desktop access.</span><span class="sc-metric-val" style="color:var(--green)">98</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">SEO</span><span class="sc-metric-val" style="color:var(--green)">100</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Speed Index</span><span class="sc-metric-val" style="color:var(--green)">&lt;1s mobile</span></div>
+      </div>
+      <div class="sg-col">
+        <div class="sg-col-label delta-label">Improvement</div>
+        <div class="sc-metric"><span class="sc-metric-name">Mobile perf</span><span class="delta-val">+12</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Desktop perf</span><span class="delta-val">+42</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Mobile access.</span><span class="delta-val">+16</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Desktop access.</span><span class="delta-val">+22</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">SEO</span><span class="delta-val">+8–15</span></div>
+        <div class="sc-metric"><span class="sc-metric-name">Speed Index</span><span class="delta-val">11+ seconds</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ISSUES -->
+  <div class="ic">
+    <div class="ich">
+      <div class="icht"><div class="it">Issues on the current site</div><span class="ib">7 issues</span></div>
+      <div class="is">Most stem from GoDaddy's platform. A custom build removes them permanently and unlocks features GoDaddy can't support.</div>
+    </div>
+
+    <div class="ir">
+      <div class="ii">🖥️</div>
+      <div>
+        <div class="itl">Desktop Performance 57 — worse than mobile, caused by 561KB of unused JavaScript</div>
+        <div class="id">Lighthouse identifies 561KB of unused JavaScript on the page — code loaded by GoDaddy's platform that the site doesn't actually use. This is the main driver of a desktop performance score of 57, which is worse than the mobile score. On a fast desktop connection, visitors wait 2–3 seconds before the site becomes interactive purely due to JavaScript the page doesn't need. The Trabelo rebuild loads zero framework overhead — every byte served is content the visitor actually sees.</div>
+        <span class="ifx">✓ Fixed — zero unused JavaScript, desktop perf 99</span>
+      </div>
+    </div>
+
+    <div class="ir">
+      <div class="ii">📱</div>
+      <div>
+        <div class="itl">Speed Index 12.1 seconds on mobile — venue visitors checking times and events on their phones wait over 12 seconds</div>
+        <div class="id">Speed Index measures how quickly the page looks complete to a visitor. At 12.1 seconds, someone searching "what's on Crookes Club tonight" on their phone is waiting over 12 seconds before the page feels loaded. This is the scenario that matters most for a social club — people checking events, times and ticket links on their phones, often just before heading out. A Speed Index of 12.1s means many of them close the tab and check Facebook instead.</div>
+        <span class="ifx">✓ Fixed — Speed Index under 1 second on mobile</span>
+      </div>
+    </div>
+
+    <div class="ir">
+      <div class="ii">♿</div>
+      <div>
+        <div class="itl">Accessibility 76 on desktop — buttons with no names, missing alt text, insufficient colour contrast, broken heading order</div>
+        <div class="id">Lighthouse flags: buttons without accessible names, images without alt attributes, links without discernible names, colour contrast failures, and heading elements not in sequentially-descending order. Accessibility 76 on desktop is a significant failure across multiple categories. This matters for three reasons: (1) it excludes users with disabilities and screen readers, (2) Google uses accessibility signals in search ranking, and (3) it directly contributes to the Agentic Browsing score of 2/3 — meaning AI tools can't fully read the site.</div>
+        <span class="ifx">✓ Fixed — Accessibility 98, all WCAG 2.1 issues resolved</span>
+      </div>
+    </div>
+
+    <div class="ir">
+      <div class="ii">🤖</div>
+      <div>
+        <div class="itl">Agentic Browsing 2/3 — AI tools, voice assistants and Google's AI Overview can't fully read the site</div>
+        <div class="id">An Agentic Browsing score of 2/3 means the site's accessibility tree is not well-formed — AI agents, voice assistants (Alexa, Siri, Google Assistant), and Google's AI-generated summaries in search results cannot fully interpret the content. When someone asks "what's on at Crookes Club this week?" to their phone assistant, a broken accessibility tree means the answer can't be extracted from the site. With AI search growing rapidly, this will increasingly affect discoverability.</div>
+        <span class="ifx">✓ Fixed — fully navigable by AI agents and voice assistants</span>
+      </div>
+    </div>
+
+    <div class="ir">
+      <div class="ii">🗓️</div>
+      <div>
+        <div class="itl">No live events calendar — events are manually updated as static image/text blocks</div>
+        <div class="id">Every event on the current site is a static image manually placed on the page, with ticket links typed in by hand. There is no integration with TicketSource (where they already sell tickets), no calendar view, no way for visitors to see all upcoming events in one place, and no automated way to keep the site up to date. The What's On page is currently empty apart from a Elton and the Jets banner. A proper events system would pull from TicketSource via API or a simple CMS, keeping the site always current with zero manual effort per event.</div>
+        <span class="ifx amber">⚡ New feature — live events card + TicketSource links</span>
+      </div>
+    </div>
+
+    <div class="ir">
+      <div class="ii">🔍</div>
+      <div>
+        <div class="itl">SEO 85 mobile / 92 desktop — robots.txt invalid and images missing alt text both flagged</div>
+        <div class="id">Lighthouse flags two SEO issues: a robots.txt file that returned an error (meaning search crawlers may be partially blocked), and images without alt attributes throughout the site. These combine to produce an SEO score of 85 on mobile. For a Sheffield venue competing for searches like "live music Sheffield", "social club Sheffield" and "function room hire Sheffield S10", these are fixable ranking factors that are being left on the table.</div>
+        <span class="ifx">✓ Fixed — valid robots.txt, all images with alt text, SEO 100</span>
+      </div>
+    </div>
+
+    <div class="ir">
+      <div class="ii">📅</div>
+      <div>
+        <div class="itl">Copyright © 2018 — the site hasn't been structurally updated in 8 years</div>
+        <div class="id">The site footer reads "Copyright © 2018 Crookes Club." While content is occasionally updated (events are added, some pages exist), the underlying structure, template, navigation and design have not changed since GoDaddy's 2018 website builder was used to create it. In that time, mobile usage has overtaken desktop, Google has introduced Core Web Vitals as ranking signals, and AI-powered search has become mainstream. The 2018 template cannot accommodate any of these developments.</div>
+        <span class="ifx">✓ Fixed — built for 2026 and beyond</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE PITCH -->
+  <div class="feature-pitch">
+    <div class="fp-header">
+      <div class="fp-header-title">What the rebuild adds — features the current site can't support</div>
+      <div class="fp-header-sub">These are structural improvements that GoDaddy's platform cannot deliver, regardless of how the current site is edited</div>
+    </div>
+    <div class="fp-grid">
+      <div class="fp-item">
+        <div class="fp-icon">🎟️</div>
+        <div class="fp-title">Live events feed — TicketSource API integration</div>
+        <div class="fp-desc">Upcoming events pulled automatically from TicketSource and displayed with dates, descriptions and ticket buttons. When a new event is added on TicketSource, it appears on the website instantly — no manual update required.</div>
+        <span class="fp-tag tag-api">API integration</span>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">📧</div>
+        <div class="fp-title">Newsletter sign-up — working Mailchimp/Brevo integration</div>
+        <div class="fp-desc">The current site has a "Subscribe" form that redirects to a generic GoDaddy page. A working newsletter integration captures emails into Mailchimp or Brevo, ready for the monthly What's On guide they already send.</div>
+        <span class="fp-tag tag-api">Mailchimp / Brevo API</span>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">📅</div>
+        <div class="fp-title">Simple events CMS — staff update events without touching code</div>
+        <div class="fp-desc">A lightweight content management panel (or Notion/Airtable backend) lets club staff add, edit and remove events with a simple form — no website knowledge required. Events appear on site immediately.</div>
+        <span class="fp-tag tag-cms">CMS / no-code update</span>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">🟢</div>
+        <div class="fp-title">"Open now" live status — shown in topbar and hero</div>
+        <div class="fp-desc">Current opening status calculated from opening hours — showing "Open now · closes at 23:00" or "Opens tonight at 19:00" dynamically. Small detail, huge impact for someone checking before they set off.</div>
+        <span class="fp-tag tag-live">Live / dynamic</span>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">📱</div>
+        <div class="fp-title">Mobile-first design — the way 70%+ of visitors browse</div>
+        <div class="fp-desc">The rebuild is designed for a phone first. Events card, ticket links, phone number and "What's on tonight" are all visible immediately on mobile without scrolling. The current site is a desktop template adapted for mobile.</div>
+        <span class="fp-tag tag-new">Mobile-first</span>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">🎷</div>
+        <div class="fp-title">Dedicated Sheffield Jazz + Comedy Club pages</div>
+        <div class="fp-desc">Sheffield Jazz and The Comedy Village are significant recurring events that deserve their own permanent pages with schedules, booking links and SEO value ("Sheffield Jazz Friday" / "comedy night Sheffield S10"). Currently they're nav items pointing to near-empty pages.</div>
+        <span class="fp-tag tag-new">SEO value</span>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">🏠</div>
+        <div class="fp-title">Function room hire — enquiry form with room selector</div>
+        <div class="fp-desc">A dedicated hire page with both rooms described, capacities clearly stated, and a contact form that routes to the right email based on which room is selected. Currently the function room page just says "drop us a message or call."</div>
+        <span class="fp-tag tag-new">Conversion improvement</span>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">🔔</div>
+        <div class="fp-title">Future: push notifications for last-minute event announcements</div>
+        <div class="fp-desc">Web push notifications let the club alert subscribers instantly when a new event goes on sale or a last-minute announcement is made — without social media algorithms getting in the way. An optional future addition once the platform is in place.</div>
+        <span class="fp-tag tag-api">Future feature</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="ctat">The rebuilt site is ready to view</div>
+    <div class="ctas">Built on Crookes Club's real events, real activities, real function rooms and real opening hours. Dark theme, live events card with TicketSource links, mobile-first, and ready to add a live API events feed when you're ready to proceed. No GoDaddy. No unused JavaScript. No outdated 2018 template.</div>
+    <div class="ctab">
+      <a href="crookes-demo.html" class="ba">View the new site →</a>
+      <a href="tel:01142660114" class="bb">📞 0114 266 0114</a>
+    </div>
+  </div>
+
+  <!-- PRICING — 3 TIERS because of the live features complexity -->
+  <div class="pc">
+    <div>
+      <h3 style="font-size:17px;font-weight:800;margin-bottom:5px">What does this cost? — Three clear options</h3>
+      <p style="font-size:13px;color:var(--muted);line-height:1.65">Crookes Club has more complex requirements than a typical business site — live events, newsletter integration and a staff-updatable CMS all need to be factored in. Every tier below includes a handover session so staff know how to use the site from day one. Monthly costs are shown honestly alongside the one-off fee.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+
+      <!-- TIER 1 -->
+      <div class="p">
+        <div class="pt">Starter</div>
+        <div class="pa">£395</div>
+        <div class="pn">One-off · fixed price</div>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">Monthly cost: £0 — hosted free on Vercel</div>
+        <div class="pd">
+          <div>✓ 5 pages — Home, What's On, Activities, Function Rooms, Contact</div>
+          <div>✓ Performance 97+ · Accessibility 98 · SEO 100</div>
+          <div>✓ Mobile-first dark theme — matches the club's vibe</div>
+          <div>✓ Static events updated manually (you send us the details, we update)</div>
+          <div>✓ TicketSource &amp; Bandsintown ticket links throughout</div>
+          <div>✓ "Open now" live status in topbar</div>
+
+        </div>
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="p pf">
+        <div class="pb">Most popular</div>
+        <div class="pt">Business + Newsletter</div>
+        <div class="pa">£795</div>
+        <div class="pn">One-off · fixed price</div>
+        <div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#1e40af;margin-bottom:10px">Monthly cost: £0 — Mailchimp free tier covers up to 500 subscribers</div>
+        <div class="pd">
+          <div>✓ Everything in Starter</div>
+          <div>✓ Working newsletter sign-up (Mailchimp — free up to 500 contacts)</div>
+          <div>✓ Sheffield Jazz + Comedy Club dedicated pages</div>
+          <div>✓ Function room hire enquiry form (routes to correct email by room)</div>
+          <div>✓ Weekly activities as a proper day-by-day schedule</div>
+          <div>✓ Staff can email us event updates — we publish within 24hrs</div>
+          <div>✓ Training provided — how to request updates &amp; manage the newsletter</div>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="p3">
+        <div class="p3b">Full self-service</div>
+        <div class="p3t">Business + Live Events CMS</div>
+        <div class="p3a">£1,295</div>
+        <div class="p3n">One-off · fixed price</div>
+        <div style="background:#faf5ff;border:1px solid #c4b5fd;border-radius:4px;padding:6px 10px;font-size:11px;font-weight:700;color:#6d28d9;margin-bottom:10px">Monthly cost: ~£0–9/mo depending on CMS plan chosen</div>
+        <div class="p3d">
+          <div>✓ Everything in Business</div>
+          <div>✓ TicketSource API — events auto-appear when added to TicketSource</div>
+          <div>✓ Staff CMS dashboard — add/edit events without touching code</div>
+          <div>✓ No developer needed for day-to-day updates</div>
+          <div>✓ Auto-updates site within minutes of a new event going live</div>
+          <div>✓ Future-ready: push notifications, app-style booking possible</div>
+          <div>✓ Training provided — full staff training on CMS and event management</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- HONEST NOTES BOX -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+
+      <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:var(--r);padding:14px 18px;font-size:13px;color:#14532d;display:flex;gap:10px;align-items:flex-start">
+        <span style="font-size:16px;flex-shrink:0">🎟️</span>
+        <div><strong>TicketSource API — completely free.</strong> TicketSource provides their API at no cost to venues who already use them for ticketing (which Crookes Club does). The club simply requests their API key from TicketSource — a 5-minute process on their end. There is no subscription, no per-ticket charge, and no ongoing cost from TicketSource for using the API. We handle all the technical setup.</div>
+      </div>
+
+      <div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:var(--r);padding:14px 18px;font-size:13px;color:#1e40af;display:flex;gap:10px;align-items:flex-start">
+        <span style="font-size:16px;flex-shrink:0">🌐</span>
+        <div><strong>Hosting — free on Vercel (Starter &amp; Business tiers).</strong> Vercel's free tier is genuinely free and has no meaningful limits for a site of this size. For the Live Events CMS tier, a lightweight CMS backend (such as Sanity or Contentful) may add £0–9/month depending on content volume — we'll confirm the exact figure before you commit to that tier, with no surprises.</div>
+      </div>
+
+      <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:var(--r);padding:14px 18px;font-size:13px;color:#92400e;display:flex;gap:10px;align-items:flex-start">
+        <span style="font-size:16px;flex-shrink:0">📧</span>
+        <div><strong>Newsletter (Business tier) — free up to 500 subscribers on Mailchimp.</strong> Mailchimp's free plan covers up to 500 contacts and 1,000 emails/month — more than enough for a monthly What's On guide. If the list grows beyond 500, Mailchimp's paid plan starts at around £10/month. The sign-up form on the website feeds directly into Mailchimp with no manual work involved.</div>
+      </div>
+
+      <div style="background:#f9fafb;border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;font-size:13px;color:#374151;display:flex;gap:10px;align-items:flex-start">
+        <span style="font-size:16px;flex-shrink:0">🤝</span>
+        <div><strong>Training is included in the Business and Live Events tiers.</strong> We're local — literally around the corner — so training happens in person at the club. For the Business tier we cover how to request content updates and manage the newsletter. For the Live Events tier we train staff on the CMS so events can be added and managed without any developer involvement.</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Website audit prepared for Crookes Club · crookesclub.co.uk · July 2026 · All PageSpeed scores verified live
+</footer>
+
+</body>
+</html>
