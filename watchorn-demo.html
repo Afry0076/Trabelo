@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rosalind Watchorn Solicitors — Wills, probate, lasting powers of attorney and residential conveyancing in Sheffield. Personal, caring legal support since 1993.">
+<title>Rosalind Watchorn Solicitors | Wills, Probate & Property — Sheffield</title>
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --forest-mid: #224433;
+    --forest-light: #2d5c44;
+    --sage: #4a7c59;
+    --gold: #c8a96e;
+    --gold-light: #dfc090;
+    --cream: #faf8f4;
+    --warm-white: #f5f2ec;
+    --white: #ffffff;
+    --slate: #64748b;
+    --text: #1a2018;
+    --muted: #6b7280;
+    --border: #e2ddd4;
+    --section-pad: 72px 20px;
+    --radius: 4px;
+    --shadow: 0 4px 24px rgba(26,58,42,0.1);
+    --shadow-lg: 0 8px 48px rgba(26,58,42,0.16);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--forest);
+    color: rgba(255,255,255,0.68);
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    padding: 9px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topbar a { color: rgba(255,255,255,0.68); text-decoration: none; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar-left, .topbar-right { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .topbar-badge {
+    background: rgba(200,169,110,0.2);
+    border: 1px solid rgba(200,169,110,0.35);
+    color: var(--gold-light);
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(26,58,42,0.07);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px; gap: 16px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+  .nav-logo-mark {
+    width: 42px; height: 42px;
+    background: var(--forest);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-family: 'Georgia', serif;
+    font-size: 17px; font-weight: bold;
+  }
+  .nav-logo-name { font-family: 'Georgia', serif; font-size: 16px; font-weight: bold; color: var(--forest); display: block; letter-spacing: -0.2px; }
+  .nav-logo-sub { font-family: 'Arial', sans-serif; font-size: 10.5px; color: var(--slate); letter-spacing: 0.07em; text-transform: uppercase; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+  .nav-links li a {
+    font-family: 'Arial', sans-serif; font-size: 13.5px; color: var(--forest);
+    text-decoration: none; padding: 6px 11px; border-radius: var(--radius);
+    transition: color 0.2s, background 0.2s; white-space: nowrap;
+  }
+  .nav-links li a:hover { color: var(--sage); background: rgba(74,124,89,0.08); }
+  .nav-cta { background: var(--forest) !important; color: var(--white) !important; font-weight: 700; padding: 8px 18px !important; border-radius: var(--radius); }
+  .nav-cta:hover { background: var(--forest-light) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--forest); border-radius: 2px; }
+  .mobile-menu { display: none; background: var(--white); border-top: 1px solid var(--border); padding: 12px 20px 20px; }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a { display: block; font-family: 'Arial', sans-serif; font-size: 15px; color: var(--forest); text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-cta-btn { display: block; margin-top: 14px; background: var(--forest); color: var(--white) !important; font-weight: 700; text-align: center; padding: 12px; border-radius: var(--radius); font-size: 15px; border-bottom: none !important; }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--forest);
+    padding: 64px 20px 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(200,169,110,0.07) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 300px;
+    gap: 48px; align-items: start;
+  }
+  .hero-eyebrow { font-family: 'Arial', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: bold; color: var(--white); line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub { font-family: 'Arial', sans-serif; font-size: 16px; color: rgba(255,255,255,0.68); line-height: 1.7; max-width: 540px; margin-bottom: 32px; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary { background: var(--gold); color: var(--forest); font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; padding: 13px 26px; border: none; border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline { background: transparent; color: rgba(255,255,255,0.82); font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 600; padding: 12px 24px; border: 1px solid rgba(255,255,255,0.28); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-stat-num { font-size: 2.2rem; font-weight: bold; color: var(--gold); line-height: 1; }
+  .hero-stat-label { font-family: 'Arial', sans-serif; font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* Hero card */
+  .hero-card { background: var(--white); border-radius: 6px; padding: 28px; box-shadow: var(--shadow-lg); flex-shrink: 0; }
+  .hero-card-title { font-family: 'Arial', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--slate); margin-bottom: 14px; }
+  .hero-card-name { font-size: 1.1rem; font-weight: bold; color: var(--forest); margin-bottom: 6px; }
+  .hero-card-sub { font-family: 'Arial', sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 18px; line-height: 1.5; }
+  .hero-card-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .hero-card-row { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+  .hero-card-item { display: flex; align-items: flex-start; gap: 9px; font-family: 'Arial', sans-serif; font-size: 13px; color: var(--text); }
+  .hero-card-item .icon { color: var(--sage); flex-shrink: 0; margin-top: 1px; }
+  .hero-card-phone { display: block; background: var(--forest); color: var(--white); text-decoration: none; text-align: center; padding: 12px; border-radius: var(--radius); font-family: 'Arial', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; transition: background 0.2s; }
+  .hero-card-phone:hover { background: var(--forest-light); }
+  .hero-card-consult { display: block; background: rgba(200,169,110,0.12); color: var(--forest); text-decoration: none; text-align: center; padding: 10px; border-radius: var(--radius); font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 600; border: 1px solid rgba(200,169,110,0.4); }
+  .hero-card-accred { display: flex; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .accred-badge { background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 3px 8px; font-family: 'Arial', sans-serif; font-size: 10px; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip { background: var(--forest-mid); padding: 18px 20px; border-top: 1px solid rgba(200,169,110,0.2); border-bottom: 1px solid rgba(200,169,110,0.2); }
+  .trust-strip-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-family: 'Arial', sans-serif; font-size: 13px; color: rgba(255,255,255,0.68); }
+  .trust-item .icon { color: var(--gold); font-size: 15px; }
+  .trust-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+
+  /* ── SECTIONS ── */
+  .section { padding: var(--section-pad); }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-alt { background: var(--white); }
+  .section-dark { background: var(--forest); color: var(--white); }
+  .section-warm { background: var(--warm-white); }
+
+  .section-eyebrow { font-family: 'Arial', sans-serif; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 10px; font-weight: 700; }
+  .section h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--forest); margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.25; }
+  .section-dark h2 { color: var(--white); }
+  .section-lead { font-family: 'Arial', sans-serif; font-size: 15.5px; color: var(--muted); max-width: 620px; line-height: 1.7; margin-bottom: 48px; }
+  .section-dark .section-lead { color: rgba(255,255,255,0.6); }
+
+  /* ── SERVICE CARDS ── */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 24px; }
+  .service-card { background: var(--cream); border: 1px solid var(--border); border-radius: 6px; padding: 28px; transition: box-shadow 0.2s, border-color 0.2s; cursor: pointer; }
+  .service-card:hover { box-shadow: var(--shadow); border-color: var(--sage); }
+  .service-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .service-card h3 { font-size: 1.1rem; color: var(--forest); margin-bottom: 10px; }
+  .service-card p { font-family: 'Arial', sans-serif; font-size: 13.5px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+  .service-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .service-list li { font-family: 'Arial', sans-serif; font-size: 12.5px; color: var(--text); padding-left: 14px; position: relative; }
+  .service-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-content h2 { color: var(--forest); }
+  .about-content p { font-family: 'Arial', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 18px; }
+  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+  .about-value { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 16px; }
+  .about-value-title { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: var(--forest); margin-bottom: 4px; }
+  .about-value p { font-family: 'Arial', sans-serif; font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.5; }
+  .about-visual { background: var(--forest); border-radius: 8px; padding: 32px; }
+  .about-visual h3 { font-size: 1.05rem; color: var(--gold); margin-bottom: 20px; }
+  .about-fact { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .about-fact:last-child { border-bottom: none; padding-bottom: 0; }
+  .about-fact-title { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .about-fact-detail { font-family: 'Arial', sans-serif; font-size: 12.5px; color: rgba(255,255,255,0.5); line-height: 1.55; }
+
+  /* ── TEAM ── */
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 20px; }
+  .team-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 24px 20px; text-align: center; }
+  .team-avatar { width: 60px; height: 60px; background: var(--forest-light); border-radius: 50%; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--gold); font-weight: bold; }
+  .team-name { font-size: 1rem; font-weight: bold; color: var(--forest); margin-bottom: 4px; }
+  .team-role { font-family: 'Arial', sans-serif; font-size: 12px; color: var(--sage); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .team-bio { font-family: 'Arial', sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+  /* ── REVIEWS ── */
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr)); gap: 22px; }
+  .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 26px; }
+  .review-stars { color: #f59e0b; font-size: 15px; margin-bottom: 12px; letter-spacing: 2px; }
+  .review-text { font-size: 14.5px; color: var(--text); line-height: 1.7; margin-bottom: 14px; font-style: italic; }
+  .review-author { font-family: 'Arial', sans-serif; font-size: 12.5px; color: var(--slate); }
+  .review-service { font-family: 'Arial', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage); margin-top: 4px; }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
+  .contact-info p { font-family: 'Arial', sans-serif; font-size: 14.5px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+  .contact-highlight { background: var(--forest); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 20px; }
+  .contact-highlight-title { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+  .contact-highlight-text { font-family: 'Arial', sans-serif; font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.55; }
+  .contact-detail-list { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 20px; }
+  .contact-detail-list li { display: flex; align-items: flex-start; gap: 11px; font-family: 'Arial', sans-serif; font-size: 14px; color: var(--text); line-height: 1.5; }
+  .contact-detail-list li .icon { color: var(--sage); flex-shrink: 0; font-size: 15px; margin-top: 2px; }
+  .contact-detail-list li a { color: var(--forest); text-decoration: none; }
+  .contact-detail-list li a:hover { color: var(--sage); }
+
+  /* form */
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; color: var(--forest); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; border: 1px solid var(--border); border-radius: var(--radius); padding: 11px 14px; font-family: 'Arial', sans-serif; font-size: 14px; color: var(--text); background: var(--white); outline: none; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(74,124,89,0.1); }
+  .form-group textarea { resize: vertical; min-height: 110px; font-family: 'Arial', sans-serif; }
+  .form-submit { background: var(--forest); color: var(--white); width: 100%; font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; padding: 13px; border: none; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; letter-spacing: 0.03em; }
+  .form-submit:hover { background: var(--forest-light); }
+  .form-privacy { font-family: 'Arial', sans-serif; font-size: 11.5px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+  /* ── FOOTER ── */
+  .footer { background: #0d1f15; padding: 52px 20px 28px; color: rgba(255,255,255,0.52); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
+  .footer-brand-name { font-size: 16px; font-weight: bold; color: var(--white); display: block; margin-bottom: 4px; }
+  .footer-brand-sub { font-family: 'Arial', sans-serif; font-size: 11px; color: rgba(255,255,255,0.3); display: block; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+  .footer-brand p { font-family: 'Arial', sans-serif; font-size: 13px; line-height: 1.65; margin-bottom: 16px; }
+  .footer-col h4 { font-family: 'Arial', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 14px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a { font-family: 'Arial', sans-serif; font-size: 13px; color: rgba(255,255,255,0.48); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-family: 'Arial', sans-serif; font-size: 12px; color: rgba(255,255,255,0.24); }
+  .footer-bottom a { color: rgba(255,255,255,0.24); text-decoration: none; }
+  .trabelo-credit { color: rgba(255,255,255,0.18); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-values { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    :root { --section-pad: 52px 16px; }
+    .footer-top { grid-template-columns: 1fr; }
+    .trust-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="tel:01142290160">📞 0114 229 0160</a>
+    <a href="mailto:mail@rwatchorn.co.uk">✉ mail@rwatchorn.co.uk</a>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-badge">Free 30-min initial consultation</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#" onclick="showPage('home')">
+      <div class="nav-logo-mark">RW</div>
+      <div>
+        <span class="nav-logo-name">Rosalind Watchorn</span>
+        <span class="nav-logo-sub">Solicitors · Sheffield</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('services')">Services</a></li>
+      <li><a href="#" onclick="showPage('about')">About us</a></li>
+      <li><a href="#" onclick="showPage('reviews')">Reviews</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta">Get in touch →</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showPage('home');closeMobile()">Home</a>
+    <a href="#" onclick="showPage('services');closeMobile()">Services</a>
+    <a href="#" onclick="showPage('about');closeMobile()">About us</a>
+    <a href="#" onclick="showPage('reviews');closeMobile()">Reviews</a>
+    <a href="#" onclick="showPage('contact');closeMobile()" class="mobile-cta-btn">Get in touch →</a>
+  </div>
+</nav>
+
+<!-- ═══ HOME ═══ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">Sheffield Solicitors · Established 1993</div>
+        <h1>Expert legal support,<br>delivered with <em>genuine care.</em></h1>
+        <p class="hero-sub">Rosalind Watchorn Solicitors has been helping Sheffield families through life's most important legal moments since 1993. Wills, probate, lasting powers of attorney, trusts and residential property — handled personally, with real attention to you.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Book a free consultation →</a>
+          <a href="#" class="btn-outline" onclick="showPage('services')">Our services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">1993</div>
+            <div class="hero-stat-label">Established</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">30</div>
+            <div class="hero-stat-label">Min free consult</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">CQS</div>
+            <div class="hero-stat-label">Conveyancing accredited</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">🏠</div>
+            <div class="hero-stat-label">Home visits available</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR CARD -->
+      <div class="hero-card">
+        <div class="hero-card-title">Get in touch</div>
+        <div class="hero-card-name">Rosalind Watchorn Solicitors</div>
+        <div class="hero-card-sub">Personal legal support in Sheffield since 1993. Home visits available for clients who can't come to us.</div>
+        <hr class="hero-card-divider">
+        <div class="hero-card-row">
+          <div class="hero-card-item"><span class="icon">📍</span><span>Sheffield, South Yorkshire</span></div>
+          <div class="hero-card-item"><span class="icon">🕐</span><span>Mon–Fri · Office hours</span></div>
+          <div class="hero-card-item"><span class="icon">🏠</span><span>Home visits available</span></div>
+          <div class="hero-card-item"><span class="icon">☕</span><span>Free 30-min initial consultation</span></div>
+        </div>
+        <a href="tel:01142290160" class="hero-card-phone">📞 0114 229 0160</a>
+        <a href="#" onclick="showPage('contact')" class="hero-card-consult">Book a free consultation →</a>
+        <div class="hero-card-accred">
+          <div class="accred-badge">CQS</div>
+          <div class="accred-badge">Lexcel</div>
+          <div class="accred-badge">SRA Regulated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-strip-inner">
+      <div class="trust-item"><span class="icon">🏅</span> CQS Conveyancing Accredited</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">✅</span> Lexcel Quality Standard</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">☕</span> Free 30-min consultation</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">🏠</span> Home visits available</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">📍</span> Sheffield since 1993</div>
+    </div>
+  </div>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">What we do</div>
+      <h2>Specialist legal help for life's important moments.</h2>
+      <p class="section-lead">We focus on the legal matters that come up at the most significant points in life — and we handle them with the care and attention they deserve.</p>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">📜</span>
+          <h3>Wills</h3>
+          <p>Making a will is one of the most important things you'll ever do. We guide you through the process with care, making sure your wishes are documented properly and will be carried out.</p>
+          <ul class="service-list">
+            <li>Single &amp; mirror wills</li>
+            <li>Complex estate planning</li>
+            <li>Will reviews &amp; updates</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">🏛️</span>
+          <h3>Probate &amp; Estate Administration</h3>
+          <p>Dealing with a loved one's estate while grieving is hard. We handle the legal process efficiently and compassionately — taking the burden off you at a difficult time.</p>
+          <ul class="service-list">
+            <li>Applying for probate</li>
+            <li>Estate administration</li>
+            <li>Inheritance tax advice</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">📋</span>
+          <h3>Lasting Powers of Attorney</h3>
+          <p>A Lasting Power of Attorney lets you choose who makes decisions for you if you're ever unable to make them yourself. It's one of the most important documents you'll ever put in place.</p>
+          <ul class="service-list">
+            <li>Property &amp; financial affairs LPA</li>
+            <li>Health &amp; welfare LPA</li>
+            <li>Registration with the OPG</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">🏠</span>
+          <h3>Residential Property</h3>
+          <p>Buying or selling a home is one of the biggest financial decisions of your life. We handle the legal side carefully and keep you informed throughout.</p>
+          <ul class="service-list">
+            <li>Buying &amp; selling</li>
+            <li>Remortgaging</li>
+            <li>Transfer of equity</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">🛡️</span>
+          <h3>Trusts &amp; Tax Planning</h3>
+          <p>Protecting your assets and planning for the future, including inheritance tax planning and trust arrangements to safeguard your estate for the people you care about.</p>
+          <ul class="service-list">
+            <li>Trust creation &amp; management</li>
+            <li>Inheritance tax planning</li>
+            <li>Asset protection</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('contact')">
+          <span class="service-icon">☕</span>
+          <h3>Start with a free consultation</h3>
+          <p>Not sure where to start? Every new client gets a free, no-obligation 30-minute consultation. We'll listen to your situation and tell you honestly what you need.</p>
+          <ul class="service-list">
+            <li>No obligation</li>
+            <li>30 minutes — no charge</li>
+            <li>Home visits available</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS PREVIEW -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-eyebrow">What our clients say</div>
+      <h2>Built on personal recommendations — for over 30 years.</h2>
+      <p class="section-lead">Rosalind Watchorn Solicitors has grown almost entirely through word of mouth and personal referrals. Here's what some of our clients had to say.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Rosalind helped us with our wills and lasting powers of attorney. She explained everything clearly and patiently — we never felt rushed. Exactly the kind of firm you want handling something this important."</p>
+          <div class="review-author">P. &amp; M. Holgate, Sheffield</div>
+          <div class="review-service">Wills &amp; Lasting Powers of Attorney</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"After my mother passed, I didn't know where to start with probate. The team at Rosalind Watchorn were so kind and patient — they took care of everything and kept me informed throughout. Couldn't have been more grateful."</p>
+          <div class="review-author">S. Bramley, Dore, Sheffield</div>
+          <div class="review-service">Probate &amp; Estate Administration</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"We used Rosalind Watchorn for our house purchase. Efficient, thorough and always available to answer questions. Completed on time with no stress. Would recommend them without hesitation."</p>
+          <div class="review-author">J. &amp; A. Foster, Sheffield</div>
+          <div class="review-service">Residential Conveyancing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ SERVICES ═══ -->
+<div id="page-services" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Our services</div>
+      <h2>Personal legal support for life's most important moments.</h2>
+      <p class="section-lead">We specialise in the legal matters that matter most — and we handle every one with the personal attention and care that each client deserves.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">📜</span>
+          <h3>Wills</h3>
+          <p>Your will is the document that ensures your wishes are carried out. Without one, the law decides what happens to your estate — which may not be what you'd choose. We make the process straightforward and ensure everything is properly documented.</p>
+          <ul class="service-list">
+            <li>Single &amp; mirror wills</li>
+            <li>Complex estate wills</li>
+            <li>Reviewing &amp; updating existing wills</li>
+            <li>Storage &amp; safekeeping</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📋</span>
+          <h3>Lasting Powers of Attorney</h3>
+          <p>A Lasting Power of Attorney is a legal document that lets you appoint someone you trust to make decisions on your behalf if you ever lose capacity. There are two types — property &amp; financial affairs, and health &amp; welfare — and we recommend having both.</p>
+          <ul class="service-list">
+            <li>Property &amp; financial affairs LPA</li>
+            <li>Health &amp; welfare LPA</li>
+            <li>Registration with the Office of the Public Guardian</li>
+            <li>Advice on choosing your attorneys</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏛️</span>
+          <h3>Probate &amp; Estate Administration</h3>
+          <p>When someone passes away, their estate needs to be administered and distributed. We handle the entire probate process — from applying for the grant of probate to distributing the estate — compassionately and efficiently.</p>
+          <ul class="service-list">
+            <li>Applying for grant of probate</li>
+            <li>Full estate administration</li>
+            <li>Inheritance tax advice &amp; returns</li>
+            <li>Intestacy (no will) cases</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🛡️</span>
+          <h3>Trusts &amp; Tax Planning</h3>
+          <p>Trusts can protect your assets, reduce inheritance tax liability and ensure your estate passes to the right people in the right way. We advise on the full range of trust arrangements and long-term estate planning strategies.</p>
+          <ul class="service-list">
+            <li>Discretionary &amp; bare trusts</li>
+            <li>Inheritance tax planning</li>
+            <li>Asset protection strategies</li>
+            <li>Trust administration</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏠</span>
+          <h3>Residential Conveyancing</h3>
+          <p>We're CQS-accredited — the Law Society's quality standard for conveyancing. Whether you're buying, selling, remortgaging or transferring ownership, we handle the legal work carefully and keep you informed throughout.</p>
+          <ul class="service-list">
+            <li>Buying &amp; selling residential property</li>
+            <li>Remortgaging</li>
+            <li>Transfer of equity</li>
+            <li>Freehold &amp; leasehold</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">👩‍⚕️</span>
+          <h3>Managing Your Affairs</h3>
+          <p>For older clients or those who need support, we offer guidance on managing legal affairs — from Court of Protection applications to advice on care home funding and deputyship.</p>
+          <ul class="service-list">
+            <li>Court of Protection</li>
+            <li>Deputyship applications</li>
+            <li>Care funding advice</li>
+            <li>Home visits available</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div id="page-about" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-content">
+          <div class="section-eyebrow">About us</div>
+          <h2>A Sheffield firm built on trust — since 1993.</h2>
+          <p>Rosalind Watchorn set up the firm in 1993 with a clear aim: to give people a more personal approach to the legal matters they face at important points in life. More than 30 years later, that's still what we do.</p>
+          <p>We've grown almost entirely through word of mouth and personal recommendations — which tells you something about how we work. We don't pay referral fees. We earn our clients through the quality of our service and the care we show them.</p>
+          <p>Every client is assigned their own specialist who stays with them throughout the process. We offer home visits for clients who can't come to us, and a free 30-minute initial consultation for anyone who wants to understand their options before committing to anything.</p>
+          <div class="about-values">
+            <div class="about-value">
+              <div class="about-value-title">Personal attention</div>
+              <p>Your own specialist, throughout. Not a different voice every time.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-title">Plain language</div>
+              <p>Jargon-free advice — always clear, always honest.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-title">No referral fees</div>
+              <p>We earn work through our reputation — not financial incentives.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-title">Home visits</div>
+              <p>For clients who can't come to us — we come to you.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="about-visual">
+            <h3>The firm at a glance</h3>
+            <div class="about-fact">
+              <div class="about-fact-title">Established 1993</div>
+              <div class="about-fact-detail">Over 30 years serving Sheffield families and individuals.</div>
+            </div>
+            <div class="about-fact">
+              <div class="about-fact-title">CQS Accredited</div>
+              <div class="about-fact-detail">Law Society Conveyancing Quality Scheme — the mark of quality for residential conveyancing.</div>
+            </div>
+            <div class="about-fact">
+              <div class="about-fact-title">Lexcel Accredited</div>
+              <div class="about-fact-detail">The Law Society's quality standard for practice management and client care.</div>
+            </div>
+            <div class="about-fact">
+              <div class="about-fact-title">SRA Regulated</div>
+              <div class="about-fact-detail">Authorised and regulated by the Solicitors Regulation Authority. SRA number 76848.</div>
+            </div>
+            <div class="about-fact">
+              <div class="about-fact-title">Free initial consultation</div>
+              <div class="about-fact-detail">30 minutes, no charge, no obligation — for all new clients.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-eyebrow">Our team</div>
+      <h2>The people behind Rosalind Watchorn.</h2>
+      <p class="section-lead">A small, experienced team of specialists — all dedicated to providing the personal service the firm was built on.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">RW</div>
+          <div class="team-name">Rosalind Watchorn</div>
+          <div class="team-role">Principal Solicitor</div>
+          <div class="team-bio">Founded the firm in 1993. Specialist in wills, trusts, tax planning and probate. Over 30 years of experience helping Sheffield families through life's most significant legal moments.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">S</div>
+          <div class="team-name">Senior Solicitor</div>
+          <div class="team-role">Wills &amp; Probate</div>
+          <div class="team-bio">Specialist in wills, lasting powers of attorney and estate administration. Known for patient, clear explanations and a compassionate approach to difficult situations.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">C</div>
+          <div class="team-name">Conveyancing Solicitor</div>
+          <div class="team-role">Residential Property</div>
+          <div class="team-bio">CQS-accredited conveyancing specialist. Handles all aspects of residential property transactions — buying, selling, remortgaging and transfers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ REVIEWS ═══ -->
+<div id="page-reviews" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Client reviews</div>
+      <h2>Built on personal recommendations for over 30 years.</h2>
+      <p class="section-lead">We've grown almost entirely through word of mouth. Here's what some of the people we've helped had to say.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Rosalind helped us with our wills and lasting powers of attorney. She explained everything clearly and patiently — we never felt rushed. Exactly the kind of firm you want handling something this important."</p>
+          <div class="review-author">P. &amp; M. Holgate, Sheffield</div>
+          <div class="review-service">Wills &amp; Lasting Powers of Attorney</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"After my mother passed, I didn't know where to start with probate. The team were so kind and patient — they took care of everything and kept me informed throughout. Couldn't have been more grateful."</p>
+          <div class="review-author">S. Bramley, Dore</div>
+          <div class="review-service">Probate &amp; Estate Administration</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Used Rosalind Watchorn for our house purchase. Efficient, thorough and always available to answer questions. Completed on time with no stress. Would recommend without hesitation."</p>
+          <div class="review-author">J. &amp; A. Foster, Sheffield</div>
+          <div class="review-service">Residential Conveyancing</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"We have used Rosalind Watchorn for wills, conveyancing and probate over the years. They have always been excellent — professional, thorough and really caring. Wouldn't go anywhere else."</p>
+          <div class="review-author">Long-standing client, Sheffield S11</div>
+          <div class="review-service">Wills, Conveyancing &amp; Probate</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Had a home visit arranged as I couldn't travel easily. The solicitor was punctual, kind and sorted everything out for us with our LPAs. Such a thoughtful service — would highly recommend."</p>
+          <div class="review-author">M. Greenwood, Sheffield</div>
+          <div class="review-service">Lasting Powers of Attorney</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The inheritance tax advice I received was brilliant — clear, practical and genuinely saved the family a significant amount. Really knowledgeable team and great at explaining complex things simply."</p>
+          <div class="review-author">R. Atkinson, Sheffield</div>
+          <div class="review-service">Trusts &amp; Tax Planning</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div id="page-contact" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-eyebrow">Get in touch</div>
+          <h2>We'd love to hear from you.</h2>
+          <p>Every new client gets a free, no-obligation 30-minute initial consultation. Tell us what you need and we'll tell you honestly how we can help — and what it's likely to cost.</p>
+          <div class="contact-highlight">
+            <div class="contact-highlight-title">☕ Free initial consultation</div>
+            <div class="contact-highlight-text">30 minutes, no charge, no obligation. For all new clients. Home visits available for clients who are unable to visit our office.</div>
+          </div>
+          <ul class="contact-detail-list">
+            <li><span class="icon">📞</span><a href="tel:01142290160">0114 229 0160</a></li>
+            <li><span class="icon">✉</span><a href="mailto:mail@rwatchorn.co.uk">mail@rwatchorn.co.uk</a></li>
+            <li><span class="icon">📍</span><span>Sheffield, South Yorkshire</span></li>
+            <li><span class="icon">🕐</span><span>Monday – Friday, office hours</span></li>
+            <li><span class="icon">🏠</span><span>Home visits available — just ask</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size:1.1rem; color:var(--forest); margin-bottom:22px;">Send us a message</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First name</label><input type="text" placeholder="e.g. Sarah"></div>
+            <div class="form-group"><label>Surname</label><input type="text" placeholder="e.g. Jones"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone number</label><input type="tel" placeholder="0114 …"></div>
+            <div class="form-group"><label>Email address</label><input type="email" placeholder="you@example.com"></div>
+          </div>
+          <div class="form-group">
+            <label>What do you need help with?</label>
+            <select>
+              <option value="">— Please select —</option>
+              <option>Making a will</option>
+              <option>Lasting Power of Attorney</option>
+              <option>Probate &amp; estate administration</option>
+              <option>Trusts &amp; inheritance tax planning</option>
+              <option>Buying a property</option>
+              <option>Selling a property</option>
+              <option>Remortgaging or transfer</option>
+              <option>Managing affairs / Court of Protection</option>
+              <option>Not sure — just want to talk</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Anything else you'd like to tell us?</label>
+            <textarea placeholder="A brief note about your situation — there's no need for full detail at this stage."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Would you prefer a home visit?</label>
+            <select>
+              <option>No — I'll come to the office</option>
+              <option>Yes — I'd like a home visit</option>
+              <option>Either is fine</option>
+            </select>
+          </div>
+          <button class="form-submit">Send message →</button>
+          <p class="form-privacy">We treat all personal data in accordance with our privacy policy. We'll only use your details to respond to your enquiry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Rosalind Watchorn Solicitors</span>
+        <span class="footer-brand-sub">Sheffield · Established 1993</span>
+        <p>Personal legal support for life's most important moments. Wills, probate, lasting powers of attorney, trusts and residential property — handled with genuine care.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('services')">Wills</a></li>
+          <li><a href="#" onclick="showPage('services')">Lasting Powers of Attorney</a></li>
+          <li><a href="#" onclick="showPage('services')">Probate &amp; Estate Admin</a></li>
+          <li><a href="#" onclick="showPage('services')">Trusts &amp; Tax Planning</a></li>
+          <li><a href="#" onclick="showPage('services')">Residential Property</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('about')">About us</a></li>
+          <li><a href="#" onclick="showPage('about')">Our team</a></li>
+          <li><a href="#" onclick="showPage('reviews')">Client reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:01142290160">0114 229 0160</a></li>
+          <li><a href="mailto:mail@rwatchorn.co.uk">mail@rwatchorn.co.uk</a></li>
+          <li><a href="#" onclick="showPage('contact')">Free consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Rosalind Watchorn Solicitors · SRA number 76848 · Members of the Law Society</div>
+      <div class="trabelo-credit">Website concept built by Trabelo · Sheffield</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const t = document.getElementById('page-' + id);
+    if (t) { t.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  }
+  function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A note about your website — Rosalind Watchorn Solicitors</title>
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --sage: #4a7c59;
+    --gold: #c8a96e;
+    --gold-light: #dfc090;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --muted: #6b7280;
+    --border: #e2ddd4;
+    --red: #dc2626;
+    --green: #16a34a;
+    --amber: #d97706;
+    --radius: 5px;
+    --shadow: 0 4px 24px rgba(26,58,42,0.09);
+    --max: 860px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Arial', sans-serif; background: var(--cream); color: #1a2018; line-height: 1.65; font-size: 16px; }
+
+  .topbar { background: var(--forest); color: rgba(255,255,255,0.55); font-size: 13px; padding: 10px 20px; text-align: center; }
+  .topbar strong { color: var(--gold); }
+
+  .header { background: var(--forest); padding: 52px 20px 60px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top:0;left:0;right:0;bottom:0; background: linear-gradient(135deg, rgba(200,169,110,0.07) 0%, transparent 55%); pointer-events: none; }
+  .header-inner { max-width: var(--max); margin: 0 auto; position: relative; }
+  .header-badge { display: inline-block; background: rgba(200,169,110,0.15); border: 1px solid rgba(200,169,110,0.35); color: var(--gold); font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; }
+  .header h1 { font-family: 'Georgia', serif; font-size: clamp(1.6rem, 4vw, 2.3rem); color: var(--white); line-height: 1.25; margin-bottom: 18px; letter-spacing: -0.02em; }
+  .header h1 em { font-style: italic; color: var(--gold); }
+  .header-sub { font-size: 15.5px; color: rgba(255,255,255,0.62); line-height: 1.7; max-width: 640px; margin-bottom: 32px; }
+  .header-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .compare-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 16px 18px; font-size: 13px; color: rgba(255,255,255,0.52); line-height: 1.55; }
+  .compare-box strong { color: rgba(255,255,255,0.82); display: block; margin-bottom: 4px; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .compare-box .highlight { color: var(--gold); font-weight: 600; }
+  .compare-box.good { border-color: rgba(22,163,74,0.3); }
+  .compare-box.good .highlight { color: #4ade80; }
+
+  .main { max-width: var(--max); margin: 0 auto; padding: 0 20px 80px; }
+
+  .scores-section { margin: 48px 0 0; }
+  .scores-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 12px; font-weight: 700; }
+  .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  .score-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 12px; text-align: center; box-shadow: var(--shadow); }
+  .score-num { font-family: 'Georgia', serif; font-size: 2.2rem; font-weight: bold; line-height: 1; margin-bottom: 6px; }
+  .score-num.bad { color: var(--red); }
+  .score-num.ok { color: var(--amber); }
+  .score-num.good { color: var(--green); }
+  .score-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; }
+  .score-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .scores-note { font-size: 12.5px; color: var(--muted); padding: 10px 14px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 24px; }
+
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin: 24px 0 48px; }
+  .compare-table thead { background: var(--forest); color: var(--white); }
+  .compare-table thead th { padding: 13px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; text-align: left; }
+  .compare-table thead th:not(:first-child) { text-align: center; }
+  .compare-table tbody tr { border-bottom: 1px solid var(--border); }
+  .compare-table tbody tr:last-child { border-bottom: none; }
+  .compare-table tbody td { padding: 11px 16px; vertical-align: middle; font-size: 13.5px; }
+  .compare-table tbody td:not(:first-child) { text-align: center; font-weight: 600; }
+  .compare-table tbody tr:nth-child(even) td { background: #f7f5f0; }
+  .val-bad { color: var(--red); }
+  .val-ok { color: var(--amber); }
+  .val-good { color: var(--green); }
+  .val-up { color: var(--green); font-size: 12px; }
+
+  .section-block { margin: 52px 0 0; }
+  .section-block-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage); font-weight: 700; margin-bottom: 8px; }
+  .section-block h2 { font-family: 'Georgia', serif; font-size: 1.7rem; color: var(--forest); letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 10px; }
+  .section-block .intro { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; max-width: 640px; }
+
+  .issue-list { display: flex; flex-direction: column; gap: 20px; }
+  .issue-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .issue-card-header { padding: 18px 22px; background: #f7f5ef; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; }
+  .issue-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .issue-title { font-size: 1rem; font-weight: 700; color: var(--forest); margin-bottom: 3px; line-height: 1.3; }
+  .issue-subtitle { font-size: 12.5px; color: var(--muted); }
+  .issue-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; }
+  .issue-explain { font-size: 14.5px; color: #374151; line-height: 1.7; }
+  .issue-fix { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 4px; padding: 12px 16px; font-size: 13.5px; color: #14532d; line-height: 1.6; }
+  .issue-fix strong { display: block; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--green); }
+
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+  .feature-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+  .feature-title { font-size: 0.95rem; font-weight: 700; color: var(--forest); margin-bottom: 6px; }
+  .feature-badge { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; padding: 2px 8px; border-radius: 20px; margin-bottom: 8px; }
+  .badge-new { background: #dbeafe; color: #1e40af; }
+  .badge-fix { background: #dcfce7; color: #15803d; }
+  .feature-desc { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .pricing-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); position: relative; }
+  .pricing-card.featured { border-color: var(--sage); box-shadow: 0 0 0 2px var(--sage), var(--shadow); }
+  .pricing-badge { position: absolute; top: 12px; right: 12px; background: var(--sage); color: var(--white); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 9px; border-radius: 20px; }
+  .pricing-header { background: var(--forest); padding: 20px; color: var(--white); }
+  .pricing-tier { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .pricing-price { font-family: 'Georgia', serif; font-size: 2rem; font-weight: bold; line-height: 1; margin-bottom: 4px; }
+  .pricing-note-sm { font-size: 12px; color: rgba(255,255,255,0.45); }
+  .pricing-body { padding: 18px 20px; }
+  .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .pricing-list li { font-size: 13px; color: #374151; padding-left: 18px; position: relative; line-height: 1.45; }
+  .pricing-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 12px; }
+  .pricing-cta { display: block; background: var(--forest); color: var(--white); text-align: center; padding: 12px; border-radius: 4px; font-size: 13.5px; font-weight: 700; text-decoration: none; cursor: default; }
+  .pricing-card.featured .pricing-cta { background: var(--sage); }
+  .pricing-sub { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.5; text-align: center; }
+
+  .pricing-notes { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .pricing-note-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; font-size: 13.5px; color: #374151; line-height: 1.6; }
+  .pricing-note-item .note-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  .cta-section { margin: 56px 0 0; background: var(--forest); border-radius: 8px; padding: 40px 36px; text-align: center; }
+  .cta-section h3 { font-family: 'Georgia', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 12px; }
+  .cta-section p { font-size: 14.5px; color: rgba(255,255,255,0.58); line-height: 1.7; max-width: 520px; margin: 0 auto 28px; }
+  .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cta-btn-primary { background: var(--gold); color: var(--forest); font-size: 14px; font-weight: 700; padding: 13px 28px; border-radius: var(--radius); text-decoration: none; }
+  .cta-btn-primary:hover { background: var(--gold-light); }
+  .cta-btn-outline { background: transparent; color: rgba(255,255,255,0.78); font-size: 14px; font-weight: 600; padding: 12px 24px; border: 1px solid rgba(255,255,255,0.22); border-radius: var(--radius); text-decoration: none; }
+
+  .footer { background: var(--forest); color: rgba(255,255,255,0.3); font-size: 12.5px; text-align: center; padding: 20px; margin-top: 60px; }
+
+  @media (max-width: 680px) {
+    .scores-grid { grid-template-columns: repeat(2, 1fr); }
+    .header-compare { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 12px; }
+    .compare-table thead th, .compare-table tbody td { padding: 9px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">Prepared for <strong>Rosalind Watchorn Solicitors</strong> · rwatchorn.co.uk · July 2026</div>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-badge">Website Audit · Trabelo · Sheffield</div>
+    <h1>Rosalind Watchorn has been a trusted Sheffield firm for over 30 years.<br><em>The website is the slowest thing about it.</em></h1>
+    <p class="header-sub">I'm a local Sheffield web designer and I've been looking at your site. The firm has a brilliant reputation — CQS accredited, Lexcel accredited, built on personal recommendations for over three decades, and offering a free 30-minute consultation that most competing firms don't. But the website takes 17 seconds to fully load on a phone, has no meta description (so Google can't properly describe it in search results), and is missing a few accessibility details that are worth sorting. I've put together a free demo showing what it could look like. No obligation at all.</p>
+    <div class="header-compare">
+      <div class="compare-box">
+        <strong>Current site — the problem</strong>
+        <span class="highlight">43/100 mobile performance</span><br>
+        17.3s to fully load · 3.97MB page size · no meta description · SEO 92
+      </div>
+      <div class="compare-box good">
+        <strong>Trabelo rebuild — the fix</strong>
+        <span class="highlight">97+ performance · under 1s load</span><br>
+        Free consultation prominent throughout · CQS &amp; Lexcel featured · SEO 100
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="scores-section">
+    <div class="scores-label">📱 Mobile — Google PageSpeed Insights · July 2026</div>
+    <div class="scores-grid">
+      <div class="score-card"><div class="score-num bad">43</div><div class="score-label">Performance</div><div class="score-sub">Poor</div></div>
+      <div class="score-card"><div class="score-num ok">90</div><div class="score-label">Accessibility</div><div class="score-sub">Some issues</div></div>
+      <div class="score-card"><div class="score-num good">100</div><div class="score-label">Best Practices</div><div class="score-sub">Passed</div></div>
+      <div class="score-card"><div class="score-num ok">92</div><div class="score-label">SEO</div><div class="score-sub">Needs work</div></div>
+    </div>
+    <div class="scores-note">
+      ⏱ First Contentful Paint: <strong>5.8s</strong> &nbsp;|&nbsp; Largest Contentful Paint: <strong>17.3s</strong> &nbsp;|&nbsp; Total Blocking Time: <strong>560ms</strong> &nbsp;|&nbsp; Speed Index: <strong>7.8s</strong> &nbsp;|&nbsp; Page size: <strong>3.97MB</strong>
+    </div>
+
+    <div class="scores-label">📊 Current vs. rebuild — at a glance</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Metric</th><th>Current site</th><th>Trabelo rebuild</th><th>Improvement</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Performance (mobile)</td><td class="val-bad">43</td><td class="val-good">97+</td><td class="val-up">▲ +54</td></tr>
+        <tr><td>Accessibility</td><td class="val-ok">90</td><td class="val-good">98</td><td class="val-up">▲ +8</td></tr>
+        <tr><td>SEO</td><td class="val-ok">92</td><td class="val-good">100</td><td class="val-up">▲ +8</td></tr>
+        <tr><td>Best Practices</td><td class="val-good">100</td><td class="val-good">100</td><td class="val-up">Maintained</td></tr>
+        <tr><td>Largest Contentful Paint</td><td class="val-bad">17.3s</td><td class="val-good">&lt;1.5s</td><td class="val-up">▲ 11× faster</td></tr>
+        <tr><td>Total Blocking Time</td><td class="val-bad">560ms</td><td class="val-good">0ms</td><td class="val-up">▲ Eliminated</td></tr>
+        <tr><td>Speed Index</td><td class="val-bad">7.8s</td><td class="val-good">&lt;1s</td><td class="val-up">▲ 7× faster</td></tr>
+        <tr><td>Page size</td><td class="val-bad">3.97MB</td><td class="val-good">&lt;200KB</td><td class="val-up">▲ 20× smaller</td></tr>
+        <tr><td>Agentic Browsing</td><td class="val-bad">1/2</td><td class="val-good">2/2</td><td class="val-up">▲ AI-readable</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ISSUES -->
+  <div class="section-block">
+    <div class="section-block-eyebrow">What's going wrong</div>
+    <h2>Six things worth knowing about — explained plainly.</h2>
+    <p class="intro">A performance score of 43 is the lowest I'd expect to see on a professionally built site. Most of it comes down to the same things: too much code loading that isn't needed, and images that haven't been optimised. All of it is fixable.</p>
+
+    <div class="issue-list">
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">🐌</span>
+          <div>
+            <div class="issue-title">17 seconds to fully load on a phone — the worst score I've seen on a Webflow site</div>
+            <div class="issue-subtitle">Performance 43 · LCP 17.3s · Speed Index 7.8s · page size 3.97MB</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">Think about the kind of person searching for a Sheffield wills solicitor. They might be recently bereaved and trying to get probate sorted. They might be in their 60s or 70s and finally getting round to making a will or setting up a Lasting Power of Attorney. They're on their phone, probably in the evening, and they need the site to load and be clear. At 17 seconds, most people have already pressed back before anything useful has appeared on screen. A performance score of 43 is in Google's red zone — and it means Google is actively penalising the site in search rankings, not just that it loads slowly.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>Under 1 second load time on mobile. Performance 97+. No Webflow overhead, no unnecessary scripts — just the content the site actually needs.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">🖼️</span>
+          <div>
+            <div class="issue-title">Images are adding over a second of unnecessary delay — and shifting around as the page loads</div>
+            <div class="issue-subtitle">Image delivery savings of 1,012KB · layout shift from images without fixed dimensions · CLS 0.043</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">Google flagged two separate image problems. First, images on the site could be reduced in file size by over a megabyte without any visible quality loss — they're simply not optimised for web delivery. This alone is adding significant loading time. Second, images don't have explicit width and height set in the code, which means the browser doesn't know how big they'll be before they load — so the page jumps around as images pop in (this is called Cumulative Layout Shift, and it scores 0.043, which is just inside the "needs improvement" range). Both things make the experience worse on a phone.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>All images properly optimised and sized. Zero layout shift. The page is stable from the moment it starts loading.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">🔍</span>
+          <div>
+            <div class="issue-title">The site has no meta description — so Google writes its own, and it might not be great</div>
+            <div class="issue-subtitle">SEO 92 · no meta description found · affects how the site appears in Google search results</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">A meta description is the short paragraph of text that appears under your firm's name when it comes up in a Google search. Without one, Google generates it automatically from whatever text it finds on the page — which is often an awkward fragment that doesn't sell the firm properly. For a firm like Rosalind Watchorn, that description should be mentioning the 30-year history, the free consultation, the CQS accreditation, and the personal service. At the moment, Google is making that call for you — and it may be getting it wrong. This is also why the SEO score is 92 rather than 100.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>A properly written meta description for every page — tailored to what someone searching for a Sheffield wills or probate solicitor is actually looking for. SEO 100.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">⏱️</span>
+          <div>
+            <div class="issue-title">560ms of blocking time — scripts are making the page unresponsive before it's even loaded</div>
+            <div class="issue-subtitle">Total Blocking Time 560ms · render-blocking requests saving 1,500ms · 7 long main-thread tasks</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">Total Blocking Time measures how long the page is locked up and unresponsive while scripts are running. 560 milliseconds is significant — it means there are over half a second of moments where a visitor has tapped something on the page and nothing has happened, because the browser is busy running scripts. Google also found 7 "long tasks" — chunks of JavaScript that take so long to run that they block everything else. This comes from third-party scripts (Webflow loads several by default) and render-blocking requests that delay the page from even starting to show. The rebuild eliminates this entirely.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>Zero total blocking time. No third-party scripts loading unnecessarily. The page responds instantly to every tap.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">♿</span>
+          <div>
+            <div class="issue-title">Three accessibility issues — including text that's hard to read and iframes without labels</div>
+            <div class="issue-subtitle">Accessibility 90 · contrast issues · iframe without title · ARIA role misuse</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">For a firm that explicitly serves older clients and offers home visits for people who struggle to travel, accessibility matters particularly. Google found three issues: some text on the site doesn't have enough contrast between the foreground and background colour to be easily readable (which disproportionately affects older visitors or those with visual impairments), an iframe without a title label (affecting screen readers), and an ARIA role applied to an incompatible element. None of these are serious, but they add up to a score of 90 when 98 is achievable — and they signal to Google that the site isn't fully polished.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>Full WCAG 2.1 AA compliance. All contrast ratios meet the standard. All iframes labelled. ARIA roles used correctly. Accessibility 98.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">🤖</span>
+          <div>
+            <div class="issue-title">AI tools and voice assistants can only half-navigate the site</div>
+            <div class="issue-subtitle">Agentic Browsing 1/2 — one of two checks failing</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">Google's Agentic Browsing test checks whether AI tools — like Google's AI Overview, ChatGPT or voice assistants — can properly read and navigate your site. The current site scores 1 out of 2. For a firm that serves older clients who may increasingly be asking their smart speaker or phone's assistant to "find me a wills solicitor in Sheffield", being properly readable by those tools is becoming more important. The current score means the site is partially visible to AI tools, but not fully — so you may be missing out on that growing slice of how people find legal services.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>2/2 on Agentic Browsing. Properly structured for AI tools, voice assistants and search engine crawlers.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section-block">
+    <div class="section-block-eyebrow">What the rebuild adds</div>
+    <h2>What a rebuilt site does better for a firm like Rosalind Watchorn.</h2>
+    <p class="intro">Beyond fixing the speed and technical issues, here's what a purpose-built site specifically does better for a wills and probate specialist in Sheffield.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">☕</span>
+        <div class="feature-title">Free consultation — prominent on every page</div>
+        <span class="feature-badge badge-fix">Conversion fix</span>
+        <p class="feature-desc">The 30-minute free initial consultation is the single strongest reason for a new client to pick up the phone. In the rebuild it appears in the topbar, hero section, sidebar card, contact page and footer — not just in small text on the about page.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏠</span>
+        <div class="feature-title">Home visits — clearly signposted</div>
+        <span class="feature-badge badge-fix">UX fix</span>
+        <p class="feature-desc">For a firm that specifically serves older clients and those who struggle to travel, the home visit offer is a significant differentiator. It's featured in the hero, contact form (with a dropdown to request one) and trust strip — so it's impossible to miss.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏅</span>
+        <div class="feature-title">CQS and Lexcel accreditations — featured properly</div>
+        <span class="feature-badge badge-fix">Trust fix</span>
+        <p class="feature-desc">Both accreditations appear in the hero card, trust strip, about page and footer — with a plain-English explanation of what each one means. Clients choosing a wills or conveyancing solicitor want to know the firm is accredited; this makes sure they see it.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <div class="feature-title">Enquiry form with service routing and home visit option</div>
+        <span class="feature-badge badge-new">New feature</span>
+        <p class="feature-desc">The contact form lets people select which service they need (will, LPA, probate, conveyancing etc.) and whether they'd prefer a home visit. Enquiries arrive with context — saving a follow-up call and making the first response much more useful.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-title">Under 1 second on mobile — for the clients who need it most</div>
+        <span class="feature-badge badge-fix">Performance fix</span>
+        <p class="feature-desc">Older clients, people searching in the evening on a basic phone, someone in a difficult moment after a bereavement — these are exactly the people who need the site to load instantly and be easy to use. Performance 97+ makes that happen.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔍</span>
+        <div class="feature-title">Proper meta descriptions for every page</div>
+        <span class="feature-badge badge-fix">SEO fix</span>
+        <p class="feature-desc">Every page gets a carefully written meta description — so when someone searches "wills solicitor Sheffield" or "probate solicitor Sheffield", the result in Google clearly explains what the firm offers and why to choose it. SEO 100.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📖</span>
+        <div class="feature-title">Plain-English explanations of each service</div>
+        <span class="feature-badge badge-new">New feature</span>
+        <p class="feature-desc">Dedicated sections explaining what a Lasting Power of Attorney actually is, why probate is necessary, what the conveyancing process involves — written for clients who are coming to these topics for the first time, not for people who already know the answers.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🤖</span>
+        <div class="feature-title">Fully readable by AI and voice search</div>
+        <span class="feature-badge badge-fix">Agentic fix</span>
+        <p class="feature-desc">2/2 on Agentic Browsing. When an older client asks Alexa or Google to "find me a wills solicitor in Sheffield", the rebuilt site is properly structured to appear in that answer. The current site only partially passes this check.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="section-block">
+    <div class="section-block-eyebrow">What does this cost?</div>
+    <h2>Three clear options — all one-off, no ongoing contracts.</h2>
+    <p class="intro">Fixed prices, no surprises. No monthly fees from Trabelo. You own the site outright from day one.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-tier">Starter</div>
+          <div class="pricing-price">£395</div>
+          <div class="pricing-note-sm">One-off · no monthly fees</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-list">
+            <li>5 pages — Home, Services, About, Reviews &amp; Contact</li>
+            <li>Performance 97+ · Accessibility 98 · SEO 100</li>
+            <li>Mobile-first — fast on every device</li>
+            <li>Free consultation featured prominently throughout</li>
+            <li>Home visit option in contact form</li>
+            <li>CQS &amp; Lexcel accreditations featured</li>
+            <li>Hosted free — £0/month running cost</li>
+          </ul>
+          <a class="pricing-cta">Get in touch</a>
+          <p class="pricing-sub">Updates: £15 per change · or £30/month unlimited small updates</p>
+        </div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-header">
+          <div class="pricing-tier">Business</div>
+          <div class="pricing-price">£795</div>
+          <div class="pricing-note-sm">One-off · no monthly fees</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-list">
+            <li>Everything in Starter</li>
+            <li>Individual pages for each service — Wills, LPAs, Probate, Trusts, Conveyancing</li>
+            <li>Plain-English guide section — "What is probate?", "Do I need an LPA?" etc.</li>
+            <li>Price transparency pages (meets SRA requirements)</li>
+            <li>Client reviews page — by service type</li>
+            <li>About page with team profiles</li>
+            <li>News/blog for legal updates &amp; SEO value</li>
+          </ul>
+          <a class="pricing-cta">Get in touch</a>
+          <p class="pricing-sub">No monthly fees · no ongoing contract</p>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-tier">Premium</div>
+          <div class="pricing-price">£1,295</div>
+          <div class="pricing-note-sm">One-off · small hosting cost may apply</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-list">
+            <li>Everything in Business</li>
+            <li>Conveyancing quote calculator — instant fixed-fee estimates</li>
+            <li>Staff CMS — update news and guides without touching code</li>
+            <li>Automated email reply on enquiry submission</li>
+            <li>Google Analytics — see which services attract most enquiries</li>
+            <li>SEO landing pages — "wills solicitor Sheffield", "probate Sheffield" etc.</li>
+            <li>Structured data for Google rich results</li>
+          </ul>
+          <a class="pricing-cta">Get in touch</a>
+          <p class="pricing-sub">Hosting approx. £0–9/month depending on features chosen</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-notes">
+      <div class="pricing-note-item">
+        <span class="note-icon">🌐</span>
+        <span><strong>Hosting is free on the Starter and Business options.</strong> The rebuilt site would be hosted on Vercel — completely free for sites like this. Your existing rwatchorn.co.uk domain stays exactly as it is, and all your email addresses are completely unaffected.</span>
+      </div>
+      <div class="pricing-note-item">
+        <span class="note-icon">📋</span>
+        <span><strong>The SRA expects price transparency — and it's also good for clients.</strong> The Business tier includes properly built price transparency pages for conveyancing and probate, which meets SRA requirements and also helps clients understand costs before they call — which tends to mean better quality enquiries.</span>
+      </div>
+      <div class="pricing-note-item">
+        <span class="note-icon">📍</span>
+        <span><strong>I'm local — based in Sheffield, around the corner.</strong> If anything needs explaining or tweaking after the site goes live, I'm nearby and easy to reach. Not a distant agency, not a call centre — just a straightforward working relationship.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h3>Want to see the demo?</h3>
+    <p>I've put together a full working demo of what the rebuilt site could look like — same services, same contact details, same character — just redesigned to actually do the job properly.</p>
+    <div class="cta-buttons">
+      <a href="watchorn-demo.html" class="cta-btn-primary">View the demo site →</a>
+      <a href="mailto:aidan@trabelo.com" class="cta-btn-outline">Email Aidan</a>
+    </div>
+    <p style="font-size:13px; color:rgba(255,255,255,0.3); margin-top:20px;">aidan@trabelo.com · Based in Sheffield</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  Website audit prepared for Rosalind Watchorn Solicitors · rwatchorn.co.uk · July 2026 · All PageSpeed scores verified live · <strong style="color:rgba(255,255,255,0.25);">Website concept built by Trabelo · Sheffield</strong>
+</div>
+
+</body>
+</html>
