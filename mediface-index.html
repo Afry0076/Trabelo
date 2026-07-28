@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabelo — Mediface Aesthetics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --teal: #1B6B7B;
+    --teal-pale: #D4EDF2;
+    --gold: #B8965A;
+    --gold-light: #D4B47A;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #08131C;
+    color: var(--white);
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px 24px;
+    position: relative; overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(27,107,123,0.3) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(27,107,123,0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 90%, rgba(184,150,90,0.07) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 56px 56px;
+    pointer-events: none; z-index: 0;
+  }
+
+  .card { position: relative; z-index: 1; max-width: 560px; width: 100%; text-align: center; }
+
+  .trabelo-mark {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 44px; padding: 7px 16px;
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
+    background: rgba(255,255,255,0.03);
+  }
+  .trabelo-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2.2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.82); } }
+  .trabelo-name { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38); font-weight: 500; }
+
+  .clinic-label {
+    font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .clinic-label::before, .clinic-label::after { content: ''; display: inline-block; width: 22px; height: 1px; background: var(--gold); opacity: 0.55; }
+
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 300; line-height: 1.12; margin-bottom: 8px; color: var(--white); }
+  .subtitle { font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 38px; font-weight: 400; }
+  .divider { width: 44px; height: 1px; background: linear-gradient(90deg, transparent, var(--teal-pale), transparent); margin: 0 auto 38px; }
+  .intro { font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.88; margin-bottom: 44px; font-weight: 300; max-width: 420px; margin-left: auto; margin-right: auto; }
+
+  .scores-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 4px; overflow: hidden; margin-bottom: 36px;
+  }
+  .score-item { padding: 15px 10px; background: rgba(255,255,255,0.02); text-align: center; }
+  .score-item-num { font-size: 1.55rem; font-weight: 700; line-height: 1; margin-bottom: 3px; }
+  .score-item-num.bad { color: #E55A4E; }
+  .score-item-num.ok { color: #E0A030; }
+  .score-item-num.good { color: #34A068; }
+  .score-item-label { font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); font-weight: 500; }
+
+  .links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 44px; }
+  .link-card {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 26px; border-radius: 4px; text-decoration: none;
+    transition: all 0.22s ease; cursor: pointer; border: 1px solid transparent;
+  }
+  .link-card.primary { background: var(--teal); border-color: var(--teal); }
+  .link-card.primary:hover { background: #226077; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(27,107,123,0.35); }
+  .link-card.secondary { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.09); }
+  .link-card.secondary:hover { background: rgba(255,255,255,0.07); border-color: rgba(212,237,242,0.25); transform: translateY(-2px); }
+  .link-left { display: flex; align-items: center; gap: 14px; text-align: left; }
+  .link-icon { width: 42px; height: 42px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .link-card.primary .link-icon { background: rgba(255,255,255,0.14); }
+  .link-card.secondary .link-icon { background: rgba(255,255,255,0.05); }
+  .link-title { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+  .link-desc { font-size: 0.71rem; font-weight: 300; color: rgba(255,255,255,0.5); }
+  .link-card.primary .link-desc { color: rgba(255,255,255,0.62); }
+  .link-arrow { font-size: 0.95rem; color: rgba(255,255,255,0.32); transition: transform 0.2s; }
+  .link-card:hover .link-arrow { transform: translateX(4px); color: rgba(255,255,255,0.55); }
+
+  .footer-note { font-size: 0.66rem; color: rgba(255,255,255,0.18); line-height: 1.72; }
+  .footer-note a { color: rgba(255,255,255,0.32); text-decoration: none; }
+  .footer-note a:hover { color: var(--teal-pale); }
+  .footer-note strong { color: rgba(255,255,255,0.32); }
+
+  @media (max-width: 480px) {
+    .scores-strip { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 2.1rem; }
+    .link-card { padding: 17px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="trabelo-mark">
+    <div class="trabelo-dot"></div>
+    <div class="trabelo-name">A Trabelo Website Concept</div>
+  </div>
+
+  <div class="clinic-label">Mediface Aesthetics · Doncaster</div>
+  <h1>Your website,<br>rebuilt.</h1>
+  <p class="subtitle">Medical Aesthetics · South Yorkshire</p>
+  <div class="divider"></div>
+  <p class="intro">Hi — I'm Aidan, and I do web design across Sheffield and South Yorkshire. I've put together a free demo and audit to show what a rebuilt mediface-aesthetics.co.uk could look like — and why it matters.</p>
+
+  <div class="scores-strip">
+    <div class="score-item"><div class="score-item-num bad">51</div><div class="score-item-label">Performance</div></div>
+    <div class="score-item"><div class="score-item-num ok">85</div><div class="score-item-label">Accessibility</div></div>
+    <div class="score-item"><div class="score-item-num good">96</div><div class="score-item-label">Best Practices</div></div>
+    <div class="score-item"><div class="score-item-num good">100</div><div class="score-item-label">SEO</div></div>
+  </div>
+
+  <div class="links">
+    <a class="link-card primary" href="mediface-demo.html">
+      <div class="link-left">
+        <div class="link-icon">✨</div>
+        <div><div class="link-title">View the Demo Site</div><div class="link-desc">A full rebuild — your clinic, redesigned from scratch</div></div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+    <a class="link-card secondary" href="mediface-audit.html">
+      <div class="link-left">
+        <div class="link-icon">📋</div>
+        <div><div class="link-title">Read the Website Audit</div><div class="link-desc">What's wrong, why it matters, and how to fix it</div></div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer-note">
+    No obligation. No sales pressure. Just an honest look at what's possible.<br><br>
+    <strong>Aidan Fry</strong> · <a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a> · Trabelo · Sheffield
+  </div>
+
+</div>
+</body>
+</html>

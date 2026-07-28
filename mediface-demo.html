@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mediface Aesthetics | Medical Aesthetics & Skin Clinic Doncaster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #162436;
+    --teal: #1B6B7B;
+    --teal-light: #2A8FA3;
+    --teal-pale: #D4EDF2;
+    --teal-blush: #EEF7F9;
+    --gold: #B8965A;
+    --gold-light: #D4B47A;
+    --charcoal: #1E1E1E;
+    --warm-grey: #6B6B6B;
+    --off-white: #F8FAFB;
+    --white: #FFFFFF;
+    --nav-h: 72px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--charcoal); overflow-x: hidden; }
+
+  /* TOPBAR */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.55);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 9px 32px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .topbar a { color: var(--teal-pale); text-decoration: none; }
+  .topbar a:hover { color: var(--gold-light); }
+  .topbar span { color: rgba(255,255,255,0.25); }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--teal-pale);
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 36px;
+    box-shadow: 0 2px 24px rgba(13,27,42,0.08);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--navy); text-decoration: none; letter-spacing: 0.01em; line-height: 1.1;
+    cursor: pointer;
+  }
+  .nav-logo span {
+    display: block; font-size: 0.52rem; font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-top: 2px;
+  }
+  .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.78rem; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--charcoal); font-weight: 500; transition: color 0.2s; cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .btn-cta {
+    background: var(--teal); color: var(--white); padding: 11px 24px; border-radius: 2px;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+    cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; display: inline-block;
+  }
+  .btn-cta:hover { background: var(--teal-light); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--teal); padding: 11px 24px; border-radius: 2px;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+    cursor: pointer; border: 1.5px solid var(--teal); text-decoration: none; transition: all 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { background: var(--teal); color: var(--white); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); transition: all 0.3s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0D1B2A 0%, #162436 55%, #0D1B2A 100%);
+    min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 80px 60px; gap: 60px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 25% 60%, rgba(27,107,123,0.3) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 20%, rgba(184,150,90,0.1) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem); font-weight: 400;
+    color: var(--white); line-height: 1.12; margin-bottom: 22px;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal-pale); }
+  .hero-desc { font-size: 0.93rem; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 36px; max-width: 440px; font-weight: 300; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 48px; padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap;
+  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; color: var(--white); line-height: 1; }
+  .stat-label { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+  /* HERO CARD */
+  .hero-card {
+    position: relative; z-index: 2;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(212,237,242,0.15);
+    border-radius: 4px; padding: 40px; backdrop-filter: blur(8px);
+  }
+  .hero-card-tag { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .hero-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; color: var(--white); margin-bottom: 6px; }
+  .hero-card-sub { font-size: 0.76rem; color: rgba(255,255,255,0.45); margin-bottom: 26px; font-style: italic; }
+  .clinic-details { list-style: none; }
+  .clinic-details li {
+    display: flex; align-items: flex-start; gap: 12px; padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.81rem; color: rgba(255,255,255,0.65);
+  }
+  .clinic-details li:last-child { border-bottom: none; }
+  .detail-icon { color: var(--teal-pale); font-size: 0.88rem; flex-shrink: 0; margin-top: 1px; }
+  .detail-main { font-weight: 500; color: var(--white); }
+  .detail-sub { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-top: 1px; }
+  .hero-card-phone {
+    margin-top: 22px; padding: 16px 20px; background: var(--teal); border-radius: 2px;
+    text-align: center; cursor: pointer; transition: background 0.2s;
+  }
+  .hero-card-phone:hover { background: var(--teal-light); }
+  .hero-card-phone a { color: var(--white); text-decoration: none; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; display: block; }
+  .hero-card-phone-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 4px; }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    background: var(--white); border-bottom: 1px solid var(--teal-pale);
+    padding: 18px 40px; display: flex; gap: 0; justify-content: center; flex-wrap: wrap;
+  }
+  .trust-item { display: flex; align-items: center; gap: 10px; padding: 8px 32px; border-right: 1px solid var(--teal-pale); }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 1.1rem; }
+  .trust-text { font-size: 0.76rem; color: var(--warm-grey); }
+  .trust-text strong { color: var(--charcoal); display: block; font-size: 0.83rem; }
+
+  /* SECTIONS */
+  .section { padding: 88px 60px; }
+  .section.alt { background: var(--teal-blush); }
+  .section.dark { background: var(--navy); }
+  .section-label {
+    font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; display: inline-block; width: 22px; height: 1px; background: var(--teal); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; line-height: 1.2; margin-bottom: 14px; }
+  .section-desc { font-size: 0.92rem; color: var(--warm-grey); line-height: 1.85; max-width: 560px; font-weight: 300; }
+  .section-header { margin-bottom: 50px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-label { justify-content: center; }
+  .section-header.center .section-label::before { display: none; }
+  .section-header.center .section-desc { margin: 0 auto; }
+
+  /* TREATMENTS GRID */
+  .treatments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--teal-pale); border: 2px solid var(--teal-pale); }
+  .treatment-card { background: var(--white); padding: 32px 28px; transition: background 0.2s; cursor: pointer; }
+  .treatment-card:hover { background: var(--teal-blush); }
+  .treatment-cat { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; font-weight: 600; }
+  .treatment-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 500; color: var(--charcoal); margin-bottom: 10px; line-height: 1.3; }
+  .treatment-card p { font-size: 0.8rem; color: var(--warm-grey); line-height: 1.7; }
+  .treatment-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); font-weight: 600; cursor: pointer; text-decoration: none; transition: gap 0.2s;
+  }
+  .treatment-link:hover { gap: 10px; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img-placeholder {
+    background: linear-gradient(135deg, var(--teal-blush) 0%, var(--teal-pale) 100%);
+    border-radius: 2px; aspect-ratio: 3/4;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--teal); font-style: italic;
+    overflow: hidden; position: relative;
+  }
+  .about-img-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
+  .about-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--teal); color: var(--white); padding: 20px 22px; border-radius: 2px; text-align: center;
+  }
+  .about-badge-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; line-height: 1; }
+  .about-badge-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-pale); margin-top: 4px; }
+  .about-img-wrap { position: relative; }
+  .credential-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 28px 0; }
+  .credential { padding: 14px 16px; background: var(--teal-blush); border-left: 3px solid var(--teal); border-radius: 0 2px 2px 0; }
+  .credential-title { font-size: 0.72rem; font-weight: 600; color: var(--charcoal); margin-bottom: 2px; }
+  .credential-sub { font-size: 0.66rem; color: var(--warm-grey); }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .testimonial-card { padding: 30px 26px; background: rgba(255,255,255,0.05); border: 1px solid rgba(212,237,242,0.12); border-radius: 2px; }
+  .stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 14px; }
+  .testimonial-text { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.82); line-height: 1.75; margin-bottom: 18px; }
+  .testimonial-author { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+  /* CONDITIONS */
+  .conditions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .condition-chip {
+    padding: 18px 18px; border: 1px solid var(--teal-pale); border-radius: 2px;
+    font-size: 0.8rem; color: var(--charcoal); display: flex; align-items: center; gap: 10px;
+    cursor: pointer; transition: all 0.2s; background: var(--white);
+  }
+  .condition-chip:hover { border-color: var(--teal); background: var(--teal-blush); color: var(--teal); }
+  .condition-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+  /* CTA BANNER */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--teal) 0%, #0F4A56 100%);
+    padding: 68px 60px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px;
+  }
+  .cta-banner h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+  .cta-banner p { font-size: 0.88rem; color: rgba(255,255,255,0.6); }
+  .btn-gold {
+    background: var(--gold); color: var(--white); padding: 14px 30px; border-radius: 2px;
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; white-space: nowrap; display: inline-block;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .contact-detail { display: flex; gap: 16px; margin-bottom: 26px; }
+  .contact-icon { font-size: 1rem; color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+  .contact-detail h4 { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-grey); margin-bottom: 5px; font-weight: 600; }
+  .contact-detail p { font-size: 0.88rem; color: var(--charcoal); line-height: 1.6; }
+  .contact-detail a { color: var(--teal); text-decoration: none; font-weight: 500; }
+  .hours-grid { margin-top: 18px; display: grid; grid-template-columns: auto 1fr; gap: 5px 20px; font-size: 0.83rem; }
+  .hours-day { color: var(--warm-grey); }
+  .hours-time { color: var(--charcoal); font-weight: 500; }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { display: block; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-grey); margin-bottom: 6px; font-weight: 500; }
+  .form-row input, .form-row select, .form-row textarea {
+    width: 100%; padding: 12px 15px; border: 1px solid var(--teal-pale); border-radius: 2px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.86rem; background: var(--white);
+    color: var(--charcoal); outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+  }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--teal); }
+  .form-row textarea { min-height: 110px; resize: vertical; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* PARTNERS */
+  .partners-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; margin-top: 36px; opacity: 0.65; }
+  .partner-badge { padding: 9px 18px; border: 1px solid var(--teal-pale); border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-grey); font-weight: 500; }
+
+  /* FOOTER */
+  footer { background: #080E14; padding: 56px 60px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 56px; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .footer-tagline { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; margin-bottom: 18px; font-style: italic; }
+  .footer-col h4 { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; font-weight: 500; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 9px; }
+  .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--teal-pale); }
+  .footer-social { display: flex; gap: 10px; margin-top: 18px; }
+  .social-btn { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: rgba(255,255,255,0.4); cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .social-btn:hover { border-color: var(--teal-pale); color: var(--teal-pale); }
+  .footer-bottom { background: #040709; padding: 16px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.68rem; color: rgba(255,255,255,0.22); flex-wrap: wrap; gap: 8px; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .topbar { font-size: 0.64rem; padding: 8px 16px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); padding: 24px; gap: 16px; border-bottom: 1px solid var(--teal-pale); box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 99; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; padding: 56px 24px 40px; min-height: auto; gap: 36px; }
+    .hero-stats { gap: 20px; }
+    .section { padding: 56px 24px; }
+    .treatments-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .conditions-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .cta-banner { grid-template-columns: 1fr; padding: 48px 24px; text-align: center; }
+    footer { grid-template-columns: 1fr; gap: 32px; padding: 36px 24px; }
+    .footer-bottom { padding: 14px 24px; flex-direction: column; text-align: center; }
+    .trust-strip { padding: 14px; }
+    .trust-item { padding: 8px 16px; border-right: none; border-bottom: 1px solid var(--teal-pale); width: 100%; }
+    .trust-item:last-child { border-bottom: none; }
+    .form-2col { grid-template-columns: 1fr; }
+    .about-badge { right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:01302354969">📞 01302 354 969</a>
+  <span>·</span>
+  <a href="mailto:info@mediface-aesthetics.co.uk">info@mediface-aesthetics.co.uk</a>
+  <span>·</span>
+  <span>Cusworth Court, Grove Avenue, Doncaster DN5 9AY</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer">
+    Mediface Aesthetics
+    <span>Medical Aesthetics · Doncaster</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('treatments')">Treatments</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('conditions')">Conditions</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+    <li><a class="btn-cta" href="https://www.fresha.com/book-now/mediface-aesthetics-zk3e6422/all-offer?pId=219744" target="_blank">Book Online</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ===== HOME ===== -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Doncaster's Premier Medical Aesthetics Clinic</div>
+      <h1>Born from a desire<br>to help you <em>feel amazing</em></h1>
+      <p class="hero-desc">Mediface Aesthetics is a nurse-led clinic providing bespoke non-surgical treatments for the face, skin and body. Premium-grade products, cutting-edge technology, and meticulous attention to detail — every time.</p>
+      <div class="hero-actions">
+        <a class="btn-cta" href="https://www.fresha.com/book-now/mediface-aesthetics-zk3e6422/all-offer?pId=219744" target="_blank">Book a Consultation</a>
+        <a class="btn-outline" onclick="showPage('treatments')" style="color:var(--teal-pale);border-color:rgba(212,237,242,0.4);">View Treatments</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">24+</div>
+          <div class="stat-label">Treatments</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5★</div>
+          <div class="stat-label">Google Reviews</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Free</div>
+          <div class="stat-label">Consultation</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Only</div>
+          <div class="stat-label">Soprano Titanium in S. Yorks</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-tag">The Clinic</div>
+      <h3>Mediface Aesthetics</h3>
+      <p class="hero-card-sub">Cusworth Court, Doncaster</p>
+      <ul class="clinic-details">
+        <li>
+          <span class="detail-icon">📍</span>
+          <div>
+            <div class="detail-main">Cusworth Court, Grove Avenue</div>
+            <div class="detail-sub">Doncaster, South Yorkshire DN5 9AY</div>
+          </div>
+        </li>
+        <li>
+          <span class="detail-icon">🕐</span>
+          <div>
+            <div class="detail-main">Mon–Thu: 9:30am – 8:00pm</div>
+            <div class="detail-sub">Fri: 9:30–6pm · Sat: 9–2pm · Sun: Closed</div>
+          </div>
+        </li>
+        <li>
+          <span class="detail-icon">✨</span>
+          <div>
+            <div class="detail-main">Free Consultations Available</div>
+            <div class="detail-sub">Bespoke treatment plans for every patient</div>
+          </div>
+        </li>
+        <li>
+          <span class="detail-icon">🏥</span>
+          <div>
+            <div class="detail-main">Nurse-Led Clinic</div>
+            <div class="detail-sub">Led by Independent Nurse Prescriber Jessica</div>
+          </div>
+        </li>
+        <li>
+          <span class="detail-icon">🥇</span>
+          <div>
+            <div class="detail-main">Soprano Titanium — Exclusive in S. Yorks</div>
+            <div class="detail-sub">Only clinic in South Yorkshire with this device</div>
+          </div>
+        </li>
+      </ul>
+      <div class="hero-card-phone">
+        <div class="hero-card-phone-label">Call the clinic</div>
+        <a href="tel:01302354969">01302 354 969</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-item"><span class="trust-icon">⭐</span><div class="trust-text"><strong>5-Star Rated</strong>Google Reviews</div></div>
+    <div class="trust-item"><span class="trust-icon">🏥</span><div class="trust-text"><strong>Nurse-Led</strong>Independent Prescriber</div></div>
+    <div class="trust-item"><span class="trust-icon">✅</span><div class="trust-text"><strong>Free Consultations</strong>Bespoke treatment plans</div></div>
+    <div class="trust-item"><span class="trust-icon">🔬</span><div class="trust-text"><strong>Obagi Medical</strong>Ambassador Clinic</div></div>
+    <div class="trust-item"><span class="trust-icon">💆</span><div class="trust-text"><strong>HydraFacial</strong>Certified Provider</div></div>
+  </div>
+
+  <!-- POPULAR TREATMENTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-label">What we offer</div>
+      <h2 class="section-title">Popular Treatments</h2>
+      <p class="section-desc">From dermal fillers to the Soprano Titanium — the only one in South Yorkshire — every treatment is delivered with clinical precision and genuine care.</p>
+    </div>
+    <div class="treatments-grid">
+      <div class="treatment-card">
+        <div class="treatment-cat">Injectables</div>
+        <h3>Dermal Fillers</h3>
+        <p>Our most popular treatment. Restores facial volume, addresses marionette lines, nasolabial folds and premature ageing — all with natural-looking, lasting results.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Injectables</div>
+        <h3>Wrinkle Relaxing Injections</h3>
+        <p>Botulinum toxin injections that effectively reduce the appearance of expression lines and wrinkles for both men and women. Natural results every time.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Exclusive</div>
+        <h3>Soprano Titanium Laser Hair Removal</h3>
+        <p>The only clinic in South Yorkshire with this groundbreaking device. Safe on all skin types including tanned skin — treatment available all year round.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin</div>
+        <h3>HydraFacial</h3>
+        <p>The 6-step 'Red Carpet Facial'. Deep cleansing, exfoliation and hydration — tailored to your skin with peptides and nourishing supplements for a radiant glow.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Advanced Technology</div>
+        <h3>Morpheus8</h3>
+        <p>FDA-approved subdermal RF microneedling that tightens, lifts and contours by restoring natural collagen and elastin — with outstanding, long-lasting results.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Laser</div>
+        <h3>HARMONY XL PRO™ Suite</h3>
+        <p>A comprehensive suite of laser treatments — acne, skin rejuvenation, ClearLift, tattoo removal, pigmentation and vascular concerns all addressed with one platform.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;"><a class="btn-outline" onclick="showPage('treatments')">View All 24+ Treatments</a></div>
+  </section>
+
+  <!-- ABOUT SNIPPET -->
+  <section class="section alt">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <img src="https://mediface-aesthetics.co.uk/wp-content/smush-webp/sites/14/2023/01/img_1635-e1675350213676.jpg.webp" alt="Mediface Aesthetics clinic" onerror="this.parentElement.innerHTML='<span style=\'padding:24px;text-align:center;color:var(--teal)\'>Mediface Aesthetics<br>Doncaster</span>'">
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">24+</div>
+          <div class="about-badge-label">Treatments<br>Available</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">About us</div>
+        <h2 class="section-title">Patient care at the heart of everything</h2>
+        <p class="section-desc" style="margin-bottom:18px">Situated close to Doncaster's Town Centre, Mediface Aesthetics has quickly become an established and much-revered clinic in South Yorkshire. Led by Independent Nurse Prescriber Jessica and her impressive team of specialists.</p>
+        <p class="section-desc" style="margin-bottom:18px">Through premium-grade products, cutting-edge technology and meticulous attention to detail, Mediface delivers fantastic, natural-looking results — and continues to evolve its skills and knowledge with the very latest in aesthetic medicine.</p>
+        <p class="section-desc">Mediface is proud to be an official Obagi Medical Ambassador Clinic and a certified HydraFacial provider.</p>
+        <div class="credential-grid">
+          <div class="credential"><div class="credential-title">Independent Prescriber</div><div class="credential-sub">Nurse-led clinical practice</div></div>
+          <div class="credential"><div class="credential-title">Obagi Ambassador</div><div class="credential-sub">Medical-grade skincare</div></div>
+          <div class="credential"><div class="credential-title">HydraFacial Provider</div><div class="credential-sub">Certified clinic</div></div>
+          <div class="credential"><div class="credential-title">FDA-Approved Tech</div><div class="credential-sub">Morpheus8 · Soprano Titanium</div></div>
+        </div>
+        <a class="btn-cta" onclick="showPage('about')">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section dark">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center;color:var(--gold)"><span style="display:inline-block;width:22px;height:1px;background:var(--gold);margin-right:10px;vertical-align:middle"></span>Patient reviews</div>
+      <h2 class="section-title" style="color:var(--white)">What Our Patients Say</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.45);margin:0 auto">Real reviews from real Mediface patients — all verified on Google.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I absolutely love Emily — she's fantastic at what she does and as a person!"</p>
+        <div class="testimonial-author">— Google Review</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Always a great experience at Mediface. The HydraFacial was very relaxing and my skin feels amazing. Looking forward to returning."</p>
+        <div class="testimonial-author">— Google Review</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I always feel welcome at Mediface. All the girls are so nice, friendly and professional. I have complete confidence in them and would recommend to everyone."</p>
+        <div class="testimonial-author">— Google Review</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div>
+      <h2>Ready to start your patient journey?</h2>
+      <p>Book a free consultation today and let the Mediface team create a bespoke treatment plan tailored to you.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a class="btn-gold" href="https://www.fresha.com/book-now/mediface-aesthetics-zk3e6422/all-offer?pId=219744" target="_blank">Book Online</a>
+      <a class="btn-cta" onclick="showPage('contact')" style="background:transparent;border:1.5px solid rgba(255,255,255,0.35)">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- PARTNERS -->
+  <section class="section" style="padding-top:56px;padding-bottom:56px;">
+    <div class="section-header center" style="margin-bottom:0">
+      <div class="section-label" style="justify-content:center">Our partners</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:4px">Premium products only</h3>
+      <p style="font-size:0.8rem;color:var(--warm-grey)">Obagi Medical · HydraFacial · Morpheus8 · Soprano Titanium · HARMONY XL PRO · Profhilo</p>
+    </div>
+    <div class="partners-row">
+      <div class="partner-badge">Obagi Medical</div>
+      <div class="partner-badge">HydraFacial</div>
+      <div class="partner-badge">Morpheus8</div>
+      <div class="partner-badge">Soprano Titanium</div>
+      <div class="partner-badge">HARMONY XL PRO™</div>
+      <div class="partner-badge">Profhilo</div>
+      <div class="partner-badge">Dermalux LED</div>
+      <div class="partner-badge">Dermapen</div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== TREATMENTS ===== -->
+<div class="page" id="page-treatments">
+  <div style="background:linear-gradient(135deg,#0D1B2A 0%,#162436 100%);padding:76px 60px 56px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">What we offer</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--white);margin-bottom:14px">Our Treatments</h1>
+    <p style="font-size:0.92rem;color:rgba(255,255,255,0.55);max-width:520px;font-weight:300;line-height:1.85">24+ bespoke treatments for the face, skin and body. All delivered by qualified aesthetic professionals using premium-grade, clinically-proven products and cutting-edge technology.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-label">Injectables</div>
+    <h2 class="section-title" style="margin-bottom:28px">Injectable Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Volume & Contour</div><h3>Dermal Fillers</h3><p>Restores facial volume, addresses lines and wrinkles. Safe, temporary and highly effective for a full range of age-related concerns and facial enhancement.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Anti-Wrinkle</div><h3>Wrinkle Relaxing Injections</h3><p>Botulinum toxin injections to reduce expression lines, frown lines and crow's feet. Natural-looking results for men and women.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Advanced</div><h3>Advanced Botox®</h3><p>More intricate work in the upper, mid and lower face and neck area. May be combined with dermal fillers for a comprehensive facial rejuvenation result.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Lip Enhancement</div><h3>Lip Fillers</h3><p>Adds volume, shape and definition to thinner lips or reduces vertical lip lines. Safe, effective and tailored to your natural lip shape.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Contouring</div><h3>Non-Surgical Rhinoplasty</h3><p>Redefines the shape of the nose without surgery — a safe, quick procedure using dermal fillers for immediate, natural-looking results.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Skin Booster</div><h3>Profhilo</h3><p>Stimulates collagen and elastin production to tighten the skin and address signs of ageing — a bioremodelling injectable, not a standard filler.</p></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="section-label">Skin & Facial</div>
+    <h2 class="section-title" style="margin-bottom:28px">Skin Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Signature</div><h3>HydraFacial</h3><p>The 6-step Red Carpet Facial. Deep cleansing, extraction and hydration — tailored to your skin with peptides and nourishing supplements. Instant, radiant results.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">RF Microneedling</div><h3>Morpheus8</h3><p>FDA-approved subdermal fractional RF microneedling for superior skin tightening, lifting and contouring by restoring collagen and elastin at a deeper level.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">RF Tightening</div><h3>Forma RF Skin Tightening</h3><p>Bipolar radiofrequency energy to stimulate new collagen and elastin — rejuvenates, sculpts and lifts lax skin with zero downtime.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Microneedling</div><h3>Dermapen Microneedling</h3><p>Advanced 12-needle microneedling to trigger the skin's natural healing and increase collagen production — effective for a wide range of skin concerns.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Medical Skincare</div><h3>Obagi Medical Dermaplane</h3><p>Combines Obagi's innovative products with a dermaplaning procedure for a smooth, radiant complexion and improved skincare absorption.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Chemical Peel</div><h3>Obagi Blue Radiance Peel</h3><p>A medium-depth chemical peel that unveils a younger, healthier-looking complexion — part of Mediface's status as an Obagi Medical Ambassador Clinic.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Laser & Light</div>
+    <h2 class="section-title" style="margin-bottom:28px">Laser, IPL & Light Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Exclusive · South Yorkshire</div><h3>Soprano Titanium Laser Hair Removal</h3><p>The only clinic in South Yorkshire with this groundbreaking device. Safe on all skin types including tanned skin — year-round treatment available.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">HARMONY XL PRO™</div><h3>ClearLift™ — The Lunchtime Facelift</h3><p>Hollywood's lunchtime facelift — a pain-free Q-Switched 1064nm laser for fast, safe facial rejuvenation with no downtime.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">HARMONY XL PRO™</div><h3>iPixel Advanced Skin Resurfacing</h3><p>Erbium YAG fractional ablative laser for deep resurfacing — treats scars, acne scarring, skin laxity, wrinkles, stretch marks and sun damage.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">HARMONY XL PRO™</div><h3>ClearSkin Acne Protocol</h3><p>ClearSkin PRO™ combines a non-ablative 1540nm fractional laser with vacuum and cooling technology to treat acne quickly, safely and effectively.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">HARMONY XL PRO™</div><h3>DYE VL / DYE SR — Pigmentation & Veins</h3><p>Advanced IPL for sun damage, age spots, hyperpigmentation, rosacea, thread veins and spider veins — comprehensive vascular and pigment treatment.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">HARMONY XL PRO™</div><h3>Tattoo Removal</h3><p>Q-Switched 1064nm and KTP 532nm laser targeting tattoos of all colours — dark and light pigments, all ink spectrums.</p></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="section-label">Wellbeing & More</div>
+    <h2 class="section-title" style="margin-bottom:28px">Wellbeing & Specialist Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">LED Therapy</div><h3>Dermalux Flex LED Light Therapy</h3><p>Clinically proven to rejuvenate the skin through LED delivery — addresses a wide range of common skin concerns without any downtime.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">IV Nutrition</div><h3>Intravita IM Shots</h3><p>Scientifically proven intramuscular nutrient shots that boost nourishment directly into the body — improving inner wellbeing and leaving you feeling invigorated.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Skin Analysis</div><h3>Observ Skin Scan</h3><p>Advanced skin analysis technology that diagnoses skin conditions originating in deeper skin layers, invisible to the naked eye — the perfect starting point for any treatment plan.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Obagi Medical</div><h3>Obagi Medical Skincare</h3><p>The number one skincare range on the market — transforming the skin's health at a deeper level. Mediface is a proud Obagi Medical Ambassador Clinic.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Body</div><h3>Vaginal Rejuvenation (Forma V)</h3><p>FDA-approved radiofrequency treatment for vaginal relaxation — most often caused by childbirth or ageing. Discreet, professional, effective.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<div class="page" id="page-about">
+  <div style="background:linear-gradient(135deg,#0D1B2A 0%,#162436 100%);padding:76px 60px 56px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Our story</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--white);margin-bottom:14px">About Mediface Aesthetics</h1>
+    <p style="font-size:0.92rem;color:rgba(255,255,255,0.55);max-width:520px;font-weight:300;line-height:1.85">A nurse-led clinic built on expertise, honest advice and genuine care for every patient who walks through our doors.</p>
+  </div>
+  <section class="section">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <img src="https://mediface-aesthetics.co.uk/wp-content/smush-webp/sites/14/2023/01/img_1635-e1675350213676.jpg.webp" alt="Mediface Aesthetics" onerror="this.parentElement.innerHTML='<span style=\'padding:24px;text-align:center;color:var(--teal)\'>Mediface Aesthetics<br>Doncaster</span>'">
+        </div>
+        <div class="about-badge"><div class="about-badge-num">5★</div><div class="about-badge-label">Google<br>Reviews</div></div>
+      </div>
+      <div>
+        <div class="section-label">Who we are</div>
+        <h2 class="section-title">Mediface Aesthetics</h2>
+        <p class="section-desc" style="margin-bottom:16px">Mediface Aesthetics was born from a desire to help people improve their well-being through the use of aesthetic medicine. Situated close to Doncaster's Town Centre, the clinic has quickly become an established brand trusted by patients across South Yorkshire.</p>
+        <p class="section-desc" style="margin-bottom:16px">Led by Independent Nurse Prescriber Jessica, the Mediface team provide expert care through an exacting service — delivering a range of high-end treatments for the face, skin and body. Through premium-grade products, cutting-edge technology and meticulous attention to detail, Mediface implements fantastic, natural-looking results.</p>
+        <p class="section-desc">Jessica and her team continually evolve their practice, skills and knowledge — ensuring patients always benefit from the very latest advances in aesthetic medicine.</p>
+        <div class="credential-grid" style="margin-top:24px">
+          <div class="credential"><div class="credential-title">Independent Prescriber</div><div class="credential-sub">Nurse-led practice</div></div>
+          <div class="credential"><div class="credential-title">Obagi Ambassador</div><div class="credential-sub">No. 1 medical skincare</div></div>
+          <div class="credential"><div class="credential-title">HydraFacial Certified</div><div class="credential-sub">Official provider</div></div>
+          <div class="credential"><div class="credential-title">FDA-Approved Devices</div><div class="credential-sub">Morpheus8 · Soprano Titanium</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center">Our values</div>
+      <h2 class="section-title">The Mediface Approach</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div style="padding:30px;background:var(--white);border-top:3px solid var(--teal);">
+        <div style="font-size:1.4rem;margin-bottom:10px">🤝</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;margin-bottom:8px">Honest patient care</h3>
+        <p style="font-size:0.8rem;color:var(--warm-grey);line-height:1.7">Every individual who walks through the door is treated with understanding and care. We're trusted by our patients to offer the best advice — not just the most treatments.</p>
+      </div>
+      <div style="padding:30px;background:var(--white);border-top:3px solid var(--teal);">
+        <div style="font-size:1.4rem;margin-bottom:10px">🔬</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;margin-bottom:8px">Premium products only</h3>
+        <p style="font-size:0.8rem;color:var(--warm-grey);line-height:1.7">Mediface has handpicked the safest, most prized treatments on the aesthetics market. Only premium-grade, regulated products are used — no shortcuts, no compromise.</p>
+      </div>
+      <div style="padding:30px;background:var(--white);border-top:3px solid var(--teal);">
+        <div style="font-size:1.4rem;margin-bottom:10px">🚀</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;margin-bottom:8px">Always evolving</h3>
+        <p style="font-size:0.8rem;color:var(--warm-grey);line-height:1.7">Jessica and the team continually update their skills and continue to expand their service offering with the most revered treatments on the aesthetics market.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== CONDITIONS ===== -->
+<div class="page" id="page-conditions">
+  <div style="background:linear-gradient(135deg,#0D1B2A 0%,#162436 100%);padding:76px 60px 56px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Find your treatment</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--white);margin-bottom:14px">Common Conditions</h1>
+    <p style="font-size:0.92rem;color:rgba(255,255,255,0.55);max-width:520px;font-weight:300;line-height:1.85">Everybody's needs are unique. Browse by concern — we'll match you to the right treatment at your free consultation.</p>
+  </div>
+  <section class="section">
+    <div class="section-header">
+      <div class="section-label">Browse by concern</div>
+      <h2 class="section-title">What Can We Help With?</h2>
+      <p class="section-desc">We understand your concerns both medically and aesthetically — and can improve your self-confidence through a wide variety of treatments, tailored to you.</p>
+    </div>
+    <div class="conditions-grid">
+      <div class="condition-chip"><span class="condition-dot"></span>Lines & Wrinkles</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Acne & Acne Scarring</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Enhancing the Features</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Hyperpigmentation</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Facial Volume Loss</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Lip Enhancement</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Skin Laxity</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Thread Veins & Rosacea</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Sun Damage & Age Spots</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Excess Hair</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Stretch Marks</div>
+      <div class="condition-chip"><span class="condition-dot"></span>Tattoo Removal</div>
+    </div>
+    <div style="text-align:center;margin-top:40px;"><a class="btn-cta" href="https://www.fresha.com/book-now/mediface-aesthetics-zk3e6422/all-offer?pId=219744" target="_blank">Book a Free Consultation</a></div>
+  </section>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div class="page" id="page-contact">
+  <div style="background:linear-gradient(135deg,#0D1B2A 0%,#162436 100%);padding:76px 60px 56px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Get in touch</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--white);margin-bottom:14px">Contact Us</h1>
+    <p style="font-size:0.92rem;color:rgba(255,255,255,0.55);max-width:520px;font-weight:300;line-height:1.85">Book online, call the clinic, or send us a message — we'll get back to you as quickly as we can.</p>
+  </div>
+  <section class="section">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Find us</div>
+        <h2 class="section-title" style="margin-bottom:30px">Get in Touch</h2>
+        <div class="contact-detail"><span class="contact-icon">📍</span><div><h4>Address</h4><p>Cusworth Court, Grove Avenue (Off York Road)<br>Doncaster, South Yorkshire DN5 9AY</p></div></div>
+        <div class="contact-detail"><span class="contact-icon">📞</span><div><h4>Phone</h4><p><a href="tel:01302354969">01302 354 969</a></p></div></div>
+        <div class="contact-detail"><span class="contact-icon">✉️</span><div><h4>Email</h4><p><a href="mailto:info@mediface-aesthetics.co.uk">info@mediface-aesthetics.co.uk</a></p></div></div>
+        <div class="contact-detail"><span class="contact-icon">🕐</span><div><h4>Opening Hours</h4><div class="hours-grid">
+          <span class="hours-day">Monday – Thursday</span><span class="hours-time">9:30am – 8:00pm</span>
+          <span class="hours-day">Friday</span><span class="hours-time">9:30am – 6:00pm</span>
+          <span class="hours-day">Saturday</span><span class="hours-time">9:00am – 2:00pm</span>
+          <span class="hours-day">Sunday</span><span class="hours-time">Closed</span>
+        </div></div></div>
+        <div style="margin-top:28px;"><a class="btn-cta" href="https://www.fresha.com/book-now/mediface-aesthetics-zk3e6422/all-offer?pId=219744" target="_blank">Book Online</a></div>
+      </div>
+      <div>
+        <div class="section-label">Send a message</div>
+        <h2 class="section-title" style="margin-bottom:30px">Enquiry Form</h2>
+        <div class="form-2col">
+          <div class="form-row"><label>First Name</label><input type="text" placeholder="Jane"></div>
+          <div class="form-row"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="form-row"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+        <div class="form-row"><label>Phone Number</label><input type="tel" placeholder="07700 000000"></div>
+        <div class="form-row"><label>Treatment of Interest</label>
+          <select>
+            <option value="">Select a treatment...</option>
+            <option>Dermal Fillers</option>
+            <option>Wrinkle Relaxing Injections</option>
+            <option>Lip Fillers</option>
+            <option>Soprano Titanium Laser Hair Removal</option>
+            <option>HydraFacial</option>
+            <option>Morpheus8</option>
+            <option>HARMONY XL PRO™ Treatments</option>
+            <option>Profhilo</option>
+            <option>Obagi Medical Skincare</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Your Message</label><textarea placeholder="Tell us what you're looking for and we'll come back to you with everything you need..."></textarea></div>
+        <button class="btn-cta" style="width:100%;padding:13px;font-size:0.76rem;border:none;cursor:pointer">Send Enquiry</button>
+        <p style="font-size:0.7rem;color:var(--warm-grey);margin-top:10px;line-height:1.6">We respond within 1 business day. For urgent enquiries call <a href="tel:01302354969" style="color:var(--teal)">01302 354 969</a>.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Mediface Aesthetics</div>
+    <div class="footer-tagline">"Born from a desire to help people feel amazing"</div>
+    <p style="font-size:0.78rem;color:rgba(255,255,255,0.38);line-height:1.8;max-width:280px">Doncaster's nurse-led medical aesthetics clinic. Premium treatments, cutting-edge technology and genuine patient care — every time.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://www.facebook.com/medifaceaesthetics/" target="_blank">f</a>
+      <a class="social-btn" href="https://www.instagram.com/medifaceaesthetics/" target="_blank">ig</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Treatments</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('treatments')">Injectables</a></li>
+      <li><a onclick="showPage('treatments')">Skin Treatments</a></li>
+      <li><a onclick="showPage('treatments')">Laser & IPL</a></li>
+      <li><a onclick="showPage('treatments')">Soprano Titanium</a></li>
+      <li><a onclick="showPage('treatments')">HARMONY XL PRO™</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Clinic</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('about')">About Us</a></li>
+      <li><a onclick="showPage('conditions')">Conditions</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://www.fresha.com/book-now/mediface-aesthetics-zk3e6422/all-offer?pId=219744" target="_blank">Book Online</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Mediface Aesthetics · Cusworth Court, Grove Avenue, Doncaster DN5 9AY</span>
+  <span>Website concept built by <strong>Trabelo</strong> · Sheffield</span>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) { page.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  document.getElementById('navLinks').classList.remove('open');
+}
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+</script>
+</body>
+</html>
