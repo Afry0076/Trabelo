@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabelo — Occudental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1c2b4a; --blue: #2e5fa3; --blue-light: #3b72c0;
+    --gold: #c9a84c; --cream: #f8f5ef;
+    --border: #e2ddd5; --text-muted: #64748b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; }
+
+  .card { background: white; border-radius: 20px; border: 1px solid var(--border); max-width: 520px; width: 100%; overflow: hidden; box-shadow: 0 8px 40px rgba(28,43,74,0.10); }
+  .card-top { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 100%); padding: 36px 36px 28px; color: white; }
+  .trabelo-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .business-name { font-size: 0.85rem; color: rgba(255,255,255,0.55); font-weight: 500; margin-bottom: 6px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; line-height: 1.2; color: white; font-weight: 700; }
+
+  .card-body { padding: 28px 36px 36px; }
+  .card-desc { font-size: 0.925rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 28px; }
+
+  .links { display: flex; flex-direction: column; gap: 12px; }
+  .link-btn { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.925rem; transition: transform 0.15s, box-shadow 0.15s; }
+  .link-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.10); }
+  .link-btn-primary { background: var(--blue); color: white; }
+  .link-btn-secondary { background: var(--cream); color: var(--navy); border: 1px solid var(--border); }
+  .link-btn-label { display: flex; align-items: center; gap: 10px; }
+  .link-btn-arrow { font-size: 1rem; opacity: 0.6; }
+
+  .footer-note { margin-top: 28px; font-size: 0.78rem; color: var(--text-muted); text-align: center; }
+  .footer-note strong { color: var(--navy); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-top">
+      <div class="trabelo-label">Trabelo</div>
+      <div class="business-name">Occudental · Private Dentist Sheffield S10</div>
+      <h1>Website rebuild proposal</h1>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">A free audit and demo site built specifically for Occudental — showing what's holding the current site back, and what it could look like.</p>
+      <div class="links">
+        <a href="occudental-demo.html" class="link-btn link-btn-primary">
+          <span class="link-btn-label"><span>🦷</span> View the new site</span>
+          <span class="link-btn-arrow">→</span>
+        </a>
+        <a href="occudental-audit.html" class="link-btn link-btn-secondary">
+          <span class="link-btn-label"><span>🔍</span> Read the audit</span>
+          <span class="link-btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-note">Prepared by <strong>Trabelo · Sheffield</strong></div>
+</body>
+</html>
