@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabelo — KL Cosmetic Clinics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #8B3A52;
+    --rose-pale: #E8C5CF;
+    --rose-blush: #F7EEF0;
+    --gold: #C9A96E;
+    --charcoal: #1C1C1C;
+    --warm-grey: #6B6060;
+    --off-white: #FDFAF9;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0E0810;
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 40%, rgba(139,58,82,0.35) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 70%, rgba(139,58,82,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 10%, rgba(201,169,110,0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* subtle grid */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    max-width: 580px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* TRABELO MARK */
+  .trabelo-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 48px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.04);
+  }
+  .trabelo-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+  .trabelo-name {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+  }
+
+  /* CLINIC NAME */
+  .clinic-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .clinic-label::before,
+  .clinic-label::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .subtitle {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rose-pale), transparent);
+    margin: 0 auto 40px;
+  }
+
+  .intro {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.85;
+    margin-bottom: 48px;
+    font-weight: 300;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* LINKS */
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.22s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .link-card.primary {
+    background: var(--rose);
+    border-color: var(--rose);
+  }
+  .link-card.primary:hover {
+    background: #A04460;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(139,58,82,0.4);
+  }
+
+  .link-card.secondary {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .link-card.secondary:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(232,197,207,0.3);
+    transform: translateY(-2px);
+  }
+
+  .link-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+  }
+
+  .link-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+  }
+  .link-card.primary .link-icon { background: rgba(255,255,255,0.15); }
+  .link-card.secondary .link-icon { background: rgba(255,255,255,0.06); }
+
+  .link-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .link-desc {
+    font-size: 0.73rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+  }
+  .link-card.primary .link-desc { color: rgba(255,255,255,0.65); }
+
+  .link-arrow {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.35);
+    transition: transform 0.2s;
+  }
+  .link-card:hover .link-arrow {
+    transform: translateX(4px);
+    color: rgba(255,255,255,0.6);
+  }
+  .link-card.primary .link-arrow { color: rgba(255,255,255,0.5); }
+
+  /* SCORES STRIP */
+  .scores-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .score-item {
+    padding: 16px 12px;
+    background: rgba(255,255,255,0.025);
+    text-align: center;
+  }
+  .score-item-num {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .score-item-num.bad { color: #E55A4E; }
+  .score-item-num.ok { color: #E0A030; }
+  .score-item-num.good { color: #34A068; }
+  .score-item-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  .footer-note {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.2);
+    line-height: 1.7;
+  }
+  .footer-note a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+  }
+  .footer-note a:hover { color: var(--rose-pale); }
+  .footer-note strong { color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 480px) {
+    .scores-strip { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 2.2rem; }
+    .link-card { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="trabelo-mark">
+    <div class="trabelo-dot"></div>
+    <div class="trabelo-name">A Trabelo Website Concept</div>
+  </div>
+
+  <div class="clinic-label">KL Cosmetic Clinics · Doncaster</div>
+
+  <h1>Your website,<br>rebuilt.</h1>
+  <p class="subtitle">Aesthetic Clinic · South Yorkshire</p>
+
+  <div class="divider"></div>
+
+  <p class="intro">Hi — I'm Aidan, and I do web design across Sheffield and South Yorkshire. I've put together a free demo and audit to show what a rebuilt klcosmeticclinics.co.uk could look like — and why it matters.</p>
+
+  <!-- CURRENT SCORES -->
+  <div class="scores-strip">
+    <div class="score-item">
+      <div class="score-item-num bad">58</div>
+      <div class="score-item-label">Performance</div>
+    </div>
+    <div class="score-item">
+      <div class="score-item-num ok">70</div>
+      <div class="score-item-label">Accessibility</div>
+    </div>
+    <div class="score-item">
+      <div class="score-item-num good">96</div>
+      <div class="score-item-label">Best Practices</div>
+    </div>
+    <div class="score-item">
+      <div class="score-item-num ok">92</div>
+      <div class="score-item-label">SEO</div>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="links">
+    <a class="link-card primary" href="kl-demo.html">
+      <div class="link-left">
+        <div class="link-icon">✨</div>
+        <div>
+          <div class="link-title">View the Demo Site</div>
+          <div class="link-desc">A full rebuild — your clinic, redesigned from scratch</div>
+        </div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+
+    <a class="link-card secondary" href="kl-audit.html">
+      <div class="link-left">
+        <div class="link-icon">📋</div>
+        <div>
+          <div class="link-title">Read the Website Audit</div>
+          <div class="link-desc">What's wrong, why it matters, and how to fix it</div>
+        </div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer-note">
+    No obligation. No sales pressure. Just an honest look at what's possible.<br><br>
+    <strong>Aidan Fry</strong> · <a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a> · Trabelo · Sheffield
+  </div>
+
+</div>
+
+</body>
+</html>

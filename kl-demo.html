@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KL Cosmetic Clinics | Aesthetic Clinic Doncaster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose-deep: #8B3A52;
+    --rose-mid: #B5607A;
+    --rose-pale: #E8C5CF;
+    --rose-blush: #F7EEF0;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --charcoal: #1C1C1C;
+    --warm-grey: #6B6060;
+    --off-white: #FDFAF9;
+    --white: #FFFFFF;
+    --nav-h: 70px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* TOPBAR */
+  .topbar {
+    background: var(--charcoal);
+    color: var(--rose-pale);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 9px 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .topbar a { color: var(--rose-pale); text-decoration: none; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar span { color: var(--warm-grey); }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--rose-pale);
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    box-shadow: 0 2px 20px rgba(139,58,82,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--rose-deep);
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    line-height: 1.1;
+  }
+  .nav-logo span {
+    display: block;
+    font-size: 0.55rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    font-weight: 500;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--rose-deep); }
+
+  .btn-cta {
+    background: var(--rose-deep);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-cta:hover { background: var(--rose-mid); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--rose-deep);
+    padding: 11px 24px;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--rose-deep);
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: var(--rose-deep); color: var(--white); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); transition: all 0.3s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1C1218 0%, #2D1A22 50%, #1C1218 100%);
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 60px;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(139,58,82,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(201,169,110,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-text { position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose-pale);
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 440px;
+    font-weight: 300;
+  }
+
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .hero-stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 44px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat { }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 4px;
+  }
+
+  /* HERO CARD */
+  .hero-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(232,197,207,0.2);
+    border-radius: 4px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-card-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .hero-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .hero-card-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  .clinic-details { list-style: none; }
+  .clinic-details li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .clinic-details li:last-child { border-bottom: none; }
+  .detail-icon {
+    color: var(--rose-pale);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .detail-main { font-weight: 500; color: var(--white); }
+  .detail-sub { font-size: 0.72rem; color: rgba(255,255,255,0.45); margin-top: 1px; }
+
+  .hero-card-phone {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--rose-deep);
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .hero-card-phone:hover { background: var(--rose-mid); }
+  .hero-card-phone a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    display: block;
+  }
+  .hero-card-phone-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 4px;
+  }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    background: var(--white);
+    border-bottom: 1px solid var(--rose-pale);
+    padding: 20px 40px;
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 32px;
+    border-right: 1px solid var(--rose-pale);
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 1.2rem; }
+  .trust-text { font-size: 0.78rem; color: var(--warm-grey); }
+  .trust-text strong { color: var(--charcoal); display: block; font-size: 0.85rem; }
+
+  /* SECTIONS */
+  .section { padding: 90px 60px; }
+  .section.alt { background: var(--rose-blush); }
+  .section.dark { background: var(--charcoal); }
+
+  .section-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--rose-deep);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 0.95rem;
+    color: var(--warm-grey);
+    line-height: 1.8;
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  .section-header { margin-bottom: 52px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-label { justify-content: center; }
+  .section-header.center .section-label::before { display: none; }
+  .section-header.center .section-desc { margin: 0 auto; }
+
+  /* TREATMENTS GRID */
+  .treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--rose-pale);
+    border: 2px solid var(--rose-pale);
+  }
+
+  .treatment-card {
+    background: var(--white);
+    padding: 36px 32px;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .treatment-card:hover { background: var(--rose-blush); }
+
+  .treatment-cat {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-mid);
+    margin-bottom: 10px;
+  }
+  .treatment-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .treatment-card p {
+    font-size: 0.82rem;
+    color: var(--warm-grey);
+    line-height: 1.7;
+  }
+  .treatment-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .treatment-link:hover { gap: 10px; }
+
+  /* ABOUT SECTION */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-placeholder {
+    background: linear-gradient(135deg, var(--rose-blush) 0%, var(--rose-pale) 100%);
+    border-radius: 2px;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--rose-deep);
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+  .about-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+  .about-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--rose-deep);
+    color: var(--white);
+    padding: 20px 24px;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .about-badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .about-badge-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose-pale);
+    margin-top: 4px;
+  }
+
+  .about-credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .credential {
+    padding: 16px 18px;
+    background: var(--rose-blush);
+    border-left: 3px solid var(--rose-deep);
+    border-radius: 0 2px 2px 0;
+  }
+  .credential-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 3px;
+  }
+  .credential-sub {
+    font-size: 0.68rem;
+    color: var(--warm-grey);
+  }
+
+  /* CONCERNS */
+  .concerns-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .concern-chip {
+    padding: 18px 20px;
+    border: 1px solid var(--rose-pale);
+    border-radius: 2px;
+    font-size: 0.82rem;
+    color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--white);
+  }
+  .concern-chip:hover {
+    border-color: var(--rose-deep);
+    background: var(--rose-blush);
+    color: var(--rose-deep);
+  }
+  .concern-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rose-deep);
+    flex-shrink: 0;
+  }
+
+  /* GALLERY STRIP */
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 40px;
+  }
+  .gallery-item {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--rose-blush) 0%, var(--rose-pale) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+  .gallery-item-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--rose-deep);
+    font-style: italic;
+    text-align: center;
+    padding: 16px;
+  }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(139,58,82,0.0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s;
+  }
+  .gallery-item:hover .gallery-overlay { background: rgba(139,58,82,0.35); }
+  .gallery-overlay span {
+    color: white;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .gallery-item:hover .gallery-overlay span { opacity: 1; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial-card {
+    padding: 32px 28px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(232,197,207,0.15);
+    border-radius: 2px;
+  }
+  .stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .testimonial-author {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* VOUCHERS / CTA BANNER */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--rose-deep) 0%, #5C1E31 100%);
+    padding: 70px 60px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 40px;
+  }
+  .cta-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .cta-banner p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 14px 32px;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .contact-info { }
+  .contact-detail {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .contact-icon {
+    font-size: 1.1rem;
+    color: var(--rose-deep);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .contact-detail h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .contact-detail p {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  .contact-detail a {
+    color: var(--rose-deep);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .hours-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 20px;
+    font-size: 0.85rem;
+  }
+  .hours-day { color: var(--warm-grey); }
+  .hours-time { color: var(--charcoal); font-weight: 500; }
+
+  /* FORM */
+  .contact-form { }
+  .form-row { margin-bottom: 18px; }
+  .form-row label {
+    display: block;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    margin-bottom: 7px;
+    font-weight: 500;
+  }
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid var(--rose-pale);
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    background: var(--white);
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus { border-color: var(--rose-deep); }
+  .form-row textarea { min-height: 110px; resize: vertical; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* PARTNERS */
+  .partners-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    opacity: 0.7;
+  }
+  .partner-badge {
+    padding: 10px 20px;
+    border: 1px solid var(--rose-pale);
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #120C0F;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+  }
+  .footer-brand { }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .footer-tagline {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .social-btn:hover { border-color: var(--rose-pale); color: var(--rose-pale); }
+
+  .footer-col h4 {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--rose-pale); }
+
+  .footer-bottom {
+    background: #0A0608;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.25);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+  /* PAGE SECTIONS (hidden/shown) */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .topbar { font-size: 0.65rem; padding: 8px 16px; gap: 12px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: var(--white);
+      padding: 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--rose-pale);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      z-index: 99;
+    }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; padding: 60px 24px 40px; min-height: auto; gap: 40px; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .section { padding: 60px 24px; }
+    .treatments-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .concerns-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-strip { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .cta-banner { grid-template-columns: 1fr; padding: 50px 24px; text-align: center; }
+    footer { grid-template-columns: 1fr; gap: 36px; padding: 40px 24px; }
+    .footer-bottom { padding: 16px 24px; flex-direction: column; text-align: center; }
+    .about-badge { right: 0; }
+    .form-2col { grid-template-columns: 1fr; }
+    .trust-strip { padding: 16px; }
+    .trust-item { padding: 8px 16px; border-right: none; border-bottom: 1px solid var(--rose-pale); width: 100%; }
+    .trust-item:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:01302832209">📞 01302 832 209</a>
+  <span>·</span>
+  <span>87 Nutwell Lane, Armthorpe, Doncaster DN3 3JN</span>
+  <span>·</span>
+  <span>Mon–Thu 9am–8pm &nbsp;|&nbsp; Fri 9am–6pm</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer">
+    KL Cosmetic Clinics
+    <span>Aesthetic Clinic · Doncaster</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('treatments')">Treatments</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('gallery')">Gallery</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+    <li><a class="btn-cta" href="https://phorest.com/book/salons/kladvancedmedical" target="_blank">Book Online</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Doncaster's Premier Aesthetic Clinic</div>
+      <h1>Look and feel <em>amazing</em><br>inside and out</h1>
+      <p class="hero-desc">KL Cosmetic Clinics is run by Aesthetic Nurse Practitioners and Advanced Skin Therapists. Non-surgical cosmetic treatments delivered with clinical precision and genuine care — since 2013.</p>
+      <div class="hero-actions">
+        <a class="btn-cta" href="https://phorest.com/book/salons/kladvancedmedical" target="_blank">Book a Consultation</a>
+        <a class="btn-outline" onclick="showPage('treatments')" style="color:#E8C5CF;border-color:#E8C5CF;">View Treatments</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">5-Star Reviews</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Free</div>
+          <div class="stat-label">Consultations</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2013</div>
+          <div class="stat-label">Established</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-tag">The Clinic</div>
+      <h3>KL Cosmetic Clinics</h3>
+      <p class="hero-card-sub">Armthorpe, Doncaster</p>
+      <ul class="clinic-details">
+        <li>
+          <span class="detail-icon">📍</span>
+          <div>
+            <div class="detail-main">87 Nutwell Lane, Armthorpe</div>
+            <div class="detail-sub">Doncaster DN3 3JN</div>
+          </div>
+        </li>
+        <li>
+          <span class="detail-icon">🕐</span>
+          <div>
+            <div class="detail-main">Mon–Thu: 9am – 8pm</div>
+            <div class="detail-sub">Fri: 9am – 6pm · Closed Weekends</div>
+          </div>
+        </li>
+        <li>
+          <span class="detail-icon">✨</span>
+          <div>
+            <div class="detail-main">Free Skin Consultations</div>
+            <div class="detail-sub">Every patient assessed individually</div>
+          </div>
+        </li>
+        <li>
+          <span class="detail-icon">🏥</span>
+          <div>
+            <div class="detail-main">Nurse-Led Clinic</div>
+            <div class="detail-sub">NMC Registered · Advanced Practitioners</div>
+          </div>
+        </li>
+        <li>
+          <span class="detail-icon">💳</span>
+          <div>
+            <div class="detail-main">Gift Vouchers Available</div>
+            <div class="detail-sub">£50, £100, £150 or custom amount</div>
+          </div>
+        </li>
+      </ul>
+      <div class="hero-card-phone">
+        <div class="hero-card-phone-label">Call the clinic</div>
+        <a href="tel:01302832209">01302 832 209</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-item">
+      <span class="trust-icon">⭐</span>
+      <div class="trust-text"><strong>100+ 5-Star Reviews</strong>Trusted by Doncaster</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🏥</span>
+      <div class="trust-text"><strong>Nurse-Led Clinic</strong>NMC Registered Practitioners</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">✅</span>
+      <div class="trust-text"><strong>Free Consultations</strong>Before every treatment</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">💉</span>
+      <div class="trust-text"><strong>Premium Products Only</strong>Juvederm · Botox® · Profhilo®</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📅</span>
+      <div class="trust-text"><strong>Easy Online Booking</strong>Book in minutes</div>
+    </div>
+  </div>
+
+  <!-- POPULAR TREATMENTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-label">What we offer</div>
+      <h2 class="section-title">Popular Treatments</h2>
+      <p class="section-desc">From wrinkle relaxing to advanced skin technology — every treatment is delivered by qualified aesthetic nurses using premium, clinically proven products.</p>
+    </div>
+    <div class="treatments-grid">
+      <div class="treatment-card">
+        <div class="treatment-cat">Aesthetics</div>
+        <h3>Wrinkle-Relaxing Treatments</h3>
+        <p>Using the Botox® brand of botulinum toxin, we soften expression lines, frown lines and crow's feet for a naturally refreshed look — for both men and women.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Aesthetics</div>
+        <h3>Dermal Filler Treatments</h3>
+        <p>A quick and safe procedure for restoring facial volume, reducing wrinkles and enhancing contours. We only use the finest filler brands that deliver consistent, beautiful results.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Aesthetics</div>
+        <h3>Lip Filler</h3>
+        <p>Using hyaluronic acid fillers, we give your lips more shape, definition and natural plumpness. Safe, quick and effective — with techniques including Russian Lip and Lip Flip.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin</div>
+        <h3>Morpheus8 RF Microneedling</h3>
+        <p>Advanced radiofrequency microneedling that remodels skin and subdermal tissue, tightening and rejuvenating at a deeper level than surface treatments alone.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin</div>
+        <h3>HydraFacial</h3>
+        <p>A three-step treatment that cleanses, extracts and hydrates for immediately glowing skin. One of our most popular treatments — no downtime required.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Laser & IPL</div>
+        <h3>Lumecca IPL &amp; Laser Hair Removal</h3>
+        <p>Expert laser and intense pulsed light technology for skin rejuvenation and permanent hair reduction. Effective, long-lasting results from clinical-grade equipment.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a class="btn-outline" onclick="showPage('treatments')">View All Treatments</a>
+    </div>
+  </section>
+
+  <!-- ABOUT SNIPPET -->
+  <section class="section alt">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <img src="https://klcosmeticclinics.co.uk/wp-content/uploads/2025/03/Kirsty-Consultation-2025-sized.jpg" alt="Kirsty Whitworth - Director and Nurse Practitioner" onerror="this.parentElement.innerHTML='<span style=\'padding:24px;text-align:center\'>Kirsty Whitworth<br>Director &amp; Nurse Practitioner</span>'">
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">10+</div>
+          <div class="about-badge-label">Years in<br>Aesthetics</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Our founder</div>
+        <h2 class="section-title">Meet Kirsty Whitworth</h2>
+        <p class="section-desc" style="margin-bottom:24px">KL Cosmetic Clinics was founded in 2013 by Kirsty Louise Whitworth BMedSci (Hons) RGN — an advanced aesthetic nurse practitioner, independent nurse prescriber, and registered member of the Nursing and Midwifery Council.</p>
+        <p class="section-desc">Having spent over 10 years in nursing and management roles within the NHS, Kirsty trained to advanced level with some of the UK's leading surgeons and cosmetic nurses. She continues to develop her skills at industry conferences and manufacturer workshops — so KL clients always benefit from the latest procedures and products.</p>
+        <div class="about-credentials">
+          <div class="credential">
+            <div class="credential-title">BMedSci (Hons) RGN</div>
+            <div class="credential-sub">Biomedical Science degree</div>
+          </div>
+          <div class="credential">
+            <div class="credential-title">NMC Registered</div>
+            <div class="credential-sub">Nursing & Midwifery Council</div>
+          </div>
+          <div class="credential">
+            <div class="credential-title">Independent Prescriber</div>
+            <div class="credential-sub">Nurse prescriber status</div>
+          </div>
+          <div class="credential">
+            <div class="credential-title">Advanced Practitioner</div>
+            <div class="credential-sub">Trained with UK leading surgeons</div>
+          </div>
+        </div>
+        <a class="btn-cta" onclick="showPage('about')">Meet the Full Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section dark">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center;color:var(--gold)">
+        <span style="display:inline-block;width:24px;height:1px;background:var(--gold);margin-right:10px;vertical-align:middle"></span>
+        What our clients say
+      </div>
+      <h2 class="section-title" style="color:var(--white)">100+ Five-Star Reviews</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.5);margin:0 auto">KL's loyal patients have enjoyed results that make them look and feel amazing since 2013.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Absolutely amazing clinic. Kirsty and the team make you feel so at ease. My results are natural and exactly what I wanted. I wouldn't go anywhere else."</p>
+        <div class="testimonial-author">— Google Review</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Had my lips done here and I'm so happy with them. Very professional, very clean clinic. The consultation was thorough and they never pushed me into anything extra."</p>
+        <div class="testimonial-author">— Google Review</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I've been coming to KL for years and have always been delighted. The whole team are friendly, knowledgeable and the results speak for themselves. Highly recommended."</p>
+        <div class="testimonial-author">— Google Review</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIFT VOUCHERS / CTA -->
+  <div class="cta-banner">
+    <div>
+      <h2>Gift Vouchers Available</h2>
+      <p>Treat someone special — or yourself — to a luxury experience at KL. Available in £50, £100, £150 or a custom amount. Purchase online for instant delivery.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a class="btn-gold" href="https://gift-cards.phorest.com/salons/kladvancedmedical" target="_blank">Buy a Gift Voucher</a>
+      <a class="btn-cta" href="https://phorest.com/book/salons/kladvancedmedical" target="_blank" style="background:transparent;border:1.5px solid rgba(255,255,255,0.4)">Book Online</a>
+    </div>
+  </div>
+
+  <!-- PARTNERS -->
+  <section class="section" style="padding-top:60px;padding-bottom:60px;">
+    <div class="section-header center" style="margin-bottom:0">
+      <div class="section-label" style="justify-content:center">Trusted partners</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;margin-bottom:4px">We use only the best products</h3>
+      <p style="font-size:0.82rem;color:var(--warm-grey)">Premium, regulated, clinically-proven — no shortcuts</p>
+    </div>
+    <div class="partners-row">
+      <div class="partner-badge">Juvederm®</div>
+      <div class="partner-badge">Botox®</div>
+      <div class="partner-badge">Profhilo®</div>
+      <div class="partner-badge">InMode</div>
+      <div class="partner-badge">ZO® Skin Health</div>
+      <div class="partner-badge">HydraFacial</div>
+      <div class="partner-badge">Lumecca</div>
+      <div class="partner-badge">EndyMed</div>
+      <div class="partner-badge">Morpheus8</div>
+      <div class="partner-badge">Teoxane</div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== TREATMENTS PAGE ===== -->
+<div class="page" id="page-treatments">
+  <div style="background:linear-gradient(135deg,#1C1218 0%,#2D1A22 100%);padding:80px 60px 60px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">What we offer</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--white);margin-bottom:16px">Our Treatments</h1>
+    <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:520px;font-weight:300;line-height:1.8">Every treatment at KL is delivered by qualified aesthetic nurses using premium, clinically-proven products. We consult every client individually — no one-size-fits-all approach here.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-label">Aesthetics</div>
+    <h2 class="section-title" style="margin-bottom:32px">Non-Surgical Face Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card">
+        <div class="treatment-cat">Anti-Ageing</div>
+        <h3>Wrinkle-Relaxing (Botox®)</h3>
+        <p>Softens expression lines, frown lines and crow's feet using a natural purified protein. Results are natural-looking and typically last 3–4 months.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Volume & Contour</div>
+        <h3>Dermal Filler Treatments</h3>
+        <p>Restores facial volume, reduces wrinkles and enhances contours. Only the finest filler brands, including Juvederm® and Teoxane.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Lip Enhancement</div>
+        <h3>Lip Filler & Russian Lip</h3>
+        <p>Hyaluronic acid fillers to add shape, definition and natural plumpness. Techniques include standard, Russian lip and Lip Flip.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin Booster</div>
+        <h3>Profhilo®</h3>
+        <p>A bioremodelling injectable that deeply hydrates the skin and stimulates collagen and elastin production — not a filler, a skin booster.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Advanced</div>
+        <h3>Polynucleotides (PDRN)</h3>
+        <p>Next-generation skin rejuvenation injections that repair and regenerate at a cellular level — excellent for skin quality, dark circles and fine lines.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Advanced</div>
+        <h3>PRP &amp; PRF Therapy</h3>
+        <p>Platelet-rich plasma and fibrin therapy — using your body's own growth factors to rejuvenate skin and stimulate hair regrowth naturally.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Contouring</div>
+        <h3>Nose, Temple &amp; Tear Trough Filler</h3>
+        <p>Specialist filler treatments for non-surgical nose reshaping, temple volume restoration and under-eye rejuvenation.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Signature</div>
+        <h3>HArmonyCa® Hybrid Filler</h3>
+        <p>The world's first hybrid filler combining immediate hyaluronic acid volume with gradual collagen biostimulation from calcium hydroxyapatite.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Regenerative</div>
+        <h3>Purasome (Exosomes)</h3>
+        <p>Cutting-edge exosome therapy that triggers the skin's natural repair processes — ideal for skin quality, hair restoration and post-treatment recovery.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="section-label">Skin</div>
+    <h2 class="section-title" style="margin-bottom:32px">Skin Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card">
+        <div class="treatment-cat">Advanced Technology</div>
+        <h3>Morpheus8 RF Microneedling</h3>
+        <p>Radiofrequency microneedling that remodels skin and subdermal tissue. Tightens, lifts and rejuvenates — with minimal downtime.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Glow Facial</div>
+        <h3>HydraFacial</h3>
+        <p>Cleanse, extract and hydrate in one treatment for instantly glowing skin. No downtime, suitable for all skin types.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Premium Facial</div>
+        <h3>The Million Dollar Facial</h3>
+        <p>KL's luxury signature facial combining microneedling, LED therapy and a bespoke skincare regime for a truly transformative result.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Exfoliation</div>
+        <h3>Dermaplaning</h3>
+        <p>Manual exfoliation using a surgical blade to remove dead skin cells and vellus hair — leaving skin silky smooth and radiant.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Tightening</div>
+        <h3>EndyMed Skin Tightening</h3>
+        <p>Non-surgical radiofrequency skin tightening that lifts and firms loose skin on the face and body without any downtime.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Medical Grade</div>
+        <h3>ZO® Stimulator Peel</h3>
+        <p>A medical-grade chemical peel that improves skin texture, tone and clarity — designed by world-renowned dermatologist Dr Zein Obagi.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Laser & IPL</div>
+    <h2 class="section-title" style="margin-bottom:32px">Laser & Light Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card">
+        <div class="treatment-cat">Permanent Reduction</div>
+        <h3>Laser Hair Removal</h3>
+        <p>Clinical-grade laser technology for effective, long-lasting hair reduction on the face and body. Safe for a wide range of skin types and tones.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin Rejuvenation</div>
+        <h3>Lumecca IPL</h3>
+        <p>Intense pulsed light treatment targeting pigmentation, redness, sun damage and thread veins — one of the most powerful IPL devices available.</p>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Plasma Resurfacing</div>
+        <h3>NeoGen Plasma Treatment</h3>
+        <p>Nitrogen plasma energy resurfacing that regenerates healthy skin — effective for wrinkles, laxity, acne scarring and general skin quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR CONCERNS -->
+  <section class="section alt">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center">Find your treatment</div>
+      <h2 class="section-title">Treatment by Concern</h2>
+      <p class="section-desc">Not sure which treatment you need? Browse by concern — we'll match you to the right option at your free consultation.</p>
+    </div>
+    <div class="concerns-grid">
+      <div class="concern-chip"><span class="concern-dot"></span>Wrinkles &amp; Fine Lines</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Hyperpigmentation</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Facial Shape &amp; Volume</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Lip Enhancement</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Acne &amp; Scarring</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Hair Loss</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Excess Hair</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Stretch Marks</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Thread Veins</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Skin Laxity</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Age Spots</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Under-Eye Darkness</div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a class="btn-cta" href="https://phorest.com/book/salons/kladvancedmedical" target="_blank">Book a Free Consultation</a>
+    </div>
+  </section>
+</div>
+
+<!-- ===== ABOUT PAGE ===== -->
+<div class="page" id="page-about">
+  <div style="background:linear-gradient(135deg,#1C1218 0%,#2D1A22 100%);padding:80px 60px 60px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Our story</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--white);margin-bottom:16px">About KL Cosmetic Clinics</h1>
+    <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:520px;font-weight:300;line-height:1.8">Founded in 2013. Nurse-led. Built on the belief that non-surgical cosmetic care should be safe, honest, and genuinely transformative.</p>
+  </div>
+
+  <section class="section">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <img src="https://klcosmeticclinics.co.uk/wp-content/uploads/2025/03/Kirsty-Consultation-2025-sized.jpg" alt="Kirsty Whitworth" onerror="this.parentElement.innerHTML='<span style=\'padding:24px;text-align:center\'>Kirsty Whitworth<br>Founder &amp; Clinical Director</span>'">
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">2013</div>
+          <div class="about-badge-label">Established<br>in Doncaster</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Founder</div>
+        <h2 class="section-title">Kirsty Louise Whitworth</h2>
+        <p style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-mid);margin-bottom:20px;font-weight:500">BMedSci (Hons) RGN · Aesthetic Nurse Practitioner · Independent Prescriber</p>
+        <p class="section-desc" style="margin-bottom:18px">KL Cosmetic Clinics was set up by Kirsty Louise Whitworth — an advanced aesthetic nurse practitioner and independent nurse prescriber, registered with the Nursing and Midwifery Council.</p>
+        <p class="section-desc" style="margin-bottom:18px">For over 10 years, Kirsty held nursing and management positions within the NHS. Since leaving, she has trained to advanced level with some of the UK's leading surgeons and cosmetic nurses.</p>
+        <p class="section-desc">She continues to update her skills by attending regular advanced training, manufacturer workshops and industry conferences — ensuring her clients always benefit from the very latest procedures and products.</p>
+        <div class="about-credentials" style="margin-top:28px">
+          <div class="credential">
+            <div class="credential-title">BMedSci (Hons) RGN</div>
+            <div class="credential-sub">Biomedical Science degree</div>
+          </div>
+          <div class="credential">
+            <div class="credential-title">NMC Registered</div>
+            <div class="credential-sub">Nursing & Midwifery Council</div>
+          </div>
+          <div class="credential">
+            <div class="credential-title">Independent Prescriber</div>
+            <div class="credential-sub">Nurse prescriber status</div>
+          </div>
+          <div class="credential">
+            <div class="credential-title">10+ NHS Years</div>
+            <div class="credential-sub">Nursing & management roles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center">Our ethos</div>
+      <h2 class="section-title">The KL Approach</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <div style="padding:32px;background:var(--white);border-top:3px solid var(--rose-deep);">
+        <div style="font-size:1.5rem;margin-bottom:12px">🤝</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;margin-bottom:10px">Honest consultations</h3>
+        <p style="font-size:0.82rem;color:var(--warm-grey);line-height:1.7">Every patient gets a full consultation before any treatment. If we don't believe a treatment will be effective for you, we'll say so — we never push you into something you don't need.</p>
+      </div>
+      <div style="padding:32px;background:var(--white);border-top:3px solid var(--rose-deep);">
+        <div style="font-size:1.5rem;margin-bottom:12px">💉</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;margin-bottom:10px">Premium products only</h3>
+        <p style="font-size:0.82rem;color:var(--warm-grey);line-height:1.7">We won't cut corners with cheap products. Our nurse-led clinic uses only clinically regulated, premium brands — Juvederm®, Botox®, Profhilo®, and more.</p>
+      </div>
+      <div style="padding:32px;background:var(--white);border-top:3px solid var(--rose-deep);">
+        <div style="font-size:1.5rem;margin-bottom:12px">✨</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;margin-bottom:10px">Natural-looking results</h3>
+        <p style="font-size:0.82rem;color:var(--warm-grey);line-height:1.7">Our goal is always to enhance what you have — or restore what's been lost. We believe in results that make you look like the best version of yourself, not someone else.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KL ACADEMY -->
+  <section class="section dark">
+    <div style="max-width:700px;margin:0 auto;text-align:center;">
+      <div class="section-label" style="justify-content:center;color:var(--gold)">
+        <span style="display:inline-block;width:24px;height:1px;background:var(--gold);margin-right:10px;vertical-align:middle"></span>
+        Training
+      </div>
+      <h2 class="section-title" style="color:var(--white)">The KL Academy</h2>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:32px">KL are delighted to offer medical aesthetics training and mentoring through the KL Academy. Develop your skills in a professional clinical environment, with foundation Botox and Dermal Filler training courses for medical professionals.</p>
+      <a class="btn-gold" href="https://klcosmeticclinics.co.uk/aesthetics-training/" target="_blank">View Training Courses</a>
+    </div>
+  </section>
+</div>
+
+<!-- ===== GALLERY PAGE ===== -->
+<div class="page" id="page-gallery">
+  <div style="background:linear-gradient(135deg,#1C1218 0%,#2D1A22 100%);padding:80px 60px 60px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Before &amp; After</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--white);margin-bottom:16px">Results Gallery</h1>
+    <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:520px;font-weight:300;line-height:1.8">Real results from real KL clients. Every photo shows the work of our qualified team using premium, regulated products.</p>
+  </div>
+  <section class="section">
+    <div class="section-label">Aesthetics</div>
+    <h2 class="section-title" style="margin-bottom:32px">Before &amp; After</h2>
+    <div class="gallery-strip" style="grid-template-columns:repeat(4,1fr);">
+      <div class="gallery-item"><div class="gallery-item-label">Lip Filler</div><div class="gallery-overlay"><span>View Result</span></div></div>
+      <div class="gallery-item"><div class="gallery-item-label">Wrinkle Relaxing</div><div class="gallery-overlay"><span>View Result</span></div></div>
+      <div class="gallery-item"><div class="gallery-item-label">Dermal Filler</div><div class="gallery-overlay"><span>View Result</span></div></div>
+      <div class="gallery-item"><div class="gallery-item-label">Profhilo®</div><div class="gallery-overlay"><span>View Result</span></div></div>
+      <div class="gallery-item"><div class="gallery-item-label">Morpheus8</div><div class="gallery-overlay"><span>View Result</span></div></div>
+      <div class="gallery-item"><div class="gallery-item-label">HydraFacial</div><div class="gallery-overlay"><span>View Result</span></div></div>
+      <div class="gallery-item"><div class="gallery-item-label">Lumecca IPL</div><div class="gallery-overlay"><span>View Result</span></div></div>
+      <div class="gallery-item"><div class="gallery-item-label">Laser Hair Removal</div><div class="gallery-overlay"><span>View Result</span></div></div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:0.82rem;color:var(--warm-grey)">Follow <a href="https://www.instagram.com/klcosmeticclinics/" target="_blank" style="color:var(--rose-deep);text-decoration:none;font-weight:500">@klcosmeticclinics</a> on Instagram for the latest results and client content.</p>
+  </section>
+</div>
+
+<!-- ===== CONTACT PAGE ===== -->
+<div class="page" id="page-contact">
+  <div style="background:linear-gradient(135deg,#1C1218 0%,#2D1A22 100%);padding:80px 60px 60px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Get in touch</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--white);margin-bottom:16px">Contact Us</h1>
+    <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:520px;font-weight:300;line-height:1.8">Book online, call the clinic, or send us a message — we'll get back to you as soon as we can.</p>
+  </div>
+  <section class="section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label">The clinic</div>
+        <h2 class="section-title" style="margin-bottom:32px">Find Us</h2>
+        <div class="contact-detail">
+          <span class="contact-icon">📍</span>
+          <div>
+            <h4>Address</h4>
+            <p>87 Nutwell Lane, Armthorpe<br>Doncaster, DN3 3JN</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-icon">📞</span>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:01302832209">01302 832 209</a></p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-icon">📅</span>
+          <div>
+            <h4>Opening Hours</h4>
+            <div class="hours-grid">
+              <span class="hours-day">Monday – Thursday</span>
+              <span class="hours-time">9:00am – 8:00pm</span>
+              <span class="hours-day">Friday</span>
+              <span class="hours-time">9:00am – 6:00pm</span>
+              <span class="hours-day">Saturday</span>
+              <span class="hours-time">Closed</span>
+              <span class="hours-day">Sunday</span>
+              <span class="hours-time">Closed</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <a class="btn-cta" href="https://phorest.com/book/salons/kladvancedmedical" target="_blank">Book Online</a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="section-label">Send a message</div>
+        <h2 class="section-title" style="margin-bottom:32px">Enquiry Form</h2>
+        <div class="form-2col">
+          <div class="form-row">
+            <label>First Name</label>
+            <input type="text" placeholder="Jane">
+          </div>
+          <div class="form-row">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-row">
+          <label>Email Address</label>
+          <input type="email" placeholder="jane@example.com">
+        </div>
+        <div class="form-row">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="07700 000000">
+        </div>
+        <div class="form-row">
+          <label>Treatment of Interest</label>
+          <select>
+            <option value="">Select a treatment...</option>
+            <option>Wrinkle-Relaxing (Botox®)</option>
+            <option>Dermal Fillers</option>
+            <option>Lip Filler</option>
+            <option>Profhilo®</option>
+            <option>Morpheus8</option>
+            <option>HydraFacial</option>
+            <option>Lumecca IPL</option>
+            <option>Laser Hair Removal</option>
+            <option>Polynucleotides</option>
+            <option>PRP / PRF Therapy</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Your Message</label>
+          <textarea placeholder="Tell us a bit about what you're looking for, and we'll get back to you with all the information you need..."></textarea>
+        </div>
+        <button class="btn-cta" style="width:100%;padding:14px;font-size:0.78rem;border:none;cursor:pointer">Send Enquiry</button>
+        <p style="font-size:0.72rem;color:var(--warm-grey);margin-top:12px;line-height:1.6">We'll respond within 1 business day. For urgent enquiries, please call <a href="tel:01302832209" style="color:var(--rose-deep)">01302 832 209</a>.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">KL Cosmetic Clinics</div>
+    <div class="footer-tagline">"Making aspirations real"</div>
+    <p style="font-size:0.8rem;color:rgba(255,255,255,0.4);line-height:1.8;max-width:300px">Doncaster's nurse-led aesthetic clinic, founded by Kirsty Whitworth in 2013. Premium non-surgical cosmetic treatments delivered with care and clinical precision.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://www.facebook.com/KlaestheticsClinic" target="_blank">f</a>
+      <a class="social-btn" href="https://www.instagram.com/klcosmeticclinics/" target="_blank">ig</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Treatments</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('treatments')">Aesthetics</a></li>
+      <li><a onclick="showPage('treatments')">Skin Treatments</a></li>
+      <li><a onclick="showPage('treatments')">Laser & IPL</a></li>
+      <li><a onclick="showPage('treatments')">Signature Treatments</a></li>
+      <li><a onclick="showPage('treatments')">Treatment by Concern</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Clinic</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('about')">About Us</a></li>
+      <li><a onclick="showPage('gallery')">Results Gallery</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://phorest.com/book/salons/kladvancedmedical" target="_blank">Book Online</a></li>
+      <li><a href="https://gift-cards.phorest.com/salons/kladvancedmedical" target="_blank">Gift Vouchers</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 KL Cosmetic Clinics Doncaster · 87 Nutwell Lane, Armthorpe, DN3 3JN</span>
+  <span>Website concept built by <strong>Trabelo</strong> · Sheffield</span>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) {
+    page.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  // close mobile menu
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

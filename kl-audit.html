@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — KL Cosmetic Clinics | Trabelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #8B3A52;
+    --rose-pale: #F7EEF0;
+    --gold: #C9A96E;
+    --charcoal: #1C1C1C;
+    --warm-grey: #6B6060;
+    --off-white: #FDFAF9;
+    --white: #FFFFFF;
+    --red: #C0392B;
+    --amber: #D4850A;
+    --green: #1E7B4B;
+    --score-red: #FEE9E7;
+    --score-amber: #FEF3E2;
+    --score-green: #E6F4EE;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1C1218 0%, #2D1A22 100%);
+    padding: 56px 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(139,58,82,0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .header-inner { position: relative; z-index: 2; }
+  .header-from {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-from::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .header h1 em {
+    font-style: italic;
+    color: #E8C5CF;
+  }
+  .header-sub {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .header-meta-item {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+  }
+  .header-meta-item strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+  /* SCORES SECTION */
+  .scores-section {
+    background: var(--white);
+    padding: 52px 60px;
+    border-bottom: 1px solid #EEE5E7;
+  }
+  .scores-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .scores-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--rose);
+  }
+  .scores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .score-card {
+    padding: 28px 20px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+  .score-card.red { background: var(--score-red); border-color: #F5C6C3; }
+  .score-card.amber { background: var(--score-amber); border-color: #F0D5A8; }
+  .score-card.green { background: var(--score-green); border-color: #B8DFC9; }
+
+  .score-num {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .score-card.red .score-num { color: var(--red); }
+  .score-card.amber .score-num { color: var(--amber); }
+  .score-card.green .score-num { color: var(--green); }
+
+  .score-name {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .score-card.red .score-name { color: var(--red); }
+  .score-card.amber .score-name { color: var(--amber); }
+  .score-card.green .score-name { color: var(--green); }
+
+  .score-verdict {
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+  .score-card.red .score-verdict { color: #9B2D20; }
+  .score-card.amber .score-verdict { color: #9E6008; }
+  .score-card.green .score-verdict { color: var(--green); }
+
+  .scores-note {
+    font-size: 0.76rem;
+    color: var(--warm-grey);
+    background: #F5F0F1;
+    padding: 14px 20px;
+    border-radius: 4px;
+    border-left: 3px solid var(--rose);
+  }
+
+  /* MAIN CONTENT */
+  .main { max-width: 880px; margin: 0 auto; padding: 60px 60px; }
+
+  .intro-block {
+    background: var(--white);
+    border: 1px solid #EEE5E7;
+    border-radius: 4px;
+    padding: 36px 40px;
+    margin-bottom: 48px;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--charcoal);
+  }
+  .intro-block p { margin-bottom: 16px; }
+  .intro-block p:last-child { margin-bottom: 0; }
+
+  /* SECTION HEADING */
+  .section-heading {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--rose-pale);
+  }
+  .section-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+  .section-heading p {
+    font-size: 0.82rem;
+    color: var(--warm-grey);
+  }
+
+  /* ISSUE CARDS */
+  .issues { margin-bottom: 60px; }
+  .issue-card {
+    background: var(--white);
+    border: 1px solid #EEE5E7;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .issue-header {
+    padding: 22px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .issue-header:hover { background: var(--rose-pale); }
+  .issue-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .issue-badge.red { background: var(--score-red); }
+  .issue-badge.amber { background: var(--score-amber); }
+
+  .issue-title { font-weight: 600; font-size: 0.95rem; color: var(--charcoal); }
+  .issue-sub { font-size: 0.75rem; color: var(--warm-grey); margin-top: 2px; }
+  .issue-toggle {
+    font-size: 0.72rem;
+    color: var(--warm-grey);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .issue-body {
+    padding: 0 28px 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  .issue-col h4 {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rose-pale);
+  }
+  .issue-col.what h4 { color: var(--red); }
+  .issue-col.why h4 { color: var(--amber); }
+  .issue-col.fix h4 { color: var(--green); }
+
+  .issue-col p {
+    font-size: 0.84rem;
+    color: #444;
+    line-height: 1.7;
+  }
+
+  /* FEATURES */
+  .features { margin-bottom: 60px; }
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid #EEE5E7;
+    border-radius: 4px;
+    padding: 24px 26px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .feature-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--rose-pale);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .feature-text h4 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 5px;
+  }
+  .feature-text p {
+    font-size: 0.78rem;
+    color: var(--warm-grey);
+    line-height: 1.65;
+  }
+
+  /* PRICING */
+  .pricing { margin-bottom: 60px; }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .pricing-card {
+    background: var(--white);
+    border: 1px solid #EEE5E7;
+    border-radius: 4px;
+    padding: 32px 28px;
+    position: relative;
+  }
+  .pricing-card.featured {
+    border-color: var(--rose);
+    border-width: 2px;
+  }
+  .pricing-featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--rose);
+    color: var(--white);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pricing-tier {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .pricing-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .pricing-price-note {
+    font-size: 0.72rem;
+    color: var(--warm-grey);
+    margin-bottom: 20px;
+  }
+  .pricing-divider {
+    height: 1px;
+    background: var(--rose-pale);
+    margin: 20px 0;
+  }
+  .pricing-features { list-style: none; margin-bottom: 28px; }
+  .pricing-features li {
+    font-size: 0.82rem;
+    color: var(--charcoal);
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .pricing-features li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .pricing-note {
+    font-size: 0.72rem;
+    color: var(--warm-grey);
+    font-style: italic;
+    margin-top: -16px;
+    margin-bottom: 24px;
+  }
+
+  .btn-pricing {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-pricing.outline {
+    border: 1.5px solid var(--rose);
+    color: var(--rose);
+    background: transparent;
+  }
+  .btn-pricing.outline:hover { background: var(--rose); color: white; }
+  .btn-pricing.fill {
+    background: var(--rose);
+    color: white;
+    border: none;
+  }
+  .btn-pricing.fill:hover { background: #6D2D40; }
+
+  /* CLOSING */
+  .closing {
+    background: linear-gradient(135deg, #1C1218 0%, #2D1A22 100%);
+    padding: 52px 60px;
+    text-align: center;
+  }
+  .closing h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 14px;
+  }
+  .closing p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
+  }
+  .closing-contact {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 13px 28px;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-gold:hover { background: #E8D5B0; }
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    padding: 13px 28px;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: white; }
+
+  /* FOOTER */
+  .footer {
+    background: #0A0608;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.25);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer strong { color: rgba(255,255,255,0.45); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .header { padding: 40px 24px 36px; }
+    .scores-section { padding: 36px 24px; }
+    .scores-grid { grid-template-columns: repeat(2, 1fr); }
+    .main { padding: 40px 24px; }
+    .issue-body { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .closing { padding: 40px 24px; }
+    .footer { padding: 16px 24px; flex-direction: column; text-align: center; }
+    .header-meta { flex-direction: column; gap: 8px; }
+    .issue-header { grid-template-columns: auto 1fr; }
+    .issue-toggle { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-from">Website Audit by Trabelo · Sheffield</div>
+    <h1>Your website could be losing you<br><em>bookings every single day</em></h1>
+    <p class="header-sub">An honest look at what's holding klcosmeticclinics.co.uk back — and what we can do about it.</p>
+    <div class="header-meta">
+      <div class="header-meta-item">Prepared for <strong>KL Cosmetic Clinics, Doncaster</strong></div>
+      <div class="header-meta-item">Audited <strong>July 2026</strong></div>
+      <div class="header-meta-item">By <strong>Aidan Fry, Trabelo</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- SCORES -->
+<div class="scores-section">
+  <div class="scores-label">Google PageSpeed Results — Mobile</div>
+  <div class="scores-grid">
+    <div class="score-card red">
+      <div class="score-num">58</div>
+      <div class="score-name">Performance</div>
+      <div class="score-verdict">⚠ Poor</div>
+    </div>
+    <div class="score-card amber">
+      <div class="score-num">70</div>
+      <div class="score-name">Accessibility</div>
+      <div class="score-verdict">⚠ Needs Work</div>
+    </div>
+    <div class="score-card green">
+      <div class="score-num">96</div>
+      <div class="score-name">Best Practices</div>
+      <div class="score-verdict">✓ Good</div>
+    </div>
+    <div class="score-card amber">
+      <div class="score-num">92</div>
+      <div class="score-name">SEO</div>
+      <div class="score-verdict">⚠ Could Be Better</div>
+    </div>
+  </div>
+  <div class="scores-note">
+    These scores come directly from Google's own PageSpeed Insights tool — the same tool Google uses to decide how quickly your site loads for real visitors. A Performance score of 58 on mobile is a serious issue for any business, but especially one like a cosmetic clinic where most clients are browsing on their phones.
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- INTRO -->
+  <div class="intro-block">
+    <p>Hi — my name's Aidan. I do web design across Sheffield and South Yorkshire, and I came across KL Cosmetic Clinics while looking at aesthetic clinics in the Doncaster area.</p>
+    <p>You've clearly built something really impressive here — 100+ five-star reviews, a strong team, a wide range of treatments, and a genuine reputation in the area. That's not easy to do, and it shows in how many people clearly trust the clinic.</p>
+    <p>But here's the issue: your website doesn't reflect any of that. When I ran it through Google's speed testing tool, it scored 58 out of 100 on mobile performance — which means it's slow enough that a lot of people will give up and leave before the page even finishes loading. For a clinic with your level of quality, that's a real shame, and it's almost certainly costing you bookings.</p>
+    <p>I've put together this audit to be straight with you about what's happening, what it means in practice, and what a rebuilt site could do for you. There's no obligation at all — I just think it's worth knowing about.</p>
+  </div>
+
+  <!-- ISSUES -->
+  <div class="issues">
+    <div class="section-heading">
+      <h2>What's Going Wrong</h2>
+      <p>Here's a plain-English breakdown of the main issues and what they mean for your clinic.</p>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge red">🐢</div>
+        <div>
+          <div class="issue-title">The site loads too slowly on mobile</div>
+          <div class="issue-sub">Performance score: 58/100 · Largest Contentful Paint: 15.4 seconds</div>
+        </div>
+        <div class="issue-toggle">Critical</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what">
+          <h4>What's happening</h4>
+          <p>Google measured the main content on your page taking 15.4 seconds to fully appear on a mobile phone. The overall performance score is 58/100 — anything below 90 is flagged as a problem. The biggest culprits are oversized images, scripts that block the page from loading, and excess unused code.</p>
+        </div>
+        <div class="issue-col why">
+          <h4>Why it matters to you</h4>
+          <p>Most people searching for a cosmetic clinic are browsing on their phone, often in the evening. Research shows that if a site takes longer than 3 seconds to load, over half of visitors will just leave. That's potential clients for your Botox, fillers or Morpheus8 treatments clicking away to a competitor before they've even seen what you offer.</p>
+        </div>
+        <div class="issue-col fix">
+          <h4>What the rebuild fixes</h4>
+          <p>A rebuilt site would score 97+ on performance. Images would be properly compressed and sized. Unnecessary scripts would be removed. The result is a page that loads in under 1.5 seconds on mobile — the kind of speed that keeps people on the page long enough to book.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge red">🖼️</div>
+        <div>
+          <div class="issue-title">Images are far too large and unoptimised</div>
+          <div class="issue-sub">Estimated savings: 704 KB · Images missing size attributes</div>
+        </div>
+        <div class="issue-toggle">Critical</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what">
+          <h4>What's happening</h4>
+          <p>The images on your site haven't been resized or compressed for the web. Google flagged 704KB of unnecessary image data being loaded — over half a megabyte of extra download your visitors have to wait for, every time they open the page.</p>
+        </div>
+        <div class="issue-col why">
+          <h4>Why it matters to you</h4>
+          <p>For a cosmetic clinic, before-and-after photos and treatment imagery are incredibly important — they're often what persuades someone to book. But if those images are making the site sluggish, they're doing more harm than good. People won't wait. They'll go elsewhere.</p>
+        </div>
+        <div class="issue-col fix">
+          <h4>What the rebuild fixes</h4>
+          <p>Every image on the new site would be properly compressed and served in modern formats like WebP, which are much smaller without any visible quality loss. Result and gallery imagery would still look stunning — it'll just load instantly instead of making people wait.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge red">⛔</div>
+        <div>
+          <div class="issue-title">Scripts are blocking the page from loading</div>
+          <div class="issue-sub">Render-blocking requests: estimated 1,940ms delay</div>
+        </div>
+        <div class="issue-toggle">Critical</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what">
+          <h4>What's happening</h4>
+          <p>There are scripts (code files) on your site that have to fully load before the page can even start showing anything to the visitor. This is adding nearly 2 full seconds to your load time before the page even begins appearing — and that's on top of everything else slowing it down.</p>
+        </div>
+        <div class="issue-col why">
+          <h4>Why it matters to you</h4>
+          <p>Those 2 seconds of blank screen feel much longer when you're on a phone. It's the digital equivalent of someone walking through the front door of your clinic and being made to wait in an empty room before anyone acknowledges them. First impressions matter — online as much as in person.</p>
+        </div>
+        <div class="issue-col fix">
+          <h4>What the rebuild fixes</h4>
+          <p>A clean, purpose-built site carries no unnecessary third-party scripts. The ones that are genuinely needed would be loaded in a way that doesn't block the page from appearing first. Visitors see something the moment they land.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">♿</div>
+        <div>
+          <div class="issue-title">Accessibility issues — some visitors struggle to use the site</div>
+          <div class="issue-sub">Accessibility score: 70/100 · Missing alt text, contrast issues, broken lists</div>
+        </div>
+        <div class="issue-toggle">Important</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what">
+          <h4>What's happening</h4>
+          <p>Several images on your site have no descriptions (called "alt text"), meaning screen readers — used by visually impaired visitors — can't interpret them. There are also colour contrast issues where text is hard to read, and broken list structures that confuse assistive technology.</p>
+        </div>
+        <div class="issue-col why">
+          <h4>Why it matters to you</h4>
+          <p>Accessibility issues aren't just about complying with guidelines — they affect real visitors. An older client who uses larger text or a screen reader, or someone with visual difficulties, simply won't be able to use parts of your site. That's a client lost before they even get in touch. Google also uses accessibility as a ranking signal.</p>
+        </div>
+        <div class="issue-col fix">
+          <h4>What the rebuild fixes</h4>
+          <p>The new site would score 98+ on accessibility — proper alt text on every image, sufficient colour contrast throughout, correctly structured page elements, and touch targets sized correctly for fingers on a phone screen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">🔍</div>
+        <div>
+          <div class="issue-title">SEO issues are limiting your Google visibility</div>
+          <div class="issue-sub">SEO score: 92/100 · Missing image alt text · Pinch-zoom disabled</div>
+        </div>
+        <div class="issue-toggle">Important</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what">
+          <h4>What's happening</h4>
+          <p>Your site prevents users from pinching to zoom in on mobile — which Google flags as a usability issue and penalises in search rankings. Missing image alt text also means Google can't "read" your images, which limits how well they rank in image search. These aren't massive problems individually, but they add up.</p>
+        </div>
+        <div class="issue-col why">
+          <h4>Why it matters to you</h4>
+          <p>SEO (search engine optimisation) is what determines whether your clinic appears near the top of Google when someone in Doncaster searches "lip filler near me" or "botox Doncaster." Every small issue chips away at that ranking. When competitors' sites score higher, they appear above you — and most people don't scroll past the top few results.</p>
+        </div>
+        <div class="issue-col fix">
+          <h4>What the rebuild fixes</h4>
+          <p>A rebuilt site would score 100 on SEO — proper image descriptions, zoom enabled on mobile, clean page structure, fast loading (which Google rewards heavily), and correct heading hierarchy throughout. Everything set up the right way from the start.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">💳</div>
+        <div>
+          <div class="issue-title">Caching isn't set up properly — every visit reloads everything</div>
+          <div class="issue-sub">Use efficient cache lifetimes: estimated savings of 396 KB per visit</div>
+        </div>
+        <div class="issue-toggle">Notable</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what">
+          <h4>What's happening</h4>
+          <p>Caching is a way of telling a visitor's browser "remember this file — you don't need to download it again next time." Your site isn't doing this properly, which means returning visitors have to download everything from scratch every single time they come back.</p>
+        </div>
+        <div class="issue-col why">
+          <h4>Why it matters to you</h4>
+          <p>Someone who's looked at your site once and comes back to check prices or book an appointment will have to wait for the whole thing to load again from the beginning. That's a poor experience for a returning client and contributes to the overall slowness that's hurting your scores.</p>
+        </div>
+        <div class="issue-col fix">
+          <h4>What the rebuild fixes</h4>
+          <p>Proper caching would be configured from day one. Returning visitors see the site load almost instantly, because their browser already has most of it saved. It makes a noticeable difference to the experience, especially on slower mobile connections.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="section-heading">
+      <h2>What the New Site Adds</h2>
+      <p>It's not just about fixing problems — a rebuilt site gives KL Cosmetic Clinics features the current site simply can't do.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-text">
+          <h4>97+ Performance score</h4>
+          <p>Built from the ground up for speed. Loads in under 1.5 seconds on mobile — well above the industry standard and miles ahead of where you are now.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <div class="feature-text">
+          <h4>Genuinely mobile-first design</h4>
+          <p>Designed for phones first, not adapted from a desktop layout. Touch-friendly, clear, and fast — exactly how most of your clients are browsing.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <div class="feature-text">
+          <h4>Prominent online booking</h4>
+          <p>Your Phorest booking link properly integrated and visible throughout the site — not buried. One tap to book from any page, on any device.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎁</div>
+        <div class="feature-text">
+          <h4>Gift voucher integration</h4>
+          <p>Your gift voucher offering properly showcased and linked — ideal for driving sales at Christmas, Mother's Day and other gifting moments throughout the year.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <div class="feature-text">
+          <h4>Enquiry form that works</h4>
+          <p>A clean contact form that collects name, email, phone and treatment of interest — so every enquiry arrives with the context you need to respond quickly.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <div class="feature-text">
+          <h4>Reviews and social proof front and centre</h4>
+          <p>Your 100+ five-star Google reviews properly showcased — not buried in a tab. Social proof on every page helps new clients feel confident enough to book.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏥</div>
+        <div class="feature-text">
+          <h4>Credentials displayed with authority</h4>
+          <p>Kirsty's qualifications, NMC registration and NHS background presented clearly and professionally — building the trust that turns a site visitor into a paying client.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-text">
+          <h4>100/100 SEO score</h4>
+          <p>Every SEO basic done properly from day one. Clean structure, proper headings, image descriptions, mobile-friendly — giving you the best possible foundation in Google.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="section-heading">
+      <h2>Pricing</h2>
+      <p>One-off fixed prices. No monthly fees, no ongoing contracts. You own the site outright.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">£395</div>
+        <div class="pricing-price-note">One-off · You own it outright</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Up to 5 pages</li>
+          <li>Mobile-first design</li>
+          <li>97+ Performance score</li>
+          <li>98 Accessibility score</li>
+          <li>100 SEO score</li>
+          <li>Fast hosting setup</li>
+          <li>Contact form included</li>
+          <li>Online booking link integrated</li>
+        </ul>
+        <div class="pricing-note">Updates: £15 per change or £30/month for unlimited small updates</div>
+        <a class="btn-pricing outline" href="mailto:aidan@trabelo.com?subject=KL Cosmetic Clinics — Starter enquiry">Get in Touch</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-featured-badge">Most Popular</div>
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-price-note">One-off · No monthly fees</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Full treatments section — all categories</li>
+          <li>Results gallery page</li>
+          <li>Team / About page</li>
+          <li>Gift voucher feature integration</li>
+          <li>Newsletter sign-up</li>
+          <li>Extra pages as needed</li>
+          <li>Testimonials section</li>
+          <li>Partner brand logos</li>
+        </ul>
+        <div class="pricing-note">No monthly fees whatsoever</div>
+        <a class="btn-pricing fill" href="mailto:aidan@trabelo.com?subject=KL Cosmetic Clinics — Business enquiry">Get in Touch</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-price-note">One-off + small hosting cost</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>Full content management system</li>
+          <li>Add blog posts yourself</li>
+          <li>Update treatment info anytime</li>
+          <li>Instagram feed live on site</li>
+          <li>Automated enquiry responses</li>
+          <li>Push notifications for offers</li>
+          <li>Advanced analytics dashboard</li>
+        </ul>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month depending on setup)</div>
+        <a class="btn-pricing outline" href="mailto:aidan@trabelo.com?subject=KL Cosmetic Clinics — Premium enquiry">Get in Touch</a>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- CLOSING CTA -->
+<div class="closing">
+  <h2>Let's have a chat</h2>
+  <p>No obligation at all. If anything here has been useful, or you'd like to see the demo site I've put together for KL Cosmetic Clinics, I'm happy to chat over email or a call. Everything can be sorted remotely.</p>
+  <div class="closing-contact">
+    <a class="btn-gold" href="mailto:aidan@trabelo.com?subject=KL Cosmetic Clinics website enquiry">Email Aidan</a>
+    <a class="btn-ghost" href="tel:+44aidan">View the Demo Site</a>
+  </div>
+  <p style="margin-top:24px;font-size:0.72rem;color:rgba(255,255,255,0.3)">aidan@trabelo.com</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Website audit prepared for KL Cosmetic Clinics, Doncaster · July 2026</span>
+  <span>Built by <strong>Trabelo · Sheffield</strong></span>
+</div>
+
+</body>
+</html>
