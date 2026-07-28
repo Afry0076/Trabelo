@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabelo — Devonshire Quarter Dental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #2b2d2e;
+    --sage: #4a7c6f;
+    --sage-light: #5e9487;
+    --gold: #b8976a;
+    --warm: #f9f6f1;
+    --border: #e5e7eb;
+    --text-muted: #6b7280;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--warm); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; }
+
+  .card { background: white; border-radius: 20px; border: 1px solid var(--border); max-width: 520px; width: 100%; overflow: hidden; box-shadow: 0 8px 40px rgba(43,45,46,0.10); }
+  .card-top { background: linear-gradient(135deg, var(--charcoal) 0%, #2a4a3e 100%); padding: 36px 36px 28px; color: white; }
+  .trabelo-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .business-name { font-size: 0.85rem; color: rgba(255,255,255,0.55); font-weight: 500; margin-bottom: 6px; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 1.9rem; line-height: 1.2; color: white; }
+
+  .card-body { padding: 28px 36px 36px; }
+  .card-desc { font-size: 0.925rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 28px; }
+
+  .links { display: flex; flex-direction: column; gap: 12px; }
+  .link-btn { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.925rem; transition: transform 0.15s, box-shadow 0.15s; }
+  .link-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.10); }
+  .link-btn-primary { background: var(--sage); color: white; }
+  .link-btn-secondary { background: var(--warm); color: var(--charcoal); border: 1px solid var(--border); }
+  .link-btn-label { display: flex; align-items: center; gap: 10px; }
+  .link-btn-arrow { font-size: 1rem; opacity: 0.6; }
+
+  .footer-note { margin-top: 28px; font-size: 0.78rem; color: var(--text-muted); text-align: center; }
+  .footer-note strong { color: var(--charcoal); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-top">
+      <div class="trabelo-label">Trabelo</div>
+      <div class="business-name">Devonshire Quarter Dental · Sheffield S3</div>
+      <h1>Website rebuild proposal</h1>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">A free audit and demo site built specifically for Devonshire Quarter Dental — showing what's holding the current site back, and what it could look like.</p>
+      <div class="links">
+        <a href="devonshire-dental-demo.html" class="link-btn link-btn-primary">
+          <span class="link-btn-label"><span>🦷</span> View the new site</span>
+          <span class="link-btn-arrow">→</span>
+        </a>
+        <a href="devonshire-dental-audit.html" class="link-btn link-btn-secondary">
+          <span class="link-btn-label"><span>🔍</span> Read the audit</span>
+          <span class="link-btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-note">Prepared by <strong>Trabelo · Sheffield</strong></div>
+</body>
+</html>

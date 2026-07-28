@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devonshire Quarter Dental — NHS & Private Dentist Sheffield City Centre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #4a7c6f;
+    --sage-light: #5e9487;
+    --sage-pale: #eef4f2;
+    --charcoal: #2b2d2e;
+    --warm: #f9f6f1;
+    --white: #ffffff;
+    --gold: #b8976a;
+    --text: #2b2d2e;
+    --text-muted: #6b7280;
+    --border: #e5e0d8;
+    --shadow: 0 4px 24px rgba(43,45,46,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); font-size: 16px; line-height: 1.6; }
+
+  /* TOPBAR */
+  .topbar { background: var(--charcoal); color: rgba(255,255,255,0.8); font-size: 0.8rem; padding: 9px 0; }
+  .topbar-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+  .topbar-items { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+  .topbar a { color: rgba(255,255,255,0.8); text-decoration: none; }
+  .topbar a:hover { color: var(--gold); }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 2px 12px rgba(43,45,46,0.06); }
+  .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { display: flex; align-items: center; gap: 12px; cursor: pointer; text-decoration: none; }
+  .logo-mark { width: 40px; height: 40px; background: var(--sage); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
+  .logo-text strong { display: block; font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--charcoal); line-height: 1.1; }
+  .logo-text span { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links button { background: none; border: none; cursor: pointer; padding: 8px 13px; font-size: 0.875rem; color: var(--text); font-family: 'Inter', sans-serif; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  .nav-links button:hover, .nav-links button.active { color: var(--sage); background: var(--sage-pale); }
+  .nav-cta { background: var(--sage) !important; color: white !important; padding: 9px 20px !important; border-radius: 8px !important; font-weight: 600 !important; margin-left: 8px; }
+  .nav-cta:hover { background: var(--sage-light) !important; color: white !important; }
+  .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; }
+  .mobile-menu { display: none; background: var(--white); border-top: 1px solid var(--border); padding: 16px 24px 24px; }
+  .mobile-menu.open { display: block; }
+  .mobile-menu button { display: block; width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 12px 0; font-size: 1rem; color: var(--text); font-family: 'Inter', sans-serif; border-bottom: 1px solid var(--border); }
+  .mobile-cta { margin-top: 16px; display: block; background: var(--sage); color: white !important; text-align: center; padding: 14px; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; border: none; font-family: 'Inter', sans-serif; width: 100%; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero { background: var(--charcoal); color: white; padding: 80px 0 60px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; bottom: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(74,124,111,0.25) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 340px; gap: 56px; align-items: center; }
+  .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 600; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.15; margin-bottom: 20px; }
+  .hero h1 em { color: var(--sage-light); font-style: italic; }
+  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 500px; line-height: 1.75; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { background: var(--sage); color: white; padding: 13px 26px; border-radius: 8px; font-weight: 700; font-size: 0.925rem; text-decoration: none; border: none; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-primary:hover { background: var(--sage-light); transform: translateY(-2px); }
+  .btn-secondary { background: rgba(255,255,255,0.1); color: white; padding: 13px 26px; border-radius: 8px; font-weight: 600; font-size: 0.925rem; border: 1.5px solid rgba(255,255,255,0.25); cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; display: inline-block; text-decoration: none; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+  .hero-stats { display: flex; gap: 28px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* HERO CARD */
+  .hero-card { background: white; color: var(--text); border-radius: 16px; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 14px; font-weight: 600; }
+  .card-phone { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--charcoal); margin-bottom: 4px; }
+  .card-phone a { color: inherit; text-decoration: none; }
+  .card-hours { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 18px; }
+  .card-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .card-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; font-size: 0.84rem; }
+  .card-row .icon { color: var(--sage); flex-shrink: 0; margin-top: 1px; }
+  .card-book { display: block; width: 100%; background: var(--sage); color: white; text-align: center; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.925rem; margin-top: 18px; border: none; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; text-decoration: none; }
+  .card-book:hover { background: var(--sage-light); }
+
+  /* TRUST STRIP */
+  .trust-strip { background: var(--warm); border-bottom: 1px solid var(--border); padding: 16px 0; }
+  .trust-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .trust-item { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; font-weight: 600; color: var(--charcoal); padding: 6px 14px; background: white; border-radius: 100px; border: 1px solid var(--border); }
+  .trust-item span { color: var(--sage); }
+
+  /* SECTIONS */
+  section { padding: 72px 0; }
+  .section-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  .section-eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage); font-weight: 700; margin-bottom: 10px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--charcoal); line-height: 1.2; margin-bottom: 14px; }
+  .section-title em { color: var(--sage); font-style: italic; }
+  .section-sub { color: var(--text-muted); max-width: 540px; line-height: 1.75; margin-bottom: 44px; }
+
+  /* TREATMENTS */
+  .treatments-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .treatment-card { border: 1px solid var(--border); border-radius: 14px; padding: 26px; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; cursor: pointer; background: white; }
+  .treatment-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--sage); }
+  .treatment-icon { width: 46px; height: 46px; background: var(--sage-pale); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
+  .treatment-card h3 { font-size: 1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 7px; }
+  .treatment-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+  .treatment-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; font-size: 0.82rem; font-weight: 600; color: var(--sage); text-decoration: none; cursor: pointer; background: none; border: none; font-family: 'Inter', sans-serif; }
+
+  /* ABOUT / SPLIT */
+  .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-img { border-radius: 16px; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--charcoal) 0%, var(--sage) 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+  .about-features { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+  .about-feature { display: flex; gap: 12px; align-items: flex-start; }
+  .feature-dot { width: 8px; height: 8px; background: var(--sage); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  .about-feature strong { display: block; font-size: 0.9rem; color: var(--charcoal); margin-bottom: 2px; }
+  .about-feature p { font-size: 0.84rem; color: var(--text-muted); }
+
+  /* TEAM */
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 40px; }
+  .team-card { text-align: center; padding: 28px 20px; border: 1px solid var(--border); border-radius: 14px; transition: box-shadow 0.2s, transform 0.2s; }
+  .team-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+  .team-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--sage) 0%, var(--charcoal) 100%); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'DM Serif Display', serif; font-size: 1.6rem; }
+  .team-card h3 { font-size: 1rem; color: var(--charcoal); font-weight: 700; margin-bottom: 3px; }
+  .team-card .role { font-size: 0.78rem; color: var(--sage); font-weight: 600; margin-bottom: 8px; }
+  .team-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* REVIEWS */
+  .reviews-section { background: var(--warm); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; margin-top: 40px; }
+  .review-card { background: white; border-radius: 14px; padding: 26px; border: 1px solid var(--border); }
+  .review-stars { color: #f59e0b; font-size: 0.95rem; margin-bottom: 12px; }
+  .review-text { font-size: 0.875rem; color: var(--text); line-height: 1.75; margin-bottom: 16px; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 10px; }
+  .review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .review-name { font-weight: 700; font-size: 0.875rem; color: var(--charcoal); }
+  .review-source { font-size: 0.73rem; color: var(--text-muted); }
+
+  /* DARK FEATURE SECTION */
+  .feature-dark { background: var(--charcoal); color: white; padding: 72px 0; }
+  .feature-dark .section-title { color: white; }
+  .feature-dark .section-eyebrow { color: var(--gold); }
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-top: 20px; }
+  .feature-list li { display: flex; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.82); }
+  .feature-list li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .feature-img { border-radius: 16px; aspect-ratio: 4/3; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+
+  /* FAQS */
+  .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+  .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: white; }
+  .faq-q { padding: 18px 20px; font-weight: 600; font-size: 0.925rem; color: var(--charcoal); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .faq-q:hover { background: var(--warm); }
+  .faq-a { padding: 0 20px 18px; font-size: 0.875rem; color: var(--text-muted); line-height: 1.75; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .contact-info-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 22px; }
+  .contact-icon { width: 42px; height: 42px; background: var(--sage-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+  .contact-info-item h4 { font-weight: 700; font-size: 0.875rem; color: var(--charcoal); margin-bottom: 3px; }
+  .contact-info-item p, .contact-info-item a { font-size: 0.875rem; color: var(--text-muted); text-decoration: none; }
+  .contact-info-item a:hover { color: var(--sage); }
+  .enquiry-form { background: var(--warm); border-radius: 16px; padding: 30px; border: 1px solid var(--border); }
+  .enquiry-form h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--charcoal); margin-bottom: 20px; }
+  .form-group { margin-bottom: 14px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 13px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.875rem; font-family: 'Inter', sans-serif; color: var(--text); background: white; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--sage); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-submit { width: 100%; background: var(--sage); color: white; padding: 13px; border: none; border-radius: 8px; font-size: 0.925rem; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; margin-top: 6px; }
+  .form-submit:hover { background: var(--sage-light); }
+
+  /* CTA BANNER */
+  .cta-banner { background: var(--sage); color: white; padding: 56px 0; text-align: center; }
+  .cta-banner h2 { font-family: 'DM Serif Display', serif; font-size: 1.9rem; margin-bottom: 10px; }
+  .cta-banner p { color: rgba(255,255,255,0.82); margin-bottom: 26px; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: white; color: var(--sage); padding: 12px 26px; border-radius: 8px; font-weight: 700; font-size: 0.925rem; text-decoration: none; border: none; cursor: pointer; font-family: 'Inter', sans-serif; transition: transform 0.15s; display: inline-block; }
+  .btn-white:hover { transform: translateY(-2px); }
+  .btn-outline-white { background: transparent; color: white; padding: 12px 26px; border-radius: 8px; font-weight: 600; font-size: 0.925rem; border: 2px solid rgba(255,255,255,0.45); text-decoration: none; display: inline-block; transition: border-color 0.2s; }
+  .btn-outline-white:hover { border-color: white; }
+
+  /* PAGE HERO */
+  .page-hero { background: linear-gradient(135deg, var(--charcoal) 0%, #3a4a3e 100%); color: white; padding: 52px 0; text-align: center; }
+  .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; margin-bottom: 10px; }
+  .page-hero p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto; }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.7); padding: 52px 0 26px; }
+  .footer-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+  .footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: white; margin-bottom: 10px; }
+  .footer-brand p { font-size: 0.84rem; line-height: 1.7; color: rgba(255,255,255,0.55); }
+  .footer-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); margin-bottom: 12px; font-weight: 600; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li button { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.65); font-size: 0.84rem; font-family: 'Inter', sans-serif; padding: 0; text-align: left; transition: color 0.2s; }
+  .footer-col ul li button:hover { color: white; }
+  .footer-col ul li a { color: rgba(255,255,255,0.65); font-size: 0.84rem; text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+  .trabelo-credit span { color: rgba(255,255,255,0.55); }
+
+  /* HOURS TABLE */
+  .hours-table { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+  .hours-row { display: flex; justify-content: space-between; font-size: 0.84rem; }
+  .hours-row .day { color: var(--charcoal); font-weight: 500; }
+  .hours-row .time { color: var(--text-muted); }
+  .hours-row.late .time { color: var(--sage); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .hero-inner, .split-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero-card { max-width: 400px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .burger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-items">
+      <span>📍 1 Convent Walk, Sheffield, S3 7RX</span>
+      <span>Mon–Wed & Fri: 9am–5pm · Thu: 9am–7pm</span>
+    </div>
+    <div class="topbar-items">
+      <a href="tel:01142760483">📞 0114 276 0483</a>
+      <a href="mailto:info@devonshirequarterdental.co.uk">✉ info@devonshirequarterdental.co.uk</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">
+      <div class="logo-mark">🦷</div>
+      <div class="logo-text">
+        <strong>Devonshire Quarter Dental</strong>
+        <span>NHS & Private · Sheffield City Centre</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button onclick="showPage('home')" id="nav-home" class="active">Home</button>
+      <button onclick="showPage('about')" id="nav-about">About & Team</button>
+      <button onclick="showPage('treatments')" id="nav-treatments">Treatments</button>
+      <button onclick="showPage('pricing')" id="nav-pricing">Pricing</button>
+      <button onclick="showPage('contact')" id="nav-contact">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Book Appointment</button>
+    </div>
+    <button class="burger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="showPage('home');toggleMobile()">Home</button>
+    <button onclick="showPage('about');toggleMobile()">About & Team</button>
+    <button onclick="showPage('treatments');toggleMobile()">Treatments</button>
+    <button onclick="showPage('pricing');toggleMobile()">Pricing</button>
+    <button onclick="showPage('contact');toggleMobile()">Contact</button>
+    <button class="mobile-cta" onclick="showPage('contact');toggleMobile()">📅 Book Appointment</button>
+  </div>
+</nav>
+
+<!-- ══════════════ HOME PAGE ══════════════ -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">NHS & Private Dentistry · Sheffield City Centre</p>
+        <h1>Compassionate, Expert<br><em>Dental Care</em></h1>
+        <p class="hero-sub">A friendly, family-run practice in the heart of Sheffield. We're here to help with the long-term care of your teeth — and there for you in an emergency too.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('contact')">Book an Appointment</button>
+          <button class="btn-secondary" onclick="showPage('treatments')">Our Treatments</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">NHS</div><div class="stat-label">& Private</div></div>
+          <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Expert Dentists</div></div>
+          <div class="stat-item"><div class="stat-num">City</div><div class="stat-label">Centre Location</div></div>
+          <div class="stat-item"><div class="stat-num">⭐5.0</div><div class="stat-label">Patient Reviews</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <p class="card-label">📞 Call or Book Today</p>
+          <div class="card-phone"><a href="tel:01142760483">0114 276 0483</a></div>
+          <p class="card-hours">Mon–Wed & Fri: 9am–5pm · Thu: 9am–7pm</p>
+          <hr class="card-divider">
+          <div class="card-row"><span class="icon">📍</span><span>1 Convent Walk, Sheffield, S3 7RX</span></div>
+          <div class="card-row"><span class="icon">🦷</span><span>NHS & Private patients welcome</span></div>
+          <div class="card-row"><span class="icon">🚨</span><span>Emergency same-day appointments available</span></div>
+          <div class="card-row"><span class="icon">😊</span><span>Phobia-friendly team</span></div>
+          <button class="card-book" onclick="showPage('contact')">📅 Book Online</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <div class="trust-item"><span>🏥</span> NHS & Private</div>
+      <div class="trust-item"><span>😊</span> Phobia Friendly</div>
+      <div class="trust-item"><span>🚨</span> Same-Day Emergencies</div>
+      <div class="trust-item"><span>📍</span> City Centre</div>
+      <div class="trust-item"><span>👶</span> Family Practice</div>
+      <div class="trust-item"><span>✨</span> Cosmetic Specialists</div>
+    </div>
+  </div>
+
+  <!-- TREATMENTS -->
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">What We Offer</p>
+      <h2 class="section-title">General & <em>Cosmetic</em> Treatments</h2>
+      <p class="section-sub">From routine check-ups to smile-transforming cosmetic work — everything available at our Sheffield city centre practice.</p>
+      <div class="treatments-grid">
+        <div class="treatment-card" onclick="showPage('treatments')"><div class="treatment-icon">🔍</div><h3>Examinations</h3><p>Thorough check-ups to keep your teeth and gums healthy, with honest advice on what you need.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('treatments')"><div class="treatment-icon">😁</div><h3>Smilelign Clear Aligners</h3><p>Near-invisible aligners to straighten your teeth discreetly. Managed by our Smilelign specialist Moi.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('treatments')"><div class="treatment-icon">💎</div><h3>Veneers & Composite Bonding</h3><p>Reshape, repair, and perfect your smile with porcelain veneers or composite bonding.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('treatments')"><div class="treatment-icon">✨</div><h3>Teeth Whitening</h3><p>Professional whitening tailored to your teeth — safe, effective, and long-lasting results.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('treatments')"><div class="treatment-icon">🦷</div><h3>Dental Implants</h3><p>Permanent, natural-looking replacements for missing teeth. Finance options available.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('treatments')"><div class="treatment-icon">🚨</div><h3>Emergency Dentist</h3><p>Existing patients can call first thing for a same-day appointment. New patients also welcome for private emergencies.</p><button class="treatment-link">Learn more →</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section style="background:var(--warm);">
+    <div class="section-inner">
+      <div class="split-grid">
+        <div class="about-img">🦷</div>
+        <div>
+          <p class="section-eyebrow">About the Practice</p>
+          <h2 class="section-title">A Practice Built<br>on <em>Genuine Care</em></h2>
+          <p style="color:var(--text-muted);line-height:1.75;margin-bottom:8px;">Devonshire Quarter Dental is a well-established family-run NHS and private practice right in the heart of Sheffield. We believe going to the dentist should never feel daunting — and our team goes out of their way to make sure it doesn't.</p>
+          <p style="color:var(--text-muted);line-height:1.75;">Whether you've been coming to us for years or you're walking through the door for the first time, you'll always be made to feel welcome.</p>
+          <div class="about-features">
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Kind and unhurried</strong><p>We take the time to explain your options and make sure you're comfortable before we begin.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Great for anxious patients</strong><p>Catriona specialises in patients who find dental visits difficult, including children and those with dental phobia.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Central Sheffield location</strong><p>Easy to reach from anywhere in the city — we're right in the Devonshire Quarter.</p></div></div>
+          </div>
+          <button class="btn-primary" style="margin-top:26px;" onclick="showPage('about')">Meet the Team</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COSMETIC FEATURE -->
+  <div class="feature-dark">
+    <div class="section-inner">
+      <div class="split-grid">
+        <div>
+          <p class="section-eyebrow">Cosmetic Dentistry</p>
+          <h2 class="section-title">Transform Your Smile</h2>
+          <p style="color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:8px;">From subtle improvements to complete smile makeovers, our cosmetic team can help you achieve the smile you've always wanted — in a practice you can trust.</p>
+          <ul class="feature-list">
+            <li>Smilelign clear aligners — near-invisible teeth straightening</li>
+            <li>Composite bonding — often in a single appointment</li>
+            <li>Porcelain veneers for a lasting transformation</li>
+            <li>Professional teeth whitening</li>
+            <li>Crowns and bridges to restore damaged teeth</li>
+          </ul>
+          <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn-primary" onclick="showPage('treatments')">View Treatments</button>
+            <a href="tel:01142760483" class="btn-secondary">Call 0114 276 0483</a>
+          </div>
+        </div>
+        <div class="feature-img">✨</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <div class="section-inner">
+      <p class="section-eyebrow">Patient Stories</p>
+      <h2 class="section-title">What Our Patients Say</h2>
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"From the moment I walked in, the staff warmly welcomed me. The team is incredibly professional — they listened to my concerns with genuine care. I left with a big smile on my face."</p><div class="review-author"><div class="review-avatar">AM</div><div><div class="review-name">Annalisa M</div><div class="review-source">Patient Review</div></div></div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"At 50 years old, this is the first time I've felt genuinely at ease in the dentist's chair. They've transformed what used to be a stressful ordeal into a positive, reassuring experience."</p><div class="review-author"><div class="review-avatar">AW</div><div><div class="review-name">Ali W</div><div class="review-source">Patient Review</div></div></div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I've been anxious about my teeth for years and now I can't stop smiling! Thank you so much — the care and kindness I received was incredible."</p><div class="review-author"><div class="review-avatar">AL</div><div><div class="review-name">AL</div><div class="review-source">Patient Review</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <div class="section-inner">
+      <h2>Ready to Book?</h2>
+      <p>Whether it's a routine check-up or a full smile transformation — we're here to help.</p>
+      <div class="cta-btns">
+        <button class="btn-white" onclick="showPage('contact')">📅 Book an Appointment</button>
+        <a href="tel:01142760483" class="btn-outline-white">📞 0114 276 0483</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════ ABOUT PAGE ══════════════ -->
+<div class="page" id="page-about">
+  <div class="page-hero"><h1>About & Team</h1><p>Meet the friendly, experienced team who make Devonshire Quarter Dental one of Sheffield's most trusted practices.</p></div>
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">Our Team</p>
+      <h2 class="section-title">The People Behind<br><em>Your Smile</em></h2>
+      <p style="color:var(--text-muted);max-width:640px;line-height:1.75;margin-bottom:8px;">We're a small, tight-knit team who genuinely care about every patient who walks through our door. Whether you're nervous, bringing a child, or looking for a complete smile transformation — you're in the right place.</p>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-avatar">K</div><h3>Kathryn</h3><div class="role">Principal Dentist</div><p>Kathryn runs the practice and now focuses on aesthetic consultations and Smilelign — bringing years of experience and genuine warmth to every patient.</p></div>
+        <div class="team-card"><div class="team-avatar">C</div><h3>Catriona</h3><div class="role">Dentist</div><p>Catriona loves composite bonding and is brilliant with patients who find dental visits difficult — including children and those with dental phobia.</p></div>
+        <div class="team-card"><div class="team-avatar">M</div><h3>Moi</h3><div class="role">Dentist & Aligner Specialist</div><p>Originally from Spain and now a long-time Sheffield local, Moi handles all clear aligner treatments using the Smilelign system.</p></div>
+        <div class="team-card"><div class="team-avatar">A</div><h3>Adam</h3><div class="role">Practice Manager</div><p>Adam is the friendly face who keeps everything running smoothly — always on hand to help with anything you need.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-banner"><div class="section-inner"><h2>Get in Touch</h2><p>We'd love to hear from you.</p><div class="cta-btns"><button class="btn-white" onclick="showPage('contact')">📅 Book an Appointment</button><a href="tel:01142760483" class="btn-outline-white">📞 Call Us</a></div></div></div>
+</div>
+
+<!-- ══════════════ TREATMENTS PAGE ══════════════ -->
+<div class="page" id="page-treatments">
+  <div class="page-hero"><h1>Treatments</h1><p>General and cosmetic dental treatments for the whole family — all available at our Sheffield city centre practice.</p></div>
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">General Treatments</p>
+      <h2 class="section-title">Everyday <em>Dental Care</em></h2>
+      <div class="treatments-grid" style="margin-top:32px;">
+        <div class="treatment-card"><div class="treatment-icon">🔍</div><h3>Examinations</h3><p>Regular check-ups with thorough assessments and honest, straightforward advice on your dental health.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🦷</div><h3>Extractions</h3><p>When a tooth needs to come out, we make the process as comfortable and stress-free as possible.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🔧</div><h3>Root Canal Fillings</h3><p>Saving teeth that might otherwise need to be removed — carried out with care and precision.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🚨</div><h3>Emergency Appointments</h3><p>Existing patients can call first thing for a same-day slot. New patients welcome for private emergencies — call 0114 276 0483.</p></div>
+      </div>
+      <p class="section-eyebrow" style="margin-top:56px;">Cosmetic Treatments</p>
+      <h2 class="section-title">Smile <em>Transformations</em></h2>
+      <div class="treatments-grid" style="margin-top:32px;">
+        <div class="treatment-card"><div class="treatment-icon">😁</div><h3>Smilelign Clear Aligners</h3><p>Near-invisible aligners to straighten your teeth without traditional braces. Managed by our Smilelign specialist Moi.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">💎</div><h3>Veneers & Composite Bonding</h3><p>Porcelain veneers or tooth-coloured composite to reshape, repair, and perfect your smile.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">👑</div><h3>Crowns & Bridges</h3><p>Restoring damaged or missing teeth with natural-looking crowns and bridges built to last.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">✨</div><h3>Teeth Whitening</h3><p>Professional whitening tailored to your teeth for safe, even results you can't get over the counter.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🦷</div><h3>Dental Implants</h3><p>Permanent replacements for missing teeth that look and feel completely natural.</p></div>
+      </div>
+      <div style="margin-top:40px;text-align:center;"><button class="btn-primary" onclick="showPage('contact')">Book a Consultation</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ PRICING PAGE ══════════════ -->
+<div class="page" id="page-pricing">
+  <div class="page-hero"><h1>Pricing</h1><p>We offer treatments both on the NHS (where available) and privately. Transparent pricing, no surprises.</p></div>
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">NHS & Private</p>
+      <h2 class="section-title">Honest, <em>Transparent</em> Pricing</h2>
+      <p style="color:var(--text-muted);max-width:600px;line-height:1.75;margin-bottom:40px;">We accept both NHS and private patients. Our NHS list is currently full, but we welcome private patients and are happy to discuss the options that suit your budget. Please call or email for a full price list.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+        <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:26px;"><div style="font-size:1.5rem;margin-bottom:12px;">🏥</div><h3 style="font-size:1rem;color:var(--charcoal);font-weight:700;margin-bottom:8px;">NHS Treatments</h3><p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7;">NHS banding system applies where available. Our NHS list is currently full — please call to join the waiting list.</p></div>
+        <div style="background:white;border:2px solid var(--sage);border-radius:14px;padding:26px;"><div style="font-size:1.5rem;margin-bottom:12px;">✨</div><h3 style="font-size:1rem;color:var(--charcoal);font-weight:700;margin-bottom:8px;">Private Treatments</h3><p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7;">Full range of private treatments available. Cosmetic, restorative, and emergency appointments. Call us for a price list.</p></div>
+        <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:26px;"><div style="font-size:1.5rem;margin-bottom:12px;">💳</div><h3 style="font-size:1rem;color:var(--charcoal);font-weight:700;margin-bottom:8px;">Finance Options</h3><p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7;">Spread the cost of treatments like implants and aligners. Ask at reception or enquire by email for details.</p></div>
+      </div>
+      <div style="margin-top:40px;text-align:center;"><button class="btn-primary" onclick="showPage('contact')">Get in Touch for Pricing</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ CONTACT PAGE ══════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-hero"><h1>Contact Us</h1><p>Book an appointment, ask a question, or just get in touch — we're always happy to hear from you.</p></div>
+  <section>
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div>
+          <p class="section-eyebrow">Get In Touch</p>
+          <h2 class="section-title">We'd Love to<br><em>Hear From You</em></h2>
+          <div class="contact-info-item"><div class="contact-icon">📞</div><div><h4>Phone</h4><a href="tel:01142760483">0114 276 0483</a></div></div>
+          <div class="contact-info-item"><div class="contact-icon">✉</div><div><h4>Email</h4><a href="mailto:info@devonshirequarterdental.co.uk">info@devonshirequarterdental.co.uk</a></div></div>
+          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>1 Convent Walk, Sheffield, S3 7RX</p></div></div>
+          <div class="contact-info-item"><div class="contact-icon">🕐</div><div><h4>Opening Hours</h4>
+            <div class="hours-table">
+              <div class="hours-row"><span class="day">Monday</span><span class="time">9am – 5pm</span></div>
+              <div class="hours-row"><span class="day">Tuesday</span><span class="time">9am – 5pm</span></div>
+              <div class="hours-row"><span class="day">Wednesday</span><span class="time">9am – 5pm</span></div>
+              <div class="hours-row late"><span class="day">Thursday</span><span class="time">9am – 7pm ✦ Late night</span></div>
+              <div class="hours-row"><span class="day">Friday</span><span class="time">9am – 5pm</span></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="enquiry-form">
+          <h3>Send an Enquiry</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="07700 000000"></div>
+          <div class="form-group">
+            <label>Treatment Interested In</label>
+            <select>
+              <option>Please select...</option>
+              <option>Smilelign Clear Aligners</option>
+              <option>Composite Bonding</option>
+              <option>Porcelain Veneers</option>
+              <option>Teeth Whitening</option>
+              <option>Dental Implants</option>
+              <option>Crowns & Bridges</option>
+              <option>Emergency Appointment</option>
+              <option>General Check-up</option>
+              <option>NHS Waiting List</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell us what you're looking for, or any questions you have..."></textarea></div>
+          <button class="form-submit" onclick="alert('Thanks! In a real site, this would send your enquiry directly to the practice.')">Send Enquiry →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">🦷 Devonshire Quarter Dental</div>
+        <p>A friendly, family-run NHS and private dental practice in Sheffield city centre. Caring for Sheffield smiles with kindness and expertise.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><button onclick="showPage('home')">Home</button></li>
+          <li><button onclick="showPage('about')">About & Team</button></li>
+          <li><button onclick="showPage('treatments')">Treatments</button></li>
+          <li><button onclick="showPage('pricing')">Pricing</button></li>
+          <li><button onclick="showPage('contact')">Contact</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><button onclick="showPage('treatments')">Smilelign Aligners</button></li>
+          <li><button onclick="showPage('treatments')">Composite Bonding</button></li>
+          <li><button onclick="showPage('treatments')">Veneers</button></li>
+          <li><button onclick="showPage('treatments')">Teeth Whitening</button></li>
+          <li><button onclick="showPage('treatments')">Dental Implants</button></li>
+          <li><button onclick="showPage('treatments')">Emergency Dentist</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="tel:01142760483">0114 276 0483</a></li>
+          <li><a href="mailto:info@devonshirequarterdental.co.uk">info@devonshirequarterdental.co.uk</a></li>
+          <li><a href="#">1 Convent Walk, Sheffield, S3 7RX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Devonshire Quarter Dental. All rights reserved.</span>
+      <span class="trabelo-credit">Website concept built by <span>Trabelo · Sheffield</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    const target = document.getElementById('page-' + id);
+    if (target) { target.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+    const navBtn = document.getElementById('nav-' + id);
+    if (navBtn) navBtn.classList.add('active');
+  }
+  function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('open'); }
+</script>
+</body>
+</html>
