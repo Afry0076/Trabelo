@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — Dr Leah Aesthetics | Trabelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #4A6741;
+    --sage-pale: #C8D9C4;
+    --sage-blush: #EEF3ED;
+    --gold: #A8865C;
+    --charcoal: #1E1E1E;
+    --warm-grey: #6B6560;
+    --off-white: #FAF8F4;
+    --white: #FFFFFF;
+    --dark: #141A12;
+    --red: #C0392B;
+    --amber: #D4850A;
+    --green: #1E7B4B;
+    --score-red: #FEE9E7;
+    --score-amber: #FEF3E2;
+    --score-green: #E6F4EE;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.6; }
+
+  .header { background: linear-gradient(135deg, #141A12 0%, #1E2A1A 100%); padding: 54px 60px 46px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 22% 60%, rgba(74,103,65,0.28) 0%, transparent 55%); pointer-events: none; }
+  .header-inner { position: relative; z-index: 2; }
+  .header-from { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .header-from::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+  .header h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(1.8rem, 3.2vw, 2.8rem); font-weight: 400; color: var(--white); line-height: 1.18; margin-bottom: 10px; }
+  .header h1 em { font-style: italic; color: var(--sage-pale); }
+  .header-sub { font-size: 0.84rem; color: rgba(255,255,255,0.42); margin-bottom: 26px; font-weight: 300; }
+  .header-meta { display: flex; gap: 26px; flex-wrap: wrap; }
+  .header-meta-item { font-size: 0.68rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; }
+  .header-meta-item strong { color: rgba(255,255,255,0.62); font-weight: 500; }
+
+  .scores-section { background: var(--white); padding: 48px 60px; border-bottom: 1px solid #E8EDE7; }
+  .scores-label { font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .scores-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--sage); }
+  .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; margin-bottom: 16px; }
+  .score-card { padding: 24px 16px; border-radius: 4px; text-align: center; border: 1px solid transparent; }
+  .score-card.amber { background: var(--score-amber); border-color: #F0D5A8; }
+  .score-card.green { background: var(--score-green); border-color: #B8DFC9; }
+  .score-num { font-size: 2.7rem; font-weight: 700; line-height: 1; margin-bottom: 5px; }
+  .score-card.amber .score-num { color: var(--amber); }
+  .score-card.green .score-num { color: var(--green); }
+  .score-name { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
+  .score-card.amber .score-name { color: var(--amber); }
+  .score-card.green .score-name { color: var(--green); }
+  .score-verdict { font-size: 0.68rem; font-weight: 500; }
+  .score-card.amber .score-verdict { color: #9E6008; }
+  .score-card.green .score-verdict { color: var(--green); }
+  .scores-note { font-size: 0.74rem; color: var(--warm-grey); background: var(--sage-blush); padding: 13px 18px; border-radius: 4px; border-left: 3px solid var(--sage); }
+
+  .main { max-width: 880px; margin: 0 auto; padding: 56px 60px; }
+
+  .intro-block { background: var(--white); border: 1px solid #E8EDE7; border-radius: 4px; padding: 32px 36px; margin-bottom: 44px; font-size: 0.92rem; line-height: 1.9; color: var(--charcoal); }
+  .intro-block p { margin-bottom: 14px; }
+  .intro-block p:last-child { margin-bottom: 0; }
+
+  /* GOOD NEWS BOX */
+  .good-news { background: var(--score-green); border: 1px solid #B8DFC9; border-radius: 4px; padding: 22px 28px; margin-bottom: 44px; display: flex; gap: 16px; align-items: flex-start; }
+  .good-news-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .good-news-text h4 { font-size: 0.82rem; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+  .good-news-text p { font-size: 0.82rem; color: #2D5E3A; line-height: 1.7; }
+
+  .section-heading { margin-bottom: 28px; padding-bottom: 13px; border-bottom: 2px solid var(--sage-blush); }
+  .section-heading h2 { font-family: 'Libre Baskerville', serif; font-size: 1.8rem; font-weight: 400; color: var(--charcoal); margin-bottom: 3px; }
+  .section-heading p { font-size: 0.79rem; color: var(--warm-grey); }
+
+  .issues { margin-bottom: 52px; }
+  .issue-card { background: var(--white); border: 1px solid #E8EDE7; border-radius: 4px; margin-bottom: 16px; overflow: hidden; }
+  .issue-header { padding: 19px 24px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 15px; }
+  .issue-header:hover { background: var(--sage-blush); }
+  .issue-badge { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.88rem; flex-shrink: 0; }
+  .issue-badge.amber { background: var(--score-amber); }
+  .issue-title { font-weight: 600; font-size: 0.9rem; color: var(--charcoal); }
+  .issue-sub { font-size: 0.7rem; color: var(--warm-grey); margin-top: 2px; }
+  .issue-toggle { font-size: 0.68rem; color: var(--warm-grey); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+  .issue-body { padding: 0 24px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .issue-col h4 { font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 7px; padding-bottom: 5px; border-bottom: 1px solid var(--sage-pale); }
+  .issue-col.what h4 { color: var(--amber); }
+  .issue-col.why h4 { color: #8B5E00; }
+  .issue-col.fix h4 { color: var(--green); }
+  .issue-col p { font-size: 0.8rem; color: #444; line-height: 1.72; }
+
+  .features { margin-bottom: 52px; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+  .feature-card { background: var(--white); border: 1px solid #E8EDE7; border-radius: 4px; padding: 20px 22px; display: flex; gap: 13px; align-items: flex-start; }
+  .feature-icon { width: 38px; height: 38px; background: var(--sage-blush); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+  .feature-text h4 { font-size: 0.84rem; font-weight: 600; color: var(--charcoal); margin-bottom: 4px; }
+  .feature-text p { font-size: 0.75rem; color: var(--warm-grey); line-height: 1.65; }
+
+  .pricing { margin-bottom: 52px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pricing-card { background: var(--white); border: 1px solid #E8EDE7; border-radius: 4px; padding: 28px 24px; position: relative; }
+  .pricing-card.featured { border-color: var(--sage); border-width: 2px; }
+  .pricing-featured-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--sage); color: var(--white); font-size: 0.57rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 13px; border-radius: 20px; font-weight: 600; white-space: nowrap; }
+  .pricing-tier { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 700; margin-bottom: 6px; }
+  .pricing-price { font-family: 'Libre Baskerville', serif; font-size: 2.5rem; font-weight: 700; color: var(--charcoal); line-height: 1; margin-bottom: 3px; }
+  .pricing-price-note { font-size: 0.68rem; color: var(--warm-grey); margin-bottom: 16px; }
+  .pricing-divider { height: 1px; background: var(--sage-blush); margin: 16px 0; }
+  .pricing-features { list-style: none; margin-bottom: 22px; }
+  .pricing-features li { font-size: 0.79rem; color: var(--charcoal); padding: 5px 0; display: flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
+  .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .pricing-note { font-size: 0.68rem; color: var(--warm-grey); font-style: italic; margin-top: -14px; margin-bottom: 20px; }
+  .btn-pricing { display: block; text-align: center; padding: 11px; border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; }
+  .btn-pricing.outline { border: 1.5px solid var(--sage); color: var(--sage); background: transparent; }
+  .btn-pricing.outline:hover { background: var(--sage); color: white; }
+  .btn-pricing.fill { background: var(--sage); color: white; border: none; }
+  .btn-pricing.fill:hover { background: #3A5232; }
+
+  .closing { background: linear-gradient(135deg, #141A12 0%, #1E2A1A 100%); padding: 48px 60px; text-align: center; }
+  .closing h2 { font-family: 'Libre Baskerville', serif; font-size: 1.85rem; font-weight: 400; color: white; margin-bottom: 11px; }
+  .closing p { font-size: 0.86rem; color: rgba(255,255,255,0.48); max-width: 490px; margin: 0 auto 26px; line-height: 1.85; }
+  .btn-gold { background: var(--gold); color: var(--white); padding: 12px 26px; border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-gold:hover { background: #C4A47A; }
+  .btn-ghost { background: transparent; color: rgba(255,255,255,0.6); padding: 12px 26px; border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.16); transition: all 0.2s; display: inline-block; margin-left: 10px; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.42); color: white; }
+
+  .footer { background: #060A05; padding: 17px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.66rem; color: rgba(255,255,255,0.2); flex-wrap: wrap; gap: 8px; }
+  .footer strong { color: rgba(255,255,255,0.38); }
+
+  @media (max-width: 768px) {
+    .header { padding: 36px 24px 32px; }
+    .scores-section { padding: 32px 24px; }
+    .scores-grid { grid-template-columns: repeat(2, 1fr); }
+    .main { padding: 36px 24px; }
+    .issue-body { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .closing { padding: 36px 24px; }
+    .footer { padding: 13px 24px; flex-direction: column; text-align: center; }
+    .issue-header { grid-template-columns: auto 1fr; }
+    .issue-toggle { display: none; }
+    .header-meta { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-from">Website Audit by Trabelo · Sheffield</div>
+    <h1>Your website is good —<br>but <em>performance is letting it down</em></h1>
+    <p class="header-sub">An honest look at what's holding drleahaesthetics.co.uk back — and what a small investment could change.</p>
+    <div class="header-meta">
+      <div class="header-meta-item">Prepared for <strong>Dr Leah Aesthetics, Tickhill</strong></div>
+      <div class="header-meta-item">Audited <strong>July 2026</strong></div>
+      <div class="header-meta-item">By <strong>Aidan Fry, Trabelo</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="scores-section">
+  <div class="scores-label">Google PageSpeed Results — Mobile</div>
+  <div class="scores-grid">
+    <div class="score-card amber"><div class="score-num">79</div><div class="score-name">Performance</div><div class="score-verdict">⚠ Needs Work</div></div>
+    <div class="score-card green"><div class="score-num">100</div><div class="score-name">Accessibility</div><div class="score-verdict">✓ Perfect</div></div>
+    <div class="score-card green"><div class="score-num">100</div><div class="score-name">Best Practices</div><div class="score-verdict">✓ Perfect</div></div>
+    <div class="score-card green"><div class="score-num">100</div><div class="score-name">SEO</div><div class="score-verdict">✓ Perfect</div></div>
+  </div>
+  <div class="scores-note">
+    These scores come from Google's own PageSpeed Insights tool. Three out of four categories are perfect — which is genuinely impressive and not something I see very often. The performance score of 79 is the one thing holding the site back, and it's the score that affects real patients the most directly.
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="intro-block">
+    <p>Hi — my name's Aidan. I do web design across Sheffield and South Yorkshire, and I came across Dr Leah Aesthetics while looking at clinics in the Doncaster area.</p>
+    <p>I want to be straight with you: your website is genuinely better than most I audit. Your accessibility, SEO and best practices are all scoring 100 out of 100 — which is rare, and it shows someone has put real care into building the site properly.</p>
+    <p>The one area that's letting it down is mobile performance — a score of 79 puts it in the "needs improvement" bracket, which means the page is taking longer to load than it should for patients browsing on their phones. With a clinic at your level of quality, it's worth fixing.</p>
+    <p>I've put together this audit to show you what's causing it and what a rebuilt site could look like — one that keeps everything that's already working and fixes the one thing that isn't.</p>
+  </div>
+
+  <!-- GOOD NEWS BOX -->
+  <div class="good-news">
+    <div class="good-news-icon">✅</div>
+    <div class="good-news-text">
+      <h4>Three scores at 100/100 — that's genuinely impressive</h4>
+      <p>Accessibility, Best Practices and SEO are all perfect. Most sites I audit score 70–85 in these areas. Whoever built this site did a good job on the fundamentals — a rebuild would keep all of that and fix the performance too.</p>
+    </div>
+  </div>
+
+  <div class="issues">
+    <div class="section-heading">
+      <h2>What's Causing the Performance Issue</h2>
+      <p>The performance score of 79 is caused by a handful of specific, fixable issues.</p>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">⏱️</div>
+        <div><div class="issue-title">The page takes too long to start showing content on mobile</div><div class="issue-sub">FCP: 2.7s · LCP: 4.6s · Speed Index: 2.7s</div></div>
+        <div class="issue-toggle">Key Issue</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Google measured 2.7 seconds before the first content appears on screen, and 4.6 seconds before the main content is visible on mobile. While these figures are much better than many clinics, Google's threshold for "good" is under 2.5 seconds for LCP — so there's room to improve before hitting the top band.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>Patients researching cosmetic treatments on their phones in the evening are often comparing several clinics. Milliseconds matter — a site that loads slightly faster feels more polished and professional. With everything else at 100, it's a shame performance is the one thing bringing the overall score down.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A clean, purpose-built site without the overhead of a Wix website builder would score 97+ on performance — loading well under 1.5 seconds on mobile. Everything renders instantly, first impressions are excellent, and nothing slows the experience down.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">📦</div>
+        <div><div class="issue-title">Unused JavaScript is adding unnecessary download weight</div><div class="issue-sub">Est. savings: 170 KB of unused JS</div></div>
+        <div class="issue-toggle">Notable</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Your site is loading 170KB of JavaScript that it doesn't actually use. This is typical of website builders like Wix — they load a large amount of code to power the builder itself and all possible features, even the ones your site isn't using.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>That extra 170KB has to be downloaded by every single visitor before the page can fully load. On a slow mobile connection it adds time — time that a potential patient is sitting looking at a loading screen rather than reading about your treatments.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A custom-built site carries only the code it genuinely needs. No website builder overhead, no unused scripts. The result is a leaner, faster site that doesn't make visitors wait for things they'll never see.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">🖼️</div>
+        <div><div class="issue-title">Images and caching have minor optimisation opportunities</div><div class="issue-sub">Image savings: 12 KB · Cache savings: 12 KB · Duplicate JS: 18 KB</div></div>
+        <div class="issue-toggle">Minor</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Small amounts of image data could be further compressed, caching isn't quite set up optimally for returning visitors, and there's a small amount of duplicated JavaScript loading. None of these are major issues individually, but they add up to a slightly slower experience than is possible.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>For a clinic where first impressions matter — and where patients may visit the site multiple times before booking — every small improvement to load time contributes to a smoother, more professional experience. These are the kinds of polish details that separate a good site from a great one.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>Proper image compression, correct caching headers and zero duplicated code from day one. All small wins individually — but together they push the performance score from 79 to 97+, and the difference is genuinely noticeable on a phone.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">🔧</div>
+        <div><div class="issue-title">The site is built on Wix — which limits what's possible</div><div class="issue-sub">Wix builder overhead · Limited control over performance · Hard to optimise</div></div>
+        <div class="issue-toggle">Worth Knowing</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>The site is built on Wix, which is a popular website builder. The performance issues above are largely a consequence of that — Wix adds its own code, scripts and infrastructure that you can't fully control or remove, which always puts a ceiling on how fast the site can load.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>It means the performance score of 79 is probably close to the best that's achievable on the current platform, regardless of what other tweaks are made. To genuinely push into the 90+ range — where your accessibility and SEO already sit — the site needs to be built on a platform with full control over the code.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A custom-coded site has no platform overhead at all. Every line of code is there for a reason. That's what allows the performance score to reach 97+ — something Wix-based sites simply can't achieve regardless of how well optimised the content is.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="section-heading">
+      <h2>What the New Site Adds</h2>
+      <p>It keeps everything that's already working — and adds the things the current site can't do.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-text"><h4>97+ Performance — matching your 100s</h4><p>Performance finally in line with your perfect accessibility, SEO and best practices scores. All four metrics where they should be.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🌿</div><div class="feature-text"><h4>Design that reflects your ethos</h4><p>Natural, clean, elegant — a design that communicates your holistic philosophy from the first second a patient lands on the page.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📱</div><div class="feature-text"><h4>Mobile-first from the ground up</h4><p>Built for phones first — how most of your patients are browsing. Touch-friendly, fast and beautifully laid out on any screen size.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-text"><h4>Prominent Pabau booking integration</h4><p>Your booking link visible and prominent throughout the site — one tap to book from any page, making it as easy as possible for patients to commit.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">💬</div><div class="feature-text"><h4>WhatsApp integrated properly</h4><p>WhatsApp is a key contact method for you — it deserves to be a prominent, properly styled CTA throughout the site, not just a small icon.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🎓</div><div class="feature-text"><h4>Dr Leah's credentials front and centre</h4><p>Your BDS first class honours, dental background and 10 years of experience are powerful trust signals — properly showcased on every page.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">✍️</div><div class="feature-text"><h4>Enquiry form that works</h4><p>A clean contact form collecting name, email, phone and treatment of interest — so every enquiry is easy to respond to and convert.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🏆</div><div class="feature-text"><h4>No monthly platform fees</h4><p>Wix charges monthly. A custom site means you own it outright — no ongoing subscription, no price increases, no platform dependency.</p></div></div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="section-heading">
+      <h2>Pricing</h2>
+      <p>One-off fixed prices. No monthly fees, no ongoing contracts. You own the site outright — and no more Wix subscription.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">£395</div>
+        <div class="pricing-price-note">One-off · Yours outright</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Up to 5 pages</li>
+          <li>Mobile-first design</li>
+          <li>97+ Performance score</li>
+          <li>100 Accessibility (maintained)</li>
+          <li>100 SEO (maintained)</li>
+          <li>Pabau booking link integrated</li>
+          <li>WhatsApp CTA throughout</li>
+          <li>Contact form included</li>
+        </ul>
+        <div class="pricing-note">Updates: £15 per change or £30/month unlimited small updates</div>
+        <a class="btn-pricing outline" href="mailto:aidan@trabelo.com?subject=Dr Leah Aesthetics — Starter enquiry">Get in Touch</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-featured-badge">Most Popular</div>
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-price-note">One-off · No monthly fees</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Full treatments directory</li>
+          <li>About Dr Leah page</li>
+          <li>AlumierMD & Sculptra sections</li>
+          <li>Mole screening page</li>
+          <li>Newsletter sign-up</li>
+          <li>Patient testimonials section</li>
+          <li>Gallery page</li>
+        </ul>
+        <div class="pricing-note">No monthly fees — replaces your Wix subscription</div>
+        <a class="btn-pricing fill" href="mailto:aidan@trabelo.com?subject=Dr Leah Aesthetics — Business enquiry">Get in Touch</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-price-note">One-off + small hosting cost</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>Full content management system</li>
+          <li>Update treatments yourself</li>
+          <li>Add blog posts anytime</li>
+          <li>Instagram feed live on site</li>
+          <li>Automated enquiry responses</li>
+          <li>Push notifications for offers</li>
+          <li>Advanced analytics dashboard</li>
+        </ul>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month)</div>
+        <a class="btn-pricing outline" href="mailto:aidan@trabelo.com?subject=Dr Leah Aesthetics — Premium enquiry">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="closing">
+  <h2>Let's have a chat</h2>
+  <p>No obligation. Your site is already doing a lot right — this would just take it the rest of the way. If you'd like to see the demo I've put together for Dr Leah Aesthetics, I'm happy to talk over email or a call.</p>
+  <div>
+    <a class="btn-gold" href="mailto:aidan@trabelo.com?subject=Dr Leah Aesthetics website enquiry">Email Aidan</a>
+    <a class="btn-ghost" href="mailto:aidan@trabelo.com">aidan@trabelo.com</a>
+  </div>
+  <p style="margin-top:20px;font-size:0.68rem;color:rgba(255,255,255,0.22)">Trabelo · Sheffield · Web design for South Yorkshire businesses</p>
+</div>
+
+<div class="footer">
+  <span>Website audit prepared for Dr Leah Aesthetics, Tickhill, Doncaster · July 2026</span>
+  <span>Built by <strong>Trabelo · Sheffield</strong></span>
+</div>
+
+</body>
+</html>

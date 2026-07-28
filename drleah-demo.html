@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Leah Aesthetics | Medical Aesthetic & Skin Clinic | Tickhill, Doncaster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #4A6741;
+    --sage-mid: #5C7F52;
+    --sage-pale: #C8D9C4;
+    --sage-blush: #EEF3ED;
+    --cream: #FAF8F4;
+    --warm-white: #F5F2ED;
+    --gold: #A8865C;
+    --gold-light: #C4A47A;
+    --charcoal: #1E1E1E;
+    --warm-grey: #6B6560;
+    --dark: #141A12;
+    --white: #FFFFFF;
+    --nav-h: 72px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+
+  /* TOPBAR */
+  .topbar {
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    font-size: 0.7rem; letter-spacing: 0.06em; padding: 9px 32px;
+    display: flex; gap: 22px; align-items: center; justify-content: center; flex-wrap: wrap;
+  }
+  .topbar a { color: var(--sage-pale); text-decoration: none; }
+  .topbar a:hover { color: var(--gold-light); }
+  .topbar span { color: rgba(255,255,255,0.2); }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white); border-bottom: 1px solid var(--sage-pale);
+    height: var(--nav-h); display: flex; align-items: center; justify-content: space-between;
+    padding: 0 36px; box-shadow: 0 2px 20px rgba(74,103,65,0.08);
+  }
+  .nav-logo { font-family: 'Libre Baskerville', serif; font-size: 1.35rem; font-weight: 700; color: var(--sage); text-decoration: none; letter-spacing: 0.01em; line-height: 1.1; cursor: pointer; }
+  .nav-logo span { display: block; font-size: 0.5rem; font-family: 'DM Sans', sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-grey); font-weight: 400; margin-top: 3px; }
+  .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); font-weight: 500; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover { color: var(--sage); }
+  .btn-cta { background: var(--sage); color: var(--white); padding: 11px 22px; border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-cta:hover { background: var(--sage-mid); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--sage); padding: 11px 22px; border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; border: 1.5px solid var(--sage); text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-outline:hover { background: var(--sage); color: var(--white); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); transition: all 0.3s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #141A12 0%, #1E2A1A 55%, #141A12 100%);
+    min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 80px 60px; gap: 60px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 25% 55%, rgba(74,103,65,0.3) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 15%, rgba(168,134,92,0.1) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 26px; height: 1px; background: var(--gold); }
+  .hero h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 400; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: var(--sage-pale); }
+  .hero-desc { font-size: 0.91rem; color: rgba(255,255,255,0.58); line-height: 1.88; margin-bottom: 34px; max-width: 430px; font-weight: 300; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 36px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+  .stat-num { font-family: 'Libre Baskerville', serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
+  .stat-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin-top: 4px; }
+
+  /* HERO CARD */
+  .hero-card { position: relative; z-index: 2; background: rgba(255,255,255,0.04); border: 1px solid rgba(200,217,196,0.18); border-radius: 4px; padding: 38px; backdrop-filter: blur(8px); }
+  .hero-card-tag { font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+  .hero-card h3 { font-family: 'Libre Baskerville', serif; font-size: 1.4rem; font-weight: 400; color: var(--white); margin-bottom: 5px; }
+  .hero-card-sub { font-size: 0.74rem; color: rgba(255,255,255,0.42); margin-bottom: 24px; font-style: italic; }
+  .clinic-details { list-style: none; }
+  .clinic-details li { display: flex; align-items: flex-start; gap: 11px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.79rem; color: rgba(255,255,255,0.62); }
+  .clinic-details li:last-child { border-bottom: none; }
+  .detail-icon { color: var(--sage-pale); font-size: 0.86rem; flex-shrink: 0; margin-top: 1px; }
+  .detail-main { font-weight: 500; color: var(--white); }
+  .detail-sub { font-size: 0.68rem; color: rgba(255,255,255,0.38); margin-top: 1px; }
+  .hero-card-phone { margin-top: 20px; padding: 15px 18px; background: var(--sage); border-radius: 2px; text-align: center; cursor: pointer; transition: background 0.2s; }
+  .hero-card-phone:hover { background: var(--sage-mid); }
+  .hero-card-phone a { color: var(--white); text-decoration: none; font-size: 1rem; font-weight: 600; letter-spacing: 0.04em; display: block; }
+  .hero-card-phone-label { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 3px; }
+
+  /* TRUST STRIP */
+  .trust-strip { background: var(--white); border-bottom: 1px solid var(--sage-pale); padding: 17px 40px; display: flex; gap: 0; justify-content: center; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 9px; padding: 7px 28px; border-right: 1px solid var(--sage-pale); }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 1rem; }
+  .trust-text { font-size: 0.74rem; color: var(--warm-grey); }
+  .trust-text strong { color: var(--charcoal); display: block; font-size: 0.81rem; }
+
+  /* SECTIONS */
+  .section { padding: 86px 60px; }
+  .section.alt { background: var(--sage-blush); }
+  .section.dark { background: var(--dark); }
+  .section.warm { background: var(--warm-white); }
+  .section-label { font-size: 0.56rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sage); margin-bottom: 11px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--sage); }
+  .section-title { font-family: 'Libre Baskerville', serif; font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 400; line-height: 1.22; margin-bottom: 13px; }
+  .section-desc { font-size: 0.9rem; color: var(--warm-grey); line-height: 1.88; max-width: 540px; font-weight: 300; }
+  .section-header { margin-bottom: 48px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-label { justify-content: center; }
+  .section-header.center .section-label::before { display: none; }
+  .section-header.center .section-desc { margin: 0 auto; }
+
+  /* TREATMENTS */
+  .treatments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--sage-pale); border: 2px solid var(--sage-pale); }
+  .treatment-card { background: var(--white); padding: 30px 26px; transition: background 0.2s; cursor: pointer; }
+  .treatment-card:hover { background: var(--sage-blush); }
+  .treatment-cat { font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 9px; font-weight: 600; }
+  .treatment-card h3 { font-family: 'Libre Baskerville', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 9px; line-height: 1.3; }
+  .treatment-card p { font-size: 0.79rem; color: var(--warm-grey); line-height: 1.72; }
+  .treatment-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 13px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); font-weight: 600; cursor: pointer; text-decoration: none; transition: gap 0.2s; }
+  .treatment-link:hover { gap: 10px; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 76px; align-items: center; }
+  .about-img-wrap { position: relative; }
+  .about-img-placeholder { background: linear-gradient(135deg, var(--sage-blush) 0%, var(--sage-pale) 100%); border-radius: 2px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; font-family: 'Libre Baskerville', serif; font-size: 1rem; color: var(--sage); font-style: italic; overflow: hidden; }
+  .about-img-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
+  .about-badge { position: absolute; bottom: -18px; right: -18px; background: var(--sage); color: var(--white); padding: 18px 20px; border-radius: 2px; text-align: center; }
+  .about-badge-num { font-family: 'Libre Baskerville', serif; font-size: 2rem; font-weight: 700; line-height: 1; }
+  .about-badge-label { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage-pale); margin-top: 3px; }
+  .credential-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin: 26px 0; }
+  .credential { padding: 13px 15px; background: var(--sage-blush); border-left: 3px solid var(--sage); border-radius: 0 2px 2px 0; }
+  .credential-title { font-size: 0.7rem; font-weight: 600; color: var(--charcoal); margin-bottom: 2px; }
+  .credential-sub { font-size: 0.64rem; color: var(--warm-grey); }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .testimonial-card { padding: 28px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,217,196,0.12); border-radius: 2px; }
+  .stars { color: var(--gold); font-size: 0.78rem; letter-spacing: 3px; margin-bottom: 13px; }
+  .testimonial-text { font-family: 'Libre Baskerville', serif; font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 16px; }
+  .testimonial-author { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+  /* ETHOS */
+  .ethos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .ethos-card { padding: 30px 26px; background: var(--white); border-top: 3px solid var(--sage); }
+  .ethos-icon { font-size: 1.3rem; margin-bottom: 10px; }
+  .ethos-card h3 { font-family: 'Libre Baskerville', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 9px; color: var(--charcoal); }
+  .ethos-card p { font-size: 0.79rem; color: var(--warm-grey); line-height: 1.72; }
+
+  /* CTA BANNER */
+  .cta-banner { background: linear-gradient(135deg, var(--sage) 0%, #2E4228 100%); padding: 64px 60px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; }
+  .cta-banner h2 { font-family: 'Libre Baskerville', serif; font-size: 1.9rem; font-weight: 400; color: var(--white); margin-bottom: 7px; }
+  .cta-banner p { font-size: 0.86rem; color: rgba(255,255,255,0.58); }
+  .btn-gold { background: var(--gold); color: var(--white); padding: 13px 28px; border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; white-space: nowrap; display: inline-block; }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 76px; }
+  .contact-detail { display: flex; gap: 15px; margin-bottom: 24px; }
+  .contact-icon { font-size: 0.95rem; color: var(--sage); flex-shrink: 0; margin-top: 2px; }
+  .contact-detail h4 { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-grey); margin-bottom: 5px; font-weight: 600; }
+  .contact-detail p { font-size: 0.86rem; color: var(--charcoal); line-height: 1.6; }
+  .contact-detail a { color: var(--sage); text-decoration: none; font-weight: 500; }
+  .form-row { margin-bottom: 15px; }
+  .form-row label { display: block; font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-grey); margin-bottom: 6px; font-weight: 500; }
+  .form-row input, .form-row select, .form-row textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--sage-pale); border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; background: var(--white); color: var(--charcoal); outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--sage); }
+  .form-row textarea { min-height: 108px; resize: vertical; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+
+  /* FOOTER */
+  footer { background: #0C120A; padding: 52px 60px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 52px; }
+  .footer-logo { font-family: 'Libre Baskerville', serif; font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+  .footer-tagline { font-size: 0.68rem; color: rgba(255,255,255,0.28); letter-spacing: 0.1em; margin-bottom: 16px; font-style: italic; }
+  .footer-col h4 { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 13px; font-weight: 500; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.48); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--sage-pale); }
+  .footer-social { display: flex; gap: 9px; margin-top: 16px; }
+  .social-btn { width: 33px; height: 33px; border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; color: rgba(255,255,255,0.38); cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .social-btn:hover { border-color: var(--sage-pale); color: var(--sage-pale); }
+  .footer-bottom { background: #060A05; padding: 15px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.66rem; color: rgba(255,255,255,0.2); flex-wrap: wrap; gap: 8px; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .topbar { font-size: 0.63rem; padding: 8px 16px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); padding: 24px; gap: 16px; border-bottom: 1px solid var(--sage-pale); box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 99; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; padding: 54px 24px 38px; min-height: auto; gap: 34px; }
+    .hero-stats { gap: 18px; }
+    .section { padding: 54px 24px; }
+    .treatments-grid, .ethos-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 38px; }
+    .cta-banner { grid-template-columns: 1fr; padding: 46px 24px; text-align: center; }
+    footer { grid-template-columns: 1fr; gap: 30px; padding: 34px 24px; }
+    .footer-bottom { padding: 13px 24px; flex-direction: column; text-align: center; }
+    .trust-strip { padding: 12px; }
+    .trust-item { padding: 7px 14px; border-right: none; border-bottom: 1px solid var(--sage-pale); width: 100%; }
+    .trust-item:last-child { border-bottom: none; }
+    .form-2col { grid-template-columns: 1fr; }
+    .about-badge { right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="https://wa.me/7725632691">💬 WhatsApp: 07725 632 691</a>
+  <span>·</span>
+  <a href="mailto:drleahaesthetics@mail.com">drleahaesthetics@mail.com</a>
+  <span>·</span>
+  <span>10 St. Mary's Court, Tickhill, Doncaster DN11 9LX</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer">
+    Dr Leah Aesthetics
+    <span>Medical Aesthetics · Tickhill, Doncaster</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('treatments')">Treatments</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+    <li><a class="btn-cta" href="https://partner.pabau.com/online-bookings/dr-leah-aesthetics-" target="_blank">Book Appointment</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ===== HOME ===== -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Tickhill, Doncaster · Medical Aesthetics</div>
+      <h1>Natural, <em>ethical</em> aesthetics<br>at the heart of Tickhill</h1>
+      <p class="hero-desc">Dr Leah Morton brings 10 years of combined dental and aesthetic expertise to a clinic built on one simple belief — that the best results are undetectable. Natural, radiant, and always tailored to you.</p>
+      <div class="hero-actions">
+        <a class="btn-cta" href="https://partner.pabau.com/online-bookings/dr-leah-aesthetics-" target="_blank">Book an Appointment</a>
+        <a class="btn-outline" onclick="showPage('treatments')" style="color:var(--sage-pale);border-color:rgba(200,217,196,0.4)">View Treatments</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">10</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Consultations</div></div>
+        <div class="stat"><div class="stat-num">BDS</div><div class="stat-label">Cardiff University</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Natural Results</div></div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-tag">The Clinic</div>
+      <h3>Dr Leah Aesthetics</h3>
+      <p class="hero-card-sub">Tickhill, Doncaster</p>
+      <ul class="clinic-details">
+        <li>
+          <span class="detail-icon">📍</span>
+          <div><div class="detail-main">10 St. Mary's Court, Tickhill</div><div class="detail-sub">Doncaster, DN11 9LX</div></div>
+        </li>
+        <li>
+          <span class="detail-icon">🎓</span>
+          <div><div class="detail-main">Dr Leah Morton BDS (Hons)</div><div class="detail-sub">University of Cardiff — First Class Honours</div></div>
+        </li>
+        <li>
+          <span class="detail-icon">✨</span>
+          <div><div class="detail-main">Free Consultations</div><div class="detail-sub">All consultations are complimentary</div></div>
+        </li>
+        <li>
+          <span class="detail-icon">🌿</span>
+          <div><div class="detail-main">Natural & Ethical Approach</div><div class="detail-sub">Undetectable, holistic treatment philosophy</div></div>
+        </li>
+        <li>
+          <span class="detail-icon">💬</span>
+          <div><div class="detail-main">WhatsApp Available</div><div class="detail-sub">07725 632 691</div></div>
+        </li>
+      </ul>
+      <div class="hero-card-phone">
+        <div class="hero-card-phone-label">Message on WhatsApp</div>
+        <a href="https://wa.me/7725632691">07725 632 691</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-item"><span class="trust-icon">🎓</span><div class="trust-text"><strong>BDS First Class Honours</strong>Cardiff University</div></div>
+    <div class="trust-item"><span class="trust-icon">🏥</span><div class="trust-text"><strong>10 Years Experience</strong>Dentistry & Aesthetics</div></div>
+    <div class="trust-item"><span class="trust-icon">✅</span><div class="trust-text"><strong>Free Consultations</strong>Always complimentary</div></div>
+    <div class="trust-item"><span class="trust-icon">🌿</span><div class="trust-text"><strong>Natural & Holistic</strong>Undetectable results</div></div>
+    <div class="trust-item"><span class="trust-icon">💬</span><div class="trust-text"><strong>WhatsApp Direct</strong>Easy to get in touch</div></div>
+  </div>
+
+  <!-- TREATMENTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-label">What we offer</div>
+      <h2 class="section-title">Popular Treatments</h2>
+      <p class="section-desc">From Botox to Polynucleotides — every treatment is delivered by Dr Leah using the finest products, with a personal consultation before anything begins.</p>
+    </div>
+    <div class="treatments-grid">
+      <div class="treatment-card">
+        <div class="treatment-cat">Anti-Wrinkle</div>
+        <h3>Botox</h3>
+        <p>Anti-wrinkle injections using Botulinum toxin to soften expression lines and frown lines. Dr Leah's ethos ensures results are always natural and undetectable.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Volume & Contour</div>
+        <h3>Dermal Fillers</h3>
+        <p>Hyaluronic acid fillers for facial volume restoration, lip enhancement and contouring. Always tailored to your individual features and proportions.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin Booster</div>
+        <h3>Profhilo</h3>
+        <p>A bioremodelling injectable that stimulates collagen and elastin production — deeply hydrating and tightening the skin for a naturally radiant result.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Regenerative</div>
+        <h3>Polynucleotides</h3>
+        <p>Next-generation skin repair injections that regenerate at a cellular level — outstanding for skin quality, fine lines, dark circles and under-eye concerns.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin</div>
+        <h3>Skin Pen Microneedling</h3>
+        <p>Advanced microneedling to trigger the skin's natural healing — improving texture, tone, scarring and overall skin quality with no downtime.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Biostimulator</div>
+        <h3>Sculptra</h3>
+        <p>A poly-L-lactic acid collagen stimulator for gradual, long-lasting volume restoration and skin quality improvement — results that build naturally over time.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:30px;"><a class="btn-outline" onclick="showPage('treatments')">View All Treatments</a></div>
+  </section>
+
+  <!-- ABOUT SNIPPET -->
+  <section class="section alt">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <img src="https://static.wixstatic.com/media/290c99_5a69b3808dae41598dbadb93560b3068~mv2.jpeg/v1/fill/w_377,h_429,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Dr%20Leah%20Photo.jpeg" alt="Dr Leah Morton" onerror="this.parentElement.innerHTML='<span style=\'padding:24px;text-align:center;color:var(--sage)\'>Dr Leah Morton<br>BDS (Hons) Cardiff</span>'">
+        </div>
+        <div class="about-badge"><div class="about-badge-num">10</div><div class="about-badge-label">Years<br>Experience</div></div>
+      </div>
+      <div>
+        <div class="section-label">Why choose Dr Leah</div>
+        <h2 class="section-title">Natural results through undetectable aesthetics</h2>
+        <p class="section-desc" style="margin-bottom:16px">Dr Leah Morton graduated from the University of Cardiff with a first class honours degree in Dental Surgery. She has since worked across NHS and private settings, undergoing extensive further training to specialise in medical aesthetics.</p>
+        <p class="section-desc" style="margin-bottom:16px">Having a dental background gives Dr Leah a unique advantage — meticulous dexterity, deep anatomical knowledge and a thorough understanding of facial structure that makes her a safe, reliable and skilled injector.</p>
+        <p class="section-desc">Her ethos is to create natural, radiant results through undetectable injectables and skin rejuvenation treatments. Every treatment plan is tailored specifically to the individual — so patients look and feel their very best self, at any age.</p>
+        <div class="credential-grid" style="margin-top:24px">
+          <div class="credential"><div class="credential-title">BDS First Class Honours</div><div class="credential-sub">Cardiff University</div></div>
+          <div class="credential"><div class="credential-title">10 Years Experience</div><div class="credential-sub">Dentistry & Aesthetics</div></div>
+          <div class="credential"><div class="credential-title">NHS & Private Background</div><div class="credential-sub">Extensive clinical training</div></div>
+          <div class="credential"><div class="credential-title">Natural Ethos</div><div class="credential-sub">Holistic, ethical approach</div></div>
+        </div>
+        <a class="btn-cta" onclick="showPage('about')">More About Dr Leah</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETHOS -->
+  <section class="section warm">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center">Our approach</div>
+      <h2 class="section-title">The Dr Leah Philosophy</h2>
+      <p class="section-desc">Three principles guide every treatment at the clinic.</p>
+    </div>
+    <div class="ethos-grid">
+      <div class="ethos-card"><div class="ethos-icon">🌿</div><h3>Natural & Holistic</h3><p>Dr Leah's approach is always through the provision of natural, ethical and holistic treatment. Results that enhance — never overdo.</p></div>
+      <div class="ethos-card"><div class="ethos-icon">🤝</div><h3>Safe & Caring</h3><p>A safe, caring and trusting environment for every patient. All consultations are complimentary, with no pressure and no rush.</p></div>
+      <div class="ethos-card"><div class="ethos-icon">✨</div><h3>Tailored to You</h3><p>Every treatment plan is personalised to each individual patient — because no two people are the same, and neither should their results be.</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section dark">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center;color:var(--gold)"><span style="display:inline-block;width:20px;height:1px;background:var(--gold);margin-right:10px;vertical-align:middle"></span>Patient reviews</div>
+      <h2 class="section-title" style="color:var(--white)">What Patients Say</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.42);margin:0 auto">Real words from real patients who trust Dr Leah with their care.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Dr Leah made me feel so at ease from the moment I walked in. My results are absolutely beautiful — completely natural and exactly what I wanted."</p><div class="testimonial-author">— Google Review</div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"I've been seeing Dr Leah for a couple of years now and I can't recommend her highly enough. Her knowledge, skill and care are second to none."</p><div class="testimonial-author">— Google Review</div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"The consultation was so thorough and honest. Dr Leah explained everything clearly and never pushed me into anything. The results speak for themselves."</p><div class="testimonial-author">— Google Review</div></div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div>
+      <h2>Begin your aesthetic journey today</h2>
+      <p>Book a free, no-obligation consultation with Dr Leah. All appointments can be booked online — or message directly on WhatsApp.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a class="btn-gold" href="https://partner.pabau.com/online-bookings/dr-leah-aesthetics-" target="_blank">Book Online</a>
+      <a class="btn-cta" style="background:transparent;border:1.5px solid rgba(255,255,255,0.3)" href="https://wa.me/7725632691" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== TREATMENTS ===== -->
+<div class="page" id="page-treatments">
+  <div style="background:linear-gradient(135deg,#141A12 0%,#1E2A1A 100%);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">What we offer</div>
+    <h1 style="font-family:'Libre Baskerville',serif;font-size:clamp(1.9rem,3.8vw,3.1rem);font-weight:400;color:var(--white);margin-bottom:13px">Our Treatments</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.52);max-width:500px;font-weight:300;line-height:1.88">Natural, holistic, undetectable. Every treatment at Dr Leah's is chosen for its quality and safety, and every patient receives a bespoke treatment plan — never one-size-fits-all.</p>
+  </div>
+  <section class="section">
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Anti-Wrinkle</div><h3>Botox</h3><p>Botulinum toxin anti-wrinkle injections to soften expression lines, frown lines and crow's feet. Always natural-looking — Dr Leah's ethos is undetectable results.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Volume & Contour</div><h3>Dermal Fillers</h3><p>Hyaluronic acid filler for facial volume, lip enhancement and contouring. Tailored to your individual facial structure and personal aesthetic goals.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Skin Booster</div><h3>Profhilo</h3><p>A bioremodelling injectable — not a standard filler — that deeply hydrates and stimulates collagen and elastin production for naturally tighter, more radiant skin.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Regenerative</div><h3>Polynucleotides (PDRN)</h3><p>Cutting-edge injections that repair and regenerate skin at a cellular level. Outstanding for skin quality, dark circles, under-eye concerns and fine lines.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Biostimulator</div><h3>Sculptra</h3><p>Poly-L-lactic acid collagen stimulator for gradual, long-lasting volume and skin quality improvement. Results build naturally over weeks for an authentically refreshed look.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Microneedling</div><h3>Skin Pen Microneedling</h3><p>Advanced precision microneedling to trigger the skin's natural healing and boost collagen — improves texture, tone, scarring and overall radiance.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Cryotherapy</div><h3>CryoPen</h3><p>Precise cryotherapy for the treatment of skin blemishes including skin tags, warts, verrucae, milia and age spots — quick, effective and minimal downtime.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Medical Peels</div><h3>AlumierMD Chemical Peels</h3><p>Medical-grade chemical peels from the AlumierMD range — targeting pigmentation, acne, skin texture and dullness for a clearer, more even complexion.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Medical Skincare</div><h3>AlumierMD Medical Grade Skincare</h3><p>Bespoke medical-grade skincare programmes from AlumierMD — complementing your in-clinic treatments and maintaining results at home.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Health</div><h3>Mole Screening</h3><p>Professional mole assessment and screening using Dr Leah's medical expertise — providing peace of mind and early detection of any concerns requiring further care.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;"><a class="btn-cta" href="https://partner.pabau.com/online-bookings/dr-leah-aesthetics-" target="_blank">Book a Free Consultation</a></div>
+  </section>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<div class="page" id="page-about">
+  <div style="background:linear-gradient(135deg,#141A12 0%,#1E2A1A 100%);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Why Dr Leah</div>
+    <h1 style="font-family:'Libre Baskerville',serif;font-size:clamp(1.9rem,3.8vw,3.1rem);font-weight:400;color:var(--white);margin-bottom:13px">About Dr Leah</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.52);max-width:500px;font-weight:300;line-height:1.88">A medical doctor with a dental background, 10 years of experience, and an unwavering commitment to natural, undetectable results.</p>
+  </div>
+  <section class="section">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <img src="https://static.wixstatic.com/media/290c99_5a69b3808dae41598dbadb93560b3068~mv2.jpeg/v1/fill/w_377,h_429,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Dr%20Leah%20Photo.jpeg" alt="Dr Leah Morton" onerror="this.parentElement.innerHTML='<span style=\'padding:24px;text-align:center;color:var(--sage)\'>Dr Leah Morton<br>BDS (Hons) Cardiff</span>'">
+        </div>
+        <div class="about-badge"><div class="about-badge-num">BDS</div><div class="about-badge-label">Cardiff<br>1st Class</div></div>
+      </div>
+      <div>
+        <div class="section-label">Dr Leah Morton</div>
+        <h2 class="section-title">Medical aesthetics with a doctor's precision</h2>
+        <p class="section-desc" style="margin-bottom:15px">Dr Leah Morton graduated from the University of Cardiff with a first class honours degree in Dental Surgery. She has since worked across NHS and private settings and has undergone extensive further training to specialise in medical aesthetics — giving her 10 years of combined experience across both fields.</p>
+        <p class="section-desc" style="margin-bottom:15px">Having a dental background gives Dr Leah a unique and valuable advantage in aesthetics: meticulous manual dexterity, a thorough understanding of facial anatomy, and the medical expertise to be a safe, reliable and trustworthy injector.</p>
+        <p class="section-desc">Her ethos is to create natural, radiant results through undetectable injectables and skin rejuvenation treatments. She prides herself on delivering a personalised experience, tailoring treatment plans specifically to each individual — so patients look and feel their very best self at any age.</p>
+        <div class="credential-grid" style="margin-top:24px">
+          <div class="credential"><div class="credential-title">BDS First Class Honours</div><div class="credential-sub">Cardiff University</div></div>
+          <div class="credential"><div class="credential-title">10 Years Experience</div><div class="credential-sub">Dentistry & Aesthetics combined</div></div>
+          <div class="credential"><div class="credential-title">NHS & Private</div><div class="credential-sub">Mixed clinical background</div></div>
+          <div class="credential"><div class="credential-title">Free Consultations</div><div class="credential-sub">All consultations complimentary</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center">Our values</div>
+      <h2 class="section-title">Natural · Ethical · Holistic</h2>
+    </div>
+    <div class="ethos-grid">
+      <div class="ethos-card"><div class="ethos-icon">🌿</div><h3>Natural Results</h3><p>The goal is always to enhance what's already there — never to overdo. Dr Leah's results are designed to be undetectable: you'll look refreshed, never "done".</p></div>
+      <div class="ethos-card"><div class="ethos-icon">🤝</div><h3>Ethical Practice</h3><p>Honest consultations, no pressure and no upselling. If a treatment isn't right for you, Dr Leah will say so. Patient wellbeing always comes first.</p></div>
+      <div class="ethos-card"><div class="ethos-icon">💆</div><h3>Holistic Approach</h3><p>Every treatment plan considers the patient as a whole — their concerns, their lifestyle and their natural features — rather than treating in isolation.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div class="page" id="page-contact">
+  <div style="background:linear-gradient(135deg,#141A12 0%,#1E2A1A 100%);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Get in touch</div>
+    <h1 style="font-family:'Libre Baskerville',serif;font-size:clamp(1.9rem,3.8vw,3.1rem);font-weight:400;color:var(--white);margin-bottom:13px">Contact Dr Leah</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.52);max-width:500px;font-weight:300;line-height:1.88">Book online, WhatsApp directly, or send an email — we'll get back to you as soon as we can.</p>
+  </div>
+  <section class="section">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Find us</div>
+        <h2 class="section-title" style="margin-bottom:28px">Get in Touch</h2>
+        <div class="contact-detail"><span class="contact-icon">📍</span><div><h4>Address</h4><p>10 St. Mary's Court, Tickhill<br>Doncaster, DN11 9LX</p></div></div>
+        <div class="contact-detail"><span class="contact-icon">💬</span><div><h4>WhatsApp</h4><p><a href="https://wa.me/7725632691">07725 632 691</a></p></div></div>
+        <div class="contact-detail"><span class="contact-icon">✉️</span><div><h4>Email</h4><p><a href="mailto:drleahaesthetics@mail.com">drleahaesthetics@mail.com</a></p></div></div>
+        <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn-cta" href="https://partner.pabau.com/online-bookings/dr-leah-aesthetics-" target="_blank">Book Online</a>
+          <a class="btn-outline" href="https://wa.me/7725632691" target="_blank">WhatsApp Us</a>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Send a message</div>
+        <h2 class="section-title" style="margin-bottom:28px">Enquiry Form</h2>
+        <div class="form-2col">
+          <div class="form-row"><label>First Name</label><input type="text" placeholder="Jane"></div>
+          <div class="form-row"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="form-row"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+        <div class="form-row"><label>Phone / WhatsApp</label><input type="tel" placeholder="07700 000000"></div>
+        <div class="form-row"><label>Treatment of Interest</label>
+          <select>
+            <option value="">Select a treatment...</option>
+            <option>Botox</option>
+            <option>Dermal Fillers</option>
+            <option>Profhilo</option>
+            <option>Polynucleotides</option>
+            <option>Sculptra</option>
+            <option>Skin Pen Microneedling</option>
+            <option>CryoPen</option>
+            <option>AlumierMD Chemical Peels</option>
+            <option>AlumierMD Skincare</option>
+            <option>Mole Screening</option>
+            <option>Not Sure — Free Consultation</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Your Message</label><textarea placeholder="Tell us a bit about what you're looking for and we'll get back to you..."></textarea></div>
+        <button class="btn-cta" style="width:100%;padding:13px;font-size:0.75rem;border:none;cursor:pointer">Send Enquiry</button>
+        <p style="font-size:0.68rem;color:var(--warm-grey);margin-top:9px;line-height:1.6">Or reach us directly on WhatsApp: <a href="https://wa.me/7725632691" style="color:var(--sage)">07725 632 691</a></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Dr Leah Aesthetics</div>
+    <div class="footer-tagline">"Natural, ethical, holistic aesthetics"</div>
+    <p style="font-size:0.76rem;color:rgba(255,255,255,0.36);line-height:1.82;max-width:270px">Medical aesthetic & skin clinic in the heart of Tickhill, Doncaster. Led by Dr Leah Morton BDS (Hons) — 10 years of combined dental and aesthetic expertise.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://www.facebook.com/drleahaesthetics" target="_blank">f</a>
+      <a class="social-btn" href="https://www.instagram.com/drleahaesthetics/" target="_blank">ig</a>
+      <a class="social-btn" href="https://wa.me/7725632691" target="_blank">wa</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Treatments</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('treatments')">Botox</a></li>
+      <li><a onclick="showPage('treatments')">Dermal Fillers</a></li>
+      <li><a onclick="showPage('treatments')">Profhilo</a></li>
+      <li><a onclick="showPage('treatments')">Polynucleotides</a></li>
+      <li><a onclick="showPage('treatments')">Sculptra</a></li>
+      <li><a onclick="showPage('treatments')">CryoPen</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Clinic</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('about')">About Dr Leah</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://partner.pabau.com/online-bookings/dr-leah-aesthetics-" target="_blank">Book Online</a></li>
+      <li><a href="https://wa.me/7725632691" target="_blank">WhatsApp</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Dr Leah Aesthetics · 10 St. Mary's Court, Tickhill, Doncaster DN11 9LX</span>
+  <span>Website concept built by <strong>Trabelo</strong> · Sheffield</span>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) { page.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  document.getElementById('navLinks').classList.remove('open');
+}
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+</script>
+</body>
+</html>
