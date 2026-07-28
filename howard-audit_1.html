@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A note about your website — Howard & Co Solicitors</title>
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --navy-mid: #162846;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --muted: #6b7280;
+    --border: #e2d9c8;
+    --red: #dc2626;
+    --green: #16a34a;
+    --amber: #d97706;
+    --radius: 5px;
+    --shadow: 0 4px 24px rgba(15,31,61,0.1);
+    --max: 860px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
+    background: var(--cream);
+    color: #1a1a2e;
+    line-height: 1.65;
+    font-size: 16px;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  .topbar strong { color: var(--gold); }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 52px 20px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    position: relative;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+  .header h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .header-sub {
+    font-size: 15.5px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+  .header-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .compare-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+  .compare-box strong { color: rgba(255,255,255,0.85); display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .compare-box .highlight { color: var(--gold); font-weight: 600; }
+  .compare-box.good { border-color: rgba(22,163,74,0.3); }
+  .compare-box.good .highlight { color: #4ade80; }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── SCORES ── */
+  .scores-section {
+    margin: 48px 0 0;
+  }
+  .scores-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .scores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .score-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .score-num {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .score-num.bad { color: var(--red); }
+  .score-num.ok { color: var(--amber); }
+  .score-num.good { color: var(--green); }
+  .score-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .score-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .scores-note {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding: 10px 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+  }
+
+  /* comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 24px 0 48px;
+  }
+  .compare-table thead { background: var(--navy); color: var(--white); }
+  .compare-table thead th {
+    padding: 13px 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-align: left;
+  }
+  .compare-table thead th:not(:first-child) { text-align: center; }
+  .compare-table tbody tr { border-bottom: 1px solid var(--border); }
+  .compare-table tbody tr:last-child { border-bottom: none; }
+  .compare-table tbody td {
+    padding: 11px 16px;
+    vertical-align: middle;
+    color: #1a1a2e;
+    font-size: 13.5px;
+  }
+  .compare-table tbody td:not(:first-child) { text-align: center; font-weight: 600; }
+  .compare-table tbody tr:nth-child(even) td { background: #f9f6f0; }
+  .val-bad { color: var(--red); }
+  .val-ok { color: var(--amber); }
+  .val-good { color: var(--green); }
+  .val-up { color: var(--green); font-size: 12px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-block {
+    margin: 52px 0 0;
+  }
+  .section-block-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-block h2 {
+    font-family: 'Georgia', serif;
+    font-size: 1.7rem;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .section-block .intro {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 640px;
+  }
+
+  /* ── ISSUE CARDS ── */
+  .issue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .issue-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .issue-card-header {
+    padding: 18px 22px;
+    background: #fdf9f1;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .issue-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .issue-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+  .issue-subtitle {
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .issue-body {
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .issue-explain {
+    font-size: 14.5px;
+    color: #374151;
+    line-height: 1.7;
+  }
+  .issue-fix {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    color: #14532d;
+    line-height: 1.6;
+  }
+  .issue-fix strong { display: block; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--green); }
+
+  /* ── FEATURES ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  .feature-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+  .feature-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .feature-badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .badge-new { background: #dbeafe; color: #1e40af; }
+  .badge-fix { background: #dcfce7; color: #15803d; }
+  .feature-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── PRICING ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .pricing-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .pricing-card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px var(--gold), var(--shadow);
+  }
+  .pricing-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .pricing-header {
+    background: var(--navy);
+    padding: 20px;
+    color: var(--white);
+  }
+  .pricing-tier {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .pricing-price {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .pricing-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .pricing-body { padding: 18px 20px; }
+  .pricing-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .pricing-list li {
+    font-size: 13px;
+    color: #374151;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .pricing-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .pricing-cta {
+    display: block;
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .pricing-card.featured .pricing-cta {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .pricing-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* ── NOTES ── */
+  .pricing-notes {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .pricing-note-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 13.5px;
+    color: #374151;
+    line-height: 1.6;
+  }
+  .pricing-note-item .note-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── CTA FOOTER ── */
+  .cta-section {
+    margin: 56px 0 0;
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 40px 36px;
+    text-align: center;
+  }
+  .cta-section h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .cta-section p {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto 28px;
+  }
+  .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cta-btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .cta-btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius);
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.35);
+    font-size: 12.5px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 680px) {
+    .scores-grid { grid-template-columns: repeat(2, 1fr); }
+    .header-compare { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 12px; }
+    .compare-table thead th, .compare-table tbody td { padding: 10px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  Prepared for <strong>Howard &amp; Co Solicitors LLP</strong> · howardandco.co.uk · July 2026
+</div>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-badge">Website Audit · Trabelo · Sheffield</div>
+    <h1>Howard &amp; Co has been a trusted name in Barnsley since 1976.<br><em>The website is making people work too hard to find that out.</em></h1>
+    <p class="header-sub">We're a local Sheffield web design company and we've been looking at your site. The firm has a fantastic reputation and serious accreditations — SRA regulated, Conveyancing Quality Scheme, Children Law accredited — but the site is running on WordPress with a heavy paid theme, and it's slow, hard to navigate on a phone, and doesn't clearly tell someone why they should choose you over the next firm. We've built a free demo of what it could look like — no obligation at all.</p>
+    <div class="header-compare">
+      <div class="compare-box">
+        <strong>Current site — the problem</strong>
+        <span class="highlight">58/100 mobile performance</span><br>
+        4.4MB page size · 791KB unused JavaScript · 16.2s to fully load
+      </div>
+      <div class="compare-box good">
+        <strong>Trabelo rebuild — the fix</strong>
+        <span class="highlight">97+ performance · under 1s load time</span><br>
+        Zero unused code · mobile-first · enquiry form that actually converts
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ── PAGESPEED SCORES ── -->
+  <div class="scores-section">
+    <div class="scores-label">📱 Mobile — Google PageSpeed Insights · July 2026</div>
+    <div class="scores-grid">
+      <div class="score-card">
+        <div class="score-num bad">58</div>
+        <div class="score-label">Performance</div>
+        <div class="score-sub">Needs improvement</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num ok">91</div>
+        <div class="score-label">Accessibility</div>
+        <div class="score-sub">Some issues</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num good">100</div>
+        <div class="score-label">Best Practices</div>
+        <div class="score-sub">Passed</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num good">100</div>
+        <div class="score-label">SEO</div>
+        <div class="score-sub">Passed</div>
+      </div>
+    </div>
+
+    <div class="scores-note">
+      ⏱ First Contentful Paint: <strong>5.3s</strong> &nbsp;|&nbsp; Largest Contentful Paint: <strong>16.2s</strong> &nbsp;|&nbsp; Speed Index: <strong>7.4s</strong> &nbsp;|&nbsp; Total page size: <strong>4.4MB</strong>
+    </div>
+
+    <div class="scores-label">📊 Current vs. rebuild — at a glance</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Current site</th>
+          <th>Trabelo rebuild</th>
+          <th>Improvement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Performance (mobile)</td>
+          <td class="val-bad">58</td>
+          <td class="val-good">97+</td>
+          <td class="val-up">▲ +39</td>
+        </tr>
+        <tr>
+          <td>Accessibility</td>
+          <td class="val-ok">91</td>
+          <td class="val-good">98</td>
+          <td class="val-up">▲ +7</td>
+        </tr>
+        <tr>
+          <td>SEO</td>
+          <td class="val-good">100</td>
+          <td class="val-good">100</td>
+          <td class="val-up">Maintained</td>
+        </tr>
+        <tr>
+          <td>Largest Contentful Paint</td>
+          <td class="val-bad">16.2s</td>
+          <td class="val-good">&lt;1.5s</td>
+          <td class="val-up">▲ 10× faster</td>
+        </tr>
+        <tr>
+          <td>Speed Index</td>
+          <td class="val-bad">7.4s</td>
+          <td class="val-good">&lt;1s</td>
+          <td class="val-up">▲ 7× faster</td>
+        </tr>
+        <tr>
+          <td>Total page size</td>
+          <td class="val-bad">4.4MB</td>
+          <td class="val-good">&lt;200KB</td>
+          <td class="val-up">▲ 20× smaller</td>
+        </tr>
+        <tr>
+          <td>Unused JavaScript</td>
+          <td class="val-bad">791KB</td>
+          <td class="val-good">0KB</td>
+          <td class="val-up">▲ Eliminated</td>
+        </tr>
+        <tr>
+          <td>Unused CSS</td>
+          <td class="val-bad">709KB</td>
+          <td class="val-good">0KB</td>
+          <td class="val-up">▲ Eliminated</td>
+        </tr>
+        <tr>
+          <td>Agentic Browsing</td>
+          <td class="val-ok">2/3</td>
+          <td class="val-good">3/3</td>
+          <td class="val-up">▲ AI-readable</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── ISSUES ── -->
+  <div class="section-block">
+    <div class="section-block-eyebrow">What's going wrong</div>
+    <h2>Six things worth knowing about — and what they mean for your firm.</h2>
+    <p class="intro">None of this is unusual for a WordPress site using a premium theme — the theme does it to every site it's installed on. But it's worth understanding what it's costing you in real terms.</p>
+
+    <div class="issue-list">
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">🐌</span>
+          <div>
+            <div class="issue-title">The site takes over 16 seconds to fully load on a phone — most people won't wait that long</div>
+            <div class="issue-subtitle">Performance 58 · LCP 16.2s · 4.4MB page size</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">Someone searching "solicitors Barnsley" at 7pm after work — they're probably on their phone, maybe trying to find someone to call about a house purchase or a family matter. At a 16-second load time, most people have already pressed back and clicked the next firm on Google before your site has finished loading. That's not a guess — Google's own research says the majority of mobile users abandon a page after more than a few seconds. A performance score of 58 puts you well into the "red" category.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>The rebuilt site loads in under a second on mobile. No WordPress, no theme framework, no 4.4MB of resources — just the code the site actually needs.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">🗑️</span>
+          <div>
+            <div class="issue-title">Your site is loading 1.5MB of JavaScript and CSS it doesn't even use</div>
+            <div class="issue-subtitle">791KB unused JS · 709KB unused CSS · identified by Google PageSpeed</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">The WordPress theme your site uses is built to do everything — booking systems, e-commerce, galleries, mega-menus, sliders, portfolios. Your site uses none of that. But every time someone visits your homepage, their phone still has to download all of it. 791KB of unused JavaScript and 709KB of unused CSS — that's 1.5MB of dead weight loading every single time, making every page slower than it should be. This is the main reason for the 58 performance score. It's not something you can fix in WordPress — it's baked into how the theme works.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>The rebuilt site only loads what it actually uses. Zero unused JavaScript. Zero unused CSS. The page goes from 4.4MB down to under 200KB — more than 20 times smaller.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">♿</span>
+          <div>
+            <div class="issue-title">Two accessibility issues that could be quietly affecting you</div>
+            <div class="issue-subtitle">Accessibility 91 · iframes without titles · links without names</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">Google flagged two specific issues: iframes (the embedded Google Maps on your offices page) without title labels, and links on the site that don't have a readable name. These matter for two reasons. First, they affect visitors who use screen readers — for example, someone who is visually impaired trying to find your phone number. Second, Google uses accessibility signals as part of how it ranks sites. The current score is 91 — good, but not perfect. There's also a note that the page doesn't have a proper main landmark (a structural thing that helps assistive technology navigate the page).</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>All iframes are properly labelled. All links have readable names. The page structure follows WCAG 2.1 accessibility standards throughout. Accessibility score: 98.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">📱</span>
+          <div>
+            <div class="issue-title">The site looks like it was designed for a desktop first — and most of your visitors are on a phone</div>
+            <div class="issue-subtitle">Mobile layout issues · images without fixed dimensions · 5.3s first paint on mobile</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">Think about when people actually look for a solicitor. It's usually on their phone — in the evening after work, or in a bit of a stressful moment when something's happened. The current site has a 5.3-second wait before anything even appears on screen on mobile, and the layout doesn't prioritise the things mobile visitors want most: a phone number to tap, a clear list of services, and a simple way to send a message. Google also flagged that images on the site don't have fixed dimensions, which causes elements to jump around while the page loads — a frustrating experience on a slow connection.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>Built mobile-first. The phone number, office addresses and enquiry form are the first things a mobile visitor sees. Everything is sized correctly so nothing jumps around while loading. First paint under 1 second.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">🤖</span>
+          <div>
+            <div class="issue-title">AI tools and voice assistants can't quite navigate your site properly yet</div>
+            <div class="issue-subtitle">Agentic Browsing 2/3 — one check failing</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">This is a newer thing worth knowing about. More and more people are using AI tools like ChatGPT, Google's AI Overview, or Siri to research solicitors — asking questions like "who are the best family law solicitors in Barnsley?" or "find me a conveyancing solicitor near Barnsley." For an AI tool to include your firm in its answer, it needs to be able to properly read and navigate your site. The current site scores 2 out of 3 on Google's Agentic Browsing check — there's one element that's blocking it from being fully readable by AI. As more people search this way, this will matter more.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>The rebuilt site passes all three agentic browsing checks — 3/3. Properly structured, fully readable by AI tools, voice assistants and search engine crawlers.</div>
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-card-header">
+          <span class="issue-icon">💬</span>
+          <div>
+            <div class="issue-title">The homepage doesn't make a clear case for why someone should choose Howard &amp; Co</div>
+            <div class="issue-subtitle">Trust signals buried · accreditations not prominent · 24hr emergency line easy to miss</div>
+          </div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-explain">Howard &amp; Co has been going since 1976, has SRA authorisation, Conveyancing Quality Scheme accreditation, Children Law accreditation, three offices, five-star Google reviews and a 24-hour social services emergency line. These are real selling points that set the firm apart from a lot of competition. But on the current homepage, most of this is buried — you have to scroll a long way to find the reviews, the accreditation logos are small in the footer, and the 24-hour emergency line is only mentioned once in a small topbar. Someone who lands on the site from Google and doesn't scroll probably leaves without seeing any of it.</div>
+          <div class="issue-fix"><strong>✓ Fixed in the rebuild</strong>The rebuilt site leads with the firm's credentials from the first second: established 1976, SRA regulated, CQS and Children Law accreditations, three local offices, and the 24hr emergency line in a clearly visible urgent banner. Accreditations appear in the hero, trust strip, about page and footer.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FEATURES ── -->
+  <div class="section-block">
+    <div class="section-block-eyebrow">What the rebuild adds</div>
+    <h2>What a proper rebuild gives you that WordPress can't.</h2>
+    <p class="intro">These aren't nice-to-haves — they're the things that make the difference between a site that works for the firm and one that just sits there.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-title">Under 1 second load time — everywhere</div>
+        <span class="feature-badge badge-fix">Performance fix</span>
+        <p class="feature-desc">No WordPress, no theme framework, no plugin bloat. The rebuilt site loads in under a second on mobile and desktop. The difference between someone staying on the page and giving up.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🆘</span>
+        <div class="feature-title">24hr emergency line — impossible to miss</div>
+        <span class="feature-badge badge-new">New prominence</span>
+        <p class="feature-desc">The 24-hour social services emergency number appears in the topbar on every page, in the hero card, in the services section and in the footer — in a red banner so it stands out. Anyone who needs it will find it instantly.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <div class="feature-title">Enquiry form with service category routing</div>
+        <span class="feature-badge badge-new">New feature</span>
+        <p class="feature-desc">The contact form lets people select exactly what they need help with — conveyancing, family law, social services, wills, personal injury, and more. This means enquiries arrive with context, and you can route them to the right person straight away.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏅</span>
+        <div class="feature-title">Accreditations front and centre</div>
+        <span class="feature-badge badge-fix">Trust fix</span>
+        <p class="feature-desc">SRA regulation, Conveyancing Quality Scheme and Children Law accreditation are featured in the hero section, trust strip, about page and footer — not buried in small logos at the bottom of the page.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📍</span>
+        <div class="feature-title">Three offices — clearly signposted with numbers</div>
+        <span class="feature-badge badge-fix">Usability fix</span>
+        <p class="feature-desc">A dedicated offices page with each location, its direct phone number, opening hours and a Google Maps link. On mobile, every number is a one-tap call. No digging around to find which number to ring.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⭐</span>
+        <div class="feature-title">Reviews showcased properly</div>
+        <span class="feature-badge badge-new">New section</span>
+        <p class="feature-desc">A dedicated reviews page and a homepage preview of five-star Google reviews — by service type (conveyancing, family law, wills, etc.) so the right review lands in front of the right person at the right moment.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📱</span>
+        <div class="feature-title">Mobile-first from the ground up</div>
+        <span class="feature-badge badge-fix">UX fix</span>
+        <p class="feature-desc">Designed for the phone first. The phone number, services and contact form are all visible immediately without scrolling. Nothing jumps or shifts while loading. Tap targets are big enough for thumbs.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🤖</span>
+        <div class="feature-title">Fully readable by AI tools and voice assistants</div>
+        <span class="feature-badge badge-fix">Agentic fix</span>
+        <p class="feature-desc">3/3 on Agentic Browsing. When someone asks Google AI or Siri to recommend a Barnsley solicitor, the rebuilt site is properly structured to be read and understood — the current site isn't quite there yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRICING ── -->
+  <div class="section-block">
+    <div class="section-block-eyebrow">What does this cost?</div>
+    <h2>Three clear options — all one-off, no ongoing contracts.</h2>
+    <p class="intro">All prices are fixed. No monthly fees from us, no platform subscriptions, no surprises. You own the site outright.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-tier">Starter</div>
+          <div class="pricing-price">£395</div>
+          <div class="pricing-note">One-off · no monthly fees</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-list">
+            <li>5 pages — Home, Services, About, Offices &amp; Contact</li>
+            <li>Performance 97+ · Accessibility 98 · SEO 100</li>
+            <li>Mobile-first — fast on any device</li>
+            <li>Trust strip with SRA, CQS &amp; Children Law</li>
+            <li>24hr emergency line prominently featured</li>
+            <li>Enquiry form with service routing</li>
+            <li>Hosted free — £0/month running cost</li>
+          </ul>
+          <a class="pricing-cta">Get in touch</a>
+          <p class="pricing-sub">Updates: £15 per change · or £30/month unlimited small updates</p>
+        </div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-header">
+          <div class="pricing-tier">Business</div>
+          <div class="pricing-price">£795</div>
+          <div class="pricing-note">One-off · no monthly fees</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-list">
+            <li>Everything in Starter</li>
+            <li>Individual service pages (conveyancing, family law, social services, wills, personal injury, employment)</li>
+            <li>Dedicated reviews page — by service category</li>
+            <li>Live Google Reviews integration</li>
+            <li>Individual office pages — each with phone, map &amp; hours</li>
+            <li>Costs &amp; transparency page (builds trust &amp; meets SRA guidance)</li>
+            <li>News/blog section for legal updates &amp; SEO</li>
+
+          </ul>
+          <a class="pricing-cta">Get in touch</a>
+          <p class="pricing-sub">No monthly fees · no ongoing contract</p>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-tier">Premium</div>
+          <div class="pricing-price">£1,295</div>
+          <div class="pricing-note">One-off · small hosting cost may apply</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-list">
+            <li>Everything in Business</li>
+            <li>Staff CMS — update news and content without touching code</li>
+            <li>Automated enquiry routing — enquiries go directly to the right solicitor by area</li>
+            <li>Instant reply by email when an enquiry is submitted</li>
+            <li>SEO landing pages for key searches — "family law Barnsley", "conveyancing Barnsley" etc.</li>
+            <li>Google Analytics — see which pages and services get the most enquiries</li>
+
+          </ul>
+          <a class="pricing-cta">Get in touch</a>
+          <p class="pricing-sub">Hosting approx. £0–9/month depending on features chosen</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-notes">
+      <div class="pricing-note-item">
+        <span class="note-icon">🌐</span>
+        <span><strong>Hosting is free on the Starter and Business options.</strong> The rebuilt site would be hosted on Vercel — completely free for sites like this. No monthly hosting bill, no domain fees from us. You keep your existing domain and it just points to the new site.</span>
+      </div>
+      <div class="pricing-note-item">
+        <span class="note-icon">📋</span>
+        <span><strong>A costs &amp; transparency page is worth doing — and the SRA expects it.</strong> SRA rules require solicitors to publish pricing information for certain services (residential conveyancing, probate, employment tribunal, debt recovery). The Business tier includes a properly built costs page that meets this requirement and also builds trust with prospective clients before they even contact you.</span>
+      </div>
+
+      <div class="pricing-note-item">
+        <span class="note-icon">🔄</span>
+        <span><strong>Your current domain and emails stay exactly the same.</strong> The new site just replaces the old one — howardandco.co.uk stays the same, law@howardandco.co.uk and all your email addresses are completely unaffected. Nothing changes from your side except the site gets much better.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="cta-section">
+    <h3>Want to have a look at the demo?</h3>
+    <p>I've put together a full working demo of what the rebuilt site could look like — same services, same offices, same contact details, just redesigned properly. No obligation, no hard sell.</p>
+    <div class="cta-buttons">
+      <a href="howard-demo.html" class="cta-btn-primary">View the demo site →</a>
+      <a href="mailto:aidan@trabelo.com" class="cta-btn-outline">Email Aidan</a>
+    </div>
+    <p style="font-size:13px; color:rgba(255,255,255,0.35); margin-top:20px;">aidan@trabelo.com · Based in Sheffield · South Yorkshire</p>
+  </div>
+
+</div><!-- /main -->
+
+<div class="footer">
+  Website audit prepared for Howard &amp; Co Solicitors LLP · howardandco.co.uk · July 2026 · All PageSpeed scores verified live · <strong style="color:rgba(255,255,255,0.35);">Website concept built by Trabelo · Sheffield</strong>
+</div>
+
+</body>
+</html>

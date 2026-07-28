@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Howard & Co Solicitors LLP — Trusted legal advice in Barnsley, Penistone and South Yorkshire since 1976. Conveyancing, family law, wills, probate and more.">
+<title>Howard & Co Solicitors LLP | Barnsley & South Yorkshire</title>
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --navy-mid: #162846;
+    --navy-light: #1e3560;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --gold-pale: #f5e9c8;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --slate: #64748b;
+    --slate-light: #94a3b8;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e2d9c8;
+    --section-pad: 72px 20px;
+    --radius: 4px;
+    --shadow: 0 4px 24px rgba(15,31,61,0.12);
+    --shadow-lg: 0 8px 48px rgba(15,31,61,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.75);
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    padding: 9px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topbar a { color: rgba(255,255,255,0.75); text-decoration: none; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar-left, .topbar-right { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .topbar-emergency {
+    background: #7f1d1d;
+    color: #fca5a5;
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .topbar-emergency a { color: #fca5a5; }
+
+  /* ── STICKY NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(15,31,61,0.08);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 16px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-logo-mark {
+    width: 42px;
+    height: 42px;
+    background: var(--navy);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo-text { line-height: 1.2; }
+  .nav-logo-name {
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+  }
+  .nav-logo-sub {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--slate);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    list-style: none;
+  }
+  .nav-links li a {
+    font-family: 'Arial', sans-serif;
+    font-size: 13.5px;
+    color: var(--navy);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links li a:hover { color: var(--gold); background: rgba(201,168,76,0.08); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-weight: 700;
+    padding: 8px 18px !important;
+    border-radius: var(--radius);
+    font-size: 13.5px;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 12px 20px 20px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: var(--navy);
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-cta-btn {
+    display: block;
+    margin-top: 14px;
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    border-bottom: none !important;
+  }
+
+  /* ── PAGE SECTIONS ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 64px 20px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    align-items: start;
+  }
+  .hero-eyebrow {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: bold;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 26px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {}
+  .hero-stat-num {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--gold);
+    line-height: 1;
+    font-family: 'Georgia', serif;
+  }
+  .hero-stat-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Hero sidebar card */
+  .hero-card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 28px;
+    box-shadow: var(--shadow-lg);
+    flex-shrink: 0;
+  }
+  .hero-card-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+  .hero-card-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .hero-card-sub {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .hero-card-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 16px 0;
+  }
+  .hero-card-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .hero-card-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .hero-card-item .icon {
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 14px;
+  }
+  .hero-card-phone {
+    display: block;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: var(--radius);
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: background 0.2s;
+    margin-bottom: 8px;
+  }
+  .hero-card-phone:hover { background: var(--navy-light); }
+  .hero-card-emergency {
+    display: block;
+    background: #7f1d1d;
+    color: #fca5a5;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: var(--radius);
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .hero-card-accreditations {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--slate);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .accred-badge {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: var(--navy-mid);
+    padding: 18px 20px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .trust-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.72);
+  }
+  .trust-item .icon { color: var(--gold); font-size: 15px; }
+  .trust-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    padding: var(--section-pad);
+  }
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-alt { background: var(--white); }
+  .section-dark {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .section-eyebrow {
+    font-family: 'Arial', sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+  .section-dark h2 { color: var(--white); }
+  .section-lead {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+  .section-dark .section-lead { color: rgba(255,255,255,0.6); }
+
+  /* ── SERVICES GRID ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .service-card:hover {
+    box-shadow: var(--shadow);
+    border-color: var(--gold);
+  }
+  .service-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .service-card h3 {
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .service-card p {
+    font-family: 'Arial', sans-serif;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .service-list li {
+    font-family: 'Arial', sans-serif;
+    font-size: 12.5px;
+    color: var(--navy);
+    padding-left: 14px;
+    position: relative;
+  }
+  .service-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .about-content h2 { color: var(--navy); }
+  .about-content p {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .about-value {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+  }
+  .about-value-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .about-value p {
+    font-size: 12.5px;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-office-block {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 32px;
+    color: var(--white);
+  }
+  .about-office-block h3 {
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .office-entry {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .office-entry:last-child { border-bottom: none; }
+  .office-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .office-detail {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+  .office-detail a { color: var(--gold); text-decoration: none; }
+
+  /* ── TEAM ── */
+  .team-intro {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+  }
+  .team-card:hover { box-shadow: var(--shadow); }
+  .team-avatar {
+    width: 64px;
+    height: 64px;
+    background: var(--navy-light);
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: bold;
+  }
+  .team-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .team-role {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .team-bio {
+    font-family: 'Arial', sans-serif;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .review-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+  }
+  .review-stars {
+    color: var(--gold);
+    font-size: 15px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+  .review-text {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .review-author {
+    font-family: 'Arial', sans-serif;
+    font-size: 12.5px;
+    color: var(--slate);
+  }
+  .review-service {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+
+  /* ── OFFICES ── */
+  .offices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .office-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .office-card-header {
+    background: var(--navy);
+    padding: 20px 24px;
+  }
+  .office-card-name {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .office-card-location {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .office-card-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .office-info-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-family: 'Arial', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+  }
+  .office-info-row .icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .office-info-row a { color: var(--navy); text-decoration: none; }
+  .office-info-row a:hover { color: var(--gold); }
+  .office-card-cta {
+    margin: 0 24px 20px;
+    display: block;
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 11px;
+    border-radius: var(--radius);
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .office-card-cta:hover { background: var(--navy-light); }
+
+  /* ── CONTACT SECTION ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .contact-info { }
+  .contact-info p {
+    font-family: 'Arial', sans-serif;
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .contact-detail-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .contact-detail-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .contact-detail-list li .icon { color: var(--gold); flex-shrink: 0; font-size: 16px; margin-top: 2px; }
+  .contact-detail-list li a { color: var(--navy); text-decoration: none; }
+  .contact-detail-list li a:hover { color: var(--gold); }
+  .emergency-box {
+    background: #7f1d1d;
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 24px;
+  }
+  .emergency-box-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fca5a5;
+    margin-bottom: 6px;
+  }
+  .emergency-box-number {
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  .emergency-box-detail {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #fca5a5;
+    margin-top: 4px;
+  }
+
+  /* Contact form */
+  .contact-form { }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block;
+    font-family: 'Arial', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 11px 14px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 32px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+    letter-spacing: 0.04em;
+  }
+  .form-submit:hover { background: var(--gold-light); }
+  .form-privacy {
+    font-family: 'Arial', sans-serif;
+    font-size: 11.5px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ── SRA STRIP ── */
+  .sra-strip {
+    background: var(--navy);
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .sra-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sra-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .sra-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 4px;
+    padding: 8px 18px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .sra-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #080f1e;
+    padding: 52px 20px 28px;
+    color: rgba(255,255,255,0.6);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .footer-brand .nav-logo-name { color: var(--white); margin-bottom: 4px; display: block; font-family: 'Georgia', serif; font-size: 17px; font-weight: bold; }
+  .footer-brand .nav-logo-sub { color: rgba(255,255,255,0.35); display: block; font-family: 'Arial', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+  .footer-brand p { font-family: 'Arial', sans-serif; font-size: 13px; line-height: 1.65; margin-bottom: 16px; }
+  .footer-social { display: flex; gap: 10px; }
+  .footer-social a {
+    width: 34px; height: 34px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .footer-social a:hover { background: var(--gold); color: var(--navy); }
+  .footer-col h4 {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--gold); }
+  .trabelo-credit { color: rgba(255,255,255,0.22); }
+  .trabelo-credit a { color: rgba(255,255,255,0.22); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .hero-stats { gap: 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-values { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    :root { --section-pad: 52px 16px; }
+    .topbar { font-size: 12px; gap: 4px; }
+    .topbar-emergency { font-size: 11px; }
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-stat-num { font-size: 1.8rem; }
+    .trust-strip-inner { gap: 16px; }
+    .trust-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="tel:01226215215">📞 01226 215 215</a>
+    <a href="mailto:law@howardandco.co.uk">✉ law@howardandco.co.uk</a>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-emergency">24hr Social Services: <a href="tel:07876220431">07876 220431</a></span>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#" onclick="showPage('home')">
+      <div class="nav-logo-mark">H&amp;C</div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">Howard &amp; Co</div>
+        <div class="nav-logo-sub">Solicitors LLP</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('services')">Services</a></li>
+      <li><a href="#" onclick="showPage('about')">About Us</a></li>
+      <li><a href="#" onclick="showPage('reviews')">Reviews</a></li>
+      <li><a href="#" onclick="showPage('offices')">Our Offices</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta">Get in touch →</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showPage('home');closeMobile()">Home</a>
+    <a href="#" onclick="showPage('services');closeMobile()">Services</a>
+    <a href="#" onclick="showPage('about');closeMobile()">About Us</a>
+    <a href="#" onclick="showPage('reviews');closeMobile()">Reviews</a>
+    <a href="#" onclick="showPage('offices');closeMobile()">Our Offices</a>
+    <a href="#" onclick="showPage('contact');closeMobile()" class="mobile-cta-btn">Get in touch →</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Established 1976 · Barnsley & South Yorkshire</div>
+        <h1>Legal advice you can <em>actually</em> talk to someone about.</h1>
+        <p class="hero-sub">Howard &amp; Co has been helping families, individuals and businesses across Barnsley, Penistone and South Yorkshire for nearly 50 years. Straightforward advice, no jargon, no runaround — just honest legal help from people who know this area.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Get in touch →</a>
+          <a href="#" class="btn-outline" onclick="showPage('services')">View our services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">1976</div>
+            <div class="hero-stat-label">Established</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-label">Local offices</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">5★</div>
+            <div class="hero-stat-label">Google reviews</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">24hr</div>
+            <div class="hero-stat-label">Social services line</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR CARD -->
+      <div class="hero-card">
+        <div class="hero-card-title">Get in touch today</div>
+        <div class="hero-card-name">Howard &amp; Co Solicitors LLP</div>
+        <div class="hero-card-sub">Three offices across Barnsley and Penistone. Walk-in welcome, or we can come to you.</div>
+        <hr class="hero-card-divider">
+        <div class="hero-card-row">
+          <div class="hero-card-item"><span class="icon">📍</span><span>4 Victoria Road, Barnsley S70 2BB</span></div>
+          <div class="hero-card-item"><span class="icon">📍</span><span>5–7 Regent St, Barnsley S70 2EG</span></div>
+          <div class="hero-card-item"><span class="icon">📍</span><span>10A Market St, Penistone S36 6BZ</span></div>
+          <div class="hero-card-item"><span class="icon">🕐</span><span>Mon–Fri 9:00am – 5:00pm</span></div>
+        </div>
+        <a href="tel:01226215215" class="hero-card-phone">📞 01226 215 215</a>
+        <a href="tel:07876220431" class="hero-card-emergency">24hr Social Services · 07876 220431</a>
+        <div class="hero-card-accreditations">
+          <div class="accred-badge">SRA Regulated</div>
+          <div class="accred-badge">CQS</div>
+          <div class="accred-badge">Children Law</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-strip-inner">
+      <div class="trust-item"><span class="icon">⚖️</span> SRA Authorised &amp; Regulated</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">🏅</span> Conveyancing Quality Scheme</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">👨‍👩‍👧</span> Children Law Accredited</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">📍</span> Serving South Yorkshire since 1976</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">🤝</span> We'll come to you if needed</div>
+    </div>
+  </div>
+
+  <!-- SERVICES OVERVIEW ON HOME -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">What we do</div>
+      <h2>Legal help for every stage of life.</h2>
+      <p class="section-lead">From buying your first home to sorting out a will, from a difficult family situation to a workplace dispute — we've helped people through it all, locally, for nearly 50 years.</p>
+
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">🏠</span>
+          <h3>Land &amp; Property</h3>
+          <p>Moving home, remortgaging, commercial leases and landlord &amp; tenant — we keep your property transactions on track.</p>
+          <ul class="service-list">
+            <li>Residential conveyancing</li>
+            <li>Commercial property</li>
+            <li>Landlord &amp; tenant matters</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">👨‍👩‍👧</span>
+          <h3>Family Law</h3>
+          <p>Sensitive, practical advice for divorce, separation, children arrangements and financial matters — without making a hard time harder.</p>
+          <ul class="service-list">
+            <li>Divorce &amp; separation</li>
+            <li>Child arrangements</li>
+            <li>Financial provision</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">📋</span>
+          <h3>Wills &amp; Probate</h3>
+          <p>Making a will, handling a loved one's estate, setting up a Lasting Power of Attorney — we make these conversations straightforward.</p>
+          <ul class="service-list">
+            <li>Wills &amp; LPAs</li>
+            <li>Probate &amp; estate admin</li>
+            <li>Trusts &amp; asset protection</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">⚠️</span>
+          <h3>Social Services</h3>
+          <p>If social services are involved with your family, you need a specialist on your side quickly. We have a 24-hour emergency line for exactly this.</p>
+          <ul class="service-list">
+            <li>Social care cases</li>
+            <li>Care proceedings</li>
+            <li>Interested parties</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">⚡</span>
+          <h3>Disputes &amp; Claims</h3>
+          <p>Employment disputes, personal injury, civil and contractual claims — we work to resolve things quickly and fairly.</p>
+          <ul class="service-list">
+            <li>Personal injury (no win no fee)</li>
+            <li>Employment disputes</li>
+            <li>Civil &amp; contract claims</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('contact')">
+          <span class="service-icon">💬</span>
+          <h3>Not sure where to start?</h3>
+          <p>Just get in touch and tell us what's happening. We'll point you in the right direction — no obligation, no jargon.</p>
+          <ul class="service-list">
+            <li>Free initial chat</li>
+            <li>Three local offices</li>
+            <li>We'll come to you if needed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEW PREVIEW ON HOME -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-eyebrow">What our clients say</div>
+      <h2>Trusted by South Yorkshire families &amp; businesses.</h2>
+      <p class="section-lead">Real reviews from real people we've helped. Read more on Google, or head to our reviews page.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Brilliant from start to finish. We used Howard &amp; Co for our house purchase and the whole process was stress-free. Always available to answer questions and kept us updated throughout."</p>
+          <div class="review-author">S. Hartley, Barnsley</div>
+          <div class="review-service">Residential Conveyancing</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Went through a difficult divorce and Howard &amp; Co were absolutely incredible. Compassionate, clear and always on my side. Would recommend them to anyone in a difficult family situation."</p>
+          <div class="review-author">K. Marsden, Penistone</div>
+          <div class="review-service">Family Law — Divorce</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Really professional and approachable. Sorted our wills and LPAs in a really straightforward way — explained everything clearly without any of the legal jargon. Very pleased."</p>
+          <div class="review-author">Mr &amp; Mrs Thompson, Barnsley</div>
+          <div class="review-service">Wills &amp; Lasting Powers of Attorney</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<!-- ═══════════════ SERVICES PAGE ═══════════════ -->
+<div id="page-services" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Our services</div>
+      <h2>Legal help across all areas of life.</h2>
+      <p class="section-lead">We handle the full range of personal and business legal matters — all from three local offices in South Yorkshire. Whatever you're dealing with, we've probably helped someone through the same thing.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🏠</span>
+          <h3>Residential Conveyancing</h3>
+          <p>Buying or selling a home is one of the biggest things you'll ever do. We protect your interests and keep things moving from offer to completion.</p>
+          <ul class="service-list">
+            <li>Buying &amp; selling property</li>
+            <li>Remortgaging</li>
+            <li>Equity transfer</li>
+            <li>Transfer of ownership</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏢</span>
+          <h3>Commercial Property</h3>
+          <p>Practical advice on buying, selling or leasing business premises — keeping your commercial deals moving without unnecessary delays.</p>
+          <ul class="service-list">
+            <li>Commercial purchase &amp; sale</li>
+            <li>Commercial leases</li>
+            <li>Business property transactions</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🔑</span>
+          <h3>Landlord &amp; Tenant</h3>
+          <p>Whether you're a landlord or a tenant, we provide clear, practical guidance on your rights and obligations.</p>
+          <ul class="service-list">
+            <li>Tenancy agreements</li>
+            <li>Lease renewals</li>
+            <li>Landlord &amp; tenant disputes</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💍</span>
+          <h3>Divorce &amp; Separation</h3>
+          <p>We guide you through every stage of separation with compassion and clarity — protecting your interests without making a hard situation harder.</p>
+          <ul class="service-list">
+            <li>Divorce proceedings</li>
+            <li>Financial settlements</li>
+            <li>Mediation support</li>
+            <li>Prenuptial &amp; cohabitation agreements</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">👶</span>
+          <h3>Children &amp; Family</h3>
+          <p>Child arrangements, custody, parental responsibility — we put children's best interests at the heart of everything we do.</p>
+          <ul class="service-list">
+            <li>Child arrangements &amp; custody</li>
+            <li>Parental responsibility</li>
+            <li>Financial provision &amp; maintenance</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🆘</span>
+          <h3>Social Services — 24hr Line</h3>
+          <p>If social services become involved with your family, specialist legal support is critical. Call our 24-hour emergency line any time — day or night.</p>
+          <ul class="service-list">
+            <li>Social care advice</li>
+            <li>Care proceedings &amp; court hearings</li>
+            <li>Advice for relatives &amp; grandparents</li>
+            <li>Emergency protection orders</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📜</span>
+          <h3>Wills &amp; Estate Planning</h3>
+          <p>Making sure your wishes are carried out — from writing a will to setting up a Lasting Power of Attorney before you need one.</p>
+          <ul class="service-list">
+            <li>Wills</li>
+            <li>Lasting Powers of Attorney</li>
+            <li>Trusts &amp; asset protection</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏛️</span>
+          <h3>Probate &amp; Estate Administration</h3>
+          <p>Handling a loved one's estate is emotional at the best of times. We take care of the legal side with compassion and efficiency.</p>
+          <ul class="service-list">
+            <li>Applying for probate</li>
+            <li>Estate administration</li>
+            <li>Disputes over estates</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">⚡</span>
+          <h3>Accidents &amp; Personal Injury</h3>
+          <p>If you've been injured through no fault of your own, many claims can be pursued on a no win, no fee basis — so there's no financial risk to you.</p>
+          <ul class="service-list">
+            <li>Road traffic accidents</li>
+            <li>Workplace injuries</li>
+            <li>Slips, trips &amp; falls</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💼</span>
+          <h3>Employment Disputes</h3>
+          <p>Whether you're an employee or employer, we provide straightforward advice on workplace disputes and how to resolve them sensibly.</p>
+          <ul class="service-list">
+            <li>Unfair dismissal</li>
+            <li>Redundancy</li>
+            <li>Discrimination claims</li>
+            <li>Settlement agreements</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🤝</span>
+          <h3>Dispute Resolution</h3>
+          <p>Civil and contractual disputes are expensive and stressful. We focus on resolving matters quickly and fairly while protecting your interests throughout.</p>
+          <ul class="service-list">
+            <li>Breach of contract</li>
+            <li>Consumer rights disputes</li>
+            <li>Debt recovery</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('contact')">
+          <span class="service-icon">💬</span>
+          <h3>Not sure? Just ask.</h3>
+          <p>Tell us what's happening and we'll advise on the best way forward. No obligation, no charge for an initial conversation.</p>
+          <ul class="service-list">
+            <li>Three offices in South Yorkshire</li>
+            <li>We'll come to you if you can't travel</li>
+            <li>Mon–Fri 9am–5pm</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /services -->
+
+<!-- ═══════════════ ABOUT PAGE ═══════════════ -->
+<div id="page-about" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-content">
+          <div class="section-eyebrow">About Howard &amp; Co</div>
+          <h2>Nearly 50 years of being on your side.</h2>
+          <p>Howard &amp; Co Solicitors LLP was established in 1976 — and in those nearly five decades, we've helped thousands of families, individuals and businesses across Barnsley, Penistone and South Yorkshire navigate their most important legal moments.</p>
+          <p>We don't do big city attitudes or impersonal service. You'll deal with the same people throughout, you'll always know what's happening, and we'll always tell you the truth — even if it's not what you want to hear.</p>
+          <p>If you're unable to come to one of our offices, we're happy to come to you. That's the kind of firm we are.</p>
+          <div class="about-values">
+            <div class="about-value">
+              <div class="about-value-title">Plain English</div>
+              <p>We explain things clearly — no jargon, no waffle, no confusion.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-title">Personal</div>
+              <p>You deal with the same person throughout — not a different voice every time.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-title">Local knowledge</div>
+              <p>We've been part of this community for nearly 50 years. We understand the area.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-title">Honest advice</div>
+              <p>We'll tell you where you stand — and if there's a better option, we'll say so.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-office-block">
+            <h3>Three offices across South Yorkshire</h3>
+            <div class="office-entry">
+              <div class="office-name">Victoria Road, Barnsley</div>
+              <div class="office-detail">4 Victoria Road · S70 2BB<br>
+                <a href="tel:01226215215">01226 215 215</a> · Mon–Fri 9–5</div>
+            </div>
+            <div class="office-entry">
+              <div class="office-name">Regent Street, Barnsley</div>
+              <div class="office-detail">5–7 Regent Street · S70 2EG<br>
+                <a href="tel:01226211888">01226 211 888</a> · Mon–Fri 9–5</div>
+            </div>
+            <div class="office-entry">
+              <div class="office-name">Penistone</div>
+              <div class="office-detail">10A Market Street · S36 6BZ<br>
+                <a href="tel:01226762261">01226 762 261</a> · Mon–Fri 9–5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-eyebrow">Our people</div>
+      <h2>The team behind Howard &amp; Co.</h2>
+      <p class="team-intro">Our solicitors are experienced, accredited specialists — and approachable people who genuinely care about getting the right outcome for you.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">J</div>
+          <div class="team-name">Partner</div>
+          <div class="team-role">Land &amp; Property</div>
+          <div class="team-bio">Specialist in residential and commercial conveyancing. Over 20 years helping South Yorkshire buyers and sellers complete with confidence.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">S</div>
+          <div class="team-name">Senior Solicitor</div>
+          <div class="team-role">Family Law</div>
+          <div class="team-bio">Accredited family lawyer with expertise in divorce, children proceedings and financial provision. Compassionate and direct.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">M</div>
+          <div class="team-name">Solicitor</div>
+          <div class="team-role">Social Services</div>
+          <div class="team-bio">Children Law Accredited. Specialist in care proceedings, social services cases and emergency court hearings across South Yorkshire.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">R</div>
+          <div class="team-name">Solicitor</div>
+          <div class="team-role">Wills &amp; Probate</div>
+          <div class="team-bio">Handles wills, LPAs, probate and trusts with care and patience. Particularly experienced in complex estate administration.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCREDITATIONS -->
+  <div class="sra-strip">
+    <div class="sra-strip-inner">
+      <div class="sra-badges">
+        <div class="sra-badge">⚖️ SRA Authorised &amp; Regulated</div>
+        <div class="sra-badge">🏅 Conveyancing Quality Scheme</div>
+        <div class="sra-badge">👨‍👩‍👧 Children Law Accredited</div>
+        <div class="sra-badge">SRA No. 8000040</div>
+      </div>
+      <div class="sra-text">Howard &amp; Co Solicitors LLP is authorised and regulated by the Solicitors Regulation Authority (SRA No. 8000040).</div>
+    </div>
+  </div>
+</div><!-- /about -->
+
+<!-- ═══════════════ REVIEWS PAGE ═══════════════ -->
+<div id="page-reviews" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Client reviews</div>
+      <h2>What our clients say about us.</h2>
+      <p class="section-lead">We've been trusted by South Yorkshire families and businesses for nearly 50 years. Here's what some of them had to say.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Howard &amp; Co handled the sale of our family home with complete professionalism. They kept us informed at every stage and the whole thing went through really smoothly. Couldn't have asked for more."</p>
+          <div class="review-author">J. Carter, Barnsley</div>
+          <div class="review-service">Residential Conveyancing</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Went through a difficult divorce and Howard &amp; Co were absolutely incredible. Compassionate, clear and always on my side. Would recommend to anyone in a difficult family situation."</p>
+          <div class="review-author">K. Marsden, Penistone</div>
+          <div class="review-service">Family Law — Divorce</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Sorted our wills and LPAs in a really straightforward way. Explained everything clearly without any legal jargon. Very pleased and would definitely use them again."</p>
+          <div class="review-author">Mr &amp; Mrs Thompson, Barnsley</div>
+          <div class="review-service">Wills &amp; Lasting Powers of Attorney</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"When social services became involved with our family, I didn't know what to do. Howard &amp; Co answered on their emergency line at 10pm and had someone with me in court the next morning. Absolutely outstanding."</p>
+          <div class="review-author">Anonymous, Barnsley</div>
+          <div class="review-service">Social Services — Emergency</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"After a car accident that wasn't my fault, I wasn't sure if I had a claim. Howard &amp; Co took it on no win no fee and got me a result I was really happy with. Brilliant service from start to finish."</p>
+          <div class="review-author">T. Briggs, Rotherham</div>
+          <div class="review-service">Personal Injury — Road Traffic Accident</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Used Howard &amp; Co for a commercial property purchase. Really impressed with the speed and how clearly everything was explained. Will definitely be using them again for our next acquisition."</p>
+          <div class="review-author">M. Patel, Sheffield</div>
+          <div class="review-service">Commercial Property</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /reviews -->
+
+<!-- ═══════════════ OFFICES PAGE ═══════════════ -->
+<div id="page-offices" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Find us</div>
+      <h2>Three offices across South Yorkshire.</h2>
+      <p class="section-lead">All offices are open Monday to Friday, 9am to 5pm. If you can't come to us, we're happy to come to you — just let us know when you get in touch.</p>
+      <div class="offices-grid">
+        <div class="office-card">
+          <div class="office-card-header">
+            <div class="office-card-name">Victoria Road, Barnsley</div>
+            <div class="office-card-location">Main Office</div>
+          </div>
+          <div class="office-card-body">
+            <div class="office-info-row"><span class="icon">📍</span><span>4 Victoria Road<br>Barnsley, S70 2BB</span></div>
+            <div class="office-info-row"><span class="icon">📞</span><a href="tel:01226215215">01226 215 215</a></div>
+            <div class="office-info-row"><span class="icon">✉</span><a href="mailto:law@howardandco.co.uk">law@howardandco.co.uk</a></div>
+            <div class="office-info-row"><span class="icon">🕐</span><span>Mon–Fri · 9:00am – 5:00pm</span></div>
+          </div>
+          <a href="https://maps.app.goo.gl/UxsFJ4ej5mHcDPsY9" target="_blank" class="office-card-cta">Open in Google Maps →</a>
+        </div>
+        <div class="office-card">
+          <div class="office-card-header">
+            <div class="office-card-name">Regent Street, Barnsley</div>
+            <div class="office-card-location">Town Centre Office</div>
+          </div>
+          <div class="office-card-body">
+            <div class="office-info-row"><span class="icon">📍</span><span>5–7 Regent Street<br>Barnsley, S70 2EG</span></div>
+            <div class="office-info-row"><span class="icon">📞</span><a href="tel:01226211888">01226 211 888</a></div>
+            <div class="office-info-row"><span class="icon">✉</span><a href="mailto:law@howardandco.co.uk">law@howardandco.co.uk</a></div>
+            <div class="office-info-row"><span class="icon">🕐</span><span>Mon–Fri · 9:00am – 5:00pm</span></div>
+          </div>
+          <a href="https://maps.app.goo.gl/wfN1LjzUxfqoMaAx6" target="_blank" class="office-card-cta">Open in Google Maps →</a>
+        </div>
+        <div class="office-card">
+          <div class="office-card-header">
+            <div class="office-card-name">Penistone Office</div>
+            <div class="office-card-location">Penistone, Sheffield S36</div>
+          </div>
+          <div class="office-card-body">
+            <div class="office-info-row"><span class="icon">📍</span><span>10A Market Street<br>Penistone, Sheffield S36 6BZ</span></div>
+            <div class="office-info-row"><span class="icon">📞</span><a href="tel:01226762261">01226 762 261</a></div>
+            <div class="office-info-row"><span class="icon">✉</span><a href="mailto:law@howardandco.co.uk">law@howardandco.co.uk</a></div>
+            <div class="office-info-row"><span class="icon">🕐</span><span>Mon–Fri · 9:00am – 5:00pm</span></div>
+          </div>
+          <a href="https://maps.app.goo.gl/UxsFJ4ej5mHcDPsY9" target="_blank" class="office-card-cta">Open in Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY SECTION -->
+  <section class="section section-dark">
+    <div class="section-inner" style="text-align:center; max-width:600px; margin:0 auto;">
+      <div class="section-eyebrow">24-hour emergency line</div>
+      <h2>Social services emergency?<br>Call us now — day or night.</h2>
+      <p style="font-family:'Arial',sans-serif; font-size:15px; color:rgba(255,255,255,0.65); line-height:1.7; margin-bottom:32px;">If social services have become involved with your family outside of office hours, you need specialist legal advice immediately. Our 24-hour emergency line is staffed by solicitors who handle these cases every day.</p>
+      <a href="tel:07876220431" style="display:inline-block; background:#dc2626; color:#fff; font-family:'Arial',sans-serif; font-size:1.3rem; font-weight:700; padding:18px 40px; border-radius:4px; text-decoration:none; letter-spacing:0.04em;">📞 07876 220431</a>
+      <p style="font-family:'Arial',sans-serif; font-size:13px; color:rgba(255,255,255,0.4); margin-top:16px;">Available 24 hours a day · 7 days a week</p>
+    </div>
+  </section>
+</div><!-- /offices -->
+
+<!-- ═══════════════ CONTACT PAGE ═══════════════ -->
+<div id="page-contact" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-eyebrow">Get in touch</div>
+          <h2>You can talk to us.</h2>
+          <p>However you prefer to make contact — phone, email or just walking into one of our offices — we'll always find time to listen. No obligation, no rushing you through.</p>
+
+          <div class="emergency-box">
+            <div class="emergency-box-title">⚠️ 24hr Social Services Emergency Line</div>
+            <div class="emergency-box-number">07876 220431</div>
+            <div class="emergency-box-detail">Available day and night — solicitors, not a call centre.</div>
+          </div>
+
+          <ul class="contact-detail-list">
+            <li><span class="icon">📞</span><span>Victoria Road office: <a href="tel:01226215215">01226 215 215</a></span></li>
+            <li><span class="icon">📞</span><span>Regent Street office: <a href="tel:01226211888">01226 211 888</a></span></li>
+            <li><span class="icon">📞</span><span>Penistone office: <a href="tel:01226762261">01226 762 261</a></span></li>
+            <li><span class="icon">✉</span><a href="mailto:law@howardandco.co.uk">law@howardandco.co.uk</a></li>
+            <li><span class="icon">🕐</span><span>Mon–Fri · 9:00am – 5:00pm</span></li>
+            <li><span class="icon">🤝</span><span>If you can't come to us, we can come to you</span></li>
+          </ul>
+        </div>
+
+        <div class="contact-form">
+          <h3 style="font-size:1.1rem; color:var(--navy); margin-bottom:24px; letter-spacing:-0.01em;">Send us a message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First name</label>
+              <input type="text" placeholder="e.g. Sarah">
+            </div>
+            <div class="form-group">
+              <label>Surname</label>
+              <input type="text" placeholder="e.g. Jones">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone number</label>
+              <input type="tel" placeholder="01226 …">
+            </div>
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" placeholder="you@example.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>What do you need help with?</label>
+            <select>
+              <option value="">— Please select —</option>
+              <option>Residential conveyancing (buying or selling)</option>
+              <option>Commercial property</option>
+              <option>Divorce or separation</option>
+              <option>Children &amp; family matters</option>
+              <option>Social services — emergency</option>
+              <option>Wills &amp; Lasting Powers of Attorney</option>
+              <option>Probate &amp; estate administration</option>
+              <option>Personal injury claim</option>
+              <option>Employment dispute</option>
+              <option>Dispute / civil claim</option>
+              <option>Not sure — just want to talk</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell us a bit more</label>
+            <textarea placeholder="A brief description of your situation — there's no need to go into full detail at this stage, just enough so we can point you in the right direction."></textarea>
+          </div>
+          <button class="form-submit">Send message →</button>
+          <p class="form-privacy">We treat all personal data in accordance with our privacy policy. We won't share your details with anyone else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /contact -->
+
+<!-- ── FOOTER (always visible) ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="nav-logo-name">Howard &amp; Co Solicitors LLP</span>
+        <span class="nav-logo-sub">Established 1976 · South Yorkshire</span>
+        <p>Trusted legal advice for families, individuals and businesses across Barnsley, Penistone and South Yorkshire for nearly 50 years.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/howardandcosolicitors" target="_blank" title="Facebook">f</a>
+          <a href="https://www.instagram.com/howardandcosolicitors" target="_blank" title="Instagram">in</a>
+          <a href="https://www.linkedin.com/company/howard-co-solicitors" target="_blank" title="LinkedIn">li</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('services')">Residential Conveyancing</a></li>
+          <li><a href="#" onclick="showPage('services')">Family Law</a></li>
+          <li><a href="#" onclick="showPage('services')">Wills &amp; Probate</a></li>
+          <li><a href="#" onclick="showPage('services')">Social Services</a></li>
+          <li><a href="#" onclick="showPage('services')">Personal Injury</a></li>
+          <li><a href="#" onclick="showPage('services')">Dispute Resolution</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('about')">About us</a></li>
+          <li><a href="#" onclick="showPage('about')">Our people</a></li>
+          <li><a href="#" onclick="showPage('reviews')">Client reviews</a></li>
+          <li><a href="#" onclick="showPage('offices')">Our offices</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:01226215215">01226 215 215</a></li>
+          <li><a href="mailto:law@howardandco.co.uk">law@howardandco.co.uk</a></li>
+          <li><a href="#" onclick="showPage('contact')">Send a message</a></li>
+          <li><a href="tel:07876220431" style="color:#fca5a5;">⚠️ 24hr Emergency</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Howard &amp; Co Solicitors LLP · Authorised and regulated by the SRA (No. 8000040)</div>
+      <div class="trabelo-credit">Website concept built by Trabelo · Sheffield</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + id);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMobile() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+</script>
+</body>
+</html>
