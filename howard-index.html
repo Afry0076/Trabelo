@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabelo — Howard & Co Solicitors</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
+    background: #0f1f3d;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .wordmark {
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c9a84c;
+    margin-bottom: 48px;
+    opacity: 0.85;
+  }
+  .firm {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .location {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+  .tagline {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    max-width: 420px;
+    margin: 0 auto 40px;
+  }
+  .buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: #c9a84c;
+    color: #0f1f3d;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover { background: #e2c47a; }
+  .btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 26px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: #c9a84c; color: #c9a84c; }
+  .credit {
+    position: fixed;
+    bottom: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.18);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="wordmark">Trabelo</div>
+
+  <div class="firm">Howard &amp; Co Solicitors LLP</div>
+  <div class="location">Barnsley &amp; Penistone · South Yorkshire</div>
+  <p class="tagline">A free audit and demo site built specifically for Howard &amp; Co — showing what's holding the current site back, and what it could look like.</p>
+
+  <div class="buttons">
+    <a href="howard-demo_1.html" class="btn-primary">View the new site →</a>
+    <a href="howard-audit_1.html" class="btn-outline">Read the audit</a>
+  </div>
+
+  <div class="credit">Prepared by Trabelo · Sheffield</div>
+
+</body>
+</html>
