@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Liddy's Solicitors — Personal injury, clinical negligence and fixed-fee conveyancing specialists in Wakefield and Barnsley, Yorkshire.">
+<title>Liddy's Solicitors | Personal Injury, Clinical Negligence & Conveyancing — Wakefield & Barnsley</title>
+<style>
+  :root {
+    --dark: #0a1628;
+    --dark-mid: #112035;
+    --dark-light: #1a3050;
+    --red: #c0392b;
+    --red-light: #e74c3c;
+    --red-pale: #fdf2f1;
+    --cream: #f9f8f6;
+    --white: #ffffff;
+    --slate: #64748b;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e0d8;
+    --section-pad: 72px 20px;
+    --radius: 4px;
+    --shadow: 0 4px 24px rgba(10,22,40,0.12);
+    --shadow-lg: 0 8px 48px rgba(10,22,40,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--dark);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    padding: 9px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topbar a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .topbar a:hover { color: #e74c3c; }
+  .topbar-left, .topbar-right { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .topbar-rating {
+    background: rgba(192,57,43,0.2);
+    color: #f87171;
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* ── STICKY NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(10,22,40,0.08);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px; gap: 16px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; flex-shrink: 0;
+  }
+  .nav-logo-mark {
+    width: 42px; height: 42px;
+    background: var(--red);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-family: 'Georgia', serif;
+    font-size: 16px; font-weight: bold;
+  }
+  .nav-logo-name {
+    font-family: 'Georgia', serif;
+    font-size: 17px; font-weight: bold;
+    color: var(--dark); letter-spacing: -0.3px;
+    display: block;
+  }
+  .nav-logo-sub {
+    font-size: 11px; color: var(--slate);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    display: block;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+  .nav-links li a {
+    font-size: 13.5px; color: var(--dark);
+    text-decoration: none; padding: 6px 12px;
+    border-radius: var(--radius);
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links li a:hover { color: var(--red); background: rgba(192,57,43,0.07); }
+  .nav-cta {
+    background: var(--red) !important;
+    color: var(--white) !important;
+    font-weight: 700;
+    padding: 8px 18px !important;
+    border-radius: var(--radius);
+  }
+  .nav-cta:hover { background: var(--red-light) !important; }
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px; background: none; border: none;
+  }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+  .mobile-menu { display: none; background: var(--white); border-top: 1px solid var(--border); padding: 12px 20px 20px; }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block; font-size: 15px; color: var(--dark);
+    text-decoration: none; padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-cta-btn {
+    display: block; margin-top: 14px;
+    background: var(--red); color: var(--white) !important;
+    font-weight: 700; text-align: center; padding: 12px;
+    border-radius: var(--radius); font-size: 15px; border-bottom: none !important;
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--dark);
+    padding: 64px 20px 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(192,57,43,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 300px;
+    gap: 48px; align-items: start;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--red-light);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: bold; color: var(--white);
+    line-height: 1.2; margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: normal; color: var(--red-light); }
+  .hero-sub {
+    font-size: 16px; color: rgba(255,255,255,0.68);
+    line-height: 1.7; max-width: 560px; margin-bottom: 32px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    background: var(--red); color: var(--white);
+    font-size: 14px; font-weight: 700;
+    padding: 13px 26px; border: none; border-radius: var(--radius);
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--red-light); }
+  .btn-outline {
+    background: transparent; color: rgba(255,255,255,0.82);
+    font-size: 14px; font-weight: 600;
+    padding: 12px 24px; border: 1px solid rgba(255,255,255,0.28);
+    border-radius: var(--radius); cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--red-light); color: var(--red-light); }
+  .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-stat-num {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem; font-weight: bold;
+    color: var(--red-light); line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 12px; color: rgba(255,255,255,0.45);
+    margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  /* Hero card */
+  .hero-card {
+    background: var(--white); border-radius: 6px;
+    padding: 28px; box-shadow: var(--shadow-lg); flex-shrink: 0;
+  }
+  .hero-card-title {
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--slate); margin-bottom: 16px;
+  }
+  .hero-card-name {
+    font-family: 'Georgia', serif;
+    font-size: 1.15rem; font-weight: bold;
+    color: var(--dark); margin-bottom: 6px;
+  }
+  .hero-card-sub { font-size: 13px; color: var(--muted); margin-bottom: 18px; line-height: 1.5; }
+  .hero-card-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .hero-card-row { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+  .hero-card-item {
+    display: flex; align-items: flex-start; gap: 9px;
+    font-size: 13px; color: var(--text);
+  }
+  .hero-card-item .icon { color: var(--red); flex-shrink: 0; margin-top: 1px; }
+  .hero-card-phone {
+    display: block; background: var(--red); color: var(--white);
+    text-decoration: none; text-align: center; padding: 11px;
+    border-radius: var(--radius); font-size: 14px; font-weight: 700;
+    margin-bottom: 8px; transition: background 0.2s;
+  }
+  .hero-card-phone:hover { background: var(--red-light); }
+  .hero-card-phone-2 {
+    display: block; background: var(--dark); color: var(--white);
+    text-decoration: none; text-align: center; padding: 11px;
+    border-radius: var(--radius); font-size: 14px; font-weight: 700;
+    margin-bottom: 8px; transition: background 0.2s;
+  }
+  .hero-card-phone-2:hover { background: var(--dark-light); }
+  .hero-card-rating {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--slate);
+  }
+  .stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: var(--dark-mid); padding: 18px 20px;
+    border-top: 1px solid rgba(192,57,43,0.25);
+    border-bottom: 1px solid rgba(192,57,43,0.25);
+  }
+  .trust-strip-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    gap: 28px; flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: rgba(255,255,255,0.68);
+  }
+  .trust-item .icon { color: var(--red-light); font-size: 15px; }
+  .trust-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+
+  /* ── SECTIONS ── */
+  .section { padding: var(--section-pad); }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-alt { background: var(--white); }
+  .section-dark { background: var(--dark); color: var(--white); }
+
+  .section-eyebrow {
+    font-size: 11.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 10px; font-weight: 700;
+  }
+  .section h2 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    color: var(--dark); margin-bottom: 12px;
+    letter-spacing: -0.02em; line-height: 1.25;
+  }
+  .section-dark h2 { color: var(--white); }
+  .section-lead {
+    font-size: 15.5px; color: var(--muted);
+    max-width: 640px; line-height: 1.7; margin-bottom: 48px;
+  }
+  .section-dark .section-lead { color: rgba(255,255,255,0.58); }
+
+  /* ── SERVICE CARDS ── */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 6px; padding: 28px;
+    transition: box-shadow 0.2s, border-color 0.2s; cursor: pointer;
+  }
+  .service-card:hover { box-shadow: var(--shadow); border-color: var(--red); }
+  .service-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .service-card h3 { font-family: 'Georgia', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 10px; }
+  .service-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+  .service-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .service-list li {
+    font-size: 12.5px; color: var(--dark);
+    padding-left: 14px; position: relative;
+  }
+  .service-list li::before { content: '—'; position: absolute; left: 0; color: var(--red); font-size: 11px; }
+
+  /* ── CLAIM STEPS ── */
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+    gap: 24px;
+  }
+  .step-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px; padding: 24px;
+  }
+  .step-num {
+    font-family: 'Georgia', serif;
+    font-size: 2rem; font-weight: bold;
+    color: var(--red-light); line-height: 1; margin-bottom: 12px;
+  }
+  .step-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .step-desc { font-size: 13.5px; color: rgba(255,255,255,0.58); line-height: 1.6; }
+
+  /* ── REVIEWS ── */
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr)); gap: 24px; }
+  .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 26px; }
+  .review-stars { color: #f59e0b; font-size: 15px; margin-bottom: 12px; letter-spacing: 2px; }
+  .review-text { font-size: 14.5px; color: var(--text); line-height: 1.7; margin-bottom: 14px; font-style: italic; }
+  .review-author { font-size: 12.5px; color: var(--slate); }
+  .review-service { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--red); margin-top: 4px; }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-content h2 { color: var(--dark); }
+  .about-content p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .about-stat {
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 4px; padding: 16px; text-align: center;
+  }
+  .about-stat-num { font-family: 'Georgia', serif; font-size: 1.8rem; font-weight: bold; color: var(--red); line-height: 1; }
+  .about-stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .about-offices {
+    background: var(--dark); border-radius: 8px; padding: 30px;
+  }
+  .about-offices h3 { font-family: 'Georgia', serif; font-size: 1.05rem; color: var(--red-light); margin-bottom: 20px; }
+  .office-block { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .office-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .office-name { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .office-detail { font-size: 12.5px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .office-detail a { color: var(--red-light); text-decoration: none; }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
+  .contact-info p { font-size: 14.5px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+  .contact-detail-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+  .contact-detail-list li { display: flex; align-items: flex-start; gap: 11px; font-size: 14px; color: var(--text); line-height: 1.5; }
+  .contact-detail-list li .icon { color: var(--red); flex-shrink: 0; font-size: 15px; margin-top: 2px; }
+  .contact-detail-list li a { color: var(--dark); text-decoration: none; }
+  .contact-detail-list li a:hover { color: var(--red); }
+  .nwnf-box {
+    background: var(--dark); border-radius: var(--radius);
+    padding: 18px 20px; margin-bottom: 20px;
+  }
+  .nwnf-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red-light); margin-bottom: 6px; }
+  .nwnf-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.55; }
+
+  /* form */
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 11px 14px; font-size: 14px; color: var(--text);
+    background: var(--white); outline: none; transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--red); box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    background: var(--red); color: var(--white); width: 100%;
+    font-size: 14px; font-weight: 700; padding: 13px;
+    border: none; border-radius: var(--radius); cursor: pointer;
+    transition: background 0.2s; letter-spacing: 0.03em;
+  }
+  .form-submit:hover { background: var(--red-light); }
+  .form-privacy { font-size: 11.5px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+  /* ── FOOTER ── */
+  .footer { background: #060e1c; padding: 52px 20px 28px; color: rgba(255,255,255,0.55); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
+  .footer-brand p { font-size: 13px; line-height: 1.65; margin-bottom: 16px; }
+  .footer-brand-name { font-family: 'Georgia', serif; font-size: 17px; font-weight: bold; color: var(--white); display: block; margin-bottom: 4px; }
+  .footer-brand-sub { font-size: 11px; color: rgba(255,255,255,0.3); display: block; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+  .footer-col h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red-light); margin-bottom: 14px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--red-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07); padding-top: 22px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; font-size: 12px; color: rgba(255,255,255,0.25);
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; }
+  .trabelo-credit { color: rgba(255,255,255,0.18); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    :root { --section-pad: 52px 16px; }
+    .footer-top { grid-template-columns: 1fr; }
+    .trust-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="tel:01924780753">📞 01924 780 753 (Wakefield)</a>
+    <a href="tel:01226731314">📞 01226 731 314 (Barnsley)</a>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-rating">⭐ 5 Stars · 99% recommend us</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#" onclick="showPage('home')">
+      <div class="nav-logo-mark">L</div>
+      <div>
+        <span class="nav-logo-name">Liddy's Solicitors</span>
+        <span class="nav-logo-sub">Wakefield & Barnsley</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('injury')">Personal Injury</a></li>
+      <li><a href="#" onclick="showPage('negligence')">Clinical Negligence</a></li>
+      <li><a href="#" onclick="showPage('conveyancing')">Conveyancing</a></li>
+      <li><a href="#" onclick="showPage('about')">About</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta">Free consultation →</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showPage('home');closeMobile()">Home</a>
+    <a href="#" onclick="showPage('injury');closeMobile()">Personal Injury</a>
+    <a href="#" onclick="showPage('negligence');closeMobile()">Clinical Negligence</a>
+    <a href="#" onclick="showPage('conveyancing');closeMobile()">Conveyancing</a>
+    <a href="#" onclick="showPage('about');closeMobile()">About</a>
+    <a href="#" onclick="showPage('contact');closeMobile()" class="mobile-cta-btn">Free consultation →</a>
+  </div>
+</nav>
+
+<!-- ═══ HOME ═══ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">Established 2001 · Wakefield & Barnsley · Yorkshire</div>
+        <h1>No win, no fee.<br><em>No risk to you.</em></h1>
+        <p class="hero-sub">Liddy's Solicitors specialise in personal injury, clinical negligence and fixed-fee conveyancing across Yorkshire. Independently rated 5 stars, with 99% of clients saying they'd recommend us.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Start your free claim →</a>
+          <a href="#" class="btn-outline" onclick="showPage('injury')">Our services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">No win, no fee</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">5★</div>
+            <div class="hero-stat-label">Independent rating</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">99%</div>
+            <div class="hero-stat-label">Would recommend</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">2001</div>
+            <div class="hero-stat-label">Established</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR CARD -->
+      <div class="hero-card">
+        <div class="hero-card-title">Start your free consultation</div>
+        <div class="hero-card-name">Liddy's Solicitors</div>
+        <div class="hero-card-sub">No win, no fee personal injury & clinical negligence. Fixed-fee conveyancing across England & Wales.</div>
+        <hr class="hero-card-divider">
+        <div class="hero-card-row">
+          <div class="hero-card-item"><span class="icon">📍</span><span>Offices in Wakefield &amp; Barnsley</span></div>
+          <div class="hero-card-item"><span class="icon">🕐</span><span>Mon–Fri 9:00am – 5:00pm</span></div>
+          <div class="hero-card-item"><span class="icon">⭐</span><span>5 Stars · 99% recommend us</span></div>
+        </div>
+        <a href="tel:01924780753" class="hero-card-phone">📞 01924 780 753 — Wakefield</a>
+        <a href="tel:01226731314" class="hero-card-phone-2">📞 01226 731 314 — Barnsley</a>
+        <div class="hero-card-rating">
+          <span class="stars">★★★★★</span>
+          <span>Independently rated 5 stars</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-strip-inner">
+      <div class="trust-item"><span class="icon">✅</span> 100% No Win, No Fee</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">⭐</span> Independently rated 5 Stars</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">💬</span> 99% would recommend us</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">📍</span> Wakefield & Barnsley offices</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="icon">🏠</span> Fixed-fee conveyancing</div>
+    </div>
+  </div>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">What we do</div>
+      <h2>Specialist legal help — no jargon, no upfront cost.</h2>
+      <p class="section-lead">Three focused areas of law, done properly. If you've been hurt, treated badly, or you're moving home — we're the right firm for you.</p>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('injury')">
+          <span class="service-icon">⚡</span>
+          <h3>Personal Injury — No Win, No Fee</h3>
+          <p>If you've been injured through no fault of your own, you're likely entitled to compensation. We take all the financial risk — you pay nothing if we don't win.</p>
+          <ul class="service-list">
+            <li>Road traffic accidents</li>
+            <li>Workplace injuries</li>
+            <li>Slips, trips &amp; falls in public</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('negligence')">
+          <span class="service-icon">🏥</span>
+          <h3>Clinical Negligence</h3>
+          <p>Injured due to a medical error? We specialise in clinical negligence claims — from misdiagnosis to surgical errors — and handle them with the care they deserve.</p>
+          <ul class="service-list">
+            <li>Hospital &amp; GP negligence</li>
+            <li>Misdiagnosis &amp; delayed treatment</li>
+            <li>Surgical &amp; medication errors</li>
+          </ul>
+        </div>
+        <div class="service-card" onclick="showPage('conveyancing')">
+          <span class="service-icon">🏠</span>
+          <h3>Fixed-Fee Conveyancing</h3>
+          <p>Moving home is stressful enough. We handle all the legal work for a guaranteed fixed fee — no hidden costs, no surprises at completion.</p>
+          <ul class="service-list">
+            <li>Buying &amp; selling property</li>
+            <li>Remortgaging</li>
+            <li>Transfers of ownership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS PREVIEW -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-eyebrow">What our clients say</div>
+      <h2>99% of clients would recommend us.</h2>
+      <p class="section-lead">Independently rated 5 stars. Here's what some of the people we've helped had to say.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"After my accident I didn't know where to turn. Liddy's were brilliant from the very first call — kept me informed throughout and got me a result I was really happy with. Completely no win, no fee as promised."</p>
+          <div class="review-author">M. Cartwright, Wakefield</div>
+          <div class="review-service">Personal Injury</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"My clinical negligence case was complex and emotional but Liddy's handled it with real care. They were always available, always clear, and the outcome was far better than I expected."</p>
+          <div class="review-author">S. Fielding, Barnsley</div>
+          <div class="review-service">Clinical Negligence</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Used Liddy's for our house purchase — fixed fee, no surprises, completed on time. Really professional and easy to deal with throughout. Would use them again without hesitation."</p>
+          <div class="review-author">T. &amp; J. Morley, Leeds</div>
+          <div class="review-service">Fixed-Fee Conveyancing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ PERSONAL INJURY ═══ -->
+<div id="page-injury" class="page">
+  <section class="hero" style="padding:52px 20px 60px;">
+    <div class="hero-inner" style="grid-template-columns:1fr;">
+      <div>
+        <div class="hero-eyebrow">Personal Injury</div>
+        <h1>Hurt in an accident that wasn't your fault?<br><em>You could be owed compensation.</em></h1>
+        <p class="hero-sub">We handle personal injury claims on a 100% no win, no fee basis — meaning there is absolutely no financial risk to you. If we don't win, you don't pay.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Start your free claim →</a>
+          <a href="tel:01924780753" class="btn-outline">📞 Call us now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="section-eyebrow">How it works</div>
+      <h2>Simple. Straightforward. No risk to you.</h2>
+      <p class="section-lead">Making a claim with Liddy's is as simple as a phone call. Here's what happens next.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-title">Free consultation</div>
+          <div class="step-desc">Call us or fill in the form. We'll talk through what happened, assess your claim and tell you honestly whether you have a case — no charge, no obligation.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-title">We take it on</div>
+          <div class="step-desc">If we take your case, we do it on a no win, no fee basis. You sign an agreement and we get to work — collecting evidence, dealing with insurers and building your claim.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-title">We negotiate</div>
+          <div class="step-desc">We handle all negotiations with the other party's insurers. Most cases settle out of court — we fight to get you the best possible outcome.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-title">You receive compensation</div>
+          <div class="step-desc">Once settled, you receive your compensation. Our fee comes from the other side — you keep everything we win for you.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Types of claim</div>
+      <h2>What kind of accident can you claim for?</h2>
+      <p class="section-lead">If the accident wasn't your fault and you were injured, there's a good chance you have a claim. Here are some of the most common types we handle.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🚗</span>
+          <h3>Road Traffic Accidents</h3>
+          <p>Hit by another driver, a cyclist, or injured as a passenger? Road traffic accidents are one of the most common personal injury claims — and one of the most straightforward to pursue.</p>
+          <ul class="service-list"><li>Car accidents</li><li>Motorcycle injuries</li><li>Cyclist &amp; pedestrian claims</li></ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏭</span>
+          <h3>Workplace Injuries</h3>
+          <p>Your employer has a legal duty to keep you safe at work. If they've failed in that duty and you've been hurt, you're entitled to claim — and you can't be dismissed for doing so.</p>
+          <ul class="service-list"><li>Slips &amp; falls at work</li><li>Manual handling injuries</li><li>Machinery &amp; equipment accidents</li></ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🚶</span>
+          <h3>Public Place Accidents</h3>
+          <p>Slipped on a wet floor in a shop? Tripped on a broken pavement? If a business or council failed to maintain a safe environment, you have a right to claim.</p>
+          <ul class="service-list"><li>Slips &amp; trips in shops</li><li>Pavement &amp; pothole injuries</li><li>Accidents in public buildings</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ CLINICAL NEGLIGENCE ═══ -->
+<div id="page-negligence" class="page">
+  <section class="hero" style="padding:52px 20px 60px;">
+    <div class="hero-inner" style="grid-template-columns:1fr;">
+      <div>
+        <div class="hero-eyebrow">Clinical Negligence</div>
+        <h1>Injured due to a medical error?<br><em>You deserve answers — and compensation.</em></h1>
+        <p class="hero-sub">Clinical negligence cases are complex and emotionally difficult. Our specialist team handles them with expertise and sensitivity — on a no win, no fee basis.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Free no-obligation consultation →</a>
+          <a href="tel:01924780753" class="btn-outline">📞 Call us now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">What counts as clinical negligence</div>
+      <h2>When a medical professional lets you down.</h2>
+      <p class="section-lead">Clinical negligence occurs when a healthcare professional provides treatment that falls below the accepted standard of care, and that failure causes you harm. It's not about bad outcomes — it's about whether the care you received was adequate.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🔬</span>
+          <h3>Misdiagnosis &amp; Delayed Diagnosis</h3>
+          <p>A missed or delayed diagnosis can have serious consequences — especially for conditions like cancer, heart disease or stroke where early treatment is critical.</p>
+          <ul class="service-list"><li>Cancer misdiagnosis</li><li>Delayed diagnosis</li><li>Incorrect diagnosis</li></ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏥</span>
+          <h3>Surgical Errors</h3>
+          <p>Errors during surgery — operating on the wrong site, leaving instruments inside a patient, or causing unnecessary damage — are serious failures that you're entitled to pursue.</p>
+          <ul class="service-list"><li>Wrong-site surgery</li><li>Anaesthesia errors</li><li>Post-operative negligence</li></ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💊</span>
+          <h3>Medication Errors</h3>
+          <p>Being given the wrong medication, the wrong dose, or a drug you're allergic to is a serious failure. If a medication error caused you harm, you have a right to claim.</p>
+          <ul class="service-list"><li>Wrong medication</li><li>Incorrect dosage</li><li>Failure to check allergies</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ CONVEYANCING ═══ -->
+<div id="page-conveyancing" class="page">
+  <section class="hero" style="padding:52px 20px 60px;">
+    <div class="hero-inner" style="grid-template-columns:1fr;">
+      <div>
+        <div class="hero-eyebrow">Fixed-Fee Conveyancing</div>
+        <h1>Moving home?<br><em>We'll handle everything — for a fixed price.</em></h1>
+        <p class="hero-sub">Guaranteed fixed-fee conveyancing across England and Wales. No hidden costs, no surprises. Just clear, expert legal work to keep your move on track.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Get a fixed-fee quote →</a>
+          <a href="tel:01924366896" class="btn-outline">📞 01924 366 896 (conveyancing)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Our conveyancing services</div>
+      <h2>All aspects of property law — at a price you know upfront.</h2>
+      <p class="section-lead">Whether you're buying, selling, remortgaging or transferring ownership, we handle the full legal process for a guaranteed fixed fee. No nasty surprises at completion.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🔑</span>
+          <h3>Buying a Property</h3>
+          <p>We protect your interests from offer accepted to keys in hand — checking title deeds, raising enquiries, handling searches and making sure everything is in order before completion.</p>
+          <ul class="service-list"><li>Freehold &amp; leasehold purchases</li><li>New build conveyancing</li><li>Help to Buy &amp; shared ownership</li></ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏷️</span>
+          <h3>Selling a Property</h3>
+          <p>We prepare your contract pack, deal with the buyer's solicitors and handle everything up to completion — quickly, clearly, and for a fee you know from day one.</p>
+          <ul class="service-list"><li>Freehold &amp; leasehold sales</li><li>Sale &amp; purchase combined</li><li>Vacant possession handling</li></ul>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📋</span>
+          <h3>Remortgaging &amp; Transfers</h3>
+          <p>Switching lender or transferring ownership to a partner or family member? We make it straightforward — at a competitive fixed fee that covers everything.</p>
+          <ul class="service-list"><li>Remortgaging</li><li>Transfer of equity</li><li>Adding or removing a name</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div id="page-about" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-content">
+          <div class="section-eyebrow">About Liddy's</div>
+          <h2>Yorkshire solicitors since 2001 — specialists, not generalists.</h2>
+          <p>Liddy's Solicitors was established in 2001 in Wakefield, with our Barnsley office opening around ten years later. We've always done things a bit differently — focusing on three areas of law rather than trying to do everything, and doing them really well.</p>
+          <p>We're independently rated 5 stars, with 99% of our clients saying they'd recommend us. We think that comes from being honest, keeping things simple, and genuinely caring about the outcome for each person we represent.</p>
+          <p>Personal injury and clinical negligence claims are always taken on a 100% no win, no fee basis — meaning there is no financial risk to you at any point in the process. Conveyancing is handled for a guaranteed fixed fee, with no hidden extras at completion.</p>
+          <div class="about-stats">
+            <div class="about-stat"><div class="about-stat-num">5★</div><div class="about-stat-label">Independent rating</div></div>
+            <div class="about-stat"><div class="about-stat-num">99%</div><div class="about-stat-label">Would recommend</div></div>
+            <div class="about-stat"><div class="about-stat-num">2001</div><div class="about-stat-label">Established</div></div>
+            <div class="about-stat"><div class="about-stat-num">2</div><div class="about-stat-label">Yorkshire offices</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="about-offices">
+            <h3>Two Yorkshire offices</h3>
+            <div class="office-block">
+              <div class="office-name">Wakefield Office</div>
+              <div class="office-detail">
+                Personal injury &amp; clinical negligence: <a href="tel:01924780753">01924 780 753</a><br>
+                Conveyancing: <a href="tel:01924366896">01924 366 896</a><br>
+                Mon–Fri · 9:00am – 5:00pm
+              </div>
+            </div>
+            <div class="office-block">
+              <div class="office-name">Barnsley Office</div>
+              <div class="office-detail">
+                All enquiries: <a href="tel:01226731314">01226 731 314</a><br>
+                Mon–Fri · 9:00am – 5:00pm
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-eyebrow">Client reviews</div>
+      <h2>What our clients say about us.</h2>
+      <p class="section-lead">Independently rated 5 stars. Here's a selection of recent reviews.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"After my accident I didn't know where to turn. Liddy's were brilliant from the very first call — kept me informed throughout and got me a result I was really happy with."</p>
+          <div class="review-author">M. Cartwright, Wakefield</div>
+          <div class="review-service">Personal Injury</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"My clinical negligence case was complex and emotional but Liddy's handled it with real care. They were always available, always clear, and the outcome was better than I expected."</p>
+          <div class="review-author">S. Fielding, Barnsley</div>
+          <div class="review-service">Clinical Negligence</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Used Liddy's for our house purchase — fixed fee, no surprises, completed on time. Really professional and easy to deal with. Would use again without hesitation."</p>
+          <div class="review-author">T. &amp; J. Morley, Leeds</div>
+          <div class="review-service">Fixed-Fee Conveyancing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div id="page-contact" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-eyebrow">Get in touch</div>
+          <h2>Free consultation — no obligation.</h2>
+          <p>Whether you've been injured, experienced medical negligence, or you're moving home — just get in touch and we'll tell you where you stand. No charge, no commitment.</p>
+          <div class="nwnf-box">
+            <div class="nwnf-title">✅ No Win, No Fee — Personal Injury & Clinical Negligence</div>
+            <div class="nwnf-text">If we take on your claim, you pay nothing unless we win. If we don't win, you owe us nothing. Zero financial risk.</div>
+          </div>
+          <ul class="contact-detail-list">
+            <li><span class="icon">📞</span><span>Wakefield (injury/negligence): <a href="tel:01924780753">01924 780 753</a></span></li>
+            <li><span class="icon">📞</span><span>Wakefield (conveyancing): <a href="tel:01924366896">01924 366 896</a></span></li>
+            <li><span class="icon">📞</span><span>Barnsley (all): <a href="tel:01226731314">01226 731 314</a></span></li>
+            <li><span class="icon">🕐</span><span>Mon–Fri · 9:00am – 5:00pm</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-family:'Georgia',serif; font-size:1.1rem; color:var(--dark); margin-bottom:22px;">Tell us about your situation</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First name</label><input type="text" placeholder="e.g. Sarah"></div>
+            <div class="form-group"><label>Surname</label><input type="text" placeholder="e.g. Jones"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone number</label><input type="tel" placeholder="01924 …"></div>
+            <div class="form-group"><label>Email address</label><input type="email" placeholder="you@example.com"></div>
+          </div>
+          <div class="form-group">
+            <label>What do you need help with?</label>
+            <select>
+              <option value="">— Please select —</option>
+              <option>Personal injury — road traffic accident</option>
+              <option>Personal injury — workplace accident</option>
+              <option>Personal injury — public place accident</option>
+              <option>Clinical negligence</option>
+              <option>Conveyancing — buying a property</option>
+              <option>Conveyancing — selling a property</option>
+              <option>Conveyancing — remortgage or transfer</option>
+              <option>Not sure — just want to talk</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Brief description</label>
+            <textarea placeholder="A few sentences about what happened or what you need — no need for full detail at this stage."></textarea>
+          </div>
+          <button class="form-submit">Request a callback →</button>
+          <p class="form-privacy">We treat all personal data in accordance with our privacy policy and will never share your details with third parties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Liddy's Solicitors</span>
+        <span class="footer-brand-sub">Established 2001 · Wakefield & Barnsley</span>
+        <p>Personal injury, clinical negligence and fixed-fee conveyancing specialists across Yorkshire. Independently rated 5 stars.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('injury')">Personal Injury</a></li>
+          <li><a href="#" onclick="showPage('negligence')">Clinical Negligence</a></li>
+          <li><a href="#" onclick="showPage('conveyancing')">Fixed-Fee Conveyancing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('about')">About us</a></li>
+          <li><a href="#" onclick="showPage('about')">Client reviews</a></li>
+          <li><a href="#" onclick="showPage('contact')">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:01924780753">01924 780 753 (Wakefield)</a></li>
+          <li><a href="tel:01226731314">01226 731 314 (Barnsley)</a></li>
+          <li><a href="#" onclick="showPage('contact')">Request a callback</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Liddy's Solicitors · Authorised and regulated by the Solicitors Regulation Authority</div>
+      <div class="trabelo-credit">Website concept built by Trabelo · Sheffield</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const t = document.getElementById('page-' + id);
+    if (t) { t.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  }
+  function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+</body>
+</html>
