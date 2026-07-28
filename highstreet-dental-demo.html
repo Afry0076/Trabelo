@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>High Street Dental Care — NHS & Private Dentist Sheffield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --teal: #2a7d7d;
+    --teal-light: #3a9e9e;
+    --gold: #c8a96e;
+    --offwhite: #f7f5f0;
+    --white: #ffffff;
+    --text: #2c2c2c;
+    --text-muted: #6b7280;
+    --border: #e5e0d5;
+    --shadow: 0 4px 24px rgba(26,39,68,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.85);
+    font-size: 0.8rem;
+    padding: 8px 0;
+  }
+  .topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar-items { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+  .topbar-items span { display: flex; align-items: center; gap: 6px; }
+  .topbar-hours { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(26,39,68,0.06);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+  }
+  .logo-text { line-height: 1.15; }
+  .logo-text strong { display: block; font-size: 0.95rem; color: var(--navy); font-family: 'Playfair Display', serif; font-weight: 700; }
+  .logo-text span { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 14px;
+    font-size: 0.875rem;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .nav-links button:hover, .nav-links button.active { color: var(--teal); background: rgba(42,125,125,0.06); }
+
+  .nav-dropdown { position: relative; }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px;
+    min-width: 220px;
+    box-shadow: var(--shadow);
+    z-index: 200;
+  }
+  .nav-dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 9px 14px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+
+  .nav-cta {
+    background: var(--teal) !important;
+    color: white !important;
+    padding: 9px 20px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    margin-left: 8px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-light) !important; color: white !important; }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+
+  .mobile-menu {
+    display: none;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 16px 24px 24px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px 0;
+    font-size: 1rem;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu button:last-child { border-bottom: none; }
+  .mobile-cta {
+    margin-top: 16px;
+    display: block;
+    background: var(--teal);
+    color: white !important;
+    text-align: center;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #243466 60%, #1e4a6e 100%);
+    color: white;
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(42,125,125,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 32px;
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,169,110,0.4); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Hero sidebar card */
+  .hero-card {
+    background: white;
+    color: var(--text);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  }
+  .card-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .card-phone {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .card-phone a { color: inherit; text-decoration: none; }
+  .card-hours { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 20px; }
+  .card-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+  .card-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; font-size: 0.85rem; }
+  .card-row .icon { color: var(--teal); font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+  .card-book {
+    display: block;
+    width: 100%;
+    background: var(--teal);
+    color: white;
+    text-align: center;
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+  }
+  .card-book:hover { background: var(--teal-light); }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: var(--offwhite);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+  }
+  .trust-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--navy);
+    padding: 6px 16px;
+    background: white;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+  }
+  .trust-item span { color: var(--teal); }
+
+  /* ── SECTIONS ── */
+  section { padding: 72px 0; }
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section-eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-title em { color: var(--teal); font-style: italic; }
+  .section-sub { color: var(--text-muted); max-width: 560px; line-height: 1.7; margin-bottom: 48px; }
+
+  /* ── TREATMENTS GRID ── */
+  .treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .treatment-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    cursor: pointer;
+    background: white;
+  }
+  .treatment-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+    border-color: var(--teal);
+  }
+  .treatment-icon {
+    width: 48px; height: 48px;
+    background: rgba(42,125,125,0.1);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .treatment-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .treatment-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
+  .treatment-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 14px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--teal);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .about-img-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+  }
+  .about-features { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .about-feature { display: flex; gap: 12px; align-items: flex-start; }
+  .feature-dot {
+    width: 8px; height: 8px;
+    background: var(--teal);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .about-feature strong { display: block; font-size: 0.9rem; color: var(--navy); margin-bottom: 2px; }
+  .about-feature p { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* ── IMPLANTS FEATURE ── */
+  .feature-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e4a6e 100%);
+    color: white;
+    padding: 72px 0;
+  }
+  .feature-banner-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .feature-banner .section-title { color: white; }
+  .feature-banner .section-eyebrow { color: var(--gold); }
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .feature-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .feature-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .feature-img-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* ── CBCT / TECH ── */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .tech-points { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
+  .tech-point {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .tech-point:hover { border-color: var(--teal); box-shadow: 0 2px 12px rgba(42,125,125,0.1); }
+  .tech-icon {
+    width: 40px; height: 40px;
+    background: rgba(42,125,125,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .tech-point h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .tech-point p { font-size: 0.83rem; color: var(--text-muted); }
+  .tech-img {
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f0f8f8 0%, #e0f0f0 100%);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    border: 1px solid var(--border);
+  }
+
+  /* ── REVIEWS ── */
+  .reviews-section { background: var(--offwhite); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .review-card {
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .review-stars { color: #f59e0b; font-size: 1rem; margin-bottom: 14px; }
+  .review-text { font-size: 0.875rem; color: var(--text); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .review-name { font-weight: 700; font-size: 0.875rem; color: var(--navy); }
+  .review-source { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ── FINANCE ── */
+  .finance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .finance-card {
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .finance-card:hover { border-color: var(--teal); }
+  .finance-card.featured { border-color: var(--gold); background: var(--offwhite); }
+  .finance-treatment { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; margin-bottom: 8px; }
+  .finance-price { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); font-weight: 700; }
+  .finance-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+  .finance-badge { font-size: 0.72rem; background: var(--gold); color: var(--navy); padding: 3px 10px; border-radius: 100px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+  .contact-info-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: rgba(42,125,125,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .contact-info-item h4 { font-weight: 700; font-size: 0.875rem; color: var(--navy); margin-bottom: 4px; }
+  .contact-info-item p, .contact-info-item a {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .contact-info-item a:hover { color: var(--teal); }
+
+  .enquiry-form { background: var(--offwhite); border-radius: 16px; padding: 32px; border: 1px solid var(--border); }
+  .enquiry-form h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 20px; }
+  .form-group { margin-bottom: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group label { display: block; font-size: 0.83rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: white;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%;
+    background: var(--teal);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--teal-light); }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: var(--teal);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+  }
+  .cta-banner h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 12px; }
+  .cta-banner p { color: rgba(255,255,255,0.85); margin-bottom: 28px; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-white {
+    background: white;
+    color: var(--teal);
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.15s;
+    display: inline-block;
+  }
+  .btn-white:hover { transform: translateY(-2px); }
+  .btn-outline-white {
+    background: transparent;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid rgba(255,255,255,0.5);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+  .btn-outline-white:hover { border-color: white; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.75);
+    padding: 56px 0 28px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand { }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.6); }
+  .footer-socials { display: flex; gap: 10px; margin-top: 16px; }
+  .social-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    color: white;
+  }
+  .social-icon:hover { background: rgba(255,255,255,0.18); }
+  .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 14px; font-weight: 600; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer-col ul li button {
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.7); font-size: 0.85rem; font-family: 'Inter', sans-serif;
+    padding: 0; text-align: left;
+    transition: color 0.2s;
+  }
+  .footer-col ul li button:hover { color: white; }
+  .footer-col ul li a { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .trabelo-credit { color: rgba(255,255,255,0.35); }
+  .trabelo-credit span { color: rgba(255,255,255,0.6); }
+
+  /* ── TEAM PAGE ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .team-card {
+    text-align: center;
+    padding: 28px 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .team-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+  .team-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+  .team-card h3 { font-size: 1rem; color: var(--navy); font-weight: 700; margin-bottom: 4px; }
+  .team-card .role { font-size: 0.8rem; color: var(--teal); font-weight: 600; margin-bottom: 8px; }
+  .team-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── INNER PAGE HERO ── */
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e4a6e 100%);
+    color: white;
+    padding: 56px 0;
+    text-align: center;
+  }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-bottom: 12px; }
+  .page-hero p { color: rgba(255,255,255,0.8); max-width: 560px; margin: 0 auto; }
+
+  /* ── EMERGENCY ── */
+  .emergency-banner {
+    background: #dc2626;
+    color: white;
+    padding: 24px;
+    border-radius: 14px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .emergency-icon { font-size: 2rem; flex-shrink: 0; }
+  .emergency-banner h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+  .emergency-banner p { font-size: 0.875rem; color: rgba(255,255,255,0.9); }
+  .emergency-num { font-size: 1.4rem; font-weight: 700; margin-top: 6px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { max-width: 400px; }
+    .about-grid, .feature-banner-inner, .tech-grid, .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .burger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; flex-wrap: wrap; }
+    .trust-inner { gap: 8px; }
+    .trust-item { font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-items">
+      <span>📍 99 High Street, Mosborough, Sheffield, S20 5AF</span>
+      <span class="topbar-hours">Mon–Fri: 9:00am – 5:30pm</span>
+    </div>
+    <div class="topbar-items">
+      <a href="tel:01142484400">📞 0114 248 4400</a>
+      <a href="mailto:reception@highstreetdentalcare.com">✉ reception@highstreetdentalcare.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">
+      <div class="logo-icon">🦷</div>
+      <div class="logo-text">
+        <strong>High Street Dental</strong>
+        <span>NHS & Private · Sheffield</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button onclick="showPage('home')" id="nav-home" class="active">Home</button>
+      <button onclick="showPage('about')" id="nav-about">About & Team</button>
+      <div class="nav-dropdown">
+        <button id="nav-treatments">Treatments ▾</button>
+        <div class="dropdown-menu">
+          <button onclick="showPage('treatments')">All Treatments</button>
+          <button onclick="showPage('implants')">Dental Implants</button>
+          <button onclick="showPage('straightening')">Tooth Straightening</button>
+          <button onclick="showPage('cosmetic')">Cosmetic Dentistry</button>
+          <button onclick="showPage('emergency')">Emergency Dentist</button>
+          <button onclick="showPage('rejuvenation')">Facial Rejuvenation</button>
+          <button onclick="showPage('cbct')">3D CBCT Imaging</button>
+        </div>
+      </div>
+      <button onclick="showPage('finance')" id="nav-finance">Finance</button>
+      <button onclick="showPage('contact')" id="nav-contact">Contact</button>
+      <button class="nav-cta" onclick="showPage('contact')">Book Online</button>
+    </div>
+    <button class="burger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="showPage('home');toggleMobile()">Home</button>
+    <button onclick="showPage('about');toggleMobile()">About & Team</button>
+    <button onclick="showPage('treatments');toggleMobile()">All Treatments</button>
+    <button onclick="showPage('implants');toggleMobile()">Dental Implants</button>
+    <button onclick="showPage('straightening');toggleMobile()">Tooth Straightening</button>
+    <button onclick="showPage('emergency');toggleMobile()">Emergency Dentist</button>
+    <button onclick="showPage('finance');toggleMobile()">Finance Options</button>
+    <button onclick="showPage('contact');toggleMobile()">Contact</button>
+    <button class="mobile-cta" onclick="showPage('contact');toggleMobile()">📅 Book Online</button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════ HOME PAGE -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">NHS & Private Dentistry · Mosborough, Sheffield</p>
+        <h1>Advanced Dentistry,<br><em>Exceptional</em> Care</h1>
+        <p class="hero-sub">Specialists in dental implants, cosmetic dentistry, and 3D CBCT imaging. Transforming smiles across Sheffield for over 35 years.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('contact')">Book a Consultation</button>
+          <button class="btn-secondary" onclick="showPage('treatments')">View Treatments</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">35+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Dental Experts</div></div>
+          <div class="stat-item"><div class="stat-num">3D</div><div class="stat-label">CBCT Scanner</div></div>
+          <div class="stat-item"><div class="stat-num">⭐5.0</div><div class="stat-label">Google Rating</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <p class="card-label">📞 Call or Book Today</p>
+          <div class="card-phone"><a href="tel:01142484400">0114 248 4400</a></div>
+          <p class="card-hours">Mon–Fri: 9:00am – 5:30pm</p>
+          <hr class="card-divider">
+          <div class="card-row"><span class="icon">📍</span><span>99 High Street, Mosborough,<br>Sheffield, S20 5AF</span></div>
+          <div class="card-row"><span class="icon">🦷</span><span>NHS & Private patients welcome</span></div>
+          <div class="card-row"><span class="icon">✨</span><span>Finance options available</span></div>
+          <div class="card-row"><span class="icon">📷</span><span>3D CBCT Imaging on-site</span></div>
+          <button class="card-book" onclick="showPage('contact')">📅 Book Online</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <div class="trust-item"><span>🏆</span> Award-Winning Practice</div>
+      <div class="trust-item"><span>🦷</span> Implant Specialists</div>
+      <div class="trust-item"><span>📷</span> 3D CBCT Imaging</div>
+      <div class="trust-item"><span>💳</span> Finance Available</div>
+      <div class="trust-item"><span>👨‍⚕️</span> 7 Dental Experts</div>
+      <div class="trust-item"><span>📅</span> Easy Online Booking</div>
+    </div>
+  </div>
+
+  <!-- TREATMENTS -->
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">What We Offer</p>
+      <h2 class="section-title">Comprehensive <em>Dental Care</em></h2>
+      <p class="section-sub">From routine check-ups to life-changing smile transformations — all under one roof in Mosborough.</p>
+      <div class="treatments-grid">
+        <div class="treatment-card" onclick="showPage('implants')">
+          <div class="treatment-icon">🦷</div>
+          <h3>Dental Implants</h3>
+          <p>Sheffield's leading implant specialists. High-quality implants that look, feel, and function like natural teeth.</p>
+          <button class="treatment-link">Learn more →</button>
+        </div>
+        <div class="treatment-card" onclick="showPage('cosmetic')">
+          <div class="treatment-icon">✨</div>
+          <h3>Cosmetic Dentistry</h3>
+          <p>Composite bonding, veneers, whitening and more. Personalised cosmetic treatments to perfect your smile.</p>
+          <button class="treatment-link">Learn more →</button>
+        </div>
+        <div class="treatment-card" onclick="showPage('straightening')">
+          <div class="treatment-icon">😁</div>
+          <h3>Tooth Straightening</h3>
+          <p>Fastbraces and Cfast clear aligners. Faster and more discreet than traditional braces.</p>
+          <button class="treatment-link">Learn more →</button>
+        </div>
+        <div class="treatment-card" onclick="showPage('cbct')">
+          <div class="treatment-icon">📡</div>
+          <h3>3D CBCT Imaging</h3>
+          <p>One of the few Sheffield practices with a CBCT 3D scanner. Precision diagnostics for better outcomes.</p>
+          <button class="treatment-link">Learn more →</button>
+        </div>
+        <div class="treatment-card" onclick="showPage('rejuvenation')">
+          <div class="treatment-icon">💆</div>
+          <h3>Facial Rejuvenation</h3>
+          <p>Anti-wrinkle injections, dermal fillers, Profhilo and more — all administered by our clinical team.</p>
+          <button class="treatment-link">Learn more →</button>
+        </div>
+        <div class="treatment-card" onclick="showPage('emergency')">
+          <div class="treatment-icon">🚨</div>
+          <h3>Emergency Dentist</h3>
+          <p>Dental pain or an emergency? We provide urgent appointments for existing and new patients.</p>
+          <button class="treatment-link">Learn more →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section style="background:var(--offwhite);">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-img-wrap">🦷</div>
+        <div>
+          <p class="section-eyebrow">About Our Practice</p>
+          <h2 class="section-title">Sheffield's Leading<br><em>Dental Practice</em></h2>
+          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:8px;">High Street Dental Care is a well-established NHS and private dental practice in Mosborough, Sheffield. We've been caring for patients in South Yorkshire for over 35 years.</p>
+          <p style="color:var(--text-muted);line-height:1.7;">Our team of experienced dental professionals use the very latest technology — including our state-of-the-art CBCT 3D scanner, one of the few in the Sheffield area — to deliver outstanding results and exceptional care.</p>
+          <div class="about-features">
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Award-winning dentistry</strong><p>Recognised for clinical excellence and patient care across South Yorkshire.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>NHS & Private patients welcome</strong><p>We offer both NHS and full private care, with flexible finance options.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Advanced technology on-site</strong><p>Including Planmeca CBCT 3D scanner and the latest cosmetic equipment.</p></div></div>
+          </div>
+          <button class="btn-primary" style="margin-top:28px;" onclick="showPage('about')">Meet the Team</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPLANTS FEATURE -->
+  <div class="feature-banner">
+    <div class="feature-banner-inner">
+      <div>
+        <p class="section-eyebrow">Our Speciality</p>
+        <h2 class="section-title">Quality Dental Implants<br>in Sheffield</h2>
+        <p style="color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:8px;">We are proud to offer one of the best implant services in Sheffield, working only with the finest materials and the most experienced implant team in South Yorkshire.</p>
+        <ul class="feature-list">
+          <li>Single tooth, multiple teeth, and full-mouth implant solutions</li>
+          <li>CBCT 3D scanning for precise implant planning</li>
+          <li>Finance options available to spread the cost</li>
+          <li>Implants that look, feel, and function like natural teeth</li>
+          <li>Full aftercare support included</li>
+        </ul>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn-primary" onclick="showPage('implants')">Learn About Implants</button>
+          <a href="tel:01142484400" class="btn-secondary">Call 0114 248 4400</a>
+        </div>
+      </div>
+      <div class="feature-img-wrap">🦷</div>
+    </div>
+  </div>
+
+  <!-- CBCT / TECH -->
+  <section>
+    <div class="section-inner">
+      <div class="tech-grid">
+        <div>
+          <p class="section-eyebrow">Advanced Technology</p>
+          <h2 class="section-title">CBCT 3D<br><em>Imaging</em></h2>
+          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:16px;">We're one of the very few practices in the Sheffield area with a Planmeca CBCT 3D scanner — giving us the highest quality imaging for accurate diagnostics and implant planning.</p>
+          <div class="tech-points">
+            <div class="tech-point"><div class="tech-icon">🎯</div><div><h4>Precision Planning</h4><p>Detailed 3D images for accurate implant placement every time.</p></div></div>
+            <div class="tech-point"><div class="tech-icon">🔬</div><div><h4>Minimal Radiation</h4><p>Ultra-low dose scanning with maximum imaging information.</p></div></div>
+            <div class="tech-point"><div class="tech-icon">🏥</div><div><h4>Open for Referrals</h4><p>Available to other practices across Sheffield and South Yorkshire.</p></div></div>
+          </div>
+          <button class="btn-primary" style="margin-top:28px;" onclick="showPage('cbct')">Learn More</button>
+        </div>
+        <div class="tech-img">📡</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <div class="section-inner">
+      <p class="section-eyebrow">Patient Stories</p>
+      <h2 class="section-title">What Our Patients Say</h2>
+      <div class="reviews-grid" style="margin-top:40px;">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"William Tighe is fabulous. He has patience, grace and is very nice natured. He takes time to engage with you and prepares you well for treatment. Top Dentist! The ladies on reception are always helpful too."</p>
+          <div class="review-author"><div class="review-avatar">SA</div><div><div class="review-name">S. Allen</div><div class="review-source">Google Review</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Just had dental implants done by Dimitri and his assistant. Very professional and friendly — they took the time to explain everything and even gave me a dental goody bag when I left!"</p>
+          <div class="review-author"><div class="review-avatar">IA</div><div><div class="review-name">I. Anderson</div><div class="review-source">Google Review</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Dentist William Tighe has been absolutely amazing. Professional, dedicated, flexible, and exceptionally patient-centred. Made the whole experience far less stressful than it could have been."</p>
+          <div class="review-author"><div class="review-avatar">LS</div><div><div class="review-name">L. Smith</div><div class="review-source">Google Review</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <div class="section-inner" style="text-align:center;">
+      <h2>Ready to Transform<br>Your Smile?</h2>
+      <p>Book a consultation today and let our expert team help you achieve the smile you've always wanted.</p>
+      <div class="cta-btns">
+        <button class="btn-white" onclick="showPage('contact')">📅 Book Online</button>
+        <a href="tel:01142484400" class="btn-outline-white">📞 0114 248 4400</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end home page -->
+
+<!-- ════════════════════════════════════════ ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div class="page-hero">
+    <h1>About & Team</h1>
+    <p>Meet the experienced professionals who make High Street Dental Care one of Sheffield's most trusted practices.</p>
+  </div>
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">Our Story</p>
+      <h2 class="section-title">Caring for Sheffield<br><em>Since 1990</em></h2>
+      <p style="color:var(--text-muted);max-width:700px;line-height:1.8;margin-bottom:16px;">High Street Dental Care has been a trusted part of the Mosborough community for over 35 years. What started as a small local practice has grown into one of South Yorkshire's leading dental clinics — without ever losing sight of what matters most: patient care.</p>
+      <p style="color:var(--text-muted);max-width:700px;line-height:1.8;margin-bottom:40px;">Today, our seven-strong team of dental experts offer everything from routine NHS check-ups to advanced cosmetic procedures and dental implants — backed by some of the most advanced equipment in the region, including our Planmeca CBCT 3D scanner.</p>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-avatar">W</div><h3>William Tighe</h3><div class="role">Principal Dentist</div><p>Highly experienced and patient-centred, William is well-loved by patients across Sheffield for his calm, thorough approach.</p></div>
+        <div class="team-card"><div class="team-avatar">D</div><h3>Dimitri</h3><div class="role">Implant Specialist</div><p>Sheffield's go-to expert for dental implants. Dimitri combines technical precision with a reassuring, friendly manner.</p></div>
+        <div class="team-card"><div class="team-avatar">H</div><h3>Dental Hygienist</h3><div class="role">Hygienist / Therapist</div><p>Specialising in cosmetic stain removal and preventive care to keep your smile healthy and bright.</p></div>
+        <div class="team-card"><div class="team-avatar">R</div><h3>Reception Team</h3><div class="role">Practice Coordinators</div><p>Our friendly reception team are always on hand — helpful, understanding, and ready to find you the right appointment.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-banner">
+    <div class="section-inner" style="text-align:center;">
+      <h2>Ready to Book?</h2>
+      <p>Our team is here to help. Get in touch today.</p>
+      <div class="cta-btns">
+        <button class="btn-white" onclick="showPage('contact')">📅 Book Online</button>
+        <a href="tel:01142484400" class="btn-outline-white">📞 Call Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ TREATMENTS PAGE -->
+<div class="page" id="page-treatments">
+  <div class="page-hero">
+    <h1>All Treatments</h1>
+    <p>From routine dental care to advanced smile transformations — everything available under one roof in Sheffield.</p>
+  </div>
+  <section>
+    <div class="section-inner">
+      <div class="treatments-grid">
+        <div class="treatment-card" onclick="showPage('implants')"><div class="treatment-icon">🦷</div><h3>Dental Implants</h3><p>Single tooth, multiple teeth, and full-mouth solutions using only the finest materials. Finance available.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('cosmetic')"><div class="treatment-icon">✨</div><h3>Composite Bonding</h3><p>Reshape, repair, and enhance your smile with tooth-coloured composite material — usually in one visit.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('cosmetic')"><div class="treatment-icon">🦷</div><h3>Porcelain Veneers</h3><p>Ultra-thin porcelain shells bonded to the front of teeth for a flawless, natural-looking smile.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('cosmetic')"><div class="treatment-icon">💎</div><h3>Tooth Whitening</h3><p>Professional whitening treatments tailored to your teeth, giving safe and lasting results.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('straightening')"><div class="treatment-icon">😁</div><h3>Tooth Straightening</h3><p>Fastbraces and Cfast clear aligners for faster, more discreet results than traditional braces.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('rejuvenation')"><div class="treatment-icon">💆</div><h3>Facial Aesthetics</h3><p>Anti-wrinkle injections, dermal fillers, Profhilo, lip enhancement and more — all clinician-led.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('cbct')"><div class="treatment-icon">📡</div><h3>3D CBCT Imaging</h3><p>On-site Planmeca CBCT scanner for precision diagnostics. Open for referrals from other practices.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card" onclick="showPage('emergency')"><div class="treatment-icon">🚨</div><h3>Emergency Dentist</h3><p>Urgent dental treatment for pain, broken teeth, lost fillings, and dental trauma.</p><button class="treatment-link">Learn more →</button></div>
+        <div class="treatment-card"><div class="treatment-icon">👨‍👩‍👧</div><h3>Family & NHS Dentistry</h3><p>Comprehensive NHS and private care for the whole family — check-ups, hygiene, fillings and prevention.</p><button class="treatment-link">Enquire →</button></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ IMPLANTS PAGE -->
+<div class="page" id="page-implants">
+  <div class="page-hero"><h1>Dental Implants Sheffield</h1><p>Sheffield's leading implant specialists — precision placement, natural-looking results, lifetime aftercare.</p></div>
+  <section>
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <p class="section-eyebrow">Why Choose Us for Implants</p>
+          <h2 class="section-title">Implant Expertise<br><em>You Can Trust</em></h2>
+          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:16px;">We have been placing dental implants for many years, and our implant specialist Dimitri is among the most experienced in South Yorkshire. We use only the finest implant materials — your results will last for years to come.</p>
+          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:24px;">Every implant case starts with a detailed consultation including our CBCT 3D scan, giving us a complete picture of your jaw and bone structure to plan your treatment with total precision.</p>
+          <ul class="feature-list" style="color:var(--text);"><li>Single tooth implants</li><li>Multiple teeth implants</li><li>Full-mouth implant solutions (All-on-4 style)</li><li>CBCT 3D planning included</li><li>Finance available — spread the cost</li><li>Full aftercare and follow-up</li></ul>
+          <button class="btn-primary" style="margin-top:28px;" onclick="showPage('contact')">Book Implant Consultation</button>
+        </div>
+        <div class="about-img-wrap">🦷</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ STRAIGHTENING PAGE -->
+<div class="page" id="page-straightening">
+  <div class="page-hero"><h1>Tooth Straightening Sheffield</h1><p>Fastbraces and Cfast clear aligners for straighter teeth — faster and more discreet than traditional braces.</p></div>
+  <section>
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-img-wrap">😁</div>
+        <div>
+          <p class="section-eyebrow">Straighter Smiles</p>
+          <h2 class="section-title">Modern Tooth<br><em>Straightening</em></h2>
+          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:16px;">Whether you have crowded, spaced, or misaligned teeth, we offer modern straightening solutions that are faster and far more discreet than traditional metal braces.</p>
+          <div class="about-features">
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Fastbraces</strong><p>Innovative brace technology that can deliver results in a fraction of the time of conventional braces.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Cfast Clear Aligners</strong><p>Near-invisible aligners tailored to your teeth. Suitable for adults and older teenagers.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Finance available</strong><p>Spread the cost of your treatment with our flexible finance options.</p></div></div>
+          </div>
+          <button class="btn-primary" style="margin-top:28px;" onclick="showPage('contact')">Book a Consultation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ COSMETIC PAGE -->
+<div class="page" id="page-cosmetic">
+  <div class="page-hero"><h1>Cosmetic Dentistry Sheffield</h1><p>Composite bonding, veneers, whitening and more — all tailored to give you the smile you've always wanted.</p></div>
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">Your Perfect Smile</p>
+      <h2 class="section-title">Cosmetic <em>Treatments</em></h2>
+      <div class="treatments-grid" style="margin-top:32px;">
+        <div class="treatment-card"><div class="treatment-icon">💎</div><h3>Composite Bonding</h3><p>Repair chips, close gaps, and reshape teeth using tooth-coloured resin. Often completed in a single appointment.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🦷</div><h3>Porcelain Veneers</h3><p>Thin porcelain shells bonded to the front of your teeth for a long-lasting, natural-looking transformation.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">✨</div><h3>Tooth Whitening</h3><p>Professional whitening tailored to your teeth, delivering safe, even results that over-the-counter kits can't match.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🧹</div><h3>Stain Removal</h3><p>Our hygienist/therapist offers professional cosmetic stain removal to restore your smile's natural brightness.</p></div>
+      </div>
+      <div style="margin-top:40px;text-align:center;">
+        <button class="btn-primary" onclick="showPage('contact')">Book a Cosmetic Consultation</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ EMERGENCY PAGE -->
+<div class="page" id="page-emergency">
+  <div class="page-hero" style="background:#7f1d1d;"><h1>Emergency Dentist Sheffield</h1><p>Urgent dental treatment when you need it most — call us first.</p></div>
+  <section>
+    <div class="section-inner">
+      <div class="emergency-banner">
+        <div class="emergency-icon">🚨</div>
+        <div>
+          <h3>Dental Emergency? Call Now</h3>
+          <p>We prioritise emergency cases. Call us and we'll do our best to see you the same day.</p>
+          <div class="emergency-num"><a href="tel:01142484400" style="color:white;text-decoration:none;">📞 0114 248 4400</a></div>
+        </div>
+      </div>
+      <div class="treatments-grid">
+        <div class="treatment-card"><div class="treatment-icon">😣</div><h3>Severe Toothache</h3><p>Don't suffer in silence. We can assess, diagnose, and treat the cause of dental pain quickly.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🦷</div><h3>Broken or Chipped Tooth</h3><p>Accidents happen. We can repair or restore broken teeth, often in one appointment.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🔧</div><h3>Lost Filling or Crown</h3><p>Lost a filling or crown? We'll replace it promptly to protect the tooth and relieve discomfort.</p></div>
+        <div class="treatment-card"><div class="treatment-icon">🩸</div><h3>Dental Abscess</h3><p>A dental abscess needs urgent treatment. Contact us immediately if you suspect an abscess.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ REJUVENATION PAGE -->
+<div class="page" id="page-rejuvenation">
+  <div class="page-hero"><h1>Facial Aesthetics & Rejuvenation</h1><p>Clinician-led aesthetic treatments to help you look and feel your very best.</p></div>
+  <section>
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <p class="section-eyebrow">Facial Aesthetics</p>
+          <h2 class="section-title">Look & Feel<br><em>Your Best</em></h2>
+          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:16px;">All our facial aesthetics treatments are carried out in a safe, clinical environment by trained professionals. We tailor every treatment to your individual goals and desired outcome — never a one-size-fits-all approach.</p>
+          <div class="about-features">
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Anti-wrinkle injections</strong><p>Smooth fine lines and wrinkles with precision-placed injections.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Dermal fillers</strong><p>Restore volume and definition to the face for a natural, refreshed appearance.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Profhilo skin rejuvenation</strong><p>A high-concentration hyaluronic acid treatment that hydrates and tightens skin from within.</p></div></div>
+            <div class="about-feature"><div class="feature-dot"></div><div><strong>Lip enhancement, chemical peels, microneedling</strong><p>A full range of advanced aesthetic options all available at the practice.</p></div></div>
+          </div>
+          <button class="btn-primary" style="margin-top:28px;" onclick="showPage('contact')">Book a Consultation</button>
+        </div>
+        <div class="about-img-wrap">💆</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ CBCT PAGE -->
+<div class="page" id="page-cbct">
+  <div class="page-hero"><h1>3D CBCT Imaging Sheffield</h1><p>One of the few practices in Sheffield with a Planmeca CBCT 3D scanner — open for referrals from other practices.</p></div>
+  <section>
+    <div class="section-inner">
+      <div class="tech-grid">
+        <div>
+          <p class="section-eyebrow">Advanced Diagnostics</p>
+          <h2 class="section-title">Planmeca CBCT<br><em>3D Scanner</em></h2>
+          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:16px;">Our Planmeca Ultra Low Dose CBCT scanner provides incredibly accurate, detailed 3D images of the teeth, jaw, and surrounding structures — essential for accurate implant planning and complex cases.</p>
+          <div class="tech-points">
+            <div class="tech-point"><div class="tech-icon">🎯</div><div><h4>Precision Implant Planning</h4><p>3D imaging gives us a complete view of your bone structure before any procedure begins.</p></div></div>
+            <div class="tech-point"><div class="tech-icon">🔬</div><div><h4>Ultra Low Dose</h4><p>State-of-the-art scanner with minimal radiation — maximum information, minimum exposure.</p></div></div>
+            <div class="tech-point"><div class="tech-icon">🏥</div><div><h4>Open for Referrals</h4><p>Other practices across Sheffield and South Yorkshire can refer patients for 3D imaging.</p></div></div>
+          </div>
+          <button class="btn-primary" style="margin-top:28px;" onclick="showPage('contact')">Enquire About Referrals</button>
+        </div>
+        <div class="tech-img">📡</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ FINANCE PAGE -->
+<div class="page" id="page-finance">
+  <div class="page-hero"><h1>Finance Options</h1><p>Spread the cost of your dental treatment with our flexible finance options — 0% interest available.</p></div>
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">Flexible Payments</p>
+      <h2 class="section-title">Don't Let Cost Hold<br><em>Back Your Smile</em></h2>
+      <p style="color:var(--text-muted);max-width:600px;line-height:1.7;">We believe everyone deserves a smile they're proud of. Our finance options make treatments like implants, aligners, and composite bonding more accessible than ever.</p>
+      <div class="finance-grid">
+        <div class="finance-card featured">
+          <div class="finance-badge">⭐ Popular</div>
+          <div class="finance-treatment">Aligners + Whitening Offer</div>
+          <div class="finance-price">£2,500</div>
+          <div class="finance-note">Upper & lower aligners plus whitening — limited time offer</div>
+        </div>
+        <div class="finance-card">
+          <div class="finance-treatment">Dental Implants</div>
+          <div class="finance-price">From £POA</div>
+          <div class="finance-note">Finance available — ask at consultation</div>
+        </div>
+        <div class="finance-card">
+          <div class="finance-treatment">Composite Bonding</div>
+          <div class="finance-price">From £POA</div>
+          <div class="finance-note">Per tooth pricing available on enquiry</div>
+        </div>
+        <div class="finance-card">
+          <div class="finance-treatment">Tooth Straightening</div>
+          <div class="finance-price">From £POA</div>
+          <div class="finance-note">Fastbraces & Cfast — finance options available</div>
+        </div>
+      </div>
+      <div style="margin-top:40px;text-align:center;">
+        <button class="btn-primary" onclick="showPage('contact')">Get a Quote</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="page-hero"><h1>Contact Us</h1><p>Book an appointment, ask a question, or get in touch — we're always happy to help.</p></div>
+  <section>
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div>
+          <p class="section-eyebrow">Get In Touch</p>
+          <h2 class="section-title">We'd Love to<br><em>Hear From You</em></h2>
+          <div class="contact-info-item"><div class="contact-icon">📞</div><div><h4>Phone</h4><a href="tel:01142484400">0114 248 4400</a></div></div>
+          <div class="contact-info-item"><div class="contact-icon">✉</div><div><h4>Email</h4><a href="mailto:reception@highstreetdentalcare.com">reception@highstreetdentalcare.com</a></div></div>
+          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>99 High Street, Mosborough,<br>Sheffield, S20 5AF</p></div></div>
+          <div class="contact-info-item"><div class="contact-icon">🕐</div><div><h4>Opening Hours</h4><p>Monday – Friday: 9:00am – 5:30pm<br>Saturday – Sunday: Closed</p></div></div>
+          <div class="contact-info-item"><div class="contact-icon">🚗</div><div><h4>Getting Here</h4><p>We're on the High Street in Mosborough village, with parking available nearby.</p></div></div>
+        </div>
+        <div class="enquiry-form">
+          <h3>Send an Enquiry</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="07700 000000"></div>
+          <div class="form-group">
+            <label>Treatment Interested In</label>
+            <select>
+              <option>Please select...</option>
+              <option>Dental Implants</option>
+              <option>Tooth Straightening</option>
+              <option>Composite Bonding</option>
+              <option>Tooth Whitening</option>
+              <option>Porcelain Veneers</option>
+              <option>3D CBCT Imaging / Referral</option>
+              <option>Facial Aesthetics & Rejuvenation</option>
+              <option>Emergency Appointment</option>
+              <option>General / NHS Enquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell us a little about what you're looking for, or any questions you have..."></textarea></div>
+          <button class="form-submit" onclick="alert('Thanks! In a real site, this would send your enquiry to the practice.')">Send Enquiry →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">🦷 High Street Dental Care</div>
+        <p>NHS & Private dental practice providing quality cosmetic dentistry, dental implants, and 3D CBCT imaging in Sheffield since 1990.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon">f</a>
+          <a href="#" class="social-icon">📸</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><button onclick="showPage('home')">Home</button></li>
+          <li><button onclick="showPage('about')">About & Team</button></li>
+          <li><button onclick="showPage('treatments')">Treatments</button></li>
+          <li><button onclick="showPage('finance')">Finance</button></li>
+          <li><button onclick="showPage('contact')">Contact</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><button onclick="showPage('implants')">Dental Implants</button></li>
+          <li><button onclick="showPage('straightening')">Tooth Straightening</button></li>
+          <li><button onclick="showPage('cosmetic')">Tooth Whitening</button></li>
+          <li><button onclick="showPage('cosmetic')">Composite Bonding</button></li>
+          <li><button onclick="showPage('cbct')">3D Imaging</button></li>
+          <li><button onclick="showPage('rejuvenation')">Facial Aesthetics</button></li>
+          <li><button onclick="showPage('emergency')">Emergency Dentist</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="tel:01142484400">0114 248 4400</a></li>
+          <li><a href="mailto:reception@highstreetdentalcare.com">reception@highstreetdentalcare.com</a></li>
+          <li><a href="#">99 High Street, Mosborough, Sheffield, S20 5AF</a></li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.83rem;padding:4px 0;">Mon–Fri: 9:00am–5:30pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 High Street Dental Care. All rights reserved.</span>
+      <span class="trabelo-credit">Website concept built by <span>Trabelo · Sheffield</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    const target = document.getElementById('page-' + id);
+    if (target) { target.classList.add('active'); window.scrollTo({top: 0, behavior: 'smooth'}); }
+    const navBtn = document.getElementById('nav-' + id);
+    if (navBtn) navBtn.classList.add('active');
+  }
+
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — High Street Dental Care · Trabelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --teal: #2a7d7d;
+    --teal-bg: #f0f8f8;
+    --gold: #c8a96e;
+    --red: #dc2626;
+    --red-bg: #fef2f2;
+    --amber: #d97706;
+    --amber-bg: #fffbeb;
+    --green: #16a34a;
+    --green-bg: #f0fdf4;
+    --offwhite: #f7f5f0;
+    --white: #ffffff;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --shadow: 0 4px 24px rgba(26,39,68,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--offwhite); line-height: 1.6; }
+
+  /* ── HEADER ── */
+  .audit-header {
+    background: var(--navy);
+    color: white;
+    padding: 40px 0 0;
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .audit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .header-inner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .header-inner h1 span { color: var(--gold); }
+  .header-inner .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+  .header-scores {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .score-cell {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .score-cell .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 600; }
+  .score-num {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+    font-family: 'Playfair Display', serif;
+  }
+  .score-num.bad { color: #f87171; }
+  .score-num.ok { color: #fbbf24; }
+  .score-num.good { color: #4ade80; }
+  .score-cell .verdict {
+    font-size: 0.72rem;
+    margin-top: 6px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 100px;
+    display: inline-block;
+  }
+  .verdict.bad { background: rgba(248,113,113,0.2); color: #f87171; }
+  .verdict.ok { background: rgba(251,191,36,0.2); color: #fbbf24; }
+  .verdict.good { background: rgba(74,222,128,0.2); color: #4ade80; }
+
+  /* ── CONTENT ── */
+  .audit-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: white;
+    border-radius: 14px;
+    padding: 32px;
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+  }
+  .intro-box p { color: var(--text); line-height: 1.8; margin-bottom: 14px; font-size: 0.975rem; }
+  .intro-box p:last-child { margin-bottom: 0; }
+  .intro-box strong { color: var(--navy); }
+
+  /* ── SECTION HEADERS ── */
+  .audit-section { margin-bottom: 48px; }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .section-label .icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .icon-red { background: var(--red-bg); }
+  .icon-amber { background: var(--amber-bg); }
+  .icon-green { background: var(--green-bg); }
+  .icon-teal { background: var(--teal-bg); }
+  .section-label h2 { font-size: 1.3rem; color: var(--navy); font-weight: 700; }
+
+  /* ── ISSUE CARDS ── */
+  .issue-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .issue-header {
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+  }
+  .issue-severity {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .sev-critical { background: var(--red-bg); color: var(--red); }
+  .sev-moderate { background: var(--amber-bg); color: var(--amber); }
+  .sev-minor { background: #f0f0f0; color: #6b7280; }
+  .issue-title { font-weight: 700; color: var(--navy); font-size: 0.975rem; margin-bottom: 4px; }
+  .issue-summary { font-size: 0.85rem; color: var(--text-muted); }
+  .issue-body {
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+  .issue-block { margin-top: 16px; }
+  .issue-block-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .issue-block-label.why { color: var(--red); }
+  .issue-block-label.fix { color: var(--green); }
+  .issue-block p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── FEATURES ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .feature-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .feature-icon-wrap {
+    width: 38px; height: 38px;
+    background: var(--teal-bg);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .feature-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .feature-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── SCORES DETAIL ── */
+  .scores-table {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .score-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-row-label { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+  .score-row-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+  .score-pill {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+  .pill-red { background: var(--red-bg); color: var(--red); }
+  .pill-amber { background: var(--amber-bg); color: var(--amber); }
+  .pill-green { background: var(--green-bg); color: var(--green); }
+  .score-after {
+    font-size: 0.78rem;
+    color: var(--green);
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* ── PRICING ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .pricing-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+  }
+  .pricing-card.featured { border-color: var(--teal); }
+  .pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--teal);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .pricing-tier { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; }
+  .pricing-price { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); font-weight: 700; line-height: 1; margin-bottom: 4px; }
+  .pricing-type { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 16px; }
+  .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .pricing-features li {
+    display: flex;
+    gap: 8px;
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    align-items: flex-start;
+  }
+  .pricing-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+  .pricing-note { margin-top: 14px; font-size: 0.75rem; color: var(--text-muted); padding-top: 12px; border-top: 1px solid var(--border); }
+
+  /* ── CTA ── */
+  .audit-cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e4a6e 100%);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    margin-top: 48px;
+  }
+  .audit-cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 12px; }
+  .audit-cta p { color: rgba(255,255,255,0.75); margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cta-btn-white {
+    background: white;
+    color: var(--navy);
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.15s;
+    display: inline-block;
+  }
+  .cta-btn-white:hover { transform: translateY(-2px); }
+  .cta-btn-outline {
+    background: transparent;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid rgba(255,255,255,0.4);
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+  .cta-btn-outline:hover { border-color: white; }
+
+  .trabelo-footer {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .trabelo-footer strong { color: var(--navy); }
+
+  @media (max-width: 700px) {
+    .header-scores { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .score-row { grid-template-columns: 1fr auto; }
+    .score-after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="audit-header">
+  <div class="header-inner">
+    <div class="audit-badge">🔍 Free Website Audit · Trabelo</div>
+    <h1>High Street Dental Care<br><span>Website Audit</span></h1>
+    <p class="subtitle">Here's what Google found when it visited your site — and what it means for patients looking you up on their phone.</p>
+
+    <div class="header-scores">
+      <div class="score-cell">
+        <div class="label">Performance</div>
+        <div class="score-num bad">66</div>
+        <div class="verdict bad">Needs Work</div>
+      </div>
+      <div class="score-cell">
+        <div class="label">Accessibility</div>
+        <div class="score-num ok">85</div>
+        <div class="verdict ok">Could Be Better</div>
+      </div>
+      <div class="score-cell">
+        <div class="label">Best Practices</div>
+        <div class="score-num good">100</div>
+        <div class="verdict good">Perfect</div>
+      </div>
+      <div class="score-cell">
+        <div class="label">SEO</div>
+        <div class="score-num ok">92</div>
+        <div class="verdict ok">Nearly There</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="audit-body">
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    <p>Hi — my name's Aidan. I'm a web designer based in Sheffield and I've been looking at websites for local businesses around South Yorkshire. I came across High Street Dental Care and ran your site through Google's own testing tool — and there are a few things worth flagging.</p>
+    <p>This isn't a sales pitch dressed up as an audit. The scores above are real — pulled directly from Google's PageSpeed Insights tool — and the issues below are genuine things that affect how patients experience your site, and how well Google ranks you.</p>
+    <p>I've also put together a <strong>free demo</strong> showing what a rebuilt site could look like. No obligation — have a look and see what you think.</p>
+  </div>
+
+  <!-- ISSUES -->
+  <div class="audit-section">
+    <div class="section-label">
+      <div class="icon icon-red">🚨</div>
+      <h2>What's Going Wrong</h2>
+    </div>
+
+    <!-- ISSUE 1: Performance -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity sev-critical">Critical</span>
+        <div>
+          <div class="issue-title">Your site is slow to load on mobile — and patients notice</div>
+          <div class="issue-summary">Performance scored 66/100. Google's own data says your Largest Contentful Paint takes 8.8 seconds on mobile.</div>
+        </div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label why">Why it matters to you</div>
+          <p>Most people researching dental practices are doing it on their phone, in an evening. A performance score of 66 means your site takes the best part of 9 seconds to fully load on a typical mobile connection. Research consistently shows people abandon sites after 3 seconds. That's potential patients clicking onto a competitor before they've even seen what you offer.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label fix">What the fix looks like</div>
+          <p>A rebuilt site would properly compress and resize images before they're uploaded, remove the render-blocking CSS and JavaScript that's currently delaying the page, and be built clean from the ground up rather than running through WordPress with multiple plugins. The target for a rebuild would be 97+ on performance.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ISSUE 2: Images -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity sev-critical">Critical</span>
+        <div>
+          <div class="issue-title">Images are far too large and slowing everything down</div>
+          <div class="issue-summary">Google identified 1,040 KB of image savings possible — that's over 1MB of unnecessary data being loaded.</div>
+        </div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label why">Why it matters to you</div>
+          <p>Your practice photos are beautiful — but they're being served at full resolution and without next-generation formatting, so a phone on 4G has to download a huge amount of data just to show the homepage. Every extra second of loading loses visitors.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label fix">What the fix looks like</div>
+          <p>On a rebuilt site, every image is compressed and converted to modern formats (WebP), sized correctly for the screen displaying them, and lazy-loaded so they only download when the patient scrolls to them. This alone typically takes 3–5 seconds off load time.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ISSUE 3: Render blocking -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity sev-critical">Critical</span>
+        <div>
+          <div class="issue-title">Files loading in the wrong order are delaying everything</div>
+          <div class="issue-summary">Render-blocking resources are adding an estimated 2,950ms — nearly 3 seconds — to your first visible content.</div>
+        </div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label why">Why it matters to you</div>
+          <p>Think of it like a checkout queue where every customer has to wait for something to arrive before the till can open. Your site is loading stylesheets and scripts in a way that stops anything from appearing on screen until they're all finished — so patients stare at a blank or half-loaded page for longer than they should.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label fix">What the fix looks like</div>
+          <p>A hand-coded rebuild doesn't have this problem — CSS and JavaScript are structured so the visual content loads first and any non-essential code loads in the background. It's part of how a 97+ performance score is achievable.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ISSUE 4: Unused CSS/JS -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity sev-moderate">Moderate</span>
+        <div>
+          <div class="issue-title">286 KB of code that's never used is being loaded anyway</div>
+          <div class="issue-summary">219 KB of unused CSS and 67 KB of unused JavaScript are being sent to every visitor, every time.</div>
+        </div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label why">Why it matters to you</div>
+          <p>WordPress themes and page builders load their entire library of code even for pages that only use a fraction of it. It's the equivalent of downloading an entire encyclopedia when you only need one chapter — and your patients pay the price with slower load times.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label fix">What the fix looks like</div>
+          <p>A custom-built site only includes exactly the code it needs — nothing more. There's no bloat from unused theme features or third-party builders.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ISSUE 5: Accessibility -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity sev-moderate">Moderate</span>
+        <div>
+          <div class="issue-title">Accessibility issues that could affect some of your patients</div>
+          <div class="issue-summary">Score of 85/100 — several issues found including colour contrast, missing landmark structure, and heading order.</div>
+        </div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label why">Why it matters to you</div>
+          <p>Accessibility means whether your site works well for everyone — including patients with visual impairments who use screen readers, or older patients who zoom in on their phones. Some of your text doesn't have enough colour contrast to be comfortably readable, and the page structure makes it harder for assistive technology to navigate. It also affects your SEO score.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label fix">What the fix looks like</div>
+          <p>A rebuild targets 98+ on accessibility — proper colour contrast, correct heading structure, alt text on all images, and a logical page layout that works with screen readers and keyboard navigation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ISSUE 6: SEO -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity sev-minor">Minor</span>
+        <div>
+          <div class="issue-title">Six links on your site have no descriptive text</div>
+          <div class="issue-summary">SEO score of 92 — Google found 6 links where the text doesn't tell it (or the user) where they lead.</div>
+        </div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label why">Why it matters to you</div>
+          <p>Google crawls your site by following links and reading their text to understand what's on each page. Links with vague text like "Read more" or "Click here" don't tell Google anything useful — which means those pages get less credit. For a dental practice competing on terms like "dental implants Sheffield", every SEO point counts.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label fix">What the fix looks like</div>
+          <p>A rebuild ensures every link is descriptive — "Learn about dental implants in Sheffield" not just "Read more." This is standard on all Trabelo builds and contributes to an SEO score of 100.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ISSUE 7: Zoom lock -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity sev-moderate">Moderate</span>
+        <div>
+          <div class="issue-title">Patients on mobile can't zoom in on your site</div>
+          <div class="issue-summary">Your site uses user-scalable="no" — which locks the zoom level and is flagged by Google as an accessibility failure.</div>
+        </div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label why">Why it matters to you</div>
+          <p>Some of your patients — particularly older ones — rely on being able to pinch-zoom to read text on their phones. Locking that out is a barrier, and it's also against Google's accessibility guidelines. It's a small thing to fix, but it matters to real people.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label fix">What the fix looks like</div>
+          <p>Removing this single line and ensuring the site is properly mobile-responsive (so zooming is never needed) is straightforward on a rebuild.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCORES BREAKDOWN -->
+  <div class="audit-section">
+    <div class="section-label">
+      <div class="icon icon-teal">📊</div>
+      <h2>Score Breakdown — Before & After</h2>
+    </div>
+    <div class="scores-table">
+      <div class="score-row">
+        <div><div class="score-row-label">Performance</div><div class="score-row-sub">How fast your site loads on mobile</div></div>
+        <span class="score-pill pill-amber">66 / 100</span>
+        <div class="score-after">→ 97+ after rebuild</div>
+      </div>
+      <div class="score-row">
+        <div><div class="score-row-label">Accessibility</div><div class="score-row-sub">How usable the site is for all visitors</div></div>
+        <span class="score-pill pill-amber">85 / 100</span>
+        <div class="score-after">→ 98 after rebuild</div>
+      </div>
+      <div class="score-row">
+        <div><div class="score-row-label">Best Practices</div><div class="score-row-sub">Security and technical standards</div></div>
+        <span class="score-pill pill-green">100 / 100</span>
+        <div class="score-after">→ 100 maintained</div>
+      </div>
+      <div class="score-row">
+        <div><div class="score-row-label">SEO</div><div class="score-row-sub">How well Google can read and rank your site</div></div>
+        <span class="score-pill pill-amber">92 / 100</span>
+        <div class="score-after">→ 100 after rebuild</div>
+      </div>
+      <div class="score-row">
+        <div><div class="score-row-label">Largest Contentful Paint</div><div class="score-row-sub">How long before the main content appears</div></div>
+        <span class="score-pill pill-red">8.8 seconds</span>
+        <div class="score-after">→ under 2.5s target</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="audit-section">
+    <div class="section-label">
+      <div class="icon icon-green">✨</div>
+      <h2>What a Rebuild Adds</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap">⚡</div>
+        <div>
+          <h4>97+ Mobile Performance</h4>
+          <p>Pages load in under 2.5 seconds on mobile — keeping patients on the site long enough to book.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">📱</div>
+        <div>
+          <h4>Properly Mobile-First</h4>
+          <p>Built for phones first, not adapted from a desktop layout. Everything works perfectly on any device.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">📩</div>
+        <div>
+          <h4>Enquiry Form</h4>
+          <p>A proper contact form so patients can enquire about specific treatments without having to pick up the phone.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🦷</div>
+        <div>
+          <h4>Dedicated Treatment Pages</h4>
+          <p>Individual pages for implants, cosmetic dentistry, straightening, rejuvenation and more — better for SEO and patient clarity.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🔍</div>
+        <div>
+          <h4>SEO Score of 100</h4>
+          <p>Every link descriptive, every image tagged, proper heading structure — giving Google exactly what it needs to rank you.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">♿</div>
+        <div>
+          <h4>Accessibility Score of 98</h4>
+          <p>Works for all patients including those using screen readers or who need to zoom — and it ticks Google's accessibility boxes.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">📷</div>
+        <div>
+          <h4>CBCT & 3D Imaging Showcase</h4>
+          <p>Your Planmeca scanner is a real differentiator in Sheffield — a rebuilt site gives it the dedicated space it deserves.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">💳</div>
+        <div>
+          <h4>Finance Options Highlighted</h4>
+          <p>Finance is a big conversion driver for implants and aligners. A rebuilt site puts it front and centre where it can do its job.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="audit-section">
+    <div class="section-label">
+      <div class="icon icon-teal">💷</div>
+      <h2>Pricing — One-Off, No Monthly Fees</h2>
+    </div>
+    <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:24px;">All prices are one-off fixed payments. You own the site outright. No monthly retainer, no subscription, no hidden costs.</p>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">£395</div>
+        <div class="pricing-type">One-off payment</div>
+        <ul class="pricing-features">
+          <li>Up to 5 pages</li>
+          <li>Performance score 97+</li>
+          <li>Accessibility score 98</li>
+          <li>SEO score 100</li>
+          <li>Mobile-first design</li>
+          <li>Contact form included</li>
+        </ul>
+        <div class="pricing-note">Updates available at £15 per change or £30/month for unlimited small updates.</div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">⭐ Best Fit for You</div>
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-type">One-off payment</div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Dedicated treatment pages</li>
+          <li>Finance options section</li>
+          <li>Patient enquiry form with treatment selector</li>
+          <li>CBCT & 3D imaging showcase</li>
+          <li>Google Reviews integration</li>
+          <li>Team / About page</li>
+          <li>Emergency dentist landing page</li>
+        </ul>
+        <div class="pricing-note">No monthly fees.</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-type">One-off payment</div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>Full CMS — update content yourself</li>
+          <li>Automated appointment reminder emails</li>
+          <li>Live Google Reviews feed</li>
+          <li>Patient portal integration</li>
+          <li>Push notifications for offers</li>
+        </ul>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month depending on features).</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="audit-cta">
+    <h2>Want to See the Demo?</h2>
+    <p>I've already built a free demo showing what a rebuilt High Street Dental Care site could look like. Have a look — there's no obligation, and it costs you nothing.</p>
+    <div class="cta-buttons">
+      <a href="highstreet-dental-demo.html" class="cta-btn-white">👀 View the Demo Site</a>
+      <a href="mailto:aidan@trabelo.com" class="cta-btn-outline">✉ Get in Touch</a>
+    </div>
+    <p style="margin-top:20px;font-size:0.85rem;color:rgba(255,255,255,0.5);">Or call / email: <a href="mailto:aidan@trabelo.com" style="color:rgba(255,255,255,0.75);text-decoration:none;">aidan@trabelo.com</a></p>
+  </div>
+
+  <div class="trabelo-footer">
+    Website audit & concept built by <strong>Trabelo · Sheffield</strong>
+  </div>
+
+</div>
+</body>
+</html>
