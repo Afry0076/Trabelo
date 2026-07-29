@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabelo — Wortley Hall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8960C;
+    --gold-light: #D4AF37;
+    --deep: #1A1208;
+    --cream: #FAF7F0;
+    --warm-white: #FFFDF8;
+    --border: #DDD4B8;
+    --text: #2C2416;
+    --mid: #6B5E42;
+    --red: #C0392B;
+    --red-pale: #FDF3F2;
+    --amber: #B7600A;
+    --amber-pale: #FEF6EC;
+    --green: #1E7E44;
+    --green-pale: #F0F8F3;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--deep);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* BG gradient */
+  .bg-wrap {
+    flex: 1;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(184,150,12,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(184,150,12,0.05) 0%, transparent 50%),
+      var(--deep);
+    padding: 2rem 1.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  /* Trabelo badge */
+  .trabelo-top {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 3.5rem;
+    align-self: flex-start;
+    max-width: 720px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .trabelo-logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: -0.01em;
+  }
+  .trabelo-logo span { color: var(--gold-light); }
+  .trabelo-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+  }
+  .trabelo-subtitle {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    max-width: 720px;
+    width: 100%;
+  }
+
+  /* Venue header */
+  .venue-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+  }
+  .venue-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  .venue-url {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 1.75rem;
+  }
+  .venue-desc {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* Scores */
+  .scores-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .score-pill {
+    border-radius: 8px;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    border: 1.5px solid;
+  }
+  .score-pill.fail { background: rgba(192,57,43,0.12); border-color: rgba(192,57,43,0.35); }
+  .score-pill.warn { background: rgba(183,96,10,0.12); border-color: rgba(183,96,10,0.35); }
+  .score-pill.pass { background: rgba(30,126,68,0.12); border-color: rgba(30,126,68,0.35); }
+  .score-pill .s-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+  .score-pill.fail .s-num { color: #e05a4b; }
+  .score-pill.warn .s-num { color: #e0870a; }
+  .score-pill.pass .s-num { color: #2ea85e; }
+  .score-pill .s-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.4);
+  }
+  .scores-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: -0.5rem;
+  }
+
+  /* CTAs */
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .cta-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1.5px solid;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    cursor: pointer;
+  }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .cta-btn.primary {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .cta-btn.primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .cta-btn.secondary {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.12);
+  }
+  .cta-btn.secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+  .cta-btn-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .cta-btn.primary .cta-btn-label { color: rgba(26,18,8,0.6); }
+  .cta-btn.secondary .cta-btn-label { color: rgba(255,255,255,0.35); }
+  .cta-btn-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .cta-btn.primary .cta-btn-title { color: var(--deep); }
+  .cta-btn.secondary .cta-btn-title { color: rgba(255,255,255,0.85); }
+  .cta-btn-sub {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  .cta-btn.primary .cta-btn-sub { color: rgba(26,18,8,0.55); }
+  .cta-btn.secondary .cta-btn-sub { color: rgba(255,255,255,0.35); }
+
+  /* Footer note */
+  .page-footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+  }
+  .page-footer a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .page-footer a:hover { color: var(--gold-light); }
+
+  @media (max-width: 500px) {
+    .scores-row { grid-template-columns: repeat(2, 1fr); }
+    .cta-grid { grid-template-columns: 1fr; }
+    .card { padding: 1.75rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-wrap">
+
+  <!-- Trabelo branding -->
+  <div class="trabelo-top">
+    <div class="trabelo-logo">trabelo<span>.</span></div>
+    <div class="trabelo-dot"></div>
+    <div class="trabelo-subtitle">Web design · Sheffield & South Yorkshire</div>
+  </div>
+
+  <!-- Main card -->
+  <div class="card">
+    <div class="venue-eyebrow">Free Website Audit & Demo</div>
+    <h1 class="venue-name">Wortley Hall</h1>
+    <div class="venue-url">wortleyhall.org.uk · Wortley, Sheffield S35 7DB</div>
+    <p class="venue-desc">I'm Aidan — I do web design across Sheffield and South Yorkshire. I came across Wortley Hall while auditing venue websites in the area, and ran your site through Google's speed testing tool. I've put together a free audit of what I found, along with a full concept of what a rebuilt site could look like. Both are below.</p>
+
+    <!-- Scores -->
+    <div class="scores-row">
+      <div class="score-pill fail">
+        <div class="s-num">60</div>
+        <div class="s-label">Performance</div>
+      </div>
+      <div class="score-pill warn">
+        <div class="s-num">80</div>
+        <div class="s-label">Accessibility</div>
+      </div>
+      <div class="score-pill warn">
+        <div class="s-num">92</div>
+        <div class="s-label">Best Practices</div>
+      </div>
+      <div class="score-pill pass">
+        <div class="s-num">100</div>
+        <div class="s-label">SEO</div>
+      </div>
+    </div>
+    <div class="scores-note">Google Lighthouse · Mobile · July 2026 · 0–49 poor · 50–89 needs work · 90–100 good</div>
+
+    <!-- CTAs -->
+    <div class="cta-grid">
+      <a href="wortley-hall-index.html" class="cta-btn primary">
+        <div class="cta-btn-label">✦ Concept Demo</div>
+        <div class="cta-btn-title">See the rebuilt site</div>
+        <div class="cta-btn-sub">Full working demo — weddings, conference, accommodation & more</div>
+      </a>
+      <a href="wortley-hall-audit.html" class="cta-btn secondary">
+        <div class="cta-btn-label">📋 Full Audit</div>
+        <div class="cta-btn-title">See the detailed audit</div>
+        <div class="cta-btn-sub">Every issue explained — and what it costs to fix it</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  Prepared by <a href="mailto:aidan@trabelo.com">Aidan Fry · Trabelo · Sheffield</a> · aidan@trabelo.com · No obligation
+</div>
+
+</body>
+</html>
