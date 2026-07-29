@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Age Aesthetics | Skin Clinic Doncaster | Ewelina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #2C1A3A;
+    --plum-mid: #3D2552;
+    --plum-pale: #D4C4E0;
+    --plum-blush: #F3EEF8;
+    --rose: #C4608A;
+    --rose-light: #D98AAA;
+    --rose-pale: #F5D5E2;
+    --gold: #C9A96E;
+    --gold-light: #DBBF8A;
+    --charcoal: #1A1A1A;
+    --warm-grey: #6B6370;
+    --off-white: #FAF8FC;
+    --white: #FFFFFF;
+    --nav-h: 72px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--charcoal); overflow-x: hidden; }
+
+  /* TOPBAR */
+  .topbar { background: var(--plum); color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 0.06em; padding: 9px 32px; display: flex; gap: 22px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .topbar a { color: var(--plum-pale); text-decoration: none; }
+  .topbar a:hover { color: var(--gold-light); }
+  .topbar span { color: rgba(255,255,255,0.2); }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--plum-pale); height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 36px; box-shadow: 0 2px 20px rgba(44,26,58,0.08); }
+  .nav-logo { font-family: 'Josefin Sans', sans-serif; font-size: 1.3rem; font-weight: 600; color: var(--plum); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.1; cursor: pointer; }
+  .nav-logo span { display: block; font-size: 0.48rem; font-family: 'DM Sans', sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-grey); font-weight: 400; margin-top: 3px; }
+  .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); font-weight: 500; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover { color: var(--plum); }
+  .btn-cta { background: var(--rose); color: var(--white); padding: 11px 22px; border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-cta:hover { background: var(--rose-light); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--plum); padding: 11px 22px; border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; border: 1.5px solid var(--plum); text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-outline:hover { background: var(--plum); color: var(--white); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); transition: all 0.3s; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #1A0F24 0%, #2C1A3A 55%, #1A0F24 100%); min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 80px 60px; gap: 60px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 25% 55%, rgba(196,96,138,0.2) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(201,169,110,0.1) 0%, transparent 45%); pointer-events: none; }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 26px; height: 1px; background: var(--gold); }
+  .hero h1 { font-family: 'Josefin Sans', sans-serif; font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 20px; letter-spacing: 0.06em; }
+  .hero h1 strong { font-weight: 600; color: var(--plum-pale); }
+  .hero-desc { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.9; margin-bottom: 34px; max-width: 430px; font-weight: 300; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 32px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+  .stat-num { font-family: 'Josefin Sans', sans-serif; font-size: 2rem; font-weight: 600; color: var(--white); line-height: 1; letter-spacing: 0.06em; }
+  .stat-label { font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 4px; }
+
+  /* HERO CARD */
+  .hero-card { position: relative; z-index: 2; background: rgba(255,255,255,0.04); border: 1px solid rgba(212,196,224,0.18); border-radius: 4px; padding: 38px; }
+  .hero-card-tag { font-size: 0.54rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+  .hero-card h3 { font-family: 'Josefin Sans', sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--white); margin-bottom: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .hero-card-sub { font-size: 0.72rem; color: rgba(255,255,255,0.38); margin-bottom: 22px; font-style: italic; }
+  .clinic-details { list-style: none; }
+  .clinic-details li { display: flex; align-items: flex-start; gap: 11px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.78rem; color: rgba(255,255,255,0.58); }
+  .clinic-details li:last-child { border-bottom: none; }
+  .detail-icon { color: var(--plum-pale); font-size: 0.84rem; flex-shrink: 0; margin-top: 1px; }
+  .detail-main { font-weight: 500; color: var(--white); }
+  .detail-sub { font-size: 0.66rem; color: rgba(255,255,255,0.35); margin-top: 1px; }
+  .hero-card-phone { margin-top: 20px; padding: 14px 18px; background: var(--rose); border-radius: 2px; text-align: center; cursor: pointer; transition: background 0.2s; }
+  .hero-card-phone:hover { background: var(--rose-light); }
+  .hero-card-phone a { color: var(--white); text-decoration: none; font-size: 1rem; font-weight: 600; letter-spacing: 0.06em; display: block; }
+  .hero-card-phone-label { font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 3px; }
+
+  /* TRUST STRIP */
+  .trust-strip { background: var(--white); border-bottom: 1px solid var(--plum-pale); padding: 16px 40px; display: flex; gap: 0; justify-content: center; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 9px; padding: 7px 26px; border-right: 1px solid var(--plum-pale); }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 1rem; }
+  .trust-text { font-size: 0.72rem; color: var(--warm-grey); }
+  .trust-text strong { color: var(--charcoal); display: block; font-size: 0.79rem; }
+
+  /* SECTIONS */
+  .section { padding: 86px 60px; }
+  .section.alt { background: var(--plum-blush); }
+  .section.dark { background: var(--plum); }
+  .section-label { font-size: 0.54rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--rose); margin-bottom: 11px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--rose); }
+  .section-title { font-family: 'Josefin Sans', sans-serif; font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 300; line-height: 1.18; margin-bottom: 13px; letter-spacing: 0.05em; }
+  .section-desc { font-size: 0.9rem; color: var(--warm-grey); line-height: 1.88; max-width: 540px; font-weight: 300; }
+  .section-header { margin-bottom: 48px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-label { justify-content: center; }
+  .section-header.center .section-label::before { display: none; }
+  .section-header.center .section-desc { margin: 0 auto; }
+
+  /* TREATMENTS */
+  .treatments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--plum-pale); border: 2px solid var(--plum-pale); }
+  .treatment-card { background: var(--white); padding: 28px 24px; transition: background 0.2s; cursor: pointer; }
+  .treatment-card:hover { background: var(--plum-blush); }
+  .treatment-cat { font-size: 0.52rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 8px; font-weight: 600; }
+  .treatment-card h3 { font-family: 'Josefin Sans', sans-serif; font-size: 1.05rem; font-weight: 400; color: var(--charcoal); margin-bottom: 8px; line-height: 1.3; letter-spacing: 0.04em; }
+  .treatment-card p { font-size: 0.78rem; color: var(--warm-grey); line-height: 1.72; }
+  .treatment-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--plum); font-weight: 600; cursor: pointer; text-decoration: none; transition: gap 0.2s; }
+  .treatment-link:hover { gap: 10px; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 76px; align-items: center; }
+  .about-img-wrap { position: relative; }
+  .about-img-placeholder { background: linear-gradient(135deg, var(--plum-blush) 0%, var(--plum-pale) 100%); border-radius: 2px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .about-img-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
+  .about-badge { position: absolute; bottom: -18px; right: -18px; background: var(--rose); color: var(--white); padding: 18px 20px; border-radius: 2px; text-align: center; }
+  .about-badge-num { font-family: 'Josefin Sans', sans-serif; font-size: 2rem; font-weight: 600; line-height: 1; letter-spacing: 0.06em; }
+  .about-badge-label { font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose-pale); margin-top: 3px; }
+  .credential-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+  .credential { padding: 12px 14px; background: var(--plum-blush); border-left: 3px solid var(--rose); border-radius: 0 2px 2px 0; }
+  .credential-title { font-size: 0.7rem; font-weight: 600; color: var(--charcoal); margin-bottom: 2px; }
+  .credential-sub { font-size: 0.63rem; color: var(--warm-grey); }
+
+  /* CONCERNS */
+  .concerns-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .concern-chip { padding: 15px 16px; border: 1px solid var(--plum-pale); border-radius: 2px; font-size: 0.78rem; color: var(--charcoal); display: flex; align-items: center; gap: 9px; cursor: pointer; transition: all 0.2s; background: var(--white); }
+  .concern-chip:hover { border-color: var(--rose); background: var(--plum-blush); color: var(--plum); }
+  .concern-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rose); flex-shrink: 0; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .testimonial-card { padding: 28px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(212,196,224,0.15); border-radius: 2px; }
+  .stars { color: var(--gold); font-size: 0.76rem; letter-spacing: 3px; margin-bottom: 13px; }
+  .testimonial-text { font-size: 0.88rem; font-style: italic; color: rgba(255,255,255,0.78); line-height: 1.8; margin-bottom: 15px; font-weight: 300; }
+  .testimonial-author { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+  /* CTA BANNER */
+  .cta-banner { background: linear-gradient(135deg, var(--rose) 0%, #8B3060 100%); padding: 62px 60px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; }
+  .cta-banner h2 { font-family: 'Josefin Sans', sans-serif; font-size: 1.9rem; font-weight: 300; color: var(--white); margin-bottom: 7px; letter-spacing: 0.06em; }
+  .cta-banner p { font-size: 0.85rem; color: rgba(255,255,255,0.58); }
+  .btn-gold { background: var(--gold); color: var(--white); padding: 13px 28px; border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; white-space: nowrap; display: inline-block; }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 76px; }
+  .contact-detail { display: flex; gap: 14px; margin-bottom: 22px; }
+  .contact-icon { font-size: 0.92rem; color: var(--rose); flex-shrink: 0; margin-top: 2px; }
+  .contact-detail h4 { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-grey); margin-bottom: 5px; font-weight: 600; }
+  .contact-detail p { font-size: 0.85rem; color: var(--charcoal); line-height: 1.6; }
+  .contact-detail a { color: var(--plum); text-decoration: none; font-weight: 500; }
+  .hours-grid { margin-top: 16px; display: grid; grid-template-columns: auto 1fr; gap: 5px 18px; font-size: 0.82rem; }
+  .hours-day { color: var(--warm-grey); }
+  .hours-time { color: var(--charcoal); font-weight: 500; }
+  .form-row { margin-bottom: 14px; }
+  .form-row label { display: block; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-grey); margin-bottom: 6px; font-weight: 500; }
+  .form-row input, .form-row select, .form-row textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--plum-pale); border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.84rem; background: var(--white); color: var(--charcoal); outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--plum); }
+  .form-row textarea { min-height: 106px; resize: vertical; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* PARTNERS */
+  .partners-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin-top: 32px; opacity: 0.6; }
+  .partner-badge { padding: 8px 16px; border: 1px solid var(--plum-pale); border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-grey); font-weight: 500; }
+
+  /* FOOTER */
+  footer { background: #0E0814; padding: 50px 60px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; }
+  .footer-logo { font-family: 'Josefin Sans', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 5px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .footer-tagline { font-size: 0.66rem; color: rgba(255,255,255,0.26); letter-spacing: 0.1em; margin-bottom: 14px; font-style: italic; }
+  .footer-col h4 { font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.26); margin-bottom: 12px; font-weight: 500; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a { font-size: 0.77rem; color: rgba(255,255,255,0.44); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--plum-pale); }
+  .footer-social { display: flex; gap: 9px; margin-top: 15px; }
+  .social-btn { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 0.76rem; color: rgba(255,255,255,0.35); cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .social-btn:hover { border-color: var(--plum-pale); color: var(--plum-pale); }
+  .footer-bottom { background: #060409; padding: 15px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.64rem; color: rgba(255,255,255,0.18); flex-wrap: wrap; gap: 8px; }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  @media (max-width: 768px) {
+    .topbar { font-size: 0.62rem; padding: 8px 16px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); padding: 24px; gap: 16px; border-bottom: 1px solid var(--plum-pale); box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 99; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; padding: 54px 24px 38px; min-height: auto; gap: 34px; }
+    .hero-stats { gap: 18px; }
+    .section { padding: 54px 24px; }
+    .treatments-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .concerns-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 38px; }
+    .cta-banner { grid-template-columns: 1fr; padding: 46px 24px; text-align: center; }
+    footer { grid-template-columns: 1fr; gap: 28px; padding: 34px 24px; }
+    .footer-bottom { padding: 13px 24px; flex-direction: column; text-align: center; }
+    .trust-strip { padding: 12px; }
+    .trust-item { padding: 7px 14px; border-right: none; border-bottom: 1px solid var(--plum-pale); width: 100%; }
+    .trust-item:last-child { border-bottom: none; }
+    .form-2col { grid-template-columns: 1fr; }
+    .about-badge { right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="tel:07355283819">📞 07355 283 819</a>
+  <span>·</span>
+  <a href="mailto:info@newageclinic.uk">info@newageclinic.uk</a>
+  <span>·</span>
+  <span>35a Welbeck Road, Doncaster DN4 5EY</span>
+  <span>·</span>
+  <span>Tue–Fri 10am–7pm · Sat 10am–3pm</span>
+</div>
+
+<nav>
+  <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer">
+    New Age Aesthetics
+    <span>Skin Clinic · Doncaster</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('treatments')">Treatments</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('concerns')">Your Concerns</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+    <li><a class="btn-cta" href="https://www.fresha.com/book-now/new-age-aesthetics-skin-clinic-ikmrursi/all-offer?id=1073446&pId=1017692" target="_blank">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Doncaster's Trusted Skin & Aesthetics Clinic</div>
+      <h1>Enhance your<br>natural beauty.<br><strong>Feel confident.</strong></h1>
+      <p class="hero-desc">I'm Ewelina — founder and sole practitioner at New Age Aesthetics. With over 14 years of expertise and 5 years specialising in non-surgical aesthetics, every treatment is bespoke, safe and designed around you.</p>
+      <div class="hero-actions">
+        <a class="btn-cta" href="https://www.fresha.com/book-now/new-age-aesthetics-skin-clinic-ikmrursi/all-offer?id=1073446&pId=1017692" target="_blank">Book an Appointment</a>
+        <a class="btn-outline" onclick="showPage('treatments')" style="color:var(--plum-pale);border-color:rgba(212,196,224,0.4)">View Treatments</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">14+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Client Reviews</div></div>
+        <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Treatments</div></div>
+        <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Consultation</div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-tag">The Clinic</div>
+      <h3>New Age Aesthetics</h3>
+      <p class="hero-card-sub">Doncaster Town Centre Area</p>
+      <ul class="clinic-details">
+        <li><span class="detail-icon">📍</span><div><div class="detail-main">35a Welbeck Road</div><div class="detail-sub">Doncaster, South Yorkshire DN4 5EY</div></div></li>
+        <li><span class="detail-icon">🕐</span><div><div class="detail-main">Tue–Fri: 10am – 7pm</div><div class="detail-sub">Sat: 10am – 3pm · Sun & Mon: Closed</div></div></li>
+        <li><span class="detail-icon">✨</span><div><div class="detail-main">Free Consultations</div><div class="detail-sub">Every treatment plan is bespoke to you</div></div></li>
+        <li><span class="detail-icon">👩‍⚕️</span><div><div class="detail-main">Ewelina — Founder & Practitioner</div><div class="detail-sub">14+ years experience · 5 years in aesthetics</div></div></li>
+        <li><span class="detail-icon">💊</span><div><div class="detail-main">High-Quality Products Only</div><div class="detail-sub">Cutting-edge techniques & premium products</div></div></li>
+      </ul>
+      <div class="hero-card-phone">
+        <div class="hero-card-phone-label">Call the clinic</div>
+        <a href="tel:07355283819">07355 283 819</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="trust-item"><span class="trust-icon">⭐</span><div class="trust-text"><strong>5-Star Reviews</strong>Trusted by Doncaster</div></div>
+    <div class="trust-item"><span class="trust-icon">👩‍⚕️</span><div class="trust-text"><strong>14+ Years Experience</strong>Expert practitioner</div></div>
+    <div class="trust-item"><span class="trust-icon">✅</span><div class="trust-text"><strong>Free Consultations</strong>Bespoke treatment plans</div></div>
+    <div class="trust-item"><span class="trust-icon">💉</span><div class="trust-text"><strong>30+ Treatments</strong>Laser, injectables, skin & body</div></div>
+    <div class="trust-item"><span class="trust-icon">📅</span><div class="trust-text"><strong>Easy Online Booking</strong>Book via Fresha</div></div>
+  </div>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-label">What we offer</div>
+      <h2 class="section-title">Popular Treatments</h2>
+      <p class="section-desc">From laser hair removal to the Plasma Pen, lip fillers to the Million Dollar Facial — every treatment is delivered personally by Ewelina using cutting-edge techniques and premium products.</p>
+    </div>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Laser</div><h3>Laser Hair Removal</h3><p>Effective, long-lasting hair reduction using the latest laser technology. Safe for a wide range of skin types and suitable for face and body areas.</p><a class="treatment-link" onclick="showPage('treatments')">Learn more →</a></div>
+      <div class="treatment-card"><div class="treatment-cat">Plasma Pen</div><h3>Plasma Pen Skin Tightening</h3><p>Non-surgical skin tightening using fibroblast plasma energy. Effective for loose skin, hooded eyes, stretch marks, scarring and more — with long-lasting results.</p><a class="treatment-link" onclick="showPage('treatments')">Learn more →</a></div>
+      <div class="treatment-card"><div class="treatment-cat">Injectables</div><h3>Lip Filler</h3><p>Hyaluronic acid lip enhancement for natural shape, definition and volume. Tailored to your face and your goals — subtle or statement, always bespoke.</p><a class="treatment-link" onclick="showPage('treatments')">Learn more →</a></div>
+      <div class="treatment-card"><div class="treatment-cat">Injectables</div><h3>Anti-Wrinkle Injections</h3><p>Botulinum toxin to smooth expression lines and refresh the face. Natural-looking results tailored to how you want to look and feel.</p><a class="treatment-link" onclick="showPage('treatments')">Learn more →</a></div>
+      <div class="treatment-card"><div class="treatment-cat">Skin</div><h3>Million Dollar Facial</h3><p>A luxury signature facial combining microneedling, dermaplaning and LED light therapy for instantly radiant, deeply rejuvenated skin.</p><a class="treatment-link" onclick="showPage('treatments')">Learn more →</a></div>
+      <div class="treatment-card"><div class="treatment-cat">Skin</div><h3>Polynucleotides & PRP</h3><p>Next-generation regenerative treatments using your body's own growth factors — or PDRN injections — to repair and rejuvenate skin at a cellular level.</p><a class="treatment-link" onclick="showPage('treatments')">Learn more →</a></div>
+    </div>
+    <div style="text-align:center;margin-top:30px;"><a class="btn-outline" onclick="showPage('treatments')">View All 30+ Treatments</a></div>
+  </section>
+
+  <section class="section alt">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <img src="https://static.wixstatic.com/media/03f7bc_e01add5caf254f7bbf1bf8390cae0844~mv2.jpg/v1/crop/x_118,y_63,w_773,h_847/fill/w_393,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/FB_IMG_1723030937489.jpg" alt="Ewelina — New Age Aesthetics" onerror="this.parentElement.innerHTML='<span style=\'padding:24px;text-align:center;color:var(--plum);font-family:Josefin Sans,sans-serif\'>Ewelina<br>Founder & Practitioner</span>'">
+        </div>
+        <div class="about-badge"><div class="about-badge-num">14+</div><div class="about-badge-label">Years<br>Experience</div></div>
+      </div>
+      <div>
+        <div class="section-label">Meet Ewelina</div>
+        <h2 class="section-title">Expert care, personally delivered</h2>
+        <p class="section-desc" style="margin-bottom:16px">I'm Ewelina — founder and sole practitioner at New Age Aesthetics, conveniently located near Doncaster town centre. With over 14 years of expertise, including 5 years specialising in non-surgical aesthetics, I'm here to enhance your natural beauty and help you feel confident in your skin.</p>
+        <p class="section-desc" style="margin-bottom:16px">Every treatment at New Age Aesthetics is bespoke — designed around your unique needs and natural features. I stay up-to-date with the latest advancements in aesthetic treatments, using high-quality products and cutting-edge techniques to deliver natural-looking, safe and long-lasting results.</p>
+        <p class="section-desc">I pride myself on providing a welcoming, professional space where you feel heard, understood and cared for from your very first consultation.</p>
+        <div class="credential-grid">
+          <div class="credential"><div class="credential-title">14+ Years Expertise</div><div class="credential-sub">Combined experience</div></div>
+          <div class="credential"><div class="credential-title">5 Years in Aesthetics</div><div class="credential-sub">Non-surgical specialist</div></div>
+          <div class="credential"><div class="credential-title">Bespoke Treatments</div><div class="credential-sub">Tailored to every client</div></div>
+          <div class="credential"><div class="credential-title">Continuous Training</div><div class="credential-sub">Latest techniques & products</div></div>
+        </div>
+        <a class="btn-cta" onclick="showPage('about')">More About Ewelina</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center;color:var(--gold)"><span style="display:inline-block;width:20px;height:1px;background:var(--gold);margin-right:10px;vertical-align:middle"></span>Client reviews</div>
+      <h2 class="section-title" style="color:var(--white)">What Clients Say</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.4);margin:0 auto">Real words from Ewelina's clients — all verified on Google.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"This lady is amazing! She offers a wide range of affordable & quality treatments. She explains everything in detail & is very professional. I wouldn't go anywhere else."</p><div class="testimonial-author">— Google Review</div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"I suffer from anxiety & Ewelina was really understanding & reassured me from the beginning. She put me at ease straight away and advised me on exactly the right treatment."</p><div class="testimonial-author">— Google Review</div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Her knowledge and expertise means you're in the best hands. I wouldn't trust anyone else with my skincare. She really is the best at what she does."</p><div class="testimonial-author">— Google Review</div></div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <div>
+      <h2>Ready to start your journey?</h2>
+      <p>Book online, or call Ewelina directly to discuss which treatment is right for you. All consultations are free.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a class="btn-gold" href="https://www.fresha.com/book-now/new-age-aesthetics-skin-clinic-ikmrursi/all-offer?id=1073446&pId=1017692" target="_blank">Book Online</a>
+      <a class="btn-cta" style="background:transparent;border:1.5px solid rgba(255,255,255,0.3)" onclick="showPage('contact')">Contact Us</a>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:52px;padding-bottom:52px;">
+    <div class="section-header center" style="margin-bottom:0">
+      <div class="section-label" style="justify-content:center">Products we use</div>
+      <h3 style="font-family:'Josefin Sans',sans-serif;font-size:1.3rem;font-weight:300;letter-spacing:0.06em;margin-bottom:4px">Premium products only</h3>
+    </div>
+    <div class="partners-row">
+      <div class="partner-badge">Plasma Pen</div>
+      <div class="partner-badge">Polynucleotides</div>
+      <div class="partner-badge">PRP & PRF</div>
+      <div class="partner-badge">Juvederm</div>
+      <div class="partner-badge">Botox®</div>
+      <div class="partner-badge">Profhilo</div>
+      <div class="partner-badge">Aqualyx</div>
+      <div class="partner-badge">Mesotherapy</div>
+      <div class="partner-badge">IV Vitamins</div>
+    </div>
+  </section>
+</div>
+
+<!-- TREATMENTS -->
+<div class="page" id="page-treatments">
+  <div style="background:linear-gradient(135deg,#1A0F24 0%,#2C1A3A 100%);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">What we offer</div>
+    <h1 style="font-family:'Josefin Sans',sans-serif;font-size:clamp(1.9rem,3.8vw,3.1rem);font-weight:300;color:var(--white);margin-bottom:13px;letter-spacing:0.06em">Our Treatments</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);max-width:500px;font-weight:300;line-height:1.9">30+ bespoke treatments for face, skin and body — all delivered personally by Ewelina using the latest techniques and premium products.</p>
+  </div>
+  <section class="section">
+    <div class="section-label">Laser</div>
+    <h2 class="section-title" style="margin-bottom:26px">Laser Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Permanent Reduction</div><h3>Laser Hair Removal</h3><p>Long-lasting hair reduction using the latest laser technology. Safe, effective and available for face and body — all skin types considered.</p></div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="section-label">Plasma Pen</div>
+    <h2 class="section-title" style="margin-bottom:26px">Plasma Pen Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Tightening</div><h3>Plasma Pen Skin Tightening</h3><p>Non-surgical fibroblast plasma treatment for loose, sagging skin — delivering long-lasting results without going under the knife.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Eye Area</div><h3>Plasma Pen Eyes</h3><p>Targets hooded eyelids, under-eye skin laxity and crow's feet — one of the most popular Plasma Pen treatments available.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Resurfacing</div><h3>Plasma Pen Skin Resurfacing</h3><p>Rejuvenates and resurfaces skin texture, addressing scarring, acne marks and general skin quality.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Hands</div><h3>Plasma Pen Hands</h3><p>Hand rejuvenation targeting loose skin, age spots and texture on the backs of the hands for younger-looking results.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Body</div><h3>Mummy Tummy Makeover</h3><p>Plasma Pen treatment targeting stretched and loose abdominal skin — popular post-pregnancy treatment for skin tightening.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Body</div><h3>Non-Surgical Breast Lift</h3><p>Plasma energy skin tightening targeting the décolletage and chest area for a lifted, firmer appearance without surgery.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Blemishes</div><h3>Blemish Removal</h3><p>Plasma Pen treatment for the removal of skin blemishes including skin tags, milia and other superficial lesions.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Body</div><h3>Stretch Marks & Scars</h3><p>Plasma energy treatment targeting stretch marks and scars — stimulating the skin's healing to reduce their appearance.</p></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-label">Injectables</div>
+    <h2 class="section-title" style="margin-bottom:26px">Injectable Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Lip Enhancement</div><h3>Lip Filler</h3><p>Hyaluronic acid filler for natural lip shape, volume and definition — tailored to your features and desired outcome.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Volume & Contour</div><h3>Dermal Filler</h3><p>Volume restoration, wrinkle reduction and facial contouring using premium hyaluronic acid fillers.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Anti-Wrinkle</div><h3>Anti-Wrinkle Injections</h3><p>Botulinum toxin to smooth expression lines and crow's feet for a naturally refreshed, rested appearance.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Advanced</div><h3>Advanced Botox</h3><p>More intricate botulinum toxin work across the face and neck — for comprehensive anti-ageing results beyond standard areas.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Under Eyes</div><h3>Tear Trough Filler</h3><p>Specialist filler treatment for the under-eye area — reducing dark hollows and tired-looking under-eyes.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Contouring</div><h3>Nose Filler</h3><p>Non-surgical nose reshaping using dermal filler — effective for bumps, asymmetry and tip refinement without surgery.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Skin Booster</div><h3>Skin Boosters</h3><p>Hyaluronic acid booster injections for deep hydration and improved skin quality — skin that glows from within.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Regenerative</div><h3>Polynucleotides</h3><p>Cellular repair injections using PDRN — addressing fine lines, dark circles, skin quality and more at a regenerative level.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Regenerative</div><h3>PRP & PRF Therapy</h3><p>Platelet-rich plasma and fibrin therapy using your own growth factors for skin rejuvenation and hair restoration.</p></div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="section-label">Skin Treatments</div>
+    <h2 class="section-title" style="margin-bottom:26px">Skin & Facial Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Signature</div><h3>Million Dollar Facial</h3><p>Ewelina's luxury signature facial — combining microneedling, dermaplaning and LED therapy for a transformative glow.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Mesotherapy</div><h3>Mesotherapy</h3><p>Microinjections of vitamins, minerals and amino acids directly into the skin — for deep nourishment and radiance.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Microneedling</div><h3>Microneedling</h3><p>Advanced microneedling to trigger the skin's natural collagen production — improving texture, tone, scarring and quality.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Chemical Peel</div><h3>Chemical Peels</h3><p>Medical-grade chemical peels for improved skin clarity, reduced pigmentation and a brighter, more even complexion.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Exfoliation</div><h3>Dermaplaning</h3><p>Manual exfoliation removing dead skin cells and vellus hair for instantly smoother, more radiant skin.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Facial</div><h3>Baby Facial</h3><p>A gentle, deeply hydrating facial treatment — perfect for sensitive skin or as an introduction to skin treatments.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:32px;"><a class="btn-cta" href="https://www.fresha.com/book-now/new-age-aesthetics-skin-clinic-ikmrursi/all-offer?id=1073446&pId=1017692" target="_blank">Book a Consultation</a></div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div style="background:linear-gradient(135deg,#1A0F24 0%,#2C1A3A 100%);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Meet Ewelina</div>
+    <h1 style="font-family:'Josefin Sans',sans-serif;font-size:clamp(1.9rem,3.8vw,3.1rem);font-weight:300;color:var(--white);margin-bottom:13px;letter-spacing:0.06em">About New Age Aesthetics</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);max-width:500px;font-weight:300;line-height:1.9">14+ years of expertise. A welcoming space. Every treatment bespoke to you.</p>
+  </div>
+  <section class="section">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <img src="https://static.wixstatic.com/media/03f7bc_e01add5caf254f7bbf1bf8390cae0844~mv2.jpg/v1/crop/x_118,y_63,w_773,h_847/fill/w_393,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/FB_IMG_1723030937489.jpg" alt="Ewelina" onerror="this.parentElement.innerHTML='<span style=\'padding:24px;text-align:center;color:var(--plum)\'>Ewelina<br>Founder & Practitioner</span>'">
+        </div>
+        <div class="about-badge"><div class="about-badge-num">5★</div><div class="about-badge-label">Client<br>Reviews</div></div>
+      </div>
+      <div>
+        <div class="section-label">Founder & Practitioner</div>
+        <h2 class="section-title">Ewelina Kelm</h2>
+        <p style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose);margin-bottom:18px;font-weight:500">Owner · Aesthetic Practitioner · 14+ Years Experience</p>
+        <p class="section-desc" style="margin-bottom:15px">I'm Ewelina — the founder and sole practitioner at New Age Aesthetics, conveniently located near Doncaster town centre. With over 14 years of expertise, including 5 years specialising in non-surgical aesthetics, I'm here to enhance your natural beauty and help you feel confident in your skin.</p>
+        <p class="section-desc" style="margin-bottom:15px">My goal is to deliver natural-looking, safe and long-lasting results using high-quality products and cutting-edge techniques. I stay up-to-date with the latest advancements in aesthetic medicine so my clients always benefit from the very best.</p>
+        <p class="section-desc">I provide a welcoming and professional space where every service is designed around your unique beauty needs. From your very first consultation, my aim is to help you feel at ease, informed and excited about your treatment journey.</p>
+        <div class="credential-grid" style="margin-top:22px">
+          <div class="credential"><div class="credential-title">14+ Years Expertise</div><div class="credential-sub">Extensive professional background</div></div>
+          <div class="credential"><div class="credential-title">5 Years in Aesthetics</div><div class="credential-sub">Non-surgical specialist</div></div>
+          <div class="credential"><div class="credential-title">Continuous Development</div><div class="credential-sub">Latest advancements always</div></div>
+          <div class="credential"><div class="credential-title">Anxiety-Friendly</div><div class="credential-sub">Caring, patient approach</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONCERNS -->
+<div class="page" id="page-concerns">
+  <div style="background:linear-gradient(135deg,#1A0F24 0%,#2C1A3A 100%);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Find your treatment</div>
+    <h1 style="font-family:'Josefin Sans',sans-serif;font-size:clamp(1.9rem,3.8vw,3.1rem);font-weight:300;color:var(--white);margin-bottom:13px;letter-spacing:0.06em">Your Skin Concerns</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);max-width:500px;font-weight:300;line-height:1.9">Not sure which treatment you need? Browse by concern — Ewelina will find the right solution at your free consultation.</p>
+  </div>
+  <section class="section">
+    <div class="section-header">
+      <div class="section-label">Browse by concern</div>
+      <h2 class="section-title">What Can We Help With?</h2>
+    </div>
+    <div class="concerns-grid">
+      <div class="concern-chip"><span class="concern-dot"></span>Blocked Pores</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Acne & Acne Scarring</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Pigmentation</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Rosacea</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Dull & Dry Skin</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Wrinkles & Fine Lines</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Under Eye Concerns</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Facial Volume Loss</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Sagging Skin</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Mature Hands</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Stretch Marks & Scars</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Skin Tags & Moles</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Excess Hair</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Lip Volume</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Hooded Eyes</div>
+      <div class="concern-chip"><span class="concern-dot"></span>Loose Abdominal Skin</div>
+    </div>
+    <div style="text-align:center;margin-top:40px;"><a class="btn-cta" href="https://www.fresha.com/book-now/new-age-aesthetics-skin-clinic-ikmrursi/all-offer?id=1073446&pId=1017692" target="_blank">Book a Free Consultation</a></div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div style="background:linear-gradient(135deg,#1A0F24 0%,#2C1A3A 100%);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Get in touch</div>
+    <h1 style="font-family:'Josefin Sans',sans-serif;font-size:clamp(1.9rem,3.8vw,3.1rem);font-weight:300;color:var(--white);margin-bottom:13px;letter-spacing:0.06em">Contact Us</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);max-width:500px;font-weight:300;line-height:1.9">Book online, call Ewelina directly, or send a message — we'll get back to you as soon as possible.</p>
+  </div>
+  <section class="section">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Find us</div>
+        <h2 class="section-title" style="margin-bottom:26px">Get in Touch</h2>
+        <div class="contact-detail"><span class="contact-icon">📍</span><div><h4>Address</h4><p>35a Welbeck Road<br>Doncaster, South Yorkshire DN4 5EY</p></div></div>
+        <div class="contact-detail"><span class="contact-icon">📞</span><div><h4>Phone</h4><p><a href="tel:07355283819">07355 283 819</a></p></div></div>
+        <div class="contact-detail"><span class="contact-icon">✉️</span><div><h4>Email</h4><p><a href="mailto:info@newageclinic.uk">info@newageclinic.uk</a></p></div></div>
+        <div class="contact-detail"><span class="contact-icon">🕐</span><div><h4>Opening Hours</h4><div class="hours-grid"><span class="hours-day">Tuesday – Friday</span><span class="hours-time">10:00am – 7:00pm</span><span class="hours-day">Saturday</span><span class="hours-time">10:00am – 3:00pm</span><span class="hours-day">Sunday & Monday</span><span class="hours-time">Closed</span></div></div></div>
+        <div style="margin-top:24px;"><a class="btn-cta" href="https://www.fresha.com/book-now/new-age-aesthetics-skin-clinic-ikmrursi/all-offer?id=1073446&pId=1017692" target="_blank">Book Online</a></div>
+      </div>
+      <div>
+        <div class="section-label">Send a message</div>
+        <h2 class="section-title" style="margin-bottom:26px">Enquiry Form</h2>
+        <div class="form-2col"><div class="form-row"><label>First Name</label><input type="text" placeholder="Jane"></div><div class="form-row"><label>Last Name</label><input type="text" placeholder="Smith"></div></div>
+        <div class="form-row"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+        <div class="form-row"><label>Phone Number</label><input type="tel" placeholder="07700 000000"></div>
+        <div class="form-row"><label>Treatment of Interest</label>
+          <select><option value="">Select a treatment...</option><option>Laser Hair Removal</option><option>Plasma Pen Skin Tightening</option><option>Plasma Pen Eyes</option><option>Lip Filler</option><option>Dermal Filler</option><option>Anti-Wrinkle Injections</option><option>Polynucleotides</option><option>PRP / PRF</option><option>Million Dollar Facial</option><option>Chemical Peels</option><option>Microneedling</option><option>Dermaplaning</option><option>Other / Not Sure</option></select>
+        </div>
+        <div class="form-row"><label>Message</label><textarea placeholder="Tell us what you're looking for and Ewelina will get back to you..."></textarea></div>
+        <button class="btn-cta" style="width:100%;padding:13px;font-size:0.74rem;border:none;cursor:pointer">Send Enquiry</button>
+        <p style="font-size:0.68rem;color:var(--warm-grey);margin-top:9px;line-height:1.6">Or call directly: <a href="tel:07355283819" style="color:var(--plum)">07355 283 819</a></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">New Age Aesthetics</div>
+    <div class="footer-tagline">"Enhance your natural beauty. Feel confident."</div>
+    <p style="font-size:0.75rem;color:rgba(255,255,255,0.33);line-height:1.82;max-width:260px">Doncaster's trusted skin clinic — founded by Ewelina with 14+ years expertise and a personal, bespoke approach to every treatment.</p>
+    <div class="footer-social"><a class="social-btn" href="http://facebook.com/NewAgeAestheticsEwelinaKelm" target="_blank">f</a></div>
+  </div>
+  <div class="footer-col"><h4>Treatments</h4><ul class="footer-links"><li><a onclick="showPage('treatments')">Laser Hair Removal</a></li><li><a onclick="showPage('treatments')">Plasma Pen</a></li><li><a onclick="showPage('treatments')">Injectables</a></li><li><a onclick="showPage('treatments')">Skin Treatments</a></li><li><a onclick="showPage('concerns')">Your Concerns</a></li></ul></div>
+  <div class="footer-col"><h4>Clinic</h4><ul class="footer-links"><li><a onclick="showPage('about')">About Ewelina</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="https://www.fresha.com/book-now/new-age-aesthetics-skin-clinic-ikmrursi/all-offer?id=1073446&pId=1017692" target="_blank">Book Online</a></li></ul></div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 New Age Aesthetics · 35a Welbeck Road, Doncaster DN4 5EY</span>
+  <span>Website concept built by <strong>Trabelo</strong> · Sheffield</span>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) { page.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  document.getElementById('navLinks').classList.remove('open');
+}
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+</script>
+</body>
+</html>

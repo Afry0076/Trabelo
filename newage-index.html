@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabelo — New Age Aesthetics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #2C1A3A;
+    --plum-pale: #D4C4E0;
+    --rose: #C4608A;
+    --gold: #C9A96E;
+    --gold-light: #DBBF8A;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0E0814;
+    color: var(--white);
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px 24px;
+    position: relative; overflow: hidden;
+  }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse at 18% 55%, rgba(196,96,138,0.18) 0%, transparent 52%),
+      radial-gradient(ellipse at 82% 22%, rgba(44,26,58,0.5) 0%, transparent 46%),
+      radial-gradient(ellipse at 50% 88%, rgba(201,169,110,0.06) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+
+  body::after {
+    content: ''; position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none; z-index: 0;
+  }
+
+  .card { position: relative; z-index: 1; max-width: 540px; width: 100%; text-align: center; }
+
+  .trabelo-mark { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 42px; padding: 7px 15px; border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; background: rgba(255,255,255,0.025); }
+  .trabelo-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2.3s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.38; transform: scale(0.78); } }
+  .trabelo-name { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.32); font-weight: 500; }
+
+  .clinic-label { font-size: 0.55rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 13px; display: flex; align-items: center; justify-content: center; gap: 11px; }
+  .clinic-label::before, .clinic-label::after { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+  h1 { font-family: 'Josefin Sans', sans-serif; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 300; line-height: 1.12; margin-bottom: 8px; color: var(--white); letter-spacing: 0.08em; }
+  .subtitle { font-size: 0.7rem; color: rgba(255,255,255,0.25); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 34px; }
+  .divider { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--plum-pale), transparent); margin: 0 auto 34px; }
+  .intro { font-size: 0.85rem; color: rgba(255,255,255,0.38); line-height: 1.9; margin-bottom: 38px; font-weight: 300; max-width: 400px; margin-left: auto; margin-right: auto; }
+
+  .scores-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; margin-bottom: 28px; }
+  .score-item { padding: 14px 8px; background: rgba(255,255,255,0.015); text-align: center; }
+  .score-item-num { font-size: 1.5rem; font-weight: 700; line-height: 1; margin-bottom: 3px; }
+  .score-item-num.bad { color: #E55A4E; }
+  .score-item-num.ok { color: #E0A030; }
+  .score-item-num.good { color: #34A068; }
+  .score-item-label { font-size: 0.53rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.24); font-weight: 500; }
+
+  .standout-note { background: rgba(196,96,138,0.1); border: 1px solid rgba(196,96,138,0.2); border-radius: 4px; padding: 13px 18px; margin-bottom: 28px; font-size: 0.75rem; color: rgba(255,255,255,0.44); line-height: 1.65; text-align: left; }
+  .standout-note strong { color: #D98AAA; }
+
+  .links { display: flex; flex-direction: column; gap: 11px; margin-bottom: 38px; }
+  .link-card { display: flex; align-items: center; justify-content: space-between; padding: 19px 24px; border-radius: 4px; text-decoration: none; transition: all 0.22s ease; cursor: pointer; border: 1px solid transparent; }
+  .link-card.primary { background: var(--rose); border-color: var(--rose); }
+  .link-card.primary:hover { background: #D98AAA; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(196,96,138,0.3); }
+  .link-card.secondary { background: rgba(255,255,255,0.025); border-color: rgba(255,255,255,0.07); }
+  .link-card.secondary:hover { background: rgba(255,255,255,0.055); border-color: rgba(212,196,224,0.22); transform: translateY(-2px); }
+  .link-left { display: flex; align-items: center; gap: 14px; text-align: left; }
+  .link-icon { width: 40px; height: 40px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; }
+  .link-card.primary .link-icon { background: rgba(255,255,255,0.15); }
+  .link-card.secondary .link-icon { background: rgba(255,255,255,0.04); }
+  .link-title { font-size: 0.88rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+  .link-desc { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.46); }
+  .link-card.primary .link-desc { color: rgba(255,255,255,0.62); }
+  .link-arrow { font-size: 0.88rem; color: rgba(255,255,255,0.28); transition: transform 0.2s; }
+  .link-card:hover .link-arrow { transform: translateX(4px); color: rgba(255,255,255,0.5); }
+
+  .footer-note { font-size: 0.63rem; color: rgba(255,255,255,0.16); line-height: 1.72; }
+  .footer-note a { color: rgba(255,255,255,0.28); text-decoration: none; }
+  .footer-note a:hover { color: var(--plum-pale); }
+  .footer-note strong { color: rgba(255,255,255,0.28); }
+
+  @media (max-width: 480px) {
+    .scores-strip { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 1.95rem; }
+    .link-card { padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="trabelo-mark">
+    <div class="trabelo-dot"></div>
+    <div class="trabelo-name">A Trabelo Website Concept</div>
+  </div>
+
+  <div class="clinic-label">New Age Aesthetics · Doncaster</div>
+  <h1>Your website,<br>rebuilt.</h1>
+  <p class="subtitle">Skin Clinic · 30+ Treatments · South Yorkshire</p>
+  <div class="divider"></div>
+  <p class="intro">Hi — I'm Aidan, and I do web design across Sheffield and South Yorkshire. I've put together a free demo and audit for New Age Aesthetics — here's what I found.</p>
+
+  <div class="scores-strip">
+    <div class="score-item"><div class="score-item-num bad">58</div><div class="score-item-label">Performance</div></div>
+    <div class="score-item"><div class="score-item-num good">92</div><div class="score-item-label">Accessibility</div></div>
+    <div class="score-item"><div class="score-item-num ok">73</div><div class="score-item-label">Best Practices</div></div>
+    <div class="score-item"><div class="score-item-num good">100</div><div class="score-item-label">SEO</div></div>
+  </div>
+
+  <div class="standout-note">
+    <strong>Performance of 58 and Best Practices of 73</strong> are the two issues holding this back — both largely caused by the Wix platform. A rebuild would take performance to 97+ and Best Practices to 96+, while keeping the perfect SEO score intact.
+  </div>
+
+  <div class="links">
+    <a class="link-card primary" href="newage-demo.html">
+      <div class="link-left">
+        <div class="link-icon">✨</div>
+        <div><div class="link-title">View the Demo Site</div><div class="link-desc">A full rebuild — all 30+ treatments, redesigned</div></div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+    <a class="link-card secondary" href="newage-audit.html">
+      <div class="link-left">
+        <div class="link-icon">📋</div>
+        <div><div class="link-title">Read the Website Audit</div><div class="link-desc">What's wrong, why it matters, and how to fix it</div></div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer-note">
+    No obligation. No sales pressure. Just an honest look at what's possible.<br><br>
+    <strong>Aidan Fry</strong> · <a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a> · Trabelo · Sheffield
+  </div>
+
+</div>
+</body>
+</html>

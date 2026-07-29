@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — New Age Aesthetics | Trabelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #2C1A3A;
+    --plum-pale: #D4C4E0;
+    --plum-blush: #F3EEF8;
+    --rose: #C4608A;
+    --gold: #C9A96E;
+    --charcoal: #1A1A1A;
+    --warm-grey: #6B6370;
+    --off-white: #FAF8FC;
+    --white: #FFFFFF;
+    --red: #C0392B;
+    --amber: #D4850A;
+    --green: #1E7B4B;
+    --score-red: #FEE9E7;
+    --score-amber: #FEF3E2;
+    --score-green: #E6F4EE;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.6; }
+
+  .header { background: linear-gradient(135deg, #1A0F24 0%, #2C1A3A 100%); padding: 54px 60px 46px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 22% 60%, rgba(196,96,138,0.2) 0%, transparent 55%); pointer-events: none; }
+  .header-inner { position: relative; z-index: 2; }
+  .header-from { font-size: 0.58rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .header-from::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+  .header h1 { font-family: 'Josefin Sans', sans-serif; font-size: clamp(1.8rem, 3.2vw, 2.9rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 10px; letter-spacing: 0.05em; }
+  .header h1 em { font-style: italic; color: var(--plum-pale); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .header-sub { font-size: 0.84rem; color: rgba(255,255,255,0.4); margin-bottom: 26px; font-weight: 300; }
+  .header-meta { display: flex; gap: 26px; flex-wrap: wrap; }
+  .header-meta-item { font-size: 0.68rem; color: rgba(255,255,255,0.32); letter-spacing: 0.06em; }
+  .header-meta-item strong { color: rgba(255,255,255,0.6); font-weight: 500; }
+
+  .scores-section { background: var(--white); padding: 48px 60px; border-bottom: 1px solid #EAE4F0; }
+  .scores-label { font-size: 0.56rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .scores-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--rose); }
+  .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; margin-bottom: 16px; }
+  .score-card { padding: 24px 16px; border-radius: 4px; text-align: center; border: 1px solid transparent; }
+  .score-card.red { background: var(--score-red); border-color: #F5C6C3; }
+  .score-card.amber { background: var(--score-amber); border-color: #F0D5A8; }
+  .score-card.green { background: var(--score-green); border-color: #B8DFC9; }
+  .score-num { font-size: 2.7rem; font-weight: 700; line-height: 1; margin-bottom: 5px; }
+  .score-card.red .score-num { color: var(--red); }
+  .score-card.amber .score-num { color: var(--amber); }
+  .score-card.green .score-num { color: var(--green); }
+  .score-name { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
+  .score-card.red .score-name { color: var(--red); }
+  .score-card.amber .score-name { color: var(--amber); }
+  .score-card.green .score-name { color: var(--green); }
+  .score-verdict { font-size: 0.68rem; font-weight: 500; }
+  .score-card.red .score-verdict { color: #9B2D20; }
+  .score-card.amber .score-verdict { color: #9E6008; }
+  .score-card.green .score-verdict { color: var(--green); }
+  .scores-note { font-size: 0.74rem; color: var(--warm-grey); background: var(--plum-blush); padding: 13px 18px; border-radius: 4px; border-left: 3px solid var(--rose); }
+
+  .main { max-width: 880px; margin: 0 auto; padding: 56px 60px; }
+
+  .intro-block { background: var(--white); border: 1px solid #EAE4F0; border-radius: 4px; padding: 32px 36px; margin-bottom: 44px; font-size: 0.92rem; line-height: 1.9; color: var(--charcoal); }
+  .intro-block p { margin-bottom: 14px; }
+  .intro-block p:last-child { margin-bottom: 0; }
+
+  .section-heading { margin-bottom: 28px; padding-bottom: 13px; border-bottom: 2px solid var(--plum-blush); }
+  .section-heading h2 { font-family: 'Josefin Sans', sans-serif; font-size: 1.8rem; font-weight: 300; color: var(--charcoal); margin-bottom: 3px; letter-spacing: 0.04em; }
+  .section-heading p { font-size: 0.79rem; color: var(--warm-grey); }
+
+  .issues { margin-bottom: 52px; }
+  .issue-card { background: var(--white); border: 1px solid #EAE4F0; border-radius: 4px; margin-bottom: 16px; overflow: hidden; }
+  .issue-header { padding: 19px 24px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 15px; }
+  .issue-header:hover { background: var(--plum-blush); }
+  .issue-badge { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.88rem; flex-shrink: 0; }
+  .issue-badge.red { background: var(--score-red); }
+  .issue-badge.amber { background: var(--score-amber); }
+  .issue-title { font-weight: 600; font-size: 0.9rem; color: var(--charcoal); }
+  .issue-sub { font-size: 0.7rem; color: var(--warm-grey); margin-top: 2px; }
+  .issue-toggle { font-size: 0.68rem; color: var(--warm-grey); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+  .issue-body { padding: 0 24px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .issue-col h4 { font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 7px; padding-bottom: 5px; border-bottom: 1px solid var(--plum-pale); }
+  .issue-col.what h4 { color: var(--red); }
+  .issue-col.why h4 { color: var(--amber); }
+  .issue-col.fix h4 { color: var(--green); }
+  .issue-col p { font-size: 0.8rem; color: #444; line-height: 1.72; }
+
+  .features { margin-bottom: 52px; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+  .feature-card { background: var(--white); border: 1px solid #EAE4F0; border-radius: 4px; padding: 20px 22px; display: flex; gap: 13px; align-items: flex-start; }
+  .feature-icon { width: 38px; height: 38px; background: var(--plum-blush); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+  .feature-text h4 { font-size: 0.84rem; font-weight: 600; color: var(--charcoal); margin-bottom: 4px; }
+  .feature-text p { font-size: 0.75rem; color: var(--warm-grey); line-height: 1.65; }
+
+  .pricing { margin-bottom: 52px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pricing-card { background: var(--white); border: 1px solid #EAE4F0; border-radius: 4px; padding: 28px 24px; position: relative; }
+  .pricing-card.featured { border-color: var(--rose); border-width: 2px; }
+  .pricing-featured-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--rose); color: var(--white); font-size: 0.57rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 13px; border-radius: 20px; font-weight: 600; white-space: nowrap; }
+  .pricing-tier { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); font-weight: 700; margin-bottom: 6px; }
+  .pricing-price { font-family: 'Josefin Sans', sans-serif; font-size: 2.5rem; font-weight: 600; color: var(--charcoal); line-height: 1; margin-bottom: 3px; letter-spacing: 0.04em; }
+  .pricing-price-note { font-size: 0.68rem; color: var(--warm-grey); margin-bottom: 16px; }
+  .pricing-divider { height: 1px; background: var(--plum-blush); margin: 16px 0; }
+  .pricing-features { list-style: none; margin-bottom: 22px; }
+  .pricing-features li { font-size: 0.79rem; color: var(--charcoal); padding: 5px 0; display: flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
+  .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .pricing-note { font-size: 0.68rem; color: var(--warm-grey); font-style: italic; margin-top: -14px; margin-bottom: 20px; }
+  .btn-pricing { display: block; text-align: center; padding: 11px; border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; }
+  .btn-pricing.outline { border: 1.5px solid var(--plum); color: var(--plum); background: transparent; }
+  .btn-pricing.outline:hover { background: var(--plum); color: white; }
+  .btn-pricing.fill { background: var(--rose); color: white; border: none; }
+  .btn-pricing.fill:hover { background: #A84E74; }
+
+  .closing { background: linear-gradient(135deg, #1A0F24 0%, #2C1A3A 100%); padding: 48px 60px; text-align: center; }
+  .closing h2 { font-family: 'Josefin Sans', sans-serif; font-size: 1.85rem; font-weight: 300; color: white; margin-bottom: 11px; letter-spacing: 0.05em; }
+  .closing p { font-size: 0.86rem; color: rgba(255,255,255,0.44); max-width: 490px; margin: 0 auto 26px; line-height: 1.85; }
+  .btn-gold { background: var(--gold); color: var(--white); padding: 12px 26px; border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-gold:hover { background: #DBBF8A; }
+  .btn-ghost { background: transparent; color: rgba(255,255,255,0.55); padding: 12px 26px; border-radius: 2px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.15); transition: all 0.2s; display: inline-block; margin-left: 10px; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: white; }
+
+  .footer { background: #070409; padding: 17px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.66rem; color: rgba(255,255,255,0.18); flex-wrap: wrap; gap: 8px; }
+  .footer strong { color: rgba(255,255,255,0.36); }
+
+  @media (max-width: 768px) {
+    .header { padding: 36px 24px 32px; }
+    .scores-section { padding: 32px 24px; }
+    .scores-grid { grid-template-columns: repeat(2, 1fr); }
+    .main { padding: 36px 24px; }
+    .issue-body { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .closing { padding: 36px 24px; }
+    .footer { padding: 13px 24px; flex-direction: column; text-align: center; }
+    .issue-header { grid-template-columns: auto 1fr; }
+    .issue-toggle { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-from">Website Audit by Trabelo · Sheffield</div>
+    <h1>Your website is losing you clients —<br><em>here's exactly why</em></h1>
+    <p class="header-sub">An honest breakdown of what's holding newage-aesthetics.co.uk back — and what a rebuild could do for a clinic with 30+ treatments.</p>
+    <div class="header-meta">
+      <div class="header-meta-item">Prepared for <strong>New Age Aesthetics, Doncaster</strong></div>
+      <div class="header-meta-item">Audited <strong>July 2026</strong></div>
+      <div class="header-meta-item">By <strong>Aidan Fry, Trabelo</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="scores-section">
+  <div class="scores-label">Google PageSpeed Results — Mobile</div>
+  <div class="scores-grid">
+    <div class="score-card red"><div class="score-num">58</div><div class="score-name">Performance</div><div class="score-verdict">⚠ Poor</div></div>
+    <div class="score-card green"><div class="score-num">92</div><div class="score-name">Accessibility</div><div class="score-verdict">✓ Good</div></div>
+    <div class="score-card amber"><div class="score-num">73</div><div class="score-name">Best Practices</div><div class="score-verdict">⚠ Needs Work</div></div>
+    <div class="score-card green"><div class="score-num">100</div><div class="score-name">SEO</div><div class="score-verdict">✓ Perfect</div></div>
+  </div>
+  <div class="scores-note">
+    These scores are straight from Google's own PageSpeed Insights tool. A performance score of 58 is firmly in the "poor" range — meaning potential clients are waiting too long for the page to load and leaving before they've seen your treatments. The good news is SEO is perfect, and a rebuild would fix everything else while keeping that.
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="intro-block">
+    <p>Hi — I'm Aidan. I do web design across Sheffield and South Yorkshire, and I came across New Age Aesthetics while looking at clinics in the Doncaster area.</p>
+    <p>You've clearly put a lot into building this clinic. 14+ years of experience, 30+ treatments covering everything from Plasma Pen to IV vitamins, a genuinely warm approach to patients — and some brilliant reviews that really stand out. Ewelina's clients clearly love coming to the clinic.</p>
+    <p>But the website has some real problems that are working against all of that. A performance score of 58 means the page is taking far too long to load on mobile. A best practices score of 73 — the lowest I've seen across the clinics I've audited in this area — flags some technical issues that need addressing. And the site is built on Wix, which puts a ceiling on how fast it can ever be.</p>
+    <p>I've put this together to be straight with you about what's happening. No obligation — I just think it's worth knowing.</p>
+  </div>
+
+  <div class="issues">
+    <div class="section-heading">
+      <h2>What's Going Wrong</h2>
+      <p>Plain-English breakdown of the main issues — what they are, why they matter to your clinic, and what the fix looks like.</p>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge red">🐢</div>
+        <div><div class="issue-title">The site loads far too slowly on mobile</div><div class="issue-sub">Performance: 58/100 · LCP: 6.0 seconds · TBT: 530ms · Total page: 3,529 KB</div></div>
+        <div class="issue-toggle">Critical</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Google measured 6 seconds before your main content appears on a phone — and the Total Blocking Time of 530ms means the page is frozen and unresponsive for over half a second during loading. The total page size is 3.5MB. There are 8 long main-thread tasks, 754KB of unused JavaScript, 184KB of unused CSS, and 619KB of data not being cached properly. Most of this is Wix platform overhead.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>Most people searching for laser hair removal, Plasma Pen treatments or fillers in Doncaster are browsing on their phones in the evening. At 6 seconds to load, the vast majority will have given up and moved on long before they've seen your treatment list or your reviews. With 30+ treatments available, every page load that fails is a booking lost that you'll never know about.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A custom-built site free of Wix overhead would score 97+ on performance — loading in under 1.5 seconds on mobile. No unused code, no unnecessary scripts, images properly optimised. Visitors see the site instantly and stay long enough to discover everything you offer.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge red">⚠️</div>
+        <div><div class="issue-title">Best Practices score of 73 — third-party cookies and browser errors</div><div class="issue-sub">Third-party cookies found · Browser errors logged · Security headers missing</div></div>
+        <div class="issue-toggle">Critical</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Google flagged third-party cookies on your site, browser console errors on every page load, and issues logged in Chrome's developer panel. There are also missing security headers (CSP, HSTS, COOP and others) that Google flags as best practice deficiencies. A score of 73 is the lowest I've seen across the South Yorkshire clinics I've audited.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>Third-party cookies are increasingly blocked by browsers, which can break functionality. Console errors suggest parts of the site aren't working correctly behind the scenes. Missing security headers make the site more vulnerable to certain types of attack and are flagged by Google as a trust concern. All of this combined drags the best practices score to a level that reflects poorly on an otherwise professional clinic.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A clean custom build has no third-party cookie dependencies, zero console errors, and proper security headers configured from day one. Best Practices would jump to 96+ — in line with what the clinic's quality deserves.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">🏗️</div>
+        <div><div class="issue-title">Wix is putting a ceiling on what's possible</div><div class="issue-sub">619KB uncached · 36KB duplicate JS · 77KB legacy JS · Wix platform overhead</div></div>
+        <div class="issue-toggle">Important</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>The site is built on Wix, which loads its own scripts, legacy JavaScript (code written for older browsers that modern ones don't need), duplicate JavaScript files and a large amount of data with no caching set up. These are structural issues that come with the platform — they can't be fully resolved within Wix regardless of how the content is arranged.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>A performance score of 58 is likely close to the ceiling for what Wix can achieve on your site. Even with image optimisation and content changes, the platform overhead will keep the score suppressed. It also means you're paying Wix a monthly subscription for a platform that's actively limiting how well your business performs online.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A custom-coded site has no platform overhead. Every line of code is there because it's needed — no legacy scripts, no duplicated files, no platform bloat. The performance, best practices and overall speed all jump dramatically as a result. And there's no monthly Wix subscription to replace.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">♿</div>
+        <div><div class="issue-title">Small accessibility issues worth tidying up</div><div class="issue-sub">Accessibility: 92/100 · iFrame missing title · Touch targets · Heading structure</div></div>
+        <div class="issue-toggle">Minor</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Your accessibility score of 92 is good — better than most. Google flagged a few minor remaining issues: an embedded frame (likely the booking widget) without a title for screen readers, some touch targets that are slightly too small on mobile, and heading elements that aren't in the correct sequential order.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>92 is solid, but these are easy wins that would push the score to 98+. Correctly labelled frames help screen readers navigate your booking system, properly sized touch targets make booking easier on phones, and correct heading structure helps both accessibility tools and Google understand your page content.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>All three issues resolved properly from day one — frame titles, touch target sizing and correct heading hierarchy. Accessibility goes from 92 to 98+, ticking off the last remaining issue across all four Google metrics.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="section-heading">
+      <h2>What the New Site Adds</h2>
+      <p>Beyond fixing the problems — what a rebuilt New Age Aesthetics site would do that the current one can't.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-text"><h4>97+ Performance — from 58 to 97+</h4><p>A complete transformation. The biggest single improvement available to the clinic — loads in under 1.5 seconds on mobile instead of 6+.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">💊</div><div class="feature-text"><h4>30+ treatments properly showcased</h4><p>Your full treatment list — Plasma Pen, laser, injectables, skin treatments and wellness — organised clearly so every visitor can find what they're looking for.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📱</div><div class="feature-text"><h4>Genuinely mobile-first design</h4><p>Built for phones first — how the vast majority of your clients are browsing. Fast, clear, touch-friendly, with booking one tap away at all times.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-text"><h4>Fresha booking prominent throughout</h4><p>Your Fresha booking link visible and easy to tap on every single page — not just the header, but integrated throughout so conversion is as frictionless as possible.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">👩‍⚕️</div><div class="feature-text"><h4>Ewelina's story told properly</h4><p>14+ years of experience and a genuinely warm, anxiety-friendly approach are massive trust signals — they deserve to be front and centre, not buried in a paragraph.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-text"><h4>Browse by concern — properly done</h4><p>Your "Your Concerns" section rebuilt as a clean, browsable page — helping patients who don't know treatment names find Ewelina's expertise via their skin concern instead.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">⭐</div><div class="feature-text"><h4>Client reviews showcased properly</h4><p>Ewelina's brilliant reviews — including the detailed, heartfelt ones — given proper prominence as social proof throughout the site.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🔒</div><div class="feature-text"><h4>96+ Best Practices — no more errors</h4><p>No third-party cookies, no browser errors, security headers in place. A technically clean site that reflects the professionalism of the clinic behind it.</p></div></div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="section-heading">
+      <h2>Pricing</h2>
+      <p>One-off fixed prices. No monthly fees, no ongoing contracts — and no more Wix subscription.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">£395</div>
+        <div class="pricing-price-note">One-off · Yours outright</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Up to 5 pages</li>
+          <li>Mobile-first design</li>
+          <li>97+ Performance score</li>
+          <li>98 Accessibility score</li>
+          <li>100 SEO (maintained)</li>
+          <li>Fresha booking integrated</li>
+          <li>Contact form included</li>
+        </ul>
+        <div class="pricing-note">Updates: £15 per change or £30/month unlimited small updates</div>
+        <a class="btn-pricing outline" href="mailto:aidan@trabelo.com?subject=New Age Aesthetics — Starter enquiry">Get in Touch</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-featured-badge">Most Popular</div>
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-price-note">One-off · No monthly fees</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Full treatments directory — all 30+</li>
+          <li>Your Concerns page</li>
+          <li>About Ewelina page</li>
+          <li>Newsletter sign-up</li>
+          <li>Client testimonials section</li>
+          <li>Price list page</li>
+          <li>Gallery page</li>
+        </ul>
+        <div class="pricing-note">No monthly fees — replaces your Wix subscription</div>
+        <a class="btn-pricing fill" href="mailto:aidan@trabelo.com?subject=New Age Aesthetics — Business enquiry">Get in Touch</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-price-note">One-off + small hosting cost</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>Full content management system</li>
+          <li>Update treatments yourself</li>
+          <li>Add blog posts anytime</li>
+          <li>Instagram feed live on site</li>
+          <li>Automated enquiry responses</li>
+          <li>Push notifications for offers</li>
+          <li>Advanced analytics dashboard</li>
+        </ul>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month)</div>
+        <a class="btn-pricing outline" href="mailto:aidan@trabelo.com?subject=New Age Aesthetics — Premium enquiry">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="closing">
+  <h2>Let's have a chat</h2>
+  <p>No obligation. If anything here has been useful, or you'd like to see the full demo I've built for New Age Aesthetics, I'm happy to talk over email or a call — everything can be sorted remotely.</p>
+  <div>
+    <a class="btn-gold" href="mailto:aidan@trabelo.com?subject=New Age Aesthetics website enquiry">Email Aidan</a>
+    <a class="btn-ghost" href="mailto:aidan@trabelo.com">aidan@trabelo.com</a>
+  </div>
+  <p style="margin-top:20px;font-size:0.68rem;color:rgba(255,255,255,0.2)">Trabelo · Sheffield · Web design for South Yorkshire businesses</p>
+</div>
+
+<div class="footer">
+  <span>Website audit prepared for New Age Aesthetics, Doncaster · July 2026</span>
+  <span>Built by <strong>Trabelo · Sheffield</strong></span>
+</div>
+
+</body>
+</html>
