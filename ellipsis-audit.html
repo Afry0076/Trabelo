@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — Ellipsis Aesthetics | Trabelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --gold: #C4A26A;
+    --gold-pale: #F0E4CE;
+    --gold-blush: #FAF6EF;
+    --warm-grey: #7A7570;
+    --off-white: #F8F6F3;
+    --white: #FFFFFF;
+    --red: #C0392B;
+    --amber: #D4850A;
+    --green: #1E7B4B;
+    --score-red: #FEE9E7;
+    --score-amber: #FEF3E2;
+    --score-green: #E6F4EE;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; }
+
+  .header { background: var(--black); padding: 54px 60px 46px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 60%, rgba(196,162,106,0.1) 0%, transparent 55%); pointer-events: none; }
+  .header-inner { position: relative; z-index: 2; }
+  .header-from { font-size: 0.58rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .header-from::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+  .header h1 { font-family: 'Tenor Sans', serif; font-size: clamp(1.8rem, 3.2vw, 2.9rem); font-weight: 400; color: var(--white); line-height: 1.15; margin-bottom: 10px; letter-spacing: 0.02em; }
+  .header h1 em { font-style: italic; color: var(--gold-pale); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .header-sub { font-size: 0.84rem; color: rgba(255,255,255,0.4); margin-bottom: 26px; font-weight: 300; }
+  .header-meta { display: flex; gap: 26px; flex-wrap: wrap; }
+  .header-meta-item { font-size: 0.68rem; color: rgba(255,255,255,0.32); letter-spacing: 0.06em; }
+  .header-meta-item strong { color: rgba(255,255,255,0.6); font-weight: 500; }
+
+  .scores-section { background: var(--white); padding: 48px 60px; border-bottom: 1px solid #EDE8E0; }
+  .scores-label { font-size: 0.56rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .scores-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+  .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; margin-bottom: 16px; }
+  .score-card { padding: 24px 16px; border-radius: 0; text-align: center; border: 1px solid transparent; }
+  .score-card.amber { background: var(--score-amber); border-color: #F0D5A8; }
+  .score-card.green { background: var(--score-green); border-color: #B8DFC9; }
+  .score-num { font-size: 2.7rem; font-weight: 700; line-height: 1; margin-bottom: 5px; }
+  .score-card.amber .score-num { color: var(--amber); }
+  .score-card.green .score-num { color: var(--green); }
+  .score-name { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
+  .score-card.amber .score-name { color: var(--amber); }
+  .score-card.green .score-name { color: var(--green); }
+  .score-verdict { font-size: 0.68rem; font-weight: 500; }
+  .score-card.amber .score-verdict { color: #9E6008; }
+  .score-card.green .score-verdict { color: var(--green); }
+  .scores-note { font-size: 0.74rem; color: var(--warm-grey); background: var(--gold-blush); padding: 13px 18px; border-left: 3px solid var(--gold); }
+
+  .main { max-width: 880px; margin: 0 auto; padding: 56px 60px; }
+
+  .intro-block { background: var(--white); border: 1px solid #EDE8E0; padding: 32px 36px; margin-bottom: 44px; font-size: 0.92rem; line-height: 1.9; color: var(--black); }
+  .intro-block p { margin-bottom: 14px; }
+  .intro-block p:last-child { margin-bottom: 0; }
+
+  .section-heading { margin-bottom: 28px; padding-bottom: 13px; border-bottom: 2px solid var(--gold-pale); }
+  .section-heading h2 { font-family: 'Tenor Sans', serif; font-size: 1.8rem; font-weight: 400; color: var(--black); margin-bottom: 3px; letter-spacing: 0.02em; }
+  .section-heading p { font-size: 0.79rem; color: var(--warm-grey); }
+
+  .issues { margin-bottom: 52px; }
+  .issue-card { background: var(--white); border: 1px solid #EDE8E0; margin-bottom: 16px; overflow: hidden; }
+  .issue-header { padding: 19px 24px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 15px; }
+  .issue-header:hover { background: var(--gold-blush); }
+  .issue-badge { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.88rem; flex-shrink: 0; }
+  .issue-badge.amber { background: var(--score-amber); }
+  .issue-badge.red { background: var(--score-red); }
+  .issue-title { font-weight: 600; font-size: 0.9rem; color: var(--black); }
+  .issue-sub { font-size: 0.7rem; color: var(--warm-grey); margin-top: 2px; }
+  .issue-toggle { font-size: 0.68rem; color: var(--warm-grey); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+  .issue-body { padding: 0 24px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .issue-col h4 { font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 7px; padding-bottom: 5px; border-bottom: 1px solid var(--gold-pale); }
+  .issue-col.what h4 { color: var(--red); }
+  .issue-col.why h4 { color: var(--amber); }
+  .issue-col.fix h4 { color: var(--green); }
+  .issue-col p { font-size: 0.8rem; color: #444; line-height: 1.72; }
+
+  .features { margin-bottom: 52px; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+  .feature-card { background: var(--white); border: 1px solid #EDE8E0; padding: 20px 22px; display: flex; gap: 13px; align-items: flex-start; }
+  .feature-icon { width: 38px; height: 38px; background: var(--gold-blush); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+  .feature-text h4 { font-size: 0.84rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .feature-text p { font-size: 0.75rem; color: var(--warm-grey); line-height: 1.65; }
+
+  .pricing { margin-bottom: 52px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pricing-card { background: var(--white); border: 1px solid #EDE8E0; padding: 28px 24px; position: relative; }
+  .pricing-card.featured { border-color: var(--gold); border-width: 2px; }
+  .pricing-featured-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--white); font-size: 0.57rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 13px; font-weight: 600; white-space: nowrap; }
+  .pricing-tier { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .pricing-price { font-family: 'Tenor Sans', serif; font-size: 2.5rem; font-weight: 400; color: var(--black); line-height: 1; margin-bottom: 3px; letter-spacing: 0.02em; }
+  .pricing-price-note { font-size: 0.68rem; color: var(--warm-grey); margin-bottom: 16px; }
+  .pricing-divider { height: 1px; background: var(--gold-pale); margin: 16px 0; }
+  .pricing-features { list-style: none; margin-bottom: 22px; }
+  .pricing-features li { font-size: 0.79rem; color: var(--black); padding: 5px 0; display: flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
+  .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .pricing-note { font-size: 0.68rem; color: var(--warm-grey); font-style: italic; margin-top: -14px; margin-bottom: 20px; }
+  .btn-pricing { display: block; text-align: center; padding: 11px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border-radius: 0; }
+  .btn-pricing.outline { border: 1.5px solid var(--gold); color: var(--gold); background: transparent; }
+  .btn-pricing.outline:hover { background: var(--gold); color: white; }
+  .btn-pricing.fill { background: var(--gold); color: white; border: none; }
+  .btn-pricing.fill:hover { background: #B08E55; }
+
+  .closing { background: var(--black); padding: 48px 60px; text-align: center; }
+  .closing h2 { font-family: 'Tenor Sans', serif; font-size: 1.85rem; font-weight: 400; color: white; margin-bottom: 11px; letter-spacing: 0.02em; }
+  .closing p { font-size: 0.86rem; color: rgba(255,255,255,0.44); max-width: 490px; margin: 0 auto 26px; line-height: 1.85; }
+  .btn-gold { background: var(--gold); color: var(--white); padding: 12px 26px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-gold:hover { background: #D9BC90; }
+  .btn-ghost { background: transparent; color: rgba(255,255,255,0.55); padding: 12px 26px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.15); transition: all 0.2s; display: inline-block; margin-left: 10px; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: white; }
+
+  .footer { background: #040404; padding: 17px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.66rem; color: rgba(255,255,255,0.18); flex-wrap: wrap; gap: 8px; }
+  .footer strong { color: rgba(255,255,255,0.36); }
+
+  @media (max-width: 768px) {
+    .header { padding: 36px 24px 32px; }
+    .scores-section { padding: 32px 24px; }
+    .scores-grid { grid-template-columns: repeat(2, 1fr); }
+    .main { padding: 36px 24px; }
+    .issue-body { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .closing { padding: 36px 24px; }
+    .footer { padding: 13px 24px; flex-direction: column; text-align: center; }
+    .issue-header { grid-template-columns: auto 1fr; }
+    .issue-toggle { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-from">Website Audit by Trabelo · Sheffield</div>
+    <h1>Your site is nearly there —<br>here's <em>what's holding it back</em></h1>
+    <p class="header-sub">An honest look at the issues on ellipsisaesthetics.co.uk — and what a rebuild could do for two clinics worth of business.</p>
+    <div class="header-meta">
+      <div class="header-meta-item">Prepared for <strong>Ellipsis Aesthetics, Doncaster</strong></div>
+      <div class="header-meta-item">Audited <strong>July 2026</strong></div>
+      <div class="header-meta-item">By <strong>Aidan Fry, Trabelo</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="scores-section">
+  <div class="scores-label">Google PageSpeed Results — Mobile</div>
+  <div class="scores-grid">
+    <div class="score-card amber"><div class="score-num">88</div><div class="score-name">Performance</div><div class="score-verdict">⚠ Needs Work</div></div>
+    <div class="score-card amber"><div class="score-num">77</div><div class="score-name">Accessibility</div><div class="score-verdict">⚠ Needs Work</div></div>
+    <div class="score-card green"><div class="score-num">100</div><div class="score-name">Best Practices</div><div class="score-verdict">✓ Perfect</div></div>
+    <div class="score-card amber"><div class="score-num">92</div><div class="score-name">SEO</div><div class="score-verdict">⚠ Could Be Better</div></div>
+  </div>
+  <div class="scores-note">
+    These scores are from Google's PageSpeed Insights — the tool Google uses to assess real visitor experience on mobile. Best Practices is perfect, which is great. But three out of four categories have room to improve — and for a business running two clinics, those improvements can add up to more bookings.
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="intro-block">
+    <p>Hi — I'm Aidan. I do web design across Sheffield and South Yorkshire, and I came across Ellipsis Aesthetics while looking at clinics in the Doncaster area.</p>
+    <p>Two clinics, 16 years of combined NHS experience, 5★ reviews and a strong reputation in the area — you've clearly built something worth being proud of. The website does a reasonable job of showing that, but there are a few specific things holding it back that are worth knowing about.</p>
+    <p>The performance score is 88 — closer than most to being good, but not quite there. The accessibility score of 77 is the one that stands out most, as it means some visitors are having a harder time using the site than they should. And the SEO score of 92 has a couple of fixable issues that could improve how well the clinic appears in Google searches.</p>
+    <p>I've put this audit together to be straight with you about what's happening and what a rebuilt site could do for both locations. No obligation at all.</p>
+  </div>
+
+  <div class="issues">
+    <div class="section-heading">
+      <h2>What's Going Wrong</h2>
+      <p>Plain English breakdown — what each issue is, why it matters, and what a rebuild fixes.</p>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">♿</div>
+        <div><div class="issue-title">Accessibility issues — 77/100 is the biggest concern</div><div class="issue-sub">Missing image alt text · Contrast issues · Broken ARIA · Touch targets too small</div></div>
+        <div class="issue-toggle">Most Important</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Google flagged several accessibility issues: images have no descriptions for screen readers, some text doesn't have enough contrast to be legible in certain conditions, ARIA attributes (used by assistive technology) are incorrectly configured, links don't have clear names, and touch targets on mobile are too small to tap comfortably. There are also heading structure issues.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>Accessibility issues affect real patients — particularly older visitors or those using screen readers or keyboard navigation. If part of your site is hard to use, those patients won't book. It also affects your Google ranking — accessibility is a signal Google uses when deciding where to place sites in search results. For two clinics competing for the same local searches, every ranking point matters.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A rebuilt site would score 98+ on accessibility. Every image properly described, sufficient contrast throughout, correct ARIA labelling, properly sized touch targets and a clean heading structure. Every patient — whatever device or ability — can use the site without friction.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">⏱️</div>
+        <div><div class="issue-title">Performance at 88 — good, but not where it needs to be</div><div class="issue-sub">LCP: 3.3s · FCP: 2.7s · Unused JS: 96KB · Unused CSS: 92KB</div></div>
+        <div class="issue-toggle">Important</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>The main content takes 3.3 seconds to appear on mobile — Google's threshold for "good" is under 2.5 seconds. The site is also carrying 96KB of unused JavaScript and 92KB of unused CSS, plus 4 long main-thread tasks and 10 non-composited animations that slow things down further. The page is doing more work than it needs to on every visit.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>88 is closer to good than most, but patients browsing on their phones at home will still notice that extra second of loading. More importantly, Google rewards faster sites with better search rankings — and for two clinics trying to show up for "aesthetics Doncaster" and "aesthetics near me" searches, a performance score in the 97+ range gives you an edge over competitors still sitting at 88 or below.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A clean, custom-built site with no bloated unused code would hit 97+ on performance. Images optimised, animations composited properly, no unnecessary scripts. The page loads in under a second on most connections — and Google notices the difference.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">🔍</div>
+        <div><div class="issue-title">SEO at 92 — a couple of fixable issues limiting Google visibility</div><div class="issue-sub">Missing image alt text · Could affect search rankings</div></div>
+        <div class="issue-toggle">Notable</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Several images across the site have no alt text — the descriptive label that tells Google what an image is about. Google can't "see" images, so without this text it can't index them properly. This limits how well those pages rank in image search and contributes to the 92 rather than 100 score.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>For a business with two clinic locations, SEO is your main free source of new patients. Every fix that brings the score closer to 100 means your clinic appears higher when someone in Doncaster searches for treatments you offer. 92 is decent but there are specific, easy wins being left on the table.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>A rebuilt site would score 100 on SEO. Every image properly labelled, correct page structure, fast loading (which Google rewards heavily), clean heading hierarchy. Done right from day one — not as an afterthought.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-badge amber">💾</div>
+        <div><div class="issue-title">Caching and layout shifts adding unnecessary friction</div><div class="issue-sub">Cache savings: 84KB · CLS: 0.036 · Layout shift culprits flagged</div></div>
+        <div class="issue-toggle">Minor</div>
+      </div>
+      <div class="issue-body">
+        <div class="issue-col what"><h4>What's happening</h4><p>Caching isn't configured optimally — returning visitors re-download 84KB of content they've already seen. There's also a Cumulative Layout Shift score of 0.036, which means elements on the page are moving slightly after the initial load — a jarring experience Google specifically flags as a negative user experience.</p></div>
+        <div class="issue-col why"><h4>Why it matters to you</h4><p>Returning patients — comparing treatments, checking prices, booking a second appointment — have to wait for the site to reload from scratch. Layout shifts feel unprofessional, especially on a mobile phone where a button or image suddenly jumping position can cause accidental taps and frustration.</p></div>
+        <div class="issue-col fix"><h4>What the rebuild fixes</h4><p>Proper caching from day one and zero layout shifts — every element sized and positioned correctly before the page loads. A smoother, more polished experience for new and returning patients alike.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="section-heading">
+      <h2>What the New Site Adds</h2>
+      <p>Beyond fixing the issues — what a rebuilt Ellipsis site would do that the current one can't.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-text"><h4>97+ Performance score</h4><p>From 88 to 97+. Fast enough to rank above competitors and fast enough that no patient gives up waiting for it to load.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📍</div><div class="feature-text"><h4>Both clinic locations properly showcased</h4><p>A dedicated locations page with both clinics properly displayed — including separate contact details, maps and booking buttons for Harworth and Skellow.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-text"><h4>Prominent Fresha booking throughout</h4><p>Your booking link visible and prominent on every page — not just in the header. One tap to book from anywhere on the site, on any device.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🏥</div><div class="feature-text"><h4>NHS credentials front and centre</h4><p>16 years combined surgical and intensive care experience is a powerful trust signal — properly showcased rather than buried in a paragraph.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">♿</div><div class="feature-text"><h4>98 Accessibility score</h4><p>From 77 to 98. Every patient able to use the site regardless of ability — and better accessibility signals for Google rankings.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🔍</div><div class="feature-text"><h4>100 SEO score</h4><p>From 92 to 100. Every image labelled, correct structure throughout, fast loading — giving both clinic locations the best possible chance in local search.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">✍️</div><div class="feature-text"><h4>Enquiry form with clinic selector</h4><p>Contact form that lets patients specify which clinic they want to visit — so every enquiry arrives with the context needed to respond quickly.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">⭐</div><div class="feature-text"><h4>5-Star reviews showcased properly</h4><p>Your Google reviews given the prominence they deserve — as patient testimonials throughout the site rather than just a widget at the bottom.</p></div></div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="section-heading">
+      <h2>Pricing</h2>
+      <p>One-off fixed prices. No monthly fees, no ongoing contracts. You own the site outright.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">£395</div>
+        <div class="pricing-price-note">One-off · Yours outright</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Up to 5 pages</li>
+          <li>Mobile-first design</li>
+          <li>97+ Performance score</li>
+          <li>98 Accessibility score</li>
+          <li>100 SEO score</li>
+          <li>Both clinic locations listed</li>
+          <li>Fresha booking integrated</li>
+          <li>Contact form included</li>
+        </ul>
+        <div class="pricing-note">Updates: £15 per change or £30/month unlimited small updates</div>
+        <a class="btn-pricing outline" href="mailto:aidan@trabelo.com?subject=Ellipsis Aesthetics — Starter enquiry">Get in Touch</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-featured-badge">Most Popular</div>
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-price-note">One-off · No monthly fees</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Full treatments directory</li>
+          <li>Dedicated locations page</li>
+          <li>Meet the directors page</li>
+          <li>Gallery page</li>
+          <li>Newsletter sign-up</li>
+          <li>Patient testimonials section</li>
+          <li>Vitamin therapy & teeth whitening</li>
+        </ul>
+        <div class="pricing-note">No monthly fees whatsoever</div>
+        <a class="btn-pricing fill" href="mailto:aidan@trabelo.com?subject=Ellipsis Aesthetics — Business enquiry">Get in Touch</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-price-note">One-off + small hosting cost</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>Full content management system</li>
+          <li>Update treatments yourself</li>
+          <li>Add blog posts anytime</li>
+          <li>Instagram feed live on site</li>
+          <li>Automated enquiry responses</li>
+          <li>Push notifications for offers</li>
+          <li>Advanced analytics dashboard</li>
+        </ul>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month)</div>
+        <a class="btn-pricing outline" href="mailto:aidan@trabelo.com?subject=Ellipsis Aesthetics — Premium enquiry">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="closing">
+  <h2>Let's have a chat</h2>
+  <p>No obligation. If anything here is useful, or you'd like to see the demo site I've put together for Ellipsis Aesthetics, I'm happy to talk over email or a call — everything can be sorted remotely.</p>
+  <div>
+    <a class="btn-gold" href="mailto:aidan@trabelo.com?subject=Ellipsis Aesthetics website enquiry">Email Aidan</a>
+    <a class="btn-ghost" href="mailto:aidan@trabelo.com">aidan@trabelo.com</a>
+  </div>
+  <p style="margin-top:20px;font-size:0.68rem;color:rgba(255,255,255,0.2)">Trabelo · Sheffield · Web design for South Yorkshire businesses</p>
+</div>
+
+<div class="footer">
+  <span>Website audit prepared for Ellipsis Aesthetics, Doncaster · July 2026</span>
+  <span>Built by <strong>Trabelo · Sheffield</strong></span>
+</div>
+
+</body>
+</html>

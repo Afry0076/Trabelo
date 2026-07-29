@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ellipsis Aesthetics | Highly Recommended Aesthetics Clinic | Doncaster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --dark: #111111;
+    --mid: #1A1A1A;
+    --gold: #C4A26A;
+    --gold-light: #D9BC90;
+    --gold-pale: #F0E4CE;
+    --gold-blush: #FAF6EF;
+    --warm-grey: #7A7570;
+    --light-grey: #D8D4CE;
+    --off-white: #F8F6F3;
+    --white: #FFFFFF;
+    --nav-h: 74px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--black); overflow-x: hidden; }
+
+  /* TOPBAR */
+  .topbar { background: var(--black); color: rgba(255,255,255,0.45); font-size: 0.7rem; letter-spacing: 0.06em; padding: 9px 32px; display: flex; gap: 22px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .topbar a { color: var(--gold-pale); text-decoration: none; }
+  .topbar a:hover { color: var(--gold-light); }
+  .topbar span { color: rgba(255,255,255,0.18); }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--gold-pale); height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 36px; box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
+  .nav-logo { font-family: 'Tenor Sans', serif; font-size: 1.3rem; color: var(--black); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.1; cursor: pointer; }
+  .nav-logo span { display: block; font-size: 0.48rem; font-family: 'DM Sans', sans-serif; letter-spacing: 0.25em; text-transform: uppercase; color: var(--warm-grey); font-weight: 400; margin-top: 3px; }
+  .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); font-weight: 500; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover { color: var(--gold); }
+  .btn-cta { background: var(--gold); color: var(--white); padding: 11px 22px; border-radius: 0; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--gold); padding: 11px 22px; border-radius: 0; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; cursor: pointer; border: 1.5px solid var(--gold); text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-outline:hover { background: var(--gold); color: var(--white); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--black); transition: all 0.3s; }
+
+  /* HERO */
+  .hero { background: var(--black); min-height: 90vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 80px 60px; gap: 60px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 60%, rgba(196,162,106,0.12) 0%, transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(196,162,106,0.06) 0%, transparent 45%); pointer-events: none; }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); }
+  .hero h1 { font-family: 'Tenor Sans', serif; font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 400; color: var(--white); line-height: 1.12; margin-bottom: 22px; letter-spacing: 0.02em; }
+  .hero h1 em { font-style: italic; color: var(--gold-light); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .hero-desc { font-size: 0.9rem; color: rgba(255,255,255,0.52); line-height: 1.9; margin-bottom: 34px; max-width: 430px; font-weight: 300; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 36px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap; }
+  .stat-num { font-family: 'Tenor Sans', serif; font-size: 2rem; font-weight: 400; color: var(--white); line-height: 1; letter-spacing: 0.05em; }
+  .stat-label { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 4px; }
+
+  /* HERO CARD */
+  .hero-card { position: relative; z-index: 2; background: rgba(255,255,255,0.03); border: 1px solid rgba(196,162,106,0.2); padding: 38px; }
+  .hero-card-tag { font-size: 0.54rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+  .hero-card h3 { font-family: 'Tenor Sans', serif; font-size: 1.4rem; color: var(--white); margin-bottom: 5px; letter-spacing: 0.04em; }
+  .hero-card-sub { font-size: 0.72rem; color: rgba(255,255,255,0.38); margin-bottom: 24px; }
+  .clinic-details { list-style: none; }
+  .clinic-details li { display: flex; align-items: flex-start; gap: 11px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.78rem; color: rgba(255,255,255,0.58); }
+  .clinic-details li:last-child { border-bottom: none; }
+  .detail-icon { color: var(--gold); font-size: 0.84rem; flex-shrink: 0; margin-top: 1px; }
+  .detail-main { font-weight: 500; color: var(--white); }
+  .detail-sub { font-size: 0.66rem; color: rgba(255,255,255,0.35); margin-top: 1px; }
+  .hero-card-phone { margin-top: 20px; padding: 14px 18px; background: var(--gold); text-align: center; cursor: pointer; transition: background 0.2s; }
+  .hero-card-phone:hover { background: var(--gold-light); }
+  .hero-card-phone a { color: var(--white); text-decoration: none; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.08em; display: block; }
+  .hero-card-phone-label { font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 3px; }
+
+  /* TRUST STRIP */
+  .trust-strip { background: var(--white); border-bottom: 1px solid var(--gold-pale); padding: 16px 40px; display: flex; gap: 0; justify-content: center; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 9px; padding: 7px 28px; border-right: 1px solid var(--gold-pale); }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 1rem; }
+  .trust-text { font-size: 0.72rem; color: var(--warm-grey); }
+  .trust-text strong { color: var(--black); display: block; font-size: 0.79rem; }
+
+  /* SECTIONS */
+  .section { padding: 88px 60px; }
+  .section.alt { background: var(--gold-blush); }
+  .section.dark { background: var(--dark); }
+  .section.mid { background: #F2EEE8; }
+  .section-label { font-size: 0.54rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 11px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Tenor Sans', serif; font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 400; line-height: 1.18; margin-bottom: 13px; letter-spacing: 0.02em; }
+  .section-desc { font-size: 0.9rem; color: var(--warm-grey); line-height: 1.88; max-width: 540px; font-weight: 300; }
+  .section-header { margin-bottom: 48px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-label { justify-content: center; }
+  .section-header.center .section-label::before { display: none; }
+  .section-header.center .section-desc { margin: 0 auto; }
+
+  /* LOCATIONS */
+  .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+  .location-card { border: 1px solid var(--gold-pale); padding: 36px 32px; background: var(--white); position: relative; }
+  .location-num { position: absolute; top: 20px; right: 24px; font-family: 'Tenor Sans', serif; font-size: 3rem; color: rgba(196,162,106,0.12); line-height: 1; }
+  .location-tag { font-size: 0.54rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 600; }
+  .location-card h3 { font-family: 'Tenor Sans', serif; font-size: 1.3rem; font-weight: 400; color: var(--black); margin-bottom: 10px; letter-spacing: 0.03em; }
+  .location-detail { font-size: 0.82rem; color: var(--warm-grey); line-height: 1.7; margin-bottom: 5px; }
+  .location-detail a { color: var(--gold); text-decoration: none; }
+
+  /* TREATMENTS */
+  .treatments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--gold-pale); border: 2px solid var(--gold-pale); }
+  .treatment-card { background: var(--white); padding: 30px 26px; transition: background 0.2s; cursor: pointer; }
+  .treatment-card:hover { background: var(--gold-blush); }
+  .treatment-cat { font-size: 0.54rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; font-weight: 600; }
+  .treatment-card h3 { font-family: 'Tenor Sans', serif; font-size: 1.1rem; font-weight: 400; color: var(--black); margin-bottom: 9px; line-height: 1.3; letter-spacing: 0.02em; }
+  .treatment-card p { font-size: 0.78rem; color: var(--warm-grey); line-height: 1.72; }
+  .treatment-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 13px; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; cursor: pointer; text-decoration: none; transition: gap 0.2s; }
+  .treatment-link:hover { gap: 10px; }
+
+  /* TEAM */
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .team-card { padding: 36px 32px; background: rgba(255,255,255,0.04); border: 1px solid rgba(196,162,106,0.15); }
+  .team-card-tag { font-size: 0.54rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .team-card h3 { font-family: 'Tenor Sans', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 5px; letter-spacing: 0.03em; }
+  .team-card-title { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-bottom: 16px; font-style: italic; }
+  .team-card p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.8; }
+  .team-credentials { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .cred-chip { padding: 5px 12px; border: 1px solid rgba(196,162,106,0.25); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .testimonial-card { padding: 28px 24px; background: var(--white); border: 1px solid var(--gold-pale); }
+  .stars { color: var(--gold); font-size: 0.76rem; letter-spacing: 3px; margin-bottom: 13px; }
+  .testimonial-text { font-size: 0.88rem; font-style: italic; color: var(--black); line-height: 1.78; margin-bottom: 14px; font-weight: 300; }
+  .testimonial-author { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-grey); }
+
+  /* CTA BANNER */
+  .cta-banner { background: var(--black); padding: 64px 60px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; border-top: 1px solid rgba(196,162,106,0.2); border-bottom: 1px solid rgba(196,162,106,0.2); }
+  .cta-banner h2 { font-family: 'Tenor Sans', serif; font-size: 1.9rem; font-weight: 400; color: var(--white); margin-bottom: 7px; letter-spacing: 0.02em; }
+  .cta-banner p { font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 76px; }
+  .contact-detail { display: flex; gap: 14px; margin-bottom: 22px; }
+  .contact-icon { font-size: 0.92rem; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .contact-detail h4 { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-grey); margin-bottom: 5px; font-weight: 600; }
+  .contact-detail p { font-size: 0.85rem; color: var(--black); line-height: 1.6; }
+  .contact-detail a { color: var(--gold); text-decoration: none; font-weight: 500; }
+  .form-row { margin-bottom: 14px; }
+  .form-row label { display: block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-grey); margin-bottom: 6px; font-weight: 500; }
+  .form-row input, .form-row select, .form-row textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--gold-pale); border-radius: 0; font-family: 'DM Sans', sans-serif; font-size: 0.84rem; background: var(--white); color: var(--black); outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--gold); }
+  .form-row textarea { min-height: 106px; resize: vertical; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* FOOTER */
+  footer { background: #060606; padding: 52px 60px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 44px; }
+  .footer-logo { font-family: 'Tenor Sans', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 5px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer-tagline { font-size: 0.65rem; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; margin-bottom: 14px; font-style: italic; }
+  .footer-col h4 { font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.26); margin-bottom: 13px; font-weight: 500; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a { font-size: 0.77rem; color: rgba(255,255,255,0.44); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-social { display: flex; gap: 9px; margin-top: 16px; }
+  .social-btn { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.76rem; color: rgba(255,255,255,0.35); cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-bottom { background: #030303; padding: 15px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.64rem; color: rgba(255,255,255,0.18); flex-wrap: wrap; gap: 8px; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .topbar { font-size: 0.62rem; padding: 8px 16px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); padding: 24px; gap: 16px; border-bottom: 1px solid var(--gold-pale); box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 99; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; padding: 54px 24px 38px; min-height: auto; gap: 34px; }
+    .hero-stats { gap: 18px; }
+    .section { padding: 54px 24px; }
+    .treatments-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .team-grid, .locations-grid, .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+    .cta-banner { grid-template-columns: 1fr; padding: 46px 24px; text-align: center; }
+    footer { grid-template-columns: 1fr 1fr; gap: 28px; padding: 34px 24px; }
+    .footer-bottom { padding: 13px 24px; flex-direction: column; text-align: center; }
+    .trust-strip { padding: 12px; }
+    .trust-item { padding: 7px 14px; border-right: none; border-bottom: 1px solid var(--gold-pale); width: 100%; }
+    .trust-item:last-child { border-bottom: none; }
+    .form-2col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:07542891915">📞 07542 891 915</a>
+  <span>·</span>
+  <a href="tel:07958168881">07958 168 881</a>
+  <span>·</span>
+  <a href="mailto:ellipsisaesthetics@mail.co.uk">ellipsisaesthetics@mail.co.uk</a>
+  <span>·</span>
+  <span>Two clinics — Harworth & Skellow</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer">
+    Ellipsis Aesthetics
+    <span>Highly Recommended · Doncaster</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('treatments')">Treatments</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('locations')">Locations</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+    <li><a class="btn-cta" href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ===== HOME ===== -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Doncaster's Highly Recommended Aesthetics Clinic</div>
+      <h1>Bespoke aesthetics.<br><em>Let your beauty speak for itself.</em></h1>
+      <p class="hero-desc">Two modern clinics across South Yorkshire. Medical practitioners with 16 years combined NHS surgical and intensive care experience — delivering the very latest enhancement techniques with natural, results-driven outcomes.</p>
+      <div class="hero-actions">
+        <a class="btn-cta" href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book an Appointment</a>
+        <a class="btn-outline" onclick="showPage('treatments')" style="color:rgba(196,162,106,0.9);border-color:rgba(196,162,106,0.4)">View Treatments</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">2</div><div class="stat-label">Clinic Locations</div></div>
+        <div class="stat"><div class="stat-num">16</div><div class="stat-label">Years NHS Experience</div></div>
+        <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Google Rating</div></div>
+        <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Consultations</div></div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-tag">Two Clinic Locations</div>
+      <h3>Ellipsis Aesthetics</h3>
+      <p class="hero-card-sub">Harworth & Skellow, South Yorkshire</p>
+      <ul class="clinic-details">
+        <li>
+          <span class="detail-icon">📍</span>
+          <div><div class="detail-main">7 Main Street, Harworth</div><div class="detail-sub">Doncaster, DN11 8LB</div></div>
+        </li>
+        <li>
+          <span class="detail-icon">📍</span>
+          <div><div class="detail-main">209 Skellow Road, Skellow</div><div class="detail-sub">Doncaster, DN6 8JH</div></div>
+        </li>
+        <li>
+          <span class="detail-icon">🏥</span>
+          <div><div class="detail-main">16 Years NHS Experience</div><div class="detail-sub">Surgical & Intensive Care backgrounds</div></div>
+        </li>
+        <li>
+          <span class="detail-icon">✅</span>
+          <div><div class="detail-main">Free Consultations</div><div class="detail-sub">Personalised treatment plans always</div></div>
+        </li>
+        <li>
+          <span class="detail-icon">🌟</span>
+          <div><div class="detail-main">5-Star Rated on Google</div><div class="detail-sub">Consistent 5★ patient reviews</div></div>
+        </li>
+      </ul>
+      <div class="hero-card-phone">
+        <div class="hero-card-phone-label">Call or text</div>
+        <a href="tel:07542891915">07542 891 915</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-item"><span class="trust-icon">⭐</span><div class="trust-text"><strong>5-Star Google Rating</strong>Consistent recommendations</div></div>
+    <div class="trust-item"><span class="trust-icon">🏥</span><div class="trust-text"><strong>NHS Background</strong>16 years surgical & ICU experience</div></div>
+    <div class="trust-item"><span class="trust-icon">📍</span><div class="trust-text"><strong>Two Clinics</strong>Harworth & Skellow</div></div>
+    <div class="trust-item"><span class="trust-icon">✅</span><div class="trust-text"><strong>Free Consultations</strong>Individual treatment plans</div></div>
+    <div class="trust-item"><span class="trust-icon">💊</span><div class="trust-text"><strong>UK Pharmacy Products</strong>CE marked, rigorously tested</div></div>
+  </div>
+
+  <!-- TREATMENTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-label">What we offer</div>
+      <h2 class="section-title">Most Popular Treatments</h2>
+      <p class="section-desc">From anti-wrinkle injections to fat dissolving — every treatment is performed by experienced medical practitioners using market-leading, CE marked products sourced from UK pharmacies.</p>
+    </div>
+    <div class="treatments-grid">
+      <div class="treatment-card">
+        <div class="treatment-cat">Face</div>
+        <h3>Anti-Wrinkle Injections</h3>
+        <p>Botulinum toxin injections to smooth expression lines and refresh your appearance. Natural-looking results administered by experienced medical practitioners.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Face</div>
+        <h3>Dermal Fillers</h3>
+        <p>Hyaluronic acid filler for facial volume, lip enhancement and contouring. Tailored to your individual features for results that enhance without overdoing.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Face</div>
+        <h3>Profhilo</h3>
+        <p>A leading skin remodelling treatment that stimulates collagen and elastin for skin that looks firmer, smoother and deeply hydrated from within.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Body</div>
+        <h3>Aqualyx Fat Dissolving</h3>
+        <p>A non-surgical fat reduction treatment targeting stubborn localised fat deposits — effective for areas such as double chin, abdomen, thighs and flanks.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin</div>
+        <h3>PCA Skin Peels</h3>
+        <p>Medical-grade chemical peels from PCA Skin — addressing pigmentation, acne, uneven texture and dullness for a clearer, more radiant complexion.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-cat">Skin</div>
+        <h3>Dermaplaning</h3>
+        <p>Manual exfoliation with a surgical blade to remove dead skin cells and vellus hair — leaving skin silky smooth, glowing and primed for skincare.</p>
+        <a class="treatment-link" onclick="showPage('treatments')">Learn more →</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:30px;"><a class="btn-outline" onclick="showPage('treatments')">View All Treatments</a></div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="section alt">
+    <div class="section-header">
+      <div class="section-label">Find us</div>
+      <h2 class="section-title">Two Clinic Locations</h2>
+      <p class="section-desc">Two modern, fully equipped clinics across South Yorkshire — both offering the full range of Ellipsis treatments.</p>
+    </div>
+    <div class="locations-grid">
+      <div class="location-card">
+        <div class="location-num">01</div>
+        <div class="location-tag">Clinic One</div>
+        <h3>Harworth</h3>
+        <p class="location-detail">📍 7 Main Street, Harworth, Doncaster, DN11 8LB</p>
+        <p class="location-detail">📞 <a href="tel:07542891915">07542 891 915</a></p>
+      </div>
+      <div class="location-card">
+        <div class="location-num">02</div>
+        <div class="location-tag">Clinic Two</div>
+        <h3>Skellow</h3>
+        <p class="location-detail">📍 209 Skellow Road, Skellow, Doncaster, DN6 8JH</p>
+        <p class="location-detail">📞 <a href="tel:07958168881">07958 168 881</a></p>
+      </div>
+    </div>
+    <div style="text-align:center;"><a class="btn-cta" href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book at Either Clinic</a></div>
+  </section>
+
+  <!-- MEET THE TEAM -->
+  <section class="section dark">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center;color:var(--gold)"><span style="display:inline-block;width:20px;height:1px;background:var(--gold);margin-right:10px;vertical-align:middle"></span>The team</div>
+      <h2 class="section-title" style="color:var(--white)">Meet the Directors</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.4);margin:0 auto">Natalie and Danielle bring 16 years of combined NHS surgical and intensive care experience to every treatment.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-tag">Co-Director</div>
+        <h3>Natalie Needham</h3>
+        <p class="team-card-title">Medical Practitioner & Co-Founder</p>
+        <p>Natalie merged into aesthetics from a surgical and intensive care background in the NHS, training with industry-leading specialists in Manchester. Her results-driven approach and 5★ patient reviews have helped make Ellipsis Aesthetics a highly sought after destination for cosmetic injectables across South Yorkshire.</p>
+        <div class="team-credentials">
+          <div class="cred-chip">NHS Background</div>
+          <div class="cred-chip">Surgical Experience</div>
+          <div class="cred-chip">5★ Reviews</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-tag">Co-Director</div>
+        <h3>Danielle Talbot</h3>
+        <p class="team-card-title">Medical Practitioner & Co-Founder</p>
+        <p>Danielle brings intensive care nursing expertise to her aesthetic practice — giving her a unique level of clinical knowledge and precision. She continues to expand her skills by attending courses, events and conferences across the UK, ensuring patients always benefit from the very latest techniques.</p>
+        <div class="team-credentials">
+          <div class="cred-chip">ICU Background</div>
+          <div class="cred-chip">Intensive Care</div>
+          <div class="cred-chip">Continuous Training</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="section-header center">
+      <div class="section-label" style="justify-content:center">Patient reviews</div>
+      <h2 class="section-title">Rated 5 Stars on Google</h2>
+      <p class="section-desc">Consistent 5★ reviews and recommendations from patients across South Yorkshire.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Absolutely brilliant clinic. Natalie and Danielle are so professional and knowledgeable. My results are always natural and exactly what I asked for."</p><div class="testimonial-author">— Google Review</div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"I've been coming to Ellipsis for a couple of years now and wouldn't go anywhere else. The consultation is always thorough and honest. Highly recommend."</p><div class="testimonial-author">— Google Review</div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Such a lovely clinic — very clean, very professional. The girls are amazing at what they do and really put you at ease. Results are incredible every time."</p><div class="testimonial-author">— Google Review</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <div>
+      <h2>Ready to book your appointment?</h2>
+      <p>Book online at either clinic — or call us directly for advice on which treatment is right for you.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a class="btn-cta" href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book Online</a>
+      <a class="btn-outline" onclick="showPage('contact')" style="color:rgba(196,162,106,0.85);border-color:rgba(196,162,106,0.3)">Contact Us</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== TREATMENTS ===== -->
+<div class="page" id="page-treatments">
+  <div style="background:var(--black);padding:72px 60px 52px;position:relative;">
+    <div class="hero-eyebrow" style="color:var(--gold)">What we offer</div>
+    <h1 style="font-family:'Tenor Sans',serif;font-size:clamp(1.9rem,3.8vw,3.2rem);font-weight:400;color:var(--white);margin-bottom:13px;letter-spacing:0.02em">Our Treatments</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.48);max-width:500px;font-weight:300;line-height:1.9">Expert approach to the very latest enhancement techniques as well as the more traditional and popular anti-wrinkle and rejuvenation procedures — all using only the highest quality, CE marked UK pharmacy products.</p>
+  </div>
+  <section class="section">
+    <div class="section-label">Face</div>
+    <h2 class="section-title" style="margin-bottom:28px">Face Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Anti-Wrinkle</div><h3>Anti-Wrinkle Injections</h3><p>Botulinum toxin to soften expression lines, frown lines and crow's feet. Administered by experienced medical practitioners for natural, consistent results.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Volume & Contour</div><h3>Dermal Fillers</h3><p>Hyaluronic acid filler for volume restoration, lip enhancement, cheek contouring and reduction of deeper folds — tailored to your individual face shape and goals.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Skin Booster</div><h3>Profhilo</h3><p>The leading skin remodelling treatment — not a filler — that stimulates your own collagen and elastin for firmer, smoother, more radiant skin from within.</p></div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="section-label">Skin</div>
+    <h2 class="section-title" style="margin-bottom:28px">Skin Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Medical Peel</div><h3>PCA Skin Peels</h3><p>Medical-grade chemical peels for improved skin texture, tone and clarity — addressing pigmentation, acne, fine lines and dullness for a genuinely brighter complexion.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Exfoliation</div><h3>Dermaplaning</h3><p>Manual exfoliation with a surgical blade removing dead skin cells and vellus hair — skin instantly smoother, more radiant and better able to absorb skincare.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Teeth</div><h3>Teeth Whitening</h3><p>Professional teeth whitening for a brighter, more confident smile — a popular add-on treatment available at both Ellipsis clinic locations.</p></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-label">Body & Wellness</div>
+    <h2 class="section-title" style="margin-bottom:28px">Body & Vitamin Treatments</h2>
+    <div class="treatments-grid">
+      <div class="treatment-card"><div class="treatment-cat">Fat Reduction</div><h3>Aqualyx Fat Dissolving</h3><p>Non-surgical fat reduction targeting stubborn localised deposits — double chin, abdomen, flanks, thighs and more. Effective, safe and minimal downtime.</p></div>
+      <div class="treatment-card"><div class="treatment-cat">Wellness</div><h3>IM Vitamin Therapy</h3><p>Intramuscular vitamin injections to boost energy, immunity and overall wellbeing — scientifically proven nutrient delivery direct to the body.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;"><a class="btn-cta" href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book a Consultation</a></div>
+  </section>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<div class="page" id="page-about">
+  <div style="background:var(--black);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Who we are</div>
+    <h1 style="font-family:'Tenor Sans',serif;font-size:clamp(1.9rem,3.8vw,3.2rem);font-weight:400;color:var(--white);margin-bottom:13px;letter-spacing:0.02em">About Ellipsis Aesthetics</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.48);max-width:500px;font-weight:300;line-height:1.9">Two directors. 16 years of NHS experience. Two clinics. One commitment — honest, results-driven aesthetics delivered with genuine care.</p>
+  </div>
+  <section class="section">
+    <div style="max-width:720px;margin-bottom:56px;">
+      <div class="section-label">Our story</div>
+      <h2 class="section-title">Highly recommended by patients across South Yorkshire</h2>
+      <p class="section-desc" style="margin-bottom:16px">Ellipsis Aesthetics have two modern clinics specialising in non-surgical facial procedures and skin care treatments. Both are led by Natalie Needham and Danielle Talbot — medical practitioners who merged into aesthetics from surgical and intensive care backgrounds within the NHS, bringing 16 years of combined medical experience.</p>
+      <p class="section-desc">They trained with industry-leading specialists in Manchester and have continued to expand their skills by attending courses, events and conferences across the UK. With 5★ reviews and consistent patient recommendations, Natalie and Danielle have made Ellipsis Aesthetics a highly sought after destination for cosmetic injectables and skin treatments across South Yorkshire.</p>
+    </div>
+    <div class="team-grid" style="margin-bottom:48px;">
+      <div style="padding:32px;background:var(--gold-blush);border-left:3px solid var(--gold);">
+        <div class="section-label" style="margin-bottom:8px">Co-Director</div>
+        <h3 style="font-family:'Tenor Sans',serif;font-size:1.3rem;font-weight:400;margin-bottom:5px;letter-spacing:0.03em">Natalie Needham</h3>
+        <p style="font-size:0.72rem;color:var(--warm-grey);margin-bottom:14px;font-style:italic">Medical Practitioner & Co-Founder</p>
+        <p style="font-size:0.82rem;color:var(--warm-grey);line-height:1.8">NHS surgical background — trained with industry-leading specialists in Manchester. Her results-driven approach and 5★ reviews have helped build Ellipsis into South Yorkshire's most recommended aesthetics clinic.</p>
+      </div>
+      <div style="padding:32px;background:var(--gold-blush);border-left:3px solid var(--gold);">
+        <div class="section-label" style="margin-bottom:8px">Co-Director</div>
+        <h3 style="font-family:'Tenor Sans',serif;font-size:1.3rem;font-weight:400;margin-bottom:5px;letter-spacing:0.03em">Danielle Talbot</h3>
+        <p style="font-size:0.72rem;color:var(--warm-grey);margin-bottom:14px;font-style:italic">Medical Practitioner & Co-Founder</p>
+        <p style="font-size:0.82rem;color:var(--warm-grey);line-height:1.8">NHS intensive care background — brings a unique level of clinical precision to her aesthetic work. Continues to develop her skills at UK-wide events, conferences and manufacturer training.</p>
+      </div>
+    </div>
+    <div style="padding:32px;background:var(--off-white);border:1px solid var(--gold-pale);">
+      <h3 style="font-family:'Tenor Sans',serif;font-size:1.1rem;font-weight:400;margin-bottom:10px;letter-spacing:0.03em">Our Products Promise</h3>
+      <p style="font-size:0.84rem;color:var(--warm-grey);line-height:1.8">Ellipsis offer only the highest quality and market-leading products sourced from UK pharmacies at competitive prices. All products are CE marked, carefully selected and rigorously tested — and only used in our clinics once they've been approved to our high standards.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===== LOCATIONS ===== -->
+<div class="page" id="page-locations">
+  <div style="background:var(--black);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Find us</div>
+    <h1 style="font-family:'Tenor Sans',serif;font-size:clamp(1.9rem,3.8vw,3.2rem);font-weight:400;color:var(--white);margin-bottom:13px;letter-spacing:0.02em">Two Clinic Locations</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.48);max-width:500px;font-weight:300;line-height:1.9">Two modern clinics across South Yorkshire — Harworth and Skellow — both offering the full range of Ellipsis treatments.</p>
+  </div>
+  <section class="section">
+    <div class="locations-grid" style="margin-bottom:0;">
+      <div class="location-card" style="padding:48px 36px;">
+        <div class="location-num">01</div>
+        <div class="location-tag">Clinic One · Harworth</div>
+        <h3 style="font-family:'Tenor Sans',serif;font-size:1.6rem;font-weight:400;letter-spacing:0.03em;margin-bottom:16px;">7 Main Street</h3>
+        <p class="location-detail">📍 7 Main Street, Harworth, Doncaster, DN11 8LB</p>
+        <p class="location-detail">📞 <a href="tel:07542891915">07542 891 915</a></p>
+        <p class="location-detail">✉️ <a href="mailto:ellipsisaesthetics@mail.co.uk">ellipsisaesthetics@mail.co.uk</a></p>
+        <div style="margin-top:24px;"><a class="btn-cta" href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book at Harworth</a></div>
+      </div>
+      <div class="location-card" style="padding:48px 36px;">
+        <div class="location-num">02</div>
+        <div class="location-tag">Clinic Two · Skellow</div>
+        <h3 style="font-family:'Tenor Sans',serif;font-size:1.6rem;font-weight:400;letter-spacing:0.03em;margin-bottom:16px;">209 Skellow Road</h3>
+        <p class="location-detail">📍 209 Skellow Road, Skellow, Doncaster, DN6 8JH</p>
+        <p class="location-detail">📞 <a href="tel:07958168881">07958 168 881</a></p>
+        <p class="location-detail">✉️ <a href="mailto:ellipsisaesthetics@mail.co.uk">ellipsisaesthetics@mail.co.uk</a></p>
+        <div style="margin-top:24px;"><a class="btn-cta" href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book at Skellow</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div class="page" id="page-contact">
+  <div style="background:var(--black);padding:72px 60px 52px;">
+    <div class="hero-eyebrow" style="color:var(--gold)">Get in touch</div>
+    <h1 style="font-family:'Tenor Sans',serif;font-size:clamp(1.9rem,3.8vw,3.2rem);font-weight:400;color:var(--white);margin-bottom:13px;letter-spacing:0.02em">Contact Us</h1>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.48);max-width:500px;font-weight:300;line-height:1.9">Book online, call either clinic, or send us a message — we'll get back to you as soon as we can.</p>
+  </div>
+  <section class="section">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Clinic details</div>
+        <h2 class="section-title" style="margin-bottom:28px">Get in Touch</h2>
+        <div class="contact-detail"><span class="contact-icon">📍</span><div><h4>Harworth Clinic</h4><p>7 Main Street, Harworth<br>Doncaster, DN11 8LB<br><a href="tel:07542891915">07542 891 915</a></p></div></div>
+        <div class="contact-detail"><span class="contact-icon">📍</span><div><h4>Skellow Clinic</h4><p>209 Skellow Road, Skellow<br>Doncaster, DN6 8JH<br><a href="tel:07958168881">07958 168 881</a></p></div></div>
+        <div class="contact-detail"><span class="contact-icon">✉️</span><div><h4>Email</h4><p><a href="mailto:ellipsisaesthetics@mail.co.uk">ellipsisaesthetics@mail.co.uk</a></p></div></div>
+        <div style="margin-top:24px;"><a class="btn-cta" href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book Online</a></div>
+      </div>
+      <div>
+        <div class="section-label">Send a message</div>
+        <h2 class="section-title" style="margin-bottom:28px">Enquiry Form</h2>
+        <div class="form-2col">
+          <div class="form-row"><label>First Name</label><input type="text" placeholder="Jane"></div>
+          <div class="form-row"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="form-row"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+        <div class="form-row"><label>Phone Number</label><input type="tel" placeholder="07700 000000"></div>
+        <div class="form-row"><label>Preferred Clinic</label>
+          <select><option value="">Select a location...</option><option>Harworth — 7 Main Street</option><option>Skellow — 209 Skellow Road</option><option>No preference</option></select>
+        </div>
+        <div class="form-row"><label>Treatment of Interest</label>
+          <select><option value="">Select a treatment...</option><option>Anti-Wrinkle Injections</option><option>Dermal Fillers</option><option>Profhilo</option><option>Aqualyx Fat Dissolving</option><option>PCA Skin Peels</option><option>Dermaplaning</option><option>IM Vitamin Therapy</option><option>Teeth Whitening</option><option>Not Sure — Free Consultation</option></select>
+        </div>
+        <div class="form-row"><label>Message</label><textarea placeholder="Tell us what you're looking for and we'll be in touch..."></textarea></div>
+        <button class="btn-cta" style="width:100%;padding:13px;font-size:0.74rem;border:none;cursor:pointer">Send Enquiry</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Ellipsis Aesthetics</div>
+    <div class="footer-tagline">"Let your beauty speak for itself"</div>
+    <p style="font-size:0.75rem;color:rgba(255,255,255,0.32);line-height:1.82;max-width:240px">Highly recommended aesthetics clinic with two locations across South Yorkshire. 16 years NHS experience, 5★ reviews.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://www.facebook.com/ellipsisaesthetics" target="_blank">f</a>
+      <a class="social-btn" href="https://www.instagram.com/ellipsisaesthetics" target="_blank">ig</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Treatments</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('treatments')">Anti-Wrinkle</a></li>
+      <li><a onclick="showPage('treatments')">Dermal Fillers</a></li>
+      <li><a onclick="showPage('treatments')">Profhilo</a></li>
+      <li><a onclick="showPage('treatments')">Fat Dissolving</a></li>
+      <li><a onclick="showPage('treatments')">Skin Peels</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Clinic</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('about')">About Us</a></li>
+      <li><a onclick="showPage('locations')">Locations</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://www.fresha.com/providers/ellipsis-aesthetics-zdn5ay4l" target="_blank">Book Online</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Locations</h4>
+    <ul class="footer-links">
+      <li><a onclick="showPage('locations')">Harworth Clinic</a></li>
+      <li><a onclick="showPage('locations')">Skellow Clinic</a></li>
+    </ul>
+    <div style="margin-top:16px;font-size:0.72rem;color:rgba(255,255,255,0.3);line-height:1.7">
+      <div>07542 891 915</div>
+      <div>07958 168 881</div>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Ellipsis Aesthetics · Harworth & Skellow, Doncaster</span>
+  <span>Website concept built by <strong>Trabelo</strong> · Sheffield</span>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) { page.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  document.getElementById('navLinks').classList.remove('open');
+}
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+</script>
+</body>
+</html>
