@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabelo — Sheffield Therapy Centre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0B6B6B;
+    --teal-light: #1AADAD;
+    --deep: #0A2323;
+    --off-white: #F7FBFB;
+    --border: #C8E2E2;
+    --red: #C0392B;
+    --amber: #B7600A;
+    --green: #1E7E44;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--deep);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .bg-wrap {
+    flex: 1;
+    background:
+      radial-gradient(ellipse at 15% 60%, rgba(26,173,173,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 25%, rgba(26,173,173,0.04) 0%, transparent 50%),
+      var(--deep);
+    padding: 2rem 1.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .trabelo-top {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 3.5rem;
+    align-self: flex-start;
+    max-width: 720px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .trabelo-logo { font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.88); }
+  .trabelo-logo span { color: var(--teal-light); }
+  .trabelo-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+  .trabelo-subtitle { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    max-width: 720px;
+    width: 100%;
+  }
+  .venue-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 0.75rem; }
+  .venue-name { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 5vw, 2.6rem); color: #fff; line-height: 1.15; margin-bottom: 0.4rem; }
+  .venue-url { font-size: 0.78rem; color: rgba(255,255,255,0.28); margin-bottom: 1.75rem; }
+  .venue-desc { font-size: 0.9rem; color: rgba(255,255,255,0.58); line-height: 1.75; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+  .scores-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 0.75rem; }
+  .score-pill { border-radius: 8px; padding: 0.75rem 0.5rem; text-align: center; border: 1.5px solid; }
+  .score-pill.fail { background: rgba(192,57,43,0.1); border-color: rgba(192,57,43,0.3); }
+  .score-pill.warn { background: rgba(183,96,10,0.1); border-color: rgba(183,96,10,0.3); }
+  .score-pill.pass { background: rgba(30,126,68,0.1); border-color: rgba(30,126,68,0.3); }
+  .score-pill .s-num { font-family: 'DM Serif Display', serif; font-size: 1.7rem; line-height: 1; margin-bottom: 0.2rem; }
+  .score-pill.fail .s-num { color: #e05a4b; }
+  .score-pill.warn .s-num { color: #e0870a; }
+  .score-pill.pass .s-num { color: #2ea85e; }
+  .score-pill .s-label { font-size: 0.58rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.38); }
+  .scores-note { font-size: 0.72rem; color: rgba(255,255,255,0.28); text-align: center; margin-bottom: 2rem; }
+
+  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .cta-btn {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 0.3rem;
+    padding: 1.25rem 1.5rem; border-radius: 10px; text-decoration: none;
+    border: 1.5px solid; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .cta-btn.primary { background: var(--teal); border-color: var(--teal); }
+  .cta-btn.primary:hover { background: #0E8585; border-color: #0E8585; }
+  .cta-btn.secondary { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+  .cta-btn.secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); }
+  .cta-btn-label { font-size: 0.63rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; }
+  .cta-btn.primary .cta-btn-label { color: rgba(255,255,255,0.6); }
+  .cta-btn.secondary .cta-btn-label { color: rgba(255,255,255,0.3); }
+  .cta-btn-title { font-size: 0.95rem; font-weight: 600; }
+  .cta-btn.primary .cta-btn-title { color: #fff; }
+  .cta-btn.secondary .cta-btn-title { color: rgba(255,255,255,0.82); }
+  .cta-btn-sub { font-size: 0.73rem; line-height: 1.4; }
+  .cta-btn.primary .cta-btn-sub { color: rgba(255,255,255,0.55); }
+  .cta-btn.secondary .cta-btn-sub { color: rgba(255,255,255,0.32); }
+
+  .page-footer { text-align: center; padding: 1.5rem; font-size: 0.7rem; color: rgba(255,255,255,0.18); }
+  .page-footer a { color: rgba(255,255,255,0.28); text-decoration: none; }
+  .page-footer a:hover { color: var(--teal-light); }
+
+  @media (max-width: 500px) {
+    .scores-row { grid-template-columns: repeat(2, 1fr); }
+    .cta-grid { grid-template-columns: 1fr; }
+    .card { padding: 1.75rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-wrap">
+
+  <div class="trabelo-top">
+    <div class="trabelo-logo">trabelo<span>.</span></div>
+    <div class="trabelo-dot"></div>
+    <div class="trabelo-subtitle">Web design · Sheffield & South Yorkshire</div>
+  </div>
+
+  <div class="card">
+    <div class="venue-eyebrow">Free Website Audit & Demo</div>
+    <h1 class="venue-name">Sheffield Therapy Centre</h1>
+    <div class="venue-url">sheffieldtherapycentre.co.uk · Gleadless, Sheffield</div>
+    <p class="venue-desc">I'm Aidan — I do web design across Sheffield and South Yorkshire. I ran your site through Google's speed testing tool and found a few things worth knowing about — particularly around load speed, security and accessibility. I've put together a free audit explaining what I found, plus a full demo of what a rebuilt site could look like. Both are below.</p>
+
+    <div class="scores-row">
+      <div class="score-pill warn"><div class="s-num">62</div><div class="s-label">Performance</div></div>
+      <div class="score-pill warn"><div class="s-num">89</div><div class="s-label">Accessibility</div></div>
+      <div class="score-pill fail"><div class="s-num">54</div><div class="s-label">Best Practices</div></div>
+      <div class="score-pill pass"><div class="s-num">92</div><div class="s-label">SEO</div></div>
+    </div>
+    <div class="scores-note">Google Lighthouse · Mobile · July 2026 · 0–49 poor · 50–89 needs work · 90–100 good</div>
+
+    <div class="cta-grid">
+      <a href="stc-index.html" class="cta-btn primary">
+        <div class="cta-btn-label">✦ Concept Demo</div>
+        <div class="cta-btn-title">See the rebuilt site</div>
+        <div class="cta-btn-sub">Full working demo — physio, sports injuries, podiatry, team & more</div>
+      </a>
+      <a href="stc-audit.html" class="cta-btn secondary">
+        <div class="cta-btn-label">📋 Full Audit</div>
+        <div class="cta-btn-title">See the detailed audit</div>
+        <div class="cta-btn-sub">Every issue explained — and what it would cost to fix it</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  Prepared by <a href="mailto:aidan@trabelo.com">Aidan Fry · Trabelo · Sheffield</a> · aidan@trabelo.com · No obligation
+</div>
+</body>
+</html>

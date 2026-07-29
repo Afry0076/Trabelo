@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — Sheffield Therapy Centre | Trabelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0B6B6B;
+    --teal-mid: #0E8585;
+    --teal-light: #1AADAD;
+    --teal-pale: #EAF5F5;
+    --deep: #0A2323;
+    --white: #FFFFFF;
+    --off-white: #F7FBFB;
+    --border: #C8E2E2;
+    --text: #1A2E2E;
+    --mid: #4A6B6B;
+    --red: #C0392B;
+    --red-pale: #FDF3F2;
+    --amber: #B7600A;
+    --amber-pale: #FEF6EC;
+    --green: #1E7E44;
+    --green-pale: #F0F8F3;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--text); line-height: 1.6; }
+
+  /* HEADER */
+  .audit-header {
+    background: var(--deep);
+    padding: 3.5rem 1.5rem 4rem;
+    text-align: center;
+  }
+  .trabelo-badge {
+    display: inline-block;
+    background: rgba(26,173,173,0.12);
+    border: 1px solid rgba(26,173,173,0.3);
+    color: var(--teal-light);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .audit-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .audit-header h1 span { color: var(--teal-light); font-style: italic; }
+  .audit-header .subtitle { color: rgba(255,255,255,0.55); font-size: 0.95rem; margin-bottom: 2.5rem; }
+  .audit-meta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    justify-content: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+  }
+  .audit-meta strong { color: rgba(255,255,255,0.75); }
+
+  /* CONTAINER */
+  .container { max-width: 840px; margin: 0 auto; padding: 0 1.5rem; }
+  .section { padding: 3rem 0; }
+  .section + .section { border-top: 1px solid var(--border); }
+
+  /* SCORES */
+  .scores-intro {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 840px;
+    margin: 0 auto;
+    transform: translateY(-2rem);
+    position: relative;
+    z-index: 1;
+  }
+  .scores-intro h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--deep);
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+  .score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .score-item { text-align: center; padding: 1rem; border-radius: 8px; border: 1.5px solid; }
+  .score-item.fail { background: var(--red-pale); border-color: #e8b4b0; }
+  .score-item.warn { background: var(--amber-pale); border-color: #f0d0a8; }
+  .score-item.pass { background: var(--green-pale); border-color: #a8d8b8; }
+  .score-num { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1; margin-bottom: 0.3rem; }
+  .score-item.fail .score-num { color: var(--red); }
+  .score-item.warn .score-num { color: var(--amber); }
+  .score-item.pass .score-num { color: var(--green); }
+  .score-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+  .score-item.fail .score-label { color: var(--red); }
+  .score-item.warn .score-label { color: var(--amber); }
+  .score-item.pass .score-label { color: var(--green); }
+  .score-verdict { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .score-item.fail .score-verdict { color: rgba(192,57,43,0.6); }
+  .score-item.warn .score-verdict { color: rgba(183,96,10,0.6); }
+  .score-item.pass .score-verdict { color: rgba(30,126,68,0.6); }
+  .score-note { margin-top: 1.25rem; font-size: 0.78rem; color: var(--mid); text-align: center; padding-top: 1rem; border-top: 1px solid var(--border); }
+
+  /* SECTION TITLE */
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--deep); margin-bottom: 0.5rem; }
+  .section-intro { font-size: 0.93rem; color: var(--mid); line-height: 1.7; margin-bottom: 2rem; }
+
+  /* ISSUES */
+  .issue-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; }
+  .issue-header { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); }
+  .issue-header.critical { background: var(--red-pale); border-bottom-color: #e8b4b0; }
+  .issue-header.warning { background: var(--amber-pale); border-bottom-color: #f0d0a8; }
+  .issue-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; }
+  .issue-tag.critical { background: var(--red); color: var(--white); }
+  .issue-tag.warning { background: var(--amber); color: var(--white); }
+  .issue-header h3 { font-size: 0.95rem; font-weight: 600; color: var(--deep); line-height: 1.3; }
+  .issue-body { padding: 1.25rem 1.5rem; }
+  .issue-block { margin-bottom: 1rem; }
+  .issue-block:last-child { margin-bottom: 0; }
+  .issue-block-label { font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid); margin-bottom: 0.35rem; }
+  .issue-block p { font-size: 0.88rem; color: var(--text); line-height: 1.65; }
+  .issue-block p strong { color: var(--deep); }
+
+  /* FEATURES */
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; display: flex; gap: 0.85rem; align-items: flex-start; }
+  .feature-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .feature-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+  .feature-card p { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+
+  /* PRICING */
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .pricing-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; padding: 1.75rem 1.5rem; position: relative; display: flex; flex-direction: column; }
+  .pricing-card.featured { border-color: var(--teal); box-shadow: 0 4px 24px rgba(11,107,107,0.15); }
+  .pricing-recommended { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--white); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.9rem; border-radius: 100px; white-space: nowrap; }
+  .pricing-tier { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--mid); margin-bottom: 0.5rem; }
+  .pricing-price { font-family: 'DM Serif Display', serif; font-size: 2.1rem; color: var(--deep); line-height: 1; margin-bottom: 0.25rem; }
+  .pricing-desc { font-size: 0.78rem; color: var(--mid); margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); line-height: 1.55; }
+  .pricing-features { list-style: none; flex: 1; margin-bottom: 1.5rem; }
+  .pricing-features li { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.82rem; color: var(--text); padding: 0.35rem 0; border-bottom: 1px solid rgba(200,226,226,0.5); line-height: 1.45; }
+  .pricing-features li:last-child { border-bottom: none; }
+  .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .pricing-cta { display: block; text-align: center; padding: 0.75rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: background 0.2s; }
+  .pricing-card.featured .pricing-cta { background: var(--teal); color: var(--white); }
+  .pricing-card:not(.featured) .pricing-cta { background: var(--off-white); color: var(--deep); border: 1.5px solid var(--border); }
+  .pricing-card:not(.featured) .pricing-cta:hover { background: var(--border); }
+  .pricing-note { font-size: 0.73rem; color: var(--mid); text-align: center; margin-top: 1rem; line-height: 1.6; }
+
+  /* CTA */
+  .audit-cta { background: var(--deep); padding: 3.5rem 1.5rem; text-align: center; }
+  .audit-cta h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 0.75rem; line-height: 1.2; }
+  .audit-cta h2 span { color: var(--teal-light); font-style: italic; }
+  .audit-cta p { color: rgba(255,255,255,0.6); font-size: 0.95rem; max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; }
+  .cta-contact { display: inline-flex; flex-direction: column; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(26,173,173,0.3); border-radius: 10px; padding: 1.5rem 2.5rem; margin-bottom: 1.5rem; }
+  .cta-contact a { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--white); text-decoration: none; }
+  .cta-contact a:hover { color: var(--teal-light); }
+  .cta-contact span { font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+  .cta-email { display: block; color: var(--teal-light); text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem; }
+
+  /* FOOTER */
+  .audit-footer { background: #060F0F; padding: 1.5rem; text-align: center; font-size: 0.73rem; color: rgba(255,255,255,0.25); }
+  .audit-footer a { color: var(--teal-light); text-decoration: none; }
+
+  @media (max-width: 700px) {
+    .score-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="audit-header">
+  <div class="trabelo-badge">Website Audit · Prepared by Trabelo</div>
+  <h1>A Free Audit for<br><span>Sheffield Therapy Centre</span></h1>
+  <p class="subtitle">sheffieldtherapycentre.co.uk · Prepared by Aidan, Trabelo · Sheffield</p>
+  <div class="audit-meta">
+    <div><strong>Business:</strong> Sheffield Therapy Centre</div>
+    <div><strong>Location:</strong> Gleadless, Sheffield</div>
+    <div><strong>Industry:</strong> Physiotherapy / Healthcare</div>
+    <div><strong>Audit Date:</strong> July 2026</div>
+  </div>
+</div>
+
+<!-- SCORES -->
+<div style="padding: 0 1.5rem;">
+  <div class="scores-intro">
+    <h2>Your Google PageSpeed Scores (Mobile)</h2>
+    <div class="score-grid">
+      <div class="score-item warn">
+        <div class="score-num">62</div>
+        <div class="score-label">Performance</div>
+        <div class="score-verdict">Needs Work</div>
+      </div>
+      <div class="score-item warn">
+        <div class="score-num">89</div>
+        <div class="score-label">Accessibility</div>
+        <div class="score-verdict">Nearly There</div>
+      </div>
+      <div class="score-item fail">
+        <div class="score-num">54</div>
+        <div class="score-label">Best Practices</div>
+        <div class="score-verdict">Needs Work</div>
+      </div>
+      <div class="score-item pass">
+        <div class="score-num">92</div>
+        <div class="score-label">SEO</div>
+        <div class="score-verdict">Good</div>
+      </div>
+    </div>
+    <div class="score-note">Scores from Google Lighthouse · Mobile test · Tested July 2026. Red = 0–49 · Amber = 50–89 · Green = 90–100. Performance and Best Practices are the standout concerns here.</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="section" style="padding-top:0.5rem;">
+    <p style="font-size:1rem;color:var(--mid);line-height:1.8;">Hi — I'm Aidan. I'm 18 and I do web design across Sheffield and South Yorkshire. I came across Sheffield Therapy Centre while looking at healthcare and physio websites in the area, ran your site through Google's speed testing tool and found a few things worth flagging.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.8;margin-top:1rem;">You've got a solid SEO score of <strong style="color:var(--green);">92</strong> — so you're showing up in Google searches, which matters. But when people actually land on the site, they're running into some friction that's worth fixing. The biggest one is that your site is loading nearly <strong style="color:var(--red);">12 seconds</strong> of content on mobile — in a sector where people are usually in discomfort and just want to book quickly. Here's a plain-English breakdown of what I found.</p>
+  </div>
+
+  <!-- ISSUES -->
+  <div class="section">
+    <div class="section-title">What's Not Working — and Why It Matters</div>
+    <p class="section-intro">Five specific issues found on your current site, explained in terms of what each one means for the people trying to use it.</p>
+
+    <!-- Issue 1 -->
+    <div class="issue-card">
+      <div class="issue-header critical">
+        <span class="issue-tag critical">Critical</span>
+        <h3>The main content takes nearly 12 seconds to load on mobile</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label">What's happening</div>
+          <p>Google found that the <strong>Largest Contentful Paint</strong> — that's the main block of content on the page — takes <strong>11.7 seconds</strong> to appear on a mobile device. The first thing to appear takes 2.9 seconds. Render-blocking files are adding nearly <strong>3 extra seconds</strong> of delay before the page even starts loading. The site is also loading nearly <strong>5MB of data</strong> on every single visit — which is very large for a healthcare website.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">What this means for your patients</div>
+          <p>Someone's been putting off their physio appointment, they've just searched "physiotherapy Sheffield" on their phone, found your site and... waited 12 seconds. Studies consistently show that over <strong>50% of mobile users leave if a site takes more than 3 seconds to load</strong>. Your potential patients are making appointment decisions in that window. Every second matters — and 12 is a lot to ask.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">The fix</div>
+          <p>A rebuilt site eliminates render-blocking files, compresses images properly (Google found <strong>709KB of image savings</strong> available), and loads in under 2 seconds on mobile. Target performance score: <strong>97+</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Issue 2 -->
+    <div class="issue-card">
+      <div class="issue-header critical">
+        <span class="issue-tag critical">Critical</span>
+        <h3>Best Practices score of 54 — partly because the site makes insecure (HTTP) requests</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label">What's happening</div>
+          <p>Google flagged <strong>3 insecure HTTP requests</strong> on your site — meaning some files are being loaded without encryption. In plain terms, parts of your site aren't using HTTPS (the secure version of the web). On top of that, Google found browser errors, deprecated APIs being used, and several missing security headers (CSP, HSTS, COOP and X-Frame-Options). Together, these drag your Best Practices score down to <strong>54 out of 100</strong>.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">What this means for your patients</div>
+          <p>Modern browsers increasingly warn users when a site isn't fully secure. For a healthcare clinic where patients might be entering personal details or contact information, a security warning — or even just a lock icon that isn't green — will put some people off. Trust is the foundation of any clinic; your website should reflect that.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">The fix</div>
+          <p>A rebuilt site is built fully on HTTPS with all security headers configured correctly from day one. Target score: <strong>90+</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Issue 3 -->
+    <div class="issue-card">
+      <div class="issue-header critical">
+        <span class="issue-tag critical">Critical</span>
+        <h3>725KB of unused JavaScript is slowing the site down on every visit</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label">What's happening</div>
+          <p>Google found <strong>725KB of unused JavaScript</strong> and <strong>174KB of unused CSS</strong> being loaded by your site — code that's downloaded on every single visit but never actually used. There are also 5 long main-thread tasks blocking the browser. This is a very common symptom of a WordPress or page-builder site that's accumulated plugins over time.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">What this means for your patients</div>
+          <p>All that dead code adds delay. The browser has to download, parse and evaluate code it doesn't need — before it can show the patient anything. It's invisible to you, but every patient visiting your site is paying for it in waiting time.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">The fix</div>
+          <p>A hand-built site with no bloated frameworks, no unnecessary plugins and only the code that's actually needed. Clean, minimal and fast.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Issue 4 -->
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">Accessibility</span>
+        <h3>Contrast issues and missing labels mean some visitors can't fully use the site</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label">What's happening</div>
+          <p>Google found that some text on your site doesn't have a high enough contrast ratio against its background — making it harder to read, especially for people with visual impairments. There are also iframes (embedded content) without titles, and headings that skip levels, which affects screen-reader navigation. These issues drop your Accessibility score to <strong>89</strong>.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">What this means for your patients</div>
+          <p>Physiotherapy and podiatry clinics treat a lot of patients who are older or who have conditions that affect their vision or mobility. These are exactly the people who rely on accessible websites. Good accessibility isn't just a technical checkbox — it's part of looking after your patients before they even walk through the door.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">The fix</div>
+          <p>A properly structured site with sufficient colour contrast, all content correctly labelled and a logical heading structure. Target accessibility score: <strong>98+</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Issue 5 -->
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">SEO</span>
+        <h3>Three links have no descriptive text — slightly hurting your SEO and usability</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block">
+          <div class="issue-block-label">What's happening</div>
+          <p>Google found <strong>three links</strong> on your site with no descriptive text — likely image links or buttons where the text is missing. These are flagged as an SEO issue because Google can't understand what those links point to. Same goes for screen readers, which read out link text to visually impaired visitors.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">What this means for your patients</div>
+          <p>A small issue on its own — but combined with the other accessibility points, it adds up to a site that's harder to use for some visitors. It also means Google is slightly less confident in understanding your site's structure, which can affect rankings.</p>
+        </div>
+        <div class="issue-block">
+          <div class="issue-block-label">The fix</div>
+          <p>All links properly labelled with descriptive text. Standard on any cleanly built site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section">
+    <div class="section-title">What a Rebuilt Site Adds</div>
+    <p class="section-intro">A new site doesn't just fix the problems — it sets you up properly for the next 5+ years. Here's what comes with it.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div>
+          <h4>Performance Score 97+</h4>
+          <p>Under 2 seconds on mobile. Patients searching for physio in pain don't wait — you need to be there immediately.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <div>
+          <h4>Mobile-First Design</h4>
+          <p>Built for phones from the ground up. Most patients will find you on their mobile — the new site looks great on every screen size.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div>
+          <h4>Fully Secure (HTTPS)</h4>
+          <p>No insecure requests, no browser warnings, no missing security headers. Patients trust you with their health — your site should reflect that.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div>
+          <h4>Online Appointment Enquiry Form</h4>
+          <p>A proper categorised enquiry form — patients select their service, describe their issue and send it in one step. More conversions, less phone tag.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧑‍⚕️</div>
+        <div>
+          <h4>Team Profiles Section</h4>
+          <p>A proper page for each team member with their qualifications, specialisms and background — helping patients choose the right therapist before they call.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🦴</div>
+        <div>
+          <h4>Dedicated Service Pages</h4>
+          <p>Physiotherapy, sports injuries, podiatry and all other services each get a clear dedicated section — with what you treat and how to book.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">♿</div>
+        <div>
+          <h4>Accessibility Score 98+</h4>
+          <p>Proper contrast ratios, labelled forms and screen-reader-friendly structure — important for a clinic that sees patients of all ages and abilities.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <div>
+          <h4>Opening Hours — Always Visible</h4>
+          <p>Clear hours on every page — no hunting around. Patients want to know instantly if you're open, so they know whether to call or come in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="section">
+    <div class="section-title">What It Would Cost</div>
+    <p class="section-intro">Three options, all one-off fixed prices. No monthly fees, no subscription traps. I'll tell you exactly what you're getting upfront.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">£395</div>
+        <div class="pricing-desc">A fast, clean rebuild of your core pages. Fixes the performance, security and accessibility issues in one go.</div>
+        <ul class="pricing-features">
+          <li>Up to 5 pages rebuilt</li>
+          <li>Performance score 97+</li>
+          <li>Accessibility score 98+</li>
+          <li>SEO score 100</li>
+          <li>Fully secure (HTTPS)</li>
+          <li>Mobile-first design</li>
+          <li>Contact / enquiry form</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">Updates: £15 per change, or £30/month for unlimited small updates.</div>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-recommended">Recommended for STC</div>
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-desc">Everything in Starter, plus a full multi-section site that reflects the quality and range of your clinic.</div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Individual service pages (physio, sports, podiatry etc.)</li>
+          <li>Team profiles with bios and qualifications</li>
+          <li>Categorised appointment enquiry form</li>
+          <li>Conditions we treat — full list</li>
+          <li>Opening hours — visible site-wide</li>
+          <li>Testimonials section</li>
+          <li>Newsletter signup</li>
+          <li>No monthly fees</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">One-off price. No monthly fees.</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-desc">Everything in Business, plus a CMS so Sarah or the team can update the site directly — no dev needed.</div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>Full CMS — edit pages yourself</li>
+          <li>Online booking integration</li>
+          <li>Automated appointment confirmation emails</li>
+          <li>Blog / news section</li>
+          <li>Push notifications for offers</li>
+          <li>Priority updates for 12 months</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month depending on setup).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="audit-cta">
+  <div class="container">
+    <h2>Happy to chat — <span>no pressure at all</span></h2>
+    <p>If anything here is useful, or if you'd like to see the demo site I've put together for Sheffield Therapy Centre — just drop me an email or give me a call. I'm Sheffield-based, I know the area and I'm easy to get hold of.</p>
+    <div class="cta-contact">
+      <span>Reach Aidan directly</span>
+      <a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a>
+    </div>
+  </div>
+</div>
+
+<div class="audit-footer">
+  <p>Prepared by <a href="#">Aidan Fry</a> at <a href="#">Trabelo · Sheffield</a> · aidan@trabelo.com · Free, no obligation · July 2026</p>
+</div>
+
+</body>
+</html>

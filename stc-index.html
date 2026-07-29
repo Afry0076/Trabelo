@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheffield Therapy Centre | Physiotherapy, Podiatry & Sports Injuries</title>
+<meta name="description" content="Sheffield Therapy Centre — expert physiotherapy, podiatry, sports injuries, acupuncture and massage in Sheffield since 2007. Patient-led, no third parties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:       #0B6B6B;
+    --teal-mid:   #0E8585;
+    --teal-light: #1AADAD;
+    --teal-pale:  #EAF5F5;
+    --teal-bg:    #F0F8F8;
+    --deep:       #0A2323;
+    --white:      #FFFFFF;
+    --off-white:  #F7FBFB;
+    --border:     #C8E2E2;
+    --text:       #1A2E2E;
+    --mid:        #4A6B6B;
+    --light-text: #6B8A8A;
+    --accent:     #E85D26;
+    --accent-pale:#FEF0EB;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--deep);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.78rem;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    justify-content: center;
+  }
+  .topbar a { color: var(--teal-light); text-decoration: none; }
+  .topbar a:hover { text-decoration: underline; }
+  .topbar span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 3px solid var(--teal);
+    box-shadow: 0 2px 16px rgba(11,107,107,0.1);
+  }
+  .nav-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    height: 66px;
+    gap: 0.5rem;
+  }
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--deep);
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+  .logo span { color: var(--teal); display: block; font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links {
+    display: flex;
+    gap: 0.1rem;
+    list-style: none;
+    margin-left: auto;
+  }
+  .nav-links a {
+    display: block;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); background: var(--teal-pale); }
+  .nav-cta {
+    background: var(--teal) !important;
+    color: var(--white) !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    padding: 0.45rem 1rem !important;
+  }
+  .nav-cta:hover { background: var(--teal-mid) !important; }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-left: auto;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--deep); transition: all 0.3s; }
+  .mobile-menu {
+    display: none;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--teal); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, rgba(10,35,35,0.82) 0%, rgba(10,35,35,0.55) 55%, rgba(10,35,35,0.65) 100%),
+      url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1800&q=80') center/cover no-repeat;
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--teal-light); }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal-light); }
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 520px;
+    margin-bottom: 2rem;
+    line-height: 1.75;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--teal-light);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--white);
+    padding: 0.85rem 1.75rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: var(--teal-mid); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 1.75rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    display: inline-block;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--teal-light); background: rgba(255,255,255,0.05); }
+
+  /* Info card */
+  .hero-card {
+    background: rgba(10,35,35,0.88);
+    border: 1px solid rgba(26,173,173,0.3);
+    border-radius: 10px;
+    padding: 1.75rem;
+    backdrop-filter: blur(8px);
+  }
+  .hero-card h3 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--teal-light); margin-bottom: 1.1rem; }
+  .card-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.8rem; font-size: 0.83rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
+  .card-icon { color: var(--teal-light); flex-shrink: 0; margin-top: 1px; }
+  .card-divider { border: none; border-top: 1px solid rgba(26,173,173,0.2); margin: 1.1rem 0; }
+  .card-phone { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--white); text-align: center; display: block; text-decoration: none; margin-bottom: 0.3rem; transition: color 0.2s; }
+  .card-phone:hover { color: var(--teal-light); }
+  .card-sub { font-size: 0.68rem; color: rgba(255,255,255,0.35); text-align: center; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: var(--teal);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.5rem;
+  }
+  .trust-item { display: flex; align-items: center; gap: 0.45rem; font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.85); letter-spacing: 0.03em; }
+  .ti { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+  /* ── SECTION UTILS ── */
+  .page-section { display: none; }
+  .page-section.active { display: block; }
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+  .section-pad { padding: 4.5rem 0; }
+  .bg-white { background: var(--white); }
+  .bg-off { background: var(--off-white); }
+  .bg-teal-pale { background: var(--teal-bg); }
+  .bg-deep { background: var(--deep); }
+
+  .section-header { text-align: center; max-width: 620px; margin: 0 auto 3rem; padding: 0 1rem; }
+  .section-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.65rem; }
+  .section-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+    color: var(--deep);
+    line-height: 1.2;
+    margin-bottom: 0.9rem;
+  }
+  .section-header p { font-size: 0.95rem; color: var(--mid); line-height: 1.7; }
+  .section-divider { width: 40px; height: 3px; background: var(--teal); margin: 0.9rem auto 0; border-radius: 2px; }
+
+  /* ── SERVICES GRID ── */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem;
+    border-top: 3px solid var(--teal);
+    transition: box-shadow 0.25s, transform 0.25s;
+    cursor: pointer;
+  }
+  .service-card:hover { box-shadow: 0 8px 28px rgba(11,107,107,0.12); transform: translateY(-3px); }
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .service-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--deep); margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.83rem; color: var(--mid); line-height: 1.65; margin-bottom: 1rem; }
+  .service-link { font-size: 0.8rem; font-weight: 600; color: var(--teal); text-decoration: none; }
+  .service-link:hover { text-decoration: underline; }
+
+  /* ── TEAM ── */
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .team-card:hover { box-shadow: 0 6px 24px rgba(11,107,107,0.12); transform: translateY(-2px); }
+  .team-img { height: 200px; background-size: cover; background-position: center top; }
+  .team-body { padding: 1.25rem; }
+  .team-name { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--deep); margin-bottom: 0.2rem; }
+  .team-role { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 0.6rem; }
+  .team-bio { font-size: 0.8rem; color: var(--mid); line-height: 1.6; }
+  .hcpc-badge { display: inline-block; background: var(--teal-pale); border: 1px solid var(--border); color: var(--teal); font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.5rem; }
+
+  /* ── CONDITIONS ── */
+  .conditions-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .conditions-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .condition-pill {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.82rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .condition-pill::before { content: '●'; color: var(--teal); font-size: 0.4rem; flex-shrink: 0; }
+
+  /* ── WHY US ── */
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .why-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(26,173,173,0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+  .why-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+  .why-card h4 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--white); margin-bottom: 0.4rem; }
+  .why-card p { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial-block {
+    background: var(--teal-pale);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+  }
+  .testimonial-text { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--deep); line-height: 1.6; margin-bottom: 0.75rem; font-style: italic; }
+  .testimonial-author { font-size: 0.8rem; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* ── HOURS TABLE ── */
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 1px solid var(--border); }
+  .hours-table tr:last-child { border-bottom: none; }
+  .hours-table td { padding: 0.65rem 0; font-size: 0.88rem; color: var(--text); }
+  .hours-table td:first-child { font-weight: 600; color: var(--deep); width: 120px; }
+  .hours-closed { color: var(--light-text) !important; }
+  .hours-open { color: var(--teal) !important; font-weight: 600 !important; }
+
+  /* ── PRICING CARDS ── */
+  .price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .price-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-top: 3px solid var(--teal);
+  }
+  .price-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--deep); margin-bottom: 0.75rem; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--text); }
+  .price-row:last-child { border-bottom: none; }
+  .price-row .amount { font-weight: 700; color: var(--teal); }
+
+  /* ── CONTACT ── */
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-row { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.1rem; font-size: 0.9rem; color: var(--text); line-height: 1.5; }
+  .ci { color: var(--teal); flex-shrink: 0; margin-top: 1px; }
+  .contact-row a { color: var(--text); text-decoration: none; }
+  .contact-row a:hover { color: var(--teal); }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.75rem; font-weight: 600; color: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; }
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  /* ── SPORTS PAGE ── */
+  .sports-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .sport-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .sport-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .sport-card h4 { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--deep); margin-bottom: 0.3rem; }
+  .sport-card p { font-size: 0.8rem; color: var(--mid); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--deep); color: rgba(255,255,255,0.55); padding: 3rem 1.5rem 1.25rem; }
+  .footer-inner { max-width: 1160px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem; }
+  .footer-brand .logo { color: var(--white); font-size: 1.1rem; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.7; margin-top: 0.75rem; max-width: 280px; }
+  .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 1rem; }
+  .footer-col a { display: block; font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--teal-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+  .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+  .trabelo-credit { color: var(--teal-light) !important; font-weight: 500; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .conditions-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .sports-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .price-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .conditions-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>📞 <a href="tel:01142390022">0114 239 0022</a></span>
+  <span>📍 Gleadless Townend, Sheffield (A6102 Ring Road) — Free Parking</span>
+  <span>🕐 Tue–Fri from 9am · Sat 9am–1pm</span>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">Sheffield Therapy Centre<span>Est. 2007 · Chartered Physiotherapists</span></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('physiotherapy')">Physiotherapy</a></li>
+      <li><a href="#" onclick="showPage('sports')">Sports Injuries</a></li>
+      <li><a href="#" onclick="showPage('podiatry')">Podiatry</a></li>
+      <li><a href="#" onclick="showPage('services')">All Services</a></li>
+      <li><a href="#" onclick="showPage('team')">Our Team</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showPage('home');toggleMenu()">Home</a>
+    <a href="#" onclick="showPage('physiotherapy');toggleMenu()">Physiotherapy</a>
+    <a href="#" onclick="showPage('sports');toggleMenu()">Sports Injuries</a>
+    <a href="#" onclick="showPage('podiatry');toggleMenu()">Podiatry</a>
+    <a href="#" onclick="showPage('services');toggleMenu()">All Services</a>
+    <a href="#" onclick="showPage('team');toggleMenu()">Our Team</a>
+    <a href="#" onclick="showPage('contact');toggleMenu()">Book Now</a>
+  </div>
+</nav>
+
+<!-- ══════════════ HOME ══════════════ -->
+<section id="page-home" class="page-section active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">Sheffield's Patient-Led Physio Clinic</div>
+        <h1>Get back to <em>doing the things</em> you love.</h1>
+        <p class="hero-sub">Sheffield Therapy Centre has been helping people move better and feel better since 2007. Expert physiotherapy, podiatry, sports injury treatment and more — with no third parties, no referral faff. Just you, your therapist and a plan that works.</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">18+</div><div class="stat-label">Years in Sheffield</div></div>
+          <div class="stat"><div class="stat-num">6</div><div class="stat-label">Expert Clinicians</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Patient-Led</div></div>
+        </div>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Book an Appointment</a>
+          <a href="#" class="btn-outline" onclick="showPage('services')">Our Services</a>
+        </div>
+      </div>
+      <!-- CARD -->
+      <div class="hero-card">
+        <h3>📅 Opening Hours</h3>
+        <div class="card-row"><span class="card-icon">🟢</span><span><strong>Tue</strong> — 9:00am – 5:00pm</span></div>
+        <div class="card-row"><span class="card-icon">🟢</span><span><strong>Wed</strong> — 9:00am – 8:00pm</span></div>
+        <div class="card-row"><span class="card-icon">🟢</span><span><strong>Thu</strong> — 9:00am – 1:00pm</span></div>
+        <div class="card-row"><span class="card-icon">🟢</span><span><strong>Fri</strong> — 9:00am – 5:00pm</span></div>
+        <div class="card-row"><span class="card-icon">🟢</span><span><strong>Sat</strong> — 9:00am – 1:00pm</span></div>
+        <div class="card-row" style="opacity:0.5;"><span class="card-icon">⚫</span><span><strong>Mon / Sun</strong> — Closed</span></div>
+        <hr class="card-divider">
+        <a href="tel:01142390022" class="card-phone">0114 239 0022</a>
+        <div class="card-sub">Call to book or ask a question</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <div class="trust-strip">
+    <div class="trust-item"><span class="ti">✓</span> Est. 2007</div>
+    <div class="trust-item"><span class="ti">✓</span> No Third Parties</div>
+    <div class="trust-item"><span class="ti">✓</span> Chartered Physiotherapists</div>
+    <div class="trust-item"><span class="ti">✓</span> HCPC Registered</div>
+    <div class="trust-item"><span class="ti">✓</span> Free Parking</div>
+    <div class="trust-item"><span class="ti">✓</span> Tram & Bus Links</div>
+  </div>
+
+  <!-- SERVICES OVERVIEW -->
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What We Do</div>
+        <h2>A Full Team of Therapy Specialists Under One Roof</h2>
+        <p>From physio to podiatry, sports injuries to acupuncture — our multi-disciplinary team can treat a wide range of conditions and refer internally when needed.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('physiotherapy')">
+          <span class="service-icon">🦴</span>
+          <h3>Physiotherapy</h3>
+          <p>Back pain, neck ache, sciatica, frozen shoulder, whiplash and more. Our chartered physios get to the root of the problem and fix it.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('sports')">
+          <span class="service-icon">⚽</span>
+          <h3>Sports Injuries</h3>
+          <p>From grassroots to elite level — injury prevention, diagnosis and rehab. Our sports physios have worked at the highest level.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('podiatry')">
+          <span class="service-icon">🦶</span>
+          <h3>Podiatry / Chiropody</h3>
+          <p>Foot care, biomechanical assessments, orthotics, heel pain, bunions and more. HCPC-registered podiatrists on Friday mornings.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">🪡</span>
+          <h3>Acupuncture</h3>
+          <p>Used alongside physiotherapy to help relieve and settle pain. Licensed by Sheffield City Council at our Gleadless branch.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">💆</span>
+          <h3>Sports Massage</h3>
+          <p>Deep tissue and sports massage to loosen tight muscles, improve mobility and speed up recovery from training or injury.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <span class="service-icon">🔬</span>
+          <h3>Biomechanical Assessment</h3>
+          <p>A top-to-toe screening to identify weaknesses and areas prone to injury — with advice on reducing risk and improving performance.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL + WHY US -->
+  <div class="section-pad bg-deep">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:2rem;">
+        <div class="section-eyebrow" style="color:var(--teal-light);">Why Sheffield Therapy Centre</div>
+        <h2 style="color:var(--white);">Patient-Led. No Nonsense. Real Results.</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div style="max-width:680px;margin:0 auto 2.5rem;text-align:center;background:rgba(26,173,173,0.08);border:1px solid rgba(26,173,173,0.2);border-radius:10px;padding:2rem;">
+        <p style="font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--white);font-style:italic;line-height:1.65;margin-bottom:0.75rem;">"Whenever I need a speedy recovery from injury, I always consider Mark. His knowledge and treatment of injuries is first class and the staff in clinic always make me feel welcome."</p>
+        <div style="font-size:0.78rem;font-weight:600;color:var(--teal-light);text-transform:uppercase;letter-spacing:0.1em;">Michael Vaughan — Former England Cricket Captain</div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <h4>You're in Charge</h4>
+          <p>We don't work with any third parties — no PMI providers, no employers. You decide when you come, which therapist you see and what treatment you have.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏅</div>
+          <h4>Elite-Level Experience</h4>
+          <p>Our physios have worked in the NHS, professional and elite sport — including as consultant physio to Sheffield FC, the world's oldest football club.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📚</div>
+          <h4>Always Learning</h4>
+          <p>Decades of combined experience, but still committed to regular training and keeping up with the latest research and evidence. Your treatment is always current.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h4>Friendly & Welcoming</h4>
+          <p>In Sheffield since 2007 — built on honesty, hard work and a genuinely warm welcome. A family-run clinic with a real community feel.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔄</div>
+          <h4>Multi-Disciplinary Team</h4>
+          <p>Physios, podiatrists, sports massage therapists and more — all under one roof. Our clinicians can refer to each other to get you the best outcome.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🚗</div>
+          <h4>Easy to Get To</h4>
+          <p>Right on the Sheffield Ring Road at Gleadless Townend — free car parking on site, plus Supertram stop a stone's throw away.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PHYSIOTHERAPY ══════════════ -->
+<section id="page-physiotherapy" class="page-section">
+  <div style="position:relative;height:360px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,35,35,0.82) 0%,rgba(10,35,35,0.48) 100%), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--teal-light);">Chartered · Experienced · Results-Driven</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:var(--white);margin-bottom:1rem;">Physiotherapy in <em style="font-style:italic;color:var(--teal-light);">Sheffield</em></h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto 1.5rem;">Our core service since 2007. Chartered physiotherapists with NHS, sports and private practice experience treating the full range of musculoskeletal problems.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact')">Book an Appointment</a>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="conditions-layout">
+        <div>
+          <div class="section-eyebrow">What We Treat</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--deep);margin-bottom:1rem;line-height:1.2;">We've seen it all — and more.</h2>
+          <p style="color:var(--mid);font-size:0.9rem;line-height:1.75;margin-bottom:1.5rem;">Whether it's a nagging back, a sports injury that won't clear up, or a condition you've been struggling with for months — our physios have the experience to help. We treat all musculoskeletal conditions including:</p>
+          <div class="conditions-list">
+            <div class="condition-pill">Back & Neck Pain</div>
+            <div class="condition-pill">Sciatica</div>
+            <div class="condition-pill">Slipped / Prolapsed Disc</div>
+            <div class="condition-pill">Frozen Shoulder</div>
+            <div class="condition-pill">Tennis Elbow</div>
+            <div class="condition-pill">Trapped Nerve</div>
+            <div class="condition-pill">Whiplash</div>
+            <div class="condition-pill">Muscle Strains</div>
+            <div class="condition-pill">Ligament Sprains</div>
+            <div class="condition-pill">Osteoarthritis</div>
+            <div class="condition-pill">Headaches</div>
+            <div class="condition-pill">Post-Op Rehab</div>
+            <div class="condition-pill">ACL Rehab</div>
+            <div class="condition-pill">Tendinopathy</div>
+            <div class="condition-pill">Joint Problems</div>
+            <div class="condition-pill">Spinal Conditions</div>
+          </div>
+        </div>
+        <div>
+          <div class="testimonial-block">
+            <div class="testimonial-text">"Whenever I need a speedy recovery from injury, I always consider Mark. His knowledge and treatment of injuries is first class."</div>
+            <div class="testimonial-author">Michael Vaughan — Former England Cricket Captain</div>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.25rem;">
+            <h4 style="font-family:'DM Serif Display',serif;color:var(--deep);margin-bottom:0.75rem;">Treatment Includes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span style="background:var(--teal-pale);border:1px solid var(--border);color:var(--teal);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Manual Therapy</span>
+              <span style="background:var(--teal-pale);border:1px solid var(--border);color:var(--teal);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Acupuncture</span>
+              <span style="background:var(--teal-pale);border:1px solid var(--border);color:var(--teal);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Laser Therapy</span>
+              <span style="background:var(--teal-pale);border:1px solid var(--border);color:var(--teal);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Taping</span>
+              <span style="background:var(--teal-pale);border:1px solid var(--border);color:var(--teal);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Ultrasound</span>
+              <span style="background:var(--teal-pale);border:1px solid var(--border);color:var(--teal);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Exercise Rehab</span>
+              <span style="background:var(--teal-pale);border:1px solid var(--border);color:var(--teal);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Education & Advice</span>
+            </div>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
+            <h4 style="font-family:'DM Serif Display',serif;color:var(--deep);margin-bottom:0.5rem;">Patient-Led, Always</h4>
+            <p style="font-size:0.85rem;color:var(--mid);line-height:1.7;">We don't work with any third parties — no insurance companies telling you how many sessions you're allowed or which physio you have to see. You're in charge. That's how it should be.</p>
+          </div>
+          <div style="margin-top:1.25rem;"><a href="#" class="btn-primary" onclick="showPage('contact')">Book Your Appointment</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SPORTS INJURIES ══════════════ -->
+<section id="page-sports" class="page-section">
+  <div style="position:relative;height:360px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,35,35,0.82) 0%,rgba(10,35,35,0.45) 100%), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--teal-light);">Grassroots to Elite Level</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:var(--white);margin-bottom:1rem;">Sports <em style="font-style:italic;color:var(--teal-light);">Injuries</em></h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto 1.5rem;">From Sunday league to professional athletes — complete injury prevention, diagnosis and rehabilitation.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact')">Book Now</a>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Sports Injuries Service</div>
+        <h2>The Complete Sports Injury Package</h2>
+        <p>Our sports physios have worked at grassroots level, elite sport and professionally — including with Sheffield FC, the world's oldest football club.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="sports-grid" style="margin-bottom:3rem;">
+        <div class="sport-card">
+          <div class="sport-icon">⚽</div>
+          <div><h4>Football Injuries</h4><p>Knee, ankle and hamstring specialists. Mark Roe — our head physio — played professionally at Doncaster Rovers and brings that insider understanding to every patient.</p></div>
+        </div>
+        <div class="sport-card">
+          <div class="sport-icon">🏃</div>
+          <div><h4>Running Injuries</h4><p>From shin splints to IT band syndrome — we identify the root cause and get you back running as quickly as possible with a proper rehab plan.</p></div>
+        </div>
+        <div class="sport-card">
+          <div class="sport-icon">🏋️</div>
+          <div><h4>ACL Rehab</h4><p>Luke Saunders, our specialist MSK physio, runs dedicated ACL rehabilitation clinics and works in fracture clinic settings.</p></div>
+        </div>
+        <div class="sport-card">
+          <div class="sport-icon">🏏</div>
+          <div><h4>Cricket & Racquet Sports</h4><p>We've treated players at the highest level — including work with England cricket captain Michael Vaughan — and bring that expertise to all our patients.</p></div>
+        </div>
+        <div class="sport-card">
+          <div class="sport-icon">🥊</div>
+          <div><h4>Boxing & Combat Sports</h4><p>Marc, our elite sports physio, specialises in boxing. From conditioning through to injury management and return to sport.</p></div>
+        </div>
+        <div class="sport-card">
+          <div class="sport-icon">🎽</div>
+          <div><h4>Performance Enhancement</h4><p>Not just injury treatment — our biomechanical assessments identify weak spots and help you perform better and reduce re-injury risk.</p></div>
+        </div>
+      </div>
+      <div style="background:var(--deep);border-radius:10px;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
+        <div>
+          <div class="section-eyebrow" style="color:var(--teal-light);text-align:left;">Sports Injury Clinic</div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:0.75rem;">Elite Experience. Available to Everyone.</h3>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;line-height:1.7;margin-bottom:1.25rem;">You don't need to be a professional athlete to get professional-level care. Our sports physios bring the same approach to a weekend runner as they do to an elite footballer.</p>
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Book a Sports Assessment</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(26,173,173,0.2);border-radius:6px;padding:0.85rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.75);">✓ Injury prevention & screening</div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(26,173,173,0.2);border-radius:6px;padding:0.85rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.75);">✓ Accurate diagnosis — no guesswork</div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(26,173,173,0.2);border-radius:6px;padding:0.85rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.75);">✓ Structured rehabilitation programme</div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(26,173,173,0.2);border-radius:6px;padding:0.85rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.75);">✓ Return-to-sport sign-off</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PODIATRY ══════════════ -->
+<section id="page-podiatry" class="page-section">
+  <div style="position:relative;height:360px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,35,35,0.82) 0%,rgba(10,35,35,0.48) 100%), url('https://images.unsplash.com/photo-1612349316228-5e8d4b3b5f8a?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--teal-light);">HCPC Registered · 20+ Years Experience</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:var(--white);margin-bottom:1rem;">Podiatry & <em style="font-style:italic;color:var(--teal-light);">Chiropody</em></h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto 1.5rem;">Professional foot care from HCPC-registered podiatrists. Available every Friday morning at our Gleadless clinic.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact')">Book a Foot Appointment</a>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+        <div>
+          <div class="section-eyebrow">What We Treat</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--deep);margin-bottom:1rem;line-height:1.2;">Nothing we haven't seen before.</h2>
+          <p style="color:var(--mid);font-size:0.9rem;line-height:1.75;margin-bottom:1.5rem;">Many patients feel embarrassed about their feet — don't be. Our podiatrists see foot problems every single day. Whatever you're dealing with, they've seen it and treated it.</p>
+          <div class="conditions-list" style="margin-bottom:1.5rem;">
+            <div class="condition-pill">Heel Pain</div>
+            <div class="condition-pill">Bunions</div>
+            <div class="condition-pill">Corns & Hard Skin</div>
+            <div class="condition-pill">Nail Problems</div>
+            <div class="condition-pill">Diabetic Foot Care</div>
+            <div class="condition-pill">Weak Arches</div>
+            <div class="condition-pill">Toe Deformities</div>
+            <div class="condition-pill">Biomechanical Issues</div>
+            <div class="condition-pill">Orthotics Prescription</div>
+            <div class="condition-pill">Arthritis of the Foot</div>
+          </div>
+          <div style="background:var(--teal-pale);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:6px;padding:1.25rem;font-size:0.85rem;color:var(--mid);line-height:1.7;">
+            <strong style="color:var(--deep);">Note on Podiatry & Chiropody:</strong> Both our podiatrists are fully registered with the HCPC (Health & Care Professions Council) — you can verify this online at hpc-uk.org. "Podiatrist" and "Chiropodist" are protected titles.
+          </div>
+        </div>
+        <div>
+          <div class="price-grid" style="grid-template-columns:1fr;">
+            <div class="price-card">
+              <h3>Podiatry Prices</h3>
+              <div class="price-row"><span>Initial consultation (includes treatment)</span><span class="amount">£35</span></div>
+              <div class="price-row"><span>Follow-up (within 3 months)</span><span class="amount">£28</span></div>
+            </div>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-top:1.25rem;">
+            <h4 style="font-family:'DM Serif Display',serif;color:var(--deep);margin-bottom:0.5rem;">Podiatry Clinic Hours</h4>
+            <p style="font-size:0.85rem;color:var(--mid);line-height:1.7;margin-bottom:0.75rem;">Our podiatry clinic runs <strong>every Friday morning</strong> at our Gleadless branch. Matthew is usually well-booked but cancellations do come up — call us to check.</p>
+            <a href="tel:01142390022" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--teal);text-decoration:none;font-weight:700;display:block;">0114 239 0022</a>
+          </div>
+          <div style="margin-top:1.25rem;"><a href="#" class="btn-primary" onclick="showPage('contact')">Book a Podiatry Appointment</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ALL SERVICES ══════════════ -->
+<section id="page-services" class="page-section">
+  <div style="position:relative;height:300px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,35,35,0.85) 0%,rgba(10,35,35,0.55) 100%), url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--teal-light);">Multi-Disciplinary Team</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:var(--white);margin-bottom:0.5rem;">All Our Services</h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🦴</span>
+          <h3>Physiotherapy</h3>
+          <p>Our core service. Chartered physios treating all musculoskeletal conditions — back, neck, joints and more.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">⚽</span>
+          <h3>Sports Injuries</h3>
+          <p>Complete sports injury service — prevention, diagnosis, treatment and rehab at all levels.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🦶</span>
+          <h3>Podiatry / Chiropody</h3>
+          <p>HCPC-registered podiatrists. Routine foot care to complex biomechanical issues and orthotics.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🪡</span>
+          <h3>Acupuncture</h3>
+          <p>Fine needle acupuncture used alongside physio for effective pain relief and settling of pain. Sheffield City Council licensed.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💆</span>
+          <h3>Sports Massage</h3>
+          <p>Deep tissue massage for tight muscles, recovery and injury prevention. Available from our sports-qualified physios.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🔬</span>
+          <h3>Biomechanical Assessment</h3>
+          <p>Head-to-toe movement screening identifying weaknesses, injury risk areas and performance bottlenecks.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">⚡</span>
+          <h3>Laser Therapy</h3>
+          <p>Low-level laser used to promote healing and reduce pain in certain conditions — ask our team whether it's right for you.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📋</span>
+          <h3>Medico Legal Reports</h3>
+          <p>Expert physiotherapy reports for legal cases including personal injury and road traffic accident claims.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">⛳</span>
+          <h3>Golf Rehabilitation</h3>
+          <p>Specialist golf injury assessment and rehabilitation — back to the fairway faster, with better movement patterns.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TEAM ══════════════ -->
+<section id="page-team" class="page-section">
+  <div style="position:relative;height:300px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,35,35,0.85) 0%,rgba(10,35,35,0.55) 100%), url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--teal-light);">The People Behind the Treatment</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:var(--white);margin-bottom:0.5rem;">Our Team</h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Mark Roe</div>
+            <div class="team-role">Partner · Head Physiotherapist</div>
+            <p class="team-bio">Former professional footballer (Doncaster Rovers) turned chartered physiotherapist. Consultant physio to Sheffield FC — the world's oldest football club. Specialist in knee and sports injuries, with a keen eye for the root cause.</p>
+            <span class="hcpc-badge">CSP Chartered</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Sarah Roe</div>
+            <div class="team-role">Director · Clinic Manager</div>
+            <p class="team-bio">Former insurance executive with NHS healthcare experience. Sarah runs the clinic from top to bottom — the legal side, operations and the famous cups of tea. The backbone of Sheffield Therapy Centre since day one.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Luke Saunders</div>
+            <div class="team-role">Specialist MSK Physiotherapist</div>
+            <p class="team-bio">Experienced specialist musculoskeletal physiotherapist running dedicated ACL Rehab clinics. Also works in fracture clinics and various hospital department settings.</p>
+            <span class="hcpc-badge">CSP Chartered</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Sophie Hoyes</div>
+            <div class="team-role">Physiotherapist</div>
+            <p class="team-bio">First class honours physiotherapist with a passion for finding the root cause. Also qualified in sports massage. Keen cricketer, footballer and runner — she completed the 2023 London Marathon.</p>
+            <span class="hcpc-badge">CSP Chartered</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1612349316228-5e8d4b3b5f8a?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Matthew Scattergood</div>
+            <div class="team-role">Chiropodist · Podiatrist</div>
+            <p class="team-bio">Over 20 years' experience in professional foot care. HCPC registered. Matthew runs our Podiatry clinic every Friday morning and, as a longstanding team member, is usually pretty well booked — but cancellations do come up.</p>
+            <span class="hcpc-badge">HCPC Registered</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80&fit=crop&crop=faces');"></div>
+          <div class="team-body">
+            <div class="team-name">Ayat Abdo</div>
+            <div class="team-role">Chiropodist · Podiatrist</div>
+            <p class="team-bio">Highly skilled podiatrist with a BSc and a master's degree in Podiatry. Named top clinical podiatry student in 2015/16 with a specialist interest in foot and ankle biomechanics and custom orthotics.</p>
+            <span class="hcpc-badge">HCPC Registered</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="page-contact" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,35,35,0.9) 0%,rgba(10,35,35,0.6) 100%), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--teal-light);">Book an Appointment</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:var(--white);margin-bottom:0.5rem;">Get in <em style="font-style:italic;color:var(--teal-light);">Touch</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="contact-layout">
+        <div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--deep);margin-bottom:1.5rem;">Find Us</h3>
+          <div class="contact-row"><span class="ci">📞</span><div><strong>Phone</strong><br><a href="tel:01142390022">0114 239 0022</a></div></div>
+          <div class="contact-row"><span class="ci">📍</span><div><strong>Address</strong><br>Gleadless Townend, Sheffield Ring Road (A6102)<br>Near Clarke & Partners and Betfred</div></div>
+          <div class="contact-row"><span class="ci">🚃</span><div><strong>Getting Here</strong><br>Supertram stop a short walk away. Free car parking at the front of the building.</div></div>
+          <div class="contact-row"><span class="ci">🚌</span><div><strong>Bus</strong><br>Well served by Sheffield bus routes on the A6102 Ring Road.</div></div>
+          <div style="margin-top:1.5rem;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
+            <h4 style="font-family:'DM Serif Display',serif;color:var(--deep);margin-bottom:1rem;">Opening Hours</h4>
+            <table class="hours-table">
+              <tr><td>Monday</td><td class="hours-closed">Closed</td></tr>
+              <tr><td>Tuesday</td><td class="hours-open">9:00am – 5:00pm</td></tr>
+              <tr><td>Wednesday</td><td class="hours-open">9:00am – 8:00pm</td></tr>
+              <tr><td>Thursday</td><td class="hours-open">9:00am – 1:00pm</td></tr>
+              <tr><td>Friday</td><td class="hours-open">9:00am – 5:00pm</td></tr>
+              <tr><td>Saturday</td><td class="hours-open">9:00am – 1:00pm</td></tr>
+              <tr><td>Sunday</td><td class="hours-closed">Closed</td></tr>
+            </table>
+            <p style="font-size:0.75rem;color:var(--light-text);margin-top:0.75rem;">Hours subject to change. Closed on bank holidays.</p>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--deep);margin-bottom:1.5rem;">Send an Enquiry</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+              <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+            </div>
+            <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="07700 000 000"></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" required></div>
+            <div class="form-group">
+              <label>What do you need help with?</label>
+              <select required>
+                <option value="">Select a service...</option>
+                <option>Physiotherapy</option>
+                <option>Sports Injury</option>
+                <option>Podiatry / Chiropody</option>
+                <option>Acupuncture</option>
+                <option>Sports Massage</option>
+                <option>Biomechanical Assessment</option>
+                <option>Not sure — need advice</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Anything else you'd like us to know?</label><textarea placeholder="Briefly describe what's going on — when it started, where the pain is etc."></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;font-size:0.9rem;">Send Enquiry</button>
+          </form>
+          <div id="form-success" style="display:none;background:#eaf5f0;border:1px solid #a8d8b8;border-radius:6px;padding:1.25rem;margin-top:1rem;text-align:center;">
+            <strong style="color:var(--teal);">Thanks!</strong> We'll be in touch shortly to confirm your appointment.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" onclick="showPage('home')">Sheffield Therapy Centre<span>Est. 2007 · Gleadless, Sheffield</span></a>
+        <p>Patient-led physiotherapy, podiatry and sports injury treatment in Sheffield since 2007. No referrals, no third parties — just expert care.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#" onclick="showPage('physiotherapy')">Physiotherapy</a>
+        <a href="#" onclick="showPage('sports')">Sports Injuries</a>
+        <a href="#" onclick="showPage('podiatry')">Podiatry</a>
+        <a href="#" onclick="showPage('services')">All Services</a>
+      </div>
+      <div class="footer-col">
+        <h4>Clinic</h4>
+        <a href="#" onclick="showPage('team')">Our Team</a>
+        <a href="#" onclick="showPage('contact')">Book Appointment</a>
+        <a href="tel:01142390022">0114 239 0022</a>
+        <a href="#">Gleadless Townend, Sheffield</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sheffield Therapy Centre · Gleadless Townend, Sheffield</span>
+      <span>Website concept built by <a href="#" class="trabelo-credit">Trabelo · Sheffield</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    const t = document.getElementById('page-' + id);
+    if (t) { t.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    return false;
+  }
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  function handleForm(e) {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+  document.addEventListener('click', function(e) {
+    const nav = document.getElementById('main-nav');
+    if (!nav.contains(e.target)) document.getElementById('mobile-menu').classList.remove('open');
+  });
+</script>
+</body>
+</html>
