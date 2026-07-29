@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheffield Physiotherapy | Ecclesall Road | Award-Winning Clinic</title>
+<meta name="description" content="Sheffield Physiotherapy — award-winning clinic on Ecclesall Road. Expert treatment for back pain, sports injuries, spinal conditions and more. Free 20-min consultation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2B4A;--navy-mid:#163A62;--blue:#1A5EBF;--blue-light:#2E7DD4;--blue-pale:#EBF2FC;--blue-bg:#F4F8FD;
+    --deep:#071A30;--white:#fff;--off:#F7FAFD;--border:#C4D9EF;--text:#152030;--mid:#3A5570;--light:#6A85A0;
+    --accent:#E05C1A;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text);line-height:1.6;overflow-x:hidden;}
+
+  .topbar{background:var(--deep);color:rgba(255,255,255,0.65);font-size:0.78rem;padding:0.45rem 1.5rem;display:flex;flex-wrap:wrap;gap:0.4rem 1.5rem;justify-content:center;}
+  .topbar a{color:#7EB8FF;text-decoration:none;}
+  .topbar span{display:flex;align-items:center;gap:0.4rem;}
+
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:3px solid var(--blue);box-shadow:0 2px 14px rgba(15,43,74,0.1);}
+  .nav-inner{max-width:1160px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;height:64px;gap:0.5rem;}
+  .logo{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--deep);text-decoration:none;white-space:nowrap;flex-shrink:0;line-height:1.2;}
+  .logo span{color:var(--blue);display:block;font-family:'Inter',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;}
+  .nav-links{display:flex;gap:0.1rem;list-style:none;margin-left:auto;}
+  .nav-links a{display:block;padding:0.4rem 0.65rem;font-size:0.8rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:4px;transition:color 0.2s,background 0.2s;}
+  .nav-links a:hover{color:var(--blue);background:var(--blue-pale);}
+  .nav-cta{background:var(--blue)!important;color:var(--white)!important;font-weight:600!important;border-radius:6px!important;padding:0.45rem 1rem!important;}
+  .nav-cta:hover{background:var(--blue-light)!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto;background:none;border:none;padding:4px;}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--deep);}
+  .mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:1rem 1.5rem;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu a{display:block;padding:0.65rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;font-weight:500;color:var(--mid);text-decoration:none;}
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu a:hover{color:var(--blue);}
+
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;background:linear-gradient(110deg,rgba(7,26,48,0.88) 0%,rgba(7,26,48,0.55) 60%,rgba(7,26,48,0.7) 100%),url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1800&q=80') center/cover no-repeat;z-index:0;}
+  .hero-content{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:5rem 1.5rem 3rem;display:grid;grid-template-columns:1fr 310px;gap:3rem;align-items:center;width:100%;}
+  .hero-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#7EB8FF;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+  .hero-eyebrow::before{content:'';display:block;width:28px;height:1.5px;background:#7EB8FF;}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.1rem,5vw,3.8rem);color:#fff;line-height:1.1;margin-bottom:1.2rem;}
+  .hero h1 em{font-style:italic;color:#7EB8FF;}
+  .hero-sub{font-size:1rem;color:rgba(255,255,255,0.78);max-width:500px;margin-bottom:2rem;line-height:1.75;}
+  .hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+  .stat-num{font-family:'DM Serif Display',serif;font-size:2rem;color:#7EB8FF;line-height:1;}
+  .stat-label{font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn-primary{background:var(--blue);color:#fff;padding:0.85rem 1.75rem;font-size:0.88rem;font-weight:600;border-radius:6px;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:background 0.2s,transform 0.15s;}
+  .btn-primary:hover{background:var(--blue-light);transform:translateY(-1px);}
+  .btn-outline{background:transparent;color:#fff;padding:0.85rem 1.75rem;font-size:0.88rem;font-weight:500;border-radius:6px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.4);display:inline-block;transition:border-color 0.2s;}
+  .btn-outline:hover{border-color:#7EB8FF;}
+
+  .hero-card{background:rgba(7,26,48,0.92);border:1px solid rgba(46,125,212,0.3);border-radius:10px;padding:1.75rem;backdrop-filter:blur(8px);}
+  .hero-card h3{font-family:'DM Serif Display',serif;font-size:1rem;color:#7EB8FF;margin-bottom:1.1rem;}
+  .card-row{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.8rem;font-size:0.83rem;color:rgba(255,255,255,0.72);line-height:1.5;}
+  .card-icon{color:#7EB8FF;flex-shrink:0;}
+  .card-divider{border:none;border-top:1px solid rgba(46,125,212,0.2);margin:1.1rem 0;}
+  .card-phone{font-family:'DM Serif Display',serif;font-size:1.25rem;color:#fff;text-align:center;display:block;text-decoration:none;margin-bottom:0.3rem;}
+  .card-phone:hover{color:#7EB8FF;}
+  .card-sub{font-size:0.67rem;color:rgba(255,255,255,0.35);text-align:center;letter-spacing:0.1em;text-transform:uppercase;}
+
+  .trust-strip{background:var(--blue);padding:1rem 1.5rem;display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 2.5rem;}
+  .trust-item{display:flex;align-items:center;gap:0.45rem;font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.85);}
+
+  .page-section{display:none;}
+  .page-section.active{display:block;}
+  .container{max-width:1160px;margin:0 auto;padding:0 1.5rem;}
+  .section-pad{padding:4.5rem 0;}
+  .bg-white{background:var(--white);}
+  .bg-off{background:var(--off);}
+  .bg-deep{background:var(--deep);}
+
+  .section-header{text-align:center;max-width:600px;margin:0 auto 3rem;padding:0 1rem;}
+  .section-eyebrow{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:0.65rem;}
+  .section-header h2{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3.5vw,2.5rem);color:var(--deep);line-height:1.2;margin-bottom:0.9rem;}
+  .section-header p{font-size:0.95rem;color:var(--mid);line-height:1.7;}
+  .section-divider{width:40px;height:3px;background:var(--blue);margin:0.9rem auto 0;border-radius:2px;}
+
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+  .service-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.75rem 1.5rem;border-top:3px solid var(--blue);transition:box-shadow 0.25s,transform 0.25s;cursor:pointer;}
+  .service-card:hover{box-shadow:0 8px 28px rgba(15,43,74,0.12);transform:translateY(-3px);}
+  .service-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+  .service-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--deep);margin-bottom:0.5rem;}
+  .service-card p{font-size:0.83rem;color:var(--mid);line-height:1.65;margin-bottom:1rem;}
+  .service-link{font-size:0.8rem;font-weight:600;color:var(--blue);text-decoration:none;}
+
+  .award-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:1.25rem;margin:2.5rem 0;}
+  .award-pill{background:var(--blue-pale);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1.25rem;font-size:0.82rem;font-weight:600;color:var(--navy);text-align:center;}
+  .award-pill small{display:block;font-size:0.7rem;font-weight:400;color:var(--mid);margin-top:0.2rem;}
+
+  .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+  .review-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;}
+  .review-stars{color:#F5B700;font-size:0.9rem;margin-bottom:0.5rem;}
+  .review-text{font-size:0.85rem;color:var(--text);line-height:1.65;margin-bottom:0.75rem;font-style:italic;}
+  .review-author{font-size:0.75rem;font-weight:600;color:var(--blue);}
+
+  .treatments-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+  .treatment-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;display:flex;align-items:flex-start;gap:0.85rem;}
+  .treatment-icon{font-size:1.5rem;flex-shrink:0;}
+  .treatment-card h4{font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--deep);margin-bottom:0.3rem;}
+  .treatment-card p{font-size:0.8rem;color:var(--mid);line-height:1.6;}
+
+  .conditions-list{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;}
+  .condition-pill{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:0.55rem 0.85rem;font-size:0.82rem;color:var(--text);display:flex;align-items:center;gap:0.5rem;}
+  .condition-pill::before{content:'●';color:var(--blue);font-size:0.4rem;flex-shrink:0;}
+
+  .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+  .contact-row{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1.1rem;font-size:0.9rem;color:var(--text);line-height:1.5;}
+  .ci{color:var(--blue);flex-shrink:0;}
+  .contact-row a{color:var(--text);text-decoration:none;}
+  .contact-row a:hover{color:var(--blue);}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+  .form-group label{font-size:0.75rem;font-weight:600;color:var(--mid);text-transform:uppercase;letter-spacing:0.08em;}
+  .form-group input,.form-group select,.form-group textarea{padding:0.75rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--text);background:var(--white);transition:border-color 0.2s;outline:none;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .hours-table{width:100%;border-collapse:collapse;}
+  .hours-table tr{border-bottom:1px solid var(--border);}
+  .hours-table tr:last-child{border-bottom:none;}
+  .hours-table td{padding:0.65rem 0;font-size:0.88rem;}
+  .hours-table td:first-child{font-weight:600;color:var(--deep);width:120px;}
+  .hours-open{color:var(--blue)!important;font-weight:600!important;}
+  .hours-closed{color:var(--light)!important;}
+
+  footer{background:var(--deep);color:rgba(255,255,255,0.55);padding:3rem 1.5rem 1.25rem;}
+  .footer-inner{max-width:1160px;margin:0 auto;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+  .footer-brand .logo{color:#fff;}
+  .footer-brand p{font-size:0.82rem;line-height:1.7;margin-top:0.75rem;max-width:280px;}
+  .footer-col h4{font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7EB8FF;margin-bottom:1rem;}
+  .footer-col a{display:block;font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:0.5rem;transition:color 0.2s;}
+  .footer-col a:hover{color:#7EB8FF;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;font-size:0.72rem;color:rgba(255,255,255,0.25);}
+  .footer-bottom a{color:rgba(255,255,255,0.35);text-decoration:none;}
+  .trabelo-credit{color:#7EB8FF!important;font-weight:500;}
+
+  @media(max-width:900px){.hero-content{grid-template-columns:1fr;}.hero-card{display:none;}.services-grid{grid-template-columns:1fr 1fr;}.treatments-grid{grid-template-columns:1fr 1fr;}.reviews-grid{grid-template-columns:1fr;}.contact-layout{grid-template-columns:1fr;gap:2rem;}.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.nav-links{display:none;}.hamburger{display:flex;}.services-grid{grid-template-columns:1fr;}.treatments-grid{grid-template-columns:1fr;}.conditions-list{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📞 <a href="tel:01142686677">0114 268 6677</a></span>
+  <span>✉ <a href="mailto:info@sheffieldphysiotherapy.co.uk">info@sheffieldphysiotherapy.co.uk</a></span>
+  <span>📍 476 Ecclesall Road, Sheffield, S11 8PX</span>
+</div>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">Sheffield Physiotherapy<span>Award-Winning · Est. 2007 · Ecclesall Road</span></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('treatments')">Treatments</a></li>
+      <li><a href="#" onclick="showPage('conditions')">Conditions</a></li>
+      <li><a href="#" onclick="showPage('sports')">Sports Injuries</a></li>
+      <li><a href="#" onclick="showPage('about')">About</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta">Free Consultation</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showPage('home');toggleMenu()">Home</a>
+    <a href="#" onclick="showPage('treatments');toggleMenu()">Treatments</a>
+    <a href="#" onclick="showPage('conditions');toggleMenu()">Conditions</a>
+    <a href="#" onclick="showPage('sports');toggleMenu()">Sports Injuries</a>
+    <a href="#" onclick="showPage('about');toggleMenu()">About Us</a>
+    <a href="#" onclick="showPage('contact');toggleMenu()">Free Consultation</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="page-home" class="page-section active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">Yorkshire Prestige Award Winners 2023/24 · 2024/25 · 2025/26</div>
+        <h1>Expert Physiotherapy for <em>Spine, Joint & Sports</em> Injuries.</h1>
+        <p class="hero-sub">Sheffield's award-winning physiotherapy clinic on Ecclesall Road — established 2007. Advanced treatments including IDD Therapy, Shockwave, MLS Laser and more. Free 20-minute consultation available.</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">18+</div><div class="stat-label">Years in Sheffield</div></div>
+          <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Google Rating</div></div>
+          <div class="stat"><div class="stat-num">3×</div><div class="stat-label">Prestige Award Winner</div></div>
+        </div>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Book Free Consultation</a>
+          <a href="#" class="btn-outline" onclick="showPage('treatments')">Our Treatments</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>📋 Quick Info</h3>
+        <div class="card-row"><span class="card-icon">📍</span><span>476 Ecclesall Road, Sheffield S11 8PX</span></div>
+        <div class="card-row"><span class="card-icon">🏆</span><span>Physiotherapy Clinic of the Year — Yorkshire Prestige Awards 2023/24, 2024/25 & 2025/26</span></div>
+        <div class="card-row"><span class="card-icon">🎁</span><span>Free 20-minute consultation — no obligation</span></div>
+        <div class="card-row"><span class="card-icon">🏥</span><span>HCPC Registered · Acupuncture Association · IDD Approved Provider</span></div>
+        <hr class="card-divider">
+        <a href="tel:01142686677" class="card-phone">0114 268 6677</a>
+        <div class="card-sub">Call to book or ask a question</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">🏆 Clinic of the Year 2023–2026</div>
+    <div class="trust-item">✓ HCPC Registered</div>
+    <div class="trust-item">✓ 4.9★ Google Rating</div>
+    <div class="trust-item">✓ Free 20-Min Consultation</div>
+    <div class="trust-item">✓ Est. 2007</div>
+    <div class="trust-item">✓ All Ages Treated</div>
+  </div>
+
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Our Specialist Services</div>
+        <h2>Advanced Treatments You Won't Find Elsewhere</h2>
+        <p>As the only clinic in the north with some of our equipment, we give our physiotherapists the best possible tools for the job — and our patients the best possible outcomes.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">🦴</span><h3>Spinal Conditions</h3><p>Back pain, neck pain, sciatica, herniated disc, ankylosing spondylitis, osteoarthritis. Specialist spinal treatment including IDD Therapy decompression.</p><a class="service-link">Learn more →</a></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">💪</span><h3>Muscle & Joint Pain</h3><p>Frozen shoulder, tennis elbow, plantar fasciitis, muscle and joint problems. Personalised care plans for all musculoskeletal conditions.</p><a class="service-link">Learn more →</a></div>
+        <div class="service-card" onclick="showPage('sports')"><span class="service-icon">⚽</span><h3>Sports Injuries</h3><p>Football, cycling, running, golf, climbing, dance and more. Get back to your sport faster with our specialist sports injury service.</p><a class="service-link">Learn more →</a></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">⚡</span><h3>IDD Therapy (Spinal Decompression)</h3><p>Number one non-invasive spinal disc treatment — ideal for challenging back or neck pain that hasn't responded to standard physiotherapy.</p><a class="service-link">Learn more →</a></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">💥</span><h3>Shockwave Therapy</h3><p>Swiss Piezoclast Focused Shockwave — a cell-level treatment promoting healing and reducing pain. Ideal for tendon, ligament and spinal conditions.</p><a class="service-link">Learn more →</a></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">🔬</span><h3>MRI Referral & Review</h3><p>Sit with your physio, review your MRI together and discuss the best treatment options. We can also refer to the English Institute of Sport MRI.</p><a class="service-link">Learn more →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-pad bg-deep">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:2rem;">
+        <div class="section-eyebrow" style="color:#7EB8FF;">Award-Winning Care</div>
+        <h2 style="color:#fff;">Yorkshire Prestige Awards — Physiotherapy Clinic of the Year</h2>
+        <div class="section-divider" style="background:#7EB8FF;"></div>
+      </div>
+      <div class="award-strip">
+        <div class="award-pill">🏆 Clinic of the Year<small>Yorkshire Prestige Awards 2023/24</small></div>
+        <div class="award-pill">🏆 Clinic of the Year<small>Yorkshire Prestige Awards 2024/25</small></div>
+        <div class="award-pill">🏆 Clinic of the Year<small>Yorkshire Prestige Awards 2025/26</small></div>
+        <div class="award-pill">⭐ Three Best Rated<small>Sheffield 2024 · 2025 · 2026</small></div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"When I first sought out treatment from Sheffield Physiotherapy, I was in chronic pain. With the expertise and support of both John and Lewis they have aided my recovery and continue to maintain my level of health."</div><div class="review-author">Michelle H. · Google Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"I had basically given up on my really painful arthritic knee and was due a knee replacement. After a weekly visit for about 3 months I am virtually pain free and able to go on extended walks."</div><div class="review-author">David S. · Google Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"After nine physio sessions using a combination of manipulation, laser, ultrasonic and magneto therapy I am virtually pain free. Similarly, I've just had three sessions on my right knee with impressive results already."</div><div class="review-author">Julia S. · Google Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"The pain was severe at times and I considered a second surgery. Lewis reassured me it would pass if I stuck to the treatment. Now I am completely pain free thanks to Lewis's advice and the IDD therapy."</div><div class="review-author">Patrick D. · Google Review</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section id="page-treatments" class="page-section">
+  <div style="position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(7,26,48,0.88) 0%,rgba(7,26,48,0.48) 100%), url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7EB8FF;">Industry-Leading Equipment</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;">Our <em style="font-style:italic;color:#7EB8FF;">Treatments</em></h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto;">We invest in the latest technology to give our patients the best possible care and the quickest possible recovery.</p>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Specialist Treatments</div>
+        <h2>The right tool for the right problem.</h2>
+        <p>Some of our equipment is unique in the north of England — meaning patients who haven't found relief elsewhere often find it here.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="treatments-grid">
+        <div class="treatment-card"><div class="treatment-icon">🦴</div><div><h4>IDD Therapy Spinal Decompression</h4><p>The number one non-invasive spinal disc treatment. Ideal for challenging back and neck pain not responding to standard physio.</p></div></div>
+        <div class="treatment-card"><div class="treatment-icon">💥</div><div><h4>Swiss Piezoclast Focused Shockwave</h4><p>Cell-level treatment promoting healing and reducing pain. Ideal for tendon, ligament and long-standing spinal conditions.</p></div></div>
+        <div class="treatment-card"><div class="treatment-icon">🔴</div><div><h4>MLS Laser Therapy</h4><p>Therapeutic laser accelerating the body's natural healing process — ideal for sports injuries and inflamed tissues.</p></div></div>
+        <div class="treatment-card"><div class="treatment-icon">🤖</div><div><h4>Theraflex (Bionic Mobilisation)</h4><p>Progressive spinal mobilisation — relaxing tight muscles and relieving trapped nerves where manual therapy alone isn't enough.</p></div></div>
+        <div class="treatment-card"><div class="treatment-icon">🧲</div><div><h4>Magneto-Pulse (Automated)</h4><p>Effective for healing bones, muscles, tendons and ligaments. Optimal for osteoporosis, fibromyalgia and soft tissue injury recovery.</p></div></div>
+        <div class="treatment-card"><div class="treatment-icon">🪡</div><div><h4>Acupuncture</h4><p>Delivered by our qualified acupuncturists as part of a holistic physiotherapy treatment plan for pain relief and recovery.</p></div></div>
+        <div class="treatment-card"><div class="treatment-icon">🖼️</div><div><h4>MRI Referral & Review</h4><p>Review your MRI images with your physio and understand your options. We also refer to the Sheffield EIS 1.5T MRI scanner.</p></div></div>
+        <div class="treatment-card"><div class="treatment-icon">🦴</div><div><h4>Musculoskeletal Physiotherapy</h4><p>Our core service — manual therapy, exercise rehab, and patient education for the full range of MSK conditions.</p></div></div>
+        <div class="treatment-card"><div class="treatment-icon">🏋️</div><div><h4>Post-Operative Physiotherapy</h4><p>Structured rehabilitation following surgery — helping you regain strength, movement and confidence at the right pace.</p></div></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;"><a href="#" class="btn-primary" onclick="showPage('contact')">Book a Free Consultation</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section id="page-conditions" class="page-section">
+  <div style="position:relative;height:320px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(7,26,48,0.88) 0%,rgba(7,26,48,0.48) 100%), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7EB8FF;">What We Treat</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Conditions We Treat</h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+        <div>
+          <div class="section-eyebrow">Pain Types</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--deep);margin-bottom:1rem;line-height:1.2;">If it hurts, we've probably seen it before.</h2>
+          <p style="color:var(--mid);font-size:0.9rem;line-height:1.75;margin-bottom:1.5rem;">We offer expert treatment across the full spectrum of musculoskeletal and spinal conditions — from recent injuries to long-standing chronic pain. Our personalised care plans are designed specifically around your needs.</p>
+          <div class="conditions-list">
+            <div class="condition-pill">Back Pain</div><div class="condition-pill">Neck Pain</div>
+            <div class="condition-pill">Sciatica</div><div class="condition-pill">Herniated Disc</div>
+            <div class="condition-pill">Frozen Shoulder</div><div class="condition-pill">Tennis Elbow</div>
+            <div class="condition-pill">Plantar Fasciitis</div><div class="condition-pill">Osteoarthritis</div>
+            <div class="condition-pill">Ankylosing Spondylitis</div><div class="condition-pill">Muscle & Joint Pain</div>
+            <div class="condition-pill">Post-Op Rehab</div><div class="condition-pill">Sports Injuries</div>
+          </div>
+        </div>
+        <div>
+          <div style="background:var(--blue);border-radius:10px;padding:2rem;color:#fff;margin-bottom:1.25rem;">
+            <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:0.75rem;">Free 20-Minute Consultation</h3>
+            <p style="font-size:0.88rem;line-height:1.7;opacity:0.85;margin-bottom:1.25rem;">Not sure if we can help? Book a free 20-minute online consultation with no obligation. We'll tell you honestly whether physiotherapy is right for your problem.</p>
+            <a href="#" onclick="showPage('contact')" style="background:#fff;color:var(--blue);display:inline-block;padding:0.7rem 1.5rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;">Book Free Consultation</a>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
+            <h4 style="font-family:'DM Serif Display',serif;color:var(--deep);margin-bottom:0.5rem;">Support for All Ages</h4>
+            <p style="font-size:0.85rem;color:var(--mid);line-height:1.7;">Our team is skilled in addressing the unique challenges of different life stages — from young athletes to older adults — ensuring optimal health and mobility for everyone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS -->
+<section id="page-sports" class="page-section">
+  <div style="position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(7,26,48,0.88) 0%,rgba(7,26,48,0.45) 100%), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7EB8FF;">Back to the Sport You Love</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;">Sports <em style="font-style:italic;color:#7EB8FF;">Injuries</em></h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto;">Expert sports injury treatment across all disciplines — from grassroots to competitive athletes.</p>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Sports We Treat</div>
+        <h2>Whatever your sport, we know how to get you back.</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid" style="margin-bottom:3rem;">
+        <div class="service-card"><span class="service-icon">⚽</span><h3>Football</h3><p>Knee, ankle, hamstring and groin injuries. Specialist football injury treatment with a structured return-to-play protocol.</p></div>
+        <div class="service-card"><span class="service-icon">🚴</span><h3>Cycling</h3><p>Knee pain, lower back issues and overuse injuries common in cyclists — assessed and treated with expert bike-fit advice too.</p></div>
+        <div class="service-card"><span class="service-icon">🏃</span><h3>Running</h3><p>Shin splints, IT band syndrome, plantar fasciitis, runner's knee — we identify the root cause and get you back running injury-free.</p></div>
+        <div class="service-card"><span class="service-icon">⛳</span><h3>Golf</h3><p>Back, shoulder and wrist injuries. Our physios understand the demands of the golf swing and treat accordingly.</p></div>
+        <div class="service-card"><span class="service-icon">🧗</span><h3>Climbing</h3><p>Finger, shoulder and elbow injuries specific to climbing — treated by physios with specialist understanding of the sport.</p></div>
+        <div class="service-card"><span class="service-icon">🏸</span><h3>Badminton & Racquet Sports</h3><p>Shoulder impingement, elbow and wrist injuries — assessed and treated with the same specialist approach as all our sports.</p></div>
+      </div>
+      <div style="background:var(--deep);border-radius:10px;padding:2rem;text-align:center;">
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#fff;margin-bottom:0.75rem;">Frustrated at the rate of improvement?</h3>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.9rem;max-width:520px;margin:0 auto 1.5rem;line-height:1.7;">If you're unsure which treatment will help you recover — start with our free 20-minute consultation and we'll point you in the right direction.</p>
+        <a href="#" class="btn-primary" onclick="showPage('contact')">Book Free Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="page-about" class="page-section">
+  <div style="position:relative;height:300px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(7,26,48,0.9) 0%,rgba(7,26,48,0.6) 100%), url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7EB8FF;">Sheffield's Leading Clinic Since 2007</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">About <em style="font-style:italic;color:#7EB8FF;">Us</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container" style="max-width:800px;">
+      <div class="section-eyebrow">Our Story</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--deep);margin-bottom:1rem;line-height:1.2;">Award-Winning Care Since 2007</h2>
+      <p style="color:var(--mid);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">Sheffield Physiotherapy has been providing expert physiotherapy care from our Ecclesall Road clinic since 2007. We've built our reputation on personalised care, the latest technology and outcomes that speak for themselves — winning the Yorkshire Prestige Physiotherapy Clinic of the Year award three consecutive times.</p>
+      <p style="color:var(--mid);font-size:0.95rem;line-height:1.8;margin-bottom:2rem;">We are the only clinic in the north with some of our specialist equipment — including IDD Therapy spinal decompression and Swiss Piezoclast Focused Shockwave. This investment in technology means our patients have access to treatments that simply aren't available elsewhere in the region.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;"><div style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--blue);margin-bottom:0.4rem;">4.9★</div><div style="font-size:0.78rem;color:var(--mid);">Google Rating</div></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;"><div style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--blue);margin-bottom:0.4rem;">3×</div><div style="font-size:0.78rem;color:var(--mid);">Prestige Award Winner</div></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;"><div style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--blue);margin-bottom:0.4rem;">18+</div><div style="font-size:0.78rem;color:var(--mid);">Years in Sheffield</div></div>
+      </div>
+      <a href="#" class="btn-primary" onclick="showPage('contact')">Book a Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="page-contact" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(7,26,48,0.92) 0%,rgba(7,26,48,0.65) 100%), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7EB8FF;">Free 20-Minute Consultation</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Book an <em style="font-style:italic;color:#7EB8FF;">Appointment</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="contact-layout">
+        <div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--deep);margin-bottom:1.5rem;">Find Us</h3>
+          <div class="contact-row"><span class="ci">📞</span><div><strong>Phone</strong><br><a href="tel:01142686677">0114 268 6677</a></div></div>
+          <div class="contact-row"><span class="ci">✉</span><div><strong>Email</strong><br><a href="mailto:info@sheffieldphysiotherapy.co.uk">info@sheffieldphysiotherapy.co.uk</a></div></div>
+          <div class="contact-row"><span class="ci">📍</span><div><strong>Address</strong><br>476 Ecclesall Road, Sheffield, S11 8PX</div></div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-top:1.5rem;">
+            <h4 style="font-family:'DM Serif Display',serif;color:var(--deep);margin-bottom:1rem;">Opening Hours</h4>
+            <table class="hours-table">
+              <tr><td>Monday</td><td class="hours-open">08:00 – 18:00</td></tr>
+              <tr><td>Tuesday</td><td class="hours-open">08:00 – 18:00</td></tr>
+              <tr><td>Wednesday</td><td class="hours-open">08:00 – 18:00</td></tr>
+              <tr><td>Thursday</td><td class="hours-open">08:00 – 18:00</td></tr>
+              <tr><td>Friday</td><td class="hours-open">08:00 – 17:00</td></tr>
+              <tr><td>Saturday</td><td class="hours-closed">Closed</td></tr>
+              <tr><td>Sunday</td><td class="hours-closed">Closed</td></tr>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--deep);margin-bottom:1.5rem;">Send an Enquiry</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+              <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+            </div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="07700 000 000"></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" required></div>
+            <div class="form-group"><label>How can we help?</label>
+              <select required><option value="">Select...</option><option>Back / Neck Pain</option><option>Muscle / Joint Pain</option><option>Sports Injury</option><option>Frozen Shoulder</option><option>Spinal Condition</option><option>Post-Op Rehab</option><option>Other / General Enquiry</option></select>
+            </div>
+            <div class="form-group"><label>Tell us more</label><textarea placeholder="Brief description of your issue and when it started..."></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Send Enquiry</button>
+          </form>
+          <div id="form-success" style="display:none;background:#EBF2FC;border:1px solid #A8C8EF;border-radius:6px;padding:1.25rem;margin-top:1rem;text-align:center;">
+            <strong style="color:var(--blue);">Thanks!</strong> We'll be in touch shortly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" onclick="showPage('home')">Sheffield Physiotherapy<span>476 Ecclesall Road · Sheffield S11 8PX</span></a>
+        <p>Award-winning physiotherapy clinic in Sheffield. Specialist treatments including IDD Therapy, Shockwave and MLS Laser. Est. 2007.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#" onclick="showPage('treatments')">Treatments</a>
+        <a href="#" onclick="showPage('conditions')">Conditions</a>
+        <a href="#" onclick="showPage('sports')">Sports Injuries</a>
+        <a href="#" onclick="showPage('contact')">Book Now</a>
+      </div>
+      <div class="footer-col">
+        <h4>Clinic</h4>
+        <a href="#" onclick="showPage('about')">About Us</a>
+        <a href="tel:01142686677">0114 268 6677</a>
+        <a href="mailto:info@sheffieldphysiotherapy.co.uk">info@sheffieldphysiotherapy.co.uk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sheffield Physiotherapy (LP Physiotherapy Ltd) · 476 Ecclesall Road, Sheffield S11 8PX</span>
+      <span>Website concept built by <a href="#" class="trabelo-credit">Trabelo · Sheffield</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id){document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));const t=document.getElementById('page-'+id);if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}return false;}
+  function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+  function handleForm(e){e.preventDefault();e.target.style.display='none';document.getElementById('form-success').style.display='block';}
+  document.addEventListener('click',function(e){const n=document.getElementById('main-nav');if(!n.contains(e.target))document.getElementById('mobile-menu').classList.remove('open');});
+</script>
+</body>
+</html>

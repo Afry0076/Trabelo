@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hallamshire Physiotherapy | Sheffield's Leading Specialist Clinic</title>
+<meta name="description" content="Hallamshire Physiotherapy — Sheffield's multi award-winning specialist physiotherapy clinic in Broomhill. MSK, neurological, vestibular, women's health, sports injury and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#4A2D7A;--purple-mid:#5E3A9A;--purple-light:#7B52BE;--purple-pale:#F2EEF9;--purple-bg:#F7F4FC;
+  --deep:#1A0D2E;--white:#fff;--off:#F9F7FD;--border:#D4C9EC;--text:#1E1230;--mid:#5A4870;--light:#8A789A;
+  --accent:#C8420E;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text);line-height:1.6;overflow-x:hidden;}
+
+.topbar{background:var(--deep);color:rgba(255,255,255,0.65);font-size:0.78rem;padding:0.45rem 1.5rem;display:flex;flex-wrap:wrap;gap:0.4rem 1.5rem;justify-content:center;}
+.topbar a{color:#B8A0E8;text-decoration:none;}
+.topbar span{display:flex;align-items:center;gap:0.4rem;}
+
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:3px solid var(--purple);box-shadow:0 2px 14px rgba(74,45,122,0.1);}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;height:64px;gap:0.5rem;}
+.logo{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--deep);text-decoration:none;white-space:nowrap;flex-shrink:0;line-height:1.2;}
+.logo span{color:var(--purple);display:block;font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;}
+.nav-links{display:flex;gap:0.1rem;list-style:none;margin-left:auto;}
+.nav-links a{display:block;padding:0.4rem 0.6rem;font-size:0.78rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:4px;transition:color 0.2s,background 0.2s;}
+.nav-links a:hover{color:var(--purple);background:var(--purple-pale);}
+.nav-cta{background:var(--purple)!important;color:#fff!important;font-weight:600!important;border-radius:6px!important;padding:0.45rem 1rem!important;}
+.nav-cta:hover{background:var(--purple-mid)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--deep);}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:1rem 1.5rem;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:0.65rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;font-weight:500;color:var(--mid);text-decoration:none;}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu a:hover{color:var(--purple);}
+
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(110deg,rgba(26,13,46,0.9) 0%,rgba(26,13,46,0.55) 60%,rgba(26,13,46,0.72) 100%),url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1800&q=80') center/cover no-repeat;z-index:0;}
+.hero-content{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:5rem 1.5rem 3rem;display:grid;grid-template-columns:1fr 310px;gap:3rem;align-items:center;width:100%;}
+.hero-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B8A0E8;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1.5px;background:#B8A0E8;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.1rem,5vw,3.8rem);color:#fff;line-height:1.1;margin-bottom:1.2rem;}
+.hero h1 em{font-style:italic;color:#B8A0E8;}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.78);max-width:500px;margin-bottom:2rem;line-height:1.75;}
+.hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:#B8A0E8;line-height:1;}
+.stat-label{font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{background:var(--purple);color:#fff;padding:0.85rem 1.75rem;font-size:0.88rem;font-weight:600;border-radius:6px;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:background 0.2s,transform 0.15s;}
+.btn-primary:hover{background:var(--purple-mid);transform:translateY(-1px);}
+.btn-outline{background:transparent;color:#fff;padding:0.85rem 1.75rem;font-size:0.88rem;font-weight:500;border-radius:6px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.4);display:inline-block;transition:border-color 0.2s;}
+.btn-outline:hover{border-color:#B8A0E8;}
+
+.hero-card{background:rgba(26,13,46,0.92);border:1px solid rgba(123,82,190,0.3);border-radius:10px;padding:1.75rem;backdrop-filter:blur(8px);}
+.hero-card h3{font-family:'Playfair Display',serif;font-size:1rem;color:#B8A0E8;margin-bottom:1.1rem;}
+.card-row{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.8rem;font-size:0.83rem;color:rgba(255,255,255,0.72);line-height:1.5;}
+.card-icon{color:#B8A0E8;flex-shrink:0;}
+.card-divider{border:none;border-top:1px solid rgba(123,82,190,0.2);margin:1.1rem 0;}
+.card-phone{font-family:'Playfair Display',serif;font-size:1.25rem;color:#fff;text-align:center;display:block;text-decoration:none;margin-bottom:0.3rem;}
+.card-phone:hover{color:#B8A0E8;}
+.card-sub{font-size:0.67rem;color:rgba(255,255,255,0.35);text-align:center;letter-spacing:0.1em;text-transform:uppercase;}
+
+.trust-strip{background:var(--purple);padding:1rem 1.5rem;display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 2.5rem;}
+.trust-item{display:flex;align-items:center;gap:0.45rem;font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.85);}
+
+.page-section{display:none;}
+.page-section.active{display:block;}
+.container{max-width:1160px;margin:0 auto;padding:0 1.5rem;}
+.section-pad{padding:4.5rem 0;}
+.bg-white{background:var(--white);}
+.bg-off{background:var(--off);}
+.bg-deep{background:var(--deep);}
+
+.section-header{text-align:center;max-width:620px;margin:0 auto 3rem;padding:0 1rem;}
+.section-eyebrow{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple);margin-bottom:0.65rem;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.5rem);color:var(--deep);line-height:1.2;margin-bottom:0.9rem;}
+.section-header p{font-size:0.95rem;color:var(--mid);line-height:1.7;}
+.section-divider{width:40px;height:3px;background:var(--purple);margin:0.9rem auto 0;border-radius:2px;}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.service-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;border-top:3px solid var(--purple);transition:box-shadow 0.25s,transform 0.25s;cursor:pointer;}
+.service-card:hover{box-shadow:0 8px 28px rgba(74,45,122,0.12);transform:translateY(-3px);}
+.service-icon{font-size:1.8rem;margin-bottom:0.85rem;display:block;}
+.service-card h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--deep);margin-bottom:0.4rem;}
+.service-card p{font-size:0.82rem;color:var(--mid);line-height:1.65;}
+
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.team-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:box-shadow 0.2s,transform 0.2s;}
+.team-card:hover{box-shadow:0 6px 24px rgba(74,45,122,0.12);transform:translateY(-2px);}
+.team-img{height:200px;background-size:cover;background-position:center top;}
+.team-body{padding:1.25rem;}
+.team-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--deep);margin-bottom:0.2rem;}
+.team-role{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--purple);margin-bottom:0.6rem;}
+.team-bio{font-size:0.8rem;color:var(--mid);line-height:1.6;}
+.hcpc-badge{display:inline-block;background:var(--purple-pale);border:1px solid var(--border);color:var(--purple);font-size:0.65rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;letter-spacing:0.06em;text-transform:uppercase;margin-top:0.5rem;}
+
+.testimonial-block{background:var(--purple-pale);border:1px solid var(--border);border-left:4px solid var(--purple);border-radius:8px;padding:1.75rem;margin:2rem 0;}
+.testimonial-text{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--deep);line-height:1.6;margin-bottom:0.6rem;font-style:italic;}
+.testimonial-author{font-size:0.78rem;font-weight:600;color:var(--purple);text-transform:uppercase;letter-spacing:0.1em;}
+
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.contact-row{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1.1rem;font-size:0.9rem;color:var(--text);line-height:1.5;}
+.ci{color:var(--purple);flex-shrink:0;}
+.contact-row a{color:var(--text);text-decoration:none;}
+.contact-row a:hover{color:var(--purple);}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+.form-group label{font-size:0.75rem;font-weight:600;color:var(--mid);text-transform:uppercase;letter-spacing:0.08em;}
+.form-group input,.form-group select,.form-group textarea{padding:0.75rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--text);background:var(--white);transition:border-color 0.2s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--purple);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+footer{background:var(--deep);color:rgba(255,255,255,0.55);padding:3rem 1.5rem 1.25rem;}
+.footer-inner{max-width:1160px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+.footer-brand .logo{color:#fff;}
+.footer-brand p{font-size:0.82rem;line-height:1.7;margin-top:0.75rem;max-width:280px;}
+.footer-col h4{font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#B8A0E8;margin-bottom:1rem;}
+.footer-col a{display:block;font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:0.5rem;transition:color 0.2s;}
+.footer-col a:hover{color:#B8A0E8;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;font-size:0.72rem;color:rgba(255,255,255,0.25);}
+.footer-bottom a{color:rgba(255,255,255,0.35);text-decoration:none;}
+.trabelo-credit{color:#B8A0E8!important;font-weight:500;}
+
+@media(max-width:900px){.hero-content{grid-template-columns:1fr;}.hero-card{display:none;}.services-grid{grid-template-columns:1fr 1fr;}.team-grid{grid-template-columns:1fr 1fr;}.contact-layout{grid-template-columns:1fr;gap:2rem;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.nav-links{display:none;}.hamburger{display:flex;}.services-grid{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📞 <a href="tel:01142671223">0114 267 1223</a></span>
+  <span>✉ <a href="mailto:info@hallamshirephysiotherapy.com">info@hallamshirephysiotherapy.com</a></span>
+  <span>📍 2 Newbould Lane, Broomhill, Sheffield S10 2PL</span>
+</div>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">Hallamshire Physiotherapy<span>Multi Award-Winning · Broomhill, Sheffield · Est. 21+ Years</span></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('treatments')">Treatments</a></li>
+      <li><a href="#" onclick="showPage('neuro')">Neurological</a></li>
+      <li><a href="#" onclick="showPage('sports')">Sports & MSK</a></li>
+      <li><a href="#" onclick="showPage('womens')">Women's Health</a></li>
+      <li><a href="#" onclick="showPage('team')">Our Team</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showPage('home');toggleMenu()">Home</a>
+    <a href="#" onclick="showPage('treatments');toggleMenu()">Treatments</a>
+    <a href="#" onclick="showPage('neuro');toggleMenu()">Neurological</a>
+    <a href="#" onclick="showPage('sports');toggleMenu()">Sports & MSK</a>
+    <a href="#" onclick="showPage('womens');toggleMenu()">Women's Health</a>
+    <a href="#" onclick="showPage('team');toggleMenu()">Our Team</a>
+    <a href="#" onclick="showPage('contact');toggleMenu()">Book Now</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="page-home" class="page-section active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">Sheffield's Leading Specialist Physiotherapy Clinic</div>
+        <h1>High-quality specialist treatments <em>you can trust.</em></h1>
+        <p class="hero-sub">Hallamshire Physiotherapy is a multi award-winning clinic in Broomhill, Sheffield — providing expert specialist treatment for pain, injury and rehabilitation. We listen, we won't rush you, and we aim to get to the root cause of the problem.</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">21+</div><div class="stat-label">Years in Sheffield</div></div>
+          <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Team Members</div></div>
+          <div class="stat"><div class="stat-num">3</div><div class="stat-label">Sheffield Clinics</div></div>
+        </div>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Book an Appointment</a>
+          <a href="#" class="btn-outline" onclick="showPage('treatments')">Our Treatments</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>📋 Clinic Info</h3>
+        <div class="card-row"><span class="card-icon">📍</span><span>2 Newbould Lane, Broomhill, Sheffield S10 2PL — plus two further Sheffield locations</span></div>
+        <div class="card-row"><span class="card-icon">🏆</span><span>Multi award-winning — outstanding reputation built over 21+ years</span></div>
+        <div class="card-row"><span class="card-icon">🏥</span><span>HCPC Registered · Private health insurance accepted · NHS referrals welcome</span></div>
+        <div class="card-row"><span class="card-icon">🧠</span><span>Specialist clinicians in MSK, neuro, vestibular, women's health and more</span></div>
+        <hr class="card-divider">
+        <a href="tel:01142671223" class="card-phone">0114 267 1223</a>
+        <div class="card-sub">Call to book or ask a question</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">🏆 Multi Award-Winning</div>
+    <div class="trust-item">✓ HCPC Registered</div>
+    <div class="trust-item">✓ 25+ Team Members</div>
+    <div class="trust-item">✓ 3 Sheffield Clinics</div>
+    <div class="trust-item">✓ Private Insurance Accepted</div>
+    <div class="trust-item">✓ NHS Referrals Welcome</div>
+  </div>
+
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Specialist Treatments</div>
+        <h2>A Breadth of Specialist Care Unmatched in Sheffield</h2>
+        <p>Over 20 specialist treatments under one roof — from MSK physiotherapy to neurological rehabilitation, women's health to augmented reality therapy.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('sports')"><span class="service-icon">🦴</span><h3>Musculoskeletal Physiotherapy</h3><p>Joint, muscle and pain conditions — the full range of MSK problems treated by our highly skilled and approachable specialists.</p></div>
+        <div class="service-card" onclick="showPage('neuro')"><span class="service-icon">🧠</span><h3>Neurological Rehabilitation</h3><p>Specialist neurological physio for stroke, MS, Parkinson's and more. Including our PD Warrior programme and augmented reality therapy (Strolll).</p></div>
+        <div class="service-card" onclick="showPage('womens')"><span class="service-icon">🌸</span><h3>Women's Health & Pelvic Floor</h3><p>Specialist women's health physiotherapy including pelvic floor rehabilitation and our Strong Through Menopause exercise class.</p></div>
+        <div class="service-card" onclick="showPage('sports')"><span class="service-icon">⚽</span><h3>Sports Injury Rehab</h3><p>Expert sports injury assessment and rehabilitation — from weekend warriors to competitive athletes, across all sports and disciplines.</p></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">💥</span><h3>Shockwave Therapy</h3><p>Focused shockwave treatment for challenging tendon and ligament injuries — promoting healing at a cellular level.</p></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">🏋️</span><h3>Advanced Rehab Hub @ 863</h3><p>Our specialist rehabilitation gym space — personalised physio support and advanced rehab in a fully equipped environment.</p></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">⚖️</span><h3>Balance & Vestibular Rehab</h3><p>Specialist assessment and treatment for dizziness, vertigo and balance disorders — a specialist area many clinics don't offer.</p></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">🫁</span><h3>Respiratory Treatment</h3><p>Specialist respiratory physiotherapy for breathing conditions — a service offered by very few private clinics in Sheffield.</p></div>
+        <div class="service-card" onclick="showPage('treatments')"><span class="service-icon">🏠</span><h3>Home Visit Physiotherapy</h3><p>Can't get to the clinic? We come to you. Home visit physiotherapy across Sheffield for patients who need treatment at home.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-pad bg-deep">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:2rem;">
+        <div class="section-eyebrow" style="color:#B8A0E8;">What Our Patients Say</div>
+        <h2 style="color:#fff;">Getting to the root cause of the problem.</h2>
+        <div class="section-divider" style="background:#B8A0E8;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(184,160,232,0.2);border-radius:10px;padding:1.5rem;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#fff;font-style:italic;line-height:1.65;margin-bottom:0.6rem;">"Ian was incredibly helpful; listening carefully to me and what my body was saying. Fast forward around 6 weeks and I was going under the knife to fix my issues, with Ian being at the forefront of my recovery post surgery."</div>
+          <div style="font-size:0.75rem;font-weight:600;color:#B8A0E8;text-transform:uppercase;letter-spacing:0.1em;">Verified Patient · Google Review</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(184,160,232,0.2);border-radius:10px;padding:1.5rem;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#fff;font-style:italic;line-height:1.65;margin-bottom:0.6rem;">"Fantastic service and after care. Matt has been able to identify long standing issues with my technique and address them with a combination of massage, physio and stretches. I'm now able to compete without pain."</div>
+          <div style="font-size:0.75rem;font-weight:600;color:#B8A0E8;text-transform:uppercase;letter-spacing:0.1em;">Verified Patient · Google Review</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="#" class="btn-primary" onclick="showPage('contact')">Book an Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section id="page-treatments" class="page-section">
+  <div style="position:relative;height:320px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(26,13,46,0.9) 0%,rgba(26,13,46,0.52) 100%), url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#B8A0E8;">20+ Specialist Treatments</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;">Our <em style="font-style:italic;color:#B8A0E8;">Treatments</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Full Treatment List</div>
+        <h2>If you know what you need, choose below. If not, call us.</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card"><span class="service-icon">🦴</span><h3>MSK Physiotherapy</h3><p>Joint, muscle and pain conditions — our core service, delivered by highly skilled and approachable specialists.</p></div>
+        <div class="service-card"><span class="service-icon">🧠</span><h3>Neurological Rehabilitation</h3><p>Specialist neuro rehab for stroke, MS, Parkinson's, head injury and other neurological conditions.</p></div>
+        <div class="service-card"><span class="service-icon">💥</span><h3>Shockwave Therapy</h3><p>Focused shockwave for tendons, ligaments and challenging chronic conditions.</p></div>
+        <div class="service-card"><span class="service-icon">🌸</span><h3>Women's Health & Pelvic Floor</h3><p>Specialist women's health physio including pelvic floor rehabilitation and menopause exercise classes.</p></div>
+        <div class="service-card"><span class="service-icon">⚖️</span><h3>Balance & Vestibular Rehab</h3><p>Dizziness, vertigo and balance disorders — specialist assessment and treatment.</p></div>
+        <div class="service-card"><span class="service-icon">🫁</span><h3>Respiratory Treatment</h3><p>Breathing condition physiotherapy — rarely available in private clinics.</p></div>
+        <div class="service-card"><span class="service-icon">🏋️</span><h3>Physio Rehab Group</h3><p>Personalised physio support in a group setting at our 863 Advanced Rehab Hub.</p></div>
+        <div class="service-card"><span class="service-icon">🤖</span><h3>Augmented Reality Therapy (Strolll)</h3><p>Cutting-edge AR therapy for neurological and balance rehabilitation.</p></div>
+        <div class="service-card"><span class="service-icon">💪</span><h3>Persistent Pain Rehabilitation</h3><p>Specialist long-term pain management and rehabilitation for chronic conditions.</p></div>
+        <div class="service-card"><span class="service-icon">😴</span><h3>ME / Chronic Fatigue Rehab</h3><p>Specialist rehabilitation for ME and chronic fatigue syndrome.</p></div>
+        <div class="service-card"><span class="service-icon">👴</span><h3>Physiotherapy for Older Adults</h3><p>Specialist physio for age-related conditions and rehabilitation — keeping people mobile and independent.</p></div>
+        <div class="service-card"><span class="service-icon">🏠</span><h3>Home Visit Physiotherapy</h3><p>We come to you — home visit physio for patients who need treatment at home.</p></div>
+        <div class="service-card"><span class="service-icon">💉</span><h3>Steroid Injections</h3><p>Expert injection therapy for pain management in suitable joints and soft tissue conditions.</p></div>
+        <div class="service-card"><span class="service-icon">🚴</span><h3>Bike Fit</h3><p>Specialist physiotherapy-informed bike fit to optimise cycling position and prevent injury.</p></div>
+        <div class="service-card"><span class="service-icon">🏢</span><h3>Workplace Wellbeing</h3><p>Workplace wellbeing and massage services for businesses — on-site or at the clinic.</p></div>
+        <div class="service-card"><span class="service-icon">🪡</span><h3>Acupuncture</h3><p>Delivered by specialist physiotherapists as part of a holistic treatment plan.</p></div>
+        <div class="service-card"><span class="service-icon">🥋</span><h3>PD Warrior</h3><p>Our specialist Parkinson's exercise programme — NDIS endorsed and clinically proven.</p></div>
+        <div class="service-card"><span class="service-icon">💆</span><h3>Sports Massage</h3><p>Deep tissue and therapeutic massage for recovery, injury prevention and performance.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;"><a href="#" class="btn-primary" onclick="showPage('contact')">Book an Appointment</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEURO -->
+<section id="page-neuro" class="page-section">
+  <div style="position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(26,13,46,0.9) 0%,rgba(26,13,46,0.5) 100%), url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#B8A0E8;">Specialist Neurological Care</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;"><em style="font-style:italic;color:#B8A0E8;">Neurological</em> Rehabilitation</h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto;">Specialist neurological physiotherapy rarely available outside NHS hospitals — delivered by clinicians who also treat patients at Sheffield NHS hospitals.</p>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Neurological Services</div>
+        <h2>Specialist neurological rehab in a private setting.</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid" style="margin-bottom:3rem;">
+        <div class="service-card"><span class="service-icon">🧠</span><h3>Neurological Rehabilitation</h3><p>Specialist physio for stroke, MS, Parkinson's, head injury and other neurological conditions — delivered by clinicians also working in NHS hospitals.</p></div>
+        <div class="service-card"><span class="service-icon">🥋</span><h3>PD Warrior</h3><p>NDIS-endorsed exercise programme specifically designed for Parkinson's — proven to help maintain and improve movement, strength and quality of life.</p></div>
+        <div class="service-card"><span class="service-icon">🤖</span><h3>Augmented Reality Therapy (Strolll)</h3><p>Cutting-edge AR therapy using immersive visual environments to support neurological and balance rehabilitation.</p></div>
+        <div class="service-card"><span class="service-icon">⚖️</span><h3>Balance & Vestibular Rehab</h3><p>Dizziness, vertigo, BPPV and balance disorders — specialist vestibular assessment and treatment.</p></div>
+        <div class="service-card"><span class="service-icon">😴</span><h3>ME / Chronic Fatigue</h3><p>Specialist rehabilitation programme for ME and chronic fatigue syndrome — paced, evidenced-based and patient-led.</p></div>
+        <div class="service-card"><span class="service-icon">💪</span><h3>Persistent Pain Rehab</h3><p>Long-term pain management and rehabilitation for chronic pain conditions — addressing the physical and the psychological aspects of persistent pain.</p></div>
+      </div>
+      <div style="background:var(--deep);border-radius:10px;padding:2rem;text-align:center;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:0.75rem;">Not sure if we can help?</h3>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.9rem;max-width:520px;margin:0 auto 1.5rem;line-height:1.7;">Call or email us and we'll advise you honestly whether our neurological service is right for your condition.</p>
+        <a href="#" class="btn-primary" onclick="showPage('contact')">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS & MSK -->
+<section id="page-sports" class="page-section">
+  <div style="position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(26,13,46,0.9) 0%,rgba(26,13,46,0.48) 100%), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#B8A0E8;">Sports Injury & MSK</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;">Sports <em style="font-style:italic;color:#B8A0E8;">& MSK</em></h1>
+      <a href="#" class="btn-primary" onclick="showPage('contact')" style="margin-top:1rem;">Book an Assessment</a>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Musculoskeletal & Sports</div>
+        <h2>Getting to the root cause of your problem.</h2>
+        <p>Our MSK and sports injury specialists are highly skilled, approachable and many also treat patients at NHS hospitals — bringing that depth of clinical experience to every appointment.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid" style="margin-bottom:3rem;">
+        <div class="service-card"><span class="service-icon">🦴</span><h3>MSK Physiotherapy</h3><p>The full spectrum of musculoskeletal conditions — back, neck, shoulder, knee, hip, ankle. Manual therapy, exercise prescription and patient education.</p></div>
+        <div class="service-card"><span class="service-icon">⚽</span><h3>Sports Injury Rehab</h3><p>Injury assessment, diagnosis and structured rehabilitation — getting you back to your sport at the right pace and with reduced reinjury risk.</p></div>
+        <div class="service-card"><span class="service-icon">💥</span><h3>Shockwave Therapy</h3><p>Focused shockwave for tendinopathies, plantar fasciitis and other challenging soft tissue conditions.</p></div>
+        <div class="service-card"><span class="service-icon">🏋️</span><h3>Advanced Rehab Hub @ 863</h3><p>Our specialist rehab gym — personalised physio-led rehabilitation sessions for those needing more than standard clinic appointments.</p></div>
+        <div class="service-card"><span class="service-icon">🚴</span><h3>Bike Fit</h3><p>Physiotherapy-informed bike fit to optimise your position and address cycling-related injuries.</p></div>
+        <div class="service-card"><span class="service-icon">💆</span><h3>Sports Massage</h3><p>Therapeutic and deep tissue massage for recovery, injury prevention and performance enhancement.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WOMEN'S HEALTH -->
+<section id="page-womens" class="page-section">
+  <div style="position:relative;height:320px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(26,13,46,0.9) 0%,rgba(26,13,46,0.52) 100%), url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#B8A0E8;">Specialist Women's Health</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;">Women's Health & <em style="font-style:italic;color:#B8A0E8;">Pelvic Floor</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container" style="max-width:800px;">
+      <div class="section-eyebrow">Women's Health Physiotherapy</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--deep);margin-bottom:1rem;line-height:1.2;">Specialist care for every stage of life.</h2>
+      <p style="color:var(--mid);font-size:0.9rem;line-height:1.75;margin-bottom:2rem;">Our specialist women's health physiotherapists provide expert care for pelvic floor conditions, pre and post-natal rehabilitation, prolapse, incontinence, and menopausal health. We also run our popular Strong Through Menopause exercise class.</p>
+      <div class="services-grid" style="grid-template-columns:1fr 1fr;margin-bottom:2rem;">
+        <div class="service-card"><span class="service-icon">🌸</span><h3>Pelvic Floor Rehabilitation</h3><p>Specialist assessment and treatment for pelvic floor dysfunction including incontinence, prolapse and pelvic pain.</p></div>
+        <div class="service-card"><span class="service-icon">🤰</span><h3>Pre & Post-Natal Care</h3><p>Pregnancy-related musculoskeletal problems and post-natal rehabilitation — supporting women through every stage.</p></div>
+        <div class="service-card"><span class="service-icon">💪</span><h3>Strong Through Menopause</h3><p>Our specialist exercise class designed to support women through the menopause — building strength and managing symptoms.</p></div>
+        <div class="service-card"><span class="service-icon">🏃</span><h3>Return to Sport</h3><p>Specialist return-to-sport guidance for women post-natal or post-injury — safe, evidence-based and individually planned.</p></div>
+      </div>
+      <div style="text-align:center;"><a href="#" class="btn-primary" onclick="showPage('contact')">Book a Women's Health Appointment</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="page-team" class="page-section">
+  <div style="position:relative;height:300px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(26,13,46,0.92) 0%,rgba(26,13,46,0.6) 100%), url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#B8A0E8;">25+ Skilled Clinicians</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Our <em style="font-style:italic;color:#B8A0E8;">Team</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Highly Skilled & Approachable</div>
+        <h2>Specialists who also treat patients at NHS hospitals.</h2>
+        <p>Our 25+ team members are each extremely knowledgeable, fully qualified and many also work in NHS hospital settings — bringing that depth of clinical experience to every private appointment.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">MSK & Sports Specialists</div>
+            <div class="team-role">Musculoskeletal · Sports Injury</div>
+            <p class="team-bio">Our MSK and sports injury physiotherapists bring NHS and private practice experience to every appointment. Many treat patients at Sheffield NHS hospitals alongside their clinic work.</p>
+            <span class="hcpc-badge">CSP Chartered · HCPC</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Neurological Specialists</div>
+            <div class="team-role">Neurology · Vestibular · Balance</div>
+            <p class="team-bio">Our neurological physiotherapists specialise in stroke, MS, Parkinson's and vestibular conditions — a level of specialism rarely found outside NHS hospitals.</p>
+            <span class="hcpc-badge">CSP Chartered · HCPC</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Women's Health Specialists</div>
+            <div class="team-role">Women's Health · Pelvic Floor</div>
+            <p class="team-bio">Our women's health physiotherapists are specialist-trained in pelvic floor rehabilitation, pre and post-natal care and menopausal health.</p>
+            <span class="hcpc-badge">CSP Chartered · HCPC</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;background:var(--purple-pale);border:1px solid var(--border);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.9rem;color:var(--mid);line-height:1.7;">We have 25+ team members across our three Sheffield clinics — each with their own specialist area. Call us to discuss which clinician is right for your problem.</p>
+        <div style="margin-top:1rem;"><a href="#" class="btn-primary" onclick="showPage('contact')">Get in Touch</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="page-contact" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(26,13,46,0.92) 0%,rgba(26,13,46,0.65) 100%), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#B8A0E8;">Book an Appointment</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Get in <em style="font-style:italic;color:#B8A0E8;">Touch</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="contact-layout">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--deep);margin-bottom:1.5rem;">Find Us</h3>
+          <div class="contact-row"><span class="ci">📞</span><div><strong>Phone</strong><br><a href="tel:01142671223">0114 267 1223</a></div></div>
+          <div class="contact-row"><span class="ci">✉</span><div><strong>Email</strong><br><a href="mailto:info@hallamshirephysiotherapy.com">info@hallamshirephysiotherapy.com</a></div></div>
+          <div class="contact-row"><span class="ci">📍</span><div><strong>Main Clinic</strong><br>2 Newbould Lane, Broomhill, Sheffield S10 2PL<br><em style="font-size:0.82rem;color:var(--mid);">Plus two further Sheffield clinic locations</em></div></div>
+          <div class="contact-row"><span class="ci">🅿️</span><div><strong>Parking</strong><br>Off-road parking available at the main clinic.</div></div>
+          <div class="contact-row"><span class="ci">🏥</span><div><strong>Insurance</strong><br>Private health insurance patients welcome. NHS referrals also accepted.</div></div>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--deep);margin-bottom:1.5rem;">Send an Enquiry</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+              <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+            </div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="07700 000 000"></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" required></div>
+            <div class="form-group"><label>What do you need help with?</label>
+              <select required>
+                <option value="">Select...</option>
+                <option>MSK / Musculoskeletal</option>
+                <option>Sports Injury</option>
+                <option>Neurological Rehabilitation</option>
+                <option>Women's Health / Pelvic Floor</option>
+                <option>Balance / Vestibular</option>
+                <option>Shockwave Therapy</option>
+                <option>Older Adults</option>
+                <option>Home Visit</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Tell us about your problem</label><textarea placeholder="Brief description of your condition and when it started..."></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Send Enquiry</button>
+          </form>
+          <div id="form-success" style="display:none;background:var(--purple-pale);border:1px solid var(--border);border-radius:6px;padding:1.25rem;margin-top:1rem;text-align:center;">
+            <strong style="color:var(--purple);">Thanks!</strong> We'll be in touch shortly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" onclick="showPage('home')">Hallamshire Physiotherapy<span>2 Newbould Lane, Broomhill, Sheffield S10 2PL</span></a>
+        <p>Sheffield's multi award-winning specialist physiotherapy clinic — MSK, neurological, women's health, sports injury and more across three Sheffield locations.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#" onclick="showPage('treatments')">All Treatments</a>
+        <a href="#" onclick="showPage('neuro')">Neurological</a>
+        <a href="#" onclick="showPage('sports')">Sports & MSK</a>
+        <a href="#" onclick="showPage('womens')">Women's Health</a>
+      </div>
+      <div class="footer-col">
+        <h4>Clinic</h4>
+        <a href="#" onclick="showPage('team')">Our Team</a>
+        <a href="#" onclick="showPage('contact')">Book Appointment</a>
+        <a href="tel:01142671223">0114 267 1223</a>
+        <a href="mailto:info@hallamshirephysiotherapy.com">info@hallamshirephysiotherapy.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hallamshire Physiotherapy Ltd · 2 Newbould Lane, Broomhill, Sheffield S10 2PL</span>
+      <span>Website concept built by <a href="#" class="trabelo-credit">Trabelo · Sheffield</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id){document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));const t=document.getElementById('page-'+id);if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}return false;}
+  function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+  function handleForm(e){e.preventDefault();e.target.style.display='none';document.getElementById('form-success').style.display='block';}
+  document.addEventListener('click',function(e){const n=document.getElementById('main-nav');if(!n.contains(e.target))document.getElementById('mobile-menu').classList.remove('open');});
+</script>
+</body>
+</html>

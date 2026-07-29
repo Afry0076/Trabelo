@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seven Hills Physiotherapy | Eckington, Sheffield & Chesterfield</title>
+<meta name="description" content="Seven Hills Physiotherapy — expert private physiotherapy, sports injuries, acupuncture and Pilates in Eckington, between Sheffield and Chesterfield. Top 3 rated clinic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:      #1A6B3C;
+    --green-mid:  #1F8049;
+    --green-light:#27A35A;
+    --green-pale: #EBF5EF;
+    --green-bg:   #F2F9F4;
+    --deep:       #0D2218;
+    --white:      #FFFFFF;
+    --off-white:  #F8FBF9;
+    --border:     #C5DFD0;
+    --text:       #182C22;
+    --mid:        #456052;
+    --light:      #6B8A78;
+    --accent:     #E8820A;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+  .topbar { background: var(--deep); color: rgba(255,255,255,0.65); font-size: 0.78rem; padding: 0.45rem 1.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; justify-content: center; }
+  .topbar a { color: var(--green-light); text-decoration: none; }
+  .topbar span { display: flex; align-items: center; gap: 0.4rem; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 3px solid var(--green); box-shadow: 0 2px 14px rgba(26,107,60,0.1); }
+  .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; height: 64px; gap: 0.5rem; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--deep); text-decoration: none; white-space: nowrap; flex-shrink: 0; line-height: 1.2; }
+  .logo span { color: var(--green); display: block; font-family: 'Inter', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 0.1rem; list-style: none; margin-left: auto; }
+  .nav-links a { display: block; padding: 0.4rem 0.65rem; font-size: 0.8rem; font-weight: 500; color: var(--mid); text-decoration: none; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover { color: var(--green); background: var(--green-pale); }
+  .nav-cta { background: var(--green) !important; color: var(--white) !important; font-weight: 600 !important; border-radius: 6px !important; padding: 0.45rem 1rem !important; }
+  .nav-cta:hover { background: var(--green-mid) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; margin-left: auto; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--deep); }
+  .mobile-menu { display: none; background: var(--white); border-top: 1px solid var(--border); padding: 1rem 1.5rem; }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a { display: block; padding: 0.65rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; font-weight: 500; color: var(--mid); text-decoration: none; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--green); }
+
+  .hero { position: relative; min-height: 88vh; display: flex; align-items: center; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(13,34,24,0.85) 0%, rgba(13,34,24,0.5) 60%, rgba(13,34,24,0.65) 100%), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1800&q=80') center/cover no-repeat; z-index: 0; }
+  .hero-content { position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: 5rem 1.5rem 3rem; display: grid; grid-template-columns: 1fr 310px; gap: 3rem; align-items: center; width: 100%; }
+  .hero-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--green-light); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.1rem, 5vw, 3.8rem); color: #fff; line-height: 1.1; margin-bottom: 1.2rem; }
+  .hero h1 em { font-style: italic; color: var(--green-light); }
+  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.78); max-width: 500px; margin-bottom: 2rem; line-height: 1.75; }
+  .hero-stats { display: flex; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--green-light); line-height: 1; }
+  .stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--green); color: #fff; padding: 0.85rem 1.75rem; font-size: 0.88rem; font-weight: 600; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: #fff; padding: 0.85rem 1.75rem; font-size: 0.88rem; font-weight: 500; border-radius: 6px; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.4); display: inline-block; transition: border-color 0.2s; }
+  .btn-outline:hover { border-color: var(--green-light); }
+
+  .hero-card { background: rgba(13,34,24,0.9); border: 1px solid rgba(39,163,90,0.3); border-radius: 10px; padding: 1.75rem; backdrop-filter: blur(8px); }
+  .hero-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--green-light); margin-bottom: 1.1rem; }
+  .card-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.8rem; font-size: 0.83rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
+  .card-icon { color: var(--green-light); flex-shrink: 0; }
+  .card-divider { border: none; border-top: 1px solid rgba(39,163,90,0.2); margin: 1.1rem 0; }
+  .card-phone { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #fff; text-align: center; display: block; text-decoration: none; margin-bottom: 0.3rem; }
+  .card-phone:hover { color: var(--green-light); }
+  .card-sub { font-size: 0.67rem; color: rgba(255,255,255,0.35); text-align: center; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .trust-strip { background: var(--green); padding: 1rem 1.5rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 2.5rem; }
+  .trust-item { display: flex; align-items: center; gap: 0.45rem; font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.85); }
+
+  .page-section { display: none; }
+  .page-section.active { display: block; }
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+  .section-pad { padding: 4.5rem 0; }
+  .bg-white { background: var(--white); }
+  .bg-off { background: var(--off-white); }
+  .bg-deep { background: var(--deep); }
+
+  .section-header { text-align: center; max-width: 600px; margin: 0 auto 3rem; padding: 0 1rem; }
+  .section-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 0.65rem; }
+  .section-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3.5vw, 2.5rem); color: var(--deep); line-height: 1.2; margin-bottom: 0.9rem; }
+  .section-header p { font-size: 0.95rem; color: var(--mid); line-height: 1.7; }
+  .section-divider { width: 40px; height: 3px; background: var(--green); margin: 0.9rem auto 0; border-radius: 2px; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem 1.5rem; border-top: 3px solid var(--green); transition: box-shadow 0.25s, transform 0.25s; cursor: pointer; }
+  .service-card:hover { box-shadow: 0 8px 28px rgba(26,107,60,0.12); transform: translateY(-3px); }
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--deep); margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.83rem; color: var(--mid); line-height: 1.65; margin-bottom: 1rem; }
+  .service-link { font-size: 0.8rem; font-weight: 600; color: var(--green); text-decoration: none; }
+
+  .conditions-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .condition-pill { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 0.85rem; font-size: 0.82rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+  .condition-pill::before { content: '●'; color: var(--green); font-size: 0.4rem; flex-shrink: 0; }
+
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .team-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+  .team-card:hover { box-shadow: 0 6px 24px rgba(26,107,60,0.12); transform: translateY(-2px); }
+  .team-img { height: 200px; background-size: cover; background-position: center top; }
+  .team-body { padding: 1.25rem; }
+  .team-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--deep); margin-bottom: 0.2rem; }
+  .team-role { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.6rem; }
+  .team-bio { font-size: 0.8rem; color: var(--mid); line-height: 1.6; }
+  .hcpc-badge { display: inline-block; background: var(--green-pale); border: 1px solid var(--border); color: var(--green); font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.5rem; }
+
+  .price-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem; border-top: 3px solid var(--green); }
+  .price-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--deep); margin-bottom: 1rem; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--text); }
+  .price-row:last-child { border-bottom: none; }
+  .price-row .amount { font-weight: 700; color: var(--green); font-size: 1rem; }
+
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .why-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(39,163,90,0.2); border-radius: 10px; padding: 1.5rem; }
+  .why-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+  .why-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #fff; margin-bottom: 0.4rem; }
+  .why-card p { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  .testimonial-block { background: var(--green-pale); border: 1px solid var(--border); border-left: 4px solid var(--green); border-radius: 8px; padding: 1.75rem; margin: 2rem 0; }
+  .testimonial-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--deep); line-height: 1.6; margin-bottom: 0.6rem; font-style: italic; }
+  .testimonial-author { font-size: 0.78rem; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-row { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.1rem; font-size: 0.9rem; color: var(--text); line-height: 1.5; }
+  .ci { color: var(--green); flex-shrink: 0; }
+  .contact-row a { color: var(--text); text-decoration: none; }
+  .contact-row a:hover { color: var(--green); }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.75rem; font-weight: 600; color: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; }
+  .form-group input, .form-group select, .form-group textarea { padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text); background: var(--white); transition: border-color 0.2s; outline: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 1px solid var(--border); }
+  .hours-table tr:last-child { border-bottom: none; }
+  .hours-table td { padding: 0.65rem 0; font-size: 0.88rem; }
+  .hours-table td:first-child { font-weight: 600; color: var(--deep); width: 120px; }
+  .hours-open { color: var(--green) !important; font-weight: 600 !important; }
+  .hours-closed { color: var(--light) !important; }
+
+  footer { background: var(--deep); color: rgba(255,255,255,0.55); padding: 3rem 1.5rem 1.25rem; }
+  .footer-inner { max-width: 1160px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem; }
+  .footer-brand .logo { color: #fff; font-size: 1.1rem; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.7; margin-top: 0.75rem; max-width: 280px; }
+  .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1rem; }
+  .footer-col a { display: block; font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--green-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+  .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+  .trabelo-credit { color: var(--green-light) !important; font-weight: 500; }
+
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .conditions-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📞 <a href="tel:01246439133">01246 439133</a></span>
+  <span>✉ <a href="mailto:info@sevenhillsphysiotherapy.co.uk">info@sevenhillsphysiotherapy.co.uk</a></span>
+  <span>📍 Eckington Business Centre, 8 Gosber Street, Eckington, S21 4DA</span>
+</div>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">Seven Hills Physiotherapy<span>Top 3 Rated · Eckington · Est. 2004</span></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('physiotherapy')">Physiotherapy</a></li>
+      <li><a href="#" onclick="showPage('sports')">Sports Injuries</a></li>
+      <li><a href="#" onclick="showPage('pilates')">Pilates</a></li>
+      <li><a href="#" onclick="showPage('team')">Our Team</a></li>
+      <li><a href="#" onclick="showPage('prices')">Prices</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showPage('home');toggleMenu()">Home</a>
+    <a href="#" onclick="showPage('physiotherapy');toggleMenu()">Physiotherapy</a>
+    <a href="#" onclick="showPage('sports');toggleMenu()">Sports Injuries</a>
+    <a href="#" onclick="showPage('pilates');toggleMenu()">Pilates</a>
+    <a href="#" onclick="showPage('team');toggleMenu()">Our Team</a>
+    <a href="#" onclick="showPage('prices');toggleMenu()">Prices</a>
+    <a href="#" onclick="showPage('contact');toggleMenu()">Book Now</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="page-home" class="page-section active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">Top 3 Rated Physio in Sheffield</div>
+        <h1>Helping you lead a more <em>comfortable</em> and enjoyable life.</h1>
+        <p class="hero-sub">Seven Hills Physiotherapy is a private clinic in Eckington, perfectly located between Sheffield and Chesterfield. Expert musculoskeletal physio, sports injuries, acupuncture and Pilates — from a team that genuinely cares about getting you better.</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat"><div class="stat-num">301+</div><div class="stat-label">5-Star Reviews</div></div>
+          <div class="stat"><div class="stat-num">Top 3</div><div class="stat-label">Rated in Sheffield</div></div>
+        </div>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Book an Appointment</a>
+          <a href="#" class="btn-outline" onclick="showPage('physiotherapy')">How We Help</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>📋 Clinic Info</h3>
+        <div class="card-row"><span class="card-icon">📍</span><span>Eckington Business Centre, 8 Gosber Street, Eckington S21 4DA — between Sheffield & Chesterfield</span></div>
+        <div class="card-row"><span class="card-icon">🅿️</span><span>Free on-site parking · Wheelchair accessible throughout</span></div>
+        <div class="card-row"><span class="card-icon">⭐</span><span>Top 3 rated physiotherapy clinic in Sheffield (ThreeBestRated)</span></div>
+        <div class="card-row"><span class="card-icon">♿</span><span>Age range treated: 11 to 92 years</span></div>
+        <hr class="card-divider">
+        <a href="tel:01246439133" class="card-phone">01246 439133</a>
+        <div class="card-sub">Call to book or ask a question</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">⭐ Top 3 in Sheffield</div>
+    <div class="trust-item">✓ CSP Chartered Physios</div>
+    <div class="trust-item">✓ HCPC Registered</div>
+    <div class="trust-item">✓ Acupuncture Qualified</div>
+    <div class="trust-item">✓ Free Parking</div>
+    <div class="trust-item">✓ Ages 11–92</div>
+  </div>
+
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What We Offer</div>
+        <h2>Expert Private Physiotherapy Between Sheffield & Chesterfield</h2>
+        <p>A multi-disciplinary team of highly experienced clinicians — all committed to continual learning and giving you the best possible care.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('physiotherapy')">
+          <span class="service-icon">🦴</span>
+          <h3>Musculoskeletal Physiotherapy</h3>
+          <p>Back pain, neck pain, sciatica, frozen shoulder, tennis elbow, trapped nerves and more. Specialist MSK physio from a team with decades of NHS and private practice experience.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('sports')">
+          <span class="service-icon">⚽</span>
+          <h3>Sports Injuries</h3>
+          <p>From weekend warriors to serious athletes — injury prevention, diagnosis, treatment and full rehabilitation. We've helped patients of all levels get back to the sport they love.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('pilates')">
+          <span class="service-icon">🧘</span>
+          <h3>Pilates</h3>
+          <p>Lindsay is qualified to APPI Matwork levels 1 and 2 and offers Pilates for a variety of musculoskeletal conditions on both a one-to-one and group basis.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('physiotherapy')">
+          <span class="service-icon">🪡</span>
+          <h3>Acupuncture</h3>
+          <p>Used alongside physiotherapy as part of your treatment plan. Both Stefan and Lindsay are qualified with the Acupuncture Association of Chartered Physiotherapists.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('physiotherapy')">
+          <span class="service-icon">📋</span>
+          <h3>Medico-Legal Rehabilitation</h3>
+          <p>Expert physiotherapy reports and rehabilitation for personal injury, road traffic accident and occupational injury cases — with negotiable service level agreements.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('physiotherapy')">
+          <span class="service-icon">👶</span>
+          <h3>Paediatric Physiotherapy</h3>
+          <p>Jodine brings specialist paediatric physiotherapy including musculoskeletal complaints, developmental delay and neurological disability — treating children from age 11 upwards.</p>
+          <a class="service-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-pad bg-deep">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:2rem;">
+        <div class="section-eyebrow" style="color:var(--green-light);">Why Seven Hills</div>
+        <h2 style="color:#fff;">A clinic built on results, not volume.</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div style="max-width:680px;margin:0 auto 2.5rem;text-align:center;background:rgba(39,163,90,0.08);border:1px solid rgba(39,163,90,0.2);border-radius:10px;padding:2rem;">
+        <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;font-style:italic;line-height:1.65;margin-bottom:0.75rem;">"I've been going to Stefan for a couple of years on and off with different aches and pains. Back ache to shoulder pains — Stefan is the best physio I've been to and always manages to advise me on what movements and exercises to do to help."</p>
+        <div style="font-size:0.78rem;font-weight:600;color:var(--green-light);text-transform:uppercase;letter-spacing:0.1em;">Verified Trustpilot Review · Five Stars</div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon">🎓</div><h4>Elite-Level Training</h4><p>Stefan trained alongside world-renowned physiotherapy expert Kevin Banks for over three years and is working towards the prestigious IMTA qualification.</p></div>
+        <div class="why-card"><div class="why-icon">🤝</div><h4>Patient-First Approach</h4><p>We take great interest in listening to your problems. At the end of your first session we'll discuss your likely prognosis so you can make an informed decision about your care.</p></div>
+        <div class="why-card"><div class="why-icon">📚</div><h4>Always Learning</h4><p>Every clinician at Seven Hills is committed to continual professional development — your treatment is always based on the latest evidence and techniques.</p></div>
+        <div class="why-card"><div class="why-icon">🏥</div><h4>NHS Experience</h4><p>Our team all started in the NHS before moving into private practice — bringing hospital-level clinical expertise to every appointment.</p></div>
+        <div class="why-card"><div class="why-icon">🚗</div><h4>Easy to Reach</h4><p>Perfectly placed between Sheffield and Chesterfield at Eckington Business Centre — free parking on site and wheelchair accessible throughout.</p></div>
+        <div class="why-card"><div class="why-icon">⭐</div><h4>Top 3 Rated</h4><p>Recognised by ThreeBestRated as one of the top three physiotherapy clinics in Sheffield — with over 300 five-star reviews on Trustpilot.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHYSIOTHERAPY -->
+<section id="page-physiotherapy" class="page-section">
+  <div style="position:relative;height:360px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(13,34,24,0.85) 0%,rgba(13,34,24,0.48) 100%), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--green-light);">Specialist MSK Physiotherapy</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;">Private <em style="font-style:italic;color:var(--green-light);">Physiotherapy</em></h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto 1.5rem;">Neuromusculoskeletal specialists treating the full range of MSK conditions — from chronic back pain to post-surgical rehab.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact')">Book an Appointment</a>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+        <div>
+          <div class="section-eyebrow">Conditions We Treat</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--deep);margin-bottom:1rem;line-height:1.2;">Neuromusculoskeletal specialists.</h2>
+          <p style="color:var(--mid);font-size:0.9rem;line-height:1.75;margin-bottom:1.5rem;">We specialise in the nervous system, muscular system and skeletal system — treating the full range of MSK conditions from ages 11 to 92. If you've been diagnosed with a neuromusculoskeletal condition, the answer is almost certainly yes, we can help.</p>
+          <div class="conditions-list">
+            <div class="condition-pill">Back Pain</div>
+            <div class="condition-pill">Neck Pain</div>
+            <div class="condition-pill">Sciatica</div>
+            <div class="condition-pill">Frozen Shoulder</div>
+            <div class="condition-pill">Tennis Elbow</div>
+            <div class="condition-pill">Trapped Nerve</div>
+            <div class="condition-pill">Headaches</div>
+            <div class="condition-pill">Osteoarthritis</div>
+            <div class="condition-pill">Sprained Ligaments</div>
+            <div class="condition-pill">Muscle Strains</div>
+            <div class="condition-pill">Tendonitis</div>
+            <div class="condition-pill">Plantar Fasciitis</div>
+            <div class="condition-pill">Spinal Disc Problems</div>
+            <div class="condition-pill">Shoulder Impingement</div>
+            <div class="condition-pill">Bone Fractures</div>
+            <div class="condition-pill">Post-Op Rehab</div>
+          </div>
+        </div>
+        <div>
+          <div class="testimonial-block">
+            <div class="testimonial-text">"I've avoided surgery by having regular physio and acupuncture and now work free from pain in my wrists and hands. Stefan is friendly, understanding and listens to your concerns."</div>
+            <div class="testimonial-author">Verified Patient Review · Five Stars</div>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.25rem;">
+            <h4 style="font-family:'Playfair Display',serif;color:var(--deep);margin-bottom:0.75rem;">Treatment Modalities</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span style="background:var(--green-pale);border:1px solid var(--border);color:var(--green);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Manual Therapy</span>
+              <span style="background:var(--green-pale);border:1px solid var(--border);color:var(--green);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Acupuncture</span>
+              <span style="background:var(--green-pale);border:1px solid var(--border);color:var(--green);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Exercise Rehab</span>
+              <span style="background:var(--green-pale);border:1px solid var(--border);color:var(--green);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">IMTA Techniques</span>
+              <span style="background:var(--green-pale);border:1px solid var(--border);color:var(--green);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:4px;">Home Exercise Advice</span>
+            </div>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
+            <h4 style="font-family:'Playfair Display',serif;color:var(--deep);margin-bottom:0.5rem;">Your Prognosis, Upfront</h4>
+            <p style="font-size:0.85rem;color:var(--mid);line-height:1.7;">At the end of your first session we'll discuss your likely prognosis with you. We believe you should be able to make an informed decision about your care — not just turn up and trust us blindly.</p>
+          </div>
+          <div style="margin-top:1.25rem;"><a href="#" class="btn-primary" onclick="showPage('contact')">Book Your Appointment</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS -->
+<section id="page-sports" class="page-section">
+  <div style="position:relative;height:360px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(13,34,24,0.85) 0%,rgba(13,34,24,0.45) 100%), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--green-light);">All Levels Welcome</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;">Sports <em style="font-style:italic;color:var(--green-light);">Injuries</em></h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto 1.5rem;">We don't only treat professional sports stars — we fix people like you.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact')">Book a Sports Assessment</a>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Sports Injury Service</div>
+        <h2>Back to the sport you love, as fast as possible.</h2>
+        <p>Whether you're 11 or 92, a Sunday league player or a serious athlete — our sports physios have helped people like you before.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:3rem;">
+        <div class="service-card"><span class="service-icon">⚽</span><h3>Football & Team Sports</h3><p>Knee, ankle, hamstring and groin specialists. Jodine spent almost a decade as physiotherapist for Sheffield United Girls Centre of Excellence.</p></div>
+        <div class="service-card"><span class="service-icon">🏃</span><h3>Running Injuries</h3><p>Shin splints, IT band syndrome, plantar fasciitis — we identify the root cause and get you back running with a proper structured programme.</p></div>
+        <div class="service-card"><span class="service-icon">⛳</span><h3>Golf Rehabilitation</h3><p>Back, shoulder and wrist injuries common in golf — diagnosed and treated with the same specialist approach we bring to all sports.</p></div>
+        <div class="service-card"><span class="service-icon">🏊</span><h3>Swimming & Racquet Sports</h3><p>Shoulder impingement, rotator cuff problems and upper limb injuries — treated by physios with musculoskeletal specialist training.</p></div>
+      </div>
+      <div style="background:var(--deep);border-radius:10px;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
+        <div>
+          <div class="section-eyebrow" style="color:var(--green-light);text-align:left;">Our Promise</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:0.75rem;">We don't claim to only work with sports stars. We cure people like you.</h3>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;line-height:1.7;margin-bottom:1.25rem;">The majority of our work involves the general public — people who want to get back to doing the things they enjoy. Our age range treated is 11 to 92 years. Can you break our record?</p>
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Book Now</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(39,163,90,0.2);border-radius:6px;padding:0.85rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.75);">✓ Injury prevention & screening</div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(39,163,90,0.2);border-radius:6px;padding:0.85rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.75);">✓ Accurate diagnosis at first session</div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(39,163,90,0.2);border-radius:6px;padding:0.85rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.75);">✓ Structured rehabilitation plan</div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(39,163,90,0.2);border-radius:6px;padding:0.85rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.75);">✓ Home exercises between sessions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILATES -->
+<section id="page-pilates" class="page-section">
+  <div style="position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(13,34,24,0.82) 0%,rgba(13,34,24,0.45) 100%), url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--green-light);">APPI Qualified · One-to-One & Group</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:1rem;"><em style="font-style:italic;color:var(--green-light);">Pilates</em> with Lindsay</h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container" style="max-width:800px;">
+      <div class="section-eyebrow">Physiotherapy-led Pilates</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--deep);margin-bottom:1rem;line-height:1.2;">Pilates that actually treats your condition.</h2>
+      <p style="color:var(--mid);font-size:0.9rem;line-height:1.75;margin-bottom:2rem;">Lindsay holds APPI (Australian Physiotherapy and Pilates Institution) Matwork qualifications at levels 1 and 2, giving her the skills to deliver Pilates that is genuinely therapeutic — not just a fitness class. She can tailor a programme to your specific musculoskeletal condition and deliver it on a one-to-one or group basis.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem;">
+        <div class="service-card"><span class="service-icon">🧘</span><h3>One-to-One Pilates</h3><p>A personalised Pilates programme designed around your specific MSK condition, injury or rehabilitation goal. At our clinic in Eckington.</p></div>
+        <div class="service-card"><span class="service-icon">👥</span><h3>Group Pilates Classes</h3><p>Small group Pilates sessions for musculoskeletal conditions — get the benefits of Pilates at a lower cost per session.</p></div>
+      </div>
+      <div style="text-align:center;"><a href="#" class="btn-primary" onclick="showPage('contact')">Ask About Pilates</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="page-team" class="page-section">
+  <div style="position:relative;height:300px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(13,34,24,0.88) 0%,rgba(13,34,24,0.55) 100%), url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--green-light);">Friendly, Skilled, Dedicated</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Meet the Team</h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Stefan Karanec</div>
+            <div class="team-role">Clinical Director · Principal Physiotherapist</div>
+            <p class="team-bio">Sheffield-born founder. BSc Physiotherapy from Coventry University (2004), NHS Senior Physiotherapist by 2006. Trained alongside world-renowned expert Kevin Banks for 3+ years. Pursuing IMTA levels 1, 2a and beyond. AACP acupuncture qualified.</p>
+            <span class="hcpc-badge">CSP Chartered · HCPC</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Lindsay Karanec</div>
+            <div class="team-role">Senior MSK Physiotherapist · Joint Owner</div>
+            <p class="team-bio">BSc Physiotherapy from Sheffield Hallam (2005), NHS Senior Physiotherapist from 2008 with a specialist interest in lower back pain and the Pain Management Unit. APPI Pilates qualified to Matwork levels 1 & 2. AACP acupuncture qualified.</p>
+            <span class="hcpc-badge">CSP Chartered · HCPC</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80');"></div>
+          <div class="team-body">
+            <div class="team-name">Jodine Aplin-Ward</div>
+            <div class="team-role">Advanced Physiotherapist in Paediatrics</div>
+            <p class="team-bio">BSc Physiotherapy from Coventry (2003). Specialist in paediatrics, musculoskeletal and orthopaedics. Former Sheffield United Girls Centre of Excellence physiotherapist for nearly a decade. Also works part-time at Sheffield Children's Hospital.</p>
+            <span class="hcpc-badge">CSP Chartered · HCPC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section id="page-prices" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(13,34,24,0.9) 0%,rgba(13,34,24,0.6) 100%), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--green-light);">Transparent Pricing</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Fees & Prices</h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container" style="max-width:600px;">
+      <div class="price-card" style="margin-bottom:2rem;">
+        <h3>Physiotherapy Fees</h3>
+        <div class="price-row"><span>Initial assessment</span><span class="amount">£40</span></div>
+        <div class="price-row"><span>Follow-up treatment</span><span class="amount">£40</span></div>
+        <div class="price-row"><span>Acupuncture session</span><span class="amount">£40</span></div>
+        <div class="price-row"><span>Medico-legal services</span><span class="amount">Negotiable SLA</span></div>
+      </div>
+      <div style="background:var(--green-pale);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:8px;padding:1.5rem;font-size:0.88rem;color:var(--mid);line-height:1.7;">
+        <strong style="color:var(--deep);">Our fees include more than just face-to-face time.</strong> We're always only a phone call or email away between sessions to support you throughout your episode of care. That's our commitment to you.
+      </div>
+      <div style="text-align:center;margin-top:2rem;"><a href="#" class="btn-primary" onclick="showPage('contact')">Book an Appointment</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="page-contact" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(13,34,24,0.9) 0%,rgba(13,34,24,0.6) 100%), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=80') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:var(--green-light);">Book an Appointment</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Get in <em style="font-style:italic;color:var(--green-light);">Touch</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="contact-layout">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--deep);margin-bottom:1.5rem;">Find Us</h3>
+          <div class="contact-row"><span class="ci">📞</span><div><strong>Phone</strong><br><a href="tel:01246439133">01246 439133</a></div></div>
+          <div class="contact-row"><span class="ci">✉</span><div><strong>Email</strong><br><a href="mailto:info@sevenhillsphysiotherapy.co.uk">info@sevenhillsphysiotherapy.co.uk</a></div></div>
+          <div class="contact-row"><span class="ci">📍</span><div><strong>Address</strong><br>Eckington Business Centre II<br>8 Gosber Street, Eckington, S21 4DA</div></div>
+          <div class="contact-row"><span class="ci">🚗</span><div><strong>Location</strong><br>Between Sheffield & Chesterfield. Free parking on site. Wheelchair accessible entrance, parking and restroom.</div></div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-top:1.5rem;">
+            <h4 style="font-family:'Playfair Display',serif;color:var(--deep);margin-bottom:1rem;">Opening Hours</h4>
+            <table class="hours-table">
+              <tr><td>Monday</td><td class="hours-open">16:00 – 21:00</td></tr>
+              <tr><td>Tuesday</td><td class="hours-open">17:00 – 21:00</td></tr>
+              <tr><td>Wednesday</td><td class="hours-open">13:00 – 20:00</td></tr>
+              <tr><td>Thursday</td><td class="hours-open">17:00 – 21:30</td></tr>
+              <tr><td>Friday</td><td class="hours-open">12:30 – 19:00</td></tr>
+              <tr><td>Saturday</td><td class="hours-open">09:00 – 12:00</td></tr>
+              <tr><td>Sunday</td><td class="hours-closed">Closed</td></tr>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--deep);margin-bottom:1.5rem;">Send an Enquiry</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+              <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+            </div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="07700 000 000"></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" required></div>
+            <div class="form-group">
+              <label>What do you need help with?</label>
+              <select required>
+                <option value="">Select a service...</option>
+                <option>Physiotherapy / MSK</option>
+                <option>Sports Injury</option>
+                <option>Acupuncture</option>
+                <option>Pilates</option>
+                <option>Paediatric Physiotherapy</option>
+                <option>Medico-Legal</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Tell us about your problem</label><textarea placeholder="Briefly describe what's going on — where the pain is, when it started etc."></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Send Enquiry</button>
+          </form>
+          <div id="form-success" style="display:none;background:#eaf5ef;border:1px solid #a8d8b8;border-radius:6px;padding:1.25rem;margin-top:1rem;text-align:center;">
+            <strong style="color:var(--green);">Thanks!</strong> We'll be in touch shortly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" onclick="showPage('home')">Seven Hills Physiotherapy<span>Eckington · Between Sheffield & Chesterfield</span></a>
+        <p>Private physiotherapy, sports injuries, acupuncture and Pilates in Eckington. Top 3 rated in Sheffield. Ages 11–92 welcome.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#" onclick="showPage('physiotherapy')">Physiotherapy</a>
+        <a href="#" onclick="showPage('sports')">Sports Injuries</a>
+        <a href="#" onclick="showPage('pilates')">Pilates</a>
+        <a href="#" onclick="showPage('prices')">Prices</a>
+      </div>
+      <div class="footer-col">
+        <h4>Clinic</h4>
+        <a href="#" onclick="showPage('team')">Our Team</a>
+        <a href="#" onclick="showPage('contact')">Book Appointment</a>
+        <a href="tel:01246439133">01246 439133</a>
+        <a href="mailto:info@sevenhillsphysiotherapy.co.uk">info@sevenhillsphysiotherapy.co.uk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Seven Hills Physiotherapy · Eckington Business Centre, S21 4DA</span>
+      <span>Website concept built by <a href="#" class="trabelo-credit">Trabelo · Sheffield</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    const t = document.getElementById('page-' + id);
+    if (t) { t.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    return false;
+  }
+  function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+  function handleForm(e) { e.preventDefault(); e.target.style.display = 'none'; document.getElementById('form-success').style.display = 'block'; }
+  document.addEventListener('click', function(e) { const n = document.getElementById('main-nav'); if (!n.contains(e.target)) document.getElementById('mobile-menu').classList.remove('open'); });
+</script>
+</body>
+</html>
