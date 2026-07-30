@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akentannos — Sardinian Restaurant, Sheffield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --terra:#8C3522;
+      --terra-light:#A8422A;
+      --navy:#1B3354;
+      --gold:#C49830;
+      --cream:#FAF6F0;
+      --warm:#F3EDE4;
+      --border:#E2D9CE;
+      --text:#1A1A1A;
+      --muted:#6B6057;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+
+    /* DISCLAIMER BANNER */
+    .disclaimer{background:#1a1a1a;color:#fff;text-align:center;padding:9px 20px;font-size:0.75rem;line-height:1.5;z-index:9999;position:relative}
+    .disclaimer a{color:#C49830;text-decoration:underline}
+    .disclaimer strong{color:#fff}
+
+    /* TOPBAR */
+    .topbar{background:var(--terra);padding:8px 24px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+    .topbar a{color:rgba(255,255,255,0.85);font-size:0.78rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s}
+    .topbar a:hover{color:#fff}
+    .topbar-sep{color:rgba(255,255,255,0.25);font-size:0.7rem}
+
+    /* NAV */
+    nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:66px}
+    .logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
+    .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:700;color:var(--terra);letter-spacing:0.03em;line-height:1}
+    .logo-sub{font-size:0.62rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.15em;margin-top:1px}
+    .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+    .nav-links li a,.nav-links li button{background:none;border:none;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:500;color:var(--muted);cursor:pointer;padding:8px 12px;border-radius:6px;transition:all 0.2s;text-decoration:none;display:block}
+    .nav-links li a:hover,.nav-links li button:hover,.nav-links li button.active{color:var(--terra);background:rgba(140,53,34,0.06)}
+    .nav-cta{background:var(--terra)!important;color:#fff!important;padding:9px 20px!important;border-radius:6px!important;font-weight:600!important}
+    .nav-cta:hover{background:var(--terra-light)!important;color:#fff!important}
+
+    /* PAGES */
+    .page{display:none;animation:fadeIn 0.35s ease}
+    .page.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+    /* HERO */
+    .hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/6c60c6_36bacb16a401471da910314f01e7a076~mv2.png/v1/fill/w_1920,h_900,al_c,q_85/6c60c6_36bacb16a401471da910314f01e7a076~mv2.png');background-size:cover;background-position:center;filter:brightness(0.45)}
+    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;width:100%}
+    .hero-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:18px}
+    .hero-title em{font-style:italic;color:var(--gold)}
+    .hero-tagline{font-size:1.05rem;color:rgba(255,255,255,0.82);line-height:1.7;max-width:480px;margin-bottom:32px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{display:inline-block;background:var(--terra);color:#fff;padding:14px 28px;border-radius:6px;font-weight:600;font-size:0.9rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
+    .btn-primary:hover{background:var(--terra-light)}
+    .btn-outline{display:inline-block;border:2px solid rgba(255,255,255,0.6);color:#fff;padding:12px 26px;border-radius:6px;font-weight:600;font-size:0.9rem;text-decoration:none;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;background:transparent}
+    .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
+    .hero-card{background:rgba(255,255,255,0.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:28px 24px;min-width:220px}
+    .hero-card-item{text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.12)}
+    .hero-card-item:last-child{border-bottom:none}
+    .hero-stat{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:#fff;line-height:1}
+    .hero-stat-label{font-size:0.68rem;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:0.12em;margin-top:4px}
+
+    /* TRUST STRIP */
+    .trust-strip{background:var(--navy);padding:16px 24px;display:flex;justify-content:center;align-items:center;gap:36px;flex-wrap:wrap}
+    .trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8);font-size:0.8rem;font-weight:500}
+    .trust-icon{font-size:1rem}
+
+    /* SECTIONS */
+    section{padding:80px 24px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:18px}
+    .section-lead{font-size:1rem;color:var(--muted);line-height:1.8;max-width:680px;margin-bottom:40px}
+
+    /* FEATURE GRID */
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:40px}
+    .feature-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+    .feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1)}
+    .feature-card-img{height:200px;background-size:cover;background-position:center}
+    .feature-card-body{padding:22px}
+    .feature-card-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .feature-card-text{font-size:0.88rem;color:var(--muted);line-height:1.7}
+    .feature-card-link{display:inline-block;margin-top:14px;font-size:0.82rem;font-weight:600;color:var(--terra);text-decoration:none;cursor:pointer}
+    .feature-card-link:hover{text-decoration:underline}
+
+    /* TWO-COL */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .two-col-img{border-radius:12px;overflow:hidden;height:420px;background-size:cover;background-position:center;box-shadow:0 8px 32px rgba(0,0,0,0.12)}
+    .two-col p{font-size:0.95rem;color:var(--muted);line-height:1.85;margin-bottom:16px}
+    .two-col p:last-of-type{margin-bottom:28px}
+
+    /* MENU TABS */
+    .menu-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:32px;border-bottom:2px solid var(--border);padding-bottom:0}
+    .menu-tab{background:none;border:none;font-family:'Inter',sans-serif;font-size:0.84rem;font-weight:500;color:var(--muted);cursor:pointer;padding:12px 20px;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+    .menu-tab.active{color:var(--terra);border-bottom-color:var(--terra);font-weight:600}
+    .menu-tab:hover:not(.active){color:var(--navy)}
+    .menu-panel{display:none}
+    .menu-panel.active{display:block;animation:fadeIn 0.3s ease}
+    .menu-section-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .menu-section-sub{font-size:0.8rem;color:var(--muted);margin-bottom:24px;font-style:italic}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+    .menu-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+    .menu-item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px}
+    .menu-item-name{font-weight:600;font-size:0.95rem;color:var(--navy)}
+    .menu-item-price{font-weight:700;color:var(--terra);font-size:0.95rem;white-space:nowrap}
+    .menu-item-desc{font-size:0.82rem;color:var(--muted);line-height:1.6}
+    .menu-tags{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
+    .tag{font-size:0.65rem;font-weight:600;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:0.05em}
+    .tag-gf{background:#e8f5e9;color:#2e7d32}
+    .tag-vg{background:#e3f2fd;color:#1565c0}
+    .tag-v{background:#f3e5f5;color:#6a1b9a}
+    .tag-df{background:#fff8e1;color:#f57f17}
+    .tag-chef{background:#fbe9e7;color:#bf360c}
+    .divider{border:none;border-top:1px solid var(--border);margin:32px 0}
+    .sharing-note{font-size:0.78rem;color:var(--muted);background:rgba(140,53,34,0.05);border:1px solid rgba(140,53,34,0.15);border-radius:8px;padding:12px 16px;margin-bottom:24px}
+
+    /* EVENTS */
+    .events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:40px}
+    .event-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .event-card-img{height:180px;background-size:cover;background-position:center}
+    .event-card-body{padding:22px}
+    .event-tag{display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--terra);background:rgba(140,53,34,0.08);border:1px solid rgba(140,53,34,0.2);padding:3px 10px;border-radius:3px;margin-bottom:10px}
+    .event-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .event-desc{font-size:0.84rem;color:var(--muted);line-height:1.65}
+    .event-meta{display:flex;gap:16px;margin-top:14px;font-size:0.78rem;color:var(--muted)}
+    .event-meta span{display:flex;align-items:center;gap:5px}
+
+    /* ABOUT SARDINIA SECTION */
+    .sardinia-section{background:var(--navy);color:#fff;padding:80px 24px}
+    .sardinia-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .sardinia-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+    .sardinia-stat{text-align:center;padding:24px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px}
+    .sardinia-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1}
+    .sardinia-stat-label{font-size:0.7rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px}
+    .sardinia-text{font-size:0.95rem;line-height:1.85;color:rgba(255,255,255,0.8);margin-bottom:16px}
+    .sardinia-text:last-child{margin-bottom:0}
+    .sardinia-quote{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--gold);border-left:3px solid var(--gold);padding-left:18px;margin:24px 0;line-height:1.5}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px}
+    .contact-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px}
+    .contact-card-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+    .contact-row{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
+    .contact-row:last-child{border-bottom:none}
+    .contact-icon{font-size:1.1rem;min-width:22px}
+    .contact-label{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--terra);margin-bottom:3px}
+    .contact-val{font-size:0.9rem;color:var(--text)}
+    .contact-val a{color:var(--navy);text-decoration:none}
+    .contact-val a:hover{color:var(--terra);text-decoration:underline}
+    .hours-table{width:100%;border-collapse:collapse;font-size:0.88rem}
+    .hours-table tr td{padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted)}
+    .hours-table tr td:first-child{font-weight:600;color:var(--navy);width:100px}
+    .hours-table tr:last-child td{border-bottom:none}
+    .closed{color:#e74c3c!important}
+    .booking-cta{background:var(--terra);color:#fff;border:none;padding:14px 28px;border-radius:6px;font-size:0.9rem;font-weight:600;cursor:pointer;width:100%;margin-top:20px;font-family:'Inter',sans-serif;transition:background 0.2s}
+    .booking-cta:hover{background:var(--terra-light)}
+
+    /* FOOTER */
+    footer{background:#111;color:rgba(255,255,255,0.5);text-align:center;padding:28px 24px;font-size:0.78rem}
+    footer a{color:rgba(255,255,255,0.3);text-decoration:none}
+    footer strong{color:rgba(255,255,255,0.7)}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .hero-content{grid-template-columns:1fr}
+      .hero-card{display:none}
+      .two-col{grid-template-columns:1fr}
+      .two-col-img{height:260px}
+      .contact-grid{grid-template-columns:1fr}
+      .sardinia-inner{grid-template-columns:1fr}
+      .topbar{gap:14px}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- DISCLAIMER BANNER -->
+<div class="disclaimer">
+  <strong>Concept site</strong> — this is not the official website of Akentannos. Built by Trabelo as a free pitch demo. <a href="https://www.akentannos.co.uk" target="_blank">Visit the real site →</a>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:01142680505">📞 0114 268 0505</a>
+  <span class="topbar-sep">|</span>
+  <a href="mailto:info@akentannos.co.uk">✉ info@akentannos.co.uk</a>
+  <span class="topbar-sep">|</span>
+  <a href="#" onclick="showPage('contact');return false">📍 270 Sharrow Vale Rd, Sheffield S11 8ZH</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="showPage('home');return false">
+      <div>
+        <div class="logo-text">Akentannos</div>
+        <div class="logo-sub">Sardinian Restaurant · Sheffield</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
+      <li><button onclick="showPage('menus')" id="nav-menus">Menus</button></li>
+      <li><button onclick="showPage('events')" id="nav-events">Events</button></li>
+      <li><button onclick="showPage('story')" id="nav-story">Our Story</button></li>
+      <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
+      <li><a href="https://web.dojo.app/create_booking/vendor/GAQJ3Vwf-gohsHtriu-Fn2PRyLCVHqkDQNkggTjKKKI_restaurant" target="_blank" class="nav-cta">Reserve a Table</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════ HOME ═══════════════ -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <p class="hero-eyebrow">Sheffield's Only Sardinian Restaurant</p>
+        <h1 class="hero-title">A Taste of<br><em>Sardinia</em><br>in Sheffield</h1>
+        <p class="hero-tagline">Family-run and rooted in authentic Sardinian tradition. Ingredients imported from the island, flavours you won't find anywhere else in South Yorkshire.</p>
+        <div class="hero-btns">
+          <a href="https://web.dojo.app/create_booking/vendor/GAQJ3Vwf-gohsHtriu-Fn2PRyLCVHqkDQNkggTjKKKI_restaurant" target="_blank" class="btn-primary">Reserve a Table</a>
+          <button onclick="showPage('menus')" class="btn-outline">View Our Menus</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-item">
+          <div class="hero-stat">1st</div>
+          <div class="hero-stat-label">Sardinian Restaurant<br>in Sheffield</div>
+        </div>
+        <div class="hero-card-item">
+          <div class="hero-stat">Tues–Sat</div>
+          <div class="hero-stat-label">Open for Dinner<br>from 5pm</div>
+        </div>
+        <div class="hero-card-item">
+          <div class="hero-stat">GF</div>
+          <div class="hero-stat-label">Gluten Free<br>options available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item"><span class="trust-icon">🌊</span> Ingredients imported from Sardinia</div>
+    <div class="trust-item"><span class="trust-icon">🫒</span> Fresh produce, locally sourced</div>
+    <div class="trust-item"><span class="trust-icon">🌾</span> Extensive gluten-free options</div>
+    <div class="trust-item"><span class="trust-icon">🌱</span> Vegan menu available</div>
+    <div class="trust-item"><span class="trust-icon">👨‍👩‍👧</span> Family run since day one</div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">Welcome</p>
+      <h2 class="section-title">The Flavours of<br>the Mediterranean</h2>
+      <p class="section-lead">At Akentannos, every dish tells the story of Sardinia — an island of sun, sea, and extraordinary longevity. Run by Mario and Giovanna, we bring the finest ingredients straight from the island to Sharrow Vale Road.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-img" style="background-image:url('https://static.wixstatic.com/media/6c60c6_ae021084f93243a88dbaad1340686fc8~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85/6c60c6_ae021084f93243a88dbaad1340686fc8~mv2.jpg')"></div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">Authentic Sardinian Menus</div>
+            <p class="feature-card-text">From Malloreddus pasta to Stinco Arrosto slow-roasted pork, our menus celebrate the breadth of Sardinian cuisine — crafted fresh, every evening.</p>
+            <span onclick="showPage('menus')" class="feature-card-link">Explore the menu →</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-img" style="background-image:url('https://static.wixstatic.com/media/nsplsh_3663694c6464546f54674d~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_800,h_500,al_c,q_85/nsplsh_3663694c6464546f54674d~mv2_d_6000_4000_s_4_2.jpg')"></div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">Special Events & Wine Tastings</div>
+            <p class="feature-card-text">From Sardinian wine evenings to paired tasting dinners, our events bring the culture and character of the island to life. Book ahead to avoid missing out.</p>
+            <span onclick="showPage('events')" class="feature-card-link">See upcoming events →</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-img" style="background-image:url('https://static.wixstatic.com/media/6c60c6_5a20b74acf0d4e96904bec478e8aa018~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85/6c60c6_5a20b74acf0d4e96904bec478e8aa018~mv2.jpg')"></div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">The Akentannos Story</div>
+            <p class="feature-card-text">The name means "may you live 100 years" — a traditional Sardinian toast. Mario and Giovanna opened Sheffield's first Sardinian restaurant to bring that spirit to South Yorkshire.</p>
+            <span onclick="showPage('story')" class="feature-card-link">Our story →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--warm);padding:60px 24px">
+    <div class="section-inner" style="text-align:center">
+      <p class="section-eyebrow" style="text-align:center">Ready to visit?</p>
+      <h2 class="section-title" style="text-align:center;margin-bottom:14px">Reserve Your Table</h2>
+      <p style="color:var(--muted);font-size:0.95rem;margin-bottom:28px">Tuesday to Saturday, from 5pm. Booking recommended — we fill up quickly.</p>
+      <a href="https://web.dojo.app/create_booking/vendor/GAQJ3Vwf-gohsHtriu-Fn2PRyLCVHqkDQNkggTjKKKI_restaurant" target="_blank" class="btn-primary" style="font-size:1rem;padding:16px 36px">Book Online Now</a>
+      <p style="margin-top:14px;color:var(--muted);font-size:0.85rem">Or call us: <a href="tel:01142680505" style="color:var(--terra);font-weight:600">0114 268 0505</a></p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════ MENUS ═══════════════ -->
+<div id="page-menus" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">What we serve</p>
+      <h2 class="section-title">Our Menus</h2>
+      <p class="section-lead">Everything made fresh, every evening. Dishes are prepared to order — cooking times may be slightly longer, because nothing here is ready-made.</p>
+
+      <div class="menu-tabs">
+        <button class="menu-tab active" onclick="showMenuTab('starters',this)">Starters</button>
+        <button class="menu-tab" onclick="showMenuTab('sharing',this)">Sharing Platters</button>
+        <button class="menu-tab" onclick="showMenuTab('pasta',this)">Pasta</button>
+        <button class="menu-tab" onclick="showMenuTab('meat',this)">Meat</button>
+        <button class="menu-tab" onclick="showMenuTab('fish',this)">Fish</button>
+        <button class="menu-tab" onclick="showMenuTab('sides',this)">Sides</button>
+      </div>
+
+      <!-- STARTERS -->
+      <div id="menu-starters" class="menu-panel active">
+        <div class="menu-section-title">Stuzzichini & Antipasti</div>
+        <div class="menu-section-sub">Small bites &amp; starters</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Olive</span><span class="menu-item-price">£6.95</span></div>
+            <p class="menu-item-desc">Unpitted green &amp; black olives served with a selection of warm bread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-v">V</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Bruschette</span><span class="menu-item-price">£9.95</span></div>
+            <p class="menu-item-desc">Toasted bread topped with sweet baby tomatoes, creamy goat cheese, little garlic, extra virgin olive oil, hot honey.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Alici Marinate</span><span class="menu-item-price">£8.95</span></div>
+            <p class="menu-item-desc">White anchovies marinated with little red wine vinegar, extra virgin olive oil and spring onion. Served on wild rocket and tomato &amp; garlic flatbread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Vellutata</span><span class="menu-item-price">£9.95</span></div>
+            <p class="menu-item-desc">Freshly homemade leek and potato soup, finished with pecorino cheese and truffle oil. Served with warm bread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Degustazione Tipica Sarda</span><span class="menu-item-price">£15.95</span></div>
+            <p class="menu-item-desc">A platter of mixed Sardinian cured meats served with cheeses, olives, aubergines, artichokes and warm bread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Prosciutto di Cinghiale ★★</span><span class="menu-item-price">£14.95</span></div>
+            <p class="menu-item-desc">Wild boar ham, pecorino cheese, steamed pears with orange zest, truffle honey.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Melanzane</span><span class="menu-item-price">£13.95</span></div>
+            <p class="menu-item-desc">Grilled aubergines, baked with pecorino cheese, fresh tomato sauce, basil reduction. Served with warm bread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Mare e Terra ★★</span><span class="menu-item-price">£15.95</span></div>
+            <p class="menu-item-desc">Golden fried octopus with fried aubergines, creamy Sardinian pecorino cheese and crispy potato slivers, served on crusty bread with acacia honey.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Sardine ★★</span><span class="menu-item-price">£10.95</span></div>
+            <p class="menu-item-desc">Golden fried sardines, coated in fresh herbs and served with our Sardinian-style tomato &amp; garlic sauce. Crispy, zesty and 100% irresistible.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-df">DF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Crocchette</span><span class="menu-item-price">£9.95</span></div>
+            <p class="menu-item-desc">Delicate crispy rice croquettes, served in pairs, with your choice of filling: Lamb, Mushroom &amp; Truffle, Pork Belly, or Cuttlefish Black Ink &amp; Salmon.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHARING -->
+      <div id="menu-sharing" class="menu-panel">
+        <div class="menu-section-title">Da Gustare in Due</div>
+        <div class="menu-section-sub">Sharing platters — perfect for two</div>
+        <div class="sharing-note">🫒 These platters are designed to share between two people as a generous starter or light centrepiece.</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Sapori Sardi</span><span class="menu-item-price">£30.95</span></div>
+            <p class="menu-item-desc">All in one — Sardinian flavours and aromas for two. Selection of finest cured meats, medium-aged pecorino, soft pecorino cream with honey and bottarga, artichokes, olives, aubergines, sweet peppers, baby pickled onions, marinated anchovies and warm bread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Fantasia di Mario</span><span class="menu-item-price">£38.50</span></div>
+            <p class="menu-item-desc">King prawns, octopus salad, anchovies, Sardinian cured meat &amp; flatbread, baked aubergines &amp; mayo bottarga, smoked salmon &amp; courgette strips, extra virgin olive oil, pomegranate, ground black pepper.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Vegetariano Sfizioso</span><span class="menu-item-price">£20.95</span></div>
+            <p class="menu-item-desc">Sweet peppers, aubergines, green and black olives, baby pickled onions, artichokes, mushrooms &amp; truffle croquettes, warm bread and sun-dried tomato &amp; butterbean paté.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASTA -->
+      <div id="menu-pasta" class="menu-panel">
+        <div class="menu-section-title">Pasta</div>
+        <div class="menu-section-sub">Handmade Sardinian pasta dishes</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Ravioli</span><span class="menu-item-price">£17.50</span></div>
+            <p class="menu-item-desc">Fresh ravioli, filled with sheep ricotta cheese and spinach, served with tomato and basil sauce, topped with pecorino cheese.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Zuppetta di Fregola ★★</span><span class="menu-item-price">£23.95</span></div>
+            <p class="menu-item-desc">Sardinian homemade pasta pearls stew with shellfish and mixed seafood, little tomato sauce, basil, vegetable broth, lemon zest and bottarga.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Orecchiette</span><span class="menu-item-price">£16.95</span></div>
+            <p class="menu-item-desc">Hand shaped pasta, delicately curved like little ears, with fresh spinach, cherry tomatoes, extra virgin olive oil, garlic, fresh chilli, flaked almonds. Finished with pecorino cheese.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Mezze Maniche con Salsiccia ★★</span><span class="menu-item-price">£21.50</span></div>
+            <p class="menu-item-desc">Half tube shaped pasta with fresh sausage, porcini mushrooms, a hint of truffle oil, little garlic, pecorino cheese.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Malloreddus con Sugo di Agnello ★★</span><span class="menu-item-price">£20.95</span></div>
+            <p class="menu-item-desc">Traditional Sardinian shell-shaped pasta served with delicious sauce made with fillet of lamb, tomato sauce, fennel seeds. Enhanced with Sardinian pecorino cheese.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEAT -->
+      <div id="menu-meat" class="menu-panel">
+        <div class="menu-section-title">Carne</div>
+        <div class="menu-section-sub">Meat dishes</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Stinco Arrosto ★★</span><span class="menu-item-price">£24.95</span></div>
+            <p class="menu-item-desc">Slow-roasted pork hock with a touch of salt and extra virgin olive oil, crispy on the outside and juicy inside. Served with seasonal vegetables.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Coniglio</span><span class="menu-item-price">£19.95</span></div>
+            <p class="menu-item-desc">Fresh rabbit on the bone, with carrot, onion, celery, little garlic, a touch of tomato sauce, white wine, rosemary and whole unpitted green olives. Served with warm bread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Tagliata</span><span class="menu-item-price">£35.00</span></div>
+            <p class="menu-item-desc">10oz prime aged fillet of beef, grilled and generously sliced, resting on wild rocket and cherry tomatoes. Crowned with Sardinian pecorino shavings and extra virgin olive oil.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Costine di Agnello</span><span class="menu-item-price">£29.50</span></div>
+            <p class="menu-item-desc">Rack of lamb with broad beans and peas, a little tomato sauce, rosemary, garlic, onion, lemon zest and a touch of white wine.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Pancia di Maiale &amp; Polpo ★★</span><span class="menu-item-price">£29.95</span></div>
+            <p class="menu-item-desc">Baked pork belly and grilled octopus on a broad beans velouté and pan fried savoy cabbage with onion, fresh chilli and sultana.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Anatra ★★</span><span class="menu-item-price">£23.95</span></div>
+            <p class="menu-item-desc">Sous vide Gressingham duck leg, wild mushrooms, rosemary, truffle honey.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FISH -->
+      <div id="menu-fish" class="menu-panel">
+        <div class="menu-section-title">Pesce</div>
+        <div class="menu-section-sub">Fresh fish — bought daily, subject to availability</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Zuppa di Pesce ★★</span><span class="menu-item-price">£34.95</span></div>
+            <p class="menu-item-desc">A delicious Mediterranean stew with a colourful mixture of fish and shellfish, flavoured with tomato, lemon zest, thyme and a little chilli. Served with warm bread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Branzino</span><span class="menu-item-price">£24.95</span></div>
+            <p class="menu-item-desc">Pan-fried fillet of sea bass with prawns, spring onion, cherry tomatoes, lemon zest, flaked almonds, little Vernaccia white wine and basil oil. Served with fresh mixed vegetables.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Salmone Aromatizzato</span><span class="menu-item-price">£24.95</span></div>
+            <p class="menu-item-desc">Pan-fried fillet of fresh salmon, marinated with extra virgin olive oil, basil, garlic, rosemary, thyme, lemon zest. Topped with grilled asparagus. Served with fresh mixed vegetables.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Gamberoni</span><span class="menu-item-price">£27.95</span></div>
+            <p class="menu-item-desc">Shell on king prawns flavoured with little garlic, sun-dried tomato, fresh chilli, lemon zest, parsley and Vermentino wine sauce.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Fritto d'Autore ★★</span><span class="menu-item-price">£32.00</span></div>
+            <p class="menu-item-desc">A refined seafood selection: sea bass, salmon, octopus, sardine and king prawn, with a cuttlefish ink &amp; salmon rice croquette, crispy zucchini and asparagus in herb-infused breading. Served with Agliata Algherese.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-chef">Chef's choice</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDES -->
+      <div id="menu-sides" class="menu-panel">
+        <div class="menu-section-title">Contorni</div>
+        <div class="menu-section-sub">Side dishes</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Patatine Fritte</span><span class="menu-item-price">£4.95</span></div>
+            <p class="menu-item-desc">Homemade hand-cut fries.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-v">V</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Patate al Rosmarino</span><span class="menu-item-price">£4.95</span></div>
+            <p class="menu-item-desc">Roast rosemary potatoes.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-v">V</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Patate Pecorino Twist</span><span class="menu-item-price">£5.30</span></div>
+            <p class="menu-item-desc">Steamed potatoes, truffle oil, pecorino cheese.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Melanzane alla Sassarese</span><span class="menu-item-price">£5.95</span></div>
+            <p class="menu-item-desc">Baked aubergines with garlic, cherry tomato, parsley and little chilli.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-v">V</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Verza</span><span class="menu-item-price">£5.95</span></div>
+            <p class="menu-item-desc">Pan fried savoy cabbage with onion, fresh chilli and sultana.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-v">V</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Rucola Pecorino &amp; Noci</span><span class="menu-item-price">£5.95</span></div>
+            <p class="menu-item-desc">Rocket leaves, walnuts and pecorino cheese shavings, extra virgin olive oil and balsamic reduction.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Verdure di Stagione</span><span class="menu-item-price">£4.95</span></div>
+            <p class="menu-item-desc">Seasonal vegetables.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-v">V</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Insalata Mista / Verde</span><span class="menu-item-price">£5.50</span></div>
+            <p class="menu-item-desc">Mixed or green salad.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-v">V</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Warm Bread</span><span class="menu-item-price">£5.80</span></div>
+            <p class="menu-item-desc">Warm bread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-vg">Vegan</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top"><span class="menu-item-name">Mixed Herbs &amp; Garlic Flatbread</span><span class="menu-item-price">£5.50</span></div>
+            <p class="menu-item-desc">Herb and garlic flatbread.</p>
+            <div class="menu-tags"><span class="tag tag-gf">GF</span><span class="tag tag-v">V</span><span class="tag tag-vg">Vegan</span><span class="tag tag-df">DF</span></div>
+          </div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:24px;padding:14px 16px;background:#fff;border:1px solid var(--border);border-radius:8px">⚠️ Our dishes do not contain gluten but some menu items contain nuts, seeds and other allergens. Please speak to your server if you have any allergies or dietary requirements.</p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ EVENTS ═══════════════ -->
+<div id="page-events" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">What's on</p>
+      <h2 class="section-title">Events at Akentannos</h2>
+      <p class="section-lead">From wine tastings to captivating paired dinners, we offer an array of experiences that celebrate Sardinian culture. Spaces are limited — book ahead to avoid missing out.</p>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-card-img" style="background-image:url('https://static.wixstatic.com/media/nsplsh_3663694c6464546f54674d~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_800,h_500,al_c,q_85/nsplsh_3663694c6464546f54674d~mv2_d_6000_4000_s_4_2.jpg')"></div>
+          <div class="event-card-body">
+            <span class="event-tag">Monthly</span>
+            <div class="event-title">Sardinian Wine Evening</div>
+            <p class="event-desc">An exploration of Sardinia's finest wines — from the island's legendary Cannonau reds to crisp Vermentino whites. Paired with small dishes from Mario's kitchen, and guided by the story of each wine.</p>
+            <div class="event-meta"><span>🍷 Wine tasting & food pairing</span></div>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-card-img" style="background-image:url('https://static.wixstatic.com/media/6c60c6_ae021084f93243a88dbaad1340686fc8~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85/6c60c6_ae021084f93243a88dbaad1340686fc8~mv2.jpg')"></div>
+          <div class="event-card-body">
+            <span class="event-tag">Seasonal</span>
+            <div class="event-title">Chef's Paired Tasting Dinner</div>
+            <p class="event-desc">A special multi-course tasting menu from Mario, with each dish paired to a Sardinian wine or artisan spirit. An intimate evening of flavour and storytelling — no menus, just trust the chef.</p>
+            <div class="event-meta"><span>🍽 Multi-course tasting menu</span></div>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-card-img" style="background-image:url('https://static.wixstatic.com/media/6c60c6_19ac42da24314fdba4481002d64ec87b~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85/6c60c6_19ac42da24314fdba4481002d64ec87b~mv2.jpg')"></div>
+          <div class="event-card-body">
+            <span class="event-tag">Recurring</span>
+            <div class="event-title">Seafood &amp; Bottarga Night</div>
+            <p class="menu-item-desc">A celebration of Sardinia's coastal cuisine — fresh seafood, bottarga, fregola and the freshest catch of the day. A showcase of everything the Mediterranean has to offer.</p>
+            <div class="event-meta"><span>🦞 Seafood focused menu</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;padding:32px;background:var(--warm);border-radius:12px;border:1px solid var(--border)">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:8px">Want to know what's coming up?</p>
+        <p style="font-size:0.9rem;color:var(--muted);margin-bottom:20px">Events sell out fast. Call us or email to find out what's on and to reserve your place.</p>
+        <a href="tel:01142680505" class="btn-primary">Call 0114 268 0505</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ OUR STORY ═══════════════ -->
+<div id="page-story" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">Who we are</p>
+      <h2 class="section-title">Our Story</h2>
+      <div class="two-col">
+        <div>
+          <p>Akentannos is Sheffield's first and only Sardinian restaurant — family-run by Mario and Giovanna, and situated on the vibrant Sharrow Vale Road.</p>
+          <p>Our philosophy fits perfectly the criteria of those who love this land of sun and blue sea, natural fragrances and intense flavours, where the soul of Sardinian people gives life to every single dish.</p>
+          <p>We pride ourselves in using the finest and freshest ingredients, imported in majority from Sardinia — and wherever possible, locally sourced from South Yorkshire suppliers. Everything is prepared on the spot, respecting the right cooking times, to enhance the true aromas and flavours of the island.</p>
+          <p>We also have a strong reputation for gluten free dishes, and have developed a full vegan menu alongside our main menu.</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--terra)">"Sa cughina minore no timede su fuste"<br><span style="font-size:0.9rem;font-style:normal;color:var(--muted);font-family:'Inter',sans-serif">Simple cuisine makes the home great.</span></p>
+          <br>
+          <p style="font-weight:600;color:var(--navy);font-family:'Cormorant Garamond',serif;font-size:1.1rem">— Mario &amp; Giovanna</p>
+        </div>
+        <div class="two-col-img" style="background-image:url('https://static.wixstatic.com/media/6c60c6_5a20b74acf0d4e96904bec478e8aa018~mv2.jpg/v1/fill/w_900,h_700,al_c,q_85/6c60c6_5a20b74acf0d4e96904bec478e8aa018~mv2.jpg')"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sardinia-section">
+    <div class="sardinia-inner">
+      <div>
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">About the name</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:20px">A Kent'Annos</h2>
+        <div class="sardinia-quote">"May you live one hundred years"</div>
+        <p class="sardinia-text">Akentannos takes its name from a traditional Sardinian greeting — A Kent'Annos — a toast to long life and good health. It's not an idle wish: Sardinians are among the longest-lived people on earth.</p>
+        <p class="sardinia-text">Sardinia is one of the world's original "Blue Zones" — places where people consistently live well past 100. Scientists have spent decades studying what makes Sardinians so resilient. The answer, it turns out, lies partly in what they eat and drink: Cannonau wine, Pecorino Sardo cheese, wild-foraged vegetables, and a diet built on simplicity and quality.</p>
+        <p class="sardinia-text">That same philosophy drives everything at Akentannos — eat well, eat real, and eat together.</p>
+      </div>
+      <div>
+        <div class="sardinia-stats">
+          <div class="sardinia-stat">
+            <div class="sardinia-stat-num">100+</div>
+            <div class="sardinia-stat-label">Average centenarian age in Sardinia</div>
+          </div>
+          <div class="sardinia-stat">
+            <div class="sardinia-stat-num">#1</div>
+            <div class="sardinia-stat-label">Blue Zone for male longevity globally</div>
+          </div>
+          <div class="sardinia-stat">
+            <div class="sardinia-stat-num">2nd</div>
+            <div class="sardinia-stat-label">Largest island in the Mediterranean</div>
+          </div>
+          <div class="sardinia-stat">
+            <div class="sardinia-stat-num">GF</div>
+            <div class="sardinia-stat-label">Extensive gluten free options available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<div id="page-contact" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-eyebrow">Find us</p>
+      <h2 class="section-title">Contact &amp; Opening Hours</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-card" style="margin-bottom:24px">
+            <div class="contact-card-title">Get in Touch</div>
+            <div class="contact-row">
+              <span class="contact-icon">📍</span>
+              <div>
+                <div class="contact-label">Address</div>
+                <div class="contact-val">270 Sharrow Vale Rd, Sheffield, S11 8ZH</div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">📞</span>
+              <div>
+                <div class="contact-label">Phone</div>
+                <div class="contact-val"><a href="tel:01142680505">0114 268 0505</a></div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">✉</span>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-val"><a href="mailto:info@akentannos.co.uk">info@akentannos.co.uk</a></div>
+              </div>
+            </div>
+            <button class="booking-cta" onclick="window.open('https://web.dojo.app/create_booking/vendor/GAQJ3Vwf-gohsHtriu-Fn2PRyLCVHqkDQNkggTjKKKI_restaurant','_blank')">Reserve a Table Online</button>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-title">Opening Hours</div>
+            <table class="hours-table">
+              <tr><td>Monday</td><td class="closed">Closed</td></tr>
+              <tr><td>Tuesday</td><td>5:00pm – 10:00pm</td></tr>
+              <tr><td>Wednesday</td><td>5:00pm – 10:00pm</td></tr>
+              <tr><td>Thursday</td><td>5:00pm – 10:00pm</td></tr>
+              <tr><td>Friday</td><td>5:00pm – 10:00pm</td></tr>
+              <tr><td>Saturday</td><td>5:00pm – 10:00pm</td></tr>
+              <tr><td>Sunday</td><td class="closed">Closed</td></tr>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div class="contact-card" style="height:100%">
+            <div class="contact-card-title">Find Us on Sharrow Vale Road</div>
+            <div style="border-radius:8px;overflow:hidden;height:340px;background:var(--warm);display:flex;align-items:center;justify-content:center;border:1px solid var(--border)">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2380.4!2d-1.4979!3d53.3703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48798296e3f5d123%3A0x1234567890abcdef!2s270+Sharrow+Vale+Rd%2C+Sheffield+S11+8ZH!5e0!3m2!1sen!2suk!4v1"
+                width="100%" height="340" style="border:0" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div style="margin-top:16px;padding:14px;background:rgba(140,53,34,0.05);border:1px solid rgba(140,53,34,0.15);border-radius:8px;font-size:0.84rem;color:var(--muted)">
+              <strong style="color:var(--navy)">Parking:</strong> Street parking available on Sharrow Vale Road and surrounding streets. We're also a short walk from Hunters Bar.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <strong>Akentannos</strong> &nbsp;·&nbsp; 270 Sharrow Vale Rd, Sheffield S11 8ZH &nbsp;·&nbsp; 0114 268 0505<br>
+  <span style="margin-top:6px;display:block">Website concept built by <a href="#">Trabelo · Sheffield</a></span>
+</footer>
+
+<script>
+  function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
+    document.getElementById('page-'+id).classList.add('active');
+    var btn=document.getElementById('nav-'+id);
+    if(btn)btn.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function showMenuTab(id,el){
+    document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById('menu-'+id).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Audit — Akentannos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --terra:#8C3522;
+      --terra-light:#A8422A;
+      --navy:#1B3354;
+      --gold:#C49830;
+      --cream:#FAF6F0;
+      --border:#E2D9CE;
+      --muted:#6B6057;
+      --red:#e74c3c;
+      --amber:#e67e22;
+      --green:#27ae60;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:#1a1a1a;line-height:1.6}
+
+    header{background:var(--terra);padding:48px 24px 40px;color:#fff}
+    .header-inner{max-width:860px;margin:0 auto}
+    .header-tag{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:10px}
+    .header-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:10px;line-height:1.2}
+    .header-sub{font-size:0.95rem;color:rgba(255,255,255,0.8);max-width:560px}
+
+    .scores-bar{background:var(--navy);padding:28px 24px}
+    .scores-inner{max-width:860px;margin:0 auto;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .score-box{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:16px 22px;text-align:center;min-width:100px}
+    .score-num{font-size:2.2rem;font-weight:700;line-height:1;margin-bottom:4px}
+    .score-name{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.55)}
+    .red{color:var(--red)}
+    .amber-col{color:var(--amber)}
+    .green-col{color:var(--green)}
+    .score-note{font-size:0.72rem;color:rgba(255,255,255,0.45);margin-left:auto;max-width:260px;line-height:1.5}
+
+    main{max-width:860px;margin:0 auto;padding:48px 24px}
+
+    .section{margin-bottom:48px}
+    .section-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:var(--terra);margin-bottom:8px}
+    .section-title{font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:14px}
+    .section-body{font-size:0.94rem;color:#333;line-height:1.82}
+    .section-body p{margin-bottom:12px}
+    .section-body p:last-child{margin-bottom:0}
+
+    .highlight-box{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;margin:20px 0;position:relative}
+    .highlight-box.red-border{border-left:4px solid var(--red)}
+    .highlight-box.amber-border{border-left:4px solid var(--amber)}
+    .highlight-box.green-border{border-left:4px solid var(--green)}
+    .highlight-box h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .highlight-box p{font-size:0.88rem;color:var(--muted);line-height:1.7}
+    .highlight-box .stat{font-size:1.8rem;font-weight:700;color:var(--red);margin-bottom:4px}
+    .highlight-box .stat.amber{color:var(--amber)}
+    .highlight-box .stat.green{color:var(--green)}
+    .highlight-box .stat-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted)}
+
+    .metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:20px 0}
+    .metric{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
+    .metric-val{font-size:1.6rem;font-weight:700;line-height:1;margin-bottom:4px}
+    .metric-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted)}
+
+    .issue-list{list-style:none;margin:20px 0}
+    .issue-list li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);align-items:flex-start;font-size:0.9rem;color:#333;line-height:1.6}
+    .issue-list li:last-child{border-bottom:none}
+    .issue-icon{font-size:1rem;min-width:22px;margin-top:1px}
+    .issue-list strong{color:var(--navy)}
+
+    .savings-chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+    .chip{font-size:0.75rem;font-weight:600;padding:5px 12px;border-radius:20px;background:#fff;border:1px solid var(--border);color:var(--muted)}
+    .chip.red-chip{border-color:rgba(231,76,60,0.3);color:var(--red);background:rgba(231,76,60,0.05)}
+
+    .pricing-section{background:var(--navy);color:#fff;border-radius:14px;padding:32px;margin-top:48px}
+    .pricing-section h2{font-size:1.4rem;font-weight:700;margin-bottom:8px}
+    .pricing-section .sub{font-size:0.88rem;color:rgba(255,255,255,0.65);margin-bottom:28px}
+    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .price-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:22px}
+    .price-tier{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:8px}
+    .price-amount{font-size:2rem;font-weight:700;color:#fff;margin-bottom:4px}
+    .price-name{font-size:0.95rem;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:10px}
+    .price-features{font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.7}
+    .price-card.featured{background:rgba(196,152,48,0.15);border-color:var(--gold)}
+    .price-card.featured .price-amount{color:var(--gold)}
+
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-block;padding:12px 24px;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+    .btn-white{background:#fff;color:var(--navy)}
+    .btn-outline-white{background:transparent;border:2px solid rgba(255,255,255,0.4);color:#fff}
+
+    .what-good{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;margin:24px 0}
+    .what-good h3{font-size:1rem;font-weight:700;color:var(--green);margin-bottom:14px}
+    .good-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.88rem;color:#333}
+    .good-item:last-child{border-bottom:none}
+
+    .divider{border:none;border-top:2px solid var(--border);margin:40px 0}
+
+    footer{text-align:center;padding:28px;font-size:0.78rem;color:#bbb;border-top:1px solid var(--border)}
+
+    @media(max-width:600px){
+      .scores-inner{justify-content:center}
+      .score-note{margin-left:0;max-width:100%}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="header-tag">Website Audit · Prepared by Trabelo</p>
+    <h1 class="header-title">Akentannos — akentannos.co.uk</h1>
+    <p class="header-sub">A look at how your website is performing on mobile right now, and what it means for people trying to find you.</p>
+  </div>
+</header>
+
+<div class="scores-bar">
+  <div class="scores-inner">
+    <div class="score-box"><div class="score-num amber-col">68</div><div class="score-name">Performance</div></div>
+    <div class="score-box"><div class="score-num green-col">100</div><div class="score-name">Accessibility</div></div>
+    <div class="score-box"><div class="score-num green-col">100</div><div class="score-name">Best Practices</div></div>
+    <div class="score-box"><div class="score-num green-col">100</div><div class="score-name">SEO</div></div>
+    <p class="score-note">Google Lighthouse · Mobile · July 2026<br>0–49 poor · 50–89 needs work · 90–100 good</p>
+  </div>
+</div>
+
+<main>
+
+  <div class="section">
+    <p class="section-label">The big picture</p>
+    <h2 class="section-title">Three scores at 100. One in the red zone.</h2>
+    <div class="section-body">
+      <p>Before I get into the issues, I want to say something important: your website is doing a lot of things genuinely well. Your SEO is perfect — 100 out of 100 means Google can find and read every page without any problems. Your accessibility score is 100, meaning the site works well for people with disabilities. Best practices: 100.</p>
+      <p>That's rare. A lot of restaurants lose customers simply because Google can't see their website properly — that's not your problem.</p>
+      <p>Your one real issue is <strong>performance</strong> — specifically, how long your site takes to load on a mobile phone. And for a restaurant on Sharrow Vale Road where someone's deciding where to go for dinner tonight, that matters more than you might think.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">The main issue</p>
+    <h2 class="section-title">Your site takes over 6 seconds to load on mobile</h2>
+    <div class="section-body">
+      <p>Google measures something called the Largest Contentful Paint — basically, how long before someone on a mobile phone actually sees your main content appear on screen. For your site, that's <strong>6.2 seconds</strong>.</p>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric">
+        <div class="metric-val red">4.1s</div>
+        <div class="metric-label">First thing appears (FCP)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val red">6.2s</div>
+        <div class="metric-label">Main content loads (LCP)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val red">4.1s</div>
+        <div class="metric-label">Speed Index</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val green-col">0ms</div>
+        <div class="metric-label">Blocking time (TBT)</div>
+      </div>
+    </div>
+
+    <div class="highlight-box red-border">
+      <h3>What does 6.2 seconds actually mean?</h3>
+      <p>Google's threshold for a "good" LCP is 2.5 seconds. Anything over 4 seconds is considered poor. Your site takes 6.2 seconds — more than twice Google's recommended maximum. On a slow 4G connection, which is what the test uses (the same speed most people are on when searching on their phones while out), someone is looking at a blank or mostly-empty screen for over six seconds before they can actually see your restaurant.</p>
+      <p style="margin-top:10px">Research consistently shows that more than half of mobile users will abandon a page if it takes longer than 3 seconds to load. By 6 seconds, the majority are already gone.</p>
+    </div>
+
+    <div class="section-body" style="margin-top:20px">
+      <p>One piece of good news: your site has zero blocking time (TBT: 0ms), which means once the page does load, it's immediately interactive and responsive. The problem is getting there in the first place.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">Why it's slow</p>
+    <h2 class="section-title">The Wix platform is doing it</h2>
+    <div class="section-body">
+      <p>Your website is built on Wix, which is a very capable tool for building a site — but it comes with a lot of behind-the-scenes code that runs whether you need it or not. That code has to be downloaded by every visitor before your pages can load. Here's what the audit found:</p>
+    </div>
+
+    <div class="savings-chips">
+      <span class="chip red-chip">139 KiB unused JavaScript</span>
+      <span class="chip red-chip">36 KiB duplicate JavaScript</span>
+      <span class="chip red-chip">12 KiB legacy JavaScript</span>
+      <span class="chip red-chip">37 KiB poor cache efficiency</span>
+      <span class="chip">416 internal tracking measurements</span>
+      <span class="chip">5+ preconnect connections</span>
+    </div>
+
+    <ul class="issue-list">
+      <li>
+        <span class="issue-icon">⚠️</span>
+        <div><strong>139 KiB of unused JavaScript.</strong> Your site is loading code that it never actually runs — code for features you might not even use. That's 139 kilobytes every visitor has to download before anything can load. On mobile, that takes time.</div>
+      </li>
+      <li>
+        <span class="issue-icon">⚠️</span>
+        <div><strong>Render-blocking scripts.</strong> Some scripts are being loaded before your page content, which forces the browser to stop and wait rather than loading your restaurant in front of people. This is a common Wix problem — the platform loads its own tools in a way that delays your content.</div>
+      </li>
+      <li>
+        <span class="issue-icon">⚠️</span>
+        <div><strong>Duplicate and legacy JavaScript.</strong> There's code being loaded twice (36 KiB of duplicates), and some older JavaScript that modern browsers no longer need (12 KiB). Neither of these are things you can fix inside Wix — they're baked into how the platform works.</div>
+      </li>
+      <li>
+        <span class="issue-icon">⚠️</span>
+        <div><strong>Poor cache lifetimes.</strong> When someone visits your site, their phone should save a copy so the next visit is faster. Your site's caching isn't set up well — so every visit takes the same amount of time to load, even for returning customers. Estimated saving: 37 KiB per visit.</div>
+      </li>
+      <li>
+        <span class="issue-icon">⚠️</span>
+        <div><strong>416 internal performance measurements.</strong> Wix runs 416 internal timing and tracking measurements behind the scenes on every page load. This is Wix monitoring its own platform — useful for them, but it adds overhead to every single visit to your website.</div>
+      </li>
+    </ul>
+
+    <div class="highlight-box amber-border" style="margin-top:8px">
+      <h3>The honest truth about Wix</h3>
+      <p>These aren't things you can fix inside your Wix dashboard — they're built into the platform itself. The good news is that a custom-built site has none of this overhead. No unused JavaScript, no duplicate code, no platform tracking on your pages. A well-built custom site can load in under 1.5 seconds — more than four times faster than your site right now.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">What's already great</p>
+    <h2 class="section-title">Things your website is genuinely doing well</h2>
+    <div class="what-good">
+      <h3>✓ These are all working perfectly</h3>
+      <div class="good-item">✅ <div><strong>SEO: 100/100</strong> — Google can find, read and index every page on your site without any issues. Your meta descriptions are in place, your titles are correct, your structured data is valid. This is exactly as it should be.</div></div>
+      <div class="good-item">✅ <div><strong>Accessibility: 100/100</strong> — Your site works well for people using screen readers, keyboard navigation, and other assistive tools. Every image has alt text, contrast ratios are correct. Again, this is excellent.</div></div>
+      <div class="good-item">✅ <div><strong>Best Practices: 100/100</strong> — No security issues, no outdated browser APIs, no deprecated features. The site is clean and technically sound.</div></div>
+      <div class="good-item">✅ <div><strong>Zero blocking time</strong> — Once the page has loaded, it's immediately usable. No lag, no frozen buttons, no unresponsive elements. The site is well-structured underneath.</div></div>
+      <div class="good-item">✅ <div><strong>Core Web Vitals: Passed</strong> — Google's real-world data from Chrome users shows your site passes the Core Web Vitals assessment. Your real-world users are having a better experience than the lab test suggests, which is a good sign.</div></div>
+    </div>
+    <div class="section-body" style="margin-top:16px">
+      <p>It's worth saying clearly: the hard stuff — SEO, content, accessibility, structure — is all in good shape. The one thing holding the site back is pure load speed, and that's fixable without changing anything about your content or what the site says about you.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">What a rebuild could achieve</p>
+    <h2 class="section-title">What this looks like fixed</h2>
+    <div class="section-body">
+      <p>A custom-built site — no Wix, no platform overhead — typically scores 90–100 on performance. That translates to a load time of under 1.5 seconds on mobile. People searching "Sardinian restaurant Sheffield" or "dinner Sharrow Vale Road" on their phones would see your site almost immediately rather than waiting six seconds.</p>
+      <p>Everything your current site does well — the SEO, the accessibility, the content — transfers over. You keep what's working and fix what isn't.</p>
+      <p>I've put together a free demo of what a rebuilt Akentannos site could look like. It's a working concept — full menus, your story, events, contact, booking links — all in a single fast-loading page.</p>
+    </div>
+  </div>
+
+  <div class="pricing-section">
+    <h2>What a rebuild costs with Trabelo</h2>
+    <p class="sub">One-off price, no monthly fees. Designed, built and delivered by Aidan — based in Sheffield.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">£395</div>
+        <div class="price-name">Core Site</div>
+        <div class="price-features">Up to 5 pages · Mobile-first design · Fast loading · Contact form · Google-ready</div>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">Business — most popular</div>
+        <div class="price-amount">£795</div>
+        <div class="price-name">Full Site</div>
+        <div class="price-features">Up to 10 pages · Full menus · Events section · Booking integration · Training included</div>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-amount">£1,295</div>
+        <div class="price-name">Complete Package</div>
+        <div class="price-features">Unlimited pages · Custom features · Gallery · Blog or news section · Priority support · Training included</div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a href="mailto:aidan@trabelo.com" class="btn btn-white">Email Aidan</a>
+      <a href="tel:+447000000000" class="btn btn-outline-white">No obligation — ask a question</a>
+    </div>
+    <p style="margin-top:16px;font-size:0.78rem;color:rgba(255,255,255,0.4)">Prepared by Aidan Fry · Trabelo · Sheffield · aidan@trabelo.com</p>
+  </div>
+
+</main>
+
+<footer>
+  Audit prepared by <strong>Trabelo · Sheffield</strong> · aidan@trabelo.com · Scores from Google Lighthouse, July 2026
+</footer>
+
+</body>
+</html>

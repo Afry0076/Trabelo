@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabelo — Akentannos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --terra:#8C3522;
+      --terra-light:#A8422A;
+      --navy:#1B3354;
+      --gold:#C49830;
+      --cream:#FAF6F0;
+      --border:#E2D9CE;
+      --gray:#6B6057;
+      --red:#e74c3c;
+      --amber:#e67e22;
+      --g:#27ae60;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:#1a1a1a;min-height:100vh;display:flex;flex-direction:column}
+
+    .topbar{background:var(--terra);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .trabelo-logo{font-weight:700;font-size:1.1rem;color:#fff;letter-spacing:0.12em;text-transform:uppercase}
+    .trabelo-logo span{color:var(--gold)}
+    .topbar-tag{font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.12em}
+
+    .hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px 24px 48px;text-align:center}
+    .business-tag{display:inline-block;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--terra);background:rgba(140,53,34,0.08);border:1px solid rgba(140,53,34,0.2);padding:5px 14px;border-radius:20px;margin-bottom:22px}
+    .business-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,6vw,3.5rem);line-height:1.15;margin-bottom:8px;color:var(--navy)}
+    .business-url{font-size:0.84rem;color:var(--gray);margin-bottom:30px}
+    .business-url span{display:inline-block;background:#fff;border:1px solid var(--border);padding:4px 12px;border-radius:4px;font-family:monospace}
+
+    .intro-box{max-width:620px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px 30px;margin-bottom:36px;text-align:left;box-shadow:0 2px 16px rgba(0,0,0,0.05)}
+    .intro-box .from{font-size:0.75rem;color:var(--gray);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
+    .intro-box p{font-size:0.94rem;color:#444;line-height:1.82}
+
+    .scores-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);margin-bottom:10px;font-weight:600}
+    .scores-grid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+    .score-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-align:center;min-width:96px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .score-num{font-size:2.1rem;font-weight:700;line-height:1;margin-bottom:4px}
+    .score-name{font-size:0.64rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray)}
+    .red{color:var(--red)}
+    .amber-c{color:var(--amber)}
+    .green-c{color:var(--g)}
+    .scores-note{font-size:0.7rem;color:#bbb;margin-bottom:36px}
+
+    .cta-cards{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:600px;width:100%;margin-bottom:36px}
+    .cta-card{flex:1;min-width:240px;border-radius:12px;padding:22px;text-align:left;text-decoration:none;color:#fff;transition:transform 0.2s,box-shadow 0.2s}
+    .cta-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+    .cta-card.demo{background:var(--terra)}
+    .cta-card.audit{background:var(--navy)}
+    .cta-card-icon{font-size:1.3rem;margin-bottom:10px}
+    .cta-card-title{font-weight:700;font-size:0.98rem;margin-bottom:4px}
+    .cta-card-sub{font-size:0.78rem;opacity:0.78;line-height:1.5}
+    .cta-card-arrow{margin-top:14px;font-size:0.8rem;font-weight:600;opacity:0.85}
+
+    footer{text-align:center;padding:18px;font-size:0.76rem;color:#bbb;border-top:1px solid var(--border)}
+    footer a{color:var(--terra);text-decoration:none}
+
+    @media(max-width:500px){
+      .intro-box{padding:18px}
+      .score-box{min-width:76px;padding:12px}
+      .score-num{font-size:1.7rem}
+      .hero{padding:36px 16px 28px}
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="trabelo-logo">Tra<span>belo</span></div>
+  <div class="topbar-tag">Web Design · Sheffield &amp; South Yorkshire</div>
+</div>
+
+<div class="hero">
+  <div class="business-tag">Free Website Audit &amp; Demo</div>
+  <h1 class="business-name">Akentannos</h1>
+  <p class="business-url"><span>akentannos.co.uk</span> &nbsp;·&nbsp; 270 Sharrow Vale Rd, Sheffield S11 8ZH</p>
+
+  <div class="intro-box">
+    <p class="from">A note from Aidan</p>
+    <p>I'm Aidan — I do web design across Sheffield and South Yorkshire. I ran your website through Google's testing tools and found something worth sharing. Three of your four scores are a perfect 100 — your SEO, accessibility, and best practices are all excellent. But your performance score is 68 out of 100, which means your site takes over 6 seconds to load on a mobile phone. For Sheffield's only Sardinian restaurant, on one of the most visited food streets in the city, that's the one thing stopping an otherwise well-built site from working as hard as you do. I've put together a free audit explaining exactly why, and a full demo of what a faster rebuilt site could look like.</p>
+  </div>
+
+  <p class="scores-label">Google's scores for your current site</p>
+  <div class="scores-grid">
+    <div class="score-box"><div class="score-num amber-c">68</div><div class="score-name">Performance</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">Accessibility</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">Best Practices</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">SEO</div></div>
+  </div>
+  <p class="scores-note">Google Lighthouse · Mobile · July 2026 &nbsp;·&nbsp; 0–49 poor &nbsp;·&nbsp; 50–89 needs work &nbsp;·&nbsp; 90–100 good</p>
+
+  <div class="cta-cards">
+    <a href="https://trabelo-tau.vercel.app/akentannos.html" target="_blank" class="cta-card demo">
+      <div class="cta-card-icon">✦</div>
+      <div class="cta-card-title">Concept Demo</div>
+      <div class="cta-card-sub">See the rebuilt site<br>Full working demo — menus, events, story &amp; more</div>
+      <div class="cta-card-arrow">View the demo →</div>
+    </a>
+    <a href="https://trabelo-tau.vercel.app/akentannos-audit.html" target="_blank" class="cta-card audit">
+      <div class="cta-card-icon">📋</div>
+      <div class="cta-card-title">Full Audit</div>
+      <div class="cta-card-sub">See the detailed audit<br>Every issue explained — and what it would cost to fix it</div>
+      <div class="cta-card-arrow">Read the audit →</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  Prepared by <a href="mailto:aidan@trabelo.com">Aidan Fry · Trabelo · Sheffield</a> · aidan@trabelo.com · No obligation
+</footer>
+
+</body>
+</html>
