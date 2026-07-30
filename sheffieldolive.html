@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olive Sheffield — Mediterranean Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --olive:#3B6B35;
+      --olive-light:#4C8A45;
+      --copper:#C06428;
+      --cream:#FAF7F0;
+      --warm:#F3EDE2;
+      --border:#E4D9C8;
+      --text:#1A1A1A;
+      --muted:#6B5E50;
+      --gold:#C9A030;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+
+    /* DISCLAIMER */
+    .disclaimer{background:#111;color:#fff;text-align:center;padding:9px 20px;font-size:0.75rem;line-height:1.5}
+    .disclaimer a{color:var(--gold);text-decoration:underline}
+
+    /* TOPBAR */
+    .topbar{background:var(--olive);padding:8px 24px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+    .topbar a{color:rgba(255,255,255,0.85);font-size:0.78rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s}
+    .topbar a:hover{color:#fff}
+    .topbar-sep{color:rgba(255,255,255,0.25)}
+
+    /* NAV */
+    nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;align-items:center;gap:4px;cursor:pointer;text-decoration:none}
+    .logo-leaf{font-size:1.3rem}
+    .logo-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--olive)}
+    .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+    .nav-links button{background:none;border:none;font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:500;color:var(--muted);cursor:pointer;padding:8px 13px;border-radius:5px;transition:all 0.2s}
+    .nav-links button:hover,.nav-links button.active{color:var(--olive);background:rgba(59,107,53,0.07)}
+    .nav-cta{background:var(--copper)!important;color:#fff!important;border-radius:6px!important;font-weight:600!important}
+    .nav-cta:hover{background:#A8561F!important;color:#fff!important}
+
+    /* PAGES */
+    .page{display:none;animation:fadeIn 0.3s ease}
+    .page.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+    /* HERO */
+    .hero{position:relative;min-height:86vh;display:flex;align-items:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/ee8fa0_4f6429648a74495ab540958dfb89c4f8~mv2.jpg/v1/fill/w_1920,h_900,al_c,q_85/ee8fa0_4f6429648a74495ab540958dfb89c4f8~mv2.jpg');background-size:cover;background-position:center;filter:brightness(0.42)}
+    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;width:100%}
+    .hero-eye{font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5rem);font-weight:700;color:#fff;line-height:1.08;margin-bottom:18px}
+    .hero-title em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.72;max-width:480px;margin-bottom:32px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-p{display:inline-block;background:var(--copper);color:#fff;padding:14px 28px;border-radius:6px;font-weight:600;font-size:0.9rem;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
+    .btn-p:hover{background:#A8561F}
+    .btn-o{display:inline-block;border:2px solid rgba(255,255,255,0.6);color:#fff;padding:12px 26px;border-radius:6px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;background:transparent}
+    .btn-o:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
+    .hero-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:24px 20px;min-width:200px}
+    .hc-item{text-align:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+    .hc-item:last-child{border-bottom:none}
+    .hc-stat{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff}
+    .hc-label{font-size:0.66rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-top:3px}
+
+    /* TRUST */
+    .trust-strip{background:var(--olive);padding:15px 24px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+    .trust-item{color:rgba(255,255,255,0.82);font-size:0.8rem;font-weight:500;display:flex;align-items:center;gap:7px}
+
+    /* SECTIONS */
+    section{padding:76px 24px}
+    .si{max-width:1100px;margin:0 auto}
+    .eye{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);margin-bottom:8px}
+    .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;color:var(--olive);line-height:1.15;margin-bottom:16px}
+    .sec-lead{font-size:0.95rem;color:var(--muted);line-height:1.82;max-width:660px;margin-bottom:36px}
+
+    /* FEATURE CARDS */
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:36px}
+    .feat-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+    .feat-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.08)}
+    .feat-img{height:190px;background-size:cover;background-position:center}
+    .feat-body{padding:20px}
+    .feat-title{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:700;color:var(--olive);margin-bottom:7px}
+    .feat-text{font-size:0.87rem;color:var(--muted);line-height:1.7}
+    .feat-link{display:inline-block;margin-top:12px;font-size:0.81rem;font-weight:600;color:var(--copper);cursor:pointer}
+    .feat-link:hover{text-decoration:underline}
+
+    /* TWO COL */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .two-col-img{border-radius:12px;height:400px;background-size:cover;background-position:center;box-shadow:0 8px 28px rgba(0,0,0,0.1)}
+    .two-col p{font-size:0.94rem;color:var(--muted);line-height:1.85;margin-bottom:14px}
+
+    /* MENU */
+    .menu-tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid var(--border);margin-bottom:28px}
+    .mtab{background:none;border:none;font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:500;color:var(--muted);cursor:pointer;padding:10px 16px;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+    .mtab.active{color:var(--olive);border-bottom-color:var(--olive);font-weight:600}
+    .mtab:hover:not(.active){color:var(--copper)}
+    .mpanel{display:none}
+    .mpanel.active{display:block;animation:fadeIn 0.25s ease}
+    .msect-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--olive);margin-bottom:4px}
+    .msect-sub{font-size:0.8rem;color:var(--muted);font-style:italic;margin-bottom:22px}
+    .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+    .mitem{background:#fff;border:1px solid var(--border);border-radius:9px;padding:16px 18px}
+    .mitem-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:5px}
+    .mitem-name{font-weight:600;font-size:0.93rem;color:var(--olive)}
+    .mitem-price{font-weight:700;color:var(--copper);font-size:0.93rem;white-space:nowrap}
+    .mitem-desc{font-size:0.81rem;color:var(--muted);line-height:1.6}
+    .mtag{font-size:0.63rem;font-weight:600;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:0.05em;margin-top:7px;display:inline-block;margin-right:3px}
+    .tag-gf{background:#e8f5e9;color:#2e7d32}
+    .tag-v{background:#f3e5f5;color:#6a1b9a}
+    .tag-vg{background:#e8f5e9;color:#1b5e20}
+    .divider{border:none;border-top:1px solid var(--border);margin:28px 0}
+    .nibbles-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+    .nibble{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:0.83rem;color:var(--muted)}
+    .sauce-note{font-size:0.8rem;color:var(--muted);background:rgba(59,107,53,0.05);border:1px solid rgba(59,107,53,0.15);border-radius:7px;padding:10px 14px;margin-top:16px}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px}
+    .c-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px}
+    .c-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--olive);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .c-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+    .c-row:last-child{border-bottom:none}
+    .c-icon{min-width:20px;font-size:1rem}
+    .c-label{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--copper);margin-bottom:2px}
+    .c-val{font-size:0.89rem}
+    .c-val a{color:var(--olive);text-decoration:none}
+    .c-val a:hover{text-decoration:underline}
+    .h-table{width:100%;border-collapse:collapse;font-size:0.87rem}
+    .h-table tr td{padding:7px 0;border-bottom:1px solid var(--border);color:var(--muted)}
+    .h-table tr td:first-child{font-weight:600;color:var(--text);width:90px}
+    .h-table tr:last-child td{border-bottom:none}
+    .closed{color:#e74c3c!important}
+    .book-btn{background:var(--copper);color:#fff;border:none;padding:13px 24px;border-radius:6px;font-size:0.9rem;font-weight:600;cursor:pointer;width:100%;margin-top:18px;font-family:'Inter',sans-serif;transition:background 0.2s}
+    .book-btn:hover{background:#A8561F}
+
+    /* FOOTER */
+    footer{background:#111;color:rgba(255,255,255,0.45);text-align:center;padding:26px;font-size:0.77rem}
+    footer a{color:rgba(255,255,255,0.28);text-decoration:none}
+    footer strong{color:rgba(255,255,255,0.65)}
+
+    @media(max-width:768px){
+      .hero-content{grid-template-columns:1fr}
+      .hero-card{display:none}
+      .two-col{grid-template-columns:1fr}
+      .two-col-img{height:240px}
+      .contact-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .topbar{gap:12px}
+    }
+  </style>
+</head>
+<body>
+
+<div class="disclaimer">
+  <strong>Concept site</strong> — this is not the official website of Olive Sheffield. Built by Trabelo as a free pitch demo. <a href="https://www.sheffieldolive.co.uk" target="_blank">Visit the real site →</a>
+</div>
+
+<div class="topbar">
+  <a href="tel:01142667702">📞 0114 266 7702</a>
+  <span class="topbar-sep">|</span>
+  <a href="mailto:info@sheffieldolive.co.uk">✉ info@sheffieldolive.co.uk</a>
+  <span class="topbar-sep">|</span>
+  <a href="#" onclick="showPage('contact');return false">📍 760-762 Ecclesall Rd, Sheffield S11 8TB</a>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="showPage('home');return false">
+      <span class="logo-leaf">🫒</span>
+      <span class="logo-name">Olive</span>
+    </a>
+    <ul class="nav-links">
+      <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
+      <li><button onclick="showPage('menus')" id="nav-menus">Menu</button></li>
+      <li><button onclick="showPage('story')" id="nav-story">Our Story</button></li>
+      <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
+      <li><button onclick="window.open('https://www.sheffieldolive.co.uk/reservations','_blank')" class="nav-cta">Book a Table</button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <p class="hero-eye">Mediterranean Restaurant · Ecclesall Road</p>
+        <h1 class="hero-title">Where Morocco<br>Meets <em>Italy</em></h1>
+        <p class="hero-sub">A family restaurant on Ecclesall Road where freshly prepared food is at the heart of everything. Chef Rachid's Moroccan roots and years in Italian kitchens combine into something Sheffield can't get anywhere else.</p>
+        <div class="hero-btns">
+          <a href="https://www.sheffieldolive.co.uk/reservations" target="_blank" class="btn-p">Reserve a Table</a>
+          <button onclick="showPage('menus')" class="btn-o">View Menu</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-item">
+          <div class="hc-stat">2018</div>
+          <div class="hc-label">Established</div>
+        </div>
+        <div class="hc-item">
+          <div class="hc-stat">⭐</div>
+          <div class="hc-label">TripAdvisor Travellers'<br>Choice 2023</div>
+        </div>
+        <div class="hc-item">
+          <div class="hc-stat">Tues–Sat</div>
+          <div class="hc-label">Open for dinner<br>from 5pm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">🫒 Mediterranean inspired</div>
+    <div class="trust-item">🇲🇦 Moroccan roots</div>
+    <div class="trust-item">🇮🇹 Italian technique</div>
+    <div class="trust-item">👨‍👩‍👦 Family run</div>
+    <div class="trust-item">⭐ TripAdvisor Travellers' Choice</div>
+  </div>
+
+  <section>
+    <div class="si">
+      <p class="eye">Welcome to Olive</p>
+      <h2 class="sec-title">A Unique Dining Experience<br>on Ecclesall Road</h2>
+      <p class="sec-lead">Established in 2018 and independently owned by Freya and Rachid, Olive brings something genuinely different to Sheffield's food scene — freshly prepared dishes that blend the bold spices of Morocco with the craft and warmth of northern Italian cooking.</p>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-img" style="background-image:url('https://static.wixstatic.com/media/ee8fa0_f1ab4b1c86c54649994f439b6adcf10b~mv2.jpeg/v1/fill/w_800,h_500,al_c,q_85/ee8fa0_f1ab4b1c86c54649994f439b6adcf10b~mv2.jpeg')"></div>
+          <div class="feat-body">
+            <div class="feat-title">The Menu</div>
+            <p class="feat-text">From Moroccan meatballs and chermoula tuna to handmade pasta, wood-fired pizzas and 28-day aged steaks — there's something here for everyone.</p>
+            <span onclick="showPage('menus')" class="feat-link">Explore the menu →</span>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-img" style="background-image:url('https://static.wixstatic.com/media/ee8fa0_9847b9caefe14a31aed29728fe360857~mv2.jpeg/v1/fill/w_800,h_500,al_c,q_85/ee8fa0_9847b9caefe14a31aed29728fe360857~mv2.jpeg')"></div>
+          <div class="feat-body">
+            <div class="feat-title">Private Dining & Events</div>
+            <p class="feat-text">Whether it's a birthday, anniversary or a special night out, Olive is the perfect backdrop. Speak to us about reserving a space for your group.</p>
+            <span onclick="showPage('contact')" class="feat-link">Get in touch →</span>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-img" style="background-image:url('https://static.wixstatic.com/media/ee8fa0_b12c35e8a6294c3692b54c20568d7961~mv2.png/v1/fill/w_800,h_500,al_c,q_85/ee8fa0_b12c35e8a6294c3692b54c20568d7961~mv2.png')"></div>
+          <div class="feat-body">
+            <div class="feat-title">Freya & Rachid's Story</div>
+            <p class="feat-text">A restaurant born from a shared love of hospitality and food — and built to survive everything the hospitality industry has thrown at it since 2018.</p>
+            <span onclick="showPage('story')" class="feat-link">Our story →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--warm);padding:56px 24px">
+    <div class="si" style="text-align:center">
+      <p class="eye" style="text-align:center">Book your evening</p>
+      <h2 class="sec-title" style="text-align:center;margin-bottom:12px">Reserve Your Table at Olive</h2>
+      <p style="color:var(--muted);font-size:0.94rem;margin-bottom:24px">Tuesday to Saturday from 5pm. Walk-ins welcome when available — booking recommended for weekends.</p>
+      <a href="https://www.sheffieldolive.co.uk/reservations" target="_blank" class="btn-p" style="font-size:0.98rem;padding:15px 34px">Book Online</a>
+      <p style="margin-top:12px;font-size:0.84rem;color:var(--muted)">Or call us: <a href="tel:01142667702" style="color:var(--copper);font-weight:600">0114 266 7702</a></p>
+    </div>
+  </section>
+</div>
+
+<!-- MENU -->
+<div id="page-menus" class="page">
+  <section>
+    <div class="si">
+      <p class="eye">What we serve</p>
+      <h2 class="sec-title">Our Menu</h2>
+      <p class="sec-lead">Everything is freshly prepared. Chef Rachid draws on his Moroccan heritage and time spent in Emilia-Romagna to create a menu unlike anywhere else in Sheffield.</p>
+
+      <div class="menu-tabs">
+        <button class="mtab active" onclick="showTab('starters',this)">Starters</button>
+        <button class="mtab" onclick="showTab('pasta',this)">Pasta</button>
+        <button class="mtab" onclick="showTab('mains',this)">Mains</button>
+        <button class="mtab" onclick="showTab('steaks',this)">Steaks</button>
+        <button class="mtab" onclick="showTab('pizza',this)">Pizza</button>
+        <button class="mtab" onclick="showTab('sides',this)">Sides</button>
+      </div>
+
+      <!-- STARTERS -->
+      <div id="menu-starters" class="mpanel active">
+        <div class="msect-title">Nibbles &amp; Starters</div>
+        <div class="msect-sub">To share or to start</div>
+        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:14px">Nibbles to share:</p>
+        <div class="nibbles-row">
+          <div class="nibble">🫒 Marinated Olives</div>
+          <div class="nibble">🧂 Sea Salt Toasted Almonds</div>
+          <div class="nibble">🍞 Bread, Olive Oil &amp; Balsamic</div>
+          <div class="nibble">🟢 Salted Roasted Pistachio Nuts</div>
+        </div>
+        <div class="mgrid">
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">King Prawns</span><span class="mitem-price">£11.95</span></div>
+            <p class="mitem-desc">In our own spice mix, deep fried, preserved lemon &amp; dill aioli.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Bruschetta</span><span class="mitem-price">£10.95</span></div>
+            <p class="mitem-desc">Toasted homemade bread, basil &amp; garlic whipped feta cheese, cherry tomatoes, fresh basil &amp; extra virgin olive oil.</p>
+            <span class="mtag tag-v">V</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Moroccan Meatballs</span><span class="mitem-price">£10.95</span></div>
+            <p class="mitem-desc">Spiced tomato sauce &amp; coriander leaves.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Panko &amp; Herb Coated Halloumi</span><span class="mitem-price">£9.50</span></div>
+            <p class="mitem-desc">Harissa jam.</p>
+            <span class="mtag tag-v">V</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Arancini</span><span class="mitem-price">£10.95</span></div>
+            <p class="mitem-desc">Honey roasted butternut squash &amp; smoked scamorza arancini. Lemon crème fraîche.</p>
+            <span class="mtag tag-v">V</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Oven Baked Brie</span><span class="mitem-price">£10.50</span></div>
+            <p class="mitem-desc">Homemade tomato &amp; balsamic onion chutney, rosemary &amp; toasted bread.</p>
+            <span class="mtag tag-v">V</span><span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Fresh Mussels</span><span class="mitem-price">£11.95</span></div>
+            <p class="mitem-desc">Garlic, chilli, white wine, lemon &amp; parsley, toasted bread.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASTA -->
+      <div id="menu-pasta" class="mpanel">
+        <div class="msect-title">Pasta</div>
+        <div class="msect-sub">Handmade pasta with Italian heart</div>
+        <div class="mgrid">
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Linguini</span><span class="mitem-price">£20.95</span></div>
+            <p class="mitem-desc">King prawns, mussels, clams, calamari, garlic, chilli, white wine, baby plum tomatoes &amp; flat parsley.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Orecchiette</span><span class="mitem-price">£17.95</span></div>
+            <p class="mitem-desc">Chicken breast, chestnut mushrooms, crema di gorgonzola, rosemary, wild rocket &amp; parmesan.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Casarecce</span><span class="mitem-price">£18.85</span></div>
+            <p class="mitem-desc">Slow cooked beef brisket in red wine &amp; tomato, touch of cream, wild rocket &amp; parmesan cheese.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Ravioloni</span><span class="mitem-price">£20.95</span></div>
+            <p class="mitem-desc">Large pasta parcels with buffala ricotta &amp; spinach filling. Garlic, basil &amp; cherry tomatoes. Wild rocket, parmesan &amp; basil oil.</p>
+            <span class="mtag tag-v">V</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Oven Baked Gnocchi</span><span class="mitem-price">£17.95</span></div>
+            <p class="mitem-desc">Fried aubergine, tomato &amp; basil sauce, melted mozzarella &amp; parmesan cheese.</p>
+            <span class="mtag tag-v">V</span><span class="mtag tag-gf">VGO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAINS -->
+      <div id="menu-mains" class="mpanel">
+        <div class="msect-title">Mains</div>
+        <div class="msect-sub">Where Morocco meets the Mediterranean</div>
+        <div class="mgrid">
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Seabass</span><span class="mitem-price">£28.95</span></div>
+            <p class="mitem-desc">Pan-fried seabass, king prawns, clams &amp; mussels. Champagne sauce. Garlic &amp; caraway greens &amp; smoked paprika &amp; cumin sweet potatoes.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Pan Roasted Duck</span><span class="mitem-price">£27.95</span></div>
+            <p class="mitem-desc">A French classic — pan roasted duck breast, carved medium rare, with green peppercorn sauce. Garlic &amp; caraway greens &amp; smoked paprika &amp; cumin sweet potatoes.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Moroccan Lamb Mrouzia</span><span class="mitem-price">£27.95</span></div>
+            <p class="mitem-desc">A Moroccan favourite. Slow cooked lamb in our special spice blend, with caramelised figs &amp; prunes. Toasted sesame seeds &amp; almonds. Served with homemade bread.</p>
+            <span class="mtag tag-gf">GFO</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Chermoula Tuna</span><span class="mitem-price">£28.95</span></div>
+            <p class="mitem-desc">Chermoula marinated tuna, flash charred on the grill with roasted tomato &amp; kalamata olive tartare, wild rocket &amp; lemon wedge.</p>
+            <span class="mtag tag-gf">GF</span>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Zaalouk</span><span class="mitem-price">£19.95</span></div>
+            <p class="mitem-desc">Moroccan smoked aubergines, ras el hanout, chermoula, walnut crumb. Served with homemade bread.</p>
+            <span class="mtag tag-vg">VG</span><span class="mtag tag-gf">GFO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEAKS -->
+      <div id="menu-steaks" class="mpanel">
+        <div class="msect-title">Steaks</div>
+        <div class="msect-sub">All aged for a minimum of 28 days · served with hand-cut chips, balsamic glazed tomato &amp; wild rocket</div>
+        <div class="mgrid">
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">8oz Fillet</span><span class="mitem-price">£34.95</span></div>
+            <p class="mitem-desc">The classic — tender, lean and full of flavour.</p>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">10oz Ribeye</span><span class="mitem-price">£34.95</span></div>
+            <p class="mitem-desc">Richly marbled, deeply flavoured ribeye.</p>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">22oz T-Bone</span><span class="mitem-price">£42.95</span></div>
+            <p class="mitem-desc">The showstopper — fillet on one side, sirloin on the other.</p>
+          </div>
+          <div class="mitem">
+            <div class="mitem-top"><span class="mitem-name">Surf &amp; Turf</span><span class="mitem-price">£36.95</span></div>
+            <p class="mitem-desc">8oz beef fillet &amp; king prawn gratin.</p>
+          </div>
+        </div>
+        <div class="sauce-note">Choose a sauce: <strong>Peppercorn £3.95</strong> · <strong>Gorgonzola £3.95</strong> · <strong>Wild Mushroom &amp; Truffle £4.50</strong></div>
+      </div>
+
+      <!-- PIZZA -->
+      <div id="menu-pizza" class="mpanel">
+        <div class="msect-title">Pizza</div>
+        <div class="msect-sub">Wood-fired style with Mediterranean toppings</div>
+        <div class="mgrid">
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Margherita</span><span class="mitem-price">£12.95</span></div><p class="mitem-desc">San marzano tomato, basil, fior di latte mozzarella.</p><span class="mtag tag-v">V</span></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Buffala</span><span class="mitem-price">£14.95</span></div><p class="mitem-desc">Margherita with buffalo mozzarella.</p><span class="mtag tag-v">V</span></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Romana</span><span class="mitem-price">£13.95</span></div><p class="mitem-desc">San marzano tomato, fior di latte mozzarella, anchovies, capers, kalamata olives &amp; oregano.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Pepperoni</span><span class="mitem-price">£14.50</span></div><p class="mitem-desc">San marzano tomato, fior di latte mozzarella &amp; pepperoni.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Ortolana</span><span class="mitem-price">£14.50</span></div><p class="mitem-desc">San marzano tomato, fior di latte mozzarella, mushrooms, grilled peppers, courgette &amp; kalamata olives.</p><span class="mtag tag-v">V</span></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Capriciosa</span><span class="mitem-price">£14.95</span></div><p class="mitem-desc">San marzano tomato, fior di latte mozzarella, mushrooms, ham, salami &amp; kalamata olives.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Ras el Hanout Pulled Lamb</span><span class="mitem-price">£17.95</span></div><p class="mitem-desc">San marzano tomato base, spiced pulled lamb, rocket, pecorino cheese &amp; spiced honey.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Parmigiana</span><span class="mitem-price">£15.50</span></div><p class="mitem-desc">San marzano tomato, fior di latte mozzarella, aubergine, basil &amp; grana padano.</p><span class="mtag tag-v">V</span></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Carlofortina</span><span class="mitem-price">£15.95</span></div><p class="mitem-desc">San marzano tomato, fior di latte mozzarella, tuna, kalamata olives &amp; pesto.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">King Prawn &amp; Courgette ✦</span><span class="mitem-price">£17.95</span></div><p class="mitem-desc">Fior di latte mozzarella, garlic &amp; parsley king prawns &amp; courgettes.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Moroccan Merguez ✦</span><span class="mitem-price">£17.95</span></div><p class="mitem-desc">San marzano tomato, sautéed Moroccan lamb sausage &amp; onions, ricotta.</p></div>
+        </div>
+        <div class="sauce-note">Pizza dips: Hot honey £2.50 · Harissa jam £2.50 · Garlic aioli £2.50</div>
+      </div>
+
+      <!-- SIDES -->
+      <div id="menu-sides" class="mpanel">
+        <div class="msect-title">Sides</div>
+        <div class="msect-sub">To go alongside</div>
+        <div class="mgrid">
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Truffle &amp; Parmesan Chips</span><span class="mitem-price">£6.50</span></div></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Plain Chips</span><span class="mitem-price">£4.95</span></div></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Garlic, Caraway Greens</span><span class="mitem-price">£4.50</span></div><span class="mtag tag-v">V</span></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Rocket &amp; Parmesan Salad</span><span class="mitem-price">£6.95</span></div><span class="mtag tag-v">V</span></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Garlic Bread</span><span class="mitem-price">£4.50–£5.95</span></div><p class="mitem-desc">Plain, cheese &amp; onion, tomato, or cheese &amp; tomato.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Bread Basket</span><span class="mitem-price">£2.95</span></div></div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:20px;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:7px">⚠️ Allergens are present in our kitchen. Please inform a member of staff if you have any allergies or dietary requirements before ordering.</p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- STORY -->
+<div id="page-story" class="page">
+  <section>
+    <div class="si">
+      <p class="eye">Who we are</p>
+      <h2 class="sec-title">Freya &amp; Rachid's Story</h2>
+      <div class="two-col">
+        <div>
+          <p>Olive is a unique dining experience, established in 2018 and independently owned and run by Freya and Rachid, whose love of hospitality is evident in everything about the food and service.</p>
+          <p>Chef Rachid brings a rare combination of influences to the kitchen — his Moroccan roots and time spent living and working in Italian kitchens in Emilia-Romagna, north Italy. The result is a menu that you genuinely won't find anywhere else in Sheffield: North African spice meets Italian craft, all made fresh each evening.</p>
+          <p>Olive has gone through changes since 2018 — navigating Covid, the financial crisis, and widespread staff shortages in the hospitality sector — and has kept adapting to the wants and needs of its regulars while striving to remain a genuinely great restaurant. In late 2023, the opportunity to take over the shop next door arose, and Freya and Rachid couldn't say no.</p>
+          <p>The result is the Olive you see today: bigger, more comfortable, and with the same independently-run spirit at its heart.</p>
+          <a href="https://www.sheffieldolive.co.uk/reservations" target="_blank" class="btn-p" style="display:inline-block;margin-top:8px">Book Your Table</a>
+        </div>
+        <div class="two-col-img" style="background-image:url('https://static.wixstatic.com/media/ee8fa0_43d96e9ff1184b749ff16a8434990328~mv2.jpg/v1/fill/w_900,h_700,al_c,q_85/ee8fa0_43d96e9ff1184b749ff16a8434990328~mv2.jpg')"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <section>
+    <div class="si">
+      <p class="eye">Find us</p>
+      <h2 class="sec-title">Contact &amp; Opening Hours</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="c-card" style="margin-bottom:20px">
+            <div class="c-title">Get in Touch</div>
+            <div class="c-row"><span class="c-icon">📍</span><div><div class="c-label">Address</div><div class="c-val">760-762 Ecclesall Rd, Sheffield S11 8TB</div></div></div>
+            <div class="c-row"><span class="c-icon">📞</span><div><div class="c-label">Phone</div><div class="c-val"><a href="tel:01142667702">0114 266 7702</a></div></div></div>
+            <div class="c-row"><span class="c-icon">✉</span><div><div class="c-label">Email</div><div class="c-val"><a href="mailto:info@sheffieldolive.co.uk">info@sheffieldolive.co.uk</a></div></div></div>
+            <button class="book-btn" onclick="window.open('https://www.sheffieldolive.co.uk/reservations','_blank')">Book a Table Online</button>
+          </div>
+          <div class="c-card">
+            <div class="c-title">Opening Hours</div>
+            <table class="h-table">
+              <tr><td>Monday</td><td class="closed">Closed</td></tr>
+              <tr><td>Tuesday</td><td>5:00pm – 10:30pm</td></tr>
+              <tr><td>Wednesday</td><td>5:00pm – 10:30pm</td></tr>
+              <tr><td>Thursday</td><td>5:00pm – 10:30pm</td></tr>
+              <tr><td>Friday</td><td>5:00pm – 11:00pm</td></tr>
+              <tr><td>Saturday</td><td>5:00pm – 11:00pm</td></tr>
+              <tr><td>Sunday</td><td class="closed">Closed</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="c-card">
+          <div class="c-title">Find Us on Ecclesall Road</div>
+          <div style="border-radius:8px;overflow:hidden;height:360px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2380.2!2d-1.5001!3d53.3720!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879823!2s760+Ecclesall+Rd+Sheffield!5e0!3m2!1sen!2suk!4v1" width="100%" height="360" style="border:0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p style="margin-top:14px;font-size:0.83rem;color:var(--muted)">📍 Close to Endcliffe Park · Street parking available on Ecclesall Road</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <strong>Olive Sheffield</strong> &nbsp;·&nbsp; 760-762 Ecclesall Rd, Sheffield S11 8TB &nbsp;·&nbsp; 0114 266 7702<br>
+  <span style="margin-top:6px;display:block">Website concept built by <a href="#">Trabelo · Sheffield</a></span>
+</footer>
+
+<script>
+  function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
+    document.getElementById('page-'+id).classList.add('active');
+    var btn=document.getElementById('nav-'+id);
+    if(btn)btn.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function showTab(id,el){
+    document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));
+    document.getElementById('menu-'+id).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

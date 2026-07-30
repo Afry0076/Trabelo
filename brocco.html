@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brocco on the Park — Boutique Hotel &amp; Restaurant, Sheffield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --forest:#1E3B2C;
+      --forest-light:#2A5040;
+      --gold:#A8853A;
+      --gold-light:#C9A04A;
+      --stone:#F7F4EE;
+      --warm:#EEE9DF;
+      --border:#DDD5C5;
+      --text:#1A1A1A;
+      --muted:#6B6050;
+      --charcoal:#2C2C2C;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--stone);color:var(--text);min-height:100vh}
+
+    /* DISCLAIMER */
+    .disclaimer{background:#111;color:#fff;text-align:center;padding:9px 20px;font-size:0.75rem;line-height:1.5}
+    .disclaimer a{color:var(--gold-light);text-decoration:underline}
+
+    /* TOPBAR */
+    .topbar{background:var(--forest);padding:8px 24px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+    .topbar a{color:rgba(255,255,255,0.82);font-size:0.77rem;text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s}
+    .topbar a:hover{color:#fff}
+    .topbar-sep{color:rgba(255,255,255,0.2)}
+
+    /* NAV */
+    nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+    .logo{cursor:pointer;text-decoration:none}
+    .logo-top{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--forest);letter-spacing:0.04em;line-height:1}
+    .logo-sub{font-size:0.6rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:0.2em;margin-top:1px}
+    .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+    .nav-links button{background:none;border:none;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:500;color:var(--muted);cursor:pointer;padding:8px 12px;border-radius:5px;transition:all 0.2s}
+    .nav-links button:hover,.nav-links button.active{color:var(--forest);background:rgba(30,59,44,0.07)}
+    .nav-cta{background:var(--gold)!important;color:#fff!important;border-radius:6px!important;font-weight:600!important}
+    .nav-cta:hover{background:var(--gold-light)!important;color:#fff!important}
+
+    .page{display:none;animation:fadeIn 0.3s ease}
+    .page.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+    /* HERO */
+    .hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/9f4836_58f4b89e6ff048b2a7e3c850626a5b7d~mv2.jpg/v1/fill/w_1920,h_900,al_c,q_85/9f4836_58f4b89e6ff048b2a7e3c850626a5b7d~mv2.jpg');background-size:cover;background-position:center;filter:brightness(0.38)}
+    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;width:100%}
+    .hero-eye{font-size:0.7rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6.5vw,5rem);font-weight:700;color:#fff;line-height:1.08;margin-bottom:18px}
+    .hero-title em{font-style:italic;color:var(--gold-light)}
+    .hero-sub{font-size:1rem;color:rgba(255,255,255,0.8);line-height:1.74;max-width:500px;margin-bottom:30px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-p{display:inline-block;background:var(--gold);color:#fff;padding:14px 28px;border-radius:5px;font-weight:600;font-size:0.9rem;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
+    .btn-p:hover{background:var(--gold-light)}
+    .btn-o{display:inline-block;border:2px solid rgba(255,255,255,0.55);color:#fff;padding:12px 26px;border-radius:5px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;background:transparent}
+    .btn-o:hover{border-color:#fff;background:rgba(255,255,255,0.08)}
+    .hero-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:22px 20px;min-width:210px}
+    .hc-item{text-align:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+    .hc-item:last-child{border-bottom:none}
+    .hc-stat{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold-light);line-height:1}
+    .hc-stat-sm{font-size:1.2rem}
+    .hc-label{font-size:0.63rem;color:rgba(255,255,255,0.58);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px}
+
+    /* TRUST */
+    .trust-strip{background:var(--charcoal);padding:14px 24px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+    .trust-item{color:rgba(255,255,255,0.72);font-size:0.78rem;font-weight:500;display:flex;align-items:center;gap:7px}
+
+    /* SECTIONS */
+    section{padding:76px 24px}
+    .si{max-width:1100px;margin:0 auto}
+    .eye{font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+    .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,2.9rem);font-weight:700;color:var(--forest);line-height:1.15;margin-bottom:16px}
+    .sec-lead{font-size:0.94rem;color:var(--muted);line-height:1.84;max-width:660px;margin-bottom:36px}
+
+    /* FEAT GRID */
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:32px}
+    .feat-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+    .feat-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,0.08)}
+    .feat-img{height:180px;background-size:cover;background-position:center}
+    .feat-body{padding:20px}
+    .feat-title{font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-weight:700;color:var(--forest);margin-bottom:7px}
+    .feat-text{font-size:0.86rem;color:var(--muted);line-height:1.7}
+    .feat-link{display:inline-block;margin-top:11px;font-size:0.8rem;font-weight:600;color:var(--gold);cursor:pointer}
+    .feat-link:hover{text-decoration:underline}
+
+    /* TWO COL */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+    .two-col-img{border-radius:10px;height:420px;background-size:cover;background-position:center;box-shadow:0 8px 28px rgba(0,0,0,0.1)}
+    .two-col p{font-size:0.93rem;color:var(--muted);line-height:1.86;margin-bottom:14px}
+
+    /* AWARDS STRIP */
+    .awards-strip{background:var(--forest);padding:44px 24px;color:#fff}
+    .awards-inner{max-width:1100px;margin:0 auto}
+    .awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:28px}
+    .award-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:22px;text-align:center}
+    .award-icon{font-size:1.8rem;margin-bottom:10px}
+    .award-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:5px}
+    .award-sub{font-size:0.75rem;color:rgba(255,255,255,0.55)}
+
+    /* ROOMS */
+    .rooms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:32px}
+    .room-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;align-items:center;gap:14px}
+    .room-icon{font-size:1.6rem}
+    .room-name{font-weight:600;font-size:0.93rem;color:var(--forest);margin-bottom:3px}
+    .room-desc{font-size:0.78rem;color:var(--muted)}
+
+    /* MENU */
+    .menu-tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid var(--border);margin-bottom:28px}
+    .mtab{background:none;border:none;font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:500;color:var(--muted);cursor:pointer;padding:10px 16px;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+    .mtab.active{color:var(--forest);border-bottom-color:var(--forest);font-weight:600}
+    .mtab:hover:not(.active){color:var(--gold)}
+    .mpanel{display:none}
+    .mpanel.active{display:block;animation:fadeIn 0.25s ease}
+    .msect-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--forest);margin-bottom:4px}
+    .msect-sub{font-size:0.8rem;color:var(--muted);font-style:italic;margin-bottom:22px}
+    .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+    .mitem{background:#fff;border:1px solid var(--border);border-radius:9px;padding:16px 18px}
+    .mitem-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:5px}
+    .mitem-name{font-weight:600;font-size:0.93rem;color:var(--forest)}
+    .mitem-price{font-weight:700;color:var(--gold);font-size:0.93rem;white-space:nowrap}
+    .mitem-desc{font-size:0.81rem;color:var(--muted);line-height:1.62}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:36px}
+    .c-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px}
+    .c-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--forest);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .c-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+    .c-row:last-child{border-bottom:none}
+    .c-icon{min-width:20px;font-size:1rem}
+    .c-label{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:2px}
+    .c-val{font-size:0.89rem}
+    .c-val a{color:var(--forest);text-decoration:none}
+    .c-val a:hover{text-decoration:underline}
+    .h-table{width:100%;border-collapse:collapse;font-size:0.86rem}
+    .h-table tr td{padding:7px 0;border-bottom:1px solid var(--border);color:var(--muted)}
+    .h-table tr td:first-child{font-weight:600;color:var(--text);width:90px}
+    .h-table tr:last-child td{border-bottom:none}
+    .book-btn{background:var(--gold);color:#fff;border:none;padding:13px 24px;border-radius:5px;font-size:0.9rem;font-weight:600;cursor:pointer;width:100%;margin-top:18px;font-family:'Inter',sans-serif;transition:background 0.2s}
+    .book-btn:hover{background:var(--gold-light)}
+
+    footer{background:#111;color:rgba(255,255,255,0.4);text-align:center;padding:26px;font-size:0.77rem}
+    footer a{color:rgba(255,255,255,0.25);text-decoration:none}
+    footer strong{color:rgba(255,255,255,0.6)}
+
+    @media(max-width:768px){
+      .hero-content{grid-template-columns:1fr}
+      .hero-card{display:none}
+      .two-col{grid-template-columns:1fr}
+      .two-col-img{height:240px}
+      .contact-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<div class="disclaimer">
+  <strong>Concept site</strong> — this is not the official website of Brocco on the Park. Built by Trabelo as a free pitch demo. <a href="https://www.brocco.co.uk" target="_blank">Visit the real site →</a>
+</div>
+
+<div class="topbar">
+  <a href="tel:01142661233">📞 0114 266 1233</a>
+  <span class="topbar-sep">|</span>
+  <a href="mailto:reception@brocco.co.uk">✉ reception@brocco.co.uk</a>
+  <span class="topbar-sep">|</span>
+  <a href="#" onclick="showPage('contact');return false">📍 92 Brocco Bank, Sheffield S11 8RS</a>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="showPage('home');return false">
+      <div class="logo-top">Brocco</div>
+      <div class="logo-sub">On The Park · Sheffield</div>
+    </a>
+    <ul class="nav-links">
+      <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
+      <li><button onclick="showPage('menus')" id="nav-menus">Menus</button></li>
+      <li><button onclick="showPage('stay')" id="nav-stay">Stay</button></li>
+      <li><button onclick="showPage('about')" id="nav-about">About</button></li>
+      <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
+      <li><button onclick="window.open('https://bookings.designmynight.com/book?venue_id=6320825742edd3725732c1dc&source=partner','_blank')" class="nav-cta">Book a Table</button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <p class="hero-eye">Michelin Plated · Award-Winning · Sheffield</p>
+        <h1 class="hero-title">Sheffield's Finest<br>Boutique Hotel<br>&amp; <em>Restaurant</em></h1>
+        <p class="hero-sub">Eat well, sleep well, live well. Brocco on the Park is Sheffield's only 5-star restaurant with rooms — listed in the Michelin Guide and awarded Best Hotel Restaurant in Sheffield for 10 consecutive years.</p>
+        <div class="hero-btns">
+          <a href="https://bookings.designmynight.com/book?venue_id=6320825742edd3725732c1dc&source=partner" target="_blank" class="btn-p">Book a Table</a>
+          <a href="https://direct-book.com/properties/broccoontheparkdirect" target="_blank" class="btn-o">Book a Room</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-item">
+          <div class="hc-stat">Michelin</div>
+          <div class="hc-label">Guide 2026</div>
+        </div>
+        <div class="hc-item">
+          <div class="hc-stat hc-stat-sm">10 Years</div>
+          <div class="hc-label">Best Hotel Restaurant<br>Consecutive wins</div>
+        </div>
+        <div class="hc-item">
+          <div class="hc-stat">8</div>
+          <div class="hc-label">Boutique rooms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">⭐ Michelin Guide 2026</div>
+    <div class="trust-item">🏆 Best Hotel Restaurant 2025</div>
+    <div class="trust-item">🎨 Edwardian villa by the park</div>
+    <div class="trust-item">🥂 Bottomless brunch</div>
+    <div class="trust-item">🍰 Afternoon tea</div>
+  </div>
+
+  <section>
+    <div class="si">
+      <p class="eye">Welcome</p>
+      <h2 class="sec-title">Eat Well. Sleep Well. Live Well.</h2>
+      <p class="sec-lead">From a derelict Edwardian villa to Sheffield's most-awarded hotel and restaurant, Brocco on the Park offers a dining and sleeping experience unlike anything else in the city. Head Chef John Cluckie and his team create a unique culinary experience — Michelin-listed, locally loved, and independently run.</p>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-img" style="background-image:url('https://static.wixstatic.com/media/0b6cbc_9ed7df0fa96d40a99102d9589a75e6f9~mv2.jpeg/v1/fill/w_800,h_500,al_c,q_85/0b6cbc_9ed7df0fa96d40a99102d9589a75e6f9~mv2.jpeg')"></div>
+          <div class="feat-body">
+            <div class="feat-title">Brocco Kitchen</div>
+            <p class="feat-text">Michelin-listed fine dining, bottomless brunch, afternoon tea, Sunday menus and private dining — all from Head Chef John Cluckie's kitchen.</p>
+            <span onclick="showPage('menus')" class="feat-link">View menus →</span>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-img" style="background-image:url('https://static.wixstatic.com/media/9f4836_8c072464f9a24221bd580ef784d7a6cf~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85/9f4836_8c072464f9a24221bd580ef784d7a6cf~mv2.jpg')"></div>
+          <div class="feat-body">
+            <div class="feat-title">Your Nest</div>
+            <p class="feat-text">Eight beautifully named rooms overlooking the park. Clean lines, quality furnishings, and every detail thought about — from the hand-picked toiletries to the morning coffee.</p>
+            <span onclick="showPage('stay')" class="feat-link">See the rooms →</span>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-img" style="background-image:url('https://static.wixstatic.com/media/9f4836_ddfec9847f9844a4952571222db519e5~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85/9f4836_ddfec9847f9844a4952571222db519e5~mv2.jpg')"></div>
+          <div class="feat-body">
+            <div class="feat-title">Weddings &amp; Private Hire</div>
+            <p class="feat-text">An intimate Sheffield wedding venue and event space with a flock of accolades and reviews. The Dovecote offers exclusive dining for special occasions.</p>
+            <span onclick="showPage('contact')" class="feat-link">Enquire →</span>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-img" style="background-image:url('https://static.wixstatic.com/media/0b6cbc_5e50d9d47d7e4c82a49a8e2433284b9d~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85/0b6cbc_5e50d9d47d7e4c82a49a8e2433284b9d~mv2.jpg')"></div>
+          <div class="feat-body">
+            <div class="feat-title">Afternoon Tea</div>
+            <p class="feat-text">Sheffield's most refined afternoon tea — served daily in the Brocco dining room. Perfect for celebrations, gatherings, or a luxurious midweek treat.</p>
+            <span onclick="window.open('https://www.brocco.co.uk/afternoon-tea','_blank')" class="feat-link">Book afternoon tea →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="awards-strip">
+    <div class="awards-inner">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px">Recognition</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff;margin-bottom:4px">Award-Winning Since Day One</h2>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.6)">A flock of local, regional and national accolades for both the hotel and restaurant.</p>
+      <div class="awards-grid">
+        <div class="award-card"><div class="award-icon">⭐</div><div class="award-title">Michelin Guide 2026</div><div class="award-sub">5th consecutive year — Michelin Plated</div></div>
+        <div class="award-card"><div class="award-icon">🏆</div><div class="award-title">Best Hotel Restaurant 2025</div><div class="award-sub">Westside Awards — 10th consecutive year</div></div>
+        <div class="award-card"><div class="award-icon">🍽</div><div class="award-title">Best Contemporary Restaurant 2023</div><div class="award-sub">Westside Bar &amp; Restaurant Awards</div></div>
+        <div class="award-card"><div class="award-icon">📖</div><div class="award-title">Good Hotel Guide 2022</div><div class="award-sub">Editor's Choice — Foodie</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENUS -->
+<div id="page-menus" class="page">
+  <section>
+    <div class="si">
+      <p class="eye">Brocco Kitchen</p>
+      <h2 class="sec-title">Our Menus</h2>
+      <p class="sec-lead">Head Chef John Cluckie and his team plate up seasonal, creative dishes with passion — from early morning breakfasts to Michelin-calibre dinner service. Every meal is an experience.</p>
+
+      <div class="menu-tabs">
+        <button class="mtab active" onclick="showTab('dinner',this)">Dinner</button>
+        <button class="mtab" onclick="showTab('brunch',this)">Brunch &amp; Breakfast</button>
+        <button class="mtab" onclick="showTab('afternoon',this)">Afternoon Tea</button>
+        <button class="mtab" onclick="showTab('sunday',this)">Sunday</button>
+      </div>
+
+      <!-- DINNER -->
+      <div id="menu-dinner" class="mpanel active">
+        <div class="msect-title">Dinner Menu</div>
+        <div class="msect-sub">Served 5:00pm – 9:00pm · 10% discretionary service charge — 100% goes to the team</div>
+        <p style="font-size:0.83rem;font-weight:600;color:var(--forest);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.1em">Appetisers</p>
+        <div class="mgrid" style="margin-bottom:28px">
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Tea Smoked Duck</span><span class="mitem-price">£15</span></div><p class="mitem-desc">Rhubarb ketchup, braised chicory, burnt orange, fresh herbs.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Whipped Goats Cheese</span><span class="mitem-price">£12</span></div><p class="mitem-desc">Textures of beetroot, walnut crumb.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Seared Curried Scallops</span><span class="mitem-price">£16.50</span></div><p class="mitem-desc">Truffle cauliflower purée, capers, squid ink sauce &amp; vanilla foam.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Beef Carpaccio</span><span class="mitem-price">£13</span></div><p class="mitem-desc">Rocket, parmesan, capers &amp; Harry's dressing.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Henderson's Cured Salmon</span><span class="mitem-price">£13</span></div><p class="mitem-desc">Seasonal herb &amp; vegetable salad, herb oil.</p></div>
+        </div>
+        <p style="font-size:0.83rem;font-weight:600;color:var(--forest);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.1em">Mains</p>
+        <div class="mgrid" style="margin-bottom:28px">
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Pan-Fried Chicken Supreme</span><span class="mitem-price">£21</span></div><p class="mitem-desc">Potato dumplings, spinach, vine tomatoes, asparagus, butter emulsion &amp; basil oil.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Harissa Glazed Rack of Lamb</span><span class="mitem-price">£28</span></div><p class="mitem-desc">Little gem, garden peas, mint, asparagus, crumbled feta &amp; yoghurt.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Shallot Tarte Tatin</span><span class="mitem-price">£19</span></div><p class="mitem-desc">Caramelised shallot, thyme puff pastry, burnt onion purée, warm caesar salad &amp; crispy onions.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Dry Aged Rib-Eye Steak</span><span class="mitem-price">£35</span></div><p class="mitem-desc">Garlic &amp; rosemary fondant potato, beer battered onion, mushroom duxelles &amp; béarnaise sauce.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Grilled Cod</span><span class="mitem-price">£24</span></div><p class="mitem-desc">Chorizo, purple sprouting broccoli, sauce vierge.</p></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Land &amp; Sea</span><span class="mitem-price">£28</span></div><p class="mitem-desc">Pressed belly of pork, seared scallops, leek, samphire, parsley root, mussels &amp; cider sauce.</p></div>
+        </div>
+        <p style="font-size:0.83rem;font-weight:600;color:var(--forest);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.1em">Sides</p>
+        <div class="mgrid">
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Parmesan Truffle Fries</span><span class="mitem-price">£6</span></div></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Salt &amp; Pepper Chunky Chips</span><span class="mitem-price">£6</span></div></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Seasonal Vegetables</span><span class="mitem-price">£6</span></div></div>
+          <div class="mitem"><div class="mitem-top"><span class="mitem-name">Rocket Salad</span><span class="mitem-price">£6</span></div></div>
+        </div>
+      </div>
+
+      <!-- BRUNCH -->
+      <div id="menu-brunch" class="mpanel">
+        <div class="msect-title">Breakfast &amp; Brunch</div>
+        <div class="msect-sub">Monday–Saturday 7:30am · Sunday 9:00am · Also available: Bottomless Brunch</div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;max-width:500px">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);margin-bottom:10px">Sheffield's best brunch</p>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:16px">Brocco has been awarded Sheffield's best brunch — serving everything from freshly brewed coffee and pastries to full cooked breakfast and weekend bottomless brunch packages. Full menus available on request or at the restaurant.</p>
+          <a href="https://bookings.designmynight.com/book?venue_id=6320825742edd3725732c1dc&source=partner" target="_blank" class="btn-p" style="display:inline-block;font-size:0.88rem;padding:11px 22px">Book Brunch</a>
+        </div>
+      </div>
+
+      <!-- AFTERNOON TEA -->
+      <div id="menu-afternoon" class="mpanel">
+        <div class="msect-title">Afternoon Tea</div>
+        <div class="msect-sub">Available daily · advance booking recommended</div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;max-width:500px">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);margin-bottom:10px">An afternoon to remember</p>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:16px">Brocco's afternoon tea is Sheffield's most refined — freshly made sandwiches, warm scones with clotted cream, patisserie and a selection of premium teas and coffees. Perfect for celebrations, hen parties, or a luxurious treat for yourself.</p>
+          <a href="https://www.brocco.co.uk/afternoon-tea" target="_blank" class="btn-p" style="display:inline-block;font-size:0.88rem;padding:11px 22px">Book Afternoon Tea</a>
+        </div>
+      </div>
+
+      <!-- SUNDAY -->
+      <div id="menu-sunday" class="mpanel">
+        <div class="msect-title">Sunday Menu</div>
+        <div class="msect-sub">Sunday 9:00am – 6:00pm</div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;max-width:500px">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);margin-bottom:10px">Sunday at Brocco</p>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:16px">Our Sunday menu is a sample menu — dishes change seasonally with the finest available produce. Expect John Cluckie's signature approach to seasonal British cooking, relaxed service, and the warmth of the Brocco dining room. Full Sunday menu available on request.</p>
+          <a href="https://bookings.designmynight.com/book?venue_id=6320825742edd3725732c1dc&source=partner" target="_blank" class="btn-p" style="display:inline-block;font-size:0.88rem;padding:11px 22px">Book Sunday Lunch</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- STAY -->
+<div id="page-stay" class="page">
+  <section>
+    <div class="si">
+      <p class="eye">Your Nest</p>
+      <h2 class="sec-title">Stay at Brocco</h2>
+      <p class="sec-lead">Eight beautifully styled rooms in Sheffield's finest boutique hotel — each named after a bird, each with its own character. Clean lines, quality furnishings, hand-picked details, and nothing too much trouble.</p>
+      <div class="rooms-grid">
+        <div class="room-card"><div class="room-icon">🕊</div><div><div class="room-name">The Dovecote</div><div class="room-desc">Exclusive private dining room</div></div></div>
+        <div class="room-card"><div class="room-icon">🐦</div><div><div class="room-name">Swallow's Rafter</div><div class="room-desc">Light and airy</div></div></div>
+        <div class="room-card"><div class="room-icon">🐤</div><div><div class="room-name">Chiffchaff's Post</div><div class="room-desc">Cosy and intimate</div></div></div>
+        <div class="room-card"><div class="room-icon">🐦‍⬛</div><div><div class="room-name">Robin's Hollow</div><div class="room-desc">Classic comfort</div></div></div>
+        <div class="room-card"><div class="room-icon">🦅</div><div><div class="room-name">Nightjar's Nest</div><div class="room-desc">Evening retreat</div></div></div>
+        <div class="room-card"><div class="room-icon">🦉</div><div><div class="room-name">Owl's Burrow</div><div class="room-desc">Peaceful hideaway</div></div></div>
+        <div class="room-card"><div class="room-icon">🐦</div><div><div class="room-name">Woodpecker's Roost</div><div class="room-desc">Park views</div></div></div>
+        <div class="room-card"><div class="room-icon">🐦</div><div><div class="room-name">Pigeon's Loft</div><div class="room-desc">Top floor tranquility</div></div></div>
+      </div>
+      <div style="margin-top:32px;text-align:center">
+        <a href="https://direct-book.com/properties/broccoontheparkdirect" target="_blank" class="btn-p" style="font-size:0.95rem;padding:14px 32px">Check Availability &amp; Book</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <section>
+    <div class="si">
+      <p class="eye">Our story</p>
+      <h2 class="sec-title">About Brocco on the Park</h2>
+      <div class="two-col">
+        <div>
+          <p>Brocco is very much in the heart of its community — independently owned and run, with a flock of accolades, reviews and awards, local, regional and national, for both the hotel and the restaurant.</p>
+          <p>Our Edwardian villa by the park was taken from a derelict state in 2014 with the view to creating an experience that was affordably stylish. Whether you want to pop in for a cup of freshly brewed coffee and a chat, or a weekend away with a loved one, there is an experience for everyone.</p>
+          <p>Our mantra is eat well, sleep well, live well — and everything at Brocco has been thought about. If it can be home-made, hand-picked or personalised, it has been. Nothing is too much trouble when it comes to making you feel at home.</p>
+          <p>The building was designed in keeping with its Edwardian heritage and internally styled with simplicity and cosiness in mind, resulting in clean, uncluttered lines and a soothing palette of colours.</p>
+          <p style="font-size:0.82rem;color:var(--gold);font-style:italic">Picasso once stayed in this building.</p>
+        </div>
+        <div class="two-col-img" style="background-image:url('https://static.wixstatic.com/media/9f4836_1ad6e120d983437cab834024e2e50642~mv2.jpg/v1/fill/w_900,h_700,al_c,q_85/9f4836_1ad6e120d983437cab834024e2e50642~mv2.jpg')"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <section>
+    <div class="si">
+      <p class="eye">Find us</p>
+      <h2 class="sec-title">Contact &amp; Opening Hours</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="c-card" style="margin-bottom:20px">
+            <div class="c-title">Get in Touch</div>
+            <div class="c-row"><span class="c-icon">📍</span><div><div class="c-label">Address</div><div class="c-val">92 Brocco Bank, Sheffield, S11 8RS</div></div></div>
+            <div class="c-row"><span class="c-icon">📞</span><div><div class="c-label">Phone</div><div class="c-val"><a href="tel:01142661233">0114 266 1233</a></div></div></div>
+            <div class="c-row"><span class="c-icon">✉</span><div><div class="c-label">Email</div><div class="c-val"><a href="mailto:reception@brocco.co.uk">reception@brocco.co.uk</a></div></div></div>
+            <button class="book-btn" onclick="window.open('https://bookings.designmynight.com/book?venue_id=6320825742edd3725732c1dc&source=partner','_blank')">Book a Table</button>
+            <button class="book-btn" style="margin-top:8px;background:var(--forest)" onclick="window.open('https://direct-book.com/properties/broccoontheparkdirect','_blank')">Book a Room</button>
+          </div>
+          <div class="c-card">
+            <div class="c-title">Food Service Hours</div>
+            <table class="h-table">
+              <tr><td>Mon–Sat</td><td>7:30am – 9:00pm</td></tr>
+              <tr><td>Sunday</td><td>9:00am – 6:00pm</td></tr>
+            </table>
+            <p style="font-size:0.78rem;color:var(--muted);margin-top:12px">Dinner service: 5pm – 9pm · Breakfast from 7:30am</p>
+          </div>
+        </div>
+        <div class="c-card">
+          <div class="c-title">92 Brocco Bank, Sheffield</div>
+          <div style="border-radius:8px;overflow:hidden;height:340px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2380!2d-1.503!3d53.372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879826!2s92+Brocco+Bank+Sheffield!5e0!3m2!1sen!2suk!4v1" width="100%" height="340" style="border:0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p style="margin-top:12px;font-size:0.82rem;color:var(--muted)">📍 Overlooking Endcliffe Park · Easy access from Ecclesall Road</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <strong>Brocco on the Park</strong> &nbsp;·&nbsp; 92 Brocco Bank, Sheffield S11 8RS &nbsp;·&nbsp; 0114 266 1233<br>
+  <span style="margin-top:6px;display:block">Website concept built by <a href="#">Trabelo · Sheffield</a></span>
+</footer>
+
+<script>
+  function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
+    document.getElementById('page-'+id).classList.add('active');
+    var btn=document.getElementById('nav-'+id);
+    if(btn)btn.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function showTab(id,el){
+    document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));
+    document.getElementById('menu-'+id).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

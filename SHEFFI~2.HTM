@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Audit — Olive Sheffield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --olive:#3B6B35;
+      --copper:#C06428;
+      --cream:#FAF7F0;
+      --border:#E4D9C8;
+      --muted:#6B5E50;
+      --red:#e74c3c;
+      --amber:#e67e22;
+      --green:#27ae60;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:#1a1a1a;line-height:1.6}
+    header{background:var(--olive);padding:48px 24px 40px;color:#fff}
+    .header-inner{max-width:860px;margin:0 auto}
+    .header-tag{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:10px}
+    .header-title{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:10px;line-height:1.2}
+    .header-sub{font-size:0.93rem;color:rgba(255,255,255,0.78);max-width:540px}
+    .scores-bar{background:#1a1a1a;padding:26px 24px}
+    .scores-inner{max-width:860px;margin:0 auto;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .score-box{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:9px;padding:14px 20px;text-align:center;min-width:96px}
+    .score-num{font-size:2.1rem;font-weight:700;line-height:1;margin-bottom:4px}
+    .score-name{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5)}
+    .red{color:var(--red)}.amber-c{color:var(--amber)}.green-c{color:var(--green)}
+    .score-note{font-size:0.72rem;color:rgba(255,255,255,0.38);margin-left:auto;max-width:240px;line-height:1.5}
+    main{max-width:860px;margin:0 auto;padding:48px 24px}
+    .section{margin-bottom:46px}
+    .section-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:var(--copper);margin-bottom:7px}
+    .section-title{font-size:1.38rem;font-weight:700;color:var(--olive);margin-bottom:13px}
+    .section-body{font-size:0.93rem;color:#333;line-height:1.82}
+    .section-body p{margin-bottom:12px}
+    .section-body p:last-child{margin-bottom:0}
+    .highlight-box{background:#fff;border:1px solid var(--border);border-radius:11px;padding:22px 24px;margin:18px 0}
+    .highlight-box.red-b{border-left:4px solid var(--red)}
+    .highlight-box.amber-b{border-left:4px solid var(--amber)}
+    .highlight-box.green-b{border-left:4px solid var(--green)}
+    .highlight-box h3{font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:7px}
+    .highlight-box p{font-size:0.87rem;color:var(--muted);line-height:1.7}
+    .metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0}
+    .metric{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
+    .metric-val{font-size:1.55rem;font-weight:700;line-height:1;margin-bottom:3px}
+    .metric-label{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted)}
+    .issue-list{list-style:none;margin:18px 0}
+    .issue-list li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:0.89rem;color:#333;line-height:1.65;align-items:flex-start}
+    .issue-list li:last-child{border-bottom:none}
+    .issue-icon{min-width:20px;font-size:0.95rem;margin-top:2px}
+    .issue-list strong{color:#1a1a1a}
+    .chips{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
+    .chip{font-size:0.73rem;font-weight:600;padding:4px 11px;border-radius:18px;background:#fff;border:1px solid var(--border);color:var(--muted)}
+    .chip.rc{border-color:rgba(231,76,60,0.3);color:var(--red);background:rgba(231,76,60,0.05)}
+    .good-box{background:#fff;border:1px solid var(--border);border-radius:11px;padding:22px 24px;margin:20px 0}
+    .good-box h3{font-size:1rem;font-weight:700;color:var(--green);margin-bottom:12px}
+    .good-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.87rem;color:#333}
+    .good-item:last-child{border-bottom:none}
+    .pricing{background:var(--olive);color:#fff;border-radius:13px;padding:30px;margin-top:46px}
+    .pricing h2{font-size:1.35rem;font-weight:700;margin-bottom:6px}
+    .pricing .sub{font-size:0.86rem;color:rgba(255,255,255,0.6);margin-bottom:24px}
+    .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+    .pc{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:9px;padding:20px}
+    .pc-tier{font-size:0.66rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.5);margin-bottom:6px}
+    .pc-amount{font-size:1.9rem;font-weight:700;color:#fff;margin-bottom:3px}
+    .pc-name{font-size:0.93rem;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:8px}
+    .pc-feat{font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.65}
+    .pc.feat{background:rgba(192,100,40,0.2);border-color:var(--copper)}
+    .pc.feat .pc-amount{color:#E8924A}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{display:inline-block;padding:11px 22px;border-radius:5px;font-size:0.86rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+    .btn-w{background:#fff;color:var(--olive)}
+    .btn-ow{background:transparent;border:2px solid rgba(255,255,255,0.35);color:#fff}
+    .divider{border:none;border-top:2px solid var(--border);margin:38px 0}
+    footer{text-align:center;padding:26px;font-size:0.77rem;color:#bbb;border-top:1px solid var(--border)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="header-tag">Website Audit · Prepared by Trabelo</p>
+    <h1 class="header-title">Olive Sheffield — sheffieldolive.co.uk</h1>
+    <p class="header-sub">A look at how your website is performing on mobile right now, and what's behind a 11-second load time.</p>
+  </div>
+</header>
+
+<div class="scores-bar">
+  <div class="scores-inner">
+    <div class="score-box"><div class="score-num amber-c">68</div><div class="score-name">Performance</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">Accessibility</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">Best Practices</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">SEO</div></div>
+    <p class="score-note">Google Lighthouse · Mobile · July 2026<br>0–49 poor · 50–89 needs work · 90–100 good</p>
+  </div>
+</div>
+
+<main>
+
+  <div class="section">
+    <p class="section-label">The headline</p>
+    <h2 class="section-title">Your main content takes 11 seconds to appear on a phone</h2>
+    <div class="section-body">
+      <p>Google measures something called the Largest Contentful Paint — this is how long it takes before the main content of your page actually shows up on screen for someone on a mobile phone. For Olive Sheffield, that number is <strong>11.1 seconds</strong>.</p>
+      <p>Google's threshold for a "good" result is 2.5 seconds. Anything over 4 seconds is classified as "poor". At 11.1 seconds, someone searching for "Mediterranean restaurant Sheffield" on their phone is looking at a blank or half-loaded screen for more than eleven seconds before they see your restaurant.</p>
+    </div>
+    <div class="metric-row">
+      <div class="metric"><div class="metric-val red">3.3s</div><div class="metric-label">First thing appears (FCP)</div></div>
+      <div class="metric"><div class="metric-val red">11.1s</div><div class="metric-label">Main content loads (LCP)</div></div>
+      <div class="metric"><div class="metric-val red">3.3s</div><div class="metric-label">Speed Index</div></div>
+      <div class="metric"><div class="metric-val green-c">0ms</div><div class="metric-label">Blocking time (TBT)</div></div>
+    </div>
+    <div class="highlight-box red-b">
+      <h3>11 seconds is a long time to lose a customer</h3>
+      <p>Research from Google shows that more than half of visitors abandon a mobile page if it takes more than 3 seconds to load. At 11 seconds, the vast majority of people searching for somewhere to eat — especially on a Friday or Saturday evening when they're deciding in the moment — will have given up and moved on to somewhere else before your page even loads.</p>
+    </div>
+    <div class="section-body">
+      <p>One important note: the FCP (first contentful paint) at 3.3 seconds means something appears reasonably quickly — but the LCP of 11.1 seconds shows that the main content of your page (likely your hero image or banner) takes a very long time to fully load. This creates a frustrating partial-load experience.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">Why it's happening</p>
+    <h2 class="section-title">Wix platform overhead and image loading</h2>
+    <div class="section-body">
+      <p>Your site is built on Wix, which is a flexible tool but one that brings a significant amount of behind-the-scenes code to every page — code that visitors have to download before your site can finish loading. The audit also flagged issues with how your images are being delivered to mobile devices.</p>
+    </div>
+    <div class="chips">
+      <span class="chip rc">132 KiB unused JavaScript</span>
+      <span class="chip rc">58 KiB image delivery improvement</span>
+      <span class="chip rc">23 KiB duplicate JavaScript</span>
+      <span class="chip rc">12 KiB legacy JavaScript</span>
+      <span class="chip">543 internal timing measurements</span>
+      <span class="chip">4+ preconnect connections</span>
+    </div>
+    <ul class="issue-list">
+      <li><span class="issue-icon">⚠️</span><div><strong>132 KiB of unused JavaScript.</strong> Your site loads over 130 kilobytes of JavaScript that never actually runs — code for Wix features and platform tools that aren't needed for your pages. On a mobile connection, this takes time to download before anything else can happen.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>Image delivery — 58 KiB saving available.</strong> Your images aren't being optimally sized and formatted for mobile screens. A mobile visitor is downloading images that are larger than they need to be, which explains part of why the LCP is so high. Properly optimised images would save 58 KiB and significantly speed up the main content load.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>Duplicate JavaScript (23 KiB).</strong> The same JavaScript code is being loaded twice, adding unnecessary weight to every page load. This is a Wix platform issue rather than something in your own setup.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>Legacy JavaScript (12 KiB).</strong> There's JavaScript on your site that was written for older browsers and isn't needed for modern devices — but it still has to be downloaded on every visit.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>543 internal performance measurements.</strong> Wix runs 543 timing and tracking measurements on every page load as part of its own internal monitoring. This adds overhead to every single visit to your website — visible to us in the audit, invisible to you in your dashboard.</div></li>
+    </ul>
+    <div class="highlight-box amber-b">
+      <h3>None of this can be fixed inside Wix</h3>
+      <p>Every issue listed above is part of how the Wix platform works — they're not settings you can change or things your web designer can tweak inside the Wix editor. The only way to remove this overhead is to move away from a platform-based site to a custom-built one. A custom site starts with none of this baggage: no unused code, no duplicate scripts, no platform tracking, and full control over how images are delivered to mobile.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">What's working well</p>
+    <h2 class="section-title">Your website does a lot of things right</h2>
+    <div class="good-box">
+      <h3>✓ These are all perfect</h3>
+      <div class="good-item">✅ <div><strong>SEO: 100/100</strong> — Google can find, read and index your site perfectly. Meta descriptions are correct, page titles are good, and there are no technical SEO problems. People searching for you on Google are finding you.</div></div>
+      <div class="good-item">✅ <div><strong>Accessibility: 100/100</strong> — The site is fully accessible to people using screen readers and assistive technology. Images have alt text, contrast ratios are good, and the site structure is correct.</div></div>
+      <div class="good-item">✅ <div><strong>Best Practices: 100/100</strong> — No security issues, no deprecated browser features, no problems with how the site is technically built.</div></div>
+      <div class="good-item">✅ <div><strong>Zero blocking time (TBT: 0ms)</strong> — Once the page has loaded, it's immediately responsive. No lag, no frozen elements.</div></div>
+    </div>
+    <div class="section-body">
+      <p>The fundamentals are solid. Your content is findable, your site is accessible, and Google has no issues indexing it. The performance score and the 11-second load time are the single thing that needs fixing — and fixing it means changing the platform, not the content.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">What this looks like fixed</p>
+    <h2 class="section-title">A custom site loads 4–5x faster</h2>
+    <div class="section-body">
+      <p>A well-built custom site — no Wix, no platform overhead — typically achieves an LCP of under 2 seconds. That's your restaurant appearing on screen within 2 seconds rather than 11. Everything about your current site that works well — the SEO, the content, the accessibility — transfers over. You keep what's working and fix what isn't.</p>
+      <p>I've built a full concept demo of what an Olive Sheffield site could look like. You can see it via the pitch page that came with this audit.</p>
+    </div>
+  </div>
+
+  <div class="pricing">
+    <h2>What a rebuild costs with Trabelo</h2>
+    <p class="sub">One-off price, no monthly fees. Designed and built by Aidan — Sheffield.</p>
+    <div class="pgrid">
+      <div class="pc"><div class="pc-tier">Starter</div><div class="pc-amount">£395</div><div class="pc-name">Core Site</div><div class="pc-feat">Up to 5 pages · Mobile-first · Fast loading · Contact form · Google-ready</div></div>
+      <div class="pc feat"><div class="pc-tier">Business — most popular</div><div class="pc-amount">£795</div><div class="pc-name">Full Site</div><div class="pc-feat">Up to 10 pages · Full menu · Reservations · Events · Training included</div></div>
+      <div class="pc"><div class="pc-tier">Premium</div><div class="pc-amount">£1,295</div><div class="pc-name">Complete Package</div><div class="pc-feat">Unlimited pages · Custom features · Gallery · Priority support · Training included</div></div>
+    </div>
+    <div class="cta-row">
+      <a href="mailto:aidan@trabelo.com" class="btn btn-w">Email Aidan</a>
+      <a href="#" class="btn btn-ow">No obligation — ask a question</a>
+    </div>
+    <p style="margin-top:14px;font-size:0.77rem;color:rgba(255,255,255,0.35)">Prepared by Aidan Fry · Trabelo · Sheffield · aidan@trabelo.com</p>
+  </div>
+
+</main>
+
+<footer>Audit prepared by <strong>Trabelo · Sheffield</strong> · aidan@trabelo.com · Scores from Google Lighthouse, July 2026</footer>
+</body>
+</html>

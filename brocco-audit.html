@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Audit — Brocco on the Park</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --forest:#1E3B2C;
+      --gold:#A8853A;
+      --gold-l:#C9A04A;
+      --stone:#F7F4EE;
+      --border:#DDD5C5;
+      --muted:#6B6050;
+      --red:#e74c3c;
+      --amber:#e67e22;
+      --green:#27ae60;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--stone);color:#1a1a1a;line-height:1.6}
+    header{background:var(--forest);padding:48px 24px 40px;color:#fff}
+    .header-inner{max-width:860px;margin:0 auto}
+    .header-tag{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px}
+    .header-title{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:10px;line-height:1.2}
+    .header-sub{font-size:0.93rem;color:rgba(255,255,255,0.74);max-width:540px}
+    .scores-bar{background:#1a1a1a;padding:26px 24px}
+    .scores-inner{max-width:860px;margin:0 auto;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .score-box{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:9px;padding:14px 20px;text-align:center;min-width:96px}
+    .score-num{font-size:2.1rem;font-weight:700;line-height:1;margin-bottom:4px}
+    .score-name{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5)}
+    .red{color:var(--red)}.amber-c{color:var(--amber)}.green-c{color:var(--green)}
+    .score-note{font-size:0.72rem;color:rgba(255,255,255,0.38);margin-left:auto;max-width:240px;line-height:1.5}
+    main{max-width:860px;margin:0 auto;padding:48px 24px}
+    .section{margin-bottom:46px}
+    .section-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);margin-bottom:7px}
+    .section-title{font-size:1.38rem;font-weight:700;color:var(--forest);margin-bottom:13px}
+    .section-body{font-size:0.93rem;color:#333;line-height:1.82}
+    .section-body p{margin-bottom:12px}
+    .section-body p:last-child{margin-bottom:0}
+    .highlight-box{background:#fff;border:1px solid var(--border);border-radius:11px;padding:22px 24px;margin:18px 0}
+    .highlight-box.red-b{border-left:4px solid var(--red)}
+    .highlight-box.amber-b{border-left:4px solid var(--amber)}
+    .highlight-box.green-b{border-left:4px solid var(--green)}
+    .highlight-box h3{font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:7px}
+    .highlight-box p{font-size:0.87rem;color:var(--muted);line-height:1.7}
+    .metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0}
+    .metric{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
+    .metric-val{font-size:1.55rem;font-weight:700;line-height:1;margin-bottom:3px}
+    .metric-label{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted)}
+    .issue-list{list-style:none;margin:18px 0}
+    .issue-list li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:0.89rem;color:#333;line-height:1.65;align-items:flex-start}
+    .issue-list li:last-child{border-bottom:none}
+    .issue-icon{min-width:20px;font-size:0.95rem;margin-top:2px}
+    .issue-list strong{color:#1a1a1a}
+    .chips{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
+    .chip{font-size:0.73rem;font-weight:600;padding:4px 11px;border-radius:18px;background:#fff;border:1px solid var(--border);color:var(--muted)}
+    .chip.rc{border-color:rgba(231,76,60,0.3);color:var(--red);background:rgba(231,76,60,0.05)}
+    .good-box{background:#fff;border:1px solid var(--border);border-radius:11px;padding:22px 24px;margin:20px 0}
+    .good-box h3{font-size:1rem;font-weight:700;color:var(--green);margin-bottom:12px}
+    .good-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.87rem;color:#333}
+    .good-item:last-child{border-bottom:none}
+    .pricing{background:var(--forest);color:#fff;border-radius:13px;padding:30px;margin-top:46px}
+    .pricing h2{font-size:1.35rem;font-weight:700;margin-bottom:6px}
+    .pricing .sub{font-size:0.86rem;color:rgba(255,255,255,0.6);margin-bottom:24px}
+    .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+    .pc{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:9px;padding:20px}
+    .pc-tier{font-size:0.66rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.45);margin-bottom:6px}
+    .pc-amount{font-size:1.9rem;font-weight:700;color:#fff;margin-bottom:3px}
+    .pc-name{font-size:0.93rem;font-weight:600;color:rgba(255,255,255,0.82);margin-bottom:8px}
+    .pc-feat{font-size:0.78rem;color:rgba(255,255,255,0.48);line-height:1.65}
+    .pc.feat{background:rgba(168,133,58,0.18);border-color:var(--gold)}
+    .pc.feat .pc-amount{color:var(--gold-l)}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{display:inline-block;padding:11px 22px;border-radius:5px;font-size:0.86rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+    .btn-w{background:#fff;color:var(--forest)}
+    .btn-ow{background:transparent;border:2px solid rgba(255,255,255,0.35);color:#fff}
+    .divider{border:none;border-top:2px solid var(--border);margin:38px 0}
+    footer{text-align:center;padding:26px;font-size:0.77rem;color:#bbb;border-top:1px solid var(--border)}
+    .size-box{background:#fff;border:2px solid var(--red);border-radius:11px;padding:22px 24px;margin:18px 0;text-align:center}
+    .size-num{font-size:3rem;font-weight:700;color:var(--red);line-height:1}
+    .size-label{font-size:0.8rem;color:var(--muted);margin-top:4px}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="header-tag">Website Audit · Prepared by Trabelo</p>
+    <h1 class="header-title">Brocco on the Park — brocco.co.uk</h1>
+    <p class="header-sub">A look at how your website performs on mobile — and why a Michelin-listed hotel and restaurant deserves something faster.</p>
+  </div>
+</header>
+
+<div class="scores-bar">
+  <div class="scores-inner">
+    <div class="score-box"><div class="score-num amber-c">71</div><div class="score-name">Performance</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">Accessibility</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">Best Practices</div></div>
+    <div class="score-box"><div class="score-num green-c">100</div><div class="score-name">SEO</div></div>
+    <p class="score-note">Google Lighthouse · Mobile · July 2026<br>0–49 poor · 50–89 needs work · 90–100 good</p>
+  </div>
+</div>
+
+<main>
+
+  <div class="section">
+    <p class="section-label">The big picture</p>
+    <h2 class="section-title">Three perfect scores. One that isn't.</h2>
+    <div class="section-body">
+      <p>First, the good news: your SEO, Accessibility and Best Practices are all 100 out of 100. Your site is findable on Google, accessible to all users, and technically well-structured. For a business with your level of recognition — Michelin Guide 2026, Best Hotel Restaurant for 10 consecutive years — that matters. You're not invisible online.</p>
+      <p>The one area that needs attention is performance. Your site scores 71 on mobile — in the "needs work" zone — and there's one figure in particular that stands out.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">The main issue</p>
+    <h2 class="section-title">Your page weighs 2.7 megabytes and takes nearly 5 seconds to load</h2>
+
+    <div class="metric-row">
+      <div class="metric"><div class="metric-val amber-c">4.4s</div><div class="metric-label">First content (FCP)</div></div>
+      <div class="metric"><div class="metric-val amber-c">4.8s</div><div class="metric-label">Main content (LCP)</div></div>
+      <div class="metric"><div class="metric-val amber-c">70ms</div><div class="metric-label">Blocking time (TBT)</div></div>
+      <div class="metric"><div class="metric-val green-c">0</div><div class="metric-label">Layout shift (CLS)</div></div>
+    </div>
+
+    <div class="size-box">
+      <div class="size-num">2.7 MB</div>
+      <div class="size-label">Total page size · Google flags anything over 1.6 MB as "enormous"</div>
+    </div>
+
+    <div class="section-body">
+      <p>Google flags any page over 1.6 MB as having an "enormous network payload". Your homepage comes in at 2,675 KB — 2.7 megabytes — which puts it well above that threshold. Every visitor on a mobile phone or slower connection has to download all of that before your page can fully load.</p>
+      <p>Google's recommended maximum for LCP is 2.5 seconds. At 4.8 seconds, someone searching for a boutique hotel in Sheffield, or looking to book a table at a Michelin-listed restaurant, is waiting nearly double that before they can see your site properly.</p>
+    </div>
+
+    <div class="highlight-box red-b">
+      <h3>Context matters here</h3>
+      <p>A 71 performance score might not sound alarming — but consider the context. Brocco is Michelin-listed, 10-time award-winning, and the only 5-star restaurant with rooms in Sheffield. The guests you're trying to attract are comparing you with other hotels and restaurants online, often on their phones. A 4.8-second load against a competitor who loads in 1.5 seconds is a meaningful difference in first impression.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">What's causing it</p>
+    <h2 class="section-title">Images, JavaScript, and the Wix platform</h2>
+    <div class="section-body">
+      <p>The audit found several specific causes — most of them platform-level issues from Wix, plus some image delivery problems that are adding significantly to the page size.</p>
+    </div>
+    <div class="chips">
+      <span class="chip rc">150 KiB unused JavaScript</span>
+      <span class="chip rc">149 KiB image savings available</span>
+      <span class="chip rc">27 KiB duplicate JavaScript</span>
+      <span class="chip rc">12 KiB legacy JavaScript</span>
+      <span class="chip rc">11 KiB unused CSS</span>
+      <span class="chip rc">2,675 KiB total page size</span>
+      <span class="chip">3 long main-thread tasks</span>
+      <span class="chip">405 internal timing measurements</span>
+    </div>
+    <ul class="issue-list">
+      <li><span class="issue-icon">⚠️</span><div><strong>Images — 149 KiB saving available.</strong> Your images aren't being optimally compressed and sized for mobile screens. 149 kilobytes of savings are available just from better image delivery. This is likely a major contributor to both the 2.7 MB page size and the 4.8s LCP.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>150 KiB of unused JavaScript.</strong> Over 150 kilobytes of JavaScript code is being downloaded on every visit but never actually used. This is Wix platform code — tools and features loaded whether your pages need them or not.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>3 long main-thread tasks.</strong> The browser's main thread — the one that handles rendering your page — is being blocked by 3 long-running tasks. This is what causes the TBT of 70ms and contributes to that sluggish feel on lower-powered mobile devices.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>Duplicate and legacy JavaScript (27 + 12 KiB).</strong> Code that's loaded twice, and code written for older browsers that modern devices don't need — both adding to download size and load time on every visit.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>11 KiB unused CSS.</strong> Stylesheet code that's loaded but never applied to any element on the page — another Wix platform artefact.</div></li>
+      <li><span class="issue-icon">⚠️</span><div><strong>405 internal timing measurements.</strong> Wix monitors its own platform by running 405 performance measurements on every page visit. Invisible to you, but adds overhead to every single load.</div></li>
+    </ul>
+    <div class="highlight-box amber-b">
+      <h3>What can be fixed inside Wix vs. what can't</h3>
+      <p>The JavaScript issues — unused code, duplicates, legacy scripts, platform overhead — can't be fixed inside the Wix editor. They're baked into the platform. The image issues can sometimes be improved with compression and better upload practices, but the format and delivery optimisations that would make the biggest difference require moving to a custom-built site with full control over the asset pipeline.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">What's working well</p>
+    <h2 class="section-title">Your site is doing a lot right</h2>
+    <div class="good-box">
+      <h3>✓ These are all working perfectly</h3>
+      <div class="good-item">✅ <div><strong>SEO: 100/100</strong> — Google can find and index every page. Meta descriptions, titles, and structured data all pass. Your Michelin recognition and awards are findable online.</div></div>
+      <div class="good-item">✅ <div><strong>Accessibility: 100/100</strong> — Fully accessible to all users. One note from the audit: some identical links have different surrounding text — worth reviewing for screen reader clarity, though it didn't affect the score.</div></div>
+      <div class="good-item">✅ <div><strong>Best Practices: 100/100</strong> — No security issues, no outdated APIs, technically sound.</div></div>
+      <div class="good-item">✅ <div><strong>Core Web Vitals: Passed</strong> — Google's real-world data from Chrome users shows Brocco's CWV pass, with an impressive real-world LCP of 0.7s. Your actual users are experiencing faster loads than the lab test — a strong signal that your server and hosting are performing well.</div></div>
+      <div class="good-item">✅ <div><strong>Zero layout shift (CLS: 0)</strong> — Nothing jumps around as the page loads. That's good UX and good for Google ranking.</div></div>
+    </div>
+    <div class="section-body" style="margin-top:14px">
+      <p>The real-world Core Web Vitals pass is genuinely encouraging — it means your actual visitors are having a better experience than the lab test suggests. The lab test is the worst case (slow 4G, emulated device) — the 71 score represents the ceiling of improvement, not necessarily where you are right now.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="section-label">What a rebuild could achieve</p>
+    <h2 class="section-title">A site that matches the standard of the hotel</h2>
+    <div class="section-body">
+      <p>A custom-built site eliminates the platform overhead entirely — no unused JavaScript, no Wix monitoring, no legacy code, and full control over image delivery. The result is typically a performance score of 90–100 and an LCP under 1.5 seconds.</p>
+      <p>For a Michelin-listed, 10-time award-winning boutique hotel, a site that loads in under 1.5 seconds and feels as refined as the property itself is entirely achievable. I've built a full concept demo of what that could look like for Brocco.</p>
+    </div>
+  </div>
+
+  <div class="pricing">
+    <h2>What a rebuild costs with Trabelo</h2>
+    <p class="sub">One-off price, no monthly fees. Designed and built by Aidan — Sheffield.</p>
+    <div class="pgrid">
+      <div class="pc"><div class="pc-tier">Starter</div><div class="pc-amount">£395</div><div class="pc-name">Core Site</div><div class="pc-feat">Up to 5 pages · Mobile-first · Fast loading · Contact form · Google-ready</div></div>
+      <div class="pc feat"><div class="pc-tier">Business — most popular</div><div class="pc-amount">£795</div><div class="pc-name">Full Site</div><div class="pc-feat">Up to 10 pages · Full menus · Rooms · Bookings · Events · Training included</div></div>
+      <div class="pc"><div class="pc-tier">Premium</div><div class="pc-amount">£1,295</div><div class="pc-name">Complete Package</div><div class="pc-feat">Unlimited pages · Custom features · Gallery · Wedding pages · Priority support · Training included</div></div>
+    </div>
+    <div class="cta-row">
+      <a href="mailto:aidan@trabelo.com" class="btn btn-w">Email Aidan</a>
+      <a href="#" class="btn btn-ow">No obligation — ask a question</a>
+    </div>
+    <p style="margin-top:14px;font-size:0.77rem;color:rgba(255,255,255,0.32)">Prepared by Aidan Fry · Trabelo · Sheffield · aidan@trabelo.com</p>
+  </div>
+
+</main>
+
+<footer>Audit prepared by <strong>Trabelo · Sheffield</strong> · aidan@trabelo.com · Scores from Google Lighthouse, July 2026</footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabelo — Brocco on the Park</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --forest:#1E3B2C;
+      --gold:#A8853A;
+      --gold-l:#C9A04A;
+      --stone:#F7F4EE;
+      --border:#DDD5C5;
+      --gray:#6B6050;
+      --red:#e74c3c;
+      --amber:#e67e22;
+      --g:#27ae60;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--stone);color:#1a1a1a;min-height:100vh;display:flex;flex-direction:column}
+    .topbar{background:var(--forest);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .trabelo-logo{font-weight:700;font-size:1.1rem;color:#fff;letter-spacing:0.12em;text-transform:uppercase}
+    .trabelo-logo span{color:var(--gold-l)}
+    .topbar-tag{font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.12em}
+    .hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px 24px 48px;text-align:center}
+    .btag{display:inline-block;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);background:rgba(168,133,58,0.08);border:1px solid rgba(168,133,58,0.25);padding:5px 14px;border-radius:20px;margin-bottom:22px}
+    .bname{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,6vw,3.5rem);line-height:1.15;margin-bottom:8px;color:var(--forest)}
+    .burl{font-size:0.84rem;color:var(--gray);margin-bottom:30px}
+    .burl span{display:inline-block;background:#fff;border:1px solid var(--border);padding:4px 12px;border-radius:4px;font-family:monospace}
+    .intro-box{max-width:620px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px 30px;margin-bottom:36px;text-align:left;box-shadow:0 2px 16px rgba(0,0,0,0.05)}
+    .intro-box .from{font-size:0.75rem;color:var(--gray);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
+    .intro-box p{font-size:0.94rem;color:#444;line-height:1.82}
+    .slabel{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);margin-bottom:10px;font-weight:600}
+    .sgrid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+    .sbox{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-align:center;min-width:96px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .snum{font-size:2.1rem;font-weight:700;line-height:1;margin-bottom:4px}
+    .sname{font-size:0.64rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray)}
+    .red{color:var(--red)}.amber-c{color:var(--amber)}.green-c{color:var(--g)}
+    .snote{font-size:0.7rem;color:#bbb;margin-bottom:36px}
+    .cards{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:600px;width:100%;margin-bottom:36px}
+    .card{flex:1;min-width:240px;border-radius:12px;padding:22px;text-align:left;text-decoration:none;color:#fff;transition:transform 0.2s,box-shadow 0.2s}
+    .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+    .card.demo{background:var(--gold)}
+    .card.audit{background:var(--forest)}
+    .card-icon{font-size:1.3rem;margin-bottom:10px}
+    .card-title{font-weight:700;font-size:0.98rem;margin-bottom:4px}
+    .card-sub{font-size:0.78rem;opacity:0.78;line-height:1.5}
+    .card-arrow{margin-top:14px;font-size:0.8rem;font-weight:600;opacity:0.85}
+    footer{text-align:center;padding:18px;font-size:0.76rem;color:#bbb;border-top:1px solid var(--border)}
+    footer a{color:var(--gold);text-decoration:none}
+    @media(max-width:500px){.intro-box{padding:18px}.sbox{min-width:76px;padding:12px}.snum{font-size:1.7rem}.hero{padding:36px 16px 28px}}
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="trabelo-logo">Tra<span>belo</span></div>
+  <div class="topbar-tag">Web Design · Sheffield &amp; South Yorkshire</div>
+</div>
+<div class="hero">
+  <div class="btag">Free Website Audit &amp; Demo</div>
+  <h1 class="bname">Brocco on the Park</h1>
+  <p class="burl"><span>brocco.co.uk</span> &nbsp;·&nbsp; 92 Brocco Bank, Sheffield S11 8RS</p>
+  <div class="intro-box">
+    <p class="from">A note from Aidan</p>
+    <p>I'm Aidan — I do web design across Sheffield and South Yorkshire. I ran your website through Google's testing tools, and like your other scores — Accessibility 100, Best Practices 100, SEO 100 — most of it is excellent. But performance is 71, your homepage downloads 2.7 megabytes on a mobile phone, and it takes nearly 5 seconds before someone can fully see your site. For the only Michelin-listed boutique hotel in Sheffield, and a restaurant that's won Best Hotel Restaurant for 10 consecutive years, the website should feel as polished as the property. I've put together a free audit explaining exactly what's happening, and a full concept demo of what a rebuilt Brocco site could look like.</p>
+  </div>
+  <p class="slabel">Google's scores for your current site</p>
+  <div class="sgrid">
+    <div class="sbox"><div class="snum amber-c">71</div><div class="sname">Performance</div></div>
+    <div class="sbox"><div class="snum green-c">100</div><div class="sname">Accessibility</div></div>
+    <div class="sbox"><div class="snum green-c">100</div><div class="sname">Best Practices</div></div>
+    <div class="sbox"><div class="snum green-c">100</div><div class="sname">SEO</div></div>
+  </div>
+  <p class="snote">Google Lighthouse · Mobile · July 2026 &nbsp;·&nbsp; 0–49 poor &nbsp;·&nbsp; 50–89 needs work &nbsp;·&nbsp; 90–100 good</p>
+  <div class="cards">
+    <a href="https://trabelo-tau.vercel.app/brocco.html" target="_blank" class="card demo">
+      <div class="card-icon">✦</div>
+      <div class="card-title">Concept Demo</div>
+      <div class="card-sub">See the rebuilt site<br>Full working demo — menus, rooms, awards, events &amp; more</div>
+      <div class="card-arrow">View the demo →</div>
+    </a>
+    <a href="https://trabelo-tau.vercel.app/brocco-audit.html" target="_blank" class="card audit">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Full Audit</div>
+      <div class="card-sub">See the detailed audit<br>Every issue explained — and what it would cost to fix it</div>
+      <div class="card-arrow">Read the audit →</div>
+    </a>
+  </div>
+</div>
+<footer>
+  Prepared by <a href="mailto:aidan@trabelo.com">Aidan Fry · Trabelo · Sheffield</a> · aidan@trabelo.com · No obligation
+</footer>
+</body>
+</html>
