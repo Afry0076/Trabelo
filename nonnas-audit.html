@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nonna's Sheffield — Website Audit by Trabelo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --black: #111;
+      --gold: #c9a060;
+      --gold-dark: #a07840;
+      --red: #c0392b;
+      --orange: #e67e22;
+      --green: #27ae60;
+      --cream: #faf8f5;
+      --cream-dark: #f0ece5;
+      --gray: #6b6b6b;
+      --light-gray: #e8e4de;
+      --border: #e2ddd6;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); line-height: 1.6; }
+
+    /* HEADER */
+    .audit-header {
+      background: var(--black);
+      padding: 28px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .trabelo-badge {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .trabelo-badge span { color: var(--gold); }
+    .divider-v { width: 1px; height: 32px; background: rgba(255,255,255,0.15); }
+    .audit-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.12em; }
+    .header-right { text-align: right; }
+    .header-right p { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+    .header-right a { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.88rem; }
+
+    /* HERO BAND */
+    .hero-band {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      padding: 64px 20px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .hero-band-inner { max-width: 900px; margin: 0 auto; }
+    .hero-band-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .hero-biz-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .hero-biz-url { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-bottom: 20px; }
+    .hero-intro {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      min-width: 220px;
+    }
+    .score-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .score-num {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .score-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); }
+    .score-red { color: #e74c3c; }
+    .score-amber { color: #e67e22; }
+    .score-green { color: #2ecc71; }
+
+    .summary-bar {
+      margin-top: 40px;
+      background: rgba(201,160,96,0.12);
+      border: 1px solid rgba(201,160,96,0.3);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .summary-bar p { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.75; }
+    .summary-bar strong { color: var(--gold); }
+
+    /* CONTENT */
+    .content { max-width: 900px; margin: 0 auto; padding: 0 20px 80px; }
+
+    /* SECTION HEADINGS */
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--black);
+      margin: 56px 0 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--light-gray);
+    }
+    .section-heading span { color: var(--gold); }
+
+    /* ISSUE CARDS */
+    .issue-card {
+      background: #fff;
+      border-radius: 10px;
+      border-left: 4px solid var(--red);
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .issue-card.amber { border-left-color: var(--orange); }
+    .issue-card.info { border-left-color: #3498db; }
+    .issue-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+    .issue-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .issue-title-block { flex: 1; }
+    .issue-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .issue-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 20px; background: #fde8e8; color: var(--red); }
+    .issue-badge.amber { background: #fef3e2; color: var(--orange); }
+    .issue-badge.info { background: #e8f4fd; color: #2980b9; }
+    .issue-body h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; margin-top: 16px; font-weight: 600; }
+    .issue-body h4:first-child { margin-top: 0; }
+    .issue-body p { font-size: 0.93rem; color: #444; line-height: 1.75; }
+    .issue-body p + p { margin-top: 8px; }
+
+    /* METRICS BAR */
+    .metric-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .metric-label { font-size: 0.82rem; color: var(--gray); width: 160px; flex-shrink: 0; }
+    .metric-bar-wrap { flex: 1; background: var(--light-gray); border-radius: 20px; height: 10px; min-width: 120px; overflow: hidden; }
+    .metric-bar { height: 100%; border-radius: 20px; }
+    .metric-bar.red { background: var(--red); }
+    .metric-bar.amber { background: var(--orange); }
+    .metric-bar.green { background: var(--green); }
+    .metric-val { font-size: 0.82rem; font-weight: 600; width: 44px; text-align: right; flex-shrink: 0; }
+    .metric-val.red { color: var(--red); }
+    .metric-val.amber { color: var(--orange); }
+    .metric-val.green { color: var(--green); }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 8px; }
+    .feature-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .feature-icon-box { font-size: 1.3rem; flex-shrink: 0; }
+    .feature-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+    .feature-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 8px; }
+    .pricing-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      border: 2px solid var(--border);
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .pricing-card.recommended { border-color: var(--gold); }
+    .pricing-card.recommended::before {
+      content: 'Best for you';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .pricing-tier { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
+    .pricing-price { font-size: 2.2rem; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .pricing-price sup { font-size: 1.1rem; vertical-align: top; margin-top: 6px; display: inline-block; }
+    .pricing-sub { font-size: 0.78rem; color: var(--gray); margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .pricing-features { list-style: none; }
+    .pricing-features li { font-size: 0.85rem; color: #444; padding: 6px 0; display: flex; gap: 8px; align-items: flex-start; border-bottom: 1px solid #f5f5f5; }
+    .pricing-features li:last-child { border-bottom: none; }
+    .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .pricing-note { font-size: 0.76rem; color: var(--gray); margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+    /* CTA */
+    .cta-box {
+      background: var(--black);
+      border-radius: 12px;
+      padding: 40px;
+      margin-top: 56px;
+      text-align: center;
+      color: #fff;
+    }
+    .cta-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 12px; }
+    .cta-box p { color: rgba(255,255,255,0.65); font-size: 0.95rem; max-width: 520px; margin: 0 auto 28px; line-height: 1.75; }
+    .cta-details { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 32px; }
+    .cta-detail { text-align: center; }
+    .cta-detail strong { display: block; color: var(--gold); font-size: 1.1rem; }
+    .cta-detail span { font-size: 0.75rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--gold-dark); }
+
+    /* FOOTER */
+    .audit-footer { background: #1a1a1a; padding: 24px 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .audit-footer strong { color: rgba(255,255,255,0.6); }
+
+    @media (max-width: 640px) {
+      .hero-band-top { flex-direction: column; }
+      .score-grid { grid-template-columns: repeat(4, 1fr); min-width: 0; }
+      .score-num { font-size: 1.5rem; }
+      .cta-box { padding: 28px 20px; }
+      .audit-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .header-right { text-align: left; }
+      .section-heading { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="audit-header">
+  <div class="header-left">
+    <div class="trabelo-badge">Tra<span>belo</span></div>
+    <div class="divider-v"></div>
+    <div class="audit-label">Website Audit Report</div>
+  </div>
+  <div class="header-right">
+    <p>Demo ready to view</p>
+    <a href="https://trabelo-tau.vercel.app/nonnas.html" target="_blank">See the rebuilt demo →</a>
+  </div>
+</div>
+
+<!-- HERO BAND -->
+<div class="hero-band">
+  <div class="hero-band-inner">
+    <div class="hero-band-top">
+      <div>
+        <h1 class="hero-biz-name">Nonna's Sheffield</h1>
+        <p class="hero-biz-url">nonnas.co.uk</p>
+        <p class="hero-intro">
+          Hi — I'm Aidan, I'm 18 and I do web design across Sheffield and South Yorkshire. I've taken a proper look at your website and tested it through Google's speed and quality tools. There are a few things worth knowing about, including one issue that's stopping Google from showing your site in search results at all.
+        </p>
+      </div>
+      <div class="score-grid">
+        <div class="score-box">
+          <div class="score-num score-amber">71</div>
+          <div class="score-label">Performance</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num score-green">95</div>
+          <div class="score-label">Accessibility</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num score-green">100</div>
+          <div class="score-label">Best Practices</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num score-red">54</div>
+          <div class="score-label">SEO</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-bar">
+      <p>These are Google's own scores for your site — out of 100 each. The accessibility and best practices scores are solid. But your <strong>SEO score of 54</strong> is a concern, and it's caused by something specific: <strong>your site is currently set to block search engines from indexing it</strong>. That means right now, when someone Googles "Italian restaurant Sheffield" or "Nonna's Sheffield," your site won't appear — no matter how good everything else is.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- SCORES -->
+  <h2 class="section-heading">How Your Site <span>Scores Right Now</span></h2>
+  <p style="color: var(--gray); font-size: 0.93rem; margin-bottom: 24px; line-height: 1.75;">Here's what Google's testing tool measured on mobile. Mobile scores matter most — that's where the majority of your customers will be browsing from.</p>
+
+  <div style="background: #fff; border-radius: 10px; padding: 28px; border: 1px solid var(--border); margin-bottom: 8px;">
+    <div class="metric-row">
+      <span class="metric-label">Performance</span>
+      <div class="metric-bar-wrap"><div class="metric-bar amber" style="width: 71%"></div></div>
+      <span class="metric-val amber">71</span>
+    </div>
+    <div class="metric-row">
+      <span class="metric-label">Accessibility</span>
+      <div class="metric-bar-wrap"><div class="metric-bar green" style="width: 95%"></div></div>
+      <span class="metric-val green">95</span>
+    </div>
+    <div class="metric-row">
+      <span class="metric-label">Best Practices</span>
+      <div class="metric-bar-wrap"><div class="metric-bar green" style="width: 100%"></div></div>
+      <span class="metric-val green">100</span>
+    </div>
+    <div class="metric-row">
+      <span class="metric-label">SEO</span>
+      <div class="metric-bar-wrap"><div class="metric-bar red" style="width: 54%"></div></div>
+      <span class="metric-val red">54</span>
+    </div>
+    <p style="font-size: 0.78rem; color: #bbb; margin-top: 16px;">Tested on mobile, July 2026. Google Lighthouse 13.4.1 · Slow 4G.</p>
+  </div>
+
+
+  <!-- ISSUES -->
+  <h2 class="section-heading">What's <span>Going Wrong</span></h2>
+
+  <!-- Issue 1: noindex -->
+  <div class="issue-card">
+    <div class="issue-header">
+      <div class="issue-icon">🚫</div>
+      <div class="issue-title-block">
+        <div class="issue-title">Your site is hidden from Google</div>
+        <span class="issue-badge">Critical · Kills SEO</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Your website — every single page of it — has a hidden tag that tells Google: "don't index this." It's called a "noindex" tag, and Wix likely added it at some point, possibly when the site was first being built and was never switched off. Right now, Google's crawler is being actively told not to show your site in search results.</p>
+      <h4>What this means for you</h4>
+      <p>If someone Googles "Italian restaurant Ecclesall Road," "Nonna's Sheffield," or even types your business name directly — your website won't appear. You essentially don't exist on Google at the moment. It's the single biggest issue on the site, and it explains the SEO score of 54.</p>
+      <h4>The fix</h4>
+      <p>On a bespoke site, this is removed entirely. On Wix, it can usually be turned off in the SEO settings — though it's worth checking every page individually, as the tag appears on all of them.</p>
+    </div>
+  </div>
+
+  <!-- Issue 2: LCP -->
+  <div class="issue-card amber">
+    <div class="issue-header">
+      <div class="issue-icon">🐌</div>
+      <div class="issue-title-block">
+        <div class="issue-title">Your main image takes 11 seconds to appear</div>
+        <span class="issue-badge amber">Performance · Loses Customers</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Google measured something called "Largest Contentful Paint" — the time until the main visible content of the page has loaded. For your site, that's 11.0 seconds on a typical mobile connection. That's the number that matters most for whether someone stays on the page or leaves.</p>
+      <h4>What this means for you</h4>
+      <p>Studies consistently show most people give up on a website within 3–4 seconds if nothing loads. At 11 seconds, you're almost certainly losing a significant chunk of potential diners before they've even seen your restaurant. This is partly a Wix limitation — the platform is a general-purpose website builder that loads a lot of code even when it's not needed for your particular page.</p>
+      <h4>The fix</h4>
+      <p>A bespoke build loads only what's needed, images are properly sized and compressed, and there's no platform overhead. A well-built site typically hits 2–3 seconds on mobile even with great imagery.</p>
+    </div>
+  </div>
+
+  <!-- Issue 3: Wix bloat -->
+  <div class="issue-card amber">
+    <div class="issue-header">
+      <div class="issue-icon">📦</div>
+      <div class="issue-title-block">
+        <div class="issue-title">Over 130KB of code your site doesn't need</div>
+        <span class="issue-badge amber">Performance · Slow Load</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Google flagged 113KB of unused JavaScript and 20KB of unused CSS loading on every page. In plain English: your site is downloading a lot of code that it doesn't actually use. This is a common side-effect of Wix — it's a platform built for millions of different websites, so it loads a huge toolkit regardless of whether your specific site needs it.</p>
+      <h4>What this means for you</h4>
+      <p>Every bit of unnecessary code is extra time the visitor's phone has to spend downloading and processing before anything shows on screen. It's one of the main reasons your performance score sits at 71 rather than 90+.</p>
+      <h4>The fix</h4>
+      <p>A custom-built site has no platform overhead — it loads exactly what it needs and nothing else.</p>
+    </div>
+  </div>
+
+  <!-- Issue 4: No meta description -->
+  <div class="issue-card amber">
+    <div class="issue-header">
+      <div class="issue-icon">🔍</div>
+      <div class="issue-title-block">
+        <div class="issue-title">No descriptions showing up in Google results</div>
+        <span class="issue-badge amber">SEO · Fewer Clicks</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Your site has no meta descriptions — the short summary text that appears under your listing when you show up in Google search results. When this is missing, Google either shows nothing, or pulls a random sentence from the page that might not sell your restaurant at all.</p>
+      <h4>What this means for you</h4>
+      <p>Even if the noindex issue gets fixed and you do start appearing in search results, people see a bland snippet instead of something like "Sheffield's finest Italian restaurant since 1996 — fresh pasta, live DJ nights and private dining on Ecclesall Road. Book your table." That description difference directly affects whether someone clicks through to you or goes to a competitor.</p>
+      <h4>The fix</h4>
+      <p>A rebuilt site would have a carefully written description for every page, tuned for what people are actually searching for when looking for a restaurant like yours.</p>
+    </div>
+  </div>
+
+  <!-- Issue 5: Wix platform -->
+  <div class="issue-card info">
+    <div class="issue-header">
+      <div class="issue-icon">🏗️</div>
+      <div class="issue-title-block">
+        <div class="issue-title">Built on Wix — a platform with inherent ceilings</div>
+        <span class="issue-badge info">Platform Limitation</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Your site is built on Wix, which is a popular drag-and-drop website builder. It's a perfectly reasonable way to get a site up quickly, but it has real performance and flexibility ceilings — some of which we've already seen above.</p>
+      <h4>What this means for you</h4>
+      <p>Even with the noindex and SEO issues fixed, Wix sites are fundamentally heavier than bespoke ones. You're also paying a monthly Wix subscription for a platform that's actively holding your scores back. A custom-built site is yours outright — no monthly platform fee, no limitations, and you're not sharing infrastructure with millions of other sites.</p>
+      <h4>The fix</h4>
+      <p>A proper bespoke rebuild. Lightweight, fast, fully owned, and designed specifically for Nonna's — not a template adapted for you.</p>
+    </div>
+  </div>
+
+
+  <!-- WHAT'S GOOD -->
+  <h2 class="section-heading">What's <span>Already Good</span></h2>
+  <p style="color: var(--gray); font-size: 0.93rem; margin-bottom: 20px; line-height: 1.75;">A few things worth noting that are genuinely working well on your current site.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 8px;">
+    <div class="feature-card" style="border-left: 3px solid var(--green);">
+      <div class="feature-icon-box">✅</div>
+      <div><h4>Best Practices: 100/100</h4><p>Your site follows all of Google's technical best practices correctly. That's a solid foundation to build from.</p></div>
+    </div>
+    <div class="feature-card" style="border-left: 3px solid var(--green);">
+      <div class="feature-icon-box">✅</div>
+      <div><h4>Accessibility: 95/100</h4><p>The site is largely accessible to people using screen readers and assistive technology. Only minor issues flagged.</p></div>
+    </div>
+    <div class="feature-card" style="border-left: 3px solid var(--green);">
+      <div class="feature-icon-box">✅</div>
+      <div><h4>Strong brand & content</h4><p>The photography is great, the story is compelling, and you have a genuinely strong offering — multiple menus, live events, private dining. The site just isn't showing that off properly.</p></div>
+    </div>
+    <div class="feature-card" style="border-left: 3px solid var(--green);">
+      <div class="feature-icon-box">✅</div>
+      <div><h4>Good contact info</h4><p>Your phone number, email and address are easy to find. That's more than a lot of restaurant sites manage.</p></div>
+    </div>
+  </div>
+
+
+  <!-- WHAT THE REBUILD ADDS -->
+  <h2 class="section-heading">What a <span>Rebuilt Site</span> Would Add</h2>
+  <p style="color: var(--gray); font-size: 0.93rem; margin-bottom: 20px; line-height: 1.75;">Here's what your current site can't do that a bespoke rebuild would include as standard.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon-box">⚡</div>
+      <div><h4>Performance 97+ on mobile</h4><p>Loads in under 3 seconds. No Wix overhead, no bloated platform code — just clean, fast HTML built specifically for Nonna's.</p></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box">🔎</div>
+      <div><h4>Full Google indexing — properly set up</h4><p>No noindex tag. Proper meta descriptions written for each page. Schema markup so Google understands you're a restaurant, your address, opening hours and more.</p></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box">📱</div>
+      <div><h4>Mobile-first design</h4><p>Built from the ground up for phones, not adapted from a desktop layout. Looks and feels perfect on the screens your customers are actually using.</p></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box">🍽️</div>
+      <div><h4>Proper menu pages</h4><p>All your menus — à la carte, bisteccheria, cocktails, colazione — displayed beautifully in a tabbed layout. No more PDFs that half the time don't load on mobile.</p></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box">🎵</div>
+      <div><h4>Live Events section</h4><p>A dedicated page showcasing your DJ nights, dinner concerts and steak nights — making them easy to find and share on social media.</p></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box">📧</div>
+      <div><h4>Contact & enquiry form</h4><p>A proper built-in form for table bookings, private dining enquiries and event questions — so everything comes to your inbox neatly.</p></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box">🔒</div>
+      <div><h4>You own it outright</h4><p>No monthly Wix subscription. The finished site is yours — hosted wherever you like, with no platform fees eating into your margins.</p></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box">🌐</div>
+      <div><h4>Newsletter sign-up</h4><p>A mailing list sign-up built in, so you can grow your own audience and email customers directly about new events and seasonal menus.</p></div>
+    </div>
+  </div>
+
+
+  <!-- PRICING -->
+  <h2 class="section-heading">What It <span>Would Cost</span></h2>
+  <p style="color: var(--gray); font-size: 0.93rem; margin-bottom: 24px; line-height: 1.75;">All prices are one-off and fixed. No contracts, no monthly fees (except where honestly noted).</p>
+
+  <div class="pricing-grid">
+    <!-- Starter -->
+    <div class="pricing-card">
+      <div class="pricing-tier">Starter</div>
+      <div class="pricing-price"><sup>£</sup>395</div>
+      <div class="pricing-sub">One-off · 5 pages</div>
+      <ul class="pricing-features">
+        <li>5 pages (Home, Menus, Events, About, Contact)</li>
+        <li>Performance 97+ on mobile</li>
+        <li>Accessibility 98+, SEO 100</li>
+        <li>Mobile-first, fully responsive</li>
+        <li>Google indexing properly set up</li>
+        <li>Meta descriptions for every page</li>
+        <li>Enquiry contact form</li>
+      </ul>
+      <div class="pricing-note">Updates: £15 per change, or £30/month unlimited small updates.</div>
+    </div>
+
+    <!-- Business — recommended -->
+    <div class="pricing-card recommended">
+      <div class="pricing-tier">Business</div>
+      <div class="pricing-price"><sup>£</sup>795</div>
+      <div class="pricing-sub">One-off · Everything in Starter, plus:</div>
+      <ul class="pricing-features">
+        <li>Interactive tabbed menus (all 9 menus)</li>
+        <li>Dedicated Live Events page</li>
+        <li>Gallery with lightbox</li>
+        <li>Newsletter sign-up integration</li>
+        <li>Casa di Nonnas villa feature section</li>
+        <li>Deliveroo & social links integrated</li>
+        <li>Private dining enquiry flow</li>
+        <li>Training included</li>
+      </ul>
+      <div class="pricing-note">No monthly fees. Everything included, one-off price.</div>
+    </div>
+
+    <!-- Premium -->
+    <div class="pricing-card">
+      <div class="pricing-tier">Premium</div>
+      <div class="pricing-price"><sup>£</sup>1,295</div>
+      <div class="pricing-sub">One-off · The full works:</div>
+      <ul class="pricing-features">
+        <li>Everything in Business</li>
+        <li>CMS — update menus & events yourself</li>
+        <li>Instagram feed pulling in live posts</li>
+        <li>Events calendar with bookable dates</li>
+        <li>Automated booking confirmation emails</li>
+        <li>Push notifications for events</li>
+        <li>Training included</li>
+      </ul>
+      <div class="pricing-note">Small hosting cost may apply (~£0–9/month) for CMS and live data features.</div>
+    </div>
+  </div>
+
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>Ready to see what it could look like?</h2>
+    <p>I've already put together a full demo of your rebuilt website — you can view it right now, no login needed. If you'd like to have a chat, everything can be sorted over email.</p>
+    <div class="cta-details">
+      <div class="cta-detail">
+        <strong>Aidan Fry</strong>
+        <span>Trabelo · Sheffield</span>
+      </div>
+      <div class="cta-detail">
+        <strong>aidan@trabelo.com</strong>
+        <span>Get in touch</span>
+      </div>
+      <div class="cta-detail">
+        <strong>No obligation</strong>
+        <span>Take a look, no pressure</span>
+      </div>
+    </div>
+    <a href="https://trabelo-tau.vercel.app/nonnas.html" target="_blank" class="cta-btn">View the Demo Site →</a>
+  </div>
+
+</div><!-- end content -->
+
+<!-- FOOTER -->
+<div class="audit-footer">
+  <strong>Trabelo · Sheffield</strong> — Website audit prepared for Nonna's Sheffield, nonnas.co.uk · July 2026
+</div>
+
+</body>
+</html>
