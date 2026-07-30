@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LEP Fitness — Voted the best personal trainer in Sheffield. Private 1-2-1 training, group sessions, custom meal plans and online coaching. 5 Fossdale Rd, Sheffield S7.">
+  <title>LEP Fitness | Best Personal Trainer Sheffield | Nick Screeton</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0A1628;
+      --navy-light: #142238;
+      --navy-mid: #1C3050;
+      --orange: #FF6B00;
+      --orange-dark: #D95800;
+      --orange-light: #FF8833;
+      --white: #FFFFFF;
+      --off-white: #F6F6F4;
+      --text-muted: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--off-white); color: var(--navy); }
+
+    .topbar { background: var(--orange); color: var(--white); font-size: 12px; padding: 8px 20px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-weight: 600; }
+    .topbar a { color: var(--white); text-decoration: none; }
+
+    nav { background: var(--navy); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { color: var(--white); font-size: 20px; font-weight: 900; cursor: pointer; letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2px; align-items: center; }
+    .nav-link { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 500; padding: 8px 12px; cursor: pointer; border-radius: 6px; transition: all 0.15s; font-family: inherit; }
+    .nav-link:hover, .nav-link.active { color: var(--white); background: var(--navy-light); }
+    .nav-cta { background: var(--orange); color: var(--white); font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .nav-cta:hover { background: var(--orange-dark); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: white; font-size: 22px; }
+    .mobile-menu { display: none; background: var(--navy-light); padding: 16px 20px; }
+    .mobile-menu button { display: block; width: 100%; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 15px; padding: 12px 0; cursor: pointer; text-align: left; font-family: inherit; border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+    [data-page] { display: none; }
+    [data-page].active { display: block; }
+
+    /* HERO */
+    .hero { background: var(--navy); color: var(--white); padding: 72px 20px 64px; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: radial-gradient(ellipse at 80% 50%, rgba(255,107,0,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: start; }
+    .hero-tag { display: inline-block; background: var(--orange); color: var(--white); font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 4px; margin-bottom: 20px; letter-spacing: 0.8px; text-transform: uppercase; }
+    .hero h1 { font-size: 46px; font-weight: 900; line-height: 1.05; margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero-sub { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--navy-light); border-radius: 10px; overflow: hidden; margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.08); }
+    .hero-stat { background: var(--navy-mid); padding: 18px 12px; text-align: center; }
+    .hero-stat-val { font-size: 22px; font-weight: 900; color: var(--orange); margin-bottom: 4px; }
+    .hero-stat-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--orange); color: var(--white); padding: 14px 26px; border: none; border-radius: 8px; font-size: 14px; font-weight: 800; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-outline { background: transparent; color: var(--white); padding: 14px 24px; border: 2px solid rgba(255,255,255,0.2); border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .hero-card { background: var(--navy-light); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 28px; }
+    .hero-card-title { font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .hero-card-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 13px; font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.4; }
+    .hero-card-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0; }
+    .hero-card-phone { font-size: 20px; font-weight: 900; color: var(--white); text-decoration: none; display: block; text-align: center; }
+    .hero-card-phone-label { text-align: center; font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
+
+    .trust { background: var(--orange); padding: 14px 20px; }
+    .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .trust-item { font-size: 13px; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 6px; }
+
+    .section { padding: 72px 20px; }
+    .section.bg-off { background: var(--off-white); }
+    .section.bg-white { background: var(--white); }
+    .section.bg-navy { background: var(--navy); color: var(--white); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .section-tag.muted { color: var(--text-muted); }
+    .section-title { font-size: 34px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 16px; line-height: 1.15; }
+    .section-title.white { color: var(--white); }
+    .section-sub { font-size: 16px; color: var(--text-muted); line-height: 1.65; max-width: 560px; margin-bottom: 48px; }
+    .section-sub.white { color: rgba(255,255,255,0.55); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    .card { background: var(--white); border-radius: 14px; padding: 28px; box-shadow: 0 2px 12px rgba(10,22,40,0.06); }
+    .card.dark { background: var(--navy-light); }
+    .card-icon { font-size: 28px; margin-bottom: 14px; }
+    .card-title { font-size: 16px; font-weight: 800; margin-bottom: 10px; }
+    .card.dark .card-title { color: var(--white); }
+    .card-body { font-size: 14px; line-height: 1.65; color: var(--text-muted); }
+    .card.dark .card-body { color: rgba(255,255,255,0.5); }
+    .card-price { font-size: 13px; font-weight: 700; color: var(--orange); margin-top: 12px; }
+
+    /* TRANSFORMATIONS */
+    .transform-card { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 16px rgba(10,22,40,0.08); }
+    .transform-placeholder { background: linear-gradient(135deg, var(--navy-light), var(--navy-mid)); height: 180px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    .transform-body { padding: 20px; }
+    .transform-name { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .transform-result { font-size: 13px; color: var(--orange); font-weight: 700; margin-bottom: 8px; }
+    .transform-quote { font-size: 13px; color: #666; line-height: 1.55; font-style: italic; }
+
+    /* ABOUT */
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-image { background: var(--navy-light); border-radius: 16px; height: 380px; display: flex; align-items: center; justify-content: center; font-size: 80px; border: 1px solid rgba(255,255,255,0.08); }
+    .about-text p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 14px; }
+    .about-text strong { color: var(--white); }
+    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+    .about-stat { background: var(--navy-mid); border-radius: 10px; padding: 16px 12px; text-align: center; }
+    .about-stat-val { font-size: 22px; font-weight: 900; color: var(--orange); margin-bottom: 4px; }
+    .about-stat-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.3px; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: #777; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 14px; border: 2px solid #E0E0E0; border-radius: 8px; font-size: 14px; font-family: inherit; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--orange); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-submit { width: 100%; background: var(--orange); color: var(--white); border: none; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: inherit; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .contact-info-item { display: flex; gap: 14px; margin-bottom: 22px; }
+    .contact-info-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .contact-info-label { font-size: 11px; font-weight: 700; color: #aaa; text-transform: uppercase; margin-bottom: 4px; }
+    .contact-info-value { font-size: 15px; font-weight: 600; }
+    .contact-info-value a { color: var(--navy); text-decoration: none; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.4); padding: 40px 20px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { color: var(--white); font-size: 20px; font-weight: 900; }
+    .footer-logo span { color: var(--orange); }
+    .footer-links { display: flex; gap: 16px; }
+    .footer-links button { background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer; font-size: 13px; font-family: inherit; }
+    .footer-links button:hover { color: var(--white); }
+    .footer-credit { font-size: 12px; width: 100%; text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-credit a { color: rgba(255,255,255,0.3); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .hero h1 { font-size: 30px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-3, .grid-4, .about-split, .contact-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📞 <a href="tel:07834950712">0783 495 0712</a></span>
+  <span>✉ <a href="mailto:nick@lepfitness.co.uk">nick@lepfitness.co.uk</a></span>
+  <span>📍 5 Fossdale Rd, Sheffield S7 2DA</span>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">LEP<span>.</span></div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showPage('home')">Home</button>
+      <button class="nav-link" onclick="showPage('about')">About Nick</button>
+      <button class="nav-link" onclick="showPage('packages')">Packages</button>
+      <button class="nav-link" onclick="showPage('transformations')">Transformations</button>
+      <button class="nav-link" onclick="showPage('contact')">Contact</button>
+    </div>
+    <button class="nav-cta" onclick="showPage('contact')">Begin Your Journey</button>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('about')">About Nick</button>
+    <button onclick="showPage('packages')">Packages</button>
+    <button onclick="showPage('transformations')">Transformations</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div data-page="home" class="active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Voted #1 Personal Trainer in Sheffield</div>
+        <h1>Begin Your<br><em>Life Enrichment</em><br>Program.</h1>
+        <p class="hero-sub">One-to-one personal training in Sheffield's private studio. Over 10,000 hours of coaching. Hundreds of transformations. Satisfaction guaranteed — or your money back.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-val">10,000+</div><div class="hero-stat-label">Coaching Hours</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">100+</div><div class="hero-stat-label">Transformations</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">#1</div><div class="hero-stat-label">Voted Sheffield PT</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">S7</div><div class="hero-stat-label">Private Studio</div></div>
+        </div>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('contact')">Begin Your Journey</button>
+          <button class="btn-outline" onclick="showPage('packages')">View Packages</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">LEP Fitness</div>
+        <div class="hero-card-item"><span>📍</span><span>5 Fossdale Rd, Sheffield S7 2DA</span></div>
+        <div class="hero-card-item"><span>🏆</span><span>Voted best personal trainer in Sheffield</span></div>
+        <div class="hero-card-item"><span>✓</span><span>Satisfaction guaranteed or money back</span></div>
+        <div class="hero-card-item"><span>💪</span><span>Private studio — no queues, no audience</span></div>
+        <div class="hero-card-item"><span>☕</span><span>Tea, coffee or water on arrival</span></div>
+        <hr class="hero-card-divider">
+        <a class="hero-card-phone" href="tel:07834950712">0783 495 0712</a>
+        <p class="hero-card-phone-label">Call Nick to get started</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-inner">
+      <span class="trust-item">✓ Money-Back Guarantee</span>
+      <span class="trust-item">✓ Private Studio</span>
+      <span class="trust-item">✓ 10,000+ Coaching Hours</span>
+      <span class="trust-item">✓ Support 7 Days a Week</span>
+      <span class="trust-item">✓ Sheffield S7</span>
+    </div>
+  </div>
+
+  <div class="section bg-off">
+    <div class="section-inner">
+      <div class="section-tag muted">12 Reasons to Join</div>
+      <h2 class="section-title">More than just a workout.</h2>
+      <p class="section-sub">LEP stands for Life Enrichment Program. The transformation starts on the inside — confidence, discipline, resilience — and the results follow naturally.</p>
+      <div class="grid-4">
+        <div class="card"><div class="card-icon">🤝</div><div class="card-title">Friendly Atmosphere</div><div class="card-body">No intimidation. Train in a supportive, private environment where you can just focus.</div></div>
+        <div class="card"><div class="card-icon">🔒</div><div class="card-title">Private Studio</div><div class="card-body">Nobody staring. No waiting for equipment. Your session, your space.</div></div>
+        <div class="card"><div class="card-icon">🧠</div><div class="card-title">Mindset Coaching</div><div class="card-body">Nick coaches the mindset as much as the body — because that's where lasting results begin.</div></div>
+        <div class="card"><div class="card-icon">📞</div><div class="card-title">Support Every Day</div><div class="card-body">Your PT is available 7 days a week. No question too big or small.</div></div>
+        <div class="card"><div class="card-icon">🎯</div><div class="card-title">Personalised Everything</div><div class="card-body">Workouts, food programmes, even the music playing. Every detail built for you.</div></div>
+        <div class="card"><div class="card-icon">🏋️</div><div class="card-title">Top-Range Equipment</div><div class="card-body">Dumbbells to 40kg, squat rack, battle ropes, ski machine, rowing machine and more.</div></div>
+        <div class="card"><div class="card-icon">💰</div><div class="card-title">Money-Back Guarantee</div><div class="card-body">Satisfaction guaranteed. If you don't see results — you get your money back.</div></div>
+        <div class="card"><div class="card-icon">☕</div><div class="card-title">Human Touch</div><div class="card-body">Tea, coffee, cold drinks on arrival. Because the experience matters as much as the training.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT NICK -->
+<div data-page="about">
+  <div class="section bg-navy">
+    <div class="about-split section-inner" style="padding: 0;">
+      <div class="about-image">💪</div>
+      <div class="about-text">
+        <div class="section-tag" style="margin-bottom: 14px;">The Founder</div>
+        <h2 class="section-title white" style="margin-bottom: 24px;">Nick Screeton.<br>Life Enrichment Program.</h2>
+        <p>LEP Fitness isn't just a gym — it's a <strong>Life Enrichment Program</strong>. Nick founded LEP with a simple belief: that a personal trainer is more than someone who gives you a workout. They're a coach, a friend, and someone who genuinely cares about your quality of life.</p>
+        <p>With over <strong>10,000 hours of coaching</strong> and hundreds of body transformations under his belt, Nick has built a reputation as Sheffield's most trusted personal trainer. Not because of a certificate on a wall — but because his clients get results and keep them long after they stop training with him.</p>
+        <p>The results you see in the mirror are real. But for Nick, the more important transformation is the one that happens inside — the <strong>confidence, the discipline, the resilience</strong> that makes everything else in life better too.</p>
+        <div class="about-stats">
+          <div class="about-stat"><div class="about-stat-val">10,000+</div><div class="about-stat-label">Coaching Hours</div></div>
+          <div class="about-stat"><div class="about-stat-val">#1</div><div class="about-stat-label">Sheffield PT</div></div>
+          <div class="about-stat"><div class="about-stat-val">100%</div><div class="about-stat-label">Guaranteed</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<div data-page="packages">
+  <div class="section bg-off">
+    <div class="section-inner">
+      <div class="section-tag muted">Training Packages</div>
+      <h2 class="section-title">Choose your path.</h2>
+      <p class="section-sub">Whether you want face-to-face sessions in the studio, group training, a personalised meal plan or online coaching — there's a package built for you.</p>
+      <div class="grid-2" style="gap: 28px;">
+        <div class="card">
+          <div class="card-icon">👤</div>
+          <div class="card-title">1-to-1 Personal Training</div>
+          <div class="card-body">The full LEP experience. Private sessions in the studio with Nick or one of the LEP coaches. Your programme, your pace, your results. Weekly sessions available — the most direct route to your goal.</div>
+          <div class="card-price">Contact us for pricing →</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <div class="card-title">Group Personal Training</div>
+          <div class="card-body">Train with others in a small, coached group. The accountability and energy of a group with the quality and structure of personal training. More affordable than 1-2-1 without sacrificing results.</div>
+          <div class="card-price">Contact us for pricing →</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🥗</div>
+          <div class="card-title">Custom Meal Plans</div>
+          <div class="card-body">A nutrition plan built specifically for your goals, your lifestyle and your food preferences. No generic templates — a plan you can actually stick to. Includes shopping lists and portion guidance.</div>
+          <div class="card-price">Contact us for pricing →</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <div class="card-title">Online Personal Training</div>
+          <div class="card-body">Work with LEP from anywhere. Personalised programmes, nutrition guidance and regular check-ins — all the coaching, without the commute. Perfect for busy schedules or those outside Sheffield.</div>
+          <div class="card-price">Contact us for pricing →</div>
+        </div>
+      </div>
+      <div style="margin-top: 40px; background: var(--navy); border-radius: 16px; padding: 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;">
+        <div>
+          <p style="color: var(--orange); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Not sure which package is right?</p>
+          <p style="color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.6;">Send a message and Nick will get back to you personally. He'll recommend the best starting point based on your goals and situation — no hard sell, just honest advice.</p>
+        </div>
+        <button class="btn-primary" onclick="showPage('contact')" style="white-space: nowrap;">Get in Touch</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSFORMATIONS -->
+<div data-page="transformations">
+  <div class="section bg-off">
+    <div class="section-inner">
+      <div class="section-tag muted">Success Stories</div>
+      <h2 class="section-title">Changing Lives in Sheffield.</h2>
+      <p class="section-sub">Over 100 transformations — every one of them a real person who showed up, put in the work, and changed their life. This could be you.</p>
+      <div class="grid-3">
+        <div class="transform-card">
+          <div class="transform-placeholder">💪</div>
+          <div class="transform-body">
+            <div class="transform-name">Elliott</div>
+            <div class="transform-result">Lost 23kg — first time confident without his t-shirt</div>
+            <p class="transform-quote">"It's the first time I've ever felt confident taking my t-shirt off on the beach."</p>
+          </div>
+        </div>
+        <div class="transform-card">
+          <div class="transform-placeholder">👗</div>
+          <div class="transform-body">
+            <div class="transform-name">Caroline</div>
+            <div class="transform-result">Lost 29lbs — 3 dress sizes down for her wedding</div>
+            <p class="transform-quote">"My body has changed shape so much, I am 3 dress sizes down, and even my cellulite is disappearing."</p>
+          </div>
+        </div>
+        <div class="transform-card">
+          <div class="transform-placeholder">🏋️</div>
+          <div class="transform-body">
+            <div class="transform-name">Jan</div>
+            <div class="transform-result">Lost 5 stone (70lbs) in 11 months</div>
+            <p class="transform-quote">"Jan now enjoys working out, has a daily structure. Most importantly, he's happy with his body image and has a new positive mindset."</p>
+          </div>
+        </div>
+        <div class="transform-card">
+          <div class="transform-placeholder">🔥</div>
+          <div class="transform-body">
+            <div class="transform-name">Faye</div>
+            <div class="transform-result">Lost 12lbs in 8 weeks — dropped a jean size</div>
+            <p class="transform-quote">"Fast results with inches lost from her stomach and muscle definition she'd never had before."</p>
+          </div>
+        </div>
+        <div class="transform-card">
+          <div class="transform-placeholder">⚡</div>
+          <div class="transform-body">
+            <div class="transform-name">Liam</div>
+            <div class="transform-result">Got lean in 6 weeks — built muscle, lost fat</div>
+            <p class="transform-quote">"In just 6 weeks he lost lots of body fat, built muscle, and now feels super confident."</p>
+          </div>
+        </div>
+        <div class="transform-card">
+          <div class="transform-placeholder">🏆</div>
+          <div class="transform-body">
+            <div class="transform-name">Rachel</div>
+            <div class="transform-result">Lost 56lbs (4 stone) in 4 months</div>
+            <p class="transform-quote">"From trapped in long hours and relying on caffeine — to 4 stone lighter and back in control of her life."</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 40px; text-align: center;">
+        <button class="btn-primary" onclick="showPage('contact')">Ready to be the next success story?</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div data-page="contact">
+  <div class="section bg-off">
+    <div class="section-inner">
+      <div class="section-tag muted">Get in Touch</div>
+      <h2 class="section-title">Begin your journey.</h2>
+      <p class="section-sub">Fill in the form and Nick will get back to you personally. Tell us as much as you like — goals, age, history — the more we know, the better we can help.</p>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📍</span>
+            <div>
+              <div class="contact-info-label">Studio Address</div>
+              <div class="contact-info-value">5 Fossdale Rd<br>Sheffield, S7 2DA</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📞</span>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value"><a href="tel:07834950712">0783 495 0712</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">✉</span>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value"><a href="mailto:nick@lepfitness.co.uk">nick@lepfitness.co.uk</a></div>
+            </div>
+          </div>
+          <div style="background: var(--navy); border-radius: 12px; padding: 24px; margin-top: 8px;">
+            <p style="color: var(--orange); font-size: 14px; font-weight: 700; margin-bottom: 8px;">Satisfaction guaranteed.</p>
+            <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6;">If you don't get results working with LEP Fitness, you get your money back. That's how confident Nick is in what he does.</p>
+          </div>
+        </div>
+        <div class="card">
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group"><label>Name</label><input type="text" placeholder="Your full name" required></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required></div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="07..."></div>
+            <div class="form-group"><label>I'm most interested in</label>
+              <select>
+                <option>1-to-1 Personal Training</option>
+                <option>Group Training</option>
+                <option>Custom Meal Plan</option>
+                <option>Online Personal Training</option>
+                <option>Not sure — please advise</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Tell us about yourself and your goals</label><textarea placeholder="Age, goal, fitness background — the more detail the better" style="height: 130px;"></textarea></div>
+            <button type="submit" class="form-submit">Begin My Journey</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">LEP<span>.</span></div>
+    <div class="footer-links">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('about')">About Nick</button>
+      <button onclick="showPage('packages')">Packages</button>
+      <button onclick="showPage('contact')">Contact</button>
+    </div>
+    <div style="font-size:13px;">5 Fossdale Rd, Sheffield S7 2DA</div>
+  </div>
+  <div class="footer-credit">© 2026 LEP Fitness · Life Enrichment Program · Website concept built by <a href="mailto:aidan@trabelo.com">Trabelo · Sheffield</a></div>
+</footer>
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('[data-page]').forEach(el => el.classList.remove('active'));
+    const t = document.querySelector(`[data-page="${page}"]`);
+    if (t) t.classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(el => {
+      el.classList.remove('active');
+      if (el.getAttribute('onclick') && el.getAttribute('onclick').includes(`'${page}'`)) el.classList.add('active');
+    });
+    closeMobileMenu();
+    window.scrollTo(0, 0);
+  }
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').style.display = 'none';
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    e.target.innerHTML = '<div style="text-align:center;padding:40px;color:#059669;font-size:16px;font-weight:700;">✓ Thanks! Nick will be in touch shortly.</div>';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Audit — Train with Suzy | Trabelo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F5F4F0; color: #222; }
+
+    .top-bar { background: #1E3D59; color: #ccc; font-size: 12px; text-align: center; padding: 8px 20px; letter-spacing: 0.3px; }
+    .top-bar span { color: #fff; font-weight: 600; }
+
+    header { background: #fff; padding: 48px 20px 40px; text-align: center; border-bottom: 1px solid #EBEBEB; }
+    .header-tag { display: inline-block; background: #CCFBF1; color: #0F766E; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 18px; letter-spacing: 0.5px; }
+    header h1 { font-size: 32px; font-weight: 800; color: #111; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .header-meta { font-size: 14px; color: #888; margin-bottom: 24px; }
+    .header-details { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; font-size: 13px; color: #666; }
+    .header-details span { background: #F5F4F0; padding: 5px 12px; border-radius: 8px; }
+
+    .scores-section { background: #fff; border-bottom: 1px solid #EBEBEB; padding: 36px 20px; }
+    .scores-section h2 { font-size: 14px; font-weight: 700; color: #888; text-align: center; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 560px; margin: 0 auto 12px; }
+    .score-card { background: #F8F7F4; border-radius: 12px; padding: 20px 10px 14px; text-align: center; }
+    .score-num { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+    .score-tag { font-size: 10px; font-weight: 600; margin-bottom: 6px; }
+    .score-label { font-size: 11px; color: #999; }
+    .red { color: #D62828; } .red-tag { color: #D62828; }
+    .amber { color: #D97706; } .amber-tag { color: #D97706; }
+    .green { color: #059669; } .green-tag { color: #059669; }
+    .scores-note { text-align: center; font-size: 12px; color: #bbb; max-width: 500px; margin: 0 auto; }
+
+    .intro-section { max-width: 680px; margin: 0 auto; padding: 48px 20px 0; }
+    .intro-section p { font-size: 16px; color: #444; line-height: 1.75; }
+    .intro-section p + p { margin-top: 16px; }
+    .intro-section strong { color: #111; }
+
+    .section { max-width: 680px; margin: 0 auto; padding: 48px 20px 0; }
+    .section-label { font-size: 12px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .section h2 { font-size: 24px; font-weight: 800; color: #111; margin-bottom: 28px; }
+
+    .issue { background: #fff; border-radius: 14px; padding: 28px; margin-bottom: 16px; border-left: 4px solid #ccc; }
+    .issue.moderate { border-left-color: #D97706; }
+    .issue.seo { border-left-color: #2563EB; }
+    .issue.access { border-left-color: #7C3AED; }
+    .issue-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; letter-spacing: 0.5px; }
+    .issue.moderate .issue-badge { background: #FEF3C7; color: #92400E; }
+    .issue.seo .issue-badge { background: #DBEAFE; color: #1D4ED8; }
+    .issue.access .issue-badge { background: #F3E8FF; color: #6B21A8; }
+    .issue h3 { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 16px; line-height: 1.3; }
+    .issue-block { margin-bottom: 14px; }
+    .issue-block-label { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+    .issue-block p { font-size: 14px; color: #555; line-height: 1.65; }
+    .issue-block strong { color: #111; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .feature-card { background: #fff; border-radius: 12px; padding: 20px; }
+    .feature-icon { font-size: 22px; margin-bottom: 8px; }
+    .feature-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 6px; }
+    .feature-desc { font-size: 13px; color: #666; line-height: 1.55; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .price-card { background: #fff; border-radius: 14px; padding: 24px 20px; }
+    .price-card.recommended { background: #1E3D59; color: #fff; }
+    .price-tier { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; color: #999; }
+    .price-card.recommended .price-tier { color: #5EEAD4; }
+    .price-amount { font-size: 32px; font-weight: 800; color: #111; margin-bottom: 4px; }
+    .price-card.recommended .price-amount { color: #fff; }
+    .price-desc { font-size: 12px; color: #888; margin-bottom: 16px; line-height: 1.4; }
+    .price-card.recommended .price-desc { color: #bbb; }
+    .price-features { list-style: none; margin-bottom: 20px; }
+    .price-features li { font-size: 13px; color: #555; padding: 4px 0; padding-left: 18px; position: relative; line-height: 1.4; }
+    .price-card.recommended .price-features li { color: #ddd; }
+    .price-features li::before { content: '✓'; position: absolute; left: 0; color: #059669; font-weight: 700; }
+    .price-card.recommended .price-features li::before { color: #5EEAD4; }
+    .price-updates { font-size: 11px; color: #aaa; line-height: 1.4; }
+    .price-card.recommended .price-updates { color: #999; }
+    .price-cta { display: block; text-align: center; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 12px; }
+    .price-cta-dark { background: #1E3D59; color: #fff; }
+    .price-cta-teal { background: #5EEAD4; color: #111; }
+    .price-cta-outline { background: #F0EEE8; color: #111; }
+    .rec-label { display: inline-block; background: #5EEAD4; color: #111; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 10px; margin-bottom: 12px; }
+
+    .closing { background: #fff; margin: 48px 0 0; padding: 44px 20px; text-align: center; border-top: 1px solid #EBEBEB; }
+    .closing h2 { font-size: 22px; font-weight: 800; color: #111; margin-bottom: 12px; }
+    .closing p { font-size: 15px; color: #555; max-width: 460px; margin: 0 auto 20px; line-height: 1.65; }
+    .closing-email { display: inline-block; background: #1E3D59; color: #fff; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .closing-meta { margin-top: 24px; font-size: 12px; color: #bbb; }
+    .closing-meta a { color: #888; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 24px; }
+      .scores-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">Website Audit · Prepared by <span>Trabelo</span></div>
+
+<header>
+  <div class="header-tag">FREE AUDIT — GOOD SCORES, ROOM TO BE PERFECT</div>
+  <h1>A Free Audit for Train with Suzy</h1>
+  <p class="header-meta">trainwithsuzy.com · Prepared by Aidan, Trabelo · Sheffield</p>
+  <div class="header-details">
+    <span>📍 Sheffield</span>
+    <span>🏋️ Private Personal Training Studio</span>
+    <span>📅 July 2026</span>
+  </div>
+</header>
+
+<div class="scores-section">
+  <h2>Your Google PageSpeed Scores (Mobile)</h2>
+  <div class="scores-grid">
+    <div class="score-card">
+      <div class="score-num amber">87</div>
+      <div class="score-tag amber-tag">Needs Work</div>
+      <div class="score-label">Performance</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num green">94</div>
+      <div class="score-tag green-tag">Good</div>
+      <div class="score-label">Accessibility</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num green">96</div>
+      <div class="score-tag green-tag">Good</div>
+      <div class="score-label">Best Practices</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num green">92</div>
+      <div class="score-tag green-tag">Good</div>
+      <div class="score-label">SEO</div>
+    </div>
+  </div>
+  <p class="scores-note">Google Lighthouse · Mobile · July 2026 · Red = 0–49 · Amber = 50–89 · Green = 90–100. Your site is already better than most personal trainers I audit in Sheffield — here's what's left.</p>
+</div>
+
+<div class="intro-section">
+  <p>Hi — I'm Aidan. I'm 18 and I do web design across Sheffield and South Yorkshire. I'll be upfront with you — your site is already doing well. Most PT websites I audit in Sheffield are scoring 30 or 40 on performance. Yours is 87, your accessibility is 94, and your best practices are 96. That's genuinely good.</p>
+  <p>But there are a handful of specific issues still holding it back from perfect scores, and the demo I've put together for you shows what a clean rebuild could look like — <strong>properly showcasing the private gym, the 12+ years of experience and the 5-star Google rating</strong> Suzy has built. Even with solid scores, a fast, beautifully designed site can make a real difference to how many people actually get in touch. Here's the full picture.</p>
+</div>
+
+<div class="section">
+  <div class="section-label">What's Not Working — and Why It Matters</div>
+  <h2>Three specific issues, in plain terms.</h2>
+
+  <div class="issue moderate">
+    <div class="issue-badge">Performance</div>
+    <h3>Render-blocking scripts — 1,600ms delay before the page can start loading</h3>
+    <div class="issue-block">
+      <div class="issue-block-label">What's happening</div>
+      <p>Google found <strong>render-blocking requests with 1,600ms of potential savings</strong>. These are scripts loading in the page header that force the browser to stop and wait before it can show anything. It also found <strong>124KB of image savings</strong> — images that could be smaller and load faster without any visible quality loss.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">What this means for your clients</div>
+      <p>Your page does load faster than most — but shaving 1.6 seconds off the initial delay and optimising images would push your performance score from 87 to comfortably over 97. That's the difference between a site that loads "pretty quickly" and one that loads before most people notice.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">The fix</div>
+      <p>All scripts loaded non-blocking, images compressed and properly sized. Target performance score: <strong>97+</strong>.</p>
+    </div>
+  </div>
+
+  <div class="issue access">
+    <div class="issue-badge">Accessibility</div>
+    <h3>Colour contrast, heading order and SVG icons without text alternatives</h3>
+    <div class="issue-block">
+      <div class="issue-block-label">What's happening</div>
+      <p>Google found that some <strong>colour combinations don't meet the minimum contrast ratio</strong> — text against its background is slightly harder to read for some users. It also found <strong>heading elements not in descending order</strong> (which affects how screen readers and Google navigate your page) and <strong>SVG icons used as images without alt text</strong> — icons that assistive technology can't describe.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">What this means for your clients</div>
+      <p>These are small gaps, but a 94 on accessibility means some visitors have a slightly harder experience. A 98+ means everyone can read, navigate and understand the site regardless of how they're accessing it.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">The fix</div>
+      <p>Full contrast compliance, correct heading hierarchy, all SVGs labelled. Accessibility target: <strong>98+</strong>.</p>
+    </div>
+  </div>
+
+  <div class="issue seo">
+    <div class="issue-badge">SEO</div>
+    <h3>2 links without descriptive text and browser console errors</h3>
+    <div class="issue-block">
+      <div class="issue-block-label">What's happening</div>
+      <p>Google found <strong>2 links without descriptive text</strong> — likely image or icon links where the label Google uses to understand the link is missing. It also found <strong>browser errors being logged</strong>, which suggests some JavaScript on the page is failing silently.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">What this means for your clients</div>
+      <p>Missing link labels mean Google can't fully read how your pages connect. Console errors mean code is failing — usually harmlessly, but occasionally causing small visual or functional issues. Both are worth cleaning up to hit 100 on SEO and 100 on best practices.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">The fix</div>
+      <p>All links properly labelled, errors resolved, clean SEO structure throughout. SEO target: <strong>100</strong>. Best Practices target: <strong>100</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-bottom: 0;">
+  <div class="section-label">What a Rebuilt Site Adds</div>
+  <h2>Suzy's private gym and 12-year reputation deserve a site that matches them.</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">Performance Score 97+</div>
+      <div class="feature-desc">From 87 to 97+ — no render-blocking, optimised images, fast from the first byte.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏠</div>
+      <div class="feature-title">Private Gym — Properly Showcased</div>
+      <div class="feature-desc">The bespoke gym space front and centre — photos, atmosphere, what makes it different.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💍</div>
+      <div class="feature-title">Wedding Programme Section</div>
+      <div class="feature-desc">A dedicated section for wedding fitness programmes — a strong, specific search term.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⭐</div>
+      <div class="feature-title">5-Star Reviews — Showcased</div>
+      <div class="feature-desc">Claire, Eileen, Madison, Helen and more — the 5★ Google rating given the prominence it deserves.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-title">Free Consultation CTA — Throughout</div>
+      <div class="feature-desc">The free consultation offer prominent on every section — the easiest way for someone to say yes.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <div class="feature-title">SEO Score 100</div>
+      <div class="feature-desc">All links labelled, errors cleared, proper structure — Google gets the full picture.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top: 48px; padding-bottom: 0;">
+  <div class="section-label">What It Would Cost</div>
+  <h2>Three tiers, all one-off prices. No monthly fees, no surprises.</h2>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-tier">Starter</div>
+      <div class="price-amount">£395</div>
+      <div class="price-desc">A clean rebuild pushing all four scores to 97+ or better.</div>
+      <ul class="price-features">
+        <li>Up to 5 pages rebuilt</li>
+        <li>Performance score 97+</li>
+        <li>Accessibility score 98+</li>
+        <li>Best Practices 100</li>
+        <li>SEO score 100</li>
+        <li>Mobile-first design</li>
+      </ul>
+      <a href="mailto:aidan@trabelo.com" class="price-cta price-cta-dark">Get in Touch</a>
+      <p class="price-updates">Updates: £15/change or £30/month unlimited.</p>
+    </div>
+    <div class="price-card recommended">
+      <div class="rec-label">Recommended for Train with Suzy</div>
+      <div class="price-tier">Business</div>
+      <div class="price-amount">£795</div>
+      <div class="price-desc">Everything in Starter, plus a full site doing the private gym and Suzy's experience proper justice.</div>
+      <ul class="price-features">
+        <li>Everything in Starter</li>
+        <li>Private gym showcase — photos and description</li>
+        <li>Wedding programmes — dedicated section</li>
+        <li>How it works — full explainer</li>
+        <li>Client testimonials — designed to convert</li>
+        <li>NRPT membership displayed</li>
+        <li>No monthly fees</li>
+      </ul>
+      <a href="mailto:aidan@trabelo.com" class="price-cta price-cta-teal">Get in Touch</a>
+      <p class="price-updates">One-off price. No monthly fees.</p>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Premium</div>
+      <div class="price-amount">£1,295</div>
+      <div class="price-desc">Everything in Business plus a CMS and blog to support long-term SEO.</div>
+      <ul class="price-features">
+        <li>Everything in Business</li>
+        <li>CMS — update content yourself</li>
+        <li>Blog / fitness advice articles</li>
+        <li>Client success stories — add yourself</li>
+        <li>Newsletter signup</li>
+        <li>Priority updates 12 months</li>
+      </ul>
+      <a href="mailto:aidan@trabelo.com" class="price-cta price-cta-dark">Get in Touch</a>
+      <p class="price-updates">Small hosting cost may apply (~£0–9/month).</p>
+    </div>
+  </div>
+</div>
+
+<div class="closing">
+  <h2>Happy to have a no-pressure chat</h2>
+  <p>If anything here is useful or you'd like to see the demo site I've put together for Train with Suzy — just drop me an email. No obligation at all.</p>
+  <a href="mailto:aidan@trabelo.com" class="closing-email">Reach Aidan directly — aidan@trabelo.com</a>
+  <p class="closing-meta">Prepared by <a href="mailto:aidan@trabelo.com">Aidan Fry</a> at Trabelo · Sheffield · aidan@trabelo.com · Free, no obligation · July 2026</p>
+</div>
+
+</body>
+</html>

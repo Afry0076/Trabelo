@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Audit — Kate Campbell Fitness | Trabelo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F5F4F0; color: #222; }
+
+    .top-bar { background: #2D1B3D; color: #ccc; font-size: 12px; text-align: center; padding: 8px 20px; letter-spacing: 0.3px; }
+    .top-bar span { color: #fff; font-weight: 600; }
+
+    header { background: #fff; padding: 48px 20px 40px; text-align: center; border-bottom: 1px solid #EBEBEB; }
+    .header-tag { display: inline-block; background: #F3E8FF; color: #6B21A8; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 18px; letter-spacing: 0.5px; }
+    header h1 { font-size: 32px; font-weight: 800; color: #111; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .header-meta { font-size: 14px; color: #888; margin-bottom: 24px; }
+    .header-details { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; font-size: 13px; color: #666; }
+    .header-details span { background: #F5F4F0; padding: 5px 12px; border-radius: 8px; }
+
+    .scores-section { background: #fff; border-bottom: 1px solid #EBEBEB; padding: 36px 20px; }
+    .scores-section h2 { font-size: 14px; font-weight: 700; color: #888; text-align: center; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 560px; margin: 0 auto 12px; }
+    .score-card { background: #F8F7F4; border-radius: 12px; padding: 20px 10px 14px; text-align: center; }
+    .score-num { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+    .score-tag { font-size: 10px; font-weight: 600; margin-bottom: 6px; }
+    .score-label { font-size: 11px; color: #999; }
+    .red { color: #D62828; } .red-tag { color: #D62828; }
+    .amber { color: #D97706; } .amber-tag { color: #D97706; }
+    .green { color: #059669; } .green-tag { color: #059669; }
+    .scores-note { text-align: center; font-size: 12px; color: #bbb; max-width: 500px; margin: 0 auto; }
+
+    .intro-section { max-width: 680px; margin: 0 auto; padding: 48px 20px 0; }
+    .intro-section p { font-size: 16px; color: #444; line-height: 1.75; }
+    .intro-section p + p { margin-top: 16px; }
+    .intro-section strong { color: #111; }
+
+    .section { max-width: 680px; margin: 0 auto; padding: 48px 20px 0; }
+    .section-label { font-size: 12px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .section h2 { font-size: 24px; font-weight: 800; color: #111; margin-bottom: 28px; }
+
+    .issue { background: #fff; border-radius: 14px; padding: 28px; margin-bottom: 16px; border-left: 4px solid #ccc; }
+    .issue.critical { border-left-color: #D62828; }
+    .issue.moderate { border-left-color: #D97706; }
+    .issue.seo { border-left-color: #2563EB; }
+    .issue.access { border-left-color: #7C3AED; }
+    .issue-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; letter-spacing: 0.5px; }
+    .issue.critical .issue-badge { background: #FEE2E2; color: #B91C1C; }
+    .issue.moderate .issue-badge { background: #FEF3C7; color: #92400E; }
+    .issue.seo .issue-badge { background: #DBEAFE; color: #1D4ED8; }
+    .issue.access .issue-badge { background: #F3E8FF; color: #6B21A8; }
+    .issue h3 { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 16px; line-height: 1.3; }
+    .issue-block { margin-bottom: 14px; }
+    .issue-block-label { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+    .issue-block p { font-size: 14px; color: #555; line-height: 1.65; }
+    .issue-block strong { color: #111; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .feature-card { background: #fff; border-radius: 12px; padding: 20px; }
+    .feature-icon { font-size: 22px; margin-bottom: 8px; }
+    .feature-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 6px; }
+    .feature-desc { font-size: 13px; color: #666; line-height: 1.55; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .price-card { background: #fff; border-radius: 14px; padding: 24px 20px; }
+    .price-card.recommended { background: #2D1B3D; color: #fff; }
+    .price-tier { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; color: #999; }
+    .price-card.recommended .price-tier { color: #C084FC; }
+    .price-amount { font-size: 32px; font-weight: 800; color: #111; margin-bottom: 4px; }
+    .price-card.recommended .price-amount { color: #fff; }
+    .price-desc { font-size: 12px; color: #888; margin-bottom: 16px; line-height: 1.4; }
+    .price-card.recommended .price-desc { color: #bbb; }
+    .price-features { list-style: none; margin-bottom: 20px; }
+    .price-features li { font-size: 13px; color: #555; padding: 4px 0; padding-left: 18px; position: relative; line-height: 1.4; }
+    .price-card.recommended .price-features li { color: #ddd; }
+    .price-features li::before { content: '✓'; position: absolute; left: 0; color: #059669; font-weight: 700; }
+    .price-card.recommended .price-features li::before { color: #C084FC; }
+    .price-updates { font-size: 11px; color: #aaa; line-height: 1.4; }
+    .price-card.recommended .price-updates { color: #999; }
+    .price-cta { display: block; text-align: center; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 12px; }
+    .price-cta-dark { background: #2D1B3D; color: #fff; }
+    .price-cta-light { background: #C084FC; color: #111; }
+    .price-cta-outline { background: #F0EEE8; color: #111; }
+    .rec-label { display: inline-block; background: #C084FC; color: #111; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 10px; margin-bottom: 12px; }
+
+    .closing { background: #fff; margin: 48px 0 0; padding: 44px 20px; text-align: center; border-top: 1px solid #EBEBEB; }
+    .closing h2 { font-size: 22px; font-weight: 800; color: #111; margin-bottom: 12px; }
+    .closing p { font-size: 15px; color: #555; max-width: 460px; margin: 0 auto 20px; line-height: 1.65; }
+    .closing-email { display: inline-block; background: #2D1B3D; color: #fff; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .closing-meta { margin-top: 24px; font-size: 12px; color: #bbb; }
+    .closing-meta a { color: #888; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 24px; }
+      .scores-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">Website Audit · Prepared by <span>Trabelo</span></div>
+
+<header>
+  <div class="header-tag">FREE AUDIT</div>
+  <h1>A Free Audit for Kate Campbell Fitness</h1>
+  <p class="header-meta">katecampbellfitness.com · Prepared by Aidan, Trabelo · Sheffield</p>
+  <div class="header-details">
+    <span>📍 345a Ecclesall Road South, Sheffield S11 9PW</span>
+    <span>🤸 Gym &amp; Personal Training Studio</span>
+    <span>📅 July 2026</span>
+  </div>
+</header>
+
+<div class="scores-section">
+  <h2>Your Google PageSpeed Scores (Mobile)</h2>
+  <div class="scores-grid">
+    <div class="score-card">
+      <div class="score-num red">27</div>
+      <div class="score-tag red-tag">Poor</div>
+      <div class="score-label">Performance</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num green">92</div>
+      <div class="score-tag green-tag">Good</div>
+      <div class="score-label">Accessibility</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num green">100</div>
+      <div class="score-tag green-tag">Perfect</div>
+      <div class="score-label">Best Practices</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num green">92</div>
+      <div class="score-tag green-tag">Good</div>
+      <div class="score-label">SEO</div>
+    </div>
+  </div>
+  <p class="scores-note">Google Lighthouse · Mobile · July 2026 · Red = 0–49 · Amber = 50–89 · Green = 90–100. Performance is the standout issue here — and it's a big one.</p>
+</div>
+
+<div class="intro-section">
+  <p>Hi — I'm Aidan. I'm 18 and I do web design across Sheffield and South Yorkshire. I found Kate Campbell Fitness while looking at gym websites on Ecclesall Road, and what you've built is genuinely impressive — a former midwife who's turned 20+ years of healthcare experience into one of the most comprehensive fitness studios in Sheffield. PT, pilates, pregnancy and postnatal support, teen training, therapy and massage, the Meno Years programme — there's real depth here.</p>
+  <p>Which is why your performance score of <strong>27 out of 100 on mobile</strong> is worth taking seriously. Your main content takes over <strong>15 seconds to appear on a phone</strong>. For a gym in S11 whose clients are often busy women fitting appointments around work and family, that's too long. The Squarespace platform you're on is contributing a lot of unnecessary code to every page visit. Here's exactly what's happening.</p>
+</div>
+
+<div class="section">
+  <div class="section-label">What's Not Working — and Why It Matters</div>
+  <h2>Four specific issues found on your site, in plain terms.</h2>
+
+  <div class="issue critical">
+    <div class="issue-badge">Critical — Performance</div>
+    <h3>Performance score of 27 — main content takes 15 seconds to load on mobile</h3>
+    <div class="issue-block">
+      <div class="issue-block-label">What's happening</div>
+      <p>Google's mobile test shows the <strong>Largest Contentful Paint — the main content — takes 15.2 seconds</strong> to appear. Your first contentful paint (the first thing that shows up) takes 6.2 seconds. There's <strong>2,430 milliseconds of total blocking time</strong> — meaning the browser is completely frozen for over 2 seconds before anything can happen. The site is loading <strong>929KB of unused JavaScript</strong> and a total of 3.2MB of data on every visit. There are 20 long main-thread tasks. This is a Squarespace limitation — the platform loads everything regardless of whether the current page needs it.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">What this means for your clients</div>
+      <p>A new client searching "gym Sheffield S11" or "pregnancy fitness Sheffield" on their phone is waiting 15 seconds before they can read about your free taster session or Kate's background. More than half of mobile users leave in under 3 seconds. The specialisms, the warmth, the breadth of services — none of it gets a chance to land.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">The fix</div>
+      <p>A hand-built site with no Squarespace overhead, no unused code, optimised images, and no render-blocking scripts. Target performance score: <strong>97+</strong>. Load time: under 2 seconds.</p>
+    </div>
+  </div>
+
+  <div class="issue critical">
+    <div class="issue-badge">Critical — Performance</div>
+    <h3>Scripts blocking the page from loading — 1,300ms delay before anything appears</h3>
+    <div class="issue-block">
+      <div class="issue-block-label">What's happening</div>
+      <p>Google found <strong>render-blocking requests with a potential saving of 1,300 milliseconds</strong>. These are scripts loading in the page header that force the browser to stop and wait before it can show anything. It also found <strong>125KB of unused CSS</strong> — style code being downloaded but never applied to your page.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">What this means for your clients</div>
+      <p>Before a single word or image can appear, the browser is waiting 1.3 seconds downloading files it may not need. Combined with the 15-second load time above, this means the site feels slow from the first moment.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">The fix</div>
+      <p>No render-blocking scripts. All CSS and JavaScript loaded only when needed, non-blocking. A clean build from scratch.</p>
+    </div>
+  </div>
+
+  <div class="issue access">
+    <div class="issue-badge">Accessibility</div>
+    <h3>Colour contrast and link labels — some clients find it harder to read</h3>
+    <div class="issue-block">
+      <div class="issue-block-label">What's happening</div>
+      <p>Google found that some <strong>background and foreground colours don't have a sufficient contrast ratio</strong> — meaning text against its background is harder to read for people with visual impairments. It also found <strong>links without discernible names</strong> (likely image or icon links with no label) and heading elements not in the correct descending order.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">What this means for your clients</div>
+      <p>Kate Campbell Fitness serves people at every stage of life — teens, new mums, older adults. For a studio that takes inclusion seriously, a fully accessible site is an extension of that approach. Low contrast particularly affects older adults and anyone with low vision.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">The fix</div>
+      <p>Full contrast compliance, all links and images properly labelled, correct heading structure. Accessibility target: <strong>98+</strong>.</p>
+    </div>
+  </div>
+
+  <div class="issue seo">
+    <div class="issue-badge">SEO</div>
+    <h3>4 links without descriptive text — affecting how Google reads your site</h3>
+    <div class="issue-block">
+      <div class="issue-block-label">What's happening</div>
+      <p>Google found <strong>4 links with no descriptive text</strong> — these are typically image buttons or icons where the label that tells Google (and screen readers) what the link does is missing.</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">What this means for your clients</div>
+      <p>Google uses link text to understand how pages connect and what they're about. Missing labels mean Google is working with incomplete information about your site — which can hold back your ranking for searches like "gym Ecclesall Road" or "postnatal fitness Sheffield".</p>
+    </div>
+    <div class="issue-block">
+      <div class="issue-block-label">The fix</div>
+      <p>All links properly labelled throughout. SEO target: <strong>100</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-bottom: 0;">
+  <div class="section-label">What a Rebuilt Site Adds</div>
+  <h2>Kate's story and the range of services deserve a site that loads fast enough to tell them.</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">Performance Score 97+</div>
+      <div class="feature-desc">From 27 to 97+ — under 2 seconds on mobile. No Squarespace. Built clean from scratch.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💜</div>
+      <div class="feature-title">Kate's Story — Properly Told</div>
+      <div class="feature-desc">From NHS midwife to gym owner — 20+ years of women's health experience front and centre.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤱</div>
+      <div class="feature-title">Women's Health Pathway — Clear</div>
+      <div class="feature-desc">Pregnancy, postnatal, menopause — each pathway its own clear section with the right message.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <div class="feature-title">Class Timetable — Integrated</div>
+      <div class="feature-desc">Book classes, view the timetable and download the app — all from one fast-loading page.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⭐</div>
+      <div class="feature-title">Client Stories — Showcased</div>
+      <div class="feature-desc">Paul and Paula, Tanya and Judith, Amy, Nicola — real testimonials given proper design weight.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <div class="feature-title">SEO Score 100</div>
+      <div class="feature-desc">Every link labelled, full structure, meta descriptions — Google gets everything it needs.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top: 48px; padding-bottom: 0;">
+  <div class="section-label">What It Would Cost</div>
+  <h2>Three tiers, all one-off prices. No monthly fees, no surprises.</h2>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-tier">Starter</div>
+      <div class="price-amount">£395</div>
+      <div class="price-desc">A fast, clean rebuild fixing the performance issue and the SEO gaps.</div>
+      <ul class="price-features">
+        <li>Up to 5 pages rebuilt</li>
+        <li>Performance score 97+</li>
+        <li>Accessibility score 98+</li>
+        <li>SEO score 100</li>
+        <li>Mobile-first design</li>
+        <li>Enquiry form</li>
+      </ul>
+      <a href="mailto:aidan@trabelo.com" class="price-cta price-cta-dark">Get in Touch</a>
+      <p class="price-updates">Updates: £15/change or £30/month unlimited.</p>
+    </div>
+    <div class="price-card recommended">
+      <div class="rec-label">Recommended for Kate Campbell Fitness</div>
+      <div class="price-tier">Business</div>
+      <div class="price-amount">£795</div>
+      <div class="price-desc">Everything in Starter, plus a full site doing justice to your range and Kate's background.</div>
+      <ul class="price-features">
+        <li>Everything in Starter</li>
+        <li>Women's health pathway — pregnancy, postnatal, meno</li>
+        <li>All service pages — PT, classes, therapy, teen</li>
+        <li>Kate's story page</li>
+        <li>Class timetable integration</li>
+        <li>Free taster session CTA throughout</li>
+        <li>No monthly fees</li>
+      </ul>
+      <a href="mailto:aidan@trabelo.com" class="price-cta price-cta-light">Get in Touch</a>
+      <p class="price-updates">One-off price. No monthly fees.</p>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Premium</div>
+      <div class="price-amount">£1,295</div>
+      <div class="price-desc">Everything in Business plus a CMS, blog and booking system.</div>
+      <ul class="price-features">
+        <li>Everything in Business</li>
+        <li>CMS — update pages yourself</li>
+        <li>Blog / advice articles</li>
+        <li>Booking system integration</li>
+        <li>Newsletter signup</li>
+        <li>Priority updates 12 months</li>
+      </ul>
+      <a href="mailto:aidan@trabelo.com" class="price-cta price-cta-dark">Get in Touch</a>
+      <p class="price-updates">Small hosting cost may apply (~£0–9/month).</p>
+    </div>
+  </div>
+</div>
+
+<div class="closing">
+  <h2>Happy to have a no-pressure chat</h2>
+  <p>If anything here is useful or you'd like to see the demo site I've put together for Kate Campbell Fitness — just drop me an email. No obligation at all.</p>
+  <a href="mailto:aidan@trabelo.com" class="closing-email">Reach Aidan directly — aidan@trabelo.com</a>
+  <p class="closing-meta">Prepared by <a href="mailto:aidan@trabelo.com">Aidan Fry</a> at Trabelo · Sheffield · aidan@trabelo.com · Free, no obligation · July 2026</p>
+</div>
+
+</body>
+</html>

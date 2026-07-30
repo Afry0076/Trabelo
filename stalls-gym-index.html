@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Stalls Gym — Sheffield's premium women's-only personal training studio. Small group PT, 30-day money-back trial. Based at The Old Dairy, Sheffield S8.">
+  <title>The Stalls Gym | Women's Personal Training Sheffield</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #111111;
+      --yellow: #F5E030;
+      --yellow-dark: #D4C020;
+      --grey-dark: #1A1A1A;
+      --grey-mid: #2A2A2A;
+      --grey-light: #F4F4F0;
+      --white: #FFFFFF;
+      --text-muted: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--grey-light); color: var(--black); }
+
+    /* TOPBAR */
+    .topbar { background: var(--yellow); color: var(--black); font-size: 12px; padding: 8px 20px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-weight: 600; }
+    .topbar a { color: var(--black); text-decoration: none; }
+
+    /* NAV */
+    nav { background: var(--black); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { color: var(--white); font-size: 18px; font-weight: 900; letter-spacing: -0.5px; cursor: pointer; }
+    .nav-logo span { color: var(--yellow); }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-link { background: none; border: none; color: #ccc; font-size: 14px; font-weight: 500; padding: 8px 12px; cursor: pointer; border-radius: 6px; transition: all 0.15s; font-family: inherit; }
+    .nav-link:hover, .nav-link.active { color: var(--white); background: var(--grey-mid); }
+    .nav-cta { background: var(--yellow); color: var(--black); font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .nav-cta:hover { background: var(--yellow-dark); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: white; font-size: 22px; }
+    .mobile-menu { display: none; background: var(--grey-dark); padding: 16px 20px; }
+    .mobile-menu button { display: block; width: 100%; background: none; border: none; color: #ccc; font-size: 15px; font-weight: 500; padding: 12px 0; cursor: pointer; text-align: left; font-family: inherit; border-bottom: 1px solid #333; }
+    .mobile-menu button:last-child { border-bottom: none; }
+
+    /* PAGES */
+    [data-page] { display: none; }
+    [data-page].active { display: block; }
+
+    /* HERO */
+    .hero { background: var(--black); color: var(--white); padding: 72px 20px 64px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: linear-gradient(135deg, transparent 40%, rgba(245,224,48,0.06) 100%); pointer-events: none; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start; }
+    .hero-tag { display: inline-block; background: var(--yellow); color: var(--black); font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 4px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+    .hero h1 { font-size: 48px; font-weight: 900; line-height: 1.05; margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 em { color: var(--yellow); font-style: normal; }
+    .hero-sub { font-size: 17px; color: #aaa; line-height: 1.6; margin-bottom: 36px; max-width: 520px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #333; border: 1px solid #333; border-radius: 10px; overflow: hidden; margin-bottom: 32px; }
+    .hero-stat { background: var(--grey-dark); padding: 18px 12px; text-align: center; }
+    .hero-stat-val { font-size: 22px; font-weight: 800; color: var(--yellow); line-height: 1; margin-bottom: 4px; }
+    .hero-stat-label { font-size: 10px; color: #888; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--yellow); color: var(--black); padding: 14px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 800; cursor: pointer; font-family: inherit; letter-spacing: 0.2px; transition: background 0.15s; }
+    .btn-primary:hover { background: var(--yellow-dark); }
+    .btn-outline { background: transparent; color: var(--white); padding: 14px 24px; border: 2px solid #444; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: border-color 0.15s; }
+    .btn-outline:hover { border-color: #888; }
+    .hero-card { background: var(--grey-dark); border: 1px solid #333; border-radius: 14px; padding: 28px; }
+    .hero-card-title { font-size: 12px; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .hero-card-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; font-size: 14px; color: #ccc; line-height: 1.4; }
+    .hero-card-item:last-child { margin-bottom: 0; }
+    .hero-card-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .hero-card-divider { border: none; border-top: 1px solid #333; margin: 18px 0; }
+    .hero-card-phone { font-size: 22px; font-weight: 800; color: var(--white); text-decoration: none; display: block; text-align: center; }
+    .hero-card-phone-label { text-align: center; font-size: 11px; color: #888; margin-top: 4px; }
+
+    /* TRUST STRIP */
+    .trust { background: var(--yellow); padding: 14px 20px; }
+    .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .trust-item { font-size: 13px; font-weight: 700; color: var(--black); display: flex; align-items: center; gap: 6px; }
+
+    /* SECTIONS */
+    .section { padding: 72px 20px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 11px; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .section-tag.dark { color: #888; }
+    .section-title { font-size: 36px; font-weight: 900; color: var(--black); letter-spacing: -0.5px; margin-bottom: 16px; line-height: 1.1; }
+    .section-title.white { color: var(--white); }
+    .section-sub { font-size: 16px; color: #666; line-height: 1.65; max-width: 580px; margin-bottom: 48px; }
+    .section-sub.white { color: #bbb; }
+
+    /* GRID */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    /* CARDS */
+    .card { background: var(--white); border-radius: 14px; padding: 28px; }
+    .card-dark { background: var(--grey-dark); border-radius: 14px; padding: 28px; color: var(--white); }
+    .card-yellow { background: var(--yellow); border-radius: 14px; padding: 28px; }
+    .card-icon { font-size: 28px; margin-bottom: 14px; }
+    .card-title { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+    .card-body { font-size: 14px; line-height: 1.65; color: #666; }
+    .card-dark .card-body { color: #aaa; }
+    .card-yellow .card-body { color: #333; }
+
+    /* TRIAL SECTION */
+    .trial-section { background: var(--black); }
+    .trial-inner { max-width: 1100px; margin: 0 auto; padding: 72px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .trial-includes { list-style: none; margin: 24px 0; }
+    .trial-includes li { display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #333; font-size: 15px; color: #ccc; line-height: 1.4; }
+    .trial-includes li:last-child { border-bottom: none; }
+    .trial-includes .check { color: var(--yellow); font-weight: 900; flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+    .trial-price-card { background: var(--grey-dark); border: 1px solid #333; border-radius: 16px; padding: 32px; }
+    .trial-price { font-size: 52px; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 6px; }
+    .trial-price-sub { font-size: 14px; color: #888; margin-bottom: 24px; }
+    .trial-guarantee { background: rgba(245,224,48,0.1); border: 1px solid rgba(245,224,48,0.3); border-radius: 10px; padding: 16px; margin-top: 20px; }
+    .trial-guarantee p { font-size: 13px; color: #aaa; line-height: 1.5; }
+    .trial-guarantee strong { color: var(--yellow); }
+
+    /* REVIEWS */
+    .review-card { background: var(--white); border-radius: 14px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .review-stars { color: #F5A623; font-size: 14px; margin-bottom: 12px; }
+    .review-text { font-size: 15px; color: #444; line-height: 1.65; font-style: italic; margin-bottom: 16px; }
+    .review-author { font-size: 13px; font-weight: 700; color: var(--black); }
+
+    /* ABOUT */
+    .about-section { background: var(--black); color: var(--white); }
+    .about-inner { max-width: 1100px; margin: 0 auto; padding: 72px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-image-placeholder { background: var(--grey-dark); border-radius: 16px; height: 360px; display: flex; align-items: center; justify-content: center; font-size: 64px; border: 1px solid #333; }
+    .about-text p { font-size: 16px; color: #bbb; line-height: 1.75; margin-bottom: 16px; }
+    .about-text strong { color: var(--white); }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .contact-info-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
+    .contact-info-icon { font-size: 22px; flex-shrink: 0; }
+    .contact-info-label { font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .contact-info-value { font-size: 15px; color: var(--black); font-weight: 600; }
+    .contact-info-value a { color: var(--black); text-decoration: none; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 14px; border: 2px solid #E0E0E0; border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--black); background: white; transition: border-color 0.15s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--yellow); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-submit { width: 100%; background: var(--yellow); color: var(--black); border: none; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .form-submit:hover { background: var(--yellow-dark); }
+
+    /* FOOTER */
+    footer { background: var(--black); color: #888; padding: 40px 20px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { color: var(--white); font-size: 18px; font-weight: 900; }
+    .footer-logo span { color: var(--yellow); }
+    .footer-links { display: flex; gap: 20px; font-size: 13px; }
+    .footer-links button { background: none; border: none; color: #888; cursor: pointer; font-size: 13px; font-family: inherit; }
+    .footer-links button:hover { color: var(--white); }
+    .footer-credit { font-size: 12px; width: 100%; text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid #222; }
+    .footer-credit a { color: #666; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .hero h1 { font-size: 32px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .trial-inner { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .trust-inner { gap: 16px; }
+      .section-title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📞 <a href="tel:07837171939">07837 171939</a></span>
+  <span>✉ <a href="mailto:hello@stallsgym.co.uk">hello@stallsgym.co.uk</a></span>
+  <span>📍 The Old Dairy, Sheffield S8 0XQ</span>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">The Stalls<span>.</span></div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showPage('home')">Home</button>
+      <button class="nav-link" onclick="showPage('trial')">30-Day Trial</button>
+      <button class="nav-link" onclick="showPage('training')">Training</button>
+      <button class="nav-link" onclick="showPage('reviews')">Reviews</button>
+      <button class="nav-link" onclick="showPage('contact')">Contact</button>
+    </div>
+    <button class="nav-cta" onclick="showPage('trial')">Start Your Trial</button>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('trial')">30-Day Trial</button>
+    <button onclick="showPage('training')">Training</button>
+    <button onclick="showPage('reviews')">Reviews</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div data-page="home" class="active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Women's Only · Sheffield S8</div>
+        <h1>Be <em>Unstoppable.</em><br>Train Differently.</h1>
+        <p class="hero-sub">Premium women's-only personal training in Sheffield. Small groups of four, expert coaching, and a 30-day money-back guarantee — because we're that confident.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-val">4:1</div><div class="hero-stat-label">Max Group Size</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">30</div><div class="hero-stat-label">Day Trial</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">100%</div><div class="hero-stat-label">Women Only</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">S8</div><div class="hero-stat-label">Sheffield</div></div>
+        </div>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('trial')">Start the 30-Day Trial</button>
+          <button class="btn-outline" onclick="showPage('training')">How It Works</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Quick Info</div>
+        <div class="hero-card-item"><span class="hero-card-icon">📍</span><span>The Old Dairy, Sheffield S8 0XQ</span></div>
+        <div class="hero-card-item"><span class="hero-card-icon">👩</span><span>Women's-only premium training space</span></div>
+        <div class="hero-card-item"><span class="hero-card-icon">✓</span><span>30-day money-back guarantee</span></div>
+        <div class="hero-card-item"><span class="hero-card-icon">🏋️</span><span>Small group sessions — max 4 members</span></div>
+        <hr class="hero-card-divider">
+        <a class="hero-card-phone" href="tel:07837171939">07837 171939</a>
+        <p class="hero-card-phone-label">Call George to find out more</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-inner">
+      <span class="trust-item">✓ Women's-Only Space</span>
+      <span class="trust-item">✓ Private Studio</span>
+      <span class="trust-item">✓ Money-Back Guarantee</span>
+      <span class="trust-item">✓ Groups of 4 — No More</span>
+      <span class="trust-item">✓ Sheffield S8</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-tag dark">Why The Stalls</div>
+      <h2 class="section-title">Training built for women.<br>From pregnancy to menopause and everything in between.</h2>
+      <p class="section-sub">We don't do big, intimidating gyms. We do private, personalised, small-group personal training — where every session is coached, every programme is individual, and no one gets left behind.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">👩‍💪</div>
+          <div class="card-title">Women's-Only Space</div>
+          <div class="card-body">A private studio environment where you can focus entirely on your training — no audience, no intimidation.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Individual Programming</div>
+          <div class="card-body">Even in small groups, your session is tailored to you. The coach adapts every exercise to your level, goals and needs.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <div class="card-title">Real Community</div>
+          <div class="card-body">Members-only Facebook group, regular social events, and the kind of atmosphere where everyone genuinely wants each other to succeed.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤰</div>
+          <div class="card-title">Pregnancy &amp; Beyond</div>
+          <div class="card-body">We support members through pregnancy and continue through postnatal recovery — expert, safe training at every stage.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">💊</div>
+          <div class="card-title">Menopause Support</div>
+          <div class="card-body">Strength training specifically for women going through menopause — building the muscle, bone density and energy you need.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <div class="card-title">Online Resources Included</div>
+          <div class="card-body">Access to online exercise sessions, nutrition education and recipes through the members-only group.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRIAL PAGE -->
+<div data-page="trial">
+  <div class="trial-section">
+    <div class="trial-inner">
+      <div>
+        <div class="section-tag">The 30-Day Trial</div>
+        <h2 class="section-title white">Everything you need<br>to know we're right<br>for you.</h2>
+        <p class="section-sub white">Every member starts here. The 30-day trial gives us the chance to get to know you — and gives you the chance to make sure The Stalls is exactly what you're looking for.</p>
+        <ul class="trial-includes">
+          <li><span class="check">✓</span><div><strong style="color:white;">One-to-one initial assessment (value £50)</strong><br>We learn about you, your goals, your fitness level and your history — so we can build something that actually works for you.</div></li>
+          <li><span class="check">✓</span><div><strong style="color:white;">8 × Small Group Personal Training sessions (value £149)</strong><br>Four-to-one sessions, coach-led. Your programme is individual to you — the small group format is the structure, not the constraint.</div></li>
+          <li><span class="check">✓</span><div><strong style="color:white;">Online resources — nutrition, recipes, workouts (value £99)</strong><br>Access to the members-only Facebook group with nutrition education, recipe ideas and bonus exercise sessions.</div></li>
+          <li><span class="check">✓</span><div><strong style="color:white;">The community (priceless)</strong><br>All members are as welcoming as we are. Regular socials, shared experiences and a group that genuinely cheers for each other.</div></li>
+        </ul>
+      </div>
+      <div>
+        <div class="trial-price-card">
+          <div class="trial-price">£127</div>
+          <div class="trial-price-sub">Total value over £298 — all included</div>
+          <button class="btn-primary" style="width:100%; padding: 16px; font-size: 15px;" onclick="showPage('contact')">Sign Up for the Trial</button>
+          <div class="trial-guarantee">
+            <p><strong>Our guarantee:</strong> If you don't feel better in any way by the end of the 30 days — we'll refund your fee in full. No questions asked. We're that confident in what we do.</p>
+          </div>
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #333;">
+            <p style="font-size: 13px; color: #888; margin-bottom: 12px;">Got a question first?</p>
+            <a href="tel:07837171939" style="display:block; text-align:center; color: var(--yellow); font-size: 18px; font-weight: 800; text-decoration: none;">07837 171939</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trust" style="background: var(--yellow);">
+    <div class="trust-inner">
+      <span class="trust-item">✓ No long-term commitment</span>
+      <span class="trust-item">✓ Full refund if you're not satisfied</span>
+      <span class="trust-item">✓ Expert coaching throughout</span>
+    </div>
+  </div>
+</div>
+
+<!-- TRAINING PAGE -->
+<div data-page="training">
+  <div class="section" style="background: var(--black); color: var(--white); padding-bottom: 0;">
+    <div class="section-inner">
+      <div class="section-tag">How We Train</div>
+      <h2 class="section-title white">Small Group Personal Training.<br>Big individual results.</h2>
+      <p class="section-sub white">Maximum four members per session. Every session is coach-led. Your programme is built around you — the group just means you're not training alone.</p>
+    </div>
+  </div>
+  <div class="section" style="background: var(--black);">
+    <div class="section-inner">
+      <div class="grid-3">
+        <div class="card-dark">
+          <div class="card-icon">💪</div>
+          <div class="card-title" style="color:white;">Strength Training</div>
+          <div class="card-body">Progressive overload, compound movements, proper technique. Get stronger — measurably — week on week.</div>
+        </div>
+        <div class="card-dark">
+          <div class="card-icon">🔥</div>
+          <div class="card-title" style="color:white;">Cardio &amp; Conditioning</div>
+          <div class="card-body">Varied sessions that keep your heart rate up and your body guessing. Nothing boring, everything purposeful.</div>
+        </div>
+        <div class="card-dark">
+          <div class="card-icon">🧘</div>
+          <div class="card-title" style="color:white;">Mobility &amp; Recovery</div>
+          <div class="card-body">Because training smart means recovering well. We build proper rest and mobility work into your programme.</div>
+        </div>
+        <div class="card-dark">
+          <div class="card-icon">🤰</div>
+          <div class="card-title" style="color:white;">Pregnancy Training</div>
+          <div class="card-body">Safe, effective training throughout pregnancy — adapted at every stage for you and your baby.</div>
+        </div>
+        <div class="card-dark">
+          <div class="card-icon">🌸</div>
+          <div class="card-title" style="color:white;">Postnatal Recovery</div>
+          <div class="card-body">Gentle, progressive return to training after birth — when your body is ready, at a pace that works for you.</div>
+        </div>
+        <div class="card-dark">
+          <div class="card-icon">🦴</div>
+          <div class="card-title" style="color:white;">Menopause &amp; Bone Health</div>
+          <div class="card-body">Strength training specifically chosen to support bone density, energy and mood through the menopause years.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS PAGE -->
+<div data-page="reviews">
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-tag dark">Member Reviews</div>
+      <h2 class="section-title">What our members say.</h2>
+      <p class="section-sub">Real results from real women at The Stalls. No airbrushed before-and-afters — just honest feedback from members who showed up and put the work in.</p>
+      <div class="grid-3">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I've been training at The Stalls with George now for 6 months and I absolutely love it. Before coming I had never really done any exercise but after baby number 3 I thought it was time to take myself in hand! I've noticed a huge improvement in my confidence, fitness, posture and strength. The classes are very varied which I like and it's a very friendly environment to train in. I would highly recommend."</p>
+          <div class="review-author">Alex H · Member</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I always enjoy the small group personal training sessions at The Stalls Gym. It's a great place with a fantastic trainer, George, who is very welcoming and adapts exercises as needed. I trained throughout my whole pregnancy and I genuinely believe it was the main reason for a smooth pregnancy and recovery! If you're like me and just can't stick to training on your own in a big gym, then I highly recommend The Stalls Gym!"</p>
+          <div class="review-author">Margaret L · Member</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"After menopause I wanted to get stronger and fitter and was interested in lifting weights. The small group personal training at The Stalls is fantastic. It's challenging but always interesting. The atmosphere is relaxed so you're just working to your own limits. My strength is better than it's ever been and I'm now able to do full press ups which has made me very happy!"</p>
+          <div class="review-author">Joanne S · Member</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div data-page="contact">
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-tag dark">Get in Touch</div>
+      <h2 class="section-title">Ready to start?</h2>
+      <p class="section-sub">Send us a message and we'll get back to you quickly. Or call George directly on 07837 171939.</p>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📍</span>
+            <div>
+              <div class="contact-info-label">Address</div>
+              <div class="contact-info-value">The Stalls, The Old Dairy<br>Sheffield, S8 0XQ</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📞</span>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value"><a href="tel:07837171939">07837 171939</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">✉</span>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value"><a href="mailto:hello@stallsgym.co.uk">hello@stallsgym.co.uk</a></div>
+            </div>
+          </div>
+          <div style="margin-top:24px; padding: 24px; background: var(--yellow); border-radius: 12px;">
+            <p style="font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 8px;">Not sure yet?</p>
+            <p style="font-size: 14px; color: #333; line-height: 1.5;">The 30-day trial comes with a full money-back guarantee. There's genuinely nothing to lose — just send us a message and we'll take it from there.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <form onsubmit="handleSubmit(event)">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="First name" required>
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="07..." required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label>What are you looking to achieve?</label>
+                <select>
+                  <option>Get stronger and fitter</option>
+                  <option>Lose weight</option>
+                  <option>Pregnancy / postnatal training</option>
+                  <option>Menopause support</option>
+                  <option>General health and wellbeing</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Tell us a bit about yourself</label>
+                <textarea placeholder="Anything that would help us help you — fitness background, goals, questions..."></textarea>
+              </div>
+              <button type="submit" class="form-submit">Send Enquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">The Stalls<span>.</span></div>
+    <div class="footer-links">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('trial')">30-Day Trial</button>
+      <button onclick="showPage('training')">Training</button>
+      <button onclick="showPage('contact')">Contact</button>
+    </div>
+    <div style="font-size:13px;">hello@stallsgym.co.uk · 07837 171939</div>
+  </div>
+  <div class="footer-credit">© 2026 The Stalls Gym · The Old Dairy, Sheffield S8 0XQ · Website concept built by <a href="mailto:aidan@trabelo.com">Trabelo · Sheffield</a></div>
+</footer>
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('[data-page]').forEach(el => el.classList.remove('active'));
+    const target = document.querySelector(`[data-page="${page}"]`);
+    if (target) target.classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(el => {
+      if (el.getAttribute('onclick') && el.getAttribute('onclick').includes(page)) el.classList.add('active');
+    });
+    closeMobileMenu();
+    window.scrollTo(0, 0);
+  }
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').style.display = 'none';
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    e.target.innerHTML = '<div style="text-align:center; padding: 40px; color: #059669; font-size: 16px; font-weight: 700;">✓ Thanks! We\'ll be in touch shortly.</div>';
+  }
+</script>
+</body>
+</html>

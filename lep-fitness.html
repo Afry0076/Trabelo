@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabelo — LEP Fitness</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F4F4F0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 48px rgba(0,0,0,0.10);
+      max-width: 640px;
+      width: 100%;
+      padding: 44px 40px;
+    }
+    .brand { margin-bottom: 32px; }
+    .wordmark { font-size: 19px; font-weight: 800; color: #111; letter-spacing: -0.5px; }
+    .brand-sub { font-size: 12px; color: #999; margin-top: 2px; }
+    .badge {
+      display: inline-block;
+      background: #F0EEE8;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #666;
+      letter-spacing: 0.3px;
+      margin-bottom: 22px;
+    }
+    h1 { font-size: 30px; font-weight: 800; color: #111; letter-spacing: -0.5px; margin-bottom: 5px; }
+    .meta { font-size: 13px; color: #999; margin-bottom: 18px; }
+    .intro { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 30px; }
+    .intro strong { color: #111; }
+    .scores-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .score-card {
+      background: #F8F7F4;
+      border-radius: 12px;
+      padding: 16px 8px 12px;
+      text-align: center;
+    }
+    .score-num { font-size: 30px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .red { color: #D62828; }
+    .amber { color: #D97706; }
+    .green { color: #059669; }
+    .score-label { font-size: 10px; color: #999; font-weight: 500; }
+    .scores-note { font-size: 11px; color: #bbb; margin-bottom: 28px; line-height: 1.5; }
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    .cta-card {
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-decoration: none;
+      display: block;
+      transition: opacity 0.15s;
+    }
+    .cta-card:hover { opacity: 0.88; }
+    .cta-demo { background: #111; color: #fff; }
+    .cta-audit { background: #F0EEE8; color: #111; }
+    .cta-icon { font-size: 18px; margin-bottom: 8px; }
+    .cta-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+    .cta-desc { font-size: 11px; opacity: 0.65; }
+    .footer { font-size: 12px; color: #bbb; text-align: center; }
+    .footer a { color: #888; text-decoration: none; }
+    @media (max-width: 420px) {
+      .card { padding: 28px 22px; }
+      .scores-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">
+      <div class="wordmark">trabelo.</div>
+      <div class="brand-sub">Web design · Sheffield &amp; South Yorkshire</div>
+    </div>
+
+    <div class="badge">Free Website Audit &amp; Demo</div>
+
+    <h1>LEP Fitness</h1>
+    <p class="meta">lepfitness.co.uk · 5 Fossdale Rd, Sheffield S7 2DA</p>
+
+    <p class="intro">I'm Aidan — I do web design across Sheffield and South Yorkshire. I ran your site through Google's speed testing tool and found three scores in the problem zone — including a performance score of <strong>30 out of 100</strong>, with the main content taking nearly 25 seconds to load on a phone. For a PT who's been voted the best in Sheffield and completed over 10,000 hours of coaching, the website is the one thing holding the reputation back. I've put together a free audit and a full demo of what a rebuilt site could look like.</p>
+
+    <div class="scores-grid">
+      <div class="score-card">
+        <div class="score-num red">30</div>
+        <div class="score-label">Performance</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num amber">72</div>
+        <div class="score-label">Accessibility</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num amber">73</div>
+        <div class="score-label">Best Practices</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num amber">85</div>
+        <div class="score-label">SEO</div>
+      </div>
+    </div>
+    <p class="scores-note">Google Lighthouse · Mobile · July 2026 · 0–49 poor · 50–89 needs work · 90–100 good. Three scores in the red or amber zones — this is the most issues I've found on any PT site in Sheffield.</p>
+
+    <div class="cta-grid">
+      <a class="cta-card cta-demo" href="https://trabelo-tau.vercel.app/lep-fitness-index.html">
+        <div class="cta-icon">✦</div>
+        <div class="cta-title">Concept Demo</div>
+        <div class="cta-desc">See the rebuilt site — full working demo</div>
+      </a>
+      <a class="cta-card cta-audit" href="https://trabelo-tau.vercel.app/lep-fitness-audit.html">
+        <div class="cta-icon">📋</div>
+        <div class="cta-title">Full Audit</div>
+        <div class="cta-desc">Every issue explained — and what it costs to fix</div>
+      </a>
+    </div>
+
+    <p class="footer">Prepared by <a href="mailto:aidan@trabelo.com">Aidan Fry · Trabelo · Sheffield</a> · aidan@trabelo.com · No obligation</p>
+  </div>
+</body>
+</html>

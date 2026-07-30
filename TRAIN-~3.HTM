@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Train with Suzy — Personal trainer in Sheffield with over 12 years experience. Bespoke 1-2-1 sessions in a private gym. 5★ Google rating. NRPT registered.">
+  <title>Train with Suzy | Personal Trainer Sheffield | Private Gym</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --slate: #1E3D59;
+      --slate-light: #2A5275;
+      --slate-mid: #234568;
+      --teal: #45B69C;
+      --teal-dark: #329980;
+      --teal-light: #5EEAD4;
+      --sand: #F7F4EF;
+      --sand-dark: #EDE8E0;
+      --white: #FFFFFF;
+      --text: #1A2E3A;
+      --text-muted: #7A8C96;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--sand); color: var(--text); }
+
+    .topbar { background: var(--slate); color: rgba(255,255,255,0.6); font-size: 12px; padding: 8px 20px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .topbar a { color: rgba(255,255,255,0.8); text-decoration: none; }
+
+    nav { background: var(--slate); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { color: var(--white); font-size: 17px; font-weight: 800; cursor: pointer; letter-spacing: -0.3px; }
+    .nav-logo span { color: var(--teal-light); }
+    .nav-links { display: flex; gap: 2px; align-items: center; }
+    .nav-link { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 500; padding: 8px 12px; cursor: pointer; border-radius: 6px; transition: all 0.15s; font-family: inherit; }
+    .nav-link:hover, .nav-link.active { color: var(--white); background: var(--slate-mid); }
+    .nav-cta { background: var(--teal); color: var(--white); font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .nav-cta:hover { background: var(--teal-dark); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: white; font-size: 22px; }
+    .mobile-menu { display: none; background: var(--slate-light); padding: 16px 20px; }
+    .mobile-menu button { display: block; width: 100%; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 15px; padding: 12px 0; cursor: pointer; text-align: left; font-family: inherit; border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+    [data-page] { display: none; }
+    [data-page].active { display: block; }
+
+    /* HERO */
+    .hero { background: var(--slate); color: var(--white); padding: 72px 20px 64px; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: start; }
+    .hero-tag { display: inline-block; background: rgba(69,182,156,0.2); border: 1px solid rgba(69,182,156,0.4); color: var(--teal-light); font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero h1 { font-size: 44px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.8px; }
+    .hero h1 em { color: var(--teal-light); font-style: normal; }
+    .hero-sub { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; margin-bottom: 32px; }
+    .hero-stat { background: var(--slate-mid); padding: 18px 12px; text-align: center; }
+    .hero-stat-val { font-size: 20px; font-weight: 800; color: var(--teal-light); margin-bottom: 4px; }
+    .hero-stat-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--teal); color: var(--white); padding: 14px 26px; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-outline { background: transparent; color: var(--white); padding: 14px 24px; border: 2px solid rgba(255,255,255,0.25); border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .hero-card { background: var(--slate-mid); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 28px; }
+    .hero-card-title { font-size: 11px; font-weight: 700; color: var(--teal-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .hero-card-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 13px; font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.4; }
+    .hero-card-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0; }
+    .hero-card-phone { font-size: 22px; font-weight: 800; color: var(--white); text-decoration: none; display: block; text-align: center; }
+    .hero-card-phone-label { text-align: center; font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
+
+    .trust { background: var(--teal); padding: 14px 20px; }
+    .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .trust-item { font-size: 13px; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 6px; }
+
+    .section { padding: 72px 20px; }
+    .section.bg-sand { background: var(--sand); }
+    .section.bg-white { background: var(--white); }
+    .section.bg-slate { background: var(--slate); color: var(--white); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 11px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .section-tag.muted { color: var(--text-muted); }
+    .section-title { font-size: 34px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 16px; line-height: 1.15; }
+    .section-title.white { color: var(--white); }
+    .section-sub { font-size: 16px; color: var(--text-muted); line-height: 1.65; max-width: 560px; margin-bottom: 48px; }
+    .section-sub.white { color: rgba(255,255,255,0.55); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .card { background: var(--white); border-radius: 14px; padding: 28px; box-shadow: 0 2px 12px rgba(30,61,89,0.06); }
+    .card.dark { background: var(--slate-mid); }
+    .card.teal-accent { border-top: 3px solid var(--teal); }
+    .card-icon { font-size: 28px; margin-bottom: 14px; }
+    .card-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+    .card.dark .card-title { color: var(--white); }
+    .card-body { font-size: 14px; line-height: 1.65; color: var(--text-muted); }
+    .card.dark .card-body { color: rgba(255,255,255,0.55); }
+
+    .how-step { display: grid; grid-template-columns: 48px 1fr; gap: 20px; align-items: start; margin-bottom: 32px; }
+    .how-step:last-child { margin-bottom: 0; }
+    .how-num { background: var(--teal); color: var(--white); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; flex-shrink: 0; }
+    .how-title { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+    .how-body { font-size: 15px; color: var(--text-muted); line-height: 1.65; }
+
+    .review-card { background: var(--white); border-radius: 14px; padding: 28px; box-shadow: 0 2px 16px rgba(30,61,89,0.08); }
+    .review-stars { color: #F59E0B; font-size: 14px; margin-bottom: 12px; }
+    .review-text { font-size: 14px; color: #555; line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .review-author { font-size: 13px; font-weight: 700; color: var(--slate); }
+
+    .gym-feature { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+    .gym-feature-icon { font-size: 28px; flex-shrink: 0; }
+    .gym-feature-title { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+    .gym-feature-body { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-image { background: var(--slate-mid); border-radius: 16px; height: 380px; display: flex; align-items: center; justify-content: center; font-size: 80px; border: 1px solid rgba(255,255,255,0.08); }
+    .about-text p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 14px; }
+    .about-text strong { color: var(--white); }
+    .about-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .about-badge { background: rgba(69,182,156,0.15); border: 1px solid rgba(69,182,156,0.3); color: var(--teal-light); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 14px; border: 2px solid #DDE8EC; border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--text); }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-submit { width: 100%; background: var(--teal); color: var(--white); border: none; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .contact-info-item { display: flex; gap: 14px; margin-bottom: 22px; }
+    .contact-info-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .contact-info-label { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
+    .contact-info-value { font-size: 15px; font-weight: 600; color: var(--text); }
+    .contact-info-value a { color: var(--slate); text-decoration: none; }
+
+    footer { background: var(--slate); color: rgba(255,255,255,0.4); padding: 40px 20px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { color: var(--white); font-size: 17px; font-weight: 800; }
+    .footer-logo span { color: var(--teal-light); }
+    .footer-links { display: flex; gap: 16px; }
+    .footer-links button { background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer; font-size: 13px; font-family: inherit; }
+    .footer-links button:hover { color: var(--white); }
+    .footer-credit { font-size: 12px; width: 100%; text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-credit a { color: rgba(255,255,255,0.3); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .hero h1 { font-size: 30px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-3, .about-split, .contact-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📞 <a href="tel:07825167411">07825 167411</a></span>
+  <span>📍 Sheffield, South Yorkshire</span>
+  <span>🏆 NRPT Registered · 5★ Google</span>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">Train with Suzy<span>.</span></div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showPage('home')">Home</button>
+      <button class="nav-link" onclick="showPage('how')">How It Works</button>
+      <button class="nav-link" onclick="showPage('gym')">Private Gym</button>
+      <button class="nav-link" onclick="showPage('wedding')">Wedding</button>
+      <button class="nav-link" onclick="showPage('about')">About Suzy</button>
+      <button class="nav-link" onclick="showPage('contact')">Contact</button>
+    </div>
+    <button class="nav-cta" onclick="showPage('contact')">Free Consultation</button>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('how')">How It Works</button>
+    <button onclick="showPage('gym')">Private Gym</button>
+    <button onclick="showPage('wedding')">Wedding Programmes</button>
+    <button onclick="showPage('about')">About Suzy</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div data-page="home" class="active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Private · Personal · Sheffield</div>
+        <h1>Personal Training<br>in <em>Sheffield.</em></h1>
+        <p class="hero-sub">Bespoke one-to-one sessions in Suzy's private gym. Over 12 years of experience, tailored plans and a 5-star Google rating — because results and relationships matter.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-val">12+</div><div class="hero-stat-label">Years Experience</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">5★</div><div class="hero-stat-label">Google Rating</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">Private</div><div class="hero-stat-label">Bespoke Gym</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">NRPT</div><div class="hero-stat-label">Registered</div></div>
+        </div>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('contact')">Book a Free Consultation</button>
+          <button class="btn-outline" onclick="showPage('how')">How It Works</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Get Started</div>
+        <div class="hero-card-item"><span>📍</span><span>Sheffield, South Yorkshire</span></div>
+        <div class="hero-card-item"><span>🎁</span><span>Free consultation — no obligation</span></div>
+        <div class="hero-card-item"><span>🏋️</span><span>Bespoke private gym — not a commercial space</span></div>
+        <div class="hero-card-item"><span>🏆</span><span>NRPT registered trainer</span></div>
+        <div class="hero-card-item"><span>⭐</span><span>5-star Google rating</span></div>
+        <hr class="hero-card-divider">
+        <a class="hero-card-phone" href="tel:07825167411">07825 167411</a>
+        <p class="hero-card-phone-label">Call Suzy to book your consultation</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-inner">
+      <span class="trust-item">✓ Private Bespoke Gym</span>
+      <span class="trust-item">✓ 12+ Years Experience</span>
+      <span class="trust-item">✓ 5★ Google Rating</span>
+      <span class="trust-item">✓ NRPT Registered</span>
+      <span class="trust-item">✓ Free Consultation</span>
+    </div>
+  </div>
+
+  <div class="section bg-sand">
+    <div class="section-inner">
+      <div class="section-tag muted">Why Choose Suzy</div>
+      <h2 class="section-title">You might surprise yourself<br>with what your body can do.</h2>
+      <p class="section-sub">Whatever your level, whatever your schedule — every session is tailored to you. You'll arrive harassed and leave with a feeling of wellbeing, every single time.</p>
+      <div class="grid-3">
+        <div class="card teal-accent">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Bespoke Fitness Plans</div>
+          <div class="card-body">No two people train the same way at Train with Suzy. Your programme is built around your goals, your body and your life — and updated regularly so your body keeps progressing.</div>
+        </div>
+        <div class="card teal-accent">
+          <div class="card-icon">🔒</div>
+          <div class="card-title">Private Gym Environment</div>
+          <div class="card-body">Suzy's bespoke private gym means no waiting, no crowds, and no pressure. Just you, great equipment and an expert coach in a relaxed, welcoming space.</div>
+        </div>
+        <div class="card teal-accent">
+          <div class="card-icon">📅</div>
+          <div class="card-title">Flexible Scheduling</div>
+          <div class="card-body">Suzy understands busy lives — she has twin daughters herself. Sessions are arranged around your schedule, not a rigid timetable.</div>
+        </div>
+        <div class="card teal-accent">
+          <div class="card-icon">💪</div>
+          <div class="card-title">Varied Workouts</div>
+          <div class="card-body">Exercises change regularly to keep your body guessing and your mind engaged. Nothing gets stale, and the results keep coming.</div>
+        </div>
+        <div class="card teal-accent">
+          <div class="card-icon">🌟</div>
+          <div class="card-title">12+ Years of Experience</div>
+          <div class="card-body">Over a decade of helping people transform their bodies — and their relationship with exercise. Suzy knows what works for real people with real lives.</div>
+        </div>
+        <div class="card teal-accent">
+          <div class="card-icon">💍</div>
+          <div class="card-title">Wedding Programmes</div>
+          <div class="card-body">Looking your absolute best on your wedding day. Suzy offers bespoke fitness programmes specifically designed for brides and grooms.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section bg-slate">
+    <div class="section-inner">
+      <div class="section-tag">Client Reviews</div>
+      <h2 class="section-title white">What clients say.</h2>
+      <p class="section-sub white">A 5-star Google rating built on real results and genuine care. Here's what some of Suzy's clients have to say.</p>
+      <div class="grid-3">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I've been training with Suzy for a little while now and I can honestly say she's brilliant. Her home gym has such a relaxed, welcoming atmosphere — nothing intimidating at all."</p>
+          <div class="review-author">Claire</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"She's friendly, kind, and knowledgeable, making each session both enjoyable and effective. I've noticed a real increase in my strength and confidence, and she always keeps me motivated."</p>
+          <div class="review-author">Eileen</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Have loved going to Suzy for the last few years, she is amazing in every way. Suzy has helped me change my whole mindset around exercise meaning it has become something I enjoy and want to do."</p>
+          <div class="review-author">Helen</div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: 32px;">
+        <button class="btn-primary" onclick="showPage('contact')">Book Your Free Consultation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div data-page="how">
+  <div class="section bg-sand">
+    <div class="section-inner">
+      <div class="section-tag muted">The Process</div>
+      <h2 class="section-title">How training with Suzy works.</h2>
+      <p class="section-sub">Simple, personal and built around you from the very first call. Here's what to expect from the moment you get in touch.</p>
+      <div class="grid-2" style="gap: 48px;">
+        <div>
+          <div class="how-step">
+            <div class="how-num">1</div>
+            <div>
+              <div class="how-title">Free Consultation</div>
+              <p class="how-body">Start with a free, no-obligation consultation. Suzy will listen to your goals, your history and your lifestyle — and tell you honestly whether she's the right fit.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-num">2</div>
+            <div>
+              <div class="how-title">Bespoke Plan Created</div>
+              <p class="how-body">A programme built specifically for you — your fitness level, your goals, your schedule. Nothing generic, nothing copy-pasted from a template.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-num">3</div>
+            <div>
+              <div class="how-title">Train in the Private Gym</div>
+              <p class="how-body">One-to-one sessions in Suzy's bespoke private gym. An hour of coached, focused training — every session ends with you feeling better than when you arrived.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-num">4</div>
+            <div>
+              <div class="how-title">Results and Progression</div>
+              <p class="how-body">Your programme is updated regularly so your body keeps guessing and progressing. Suzy tracks your results and adjusts accordingly — always moving forward.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom: 20px;">
+            <div class="card-icon">🎯</div>
+            <div class="card-title">1-to-1 Personal Training</div>
+            <div class="card-body">Full one-hour sessions — just you and Suzy. The most focused, personalised training available. In-person at the private gym or online.</div>
+          </div>
+          <div class="card" style="margin-bottom: 20px;">
+            <div class="card-icon">💻</div>
+            <div class="card-title">Online Training Available</div>
+            <div class="card-body">Can't make it in? Suzy also offers online personal training — the same bespoke plans and coaching, wherever you are.</div>
+          </div>
+          <div style="background: var(--slate); border-radius: 14px; padding: 28px; text-align: center;">
+            <p style="color: rgba(255,255,255,0.7); font-size: 15px; margin-bottom: 20px;">Ready to take the first step?</p>
+            <button class="btn-primary" onclick="showPage('contact')">Book Your Free Consultation</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVATE GYM -->
+<div data-page="gym">
+  <div class="section bg-slate">
+    <div class="section-inner">
+      <div class="section-tag">The Space</div>
+      <h2 class="section-title white">A private gym built<br>for you.</h2>
+      <p class="section-sub white">This isn't a commercial gym. Suzy's bespoke private studio is designed to be the opposite of everything people find intimidating about going to the gym.</p>
+    </div>
+  </div>
+  <div class="section bg-sand">
+    <div class="section-inner">
+      <div class="grid-2" style="gap: 48px;">
+        <div>
+          <div class="gym-feature">
+            <div class="gym-feature-icon">🔒</div>
+            <div>
+              <div class="gym-feature-title">Completely Private</div>
+              <p class="gym-feature-body">Your session is your session. No other clients, no strangers watching, no waiting for equipment. Just you, Suzy and the work.</p>
+            </div>
+          </div>
+          <div class="gym-feature">
+            <div class="gym-feature-icon">🏋️</div>
+            <div>
+              <div class="gym-feature-title">Full Equipment Range</div>
+              <p class="gym-feature-body">Weights, cables, cardio and conditioning equipment — everything needed for a varied, effective programme without ever leaving the space.</p>
+            </div>
+          </div>
+          <div class="gym-feature">
+            <div class="gym-feature-icon">🌿</div>
+            <div>
+              <div class="gym-feature-title">Welcoming Atmosphere</div>
+              <p class="gym-feature-body">Clients consistently comment on how relaxed and welcoming the environment is. You arrive stressed, you leave feeling great.</p>
+            </div>
+          </div>
+          <div class="gym-feature">
+            <div class="gym-feature-icon">📅</div>
+            <div>
+              <div class="gym-feature-title">Flexible Hours</div>
+              <p class="gym-feature-body">Sessions booked around your schedule — not a rigid timetable. Morning, evening, whatever works for your life.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="background: var(--slate-mid); border-radius: 16px; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 80px; margin-bottom: 20px;">🏋️</div>
+          <div class="card">
+            <p style="font-size: 15px; color: #555; line-height: 1.7; font-style: italic; margin-bottom: 16px;">"Suzy is an excellent personal trainer who clearly cares about her clients. She's approachable, professional, and keeps everyone motivated. She tailors her sessions to fit each person's needs and abilities, creating a positive and encouraging environment."</p>
+            <div style="font-size: 13px; font-weight: 700; color: var(--slate);">Madison · Google Review ⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WEDDING PROGRAMMES -->
+<div data-page="wedding">
+  <div class="section bg-slate">
+    <div class="section-inner">
+      <div class="section-tag">Wedding Fitness</div>
+      <h2 class="section-title white">Look and feel<br>incredible on your day.</h2>
+      <p class="section-sub white">Suzy's wedding fitness programmes are designed specifically for brides and grooms who want to look and feel their absolute best — with a structured, realistic programme that fits around wedding planning.</p>
+    </div>
+  </div>
+  <div class="section bg-sand">
+    <div class="section-inner">
+      <div class="grid-3" style="margin-bottom: 48px;">
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <div class="card-title">Bespoke Programme</div>
+          <div class="card-body">Built around your timeline — whether the wedding is 6 weeks or 6 months away. Realistic, progressive goals with a plan that accounts for your life, not just the gym.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">💪</div>
+          <div class="card-title">Tone and Confidence</div>
+          <div class="card-body">Not just weight loss — strength, posture and body confidence. How you carry yourself on the day matters as much as how you look.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <div class="card-title">Flexible Around Planning</div>
+          <div class="card-body">Suzy understands that wedding planning is stressful. Sessions are flexible and the programme adapts if life gets in the way.</div>
+        </div>
+      </div>
+      <div style="background: var(--slate); border-radius: 16px; padding: 48px; text-align: center;">
+        <div class="section-tag" style="justify-content: center; display: flex; margin-bottom: 16px;">Start Today</div>
+        <h3 style="font-size: 26px; font-weight: 800; color: white; margin-bottom: 12px;">Get in touch to discuss your wedding programme.</h3>
+        <p style="color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto;">A free consultation to talk through your goals, your timeline and what's realistic. No obligation, just an honest conversation.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Book a Free Consultation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT SUZY -->
+<div data-page="about">
+  <div class="section bg-slate">
+    <div class="about-split section-inner" style="padding: 0;">
+      <div class="about-image">🏋️</div>
+      <div class="about-text">
+        <div class="section-tag" style="margin-bottom: 14px;">About Suzy</div>
+        <h2 class="section-title white" style="margin-bottom: 24px;">12 Years.<br>One Approach.</h2>
+        <p>"Hi, I'm Suzy — a personal trainer based in Sheffield with over 12 years of experience helping people transform their lives, physically and mentally, through the power of exercise."</p>
+        <p>I work from my own <strong>bespoke private gym</strong> — because I believe training should feel personal, relaxed and completely focused on you. No distractions, no crowds, no one-size-fits-all approach.</p>
+        <p>I have a passion for making exercise something people genuinely enjoy — not something they dread. Managing your time can be tricky (I know — I have twin daughters!) — which is why I build sessions around your life, not the other way around.</p>
+        <div class="about-badges">
+          <span class="about-badge">NRPT Registered</span>
+          <span class="about-badge">12+ Years Experience</span>
+          <span class="about-badge">5★ Google Rating</span>
+          <span class="about-badge">Sheffield Based</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div data-page="contact">
+  <div class="section bg-sand">
+    <div class="section-inner">
+      <div class="section-tag muted">Get in Touch</div>
+      <h2 class="section-title">Your journey begins here.</h2>
+      <p class="section-sub">Book a free, no-obligation consultation and let's talk about what you want to achieve. Suzy will get back to you personally.</p>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📞</span>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value"><a href="tel:07825167411">07825 167411</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📍</span>
+            <div>
+              <div class="contact-info-label">Location</div>
+              <div class="contact-info-value">Sheffield, South Yorkshire</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">🏆</span>
+            <div>
+              <div class="contact-info-label">Credentials</div>
+              <div class="contact-info-value">NRPT Registered · 5★ Google Rating</div>
+            </div>
+          </div>
+          <div style="background: var(--slate); border-radius: 12px; padding: 24px; margin-top: 8px;">
+            <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6;">The first consultation is <strong style="color: var(--teal-light);">completely free</strong>. There's no pressure, no hard sell — just an honest conversation about whether Train with Suzy is the right fit for you.</p>
+          </div>
+        </div>
+        <div class="card">
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group"><label>Your Name</label><input type="text" placeholder="Your name" required></div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="07..."></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required></div>
+            <div class="form-group"><label>What are you looking to achieve?</label>
+              <select>
+                <option>Weight loss / fat loss</option>
+                <option>Toning and body shaping</option>
+                <option>Strength and fitness</option>
+                <option>Wedding programme</option>
+                <option>General health and wellbeing</option>
+                <option>Post-injury return to fitness</option>
+                <option>Not sure — just want to explore</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Tell us more</label><textarea placeholder="Your goals, your schedule, any questions — the more you share, the better Suzy can help."></textarea></div>
+            <button type="submit" class="form-submit">Book Free Consultation</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Train with Suzy<span>.</span></div>
+    <div class="footer-links">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('how')">How It Works</button>
+      <button onclick="showPage('gym')">Private Gym</button>
+      <button onclick="showPage('contact')">Contact</button>
+    </div>
+    <div style="font-size:13px;">07825 167411 · Sheffield</div>
+  </div>
+  <div class="footer-credit">© 2026 Train with Suzy · NRPT Registered · Sheffield · Website concept built by <a href="mailto:aidan@trabelo.com">Trabelo · Sheffield</a></div>
+</footer>
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('[data-page]').forEach(el => el.classList.remove('active'));
+    const t = document.querySelector(`[data-page="${page}"]`);
+    if (t) t.classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(el => {
+      el.classList.remove('active');
+      if (el.getAttribute('onclick') && el.getAttribute('onclick').includes(`'${page}'`)) el.classList.add('active');
+    });
+    closeMobileMenu();
+    window.scrollTo(0, 0);
+  }
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').style.display = 'none';
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    e.target.innerHTML = '<div style="text-align:center;padding:40px;color:#059669;font-size:16px;font-weight:700;">✓ Thanks! Suzy will be in touch shortly.</div>';
+  }
+</script>
+</body>
+</html>

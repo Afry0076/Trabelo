@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kate Campbell Fitness — The Small Gym With The Big Heart. Personal training, classes, therapy and women's health at 345a Ecclesall Road South, Sheffield S11.">
+  <title>Kate Campbell Fitness | Gym &amp; Personal Training Sheffield S11</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --plum: #2D1B3D;
+      --plum-light: #3D2B50;
+      --terra: #E8896A;
+      --terra-dark: #C87050;
+      --cream: #FDF5F0;
+      --cream-dark: #F0E8E0;
+      --white: #FFFFFF;
+      --text: #2A1A1A;
+      --text-muted: #887070;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--cream); color: var(--text); }
+
+    .topbar { background: var(--plum); color: #bbb; font-size: 12px; padding: 8px 20px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .topbar a { color: #ddd; text-decoration: none; }
+
+    nav { background: var(--plum); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-logo { color: var(--white); font-size: 16px; font-weight: 800; cursor: pointer; letter-spacing: -0.3px; }
+    .nav-logo span { color: var(--terra); }
+    .nav-links { display: flex; gap: 2px; align-items: center; }
+    .nav-link { background: none; border: none; color: rgba(255,255,255,0.65); font-size: 13px; font-weight: 500; padding: 8px 12px; cursor: pointer; border-radius: 6px; transition: all 0.15s; font-family: inherit; }
+    .nav-link:hover, .nav-link.active { color: var(--white); background: var(--plum-light); }
+    .nav-cta { background: var(--terra); color: var(--white); font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .nav-cta:hover { background: var(--terra-dark); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: white; font-size: 22px; }
+    .mobile-menu { display: none; background: var(--plum-light); padding: 16px 20px; }
+    .mobile-menu button { display: block; width: 100%; background: none; border: none; color: rgba(255,255,255,0.75); font-size: 15px; padding: 12px 0; cursor: pointer; text-align: left; font-family: inherit; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+    [data-page] { display: none; }
+    [data-page].active { display: block; }
+
+    /* HERO */
+    .hero { background: var(--plum); color: var(--white); padding: 72px 20px 64px; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: start; }
+    .hero-tag { display: inline-block; background: rgba(232,137,106,0.2); border: 1px solid rgba(232,137,106,0.4); color: var(--terra); font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.5px; }
+    .hero h1 { font-size: 44px; font-weight: 900; line-height: 1.1; margin-bottom: 8px; letter-spacing: -0.8px; }
+    .hero-tagline { font-size: 20px; color: var(--terra); font-weight: 700; margin-bottom: 20px; }
+    .hero-sub { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 32px; }
+    .hero-stat { background: var(--plum-light); padding: 18px 12px; text-align: center; }
+    .hero-stat-val { font-size: 20px; font-weight: 800; color: var(--terra); margin-bottom: 4px; }
+    .hero-stat-label { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--terra); color: var(--white); padding: 14px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .btn-primary:hover { background: var(--terra-dark); }
+    .btn-outline { background: transparent; color: var(--white); padding: 14px 24px; border: 2px solid rgba(255,255,255,0.3); border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .hero-card { background: var(--plum-light); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 28px; }
+    .hero-card-title { font-size: 11px; font-weight: 700; color: var(--terra); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .hero-card-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 13px; font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+    .hero-card-icon { font-size: 15px; flex-shrink: 0; }
+    .hero-card-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0; }
+    .hero-card-phone { font-size: 20px; font-weight: 800; color: var(--white); text-decoration: none; display: block; text-align: center; }
+    .hero-card-phone-label { text-align: center; font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+    .trust { background: var(--terra); padding: 14px 20px; }
+    .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .trust-item { font-size: 13px; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 6px; }
+
+    .section { padding: 72px 20px; }
+    .section.bg-cream { background: var(--cream); }
+    .section.bg-white { background: var(--white); }
+    .section.bg-plum { background: var(--plum); color: var(--white); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 11px; font-weight: 700; color: var(--terra); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .section-tag.muted { color: #aaa; }
+    .section-title { font-size: 34px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 16px; line-height: 1.15; }
+    .section-title.white { color: var(--white); }
+    .section-sub { font-size: 16px; color: var(--text-muted); line-height: 1.65; max-width: 560px; margin-bottom: 48px; }
+    .section-sub.white { color: rgba(255,255,255,0.6); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .card { background: var(--white); border-radius: 14px; padding: 28px; box-shadow: 0 2px 12px rgba(45,27,61,0.06); }
+    .card.plum { background: var(--plum); }
+    .card.cream { background: var(--cream-dark); }
+    .card-icon { font-size: 28px; margin-bottom: 14px; }
+    .card-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+    .card.plum .card-title { color: var(--white); }
+    .card-body { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+    .card.plum .card-body { color: rgba(255,255,255,0.6); }
+
+    .service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 64px; }
+    .service-row:last-child { margin-bottom: 0; }
+    .service-row.reverse { direction: rtl; }
+    .service-row.reverse > * { direction: ltr; }
+    .service-image { background: var(--cream-dark); border-radius: 16px; height: 280px; display: flex; align-items: center; justify-content: center; font-size: 64px; }
+    .service-label { font-size: 11px; font-weight: 700; color: var(--terra); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .service-title { font-size: 26px; font-weight: 900; color: var(--text); margin-bottom: 14px; }
+    .service-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+    .service-link { color: var(--terra); font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: none; background: none; border: none; font-family: inherit; }
+
+    .review-card { background: var(--white); border-radius: 14px; padding: 28px; box-shadow: 0 2px 16px rgba(45,27,61,0.08); }
+    .review-quote { font-size: 15px; color: #555; line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .review-author { font-size: 13px; font-weight: 700; color: var(--plum); }
+
+    .about-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-image { background: var(--plum-light); border-radius: 16px; height: 380px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .about-text p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.75; margin-bottom: 14px; }
+    .about-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+    .about-stat { background: var(--plum-light); border-radius: 10px; padding: 18px 12px; text-align: center; }
+    .about-stat-val { font-size: 24px; font-weight: 900; color: var(--terra); margin-bottom: 4px; }
+    .about-stat-label { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 14px; border: 2px solid #E8E0E8; border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--text); background: white; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--terra); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-submit { width: 100%; background: var(--terra); color: var(--white); border: none; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .contact-info-item { display: flex; gap: 14px; margin-bottom: 22px; }
+    .contact-info-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .contact-info-label { font-size: 11px; font-weight: 700; color: #aaa; text-transform: uppercase; margin-bottom: 4px; }
+    .contact-info-value { font-size: 15px; font-weight: 600; }
+    .contact-info-value a { color: var(--plum); text-decoration: none; }
+
+    footer { background: var(--plum); color: rgba(255,255,255,0.5); padding: 40px 20px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { color: var(--white); font-size: 16px; font-weight: 800; }
+    .footer-logo span { color: var(--terra); }
+    .footer-links { display: flex; gap: 16px; font-size: 13px; }
+    .footer-links button { background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 13px; font-family: inherit; }
+    .footer-links button:hover { color: var(--white); }
+    .footer-credit { font-size: 12px; width: 100%; text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-credit a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .hero h1 { font-size: 30px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-3, .service-row, .about-two-col, .contact-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 26px; }
+      .about-stat-row { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📞 <a href="tel:01142362129">0114 236 2129</a></span>
+  <span>✉ <a href="mailto:info@katecampbellfitness.com">info@katecampbellfitness.com</a></span>
+  <span>📍 345a Ecclesall Road South, Sheffield S11 9PW</span>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">Kate Campbell<span>.</span></div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showPage('home')">Home</button>
+      <button class="nav-link" onclick="showPage('services')">Services</button>
+      <button class="nav-link" onclick="showPage('classes')">Classes</button>
+      <button class="nav-link" onclick="showPage('womens')">Women's Health</button>
+      <button class="nav-link" onclick="showPage('about')">About Kate</button>
+      <button class="nav-link" onclick="showPage('contact')">Contact</button>
+    </div>
+    <button class="nav-cta" onclick="showPage('contact')">Free Taster</button>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('services')">Services</button>
+    <button onclick="showPage('classes')">Classes</button>
+    <button onclick="showPage('womens')">Women's Health</button>
+    <button onclick="showPage('about')">About Kate</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div data-page="home" class="active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Sheffield S11 · Ecclesall Road South</div>
+        <h1>Kate Campbell<br>Fitness</h1>
+        <div class="hero-tagline">The Small Gym With The Big Heart.</div>
+        <p class="hero-sub">Personal training, pilates, therapy, pregnancy support and menopause fitness — all under one roof, with a team that listens first and coaches properly.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-val">20+</div><div class="hero-stat-label">Years Experience</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">5+</div><div class="hero-stat-label">Services</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">S11</div><div class="hero-stat-label">Sheffield</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">Free</div><div class="hero-stat-label">Taster Session</div></div>
+        </div>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('contact')">Book a Free Taster</button>
+          <button class="btn-outline" onclick="showPage('services')">Our Services</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Find Us</div>
+        <div class="hero-card-item"><span class="hero-card-icon">📍</span><span>345a Ecclesall Road South<br>Sheffield S11 9PW<br>(below the Miller &amp; Carter)</span></div>
+        <div class="hero-card-item"><span class="hero-card-icon">🎁</span><span>Free taster session — no obligation</span></div>
+        <div class="hero-card-item"><span class="hero-card-icon">📱</span><span>Kate Campbell Fitness App available</span></div>
+        <hr class="hero-card-divider">
+        <a class="hero-card-phone" href="tel:01142362129">0114 236 2129</a>
+        <p class="hero-card-phone-label">Call to book or ask a question</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-inner">
+      <span class="trust-item">✓ Former NHS Midwife</span>
+      <span class="trust-item">✓ Personal Training</span>
+      <span class="trust-item">✓ Women's Health Pathway</span>
+      <span class="trust-item">✓ Free Taster Session</span>
+      <span class="trust-item">✓ Sheffield S11</span>
+    </div>
+  </div>
+
+  <div class="section bg-cream">
+    <div class="section-inner">
+      <div class="section-tag muted">Why Choose Us</div>
+      <h2 class="section-title">Progressive. Inclusive.<br>Flexible. Tailored to you.</h2>
+      <p class="section-sub">From the moment you walk through our doors, our aim is simple — to help you feel comfortable, supported and confident in your next step. No pressure. No gimmicks. Just honest coaching and real results.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">🏋️</div>
+          <div class="card-title">Personal Training</div>
+          <div class="card-body">1-1, 2-1 or small group PT — all personalised to your goals, your schedule and your fitness level. Affordable and flexible.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧘</div>
+          <div class="card-title">Classes</div>
+          <div class="card-body">Learn to Lift, Move Well Pilates, Cardio Kick, Flex &amp; Stretch, Raise the Bar — something for every level.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">💆</div>
+          <div class="card-title">Therapy &amp; Massage</div>
+          <div class="card-body">Sports therapy, manual therapy and massage — from prehabilitation to post-surgery recovery.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤱</div>
+          <div class="card-title">Pregnancy Support</div>
+          <div class="card-body">Safe exercise guidance throughout pregnancy — led by Kate's 20+ years as a Sheffield community midwife.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌸</div>
+          <div class="card-title">The Meno Years</div>
+          <div class="card-body">Strength and wellness programmes specifically designed to support women through the menopause years.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🍎</div>
+          <div class="card-title">Nutritional Support</div>
+          <div class="card-body">Clear, practical guidance to help you make sustainable changes — without the fad diets or confusion.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section bg-plum">
+    <div class="section-inner">
+      <div class="section-tag">Client Stories</div>
+      <h2 class="section-title white">What our members say.</h2>
+      <p class="section-sub white">Real people, real results. The proof is in the stories of the members who've come through our doors.</p>
+      <div class="grid-3">
+        <div class="review-card">
+          <p class="review-quote">"Kate is a first-class personal trainer and overall fitness adviser. She has built a very welcoming atmosphere with great trainers and has a thoroughly professional approach."</p>
+          <div class="review-author" style="color: var(--terra);">Paul and Paula</div>
+        </div>
+        <div class="review-card">
+          <p class="review-quote">"Thanks so much, Kate and team, for running such a wonderful gym with such a welcoming, friendly and stress-free environment. From the moment I walked in, I instantly knew it was the gym for me."</p>
+          <div class="review-author" style="color: var(--terra);">Tanya and Judith</div>
+        </div>
+        <div class="review-card">
+          <p class="review-quote">"Kate's knowledge and ability to adapt to any situation have ensured she is a key part of my self-care routine. I have joined many gyms before and found them impersonal and daunting. I love the personal yet professional service."</p>
+          <div class="review-author" style="color: var(--terra);">Amy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div data-page="services">
+  <div class="section bg-cream">
+    <div class="section-inner">
+      <div class="section-tag muted">What We Offer</div>
+      <h2 class="section-title">Everything in one place.</h2>
+      <p class="section-sub">At Kate Campbell Fitness, you don't need to go elsewhere. From your first workout to long-term health, we have the expertise to support you at every stage.</p>
+      <div class="service-row">
+        <div class="service-image">🏋️</div>
+        <div>
+          <div class="service-label">Training</div>
+          <h3 class="service-title">Personal Training</h3>
+          <p class="service-desc">1-1, 2-1 or group PT — all affordable, flexible and tailored entirely to you. Choose block bookings, monthly payments or pay upfront. We listen to your goals first, then build a programme that actually achieves them.</p>
+          <button class="service-link" onclick="showPage('contact')">Book a free consultation →</button>
+        </div>
+      </div>
+      <div class="service-row reverse">
+        <div class="service-image">💆</div>
+        <div>
+          <div class="service-label">Recovery</div>
+          <h3 class="service-title">Move Well — Therapy &amp; Massage</h3>
+          <p class="service-desc">Sports therapy, manual therapy and massage — from getting strong for surgery (prehabilitation) to recovering from injury or a procedure. Our therapists take a whole-person approach, combining exercise programmes with hands-on treatment.</p>
+          <button class="service-link" onclick="showPage('contact')">Book an appointment →</button>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-image">🍎</div>
+        <div>
+          <div class="service-label">Nutrition</div>
+          <h3 class="service-title">Nutritional Guidance</h3>
+          <p class="service-desc">Nutrition is a minefield to navigate alone. We help you cut through the conflicting information and find a sustainable approach that works for your life — not just a short-term fix.</p>
+          <button class="service-link" onclick="showPage('contact')">Talk to us →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLASSES -->
+<div data-page="classes">
+  <div class="section bg-cream">
+    <div class="section-inner">
+      <div class="section-tag muted">Group Classes</div>
+      <h2 class="section-title">There's something for everyone.</h2>
+      <p class="section-sub">We bring personality and fun into every class. Discover a variety of sessions designed to meet all your strength, fitness and mobility goals — whatever your level.</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-icon">🏋️</div>
+          <div class="card-title">Learn to Lift</div>
+          <div class="card-body">Dumbbells, barbells, kettlebells and bodyweight — learn how to lift correctly and see progress each week. Suitable for all levels.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧘</div>
+          <div class="card-title">Move Well Pilates</div>
+          <div class="card-body">Mat pilates with our Sports Therapist Shannon. Functional movement, strength and length — every session. All levels welcome.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔥</div>
+          <div class="card-title">Cardio Kick</div>
+          <div class="card-body">30 minutes of high-intensity work with Jenny — weights, bodyweight and equipment. Burn calories, get stronger. Intermediate level.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤸</div>
+          <div class="card-title">Flex &amp; Stretch</div>
+          <div class="card-body">Flexibility, posture and body awareness. Learn how to open the body and let tension go. Complete beginners welcome.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">💪</div>
+          <div class="card-title">Raise the Bar</div>
+          <div class="card-body">Advanced strength — progressive overload, more muscle, more confidence. Small class numbers. Intermediate level.</div>
+        </div>
+        <div class="card cream">
+          <div class="card-icon">🎁</div>
+          <div class="card-title" style="color: var(--plum);">Free Taster Session</div>
+          <div class="card-body" style="color: #555;">Not sure which class is right for you? Book a free taster and try a session — no commitment, just a chance to see if it fits.</div>
+          <button onclick="showPage('contact')" style="margin-top: 16px; background: var(--terra); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit;">Book Free Taster</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WOMEN'S HEALTH -->
+<div data-page="womens">
+  <div class="section bg-plum">
+    <div class="section-inner">
+      <div class="section-tag">Women's Health</div>
+      <h2 class="section-title white">From pre-pregnancy<br>to the menopause years.</h2>
+      <p class="section-sub white">Kate spent over 20 years as a Sheffield community and hospital midwife before founding KCF. That knowledge underpins everything we do for women's health and wellbeing.</p>
+    </div>
+  </div>
+  <div class="section bg-cream">
+    <div class="section-inner">
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">🤰</div>
+          <div class="card-title">Pregnancy Health &amp; Wellbeing</div>
+          <div class="card-body">Safe, supported exercise throughout pregnancy — guided by Kate's 20+ years of midwifery experience. Prenatal classes and one-to-one sessions available.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌱</div>
+          <div class="card-title">Postnatal Recovery</div>
+          <div class="card-body">A gradual, safe return to exercise after birth. Postnatal classes, wellbeing assessments and one-to-one support — when your body is ready, at a pace that works for you.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌸</div>
+          <div class="card-title">The Meno Years</div>
+          <div class="card-body">Strength and wellness programmes built around the needs of women going through perimenopause and menopause — energy, bone density, mood and confidence.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">👧</div>
+          <div class="card-title">Teen Personal Training</div>
+          <div class="card-body">Safe, age-appropriate fitness for teenagers — building confidence, strength and healthy habits at the right time in their development.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏠</div>
+          <div class="card-title">Fit@Home</div>
+          <div class="card-body">Can't always make it in? Fit@Home brings the coaching to you — online sessions tailored to your equipment, space and goals.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <div class="card-title">New Mum Wellbeing Assessment</div>
+          <div class="card-body">A dedicated assessment for new mums — checking in on physical recovery, mental wellbeing and readiness to return to exercise.</div>
+        </div>
+      </div>
+      <div style="margin-top: 48px; background: var(--plum); border-radius: 16px; padding: 40px; text-align: center;">
+        <p style="color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 20px; font-style: italic;">"When women support each other, incredible things happen."</p>
+        <button class="btn-primary" onclick="showPage('contact')">Book a Free Consultation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT KATE -->
+<div data-page="about">
+  <div class="about-section section bg-plum">
+    <div class="about-two-col section-inner" style="padding: 0;">
+      <div class="about-image">👩‍⚕️</div>
+      <div class="about-text">
+        <div class="section-tag" style="margin-bottom: 12px;">About Kate</div>
+        <h2 class="section-title white" style="margin-bottom: 24px;">Midwife to<br>Gym Owner.</h2>
+        <p>Before founding Kate Campbell Fitness, Kate spent over 20 years working as a community and hospital midwife in Sheffield. That experience — caring for women, listening to their needs, understanding their bodies — shaped everything KCF has become.</p>
+        <p>The result is a gym that doesn't just care about your fitness. It cares about you as a person, at every stage of your life. From the moment you enquire, Kate's team works to understand what you actually need — not what a generic programme assumes you need.</p>
+        <p>The wider team includes Personal Trainers, Sports Therapists, class instructors and online coaches — all working together with the same philosophy Kate started with: listen first, coach properly, support always.</p>
+        <div class="about-stat-row">
+          <div class="about-stat"><div class="about-stat-val">20+</div><div class="about-stat-label">Years NHS Experience</div></div>
+          <div class="about-stat"><div class="about-stat-val">5+</div><div class="about-stat-label">Expert Team Members</div></div>
+          <div class="about-stat"><div class="about-stat-val">S11</div><div class="about-stat-label">Sheffield</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div data-page="contact">
+  <div class="section bg-cream">
+    <div class="section-inner">
+      <div class="section-tag muted">Get in Touch</div>
+      <h2 class="section-title">Let's find the right fit for you.</h2>
+      <p class="section-sub">Tell us about yourself and what you're looking for — one of the team will be in touch to answer your questions and arrange your visit or free taster session.</p>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📍</span>
+            <div>
+              <div class="contact-info-label">Address</div>
+              <div class="contact-info-value">345a Ecclesall Road South<br>Sheffield S11 9PW<br><small style="color:#aaa;">(below the Miller &amp; Carter)</small></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📞</span>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value"><a href="tel:01142362129">0114 236 2129</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">💬</span>
+            <div>
+              <div class="contact-info-label">WhatsApp</div>
+              <div class="contact-info-value"><a href="tel:07775515853">07775 515853</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">✉</span>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value"><a href="mailto:info@katecampbellfitness.com">info@katecampbellfitness.com</a></div>
+            </div>
+          </div>
+          <div style="background: var(--plum); border-radius: 12px; padding: 24px; margin-top: 8px;">
+            <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6;">Not sure where to start? We offer a <strong style="color: var(--terra);">free taster session</strong> and a <strong style="color: var(--terra);">free appointment consultation</strong> — both with no commitment, just a friendly chat about where you'd like to go.</p>
+          </div>
+        </div>
+        <div class="card">
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="07...">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>I'm most interested in</label>
+              <select>
+                <option>Personal Training</option>
+                <option>Gym Membership</option>
+                <option>Classes</option>
+                <option>Pregnancy / Postnatal</option>
+                <option>The Meno Years</option>
+                <option>Therapy &amp; Massage</option>
+                <option>Teen Personal Training</option>
+                <option>Fit@Home</option>
+                <option>Not sure — just exploring</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tell us a bit more</label>
+              <textarea placeholder="Your goals, any questions, anything that would help us help you..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Kate Campbell<span>.</span></div>
+    <div class="footer-links">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('services')">Services</button>
+      <button onclick="showPage('classes')">Classes</button>
+      <button onclick="showPage('contact')">Contact</button>
+    </div>
+    <div style="font-size:13px;">345a Ecclesall Road South, Sheffield S11 9PW</div>
+  </div>
+  <div class="footer-credit">© 2026 Kate Campbell Fitness · Website concept built by <a href="mailto:aidan@trabelo.com">Trabelo · Sheffield</a></div>
+</footer>
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('[data-page]').forEach(el => el.classList.remove('active'));
+    const target = document.querySelector(`[data-page="${page}"]`);
+    if (target) target.classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(el => {
+      if (el.getAttribute('onclick') && el.getAttribute('onclick').includes(`'${page}'`)) el.classList.add('active');
+    });
+    closeMobileMenu();
+    window.scrollTo(0, 0);
+  }
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').style.display = 'none';
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    e.target.innerHTML = '<div style="text-align:center;padding:40px;color:#059669;font-size:16px;font-weight:700;">✓ Thanks! We\'ll be in touch shortly.</div>';
+  }
+</script>
+</body>
+</html>
