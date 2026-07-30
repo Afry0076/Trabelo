@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnip & Thyme — Website Audit by Trabelo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --green: #2c4a2e;
+      --amber: #c97d2c;
+      --amber-dark: #a0611e;
+      --cream: #faf6f0;
+      --cream-dark: #f0e8dc;
+      --gray: #6b6b6b;
+      --border: #e0d8cc;
+      --red: #c0392b;
+      --orange: #e67e22;
+      --g: #27ae60;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: #1a1a1a; line-height: 1.6; }
+
+    .audit-header { background: var(--green); padding: 26px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .trabelo-badge { font-weight: 700; font-size: 1.1rem; color: #fff; letter-spacing: 0.15em; text-transform: uppercase; }
+    .trabelo-badge span { color: var(--amber); }
+    .header-mid { display: flex; align-items: center; gap: 14px; }
+    .divider-v { width: 1px; height: 28px; background: rgba(255,255,255,0.2); }
+    .audit-label { font-size: 0.76rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.12em; }
+    .header-right { text-align: right; }
+    .header-right p { font-size: 0.76rem; color: rgba(255,255,255,0.45); }
+    .header-right a { color: var(--amber); text-decoration: none; font-weight: 600; font-size: 0.86rem; }
+
+    .hero-band { background: linear-gradient(135deg, #1e3320 0%, #2c4a2e 100%); padding: 60px 20px; border-bottom: 3px solid var(--amber); }
+    .hero-band-inner { max-width: 900px; margin: 0 auto; }
+    .hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .biz-name { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 6px; }
+    .biz-url { font-size: 0.84rem; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .hero-intro { font-size: 1.03rem; color: rgba(255,255,255,0.75); max-width: 540px; line-height: 1.82; }
+    .score-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; min-width: 210px; }
+    .score-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 16px; text-align: center; }
+    .score-num { font-size: 2rem; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .score-label { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.42); }
+    .s-red { color: #e74c3c; }
+    .s-amber { color: #e67e22; }
+    .s-green { color: #2ecc71; }
+    .summary-bar { margin-top: 36px; background: rgba(201,125,44,0.15); border: 1px solid rgba(201,125,44,0.35); border-radius: 8px; padding: 20px 24px; }
+    .summary-bar p { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.8; }
+    .summary-bar strong { color: var(--amber); }
+
+    .content { max-width: 900px; margin: 0 auto; padding: 0 20px 80px; }
+    .section-heading { font-family: 'Playfair Display', serif; font-size: 1.55rem; color: #1a1a1a; margin: 52px 0 22px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+    .section-heading span { color: var(--amber); }
+
+    .metric-row { display: flex; align-items: center; gap: 12px; margin-bottom: 9px; flex-wrap: wrap; }
+    .metric-label { font-size: 0.82rem; color: var(--gray); width: 160px; flex-shrink: 0; }
+    .metric-bar-wrap { flex: 1; background: var(--border); border-radius: 20px; height: 10px; min-width: 120px; overflow: hidden; }
+    .metric-bar { height: 100%; border-radius: 20px; }
+    .bar-red { background: var(--red); }
+    .bar-amber { background: var(--orange); }
+    .bar-green { background: var(--g); }
+    .metric-val { font-size: 0.82rem; font-weight: 600; width: 44px; text-align: right; flex-shrink: 0; }
+    .val-red { color: var(--red); }
+    .val-amber { color: var(--orange); }
+    .val-green { color: var(--g); }
+
+    .issue-card { background: #fff; border-radius: 10px; border-left: 4px solid var(--red); padding: 26px; margin-bottom: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .issue-card.amber { border-left-color: var(--orange); }
+    .issue-card.info { border-left-color: #3498db; }
+    .issue-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .issue-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .issue-title { font-size: 1.02rem; font-weight: 700; margin-bottom: 4px; }
+    .issue-badge { display: inline-block; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 20px; background: #fde8e8; color: var(--red); }
+    .issue-badge.amber { background: #fef3e2; color: var(--orange); }
+    .issue-badge.info { background: #e8f4fd; color: #2980b9; }
+    .issue-body h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); margin: 14px 0 5px; font-weight: 600; }
+    .issue-body h4:first-child { margin-top: 0; }
+    .issue-body p { font-size: 0.92rem; color: #444; line-height: 1.78; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px,1fr)); gap: 14px; }
+    .feature-card { background: #fff; border-radius: 10px; padding: 20px; border: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+    .feature-card h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 3px; }
+    .feature-card p { font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 18px; }
+    .pricing-card { background: #fff; border-radius: 12px; padding: 26px; border: 2px solid var(--border); position: relative; }
+    .pricing-card.rec { border-color: var(--amber); }
+    .pricing-card.rec::before { content: 'Best for you'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--amber); color: #fff; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
+    .pricing-tier { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--amber); font-weight: 700; margin-bottom: 6px; }
+    .pricing-price { font-size: 2.2rem; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .pricing-price sup { font-size: 1rem; vertical-align: top; margin-top: 6px; display: inline-block; }
+    .pricing-sub { font-size: 0.76rem; color: var(--gray); margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .pricing-features { list-style: none; }
+    .pricing-features li { font-size: 0.83rem; color: #444; padding: 6px 0; display: flex; gap: 8px; align-items: flex-start; border-bottom: 1px solid #f5f5f5; }
+    .pricing-features li:last-child { border-bottom: none; }
+    .pricing-features li::before { content: '✓'; color: var(--g); font-weight: 700; flex-shrink: 0; }
+    .pricing-note { font-size: 0.74rem; color: var(--gray); margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+    .cta-box { background: var(--green); border-radius: 12px; padding: 40px; margin-top: 52px; text-align: center; color: #fff; }
+    .cta-box h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; margin-bottom: 10px; }
+    .cta-box p { color: rgba(255,255,255,0.62); font-size: 0.95rem; max-width: 500px; margin: 0 auto 26px; line-height: 1.78; }
+    .cta-details { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 28px; }
+    .cta-detail strong { display: block; color: var(--amber); font-size: 1.05rem; }
+    .cta-detail span { font-size: 0.72rem; color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.1em; }
+    .cta-btn { display: inline-block; background: var(--amber); color: #fff; padding: 15px 38px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.93rem; letter-spacing: 0.05em; text-transform: uppercase; transition: background 0.2s; }
+    .cta-btn:hover { background: var(--amber-dark); }
+
+    .audit-footer { background: var(--green); padding: 22px 20px; text-align: center; font-size: 0.76rem; color: rgba(255,255,255,0.35); }
+    .audit-footer strong { color: rgba(255,255,255,0.6); }
+
+    @media (max-width: 640px) {
+      .hero-top { flex-direction: column; }
+      .score-grid { grid-template-columns: repeat(4,1fr); min-width: 0; }
+      .score-num { font-size: 1.5rem; }
+      .cta-box { padding: 26px 18px; }
+      .audit-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="audit-header">
+  <div class="header-mid">
+    <div class="trabelo-badge">Tra<span>belo</span></div>
+    <div class="divider-v"></div>
+    <div class="audit-label">Website Audit Report</div>
+  </div>
+  <div class="header-right">
+    <p>Demo ready to view</p>
+    <a href="https://trabelo-tau.vercel.app/turnipandthyme.html" target="_blank">See the rebuilt demo →</a>
+  </div>
+</div>
+
+<div class="hero-band">
+  <div class="hero-band-inner">
+    <div class="hero-top">
+      <div>
+        <h1 class="biz-name">Turnip & Thyme</h1>
+        <p class="biz-url">turnipandthyme.co.uk · 740 Ecclesall Road, Sheffield S11 8TB</p>
+        <p class="hero-intro">Hi — I'm Aidan, I'm 18 and I do web design across Sheffield and South Yorkshire. I tested your website through Google's speed and quality tools and found a performance score that's genuinely holding you back — especially on mobile, where most of your customers will be browsing. There's also an accessibility issue that's blocking customers from zooming in on your site on their phones. I've put together a free audit and a full demo of what a rebuilt site could look like.</p>
+      </div>
+      <div class="score-grid">
+        <div class="score-box"><div class="score-num s-red">54</div><div class="score-label">Performance</div></div>
+        <div class="score-box"><div class="score-num s-amber">72</div><div class="score-label">Accessibility</div></div>
+        <div class="score-box"><div class="score-num s-green">100</div><div class="score-label">Best Practices</div></div>
+        <div class="score-box"><div class="score-num s-green">92</div><div class="score-label">SEO</div></div>
+      </div>
+    </div>
+    <div class="summary-bar">
+      <p>These are Google's own scores for your website — out of 100. Your <strong>performance score of 54</strong> is in the red zone, meaning Google officially considers your site slow. On mobile, the main content takes nearly <strong>15 seconds to appear</strong> — and your page is loading <strong>4.4MB of data</strong> before anyone can see anything. For a bistro where people are deciding where to eat on their phones, that's a significant problem.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <h2 class="section-heading">How Your Site <span>Scores Right Now</span></h2>
+  <p style="color:var(--gray); font-size:0.92rem; margin-bottom:22px; line-height:1.78;">Google Lighthouse scores your site on four categories, measured on mobile — which is where the majority of restaurant customers are browsing from.</p>
+
+  <div style="background:#fff; border-radius:10px; padding:26px; border:1px solid var(--border); margin-bottom:8px;">
+    <div class="metric-row"><span class="metric-label">Performance</span><div class="metric-bar-wrap"><div class="metric-bar bar-red" style="width:54%"></div></div><span class="metric-val val-red">54</span></div>
+    <div class="metric-row"><span class="metric-label">Accessibility</span><div class="metric-bar-wrap"><div class="metric-bar bar-amber" style="width:72%"></div></div><span class="metric-val val-amber">72</span></div>
+    <div class="metric-row"><span class="metric-label">Best Practices</span><div class="metric-bar-wrap"><div class="metric-bar bar-green" style="width:100%"></div></div><span class="metric-val val-green">100</span></div>
+    <div class="metric-row"><span class="metric-label">SEO</span><div class="metric-bar-wrap"><div class="metric-bar bar-green" style="width:92%"></div></div><span class="metric-val val-green">92</span></div>
+    <p style="font-size:0.76rem; color:#bbb; margin-top:14px;">Tested on mobile, July 2026. Google Lighthouse 13.4.1 · Slow 4G.</p>
+  </div>
+
+  <h2 class="section-heading">What's <span>Going Wrong</span></h2>
+
+  <div class="issue-card">
+    <div class="issue-header">
+      <div class="issue-icon">🐌</div>
+      <div>
+        <div class="issue-title">The site takes nearly 15 seconds to load on mobile</div>
+        <span class="issue-badge">Critical · Losing Customers</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Google measured the time until your main content appears on a standard mobile connection — a figure called Largest Contentful Paint. For your site, that's <strong>14.9 seconds</strong>. First Contentful Paint (when anything at all shows on screen) is 7.5 seconds. Both are in the red zone.</p>
+      <h4>What this means for you</h4>
+      <p>Most people give up on a website within 3–4 seconds if it hasn't loaded. At 14.9 seconds, the vast majority of people browsing Turnip & Thyme on their phone will leave before they've seen a single thing. Someone looking for a bistro on Ecclesall Road will simply go to the next result instead. Given you have a seafood night, steak night, Sunday roasts and award wins to shout about, it's a shame for any of that to go unseen.</p>
+      <h4>The fix</h4>
+      <p>A properly built site optimises every image, loads only what's needed, and hits sub-3-second load times even with beautiful food photography.</p>
+    </div>
+  </div>
+
+  <div class="issue-card">
+    <div class="issue-header">
+      <div class="issue-icon">📦</div>
+      <div>
+        <div class="issue-title">Your page weighs 4.4MB — mostly unnecessary images</div>
+        <span class="issue-badge">Critical · Slow Load</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Google flagged a total network payload of 4,401 KiB — that's 4.4MB of data your visitors have to download before the page works. Of that, images alone could be reduced by 2,443 KiB (about 2.4MB) without any visible quality loss, just by serving them at the right size and in a modern format. On top of that, there's 359 KiB of unused JavaScript that loads on every page visit.</p>
+      <h4>What this means for you</h4>
+      <p>On a mobile connection, 4.4MB is a very heavy page. Most news websites are under 1MB. Every extra MB adds seconds to the load time and uses up your customers' mobile data. It's the single biggest reason for the slow load times above.</p>
+      <h4>The fix</h4>
+      <p>Images are compressed, resized to what's actually displayed, and served in modern formats (WebP/AVIF). JavaScript is kept to only what the page needs. A rebuilt site typically comes in well under 500KB total.</p>
+    </div>
+  </div>
+
+  <div class="issue-card amber">
+    <div class="issue-header">
+      <div class="issue-icon">🔍</div>
+      <div>
+        <div class="issue-title">Customers can't zoom in on your site</div>
+        <span class="issue-badge amber">Accessibility · Affects Real Users</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Your site has a line of code in it that explicitly disables pinch-to-zoom on mobile devices: <code style="background:#f5f5f5; padding:2px 6px; border-radius:3px; font-size:0.85em;">user-scalable=0, maximum-scale=1.0</code>. This means anyone who needs to zoom in — whether to read your menu prices, see the small print, or simply because they have a visual impairment — physically cannot do so.</p>
+      <h4>What this means for you</h4>
+      <p>This affects a significant proportion of users, particularly older customers who increase text size on their phones as a matter of habit. It's also flagged by Google as an accessibility failure, contributing to your 72 accessibility score. It's the kind of thing that quietly frustrates people without them knowing why.</p>
+      <h4>The fix</h4>
+      <p>Remove the restriction entirely. A well-built responsive site doesn't need to block zoom — it works correctly at any size.</p>
+    </div>
+  </div>
+
+  <div class="issue-card amber">
+    <div class="issue-header">
+      <div class="issue-icon">👆</div>
+      <div>
+        <div class="issue-title">Buttons and links are too small to tap on mobile</div>
+        <span class="issue-badge amber">Accessibility · Mobile UX</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Google flagged that touch targets — buttons, links, and tappable elements — don't have sufficient size or spacing on mobile. This means customers tapping "Book a table" or a menu link on their phone may hit the wrong thing, or struggle to tap it at all.</p>
+      <h4>What this means for you</h4>
+      <p>Every time a customer fumbles with a button on your site, there's a chance they give up. For a booking button in particular, that fumble could cost you a table. It's a small thing that makes a real difference to how professional and usable the site feels.</p>
+      <h4>The fix</h4>
+      <p>All interactive elements are sized to at least 44×44px with proper spacing — the standard recommended by both Google and Apple for mobile usability.</p>
+    </div>
+  </div>
+
+  <div class="issue-card amber">
+    <div class="issue-header">
+      <div class="issue-icon">⚡</div>
+      <div>
+        <div class="issue-title">Render-blocking code is slowing the first load</div>
+        <span class="issue-badge amber">Performance · 2 Second Delay</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Google flagged render-blocking requests that delay the page appearing by an estimated 2,030 milliseconds — over 2 seconds. This means scripts or stylesheets are loading before the browser is allowed to show anything to the visitor. This is a common WordPress issue caused by plugins and themes loading code in the wrong order.</p>
+      <h4>What this means for you</h4>
+      <p>Those 2 seconds are added on top of all the other delays — they're 2 seconds where your customers are staring at a blank white screen before anything has even started loading.</p>
+      <h4>The fix</h4>
+      <p>A bespoke build loads styles and scripts in the correct order, deferred where possible, so the browser can start rendering the page immediately.</p>
+    </div>
+  </div>
+
+  <div class="issue-card info">
+    <div class="issue-header">
+      <div class="issue-icon">🏗️</div>
+      <div>
+        <div class="issue-title">WordPress + plugins adding unnecessary overhead</div>
+        <span class="issue-badge info">Platform Limitation</span>
+      </div>
+    </div>
+    <div class="issue-body">
+      <h4>What's happening</h4>
+      <p>Your site is built on WordPress, which is a perfectly solid platform — but it comes with performance overhead from the core system, your theme, and any plugins installed. Google found 8 long main-thread tasks, 10 non-composited animations, and 31 KiB of unused CSS — all typical of a WordPress setup that's grown organically over time.</p>
+      <h4>What this means for you</h4>
+      <p>None of this is easily fixable within WordPress without significant technical work. The platform itself contributes to the weight and slowness, regardless of how good the content is.</p>
+      <h4>The fix</h4>
+      <p>A lightweight bespoke build has none of this overhead — just clean HTML, CSS and a little JavaScript. Nothing loading that isn't needed.</p>
+    </div>
+  </div>
+
+  <h2 class="section-heading">What's <span>Already Good</span></h2>
+  <div class="features-grid" style="margin-bottom:8px;">
+    <div class="feature-card" style="border-left:3px solid var(--g);">
+      <div style="font-size:1.2rem;">✅</div>
+      <div><h4>Best Practices: 100/100</h4><p>Technically correct on all of Google's web standards. A solid foundation.</p></div>
+    </div>
+    <div class="feature-card" style="border-left:3px solid var(--g);">
+      <div style="font-size:1.2rem;">✅</div>
+      <div><h4>SEO: 92/100</h4><p>Good SEO fundamentals — meta descriptions, indexing, structured content. Nearly there.</p></div>
+    </div>
+    <div class="feature-card" style="border-left:3px solid var(--g);">
+      <div style="font-size:1.2rem;">✅</div>
+      <div><h4>Award-winning offer</h4><p>Good Food Award, TripAdvisor Travellers' Choice — the bistro itself is clearly excellent. The site just needs to reflect that.</p></div>
+    </div>
+    <div class="feature-card" style="border-left:3px solid var(--g);">
+      <div style="font-size:1.2rem;">✅</div>
+      <div><h4>Great content & menu</h4><p>A proper full menu with real dishes and prices, clear weekly events — all the right information is there.</p></div>
+    </div>
+  </div>
+
+  <h2 class="section-heading">What a <span>Rebuilt Site</span> Would Add</h2>
+  <div class="features-grid">
+    <div class="feature-card"><div style="font-size:1.2rem;">⚡</div><div><h4>Performance 97+ on mobile</h4><p>Sub-3-second load. Properly compressed images, no bloat, no platform overhead.</p></div></div>
+    <div class="feature-card"><div style="font-size:1.2rem;">📱</div><div><h4>Pinch-to-zoom enabled</h4><p>Works correctly at any zoom level. Accessible for all customers on all devices.</p></div></div>
+    <div class="feature-card"><div style="font-size:1.2rem;">🍽️</div><div><h4>Full interactive menu</h4><p>All courses displayed beautifully in a tabbed layout — starters, mains, sides, desserts, Sunday roast — no PDFs, no separate pages.</p></div></div>
+    <div class="feature-card"><div style="font-size:1.2rem;">🐟</div><div><h4>Events showcase</h4><p>Seafood nights, steak nights, Sunday roasts and seasonal specials given proper dedicated sections that are easy to find and share.</p></div></div>
+    <div class="feature-card"><div style="font-size:1.2rem;">📧</div><div><h4>Enquiry form built in</h4><p>Contact form for table bookings, catering enquiries, events — all to your inbox, no third-party plugins.</p></div></div>
+    <div class="feature-card"><div style="font-size:1.2rem;">🔒</div><div><h4>Yours outright</h4><p>No WordPress subscription, no plugin fees, no platform costs. One-off price, hosted wherever you like.</p></div></div>
+    <div class="feature-card"><div style="font-size:1.2rem;">🏆</div><div><h4>Awards front and centre</h4><p>Good Food Award and TripAdvisor recognition properly showcased — not buried in the footer.</p></div></div>
+    <div class="feature-card"><div style="font-size:1.2rem;">🌿</div><div><h4>Newsletter sign-up</h4><p>A mailing list capture built in so you can reach customers directly when new seasonal menus or events go live.</p></div></div>
+  </div>
+
+  <h2 class="section-heading">What It <span>Would Cost</span></h2>
+  <p style="color:var(--gray); font-size:0.92rem; margin-bottom:22px; line-height:1.78;">All prices are one-off and fixed. No contracts, no monthly fees unless honestly noted.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tier">Starter</div>
+      <div class="pricing-price"><sup>£</sup>395</div>
+      <div class="pricing-sub">One-off · 5 pages</div>
+      <ul class="pricing-features">
+        <li>Home, Menu, Events, About, Contact</li>
+        <li>Performance 97+ on mobile</li>
+        <li>Accessibility 98+, SEO 100</li>
+        <li>Mobile-first, pinch-to-zoom enabled</li>
+        <li>Properly compressed images</li>
+        <li>Enquiry contact form</li>
+      </ul>
+      <div class="pricing-note">Updates: £15 per change, or £30/month unlimited small updates.</div>
+    </div>
+    <div class="pricing-card rec">
+      <div class="pricing-tier">Business</div>
+      <div class="pricing-price"><sup>£</sup>795</div>
+      <div class="pricing-sub">One-off · Everything in Starter, plus:</div>
+      <ul class="pricing-features">
+        <li>Full interactive tabbed menu</li>
+        <li>Dedicated seafood nights, steak night & Sunday roast pages</li>
+        <li>Catering & wedding enquiry section</li>
+        <li>Newsletter sign-up integration</li>
+        <li>Awards showcase</li>
+        <li>Gift voucher integration</li>
+        <li>Seasonal events section</li>
+        <li>Training included</li>
+      </ul>
+      <div class="pricing-note">No monthly fees. Everything included, one-off price.</div>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-tier">Premium</div>
+      <div class="pricing-price"><sup>£</sup>1,295</div>
+      <div class="pricing-sub">One-off · The full works:</div>
+      <ul class="pricing-features">
+        <li>Everything in Business</li>
+        <li>CMS — update menus yourself</li>
+        <li>Live events calendar</li>
+        <li>Instagram feed integration</li>
+        <li>Automated booking confirmations</li>
+        <li>Push notifications for new events</li>
+        <li>Training included</li>
+      </ul>
+      <div class="pricing-note">Small hosting cost may apply (~£0–9/month) for CMS and live data features.</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h2>Ready to take a look?</h2>
+    <p>I've already built a full demo of your site — you can view it right now, no login needed. Happy to answer any questions over email.</p>
+    <div class="cta-details">
+      <div class="cta-detail"><strong>Aidan Fry</strong><span>Trabelo · Sheffield</span></div>
+      <div class="cta-detail"><strong>aidan@trabelo.com</strong><span>Get in touch</span></div>
+      <div class="cta-detail"><strong>No obligation</strong><span>Free to view, no pressure</span></div>
+    </div>
+    <a href="https://trabelo-tau.vercel.app/turnipandthyme.html" target="_blank" class="cta-btn">View the Demo Site →</a>
+  </div>
+
+</div>
+
+<div class="audit-footer">
+  <strong>Trabelo · Sheffield</strong> — Website audit prepared for Turnip & Thyme, turnipandthyme.co.uk · July 2026
+</div>
+</body>
+</html>
