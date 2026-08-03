@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abbey Vet Group Barnsley — Your Local Vets Since 1975</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --primary: #1e5036; --accent: #d4872a; --light: #f5f9f6; --border: #d8e8de; --text: #1a1a1a; --text-light: #5a6e61; --white: #fff; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--text); background: #fff; }
+
+  /* NAV */
+  .nav { position: sticky; top: 0; z-index: 100; background: var(--primary); box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { color: #fff; font-size: 1.25rem; font-weight: 900; cursor: pointer; letter-spacing: -0.3px; }
+  .nav-brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 6px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 7px 12px; border-radius: 7px; transition: all 0.15s; cursor: pointer; }
+  .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.15); color: #fff; }
+  .nav-phone { color: #fff; font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+  .nav-phone a { color: var(--accent); text-decoration: none; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: #fff; margin: 5px 0; border-radius: 2px; transition: all 0.2s; }
+  .mobile-menu { display: none; position: fixed; inset: 64px 0 0; background: var(--primary); z-index: 99; flex-direction: column; padding: 24px 20px; gap: 4px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 700; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.12); cursor: pointer; }
+  .mobile-menu .mob-phone { color: var(--accent); font-size: 1.1rem; padding: 14px 0; font-weight: 700; }
+
+  /* EMERGENCY BAR */
+  .emerg-bar { background: #1a3d28; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.9); }
+  .emerg-bar strong { color: var(--accent); }
+  .emerg-bar a { color: var(--accent); text-decoration: none; font-weight: 700; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero { position: relative; min-height: 88vh; display: flex; align-items: center; overflow: hidden; background: linear-gradient(135deg, #0f2c1e 0%, #1e5036 45%, #2d7a52 100%); }
+  .hero-img { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1548767797-d8c844163c4a?w=1400&auto=format&fit=crop&q=80') center/cover; opacity: 0.14; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 20px; display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: center; position: relative; z-index: 1; width: 100%; }
+  .hero-tag { display: inline-block; background: rgba(212,135,42,0.2); border: 1px solid rgba(212,135,42,0.5); color: var(--accent); font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 18px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-desc { color: rgba(255,255,255,0.8); font-size: 1.05rem; line-height: 1.65; margin-bottom: 28px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #fff; border: none; padding: 14px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 800; cursor: pointer; transition: background 0.15s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: #b86e1a; }
+  .btn-secondary { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); padding: 12px 26px; border-radius: 10px; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+  .hero-card { background: rgba(255,255,255,0.96); border-radius: 18px; padding: 28px; box-shadow: 0 8px 40px rgba(0,0,0,0.3); }
+  .hero-card .hc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; }
+  .hero-card .hc-stat { padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; }
+  .hero-card .hc-stat:last-child { border-bottom: none; }
+  .hero-card .hc-icon { font-size: 1.2rem; width: 32px; text-align: center; flex-shrink: 0; }
+  .hero-card .hc-label { font-size: 0.78rem; color: #888; }
+  .hero-card .hc-val { font-size: 0.88rem; font-weight: 700; color: var(--primary); }
+  .hero-card .emerg-btn { display: block; margin-top: 18px; background: var(--primary); color: #fff; text-align: center; text-decoration: none; padding: 13px; border-radius: 10px; font-size: 0.9rem; font-weight: 800; transition: background 0.15s; }
+  .hero-card .emerg-btn:hover { background: #13341f; }
+
+  /* TRUST STRIP */
+  .trust-strip { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px; }
+  .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .trust-item { text-align: center; }
+  .trust-item .ti-num { font-size: 1.6rem; font-weight: 900; color: var(--primary); line-height: 1; }
+  .trust-item .ti-label { font-size: 0.72rem; color: var(--text-light); font-weight: 500; }
+
+  /* SECTIONS */
+  section { padding: 72px 20px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .section-title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--primary); margin-bottom: 14px; line-height: 1.15; }
+  .section-intro { color: var(--text-light); font-size: 1rem; line-height: 1.65; max-width: 620px; }
+
+  /* SERVICE GRID */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  .svc-card { background: var(--white); border-radius: 14px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); border: 1px solid var(--border); transition: transform 0.18s, box-shadow 0.18s; }
+  .svc-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+  .svc-card .sc-icon { font-size: 2rem; margin-bottom: 14px; }
+  .svc-card h3 { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+  .svc-card p { font-size: 0.83rem; color: var(--text-light); line-height: 1.55; }
+
+  /* HEALTH CLUB */
+  .hc-section { background: var(--primary); color: #fff; }
+  .hc-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hc-content .hc-tag { display: inline-block; background: rgba(212,135,42,0.2); border: 1px solid rgba(212,135,42,0.5); color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; }
+  .hc-content h2 { font-size: 2rem; font-weight: 900; margin-bottom: 14px; color: #fff; line-height: 1.2; }
+  .hc-content p { color: rgba(255,255,255,0.78); line-height: 1.65; margin-bottom: 24px; }
+  .hc-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+  .hc-benefit { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; }
+  .hc-benefit .hcb-icon { font-size: 1.2rem; margin-bottom: 6px; }
+  .hc-benefit h4 { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+  .hc-benefit p { font-size: 0.76rem; color: rgba(255,255,255,0.65); margin-bottom: 0; }
+  .hc-card-side { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 32px; }
+  .hc-card-side h3 { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 20px; }
+  .hc-card-side ul { list-style: none; }
+  .hc-card-side ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.87rem; color: rgba(255,255,255,0.82); padding-left: 20px; position: relative; line-height: 1.4; }
+  .hc-card-side ul li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .hc-card-side ul li:last-child { border-bottom: none; }
+  .hc-card-side .hc-cta { display: block; margin-top: 22px; background: var(--accent); color: #fff; text-align: center; text-decoration: none; padding: 13px; border-radius: 10px; font-size: 0.9rem; font-weight: 800; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-img { border-radius: 18px; overflow: hidden; height: 420px; background: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=700&auto=format&fit=crop&q=80') center/cover; }
+  .about-content .section-tag { margin-bottom: 10px; }
+  .about-content h2 { font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 16px; line-height: 1.2; }
+  .about-content p { color: var(--text-light); line-height: 1.65; font-size: 0.97rem; margin-bottom: 16px; }
+  .about-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+  .about-badge { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 0.8rem; font-weight: 600; color: var(--primary); }
+
+  /* LOCATIONS */
+  .locations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 36px; }
+  .location-card { background: var(--white); border-radius: 14px; padding: 24px; box-shadow: 0 2px 14px rgba(0,0,0,0.07); border: 1px solid var(--border); }
+  .location-card.main-branch { border-color: var(--primary); border-width: 2px; position: relative; }
+  .location-card.main-branch::before { content: '24hr Emergency'; position: absolute; top: -10px; left: 20px; background: var(--primary); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: 8px; letter-spacing: 0.4px; }
+  .location-card h3 { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+  .location-card .lc-addr { font-size: 0.82rem; color: var(--text-light); margin-bottom: 10px; line-height: 1.4; }
+  .location-card .lc-phone { font-size: 0.85rem; font-weight: 700; color: var(--accent); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
+  .contact-info h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 18px; }
+  .ci-item { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
+  .ci-icon { font-size: 1.3rem; flex-shrink: 0; width: 36px; }
+  .ci-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 3px; }
+  .ci-val { font-size: 0.92rem; color: var(--text); font-weight: 600; }
+  .contact-form { background: var(--light); border-radius: 14px; padding: 28px; border: 1px solid var(--border); }
+  .contact-form h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 9px; font-family: inherit; font-size: 0.9rem; background: #fff; color: var(--text); transition: border-color 0.15s; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit { width: 100%; background: var(--primary); color: #fff; border: none; padding: 14px; border-radius: 10px; font-size: 0.95rem; font-weight: 800; cursor: pointer; transition: background 0.15s; }
+  .form-submit:hover { background: #13341f; }
+
+  /* FOOTER */
+  footer { background: #0f2c1e; color: rgba(255,255,255,0.65); padding: 44px 20px 24px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+  .footer-brand h3 { color: #fff; font-size: 1.2rem; font-weight: 900; margin-bottom: 8px; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.6; }
+  .footer-col h4 { color: #fff; font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { font-size: 0.8rem; margin-bottom: 8px; cursor: pointer; transition: color 0.15s; }
+  .footer-col ul li:hover { color: #fff; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 12px; }
+  .footer-bottom p { font-size: 0.76rem; }
+  .trabelo-credit { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links, .nav-phone { display: none; }
+    .hamburger { display: block; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .hero { min-height: 70vh; }
+    .hc-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .locations-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 24px; }
+    .hc-benefits { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) { .services-grid { grid-template-columns: 1fr; } .trust-inner { gap: 20px; } }
+</style>
+</head>
+<body>
+
+<div class="emerg-bar">
+  🚨 <strong>24-Hour Emergency:</strong> Our Dodworth Road branch is open around the clock — <a href="tel:01226242217">01226 242217</a>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">Abbey <span>Vet Group</span></div>
+    <ul class="nav-links">
+      <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+      <li><a id="nav-services" onclick="showPage('services')">Services</a></li>
+      <li><a id="nav-health-club" onclick="showPage('health-club')">Pet Health Club</a></li>
+      <li><a id="nav-about" onclick="showPage('about')">About</a></li>
+      <li><a id="nav-locations" onclick="showPage('locations')">Locations</a></li>
+      <li><a id="nav-contact" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+    <div class="nav-phone">📞 <a href="tel:01226242217">01226 242217</a></div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');closeMenu()">Home</a>
+  <a onclick="showPage('services');closeMenu()">Services</a>
+  <a onclick="showPage('health-club');closeMenu()">Pet Health Club</a>
+  <a onclick="showPage('about');closeMenu()">About</a>
+  <a onclick="showPage('locations');closeMenu()">Locations</a>
+  <a onclick="showPage('contact');closeMenu()">Contact</a>
+  <div class="mob-phone">📞 01226 242217</div>
+</div>
+
+<!-- ===== HOME ===== -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag">Barnsley &amp; Sheffield · Since 1975</div>
+        <h1>Caring for South Yorkshire's Pets for <em>50 Years</em></h1>
+        <p class="hero-desc">8 branches across Barnsley and Sheffield. RCVS approved. 24-hour emergency cover at our Dodworth Road practice. From routine check-ups to specialist care, Abbey Vet Group is here for your pet.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="showPage('contact')">Book an Appointment</button>
+          <button class="btn-secondary" onclick="showPage('services')">Our Services</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-title">Your Nearest Branch</div>
+        <div class="hc-stat"><div class="hc-icon">🏥</div><div><div class="hc-label">Main (24hr Emergency)</div><div class="hc-val">89 Dodworth Road, Barnsley</div></div></div>
+        <div class="hc-stat"><div class="hc-icon">📞</div><div><div class="hc-label">Main Number</div><div class="hc-val">01226 242217</div></div></div>
+        <div class="hc-stat"><div class="hc-icon">🕐</div><div><div class="hc-label">Emergency</div><div class="hc-val">24 hours, 7 days a week</div></div></div>
+        <div class="hc-stat"><div class="hc-icon">✅</div><div><div class="hc-label">Accreditation</div><div class="hc-val">RCVS Approved Practice</div></div></div>
+        <a class="emerg-btn" href="tel:01226242217">📞 Emergency: 01226 242217</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <div class="trust-item"><div class="ti-num">50+</div><div class="ti-label">Years Serving Yorkshire</div></div>
+      <div class="trust-item"><div class="ti-num">8</div><div class="ti-label">Local Branches</div></div>
+      <div class="trust-item"><div class="ti-num">24/7</div><div class="ti-label">Emergency Cover</div></div>
+      <div class="trust-item"><div class="ti-num">RCVS</div><div class="ti-label">Approved Practice</div></div>
+      <div class="trust-item"><div class="ti-num">Est.</div><div class="ti-label">1975</div></div>
+    </div>
+  </div>
+
+  <section style="background: var(--light);">
+    <div class="section-inner">
+      <p class="section-tag">What We Do</p>
+      <h2 class="section-title">Comprehensive Care, Locally</h2>
+      <p class="section-intro">From puppy and kitten checks to advanced diagnostics, nurse clinics and hydrotherapy — everything your pet needs, across 8 convenient locations.</p>
+      <div class="services-grid">
+        <div class="svc-card"><div class="sc-icon">🐾</div><h3>Puppy &amp; Kitten Checks</h3><p>First health check, vaccinations, microchipping and a welcome to your nearest branch team.</p></div>
+        <div class="svc-card"><div class="sc-icon">💉</div><h3>Vaccinations</h3><p>Core and non-core vaccines for dogs, cats and rabbits. Boosters and health checks included.</p></div>
+        <div class="svc-card"><div class="sc-icon">🏊</div><h3>Canine Hydrotherapy</h3><p>Specialist hydrotherapy for post-operative recovery, arthritis, weight management and mobility.</p></div>
+        <div class="svc-card"><div class="sc-icon">🏠</div><h3>Home Visits &amp; Collection</h3><p>We can come to you — home visits available, plus ambulance collection for pets that struggle to travel.</p></div>
+        <div class="svc-card"><div class="sc-icon">🔬</div><h3>Nurse Clinics</h3><p>Weight clinics, dental checks, wound dressings, blood pressure monitoring and parasite control.</p></div>
+        <div class="svc-card"><div class="sc-icon">🚨</div><h3>24hr Emergency</h3><p>Round-the-clock emergency care at our Dodworth Road practice. Call 01226 242217 any time.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:36px;"><button class="btn-primary" onclick="showPage('services')">All Services →</button></div>
+    </div>
+  </section>
+
+  <section style="background:var(--primary);color:#fff;padding:60px 20px;">
+    <div class="section-inner" style="text-align:center;">
+      <p style="font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Pet Health Club</p>
+      <h2 style="font-size:2rem;font-weight:900;color:#fff;margin-bottom:14px;">Save on routine care with our Pet Health Club</h2>
+      <p style="color:rgba(255,255,255,0.78);max-width:580px;margin:0 auto 28px;line-height:1.6;">Spread the cost of vaccinations, health checks and parasite prevention throughout the year. One monthly payment, no surprises.</p>
+      <button class="btn-primary" onclick="showPage('health-club')">Learn About Pet Health Club →</button>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ===== SERVICES ===== -->
+<div id="page-services" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-tag">Services</p>
+      <h2 class="section-title">Everything Your Pet Needs</h2>
+      <p class="section-intro">Across 8 branches, we offer a wide range of veterinary services — from routine preventive care to specialist procedures and emergency cover.</p>
+      <div class="services-grid" style="margin-top:36px;">
+        <div class="svc-card"><div class="sc-icon">🐶</div><h3>General Consultations</h3><p>Same-day and booked appointments for illnesses, injuries, check-ups and health concerns across all branches.</p></div>
+        <div class="svc-card"><div class="sc-icon">💉</div><h3>Vaccinations</h3><p>Primary courses and annual boosters for dogs, cats, rabbits and other pets. Health check included with every booster.</p></div>
+        <div class="svc-card"><div class="sc-icon">🏷️</div><h3>Microchipping</h3><p>Permanent identification for your pet. Legally required for dogs in the UK. Quick, simple and done in the consult room.</p></div>
+        <div class="svc-card"><div class="sc-icon">🐾</div><h3>Puppy &amp; Kitten Packages</h3><p>Full new-pet starter checks including first vaccines, microchipping, parasite treatment and a full health assessment.</p></div>
+        <div class="svc-card"><div class="sc-icon">🛡️</div><h3>Pet Insurance Advice</h3><p>Our team can help you understand your options and choose a cover level that protects against unexpected vet costs.</p></div>
+        <div class="svc-card"><div class="sc-icon">🏊</div><h3>Canine Hydrotherapy</h3><p>Specialist hydrotherapy pool for post-operative rehabilitation, weight loss support, arthritis and general fitness.</p></div>
+        <div class="svc-card"><div class="sc-icon">🏠</div><h3>Home Visits</h3><p>Vet and nurse visits to your home — ideal for nervous pets, mobility-impaired owners or multi-pet households.</p></div>
+        <div class="svc-card"><div class="sc-icon">🚐</div><h3>Ambulance Collections</h3><p>Can't transport your pet? We'll come and collect. Particularly useful for post-operative or very unwell patients.</p></div>
+        <div class="svc-card"><div class="sc-icon">💊</div><h3>Nurse Clinics</h3><p>Weight, blood pressure, dental, parasite prevention and post-op wound checks — available without a full vet consultation fee.</p></div>
+        <div class="svc-card"><div class="sc-icon">🚨</div><h3>24hr Emergency Care</h3><p>Dodworth Road is always open. No appointment needed for emergencies. Call 01226 242217 at any time.</p></div>
+        <div class="svc-card"><div class="sc-icon">🔬</div><h3>In-House Diagnostics</h3><p>Blood tests, urinalysis, cytology and pathology — many results available same day, right here at the practice.</p></div>
+        <div class="svc-card"><div class="sc-icon">✂️</div><h3>Surgery</h3><p>Routine and advanced surgical procedures including orthopaedics, soft-tissue surgery and specialist referrals.</p></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-services -->
+
+<!-- ===== HEALTH CLUB ===== -->
+<div id="page-health-club" class="page">
+  <section class="hc-section">
+    <div class="hc-inner" style="max-width:1100px;margin:0 auto;padding:72px 20px;">
+      <div class="hc-content">
+        <span class="hc-tag">Monthly Plan</span>
+        <h2>Abbey Pet Health Club</h2>
+        <p>Spread the cost of your pet's essential preventive care across the year. One simple monthly direct debit covers vaccinations, health checks and parasite prevention — no surprise vet bills for the basics.</p>
+        <p>Available for dogs, cats and rabbits at all 8 branches. Join at any time of year.</p>
+        <div class="hc-benefits">
+          <div class="hc-benefit"><div class="hcb-icon">💉</div><h4>Annual Vaccinations</h4><p>Full booster course included each year</p></div>
+          <div class="hc-benefit"><div class="hcb-icon">🔬</div><h4>Health Checks</h4><p>Full health assessment at each visit</p></div>
+          <div class="hc-benefit"><div class="hcb-icon">🐛</div><h4>Parasite Prevention</h4><p>Flea, tick and worming treatment included</p></div>
+          <div class="hc-benefit"><div class="hcb-icon">💰</div><h4>Discount off Extras</h4><p>Members get money off other services</p></div>
+        </div>
+        <button class="btn-primary" onclick="showPage('contact')">Join Pet Health Club</button>
+      </div>
+      <div class="hc-card-side">
+        <h3>What's Included</h3>
+        <ul>
+          <li>Annual vaccinations (full booster)</li>
+          <li>Annual health check with a vet</li>
+          <li>12 months flea prevention</li>
+          <li>12 months worming treatment</li>
+          <li>Tick prevention treatment</li>
+          <li>Nail clipping (where required)</li>
+          <li>10% discount on consultations</li>
+          <li>10% discount on dental treatment</li>
+          <li>Access to nurse clinics</li>
+          <li>Priority booking at all 8 branches</li>
+        </ul>
+        <a class="hc-cta" onclick="showPage('contact')">Enquire About Joining →</a>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-health-club -->
+
+<!-- ===== ABOUT ===== -->
+<div id="page-about" class="page">
+  <section>
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-img"></div>
+        <div class="about-content">
+          <p class="section-tag">Our Story</p>
+          <h2 style="font-size:2rem;font-weight:900;color:var(--primary);margin-bottom:16px;">Caring for Yorkshire's Pets Since 1975</h2>
+          <p>Abbey Vet Group was founded in Barnsley in 1975. Over five decades, we've grown from a single practice to a network of eight branches across Barnsley and Sheffield — all while staying firmly rooted in the local communities we serve.</p>
+          <p>We're proud to be an RCVS-approved practice. Every member of our team — from our vets to our nurses and receptionists — is committed to providing the kind of care you'd want for your own pet.</p>
+          <p>In that time we've treated dogs, cats, rabbits, guinea pigs, birds and a great many other animals. We've helped families through difficult decisions and celebrated countless recoveries. That relationship with the South Yorkshire community is something we take seriously.</p>
+          <div class="about-badges">
+            <span class="about-badge">🏅 RCVS Approved</span>
+            <span class="about-badge">📅 Est. 1975</span>
+            <span class="about-badge">🏥 8 Branches</span>
+            <span class="about-badge">🚨 24/7 Emergency</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ===== LOCATIONS ===== -->
+<div id="page-locations" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-tag">Our Branches</p>
+      <h2 class="section-title">8 Locations Across Barnsley &amp; Sheffield</h2>
+      <p class="section-intro">With eight branches across South Yorkshire, there's always an Abbey Vet nearby. Our Dodworth Road branch in Barnsley is open 24 hours for emergencies.</p>
+      <div class="locations-grid">
+        <div class="location-card main-branch">
+          <h3>🏥 Barnsley — Dodworth Road (Main)</h3>
+          <p class="lc-addr">89 Dodworth Road, Barnsley, S70 6ED</p>
+          <p class="lc-phone">01226 242217</p>
+          <p style="font-size:0.78rem;color:var(--primary);font-weight:600;margin-top:8px;">Open 24 hours · 7 days a week</p>
+        </div>
+        <div class="location-card">
+          <h3>📍 Deepcar</h3>
+          <p class="lc-addr">Deepcar, Sheffield</p>
+          <p class="lc-phone">0114 288 4994</p>
+        </div>
+        <div class="location-card">
+          <h3>📍 Darton</h3>
+          <p class="lc-addr">Darton, Barnsley</p>
+          <p class="lc-phone">01226 383 161</p>
+        </div>
+        <div class="location-card">
+          <h3>📍 Royston</h3>
+          <p class="lc-addr">Royston, Barnsley</p>
+          <p class="lc-phone">01226 722 773</p>
+        </div>
+        <div class="location-card">
+          <h3>📍 Cudworth</h3>
+          <p class="lc-addr">Cudworth, Barnsley</p>
+          <p class="lc-phone">01226 716 802</p>
+        </div>
+        <div class="location-card">
+          <h3>📍 Hoyland</h3>
+          <p class="lc-addr">Hoyland, Barnsley</p>
+          <p class="lc-phone">01226 747 450</p>
+        </div>
+        <div class="location-card">
+          <h3>📍 High Green</h3>
+          <p class="lc-addr">High Green, Sheffield</p>
+          <p class="lc-phone">0114 284 8481</p>
+        </div>
+        <div class="location-card">
+          <h3>📍 Wombwell</h3>
+          <p class="lc-addr">Wombwell, Barnsley</p>
+          <p class="lc-phone">01226 340 029</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-locations -->
+
+<!-- ===== CONTACT ===== -->
+<div id="page-contact" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-tag">Get in Touch</p>
+      <h2 class="section-title">Book an Appointment</h2>
+      <p class="section-intro">Contact your nearest branch directly, or use this form and we'll get back to you. For emergencies, call Dodworth Road on 01226 242217 — 24 hours a day.</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Main Contact</h3>
+          <div class="ci-item"><div class="ci-icon">📞</div><div><div class="ci-label">Main Number</div><div class="ci-val">01226 242217</div></div></div>
+          <div class="ci-item"><div class="ci-icon">🏥</div><div><div class="ci-label">Main Branch</div><div class="ci-val">89 Dodworth Road, Barnsley S70 6ED</div></div></div>
+          <div class="ci-item"><div class="ci-icon">🚨</div><div><div class="ci-label">Out of Hours Emergency</div><div class="ci-val">01226 242217 — always open</div></div></div>
+          <div class="ci-item"><div class="ci-icon">🏥</div><div><div class="ci-label">8 Branches</div><div class="ci-val"><span onclick="showPage('locations')" style="color:var(--primary);cursor:pointer;font-weight:600;text-decoration:underline;">View all locations →</span></div></div></div>
+        </div>
+        <div class="contact-form">
+          <h3>Send an Enquiry</h3>
+          <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" placeholder="e.g. Jane Smith"></div>
+          <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="e.g. 07700 900000"></div>
+          <div class="form-group"><label for="branch">Preferred Branch</label>
+            <select id="branch">
+              <option>Barnsley — Dodworth Road (Main)</option>
+              <option>Deepcar</option>
+              <option>Darton</option>
+              <option>Royston</option>
+              <option>Cudworth</option>
+              <option>Hoyland</option>
+              <option>High Green</option>
+              <option>Wombwell</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="pet">About Your Pet</label><input type="text" id="pet" placeholder="e.g. 3-year-old Labrador, routine check-up"></div>
+          <div class="form-group"><label for="message">Anything else?</label><textarea id="message" placeholder="Any additional information..."></textarea></div>
+          <button class="form-submit">Send Enquiry</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Abbey Vet Group</h3>
+        <p>Caring for pets across Barnsley and Sheffield since 1975. RCVS approved. 8 branches. 24-hour emergency cover at Dodworth Road.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li onclick="showPage('services')">Services</li>
+          <li onclick="showPage('health-club')">Pet Health Club</li>
+          <li onclick="showPage('about')">About Us</li>
+          <li onclick="showPage('locations')">All Locations</li>
+          <li onclick="showPage('contact')">Book Appointment</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Emergency</h4>
+        <ul>
+          <li>📞 01226 242217</li>
+          <li>24 hours, 7 days</li>
+          <li>89 Dodworth Road</li>
+          <li>Barnsley S70 6ED</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Abbey Vet Group Barnsley · RCVS Approved · abbeyvetgroupbarnsley.co.uk</p>
+      <span class="trabelo-credit">Website concept built by Trabelo · Sheffield</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const page = document.getElementById('page-' + name);
+  const navLink = document.getElementById('nav-' + name);
+  if (page) page.classList.add('active');
+  if (navLink) navLink.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+</body>
+</html>

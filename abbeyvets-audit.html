@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abbey Vet Group Barnsley — Website Audit by Trabelo</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --primary: #1e5036; --accent: #d4872a; --light: #f5f9f6; --border: #d8e8de; --text: #1a1a1a; --text-light: #5a6e61; --white: #fff; --red: #e53e3e; --amber: #d97706; --green: #16a34a; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f6f9f6; color: var(--text); }
+  .audit-header { background: #0d0d0d; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .audit-header .ah-logo { color: #fff; font-size: 1.2rem; font-weight: 800; }
+  .audit-header .ah-sub { color: #888; font-size: 0.75rem; margin-top: 2px; }
+  .audit-header .ah-demo { background: var(--primary); color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 44px 20px 80px; }
+  .intro-block { background: var(--white); border-radius: 16px; padding: 36px; margin-bottom: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+  .intro-block h1 { font-size: 1.9rem; font-weight: 900; color: var(--primary); line-height: 1.2; margin-bottom: 6px; }
+  .intro-block .biz-url { color: #888; font-size: 0.85rem; margin-bottom: 22px; }
+  .intro-block p { color: #444; font-size: 0.95rem; line-height: 1.7; }
+  .scores-section { margin-bottom: 28px; }
+  .scores-heading { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #666; text-align: center; margin-bottom: 12px; }
+  .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .score-box { background: var(--white); border-radius: 12px; padding: 18px 10px; text-align: center; box-shadow: 0 1px 10px rgba(0,0,0,0.08); }
+  .score-box .sn { font-size: 2.2rem; font-weight: 900; line-height: 1; margin-bottom: 5px; }
+  .score-box .sl { font-size: 0.7rem; color: #666; font-weight: 500; }
+  .score-box.poor .sn { color: var(--red); }
+  .score-box.needs .sn { color: var(--amber); }
+  .score-box.good .sn { color: var(--green); }
+  .score-note { background: var(--white); border-radius: 12px; padding: 16px 20px; font-size: 0.88rem; color: #444; line-height: 1.6; box-shadow: 0 1px 8px rgba(0,0,0,0.06); margin-top: 14px; margin-bottom: 28px; }
+  .score-note strong { color: var(--primary); }
+  .scores-detail { margin-bottom: 40px; }
+  .scores-detail h2 { font-size: 1.3rem; font-weight: 800; color: var(--primary); margin-bottom: 16px; }
+  .score-row-item { background: var(--white); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+  .sri-num { font-size: 1.5rem; font-weight: 900; min-width: 52px; text-align: center; }
+  .sri-num.poor { color: var(--red); } .sri-num.needs { color: var(--amber); } .sri-num.good { color: var(--green); }
+  .sri-info h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); }
+  .sri-info p { font-size: 0.8rem; color: #666; margin-top: 2px; }
+  .sri-bar-wrap { flex: 1; height: 6px; background: #e8ecf0; border-radius: 3px; overflow: hidden; }
+  .sri-bar { height: 100%; border-radius: 3px; }
+  .sri-bar.poor { background: var(--red); } .sri-bar.needs { background: var(--amber); } .sri-bar.good { background: var(--green); }
+  .section-heading { font-size: 1.4rem; font-weight: 900; color: var(--primary); margin-bottom: 6px; margin-top: 44px; }
+  .section-intro { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 22px; }
+  .issue-card { background: var(--white); border-radius: 14px; padding: 28px; margin-bottom: 16px; box-shadow: 0 1px 10px rgba(0,0,0,0.07); border-left: 4px solid transparent; }
+  .issue-card.critical { border-left-color: var(--red); } .issue-card.warning { border-left-color: var(--amber); } .issue-card.info { border-left-color: var(--primary); }
+  .issue-card .ic-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+  .issue-card .ic-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .ic-badge { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-bottom: 5px; display: inline-block; }
+  .ic-badge.critical { background: #fee2e2; color: var(--red); } .ic-badge.warning { background: #fef3c7; color: var(--amber); } .ic-badge.info { background: #d1fae5; color: #065f46; }
+  .issue-card .ic-title { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+  .issue-sub { margin-bottom: 12px; }
+  .issue-sub h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 4px; }
+  .issue-sub p { font-size: 0.88rem; color: #444; line-height: 1.6; }
+  .good-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .good-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,0.07); display: flex; gap: 12px; align-items: flex-start; }
+  .good-card .gc-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .good-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .good-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .feature-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,0.07); }
+  .feature-card .fc-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .feature-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
+  .feature-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+  .plan-card { background: var(--white); border-radius: 14px; padding: 26px 22px; box-shadow: 0 2px 14px rgba(0,0,0,0.08); border: 2px solid var(--border); position: relative; }
+  .plan-card.featured { border-color: var(--accent); }
+  .plan-card .pc-recommended { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 3px 12px; border-radius: 10px; white-space: nowrap; letter-spacing: 0.4px; text-transform: uppercase; }
+  .plan-card .pc-name { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .plan-card .pc-price { font-size: 2rem; font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: 4px; }
+  .plan-card .pc-price span { font-size: 0.8rem; font-weight: 500; color: #888; }
+  .plan-card .pc-desc { font-size: 0.78rem; color: #888; margin-bottom: 18px; }
+  .plan-card ul { list-style: none; margin-bottom: 14px; }
+  .plan-card ul li { font-size: 0.82rem; color: #444; padding: 5px 0; border-bottom: 1px solid #f0f0f0; padding-left: 18px; position: relative; line-height: 1.45; }
+  .plan-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 0.78rem; }
+  .plan-card .pc-note { font-size: 0.75rem; color: #999; line-height: 1.45; }
+  .cta-block { background: var(--primary); border-radius: 16px; padding: 36px; text-align: center; margin-top: 48px; color: #fff; }
+  .cta-block h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; }
+  .cta-block p { color: rgba(255,255,255,0.75); font-size: 0.92rem; margin-bottom: 24px; line-height: 1.55; }
+  .cta-block a { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: 14px 30px; border-radius: 10px; font-size: 1rem; font-weight: 800; margin-bottom: 14px; transition: background 0.15s; }
+  .cta-block a:hover { background: #b86e1a; }
+  .cta-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+  .cta-meta-item { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+  .cta-meta-item strong { color: #fff; display: block; }
+  .audit-footer { text-align: center; color: #888; font-size: 0.76rem; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+  @media (max-width: 600px) { .scores-grid { grid-template-columns: repeat(2, 1fr); } .good-grid, .features-grid { grid-template-columns: 1fr; } .pricing-grid { grid-template-columns: 1fr; } .intro-block h1 { font-size: 1.5rem; } .intro-block { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="audit-header">
+  <div>
+    <div class="ah-logo">Trabelo</div>
+    <div class="ah-sub">Website Audit Report</div>
+  </div>
+  <a href="https://trabelo-tau.vercel.app/abbeyvets.html" class="ah-demo">See the rebuilt demo →</a>
+</header>
+<div class="wrap">
+
+  <div class="intro-block">
+    <h1>Abbey Vet Group Barnsley</h1>
+    <p class="biz-url">abbeyvetgroupbarnsley.co.uk · 8 branches across Barnsley &amp; Sheffield</p>
+    <p>Hi — I'm Aidan, I'm 18 and I do web design across Sheffield and South Yorkshire. I ran your website through Google's tools and the results are worth knowing about. For a practice that's been serving Barnsley since 1975 — 8 branches, 24-hour emergency cover, RCVS approved — your site doesn't reflect what you've built. A performance score of 59 and a lab load time of over 13 seconds is the headline figure, but there are also issues with how images are delivered and some accessibility items that affect whether all of your clients can use the site comfortably.</p>
+  </div>
+
+  <div class="scores-section">
+    <p class="scores-heading">Google's Scores — Mobile</p>
+    <div class="scores-grid">
+      <div class="score-box needs"><div class="sn">59</div><div class="sl">Performance</div></div>
+      <div class="score-box good"><div class="sn">89</div><div class="sl">Accessibility</div></div>
+      <div class="score-box good"><div class="sn">96</div><div class="sl">Best Practices</div></div>
+      <div class="score-box needs"><div class="sn">85</div><div class="sl">SEO</div></div>
+    </div>
+    <div class="score-note">
+      Your <strong>Best Practices score of 96</strong> and <strong>Accessibility of 89</strong> are strong — much better than most practices I've looked at. The issue is <strong>Performance at 59</strong>. Google's lab test shows a page load (LCP) of 13.6 seconds, and 2.27 seconds of render-blocking resources stopping the browser from showing anything. Your Core Web Vitals are actually passing in the real world (1.4s LCP in field data), which suggests the site loads faster for your regular visitors — but that lab score still affects how Google ranks you and how new visitors on first load experience the site.
+    </div>
+  </div>
+
+  <div class="scores-detail">
+    <h2>Scores in Detail</h2>
+    <p style="font-size:0.87rem;color:#666;margin-bottom:16px;">Tested on mobile, August 2026 · Google Lighthouse · Slow 4G</p>
+    <div class="score-row-item"><div class="sri-num needs">59</div><div class="sri-info"><h4>Performance</h4><p>Lab LCP 13.6s, 2.27s render-blocking, 1,156 KiB images, uncompressed resources</p></div><div class="sri-bar-wrap"><div class="sri-bar needs" style="width:59%"></div></div></div>
+    <div class="score-row-item"><div class="sri-num good">89</div><div class="sri-info"><h4>Accessibility</h4><p>Near the top range — missing alt text, heading hierarchy and contrast items flagged</p></div><div class="sri-bar-wrap"><div class="sri-bar good" style="width:89%"></div></div></div>
+    <div class="score-row-item"><div class="sri-num good">96</div><div class="sri-info"><h4>Best Practices</h4><p>Excellent — modern standards, no major compliance issues</p></div><div class="sri-bar-wrap"><div class="sri-bar good" style="width:96%"></div></div></div>
+    <div class="score-row-item"><div class="sri-num needs">85</div><div class="sri-info"><h4>SEO</h4><p>Solid but not quite at 90+. Links without descriptive text, ARIA ID duplication flagged</p></div><div class="sri-bar-wrap"><div class="sri-bar needs" style="width:85%"></div></div></div>
+  </div>
+
+  <h2 class="section-heading">What's Going Wrong</h2>
+  <p class="section-intro">Here's what Google flagged — in plain English, with what it means for Abbey Vet Group and your clients.</p>
+
+  <div class="issue-card critical">
+    <div class="ic-top"><div class="ic-icon">🐌</div><div class="ic-title-wrap"><span class="ic-badge critical">Critical · Performance</span><div class="ic-title">13.6 seconds before your main content loads — in Google's test</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>Google's lab test measured a Largest Contentful Paint (the time until the main visible content appears on screen) of 13.6 seconds on mobile. The main cause is 2,270ms of render-blocking resources — code that forces the browser to stop loading everything else while it processes CSS and JavaScript. A second issue is image delivery: 1,156 KiB of images are being sent in formats or sizes that aren't optimised for mobile.</p></div>
+    <div class="issue-sub"><h4>Good news — real-world data is better</h4><p>Your field LCP (from real user visits) is 1.4 seconds, which passes Google's Core Web Vitals threshold. This means your regular visitors load the site faster than the lab test suggests — likely because browsers cache certain resources after the first visit. The problem is that first-visit experience, and the lab score, which influences how Google weighs your site in search rankings.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>A rebuilt site eliminates render-blocking resources entirely, serves images in WebP format at the right dimensions, and loads in under 2 seconds even on a first visit. Target: 97+ performance, under 2s LCP on mobile.</p></div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top"><div class="ic-icon">🖼️</div><div class="ic-title-wrap"><span class="ic-badge warning">Performance · Images</span><div class="ic-title">1,156 KB of images could be delivered much more efficiently</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>Google found 1,156 KB of images that could be compressed and served in modern formats (WebP or AVIF) with no visible quality loss. On top of that, the browser is receiving images that are larger than the screen dimensions they're displayed at — unnecessary data being transferred on every page load.</p></div>
+    <div class="issue-sub"><h4>What this means for your clients</h4><p>Every extra megabyte adds load time — especially on mobile data. Clients viewing your site on a 4G connection in Darton or Royston are downloading images that are larger than they need to be. For a multi-branch directory page that lists all 8 locations, this kind of overhead compounds quickly.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>A rebuilt site serves every image in WebP format, sized to the exact display dimensions. Typically this reduces image payload by 60–80% with no visible difference to the user.</p></div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top"><div class="ic-icon">♿</div><div class="ic-title-wrap"><span class="ic-badge warning">Accessibility</span><div class="ic-title">Images without alt text, heading hierarchy and contrast items</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>Three specific accessibility issues were flagged: some images don't have alt text (meaning screen readers can't describe them to visually impaired users), heading tags don't follow a logical hierarchy (which affects navigation for assistive technology users), and some text/background colour combinations don't meet the contrast minimum.</p></div>
+    <div class="issue-sub"><h4>What this means for your clients</h4><p>For clients who use screen readers — including visually impaired pet owners who may visit any of your 8 branches — these issues mean certain parts of the site are harder or impossible to navigate. Given the size and reach of Abbey Vet Group, this affects more users than a single-branch practice would.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>A rebuild with accessibility as a design principle — every image gets alt text, heading hierarchy is correct from the start, and contrast is checked against WCAG AA throughout. Target: Accessibility 98+.</p></div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top"><div class="ic-icon">🎬</div><div class="ic-title-wrap"><span class="ic-badge warning">Accessibility · Video</span><div class="ic-title">Video content without captions</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>There is video on your site that doesn't have captions or a text transcript. This is flagged by Google as an accessibility issue, and is a WCAG requirement for pre-recorded video content.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>Video content on a rebuilt site includes captions or a linked transcript. Where video isn't required, a high-quality static image serves the same purpose without the accessibility overhead.</p></div>
+  </div>
+
+  <div class="issue-card info">
+    <div class="ic-top"><div class="ic-icon">🔗</div><div class="ic-title-wrap"><span class="ic-badge info">SEO · Accessibility</span><div class="ic-title">Links without descriptive text — affecting SEO and screen reader users</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>Some links on the site don't have meaningful descriptive text — for example, links labelled "click here" or icons with no text alternative. Google uses link text as a signal for what the linked page is about, and screen readers read this text aloud to users.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>Every link on a rebuilt site has descriptive text — "Book an appointment at our Darton branch" rather than "click here." This benefits both SEO and any client using assistive technology.</p></div>
+  </div>
+
+  <h2 class="section-heading">What's Already Good</h2>
+  <p class="section-intro">There's a lot to work with here — the foundations are genuinely solid.</p>
+  <div class="good-grid">
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>Best Practices: 96</h4><p>Excellent — one of the highest practice-category scores I've seen. Your developers have done good technical work on standards compliance.</p></div></div>
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>Core Web Vitals — PASSING</h4><p>Real-world LCP of 1.4 seconds passes Google's threshold. Your regular visitors have a good experience. The lab score is the thing to fix for new visitors.</p></div></div>
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>Established Since 1975</h4><p>50 years serving Barnsley is an extraordinary story. The current website doesn't tell it. A rebuild would make this central to the homepage.</p></div></div>
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>RCVS Approved</h4><p>A mark of quality that many clients look for. Worth featuring prominently — not buried in the footer.</p></div></div>
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>8 Branches</h4><p>Coverage across Barnsley and Sheffield is a huge differentiator. A rebuilt site would feature all 8 locations prominently with their own contact details.</p></div></div>
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>Pet Health Club</h4><p>A subscription wellness plan is one of the strongest client retention tools in veterinary practice. It deserves its own page and a homepage feature.</p></div></div>
+  </div>
+
+  <h2 class="section-heading">What a Rebuilt Site Would Add</h2>
+  <p class="section-intro">What the current site can't do that a properly built rebuild delivers.</p>
+  <div class="features-grid">
+    <div class="feature-card"><div class="fc-icon">⚡</div><h4>Performance 97+ — Under 2 Seconds</h4><p>No render-blocking, images in WebP at correct sizes, loads fast on first visit and every visit after.</p></div>
+    <div class="feature-card"><div class="fc-icon">🏥</div><h4>All 8 Branches — Properly Featured</h4><p>Dedicated location section with address, phone number, hours and directions for every branch.</p></div>
+    <div class="feature-card"><div class="fc-icon">🐾</div><h4>Pet Health Club — Front &amp; Centre</h4><p>A dedicated page with full benefits list, FAQ and sign-up form — not just a menu item.</p></div>
+    <div class="feature-card"><div class="fc-icon">♿</div><h4>Accessibility 98+</h4><p>Alt text, correct headings, proper contrast, captioned video — built right from the start.</p></div>
+    <div class="feature-card"><div class="fc-icon">📅</div><h4>Online Appointment Requests</h4><p>A branch-specific contact form so new clients can reach you without having to call during busy morning hours.</p></div>
+    <div class="feature-card"><div class="fc-icon">🏊</div><h4>Hydrotherapy — Showcased</h4><p>Canine hydrotherapy is a specialist service many practices don't offer. A rebuild would give it the prominence it deserves.</p></div>
+    <div class="feature-card"><div class="fc-icon">🚨</div><h4>24hr Emergency — Always Visible</h4><p>Emergency bar at the top of every page with direct phone number. Never more than one tap away.</p></div>
+    <div class="feature-card"><div class="fc-icon">🔗</div><h4>Descriptive Links — SEO + Accessibility</h4><p>Every link described properly for both Google and screen reader users. A quick SEO win on top of everything else.</p></div>
+  </div>
+
+  <h2 class="section-heading" style="margin-top:48px;">What It Would Cost</h2>
+  <p class="section-intro">One-off fixed prices. No monthly fees except where honestly noted.</p>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="pc-name">Starter</div>
+      <div class="pc-price">£395 <span>one-off</span></div>
+      <div class="pc-desc">5 pages · Fast, clean rebuild</div>
+      <ul>
+        <li>Home, Services, About, Locations, Contact</li>
+        <li>Performance 97+, Accessibility 98+</li>
+        <li>All 8 branches listed with contact info</li>
+        <li>Emergency bar on every page</li>
+        <li>24hr emergency number prominent</li>
+        <li>Alt text, headings, contrast fixed</li>
+        <li>Enquiry contact form</li>
+      </ul>
+      <p class="pc-note">Updates: £15 per change, or £30/month unlimited small updates.</p>
+    </div>
+    <div class="plan-card featured">
+      <div class="pc-recommended">Most popular</div>
+      <div class="pc-name">Business</div>
+      <div class="pc-price">£795 <span>one-off</span></div>
+      <div class="pc-desc">Everything in Starter, plus:</div>
+      <ul>
+        <li>Pet Health Club — dedicated page + sign-up</li>
+        <li>Hydrotherapy — featured section</li>
+        <li>Home visits + ambulance — featured</li>
+        <li>Nurse clinics info page</li>
+        <li>Branch-specific appointment forms</li>
+        <li>50 Years story — About page rebuilt</li>
+        <li>Training included</li>
+      </ul>
+      <p class="pc-note">No monthly fees. Everything one-off.</p>
+    </div>
+    <div class="plan-card">
+      <div class="pc-name">Premium</div>
+      <div class="pc-price">£1,295 <span>one-off</span></div>
+      <div class="pc-desc">The full works:</div>
+      <ul>
+        <li>Everything in Business</li>
+        <li>CMS — update content yourself</li>
+        <li>Online booking by branch</li>
+        <li>Pet Health Club member portal</li>
+        <li>News/blog section</li>
+        <li>Multi-branch staff profiles</li>
+        <li>Training included</li>
+      </ul>
+      <p class="pc-note">Small hosting cost may apply (~£0–9/month).</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>Ready to see what it could look like?</h2>
+    <p>I've already built a full demo of your rebuilt website — all 8 branches, Pet Health Club, services and a 24hr emergency bar. You can view it right now, no strings attached.</p>
+    <a href="https://trabelo-tau.vercel.app/abbeyvets.html">View the Demo Site →</a>
+    <div class="cta-meta">
+      <div class="cta-meta-item"><strong>Aidan Fry</strong>Trabelo · Sheffield</div>
+      <div class="cta-meta-item"><strong>aidan@trabelo.com</strong>Get in touch</div>
+      <div class="cta-meta-item"><strong>No obligation</strong>No pressure</div>
+    </div>
+  </div>
+  <p class="audit-footer"><strong>Trabelo · Sheffield</strong> — Website audit prepared for Abbey Vet Group Barnsley · abbeyvetgroupbarnsley.co.uk · August 2026</p>
+</div>
+</body>
+</html>

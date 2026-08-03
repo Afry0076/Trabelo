@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Croft Vets — independent, family-run veterinary centres in Bolsover and Totley, Sheffield. Award-winning care for your pets since 1992. The Croft Club, nurse clinics, state-of-the-art diagnostics.">
+<title>Croft Vets — Award-Winning Family Veterinary Practice Since 1992</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1e4d6e;
+    --primary-dark: #122e42;
+    --accent: #e8622a;
+    --accent-hover: #c8501f;
+    --light: #f4f8fb;
+    --mid: #2d6a90;
+    --text: #1a1a1a;
+    --text-light: #5a6a7a;
+    --white: #ffffff;
+    --border: #dde8f0;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+  .topbar { background: var(--primary-dark); color: #9ab5c8; font-size: 0.78rem; padding: 8px 24px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .topbar a { color: #c0d5e4; text-decoration: none; }
+  .topbar a:hover { color: #fff; }
+
+  nav { background: var(--white); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
+  .nav-logo { font-size: 1.15rem; font-weight: 800; color: var(--primary); letter-spacing: -0.3px; cursor: pointer; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links li a { font-size: 0.83rem; font-weight: 500; color: var(--text); text-decoration: none; padding: 8px 11px; border-radius: 6px; cursor: pointer; transition: background 0.15s, color 0.15s; }
+  .nav-links li a:hover, .nav-links li a.active { background: var(--light); color: var(--primary); }
+  .nav-cta { background: var(--accent) !important; color: var(--white) !important; padding: 9px 18px !important; border-radius: 8px !important; font-weight: 700 !important; font-size: 0.83rem !important; transition: background 0.15s !important; }
+  .nav-cta:hover { background: var(--accent-hover) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+  .mobile-menu { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 4px; z-index: 99; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 0.9rem; font-weight: 500; color: var(--text); text-decoration: none; padding: 10px 12px; border-radius: 8px; cursor: pointer; }
+  .mobile-menu a:hover { background: var(--light); }
+  .mobile-menu .m-cta { background: var(--accent); color: var(--white); font-weight: 700; text-align: center; margin-top: 8px; }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .hero { position: relative; min-height: 88vh; background: linear-gradient(135deg, #0c2233 0%, #1e4d6e 55%, #2d6a90 100%); display: flex; align-items: center; overflow: hidden; padding: 60px 24px; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1600&q=80') center/cover; opacity: 0.15; }
+  .hero-inner { position: relative; max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 310px; gap: 48px; align-items: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #b0cfe0; font-size: 0.78rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.4px; }
+  .hero h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); font-weight: 900; color: var(--white); line-height: 1.18; margin-bottom: 18px; letter-spacing: -0.5px; }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero p { color: #9ab8cc; font-size: 1.05rem; line-height: 1.65; margin-bottom: 30px; max-width: 540px; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: var(--white); border: none; padding: 14px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.15s, transform 0.12s; }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.35); padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.15s; }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .stat { text-align: center; }
+  .stat-num { font-size: 1.5rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 0.72rem; color: #9ab8cc; font-weight: 500; }
+
+  .hero-card { background: rgba(255,255,255,0.97); border-radius: 16px; padding: 26px; box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .hero-card .hc-logo { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .hero-card .hc-sub { font-size: 0.75rem; color: var(--text-light); margin-bottom: 16px; }
+  .hc-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 11px; }
+  .hc-row .hc-icon { font-size: 0.95rem; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+  .hc-row .hc-text { font-size: 0.82rem; color: var(--text); line-height: 1.45; }
+  .hc-row .hc-text strong { color: var(--primary); font-size: 0.7rem; display: block; margin-bottom: 1px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .hc-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .hc-phone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+  .hc-phone { display: block; background: var(--primary); color: var(--white); text-decoration: none; text-align: center; padding: 10px 8px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; transition: background 0.15s; }
+  .hc-phone:hover { background: var(--primary-dark); }
+  .hc-phone small { display: block; font-size: 0.6rem; opacity: 0.8; margin-bottom: 2px; }
+  .hc-register { display: block; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; text-align: center; padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; transition: background 0.15s, color 0.15s; cursor: pointer; }
+  .hc-register:hover { background: var(--accent); color: var(--white); }
+
+  .trust-strip { background: var(--primary); padding: 18px 24px; }
+  .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 28px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 8px; color: #9ab8cc; font-size: 0.8rem; font-weight: 500; }
+  .trust-item .ti-icon { font-size: 1rem; color: var(--accent); }
+
+  section { padding: 72px 24px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 900; color: var(--primary); line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.3px; }
+  .section-title em { color: var(--accent); font-style: normal; }
+  .section-sub { color: var(--text-light); font-size: 1rem; line-height: 1.65; max-width: 600px; margin-bottom: 44px; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 26px; transition: box-shadow 0.2s, transform 0.2s; }
+  .service-card:hover { box-shadow: 0 8px 28px rgba(30,77,110,0.12); transform: translateY(-2px); }
+  .service-card .sc-icon { font-size: 1.9rem; margin-bottom: 12px; }
+  .service-card h3 { font-size: 1.02rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+  .service-card p { font-size: 0.87rem; color: var(--text-light); line-height: 1.55; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .about-img-wrap { position: relative; border-radius: 16px; overflow: hidden; }
+  .about-img-wrap img { width: 100%; height: 420px; object-fit: cover; display: block; }
+  .about-img-badge { position: absolute; bottom: 20px; left: 20px; background: var(--primary); color: #fff; padding: 12px 18px; border-radius: 10px; font-size: 0.82rem; font-weight: 700; }
+  .about-img-badge span { display: block; font-size: 1.3rem; font-weight: 900; color: var(--accent); line-height: 1; }
+  .about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+  .fact-box { background: var(--light); border-radius: 10px; padding: 16px; }
+  .fact-box .fb-num { font-size: 1.5rem; font-weight: 900; color: var(--accent); line-height: 1; }
+  .fact-box .fb-label { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
+
+  /* CROFT CLUB */
+  .club-section { background: linear-gradient(135deg, var(--primary) 0%, var(--mid) 100%); color: #fff; padding: 72px 24px; }
+  .club-section .section-title { color: #fff; }
+  .club-section .section-sub { color: #9ab8cc; }
+  .club-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 36px; }
+  .club-item { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 22px 18px; text-align: center; }
+  .club-item .ci-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .club-item h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .club-item p { font-size: 0.8rem; color: #9ab8cc; line-height: 1.45; }
+
+  /* LOCATIONS */
+  .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .loc-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .loc-card .lc-header { background: var(--primary); color: #fff; padding: 18px 22px; }
+  .loc-card .lc-header h3 { font-size: 1.1rem; font-weight: 800; }
+  .loc-card .lc-header .lc-area { font-size: 0.75rem; color: #9ab8cc; margin-top: 4px; }
+  .loc-card .lc-body { padding: 22px; }
+  .loc-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: flex-start; }
+  .loc-row .lr-icon { color: var(--accent); font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+  .loc-row .lr-text { font-size: 0.85rem; color: var(--text); line-height: 1.5; }
+  .loc-row .lr-text strong { color: var(--primary); font-size: 0.7rem; display: block; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+  .loc-phone { display: block; background: var(--primary); color: #fff; text-decoration: none; text-align: center; padding: 11px; border-radius: 8px; font-size: 0.92rem; font-weight: 700; margin-top: 14px; transition: background 0.15s; }
+  .loc-phone:hover { background: var(--primary-dark); }
+
+  /* AWARD BANNER */
+  .award-bar { background: var(--accent); padding: 16px 24px; text-align: center; color: #fff; }
+  .award-bar p { font-size: 0.88rem; font-weight: 600; }
+  .award-bar strong { font-size: 1rem; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+  .contact-form { background: var(--light); border-radius: 16px; padding: 30px; }
+  .contact-form h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 18px; }
+  .form-row { margin-bottom: 14px; }
+  .form-row label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+  .form-row input, .form-row select, .form-row textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.15s; }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline: none; border-color: var(--primary); }
+  .form-row textarea { resize: vertical; min-height: 90px; }
+  .form-submit { background: var(--primary); color: #fff; border: none; width: 100%; padding: 13px; border-radius: 8px; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: background 0.15s; }
+  .form-submit:hover { background: var(--primary-dark); }
+  .contact-info .ci-block { margin-bottom: 22px; }
+  .contact-info .ci-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .contact-info .ci-val { font-size: 0.92rem; color: var(--text); line-height: 1.6; }
+  .contact-info a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+  footer { background: var(--primary-dark); color: #8ab0c4; padding: 48px 24px 24px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .footer-brand .fb-logo { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+  .footer-brand .fb-logo span { color: var(--accent); }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.6; margin-bottom: 16px; }
+  .footer-socials { display: flex; gap: 8px; flex-wrap: wrap; }
+  .footer-socials a { background: rgba(255,255,255,0.1); color: #fff; width: 34px; height: 34px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; text-decoration: none; font-weight: 700; transition: background 0.15s; }
+  .footer-socials a:hover { background: var(--accent); }
+  .footer-col h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col ul li a { color: #8ab0c4; text-decoration: none; font-size: 0.83rem; cursor: pointer; transition: color 0.12s; }
+  .footer-col ul li a:hover { color: #fff; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; flex-wrap: wrap; gap: 8px; }
+  .footer-bottom .trabelo-credit { color: #445566; }
+
+  section.bg-light { background: var(--light); }
+
+  /* NEWS */
+  .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .news-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
+  .news-card .nc-tag { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 8px; }
+  .news-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; line-height: 1.35; }
+  .news-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+  .news-card .nc-date { font-size: 0.73rem; color: #aaa; margin-top: 12px; }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; }
+    .club-grid { grid-template-columns: repeat(2, 1fr); }
+    .locations-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .news-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 560px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .about-facts { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📍 Bolsover: <a href="tel:01246823353">01246 823 353</a></span>
+  <span>📍 Sheffield: <a href="tel:01142621444">0114 262 1444</a></span>
+  <span>✉ <a href="mailto:info@croftveterinary.com">info@croftveterinary.com</a></span>
+</div>
+
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">Croft <span>Vets</span></div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+    <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
+    <li><a onclick="showPage('wellness')" id="nav-wellness">Wellness</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('locations')" id="nav-locations">Locations</a></li>
+    <li><a onclick="showPage('contact')" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');closeMenu()">Home</a>
+  <a onclick="showPage('services');closeMenu()">Services</a>
+  <a onclick="showPage('wellness');closeMenu()">Wellness</a>
+  <a onclick="showPage('about');closeMenu()">About</a>
+  <a onclick="showPage('locations');closeMenu()">Locations</a>
+  <a onclick="showPage('contact');closeMenu()" class="m-cta">Contact Us</a>
+</div>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+
+  <div class="award-bar">
+    <p>🏆 <strong>BestUKVets Awards 2024</strong> — Croft Vets Sheffield named one of the best vet practices in the UK</p>
+  </div>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">✦ Est. 1992 · Independent &amp; Family Run · Award-Winning</div>
+        <h1>Proud to Be <em>Your Vet</em> Since 1992</h1>
+        <p>Croft Vets — an independent, family-run practice with two centres in Bolsover and Totley, Sheffield. Exceptional care, state-of-the-art facilities, and a team who treat your pets like their own.</p>
+        <div class="hero-btns">
+          <a onclick="showPage('contact')" class="btn-primary">Book an Appointment</a>
+          <a onclick="showPage('services')" class="btn-outline">Our Services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">1992</div><div class="stat-label">Est. in Totley</div></div>
+          <div class="stat"><div class="stat-num">2</div><div class="stat-label">Vet Centres</div></div>
+          <div class="stat"><div class="stat-num">🏆</div><div class="stat-label">BestUKVets 2024</div></div>
+          <div class="stat"><div class="stat-num">RCVS</div><div class="stat-label">Accredited</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-logo">Croft Vets</div>
+        <div class="hc-sub">Two Centres · Sheffield &amp; Bolsover</div>
+        <div class="hc-row">
+          <span class="hc-icon">📍</span>
+          <div class="hc-text"><strong>Bolsover</strong>Sykes Retail Park<br>Bolsover S44 6DJ</div>
+        </div>
+        <div class="hc-row">
+          <span class="hc-icon">📍</span>
+          <div class="hc-text"><strong>Sheffield (Totley)</strong>77 Baslow Road<br>Totley, Sheffield S17 4DP</div>
+        </div>
+        <div class="hc-row">
+          <span class="hc-icon">🕒</span>
+          <div class="hc-text"><strong>Opening Hours</strong>Mon–Fri: 8:30am – 7:00pm<br>Sat: 8:30am – 3:30pm (Bolsover)<br>Sat: 9:00am – 12:00pm (Sheffield)</div>
+        </div>
+        <hr class="hc-divider">
+        <div class="hc-phone-grid">
+          <a href="tel:01246823353" class="hc-phone"><small>Bolsover</small>01246 823 353</a>
+          <a href="tel:01142621444" class="hc-phone"><small>Sheffield</small>0114 262 1444</a>
+        </div>
+        <a onclick="showPage('contact')" class="hc-register">Book an Appointment →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="ti-icon">🏆</span> BestUKVets Award 2024</div>
+      <div class="trust-item"><span class="ti-icon">🏥</span> State-of-the-Art Diagnostics</div>
+      <div class="trust-item"><span class="ti-icon">👨‍👩‍👧</span> Independent &amp; Family Run</div>
+      <div class="trust-item"><span class="ti-icon">🐾</span> Accepting New Clients</div>
+      <div class="trust-item"><span class="ti-icon">📍</span> Bolsover &amp; Sheffield</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Complete Veterinary Care for <em>Your Pet</em></h2>
+      <p class="section-sub">From routine check-ups to complex surgery — Croft Vets provides a comprehensive range of veterinary services at both our Bolsover and Sheffield centres.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="sc-icon">🩺</div>
+          <h3>General Services</h3>
+          <p>Consultations, vaccinations, microchipping, parasite control, health checks and routine treatments — all delivered with care and attention at both our centres.</p>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">✂️</div>
+          <h3>Surgical Services</h3>
+          <p>From routine neutering and dental work to specialist orthopaedic surgery — we provide a broad spectrum of surgical procedures with full anaesthetic monitoring.</p>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">🔬</div>
+          <h3>Diagnostics</h3>
+          <p>State-of-the-art ultrasonography, endoscopy and radiographic imaging alongside modern in-house blood analysers. Answers faster, without unnecessary referrals.</p>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">💊</div>
+          <h3>Wellness &amp; Prevention</h3>
+          <p>Vet and nurse consultations, weight clinics, dental checks and blood sampling to keep your pet healthy for longer. Preventative care that pays off.</p>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">🌍</div>
+          <h3>Animal Health Certificates</h3>
+          <p>Taking your pet abroad? We issue official Animal Health Certificates (AHCs) for travel to EU countries — book in advance and we'll guide you through the requirements.</p>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">🚨</div>
+          <h3>Emergency Care</h3>
+          <p>Emergencies don't keep office hours. Both our centres have emergency capability during opening hours, with out-of-hours provision through our trusted partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-light">
+    <div class="section-inner" style="text-align:center;">
+      <p class="section-label">Latest News</p>
+      <h2 class="section-title" style="max-width:500px;margin:0 auto 16px;">Keeping You <em>Informed</em></h2>
+      <p class="section-sub" style="margin:0 auto 36px;">Pet health news, announcements and bravery awards from the Croft Vets team.</p>
+      <div class="news-grid" style="text-align:left;">
+        <div class="news-card">
+          <div class="nc-tag">News · Jul 2026</div>
+          <h4>Ultrasound — A Closer Look</h4>
+          <p>Vet Fiona's ideal day? Sitting in a dark room with her ultrasound and lots of lovely patients to scan. A non-invasive diagnostic tool used for a wide variety of conditions.</p>
+          <div class="nc-date">July 9, 2026 · 3 min read</div>
+        </div>
+        <div class="news-card">
+          <div class="nc-tag">Announcement · 2024</div>
+          <h4>BestUKVets Awards 2024 — Accolade for Croft Sheffield</h4>
+          <p>At a Gala Ceremony in Bristol, Croft Vets Sheffield was named one of the best practices in the UK — celebrating practices that delight their clients.</p>
+          <div class="nc-date">July 2, 2024 · 2 min read</div>
+        </div>
+        <div class="news-card">
+          <div class="nc-tag">Stars · January 2025</div>
+          <h4>Mass Gets a Bravery Award ⭐</h4>
+          <p>Meet Mass — a hard-working farm dog and our latest bravery award recipient. His story is one of the many reasons we love what we do.</p>
+          <div class="nc-date">Jan 28, 2025 · 2 min read</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="page-services">
+  <section style="padding-top:80px;">
+    <div class="section-inner">
+      <p class="section-label">Our Services</p>
+      <h1 class="section-title">Everything Your Pet Needs, <em>All in One Place</em></h1>
+      <p class="section-sub">Croft Vets provides a full range of veterinary services at both our Bolsover and Sheffield (Totley) centres. Whatever your pet needs — we're here for it.</p>
+      <div class="services-grid" style="margin-bottom:48px;">
+        <div class="service-card"><div class="sc-icon">🩺</div><h3>General Consultations</h3><p>Health checks, vaccinations, parasite control, microchipping and routine treatments. Open six days a week at both centres.</p></div>
+        <div class="service-card"><div class="sc-icon">✂️</div><h3>Surgical Services</h3><p>Routine operations (neutering, dental, mass removal) through to specialist orthopaedic procedures — all with full anaesthetic monitoring and post-op care.</p></div>
+        <div class="service-card"><div class="sc-icon">🔬</div><h3>Advanced Diagnostics</h3><p>Ultrasonography, endoscopy, radiographic (X-ray) imaging and modern in-house blood analysers. Fast results, fewer referrals.</p></div>
+        <div class="service-card"><div class="sc-icon">🌍</div><h3>Animal Health Certificates</h3><p>Official AHCs for pet travel to EU countries. We'll walk you through all the requirements and make sure your pet is cleared to travel.</p></div>
+        <div class="service-card"><div class="sc-icon">💉</div><h3>Nurse Clinics</h3><p>Nurse-led clinics for nail clips, weight checks, flea &amp; worm treatments, post-op wound checks and much more — often without needing a full vet appointment.</p></div>
+        <div class="service-card"><div class="sc-icon">🚨</div><h3>Emergency &amp; Out of Hours</h3><p>Emergency care available during opening hours at both centres. Out-of-hours provision handled by our trusted external partner — call your local centre for details.</p></div>
+        <div class="service-card"><div class="sc-icon">🦷</div><h3>Dental Care</h3><p>Dental health checks, professional cleaning, extractions and advice on at-home dental care. Dental disease is one of the most common preventable conditions in pets.</p></div>
+        <div class="service-card"><div class="sc-icon">🐾</div><h3>Puppy &amp; Kitten Packages</h3><p>First vaccinations, microchipping, parasite control and a full new-pet health check. The best start for your new arrival.</p></div>
+        <div class="service-card"><div class="sc-icon">📋</div><h3>Symptom &amp; Poisons Guides</h3><p>Not sure if your pet needs to be seen? Our online symptom guide and poisons/hazards guide help you make the right call quickly.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- WELLNESS -->
+<div class="page" id="page-wellness">
+  <div class="club-section">
+    <div class="section-inner">
+      <p class="section-label">The Croft Club</p>
+      <h1 class="section-title">Peace of Mind for You, <em>Exceptional Care</em> for Your Pet</h1>
+      <p class="section-sub">The Croft Club is our wellness plan — spreading the cost of your pet's routine care while making sure nothing gets missed. Complete care for a fixed monthly amount.</p>
+      <div class="club-grid">
+        <div class="club-item"><div class="ci-icon">💉</div><h4>Annual Vaccinations</h4><p>All core vaccinations included as part of your monthly plan</p></div>
+        <div class="club-item"><div class="ci-icon">🦟</div><h4>Parasite Prevention</h4><p>Flea, worm and tick treatment included throughout the year</p></div>
+        <div class="club-item"><div class="ci-icon">🩺</div><h4>Health Check</h4><p>Annual comprehensive vet health check included</p></div>
+        <div class="club-item"><div class="ci-icon">💰</div><h4>Member Discounts</h4><p>Discounts on consultations, services and products for Club members</p></div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="section-inner">
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="sc-icon">👩‍⚕️</div>
+          <h3>Nurse Clinics</h3>
+          <p>Regular nurse-led clinics for nail clips, weight checks, dental checks, post-op care and more — without always needing a full vet fee.</p>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">🛡️</div>
+          <h3>Pet Insurance</h3>
+          <p>We can advise on the right pet insurance for your animal — ensuring you're covered if the unexpected happens. We work with a range of leading providers.</p>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">❤️</div>
+          <h3>Saying Goodbye</h3>
+          <p>When the time comes, our team handles end-of-life care with compassion and dignity. We'll guide you through the process gently, at your pace.</p>
+        </div>
+      </div>
+      <div style="margin-top:36px;background:var(--light);border-radius:14px;padding:28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+        <div>
+          <h3 style="font-size:1.1rem;color:var(--primary);margin-bottom:6px;">Join the Croft Club Today</h3>
+          <p style="font-size:0.87rem;color:var(--text-light);line-height:1.55;">Speak to our team at either centre for full details on what's included and current pricing. New clients welcome at both Bolsover and Sheffield.</p>
+        </div>
+        <a onclick="showPage('contact')" class="btn-primary" style="flex-shrink:0;font-size:0.88rem;">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <section style="padding-top:80px;">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=900&q=80" alt="Croft Vets team caring for a patient" loading="lazy">
+          <div class="about-img-badge"><span>1992</span>Serving Sheffield<br>&amp; Derbyshire</div>
+        </div>
+        <div class="about-text">
+          <p class="section-label">Our Story</p>
+          <h1 class="section-title">Professional · Personal · <em>Independent</em></h1>
+          <p class="section-sub">Since 1992, Croft Vets has been serving pets and their owners across Sheffield and the surrounding areas. We're an independent, family-run practice — and we intend to stay that way. You'll never be just a number here.</p>
+          <p style="color:var(--text-light);font-size:0.9rem;line-height:1.65;margin-bottom:24px;">Our handpicked team are highly trained, skilful and passionate individuals who devote themselves to patient care. Whether it's a routine appointment or a life-saving emergency, we bring the same level of attention and expertise every time.</p>
+          <div class="about-facts">
+            <div class="fact-box"><div class="fb-num">1992</div><div class="fb-label">Year founded</div></div>
+            <div class="fact-box"><div class="fb-num">🏆</div><div class="fb-label">BestUKVets 2024</div></div>
+            <div class="fact-box"><div class="fb-num">2</div><div class="fb-label">Vet centres</div></div>
+            <div class="fact-box"><div class="fb-num">RCVS</div><div class="fb-label">Accredited</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:60px;">
+        <p class="section-label">Our Team</p>
+        <h2 class="section-title">From Our Family <em>to Yours</em></h2>
+        <p class="section-sub" style="margin-bottom:28px;">Our team are highly trained, skilful and passionate — dedicated to the care and wellbeing of every patient. They're also the reason we won at the BestUKVets Awards 2024.</p>
+        <div class="services-grid">
+          <div class="service-card" style="text-align:center;"><div style="font-size:2.5rem;margin-bottom:10px;">👨‍⚕️</div><h3>Our Vets</h3><p>RCVS-qualified vets with expertise across medicine, surgery and advanced diagnostics. Including specialist ultrasonography.</p></div>
+          <div class="service-card" style="text-align:center;"><div style="font-size:2.5rem;margin-bottom:10px;">👩‍⚕️</div><h3>Registered Nurses</h3><p>Our RVNs run nurse clinics, assist in theatre and are the backbone of the hands-on care your pet receives every day.</p></div>
+          <div class="service-card" style="text-align:center;"><div style="font-size:2.5rem;margin-bottom:10px;">😊</div><h3>Support Team</h3><p>Friendly, knowledgeable reception and support staff at both centres — always happy to help and always on your side.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- LOCATIONS -->
+<div class="page" id="page-locations">
+  <section style="padding-top:80px;">
+    <div class="section-inner">
+      <p class="section-label">Find Us</p>
+      <h1 class="section-title">Two Centres — <em>Bolsover &amp; Sheffield</em></h1>
+      <p class="section-sub">We have state-of-the-art veterinary centres in Bolsover and Totley, Sheffield. Both centres share the same high standards, the same team values and the same commitment to exceptional care. We're currently accepting new clients at both locations.</p>
+      <div class="locations-grid">
+        <div class="loc-card">
+          <div class="lc-header"><h3>Croft Vets — Bolsover</h3><div class="lc-area">Serving Chesterfield, Bolsover &amp; surrounding areas</div></div>
+          <div class="lc-body">
+            <div class="loc-row"><span class="lr-icon">📍</span><div class="lr-text"><strong>Address</strong>Sykes Retail Park<br>Bolsover, Chesterfield S44 6DJ</div></div>
+            <div class="loc-row"><span class="lr-icon">🕒</span><div class="lr-text"><strong>Hours</strong>Mon–Fri: 8:30am – 7:00pm<br>Saturday: 8:30am – 3:30pm</div></div>
+            <div class="loc-row"><span class="lr-icon">✉</span><div class="lr-text"><strong>Email</strong>info@croftveterinary.com</div></div>
+            <div class="loc-row"><span class="lr-icon">✅</span><div class="lr-text">Accepting new clients · New state-of-the-art site</div></div>
+            <a href="tel:01246823353" class="loc-phone">01246 823 353</a>
+          </div>
+        </div>
+        <div class="loc-card">
+          <div class="lc-header"><h3>Croft Vets — Sheffield (Totley)</h3><div class="lc-area">Serving Sheffield, S17 &amp; surrounding areas</div></div>
+          <div class="lc-body">
+            <div class="loc-row"><span class="lr-icon">📍</span><div class="lr-text"><strong>Address</strong>77 Baslow Road, Totley<br>Sheffield S17 4DP</div></div>
+            <div class="loc-row"><span class="lr-icon">🕒</span><div class="lr-text"><strong>Hours</strong>Mon–Fri: 8:30am – 7:00pm<br>Saturday: 9:00am – 12:00pm</div></div>
+            <div class="loc-row"><span class="lr-icon">✉</span><div class="lr-text"><strong>Email</strong>info@croftveterinary.com</div></div>
+            <div class="loc-row"><span class="lr-icon">🏆</span><div class="lr-text">BestUKVets Awards 2024 accolade</div></div>
+            <a href="tel:01142621444" class="loc-phone">0114 262 1444</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <section style="padding-top:80px;">
+    <div class="section-inner">
+      <p class="section-label">Get in Touch</p>
+      <h1 class="section-title">Book an Appointment or <em>Register Your Pet</em></h1>
+      <p class="section-sub">We're accepting new clients at both our Bolsover and Sheffield centres. Get in touch and we'll get you booked in.</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="ci-block"><div class="ci-label">📞 Bolsover</div><div class="ci-val"><a href="tel:01246823353">01246 823 353</a><br><small style="color:#888;font-size:0.8rem;">Mon–Fri 8:30–7pm · Sat 8:30–3:30pm</small></div></div>
+          <div class="ci-block"><div class="ci-label">📞 Sheffield (Totley)</div><div class="ci-val"><a href="tel:01142621444">0114 262 1444</a><br><small style="color:#888;font-size:0.8rem;">Mon–Fri 8:30–7pm · Sat 9–12pm</small></div></div>
+          <div class="ci-block"><div class="ci-label">✉ Email</div><div class="ci-val"><a href="mailto:info@croftveterinary.com">info@croftveterinary.com</a></div></div>
+          <div class="ci-block"><div class="ci-label">📍 Bolsover Address</div><div class="ci-val">Sykes Retail Park<br>Bolsover, Chesterfield S44 6DJ</div></div>
+          <div class="ci-block"><div class="ci-label">📍 Sheffield Address</div><div class="ci-val">77 Baslow Road, Totley<br>Sheffield S17 4DP</div></div>
+          <div style="background:var(--light);border-radius:10px;padding:16px;">
+            <p style="font-size:0.85rem;color:var(--text-light);line-height:1.55;">🐾 <strong style="color:var(--primary);">Accepting new clients</strong> at both centres. Join the Croft family — we'd love to meet you and your pet.</p>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Book an Appointment</h3>
+          <div class="form-row"><label>Your Name *</label><input type="text" placeholder="Full name"></div>
+          <div class="form-row"><label>Email Address *</label><input type="email" placeholder="your@email.com"></div>
+          <div class="form-row"><label>Phone Number</label><input type="tel" placeholder="07700 000000"></div>
+          <div class="form-row"><label>Preferred Centre</label><select><option>Bolsover</option><option>Sheffield (Totley)</option></select></div>
+          <div class="form-row"><label>Pet Name &amp; Type *</label><input type="text" placeholder="e.g. Buddy the Spaniel"></div>
+          <div class="form-row"><label>Reason for Visit</label><select><option>New Patient Registration</option><option>Routine Appointment</option><option>Vaccination</option><option>The Croft Club</option><option>Surgical Enquiry</option><option>Animal Health Certificate</option><option>General Enquiry</option></select></div>
+          <div class="form-row"><label>Message</label><textarea placeholder="Tell us anything we should know…"></textarea></div>
+          <button class="form-submit" onclick="alert('Thank you — we\'ll be in touch shortly!')">Submit Enquiry</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-logo">Croft <span>Vets</span></div>
+        <p>Independent, family-run veterinary centres in Bolsover and Totley, Sheffield. Caring for your pets since 1992. BestUKVets Award 2024.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/CroftVetsTotley/" target="_blank">FB</a>
+          <a href="https://www.instagram.com/croftveterinarycentre/" target="_blank">IG</a>
+          <a href="https://www.youtube.com/@croftveterinary6686" target="_blank">YT</a>
+          <a href="https://www.tiktok.com/@croftvets" target="_blank">TT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a onclick="showPage('services')">General Services</a></li>
+          <li><a onclick="showPage('services')">Surgical Services</a></li>
+          <li><a onclick="showPage('services')">Diagnostics</a></li>
+          <li><a onclick="showPage('services')">Animal Health Certs</a></li>
+          <li><a onclick="showPage('wellness')">Nurse Clinics</a></li>
+          <li><a onclick="showPage('services')">Emergency Care</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Wellness</h4>
+        <ul>
+          <li><a onclick="showPage('wellness')">The Croft Club</a></li>
+          <li><a onclick="showPage('wellness')">Pet Insurance</a></li>
+          <li><a onclick="showPage('wellness')">End of Life Care</a></li>
+          <li><a onclick="showPage('about')">Join Our Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Centres</h4>
+        <ul>
+          <li><a href="tel:01246823353">Bolsover · 01246 823 353</a></li>
+          <li><a href="tel:01142621444">Sheffield · 0114 262 1444</a></li>
+          <li><a href="mailto:info@croftveterinary.com">Email Us</a></li>
+          <li><a onclick="showPage('contact')">Book Appointment</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Croft Veterinary Centres · croftveterinary.com</span>
+      <span class="trabelo-credit">Website concept built by Trabelo · Sheffield</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const page = document.getElementById('page-' + name);
+    const navLink = document.getElementById('nav-' + name);
+    if (page) page.classList.add('active');
+    if (navLink) navLink.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+</body>
+</html>

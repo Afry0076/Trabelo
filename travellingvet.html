@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Travelling Vet — Mobile Vet Sheffield &amp; South Yorkshire</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --primary: #1c3d5a; --accent: #f06040; --light: #f5f8fb; --border: #dde8f2; --text: #1a1a1a; --text-light: #5a6e7e; --white: #fff; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--text); background: #fff; }
+
+  /* NAV */
+  .nav { position: sticky; top: 0; z-index: 100; background: var(--primary); box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { color: #fff; font-size: 1.15rem; font-weight: 900; cursor: pointer; letter-spacing: -0.3px; }
+  .nav-brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.83rem; font-weight: 600; padding: 7px 11px; border-radius: 7px; transition: all 0.15s; cursor: pointer; }
+  .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.15); color: #fff; }
+  .nav-phone { color: #fff; font-size: 0.82rem; font-weight: 700; }
+  .nav-phone a { color: var(--accent); text-decoration: none; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: #fff; margin: 5px 0; border-radius: 2px; }
+  .mobile-menu { display: none; position: fixed; inset: 64px 0 0; background: var(--primary); z-index: 99; flex-direction: column; padding: 24px 20px; gap: 4px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 700; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.12); cursor: pointer; }
+  .mobile-menu .mob-phone { color: var(--accent); font-size: 1.1rem; padding: 14px 0; font-weight: 700; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero { position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; background: linear-gradient(135deg, #0d1f2d 0%, #1c3d5a 50%, #2a5a80 100%); }
+  .hero-img { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1400&auto=format&fit=crop&q=80') center/cover; opacity: 0.13; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 20px; display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: center; position: relative; z-index: 1; width: 100%; }
+  .hero-tag { display: inline-block; background: rgba(240,96,64,0.2); border: 1px solid rgba(240,96,64,0.5); color: var(--accent); font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 18px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-desc { color: rgba(255,255,255,0.8); font-size: 1.05rem; line-height: 1.65; margin-bottom: 28px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #fff; border: none; padding: 14px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 800; cursor: pointer; transition: background 0.15s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: #c94828; }
+  .btn-secondary { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); padding: 12px 26px; border-radius: 10px; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+  .hero-card { background: rgba(255,255,255,0.96); border-radius: 18px; padding: 28px; box-shadow: 0 8px 40px rgba(0,0,0,0.3); }
+  .hero-card .hc-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--primary); margin-bottom: 14px; }
+  .hero-card .hc-stat { padding: 10px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; }
+  .hero-card .hc-stat:last-child { border-bottom: none; }
+  .hero-card .hc-icon { font-size: 1.1rem; width: 28px; text-align: center; flex-shrink: 0; }
+  .hero-card .hc-label { font-size: 0.72rem; color: #888; }
+  .hero-card .hc-val { font-size: 0.85rem; font-weight: 700; color: var(--primary); }
+  .hero-card .book-btn { display: block; margin-top: 16px; background: var(--accent); color: #fff; text-align: center; text-decoration: none; padding: 13px; border-radius: 10px; font-size: 0.9rem; font-weight: 800; }
+  .hero-card .book-btn:hover { background: #c94828; }
+  .hero-card .phone-btn { display: block; margin-top: 8px; background: var(--primary); color: #fff; text-align: center; text-decoration: none; padding: 11px; border-radius: 10px; font-size: 0.85rem; font-weight: 700; }
+
+  /* UNIQUE SELLING STRIP */
+  .usp-strip { background: var(--accent); padding: 18px 20px; }
+  .usp-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .usp-item { color: #fff; text-align: center; font-size: 0.85rem; font-weight: 700; }
+  .usp-item span { display: block; font-size: 0.7rem; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+
+  /* SECTIONS */
+  section { padding: 72px 20px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .section-title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--primary); margin-bottom: 14px; line-height: 1.15; }
+  .section-intro { color: var(--text-light); font-size: 1rem; line-height: 1.65; max-width: 620px; }
+
+  /* HOW IT WORKS */
+  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .how-card { background: var(--white); border-radius: 14px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); border: 1px solid var(--border); text-align: center; }
+  .how-card .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 1.3rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .how-card h3 { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+  .how-card p { font-size: 0.83rem; color: var(--text-light); line-height: 1.55; }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+  .svc-card { background: var(--white); border-radius: 14px; padding: 24px; box-shadow: 0 2px 14px rgba(0,0,0,0.07); border: 1px solid var(--border); transition: transform 0.18s; }
+  .svc-card:hover { transform: translateY(-3px); }
+  .svc-card .sc-icon { font-size: 1.8rem; margin-bottom: 12px; }
+  .svc-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+  .svc-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.55; margin-bottom: 8px; }
+  .svc-card .price { font-size: 0.82rem; font-weight: 700; color: var(--accent); }
+
+  /* HOMESTART */
+  .homestart-section { background: var(--primary); color: #fff; }
+  .homestart-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hs-content .hs-tag { display: inline-block; background: rgba(240,96,64,0.25); border: 1px solid rgba(240,96,64,0.5); color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; }
+  .hs-content h2 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 14px; line-height: 1.2; }
+  .hs-content p { color: rgba(255,255,255,0.78); line-height: 1.65; margin-bottom: 24px; }
+  .hs-packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .hs-pkg { background: rgba(255,255,255,0.08); border-radius: 12px; padding: 18px; border: 1px solid rgba(255,255,255,0.12); }
+  .hs-pkg .pkg-icon { font-size: 1.5rem; margin-bottom: 8px; }
+  .hs-pkg h4 { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+  .hs-pkg p { font-size: 0.78rem; color: rgba(255,255,255,0.65); line-height: 1.45; }
+  .hs-side { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 30px; }
+  .hs-side h3 { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 16px; }
+  .hs-side ul { list-style: none; }
+  .hs-side ul li { font-size: 0.85rem; color: rgba(255,255,255,0.82); padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-left: 20px; position: relative; line-height: 1.4; }
+  .hs-side ul li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .hs-side ul li:last-child { border-bottom: none; }
+  .hs-side .hs-cta { display: block; margin-top: 20px; background: var(--accent); color: #fff; text-align: center; text-decoration: none; padding: 13px; border-radius: 10px; font-size: 0.9rem; font-weight: 800; cursor: pointer; }
+
+  /* TEAM */
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; }
+  .team-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+  .team-card .tc-img { height: 220px; background: var(--light); display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+  .team-card .tc-body { padding: 24px; }
+  .team-card .tc-role { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  .team-card h3 { font-size: 1.15rem; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
+  .team-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+
+  /* AREA */
+  .area-section { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .area-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 32px; }
+  .area-pill { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
+  .area-pill .ap-icon { font-size: 1.2rem; margin-bottom: 6px; }
+  .area-pill h4 { font-size: 0.88rem; font-weight: 700; color: var(--primary); }
+  .area-pill p { font-size: 0.74rem; color: var(--text-light); margin-top: 3px; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
+  .contact-info h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 18px; }
+  .ci-item { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
+  .ci-icon { font-size: 1.3rem; flex-shrink: 0; width: 36px; }
+  .ci-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 3px; }
+  .ci-val { font-size: 0.92rem; color: var(--text); font-weight: 600; }
+  .contact-form { background: var(--light); border-radius: 14px; padding: 28px; border: 1px solid var(--border); }
+  .contact-form h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 9px; font-family: inherit; font-size: 0.9rem; background: #fff; color: var(--text); transition: border-color 0.15s; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit { width: 100%; background: var(--accent); color: #fff; border: none; padding: 14px; border-radius: 10px; font-size: 0.95rem; font-weight: 800; cursor: pointer; transition: background 0.15s; }
+  .form-submit:hover { background: #c94828; }
+
+  /* FOOTER */
+  footer { background: #0d1f2d; color: rgba(255,255,255,0.65); padding: 44px 20px 24px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+  .footer-brand h3 { color: #fff; font-size: 1.2rem; font-weight: 900; margin-bottom: 8px; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.6; }
+  .footer-col h4 { color: #fff; font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { font-size: 0.8rem; margin-bottom: 8px; cursor: pointer; transition: color 0.15s; }
+  .footer-col ul li:hover { color: #fff; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 0.76rem; }
+  .trabelo-credit { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links, .nav-phone { display: none; }
+    .hamburger { display: block; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .hero { min-height: 70vh; }
+    .homestart-inner, .contact-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .how-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .area-grid { grid-template-columns: repeat(2, 1fr); }
+    .hs-packages { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 480px) { .services-grid { grid-template-columns: 1fr; } .usp-inner { gap: 20px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">The <span>Travelling</span> Vet</div>
+    <ul class="nav-links">
+      <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+      <li><a id="nav-services" onclick="showPage('services')">Services</a></li>
+      <li><a id="nav-homestart" onclick="showPage('homestart')">HomeStart</a></li>
+      <li><a id="nav-team" onclick="showPage('team')">Our Team</a></li>
+      <li><a id="nav-area" onclick="showPage('area')">Area</a></li>
+      <li><a id="nav-contact" onclick="showPage('contact')">Book</a></li>
+    </ul>
+    <div class="nav-phone">📞 <a href="tel:01142125800">0114 212 5800</a></div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');closeMenu()">Home</a>
+  <a onclick="showPage('services');closeMenu()">Services</a>
+  <a onclick="showPage('homestart');closeMenu()">HomeStart Packages</a>
+  <a onclick="showPage('team');closeMenu()">Our Team</a>
+  <a onclick="showPage('area');closeMenu()">Area We Cover</a>
+  <a onclick="showPage('contact');closeMenu()">Book an Appointment</a>
+  <div class="mob-phone">📞 0114 212 5800</div>
+</div>
+
+<!-- ===== HOME ===== -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag">Mobile Vet · Sheffield &amp; South Yorkshire</div>
+        <h1>Vet Care <em>At Your Door</em> — No Waiting Rooms, No Stress</h1>
+        <p class="hero-desc">We come to you. Charlotte and Kate bring professional veterinary care to your home — for dogs, cats, rabbits and exotics across Sheffield, Dronfield, Worksop, Chesterfield and surrounding areas.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="showPage('contact')">Book a Home Visit</button>
+          <button class="btn-secondary" onclick="showPage('services')">See Prices</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-title">Book a Home Visit</div>
+        <div class="hc-stat"><div class="hc-icon">🏠</div><div><div class="hc-label">We Come To You</div><div class="hc-val">No waiting room, no travel stress</div></div></div>
+        <div class="hc-stat"><div class="hc-icon">📞</div><div><div class="hc-label">Phone</div><div class="hc-val">0114 212 5800</div></div></div>
+        <div class="hc-stat"><div class="hc-icon">📧</div><div><div class="hc-label">Email</div><div class="hc-val">info@travellingvet.co.uk</div></div></div>
+        <div class="hc-stat"><div class="hc-icon">🕐</div><div><div class="hc-label">Hours</div><div class="hc-val">Mon–Fri 8:30am–6:30pm</div></div></div>
+        <div class="hc-stat"><div class="hc-icon">🐾</div><div><div class="hc-label">Consultations From</div><div class="hc-val">£75</div></div></div>
+        <a class="book-btn" onclick="showPage('contact')">Book an Appointment →</a>
+        <a class="phone-btn" href="tel:01142125800">📞 0114 212 5800</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="usp-strip">
+    <div class="usp-inner">
+      <div class="usp-item">🏠 Home Visits<span>We come to you</span></div>
+      <div class="usp-item">😌 Stress-Free<span>No waiting rooms</span></div>
+      <div class="usp-item">🐱 All Species<span>Dogs, cats, rabbits &amp; exotics</span></div>
+      <div class="usp-item">📍 South Yorkshire<span>Sheffield &amp; surrounding areas</span></div>
+    </div>
+  </div>
+
+  <section style="background: var(--light);">
+    <div class="section-inner">
+      <p class="section-tag">How It Works</p>
+      <h2 class="section-title">Vet Care Without the Journey</h2>
+      <p class="section-intro">No travel, no waiting rooms, no stressed pets. We come to you at a time that suits you — and your animals.</p>
+      <div class="how-grid">
+        <div class="how-card"><div class="step-num">1</div><h3>Book Online or Call</h3><p>Book via our online form or call 0114 212 5800. We'll confirm a time that works for you — Mon–Fri 8:30am–6:30pm.</p></div>
+        <div class="how-card"><div class="step-num">2</div><h3>We Come to You</h3><p>Charlotte or Kate arrives at your home. No journey, no waiting room, no strangers. Your pet stays in their own environment.</p></div>
+        <div class="how-card"><div class="step-num">3</div><h3>Care Done Right</h3><p>Full consultation, diagnosis, treatment and any prescriptions handled on the spot. We follow up if needed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <p class="section-tag">Services</p>
+      <h2 class="section-title">What We Can Do for Your Pet</h2>
+      <p class="section-intro">From routine vaccinations to complex consultations and end of life care — all in the comfort of your own home.</p>
+      <div class="services-grid">
+        <div class="svc-card"><div class="sc-icon">🩺</div><h3>Sick Consultations</h3><p>Full home visit consultation for unwell dogs, cats, rabbits, exotics and small furries.</p><div class="price">From £75</div></div>
+        <div class="svc-card"><div class="sc-icon">💉</div><h3>Vaccinations</h3><p>Annual boosters and primary courses at home — no surgery visit required.</p><div class="price">From £80</div></div>
+        <div class="svc-card"><div class="sc-icon">✂️</div><h3>Surgery</h3><p>Minor surgical procedures where suitable — we'll advise if a referral is needed.</p><div class="price">Price on enquiry</div></div>
+        <div class="svc-card"><div class="sc-icon">🌿</div><h3>End of Life Care</h3><p>Peaceful, dignified end of life care at home — surrounded by familiar surroundings and the people they love.</p><div class="price">Price on enquiry</div></div>
+        <div class="svc-card"><div class="sc-icon">🐶</div><h3>Dog Consultations</h3><p>Full consults for all breeds and sizes. Vaccinations, health checks, sick visits and minor procedures.</p><div class="price">From £75</div></div>
+        <div class="svc-card"><div class="sc-icon">🐱</div><h3>Cat &amp; Exotic Visits</h3><p>Cats often do better without a car journey. Rabbits, guinea pigs and small furries too.</p><div class="price">From £75</div></div>
+      </div>
+      <div style="text-align:center;margin-top:32px;"><button class="btn-primary" onclick="showPage('services')">See Full Services &amp; Prices →</button></div>
+    </div>
+  </section>
+
+  <section style="background:var(--primary);color:#fff;padding:60px 20px;">
+    <div class="section-inner" style="text-align:center;">
+      <p style="font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">New Pet?</p>
+      <h2 style="font-size:2rem;font-weight:900;color:#fff;margin-bottom:14px;">HomeStart — New Pet Packages</h2>
+      <p style="color:rgba(255,255,255,0.78);max-width:560px;margin:0 auto 28px;line-height:1.6;">Special packages for new puppy, kitten and rabbit owners — covering everything they need in their first weeks, delivered to your home.</p>
+      <button class="btn-primary" onclick="showPage('homestart')">See HomeStart Packages →</button>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ===== SERVICES ===== -->
+<div id="page-services" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-tag">Services &amp; Prices</p>
+      <h2 class="section-title">Everything We Offer — at Your Home</h2>
+      <p class="section-intro">All prices include the home visit. No hidden consultation fees — what you see is what you pay for the visit itself. Medicines and additional treatments are priced separately.</p>
+      <div class="services-grid" style="margin-top:36px;">
+        <div class="svc-card"><div class="sc-icon">🩺</div><h3>Sick Consultation — Dog</h3><p>Full in-home consultation for unwell dogs. Diagnosis, treatment plan and any immediate medication handled on the visit.</p><div class="price">From £75</div></div>
+        <div class="svc-card"><div class="sc-icon">🩺</div><h3>Sick Consultation — Cat</h3><p>Full in-home consultation for cats. Often significantly less stressful than a surgery visit for anxious or elderly cats.</p><div class="price">From £75</div></div>
+        <div class="svc-card"><div class="sc-icon">🩺</div><h3>Sick Consultation — Rabbit/Small Furry</h3><p>Rabbits, guinea pigs and exotic small animals. We're experienced with a wide range of species.</p><div class="price">From £75</div></div>
+        <div class="svc-card"><div class="sc-icon">💉</div><h3>Dog Vaccination</h3><p>Annual booster with health check, or primary puppy course — all at your home. Certificates issued on the day.</p><div class="price">From £85</div></div>
+        <div class="svc-card"><div class="sc-icon">💉</div><h3>Cat Vaccination</h3><p>Annual booster with health check. Indoor cats especially benefit from a home visit rather than a stressful journey.</p><div class="price">From £80</div></div>
+        <div class="svc-card"><div class="sc-icon">💉</div><h3>Rabbit Vaccination</h3><p>RHD1, RHD2 and myxomatosis vaccination at home — where rabbits are typically much calmer.</p><div class="price">From £80</div></div>
+        <div class="svc-card"><div class="sc-icon">✂️</div><h3>Minor Surgery</h3><p>Minor procedures carried out at home where clinically appropriate. We'll always advise if a referral is needed.</p><div class="price">Price on enquiry</div></div>
+        <div class="svc-card"><div class="sc-icon">🌿</div><h3>End of Life Care</h3><p>Peaceful, dignified euthanasia at home. One of the most important things we do — handled with care and respect.</p><div class="price">Price on enquiry</div></div>
+        <div class="svc-card"><div class="sc-icon">🐣</div><h3>HomeStart Packages</h3><p>Puppy, kitten and rabbit new-owner packages — first check, microchipping, vaccines and guidance in a single visit.</p><div class="price">See HomeStart →</div></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-services -->
+
+<!-- ===== HOMESTART ===== -->
+<div id="page-homestart" class="page">
+  <section class="homestart-section">
+    <div class="homestart-inner">
+      <div class="hs-content" style="padding:72px 0 72px 20px;">
+        <span class="hs-tag">New Pet Packages</span>
+        <h2>HomeStart — The Right Start for Your New Pet</h2>
+        <p>Getting a new puppy, kitten or rabbit is exciting — and there's a lot to sort out in the first few weeks. Our HomeStart packages cover all the essentials in a single home visit, so you don't have to figure it out yourself.</p>
+        <p>All HomeStart visits are conducted at your home by Charlotte or Kate. No stressful first journeys, no waiting rooms.</p>
+        <div class="hs-packages">
+          <div class="hs-pkg"><div class="pkg-icon">🐶</div><h4>Puppy HomeStart</h4><p>First health check, vaccinations start, microchipping, flea &amp; worm advice</p></div>
+          <div class="hs-pkg"><div class="pkg-icon">🐱</div><h4>Kitten HomeStart</h4><p>First health check, vaccines, microchipping, neutering advice and dietary guidance</p></div>
+          <div class="hs-pkg"><div class="pkg-icon">🐰</div><h4>Rabbit HomeStart</h4><p>First health check, vaccination schedule, diet, handling and enrichment guidance</p></div>
+        </div>
+      </div>
+      <div class="hs-side" style="margin:40px 20px 40px 0;">
+        <h3>What's Included in HomeStart</h3>
+        <ul>
+          <li>Full health assessment by a qualified vet</li>
+          <li>Vaccination course started (where appropriate)</li>
+          <li>Microchipping (dogs and cats)</li>
+          <li>Parasite prevention advice and treatment</li>
+          <li>Nutrition and feeding guidance</li>
+          <li>Neutering discussion and planning</li>
+          <li>Insurance options discussion</li>
+          <li>Q&amp;A — no time limit on questions</li>
+          <li>Follow-up call if needed</li>
+        </ul>
+        <div class="hs-cta" onclick="showPage('contact')">Book a HomeStart Visit →</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-homestart -->
+
+<!-- ===== TEAM ===== -->
+<div id="page-team" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-tag">The Team</p>
+      <h2 class="section-title">Charlotte &amp; Kate</h2>
+      <p class="section-intro">Just the two of us — and that's intentional. You'll always know who's coming and they'll remember your pet.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="tc-img">👩‍⚕️</div>
+          <div class="tc-body">
+            <div class="tc-role">Veterinary Surgeon</div>
+            <h3>Charlotte</h3>
+            <p>Charlotte is The Travelling Vet's founder and lead vet. She set up the practice to bring professional veterinary care to pets in their own environment — where they're calmer, and where owners are more relaxed too. She has experience across dogs, cats, rabbits and exotics.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="tc-img">👩‍⚕️</div>
+          <div class="tc-body">
+            <div class="tc-role">Veterinary Nurse</div>
+            <h3>Kate</h3>
+            <p>Kate is the qualified veterinary nurse who assists Charlotte on visits and handles many of the nursing-led consultations. Her calm manner with animals makes her particularly good with anxious or elderly pets who find vet visits stressful at a traditional surgery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-team -->
+
+<!-- ===== AREA ===== -->
+<div id="page-area" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-tag">Where We Come</p>
+      <h2 class="section-title">Covering Sheffield &amp; Surrounding South Yorkshire</h2>
+      <p class="section-intro">We cover a wide area across South Yorkshire and North Derbyshire. If you're not sure whether we come to you — just ask. We'll always let you know.</p>
+      <div class="area-grid">
+        <div class="area-pill"><div class="ap-icon">📍</div><h4>Sheffield</h4><p>City-wide coverage</p></div>
+        <div class="area-pill"><div class="ap-icon">📍</div><h4>Dronfield</h4><p>North Derbyshire</p></div>
+        <div class="area-pill"><div class="ap-icon">📍</div><h4>Chesterfield</h4><p>North Derbyshire</p></div>
+        <div class="area-pill"><div class="ap-icon">📍</div><h4>Worksop</h4><p>Nottinghamshire border</p></div>
+        <div class="area-pill"><div class="ap-icon">📍</div><h4>Rotherham</h4><p>South Yorkshire</p></div>
+        <div class="area-pill"><div class="ap-icon">📍</div><h4>Barnsley</h4><p>South Yorkshire</p></div>
+        <div class="area-pill"><div class="ap-icon">📍</div><h4>Stocksbridge</h4><p>Sheffield area</p></div>
+        <div class="area-pill"><div class="ap-icon">📍</div><h4>Surrounding Areas</h4><p>Get in touch to check</p></div>
+      </div>
+      <p style="margin-top:28px;color:var(--text-light);font-size:0.9rem;">Not sure if we cover your area? Call us on <strong>0114 212 5800</strong> or email <strong>info@travellingvet.co.uk</strong> — we're happy to check.</p>
+    </div>
+  </section>
+</div><!-- /page-area -->
+
+<!-- ===== CONTACT ===== -->
+<div id="page-contact" class="page">
+  <section>
+    <div class="section-inner">
+      <p class="section-tag">Book an Appointment</p>
+      <h2 class="section-title">Request a Home Visit</h2>
+      <p class="section-intro">Fill in the form and we'll be in touch to confirm your appointment. Or call us directly on 0114 212 5800 — Mon–Fri 8:30am–6:30pm.</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="ci-item"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-val">0114 212 5800</div></div></div>
+          <div class="ci-item"><div class="ci-icon">📧</div><div><div class="ci-label">Email</div><div class="ci-val">info@travellingvet.co.uk</div></div></div>
+          <div class="ci-item"><div class="ci-icon">🕐</div><div><div class="ci-label">Hours</div><div class="ci-val">Mon–Fri 8:30am–6:30pm</div></div></div>
+          <div class="ci-item"><div class="ci-icon">📍</div><div><div class="ci-label">Coverage</div><div class="ci-val">Sheffield, Dronfield, Chesterfield, Worksop &amp; surrounding areas</div></div></div>
+          <div class="ci-item"><div class="ci-icon">🐾</div><div><div class="ci-label">We See</div><div class="ci-val">Dogs, cats, rabbits, exotics &amp; small furries</div></div></div>
+        </div>
+        <div class="contact-form">
+          <h3>Booking Request</h3>
+          <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" placeholder="e.g. Sarah Johnson"></div>
+          <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="e.g. 07700 900000"></div>
+          <div class="form-group"><label for="postcode">Postcode</label><input type="text" id="postcode" placeholder="e.g. S10 3AB"></div>
+          <div class="form-group"><label for="pet-type">Type of Pet</label>
+            <select id="pet-type">
+              <option>Dog</option><option>Cat</option><option>Rabbit</option><option>Guinea Pig</option><option>Other exotic / small furry</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="visit-type">Type of Visit</label>
+            <select id="visit-type">
+              <option>Sick consultation</option><option>Vaccination</option><option>HomeStart package</option><option>End of life care</option><option>General health check</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="message">Anything else we should know?</label><textarea id="message" placeholder="e.g. symptoms, pet's age, anything relevant..."></textarea></div>
+          <button class="form-submit">Send Booking Request</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Travelling Vet</h3>
+        <p>Mobile veterinary care across Sheffield and South Yorkshire. We come to you — no waiting rooms, no stress. Mon–Fri 8:30am–6:30pm.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li onclick="showPage('services')">Services &amp; Prices</li>
+          <li onclick="showPage('homestart')">HomeStart Packages</li>
+          <li onclick="showPage('team')">Our Team</li>
+          <li onclick="showPage('area')">Area We Cover</li>
+          <li onclick="showPage('contact')">Book a Visit</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>📞 0114 212 5800</li>
+          <li>📧 info@travellingvet.co.uk</li>
+          <li>Mon–Fri 8:30am–6:30pm</li>
+          <li>Sheffield &amp; South Yorkshire</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Travelling Vet · Mobile Vet Sheffield · travellingvet.co.uk</p>
+      <span class="trabelo-credit">Website concept built by Trabelo · Sheffield</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const page = document.getElementById('page-' + name);
+  const navLink = document.getElementById('nav-' + name);
+  if (page) page.classList.add('active');
+  if (navLink) navLink.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+</body>
+</html>

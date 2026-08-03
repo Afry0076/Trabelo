@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Travelling Vet — Website Audit by Trabelo</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --primary: #1c3d5a; --accent: #f06040; --light: #f5f8fb; --border: #dde8f2; --text: #1a1a1a; --text-light: #5a6e7e; --white: #fff; --red: #e53e3e; --amber: #d97706; --green: #16a34a; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f8fb; color: var(--text); }
+  .audit-header { background: #0d0d0d; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .audit-header .ah-logo { color: #fff; font-size: 1.2rem; font-weight: 800; }
+  .audit-header .ah-sub { color: #888; font-size: 0.75rem; margin-top: 2px; }
+  .audit-header .ah-demo { background: var(--accent); color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 44px 20px 80px; }
+  .intro-block { background: var(--white); border-radius: 16px; padding: 36px; margin-bottom: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+  .intro-block h1 { font-size: 1.9rem; font-weight: 900; color: var(--primary); line-height: 1.2; margin-bottom: 6px; }
+  .intro-block .biz-url { color: #888; font-size: 0.85rem; margin-bottom: 22px; }
+  .intro-block p { color: #444; font-size: 0.95rem; line-height: 1.7; }
+  .scores-section { margin-bottom: 28px; }
+  .scores-heading { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #666; text-align: center; margin-bottom: 12px; }
+  .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .score-box { background: var(--white); border-radius: 12px; padding: 18px 10px; text-align: center; box-shadow: 0 1px 10px rgba(0,0,0,0.08); }
+  .score-box .sn { font-size: 2.2rem; font-weight: 900; line-height: 1; margin-bottom: 5px; }
+  .score-box .sl { font-size: 0.7rem; color: #666; font-weight: 500; }
+  .score-box.poor .sn { color: var(--red); }
+  .score-box.needs .sn { color: var(--amber); }
+  .score-box.good .sn { color: var(--green); }
+  .score-note { background: var(--white); border-radius: 12px; padding: 16px 20px; font-size: 0.88rem; color: #444; line-height: 1.6; box-shadow: 0 1px 8px rgba(0,0,0,0.06); margin-top: 14px; margin-bottom: 28px; }
+  .score-note strong { color: var(--primary); }
+  .alert-box { background: #fff1ee; border: 1px solid #f5bba8; border-radius: 12px; padding: 18px 22px; margin-bottom: 28px; font-size: 0.88rem; color: #7a2d18; line-height: 1.6; }
+  .alert-box strong { color: #c0391a; }
+  .scores-detail { margin-bottom: 40px; }
+  .scores-detail h2 { font-size: 1.3rem; font-weight: 800; color: var(--primary); margin-bottom: 16px; }
+  .score-row-item { background: var(--white); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+  .sri-num { font-size: 1.5rem; font-weight: 900; min-width: 52px; text-align: center; }
+  .sri-num.poor { color: var(--red); } .sri-num.needs { color: var(--amber); } .sri-num.good { color: var(--green); }
+  .sri-info h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); }
+  .sri-info p { font-size: 0.8rem; color: #666; margin-top: 2px; }
+  .sri-bar-wrap { flex: 1; height: 6px; background: #e8ecf0; border-radius: 3px; overflow: hidden; }
+  .sri-bar { height: 100%; border-radius: 3px; }
+  .sri-bar.poor { background: var(--red); } .sri-bar.needs { background: var(--amber); } .sri-bar.good { background: var(--green); }
+  .section-heading { font-size: 1.4rem; font-weight: 900; color: var(--primary); margin-bottom: 6px; margin-top: 44px; }
+  .section-intro { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 22px; }
+  .issue-card { background: var(--white); border-radius: 14px; padding: 28px; margin-bottom: 16px; box-shadow: 0 1px 10px rgba(0,0,0,0.07); border-left: 4px solid transparent; }
+  .issue-card.critical { border-left-color: var(--red); } .issue-card.warning { border-left-color: var(--amber); } .issue-card.info { border-left-color: var(--primary); }
+  .issue-card .ic-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+  .issue-card .ic-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .ic-badge { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-bottom: 5px; display: inline-block; }
+  .ic-badge.critical { background: #fee2e2; color: var(--red); } .ic-badge.warning { background: #fef3c7; color: var(--amber); } .ic-badge.info { background: #dbeafe; color: #2563eb; }
+  .issue-card .ic-title { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+  .issue-sub { margin-bottom: 12px; }
+  .issue-sub h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 4px; }
+  .issue-sub p { font-size: 0.88rem; color: #444; line-height: 1.6; }
+  .good-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .good-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,0.07); display: flex; gap: 12px; align-items: flex-start; }
+  .good-card .gc-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .good-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .good-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .feature-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,0.07); }
+  .feature-card .fc-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .feature-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
+  .feature-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+  .plan-card { background: var(--white); border-radius: 14px; padding: 26px 22px; box-shadow: 0 2px 14px rgba(0,0,0,0.08); border: 2px solid var(--border); position: relative; }
+  .plan-card.featured { border-color: var(--accent); }
+  .plan-card .pc-recommended { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 3px 12px; border-radius: 10px; white-space: nowrap; letter-spacing: 0.4px; text-transform: uppercase; }
+  .plan-card .pc-name { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .plan-card .pc-price { font-size: 2rem; font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: 4px; }
+  .plan-card .pc-price span { font-size: 0.8rem; font-weight: 500; color: #888; }
+  .plan-card .pc-desc { font-size: 0.78rem; color: #888; margin-bottom: 18px; }
+  .plan-card ul { list-style: none; margin-bottom: 14px; }
+  .plan-card ul li { font-size: 0.82rem; color: #444; padding: 5px 0; border-bottom: 1px solid #f0f0f0; padding-left: 18px; position: relative; line-height: 1.45; }
+  .plan-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 0.78rem; }
+  .plan-card .pc-note { font-size: 0.75rem; color: #999; line-height: 1.45; }
+  .cta-block { background: var(--primary); border-radius: 16px; padding: 36px; text-align: center; margin-top: 48px; color: #fff; }
+  .cta-block h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; }
+  .cta-block p { color: rgba(255,255,255,0.75); font-size: 0.92rem; margin-bottom: 24px; line-height: 1.55; }
+  .cta-block a { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: 14px 30px; border-radius: 10px; font-size: 1rem; font-weight: 800; margin-bottom: 14px; transition: background 0.15s; }
+  .cta-block a:hover { background: #c94828; }
+  .cta-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+  .cta-meta-item { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+  .cta-meta-item strong { color: #fff; display: block; }
+  .audit-footer { text-align: center; color: #888; font-size: 0.76rem; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+  @media (max-width: 600px) { .scores-grid { grid-template-columns: repeat(2, 1fr); } .good-grid, .features-grid { grid-template-columns: 1fr; } .pricing-grid { grid-template-columns: 1fr; } .intro-block h1 { font-size: 1.5rem; } .intro-block { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="audit-header">
+  <div>
+    <div class="ah-logo">Trabelo</div>
+    <div class="ah-sub">Website Audit Report</div>
+  </div>
+  <a href="https://trabelo-tau.vercel.app/travellingvet.html" class="ah-demo">See the rebuilt demo →</a>
+</header>
+<div class="wrap">
+
+  <div class="intro-block">
+    <h1>The Travelling Vet</h1>
+    <p class="biz-url">travellingvet.co.uk · Mobile vet service — Sheffield &amp; South Yorkshire</p>
+    <p>Hi — I'm Aidan, I'm 18 and I do web design across Sheffield and South Yorkshire. I tested your website through Google's tools and the results are among the most extreme I've come across: a performance score of 49, a Largest Contentful Paint of 26.2 seconds, and your Core Web Vitals have failed. For a business built on convenience and trust — a mobile vet that comes to you so clients don't have to deal with the stress of the journey — having a website that takes 26 seconds to load works directly against your brand. I've put together a detailed audit and a full demo of what it could be.</p>
+  </div>
+
+  <div class="alert-box">
+    ⚠️ <strong>Core Web Vitals: FAILED.</strong> Google uses Core Web Vitals as a direct ranking signal. A CLS (layout shift) score of 0.11 and the overall performance score mean your site is currently at a disadvantage in search results compared to competitors with passing sites — including local surgeries competing for the same searches.
+  </div>
+
+  <div class="scores-section">
+    <p class="scores-heading">Google's Scores — Mobile</p>
+    <div class="scores-grid">
+      <div class="score-box poor"><div class="sn">49</div><div class="sl">Performance</div></div>
+      <div class="score-box good"><div class="sn">86</div><div class="sl">Accessibility</div></div>
+      <div class="score-box needs"><div class="sn">54</div><div class="sl">Best Practices</div></div>
+      <div class="score-box good"><div class="sn">92</div><div class="sl">SEO</div></div>
+    </div>
+    <div class="score-note">
+      The <strong>SEO score of 92</strong> is excellent — your content and metadata are doing the right things. But the performance is in the red zone: a score of <strong>49 puts you in Google's "Poor" category</strong>. The LCP of 26.2 seconds is the most extreme I've encountered. The Best Practices score of 54 points to deprecated code, third-party cookies and console errors. And Core Web Vitals are failing due to layout shift (CLS 0.11 — content moving around as the page loads).
+    </div>
+  </div>
+
+  <div class="scores-detail">
+    <h2>Scores in Detail</h2>
+    <p style="font-size:0.87rem;color:#666;margin-bottom:16px;">Tested on mobile, August 2026 · Google Lighthouse · Slow 4G</p>
+    <div class="score-row-item"><div class="sri-num poor">49</div><div class="sri-info"><h4>Performance</h4><p>LCP 26.2s, FCP 8.7s, 967 KB unused JS, 5,816 KB total page weight</p></div><div class="sri-bar-wrap"><div class="sri-bar poor" style="width:49%"></div></div></div>
+    <div class="score-row-item"><div class="sri-num good">86</div><div class="sri-info"><h4>Accessibility</h4><p>Near good — buttons without accessible names, contrast items flagged</p></div><div class="sri-bar-wrap"><div class="sri-bar good" style="width:86%"></div></div></div>
+    <div class="score-row-item"><div class="sri-num needs">54</div><div class="sri-info"><h4>Best Practices</h4><p>Deprecated APIs, 4 third-party cookies, console errors flagged</p></div><div class="sri-bar-wrap"><div class="sri-bar needs" style="width:54%"></div></div></div>
+    <div class="score-row-item"><div class="sri-num good">92</div><div class="sri-info"><h4>SEO</h4><p>Strong — pages indexable, good structure. Best score of all four categories.</p></div><div class="sri-bar-wrap"><div class="sri-bar good" style="width:92%"></div></div></div>
+  </div>
+
+  <h2 class="section-heading">What's Going Wrong</h2>
+  <p class="section-intro">Here's what Google flagged — in plain English.</p>
+
+  <div class="issue-card critical">
+    <div class="ic-top"><div class="ic-icon">🐢</div><div class="ic-title-wrap"><span class="ic-badge critical">Critical · Performance</span><div class="ic-title">26.2 seconds to load — the most extreme LCP I've seen</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>Google's lab test measured a Largest Contentful Paint — the time before the main visible content appears — of 26.2 seconds on mobile. The First Contentful Paint (when anything at all appears) is 8.7 seconds. These are not rounding errors. They're a consequence of a 5,816 KB total page size, 967 KB of JavaScript that loads but never gets used, and what looks like Shopify's standard asset loading behaviour — a platform with significant performance overhead on mobile.</p></div>
+    <div class="issue-sub"><h4>What this means for new clients</h4><p>Someone in Sheffield searching "mobile vet Sheffield" who clicks your result and sees a blank screen for 8 seconds — then waits a further 18 seconds before the page fully loads — will almost certainly have left before then. They're not going to book. They'll find someone else. Given that your entire value proposition is about removing friction and stress from the vet experience, a website that's one of the slowest I've encountered is a significant problem.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>Moving away from Shopify to a lightweight bespoke build removes the platform overhead entirely. No Shopify asset libraries, no unused JavaScript, no e-commerce framework loading on a vet information site. A bespoke build targets 97+ performance and under 2 seconds on mobile.</p></div>
+  </div>
+
+  <div class="issue-card critical">
+    <div class="ic-top"><div class="ic-icon">📐</div><div class="ic-title-wrap"><span class="ic-badge critical">Critical · Core Web Vitals</span><div class="ic-title">Core Web Vitals FAILED — CLS 0.11</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>Cumulative Layout Shift (CLS) measures how much page content moves around while loading. A score of 0.11 means elements are visibly jumping or shifting as the page loads. Google's pass threshold is 0.10 — you're just over it. This causes your Core Web Vitals to fail overall, which is a direct search ranking signal.</p></div>
+    <div class="issue-sub"><h4>What this means for you</h4><p>CWV failure means Google classifieds your site as providing a poor user experience — and factors that into your position in local search results. Traditional veterinary surgeries in the same coverage area with passing CWV scores have a ranking advantage over you, even if your SEO content is better written.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>Layout shift is caused by elements (typically images and fonts) loading without reserved space. A bespoke rebuild specifies dimensions for every element — nothing shifts after initial render. Target: CLS under 0.05, CWV passing across the board.</p></div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top"><div class="ic-icon">💻</div><div class="ic-title-wrap"><span class="ic-badge warning">Best Practices · Platform</span><div class="ic-title">Built on Shopify — a platform designed for e-commerce, not vet services</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>Your site runs on Shopify — primarily an e-commerce platform. Shopify loads a significant amount of JavaScript and CSS related to shop functionality regardless of whether the page uses it. That 967 KB of unused JavaScript is largely platform overhead. Additionally, Shopify pages can trigger deprecated API warnings and third-party cookie issues (4 flagged) that pull down your Best Practices score to 54.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>A bespoke HTML/CSS/JS build has no platform overhead — it loads only what the site actually needs. There's no shop, no product catalogue, no cart logic. Just a fast, clear veterinary services site.</p></div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top"><div class="ic-icon">📦</div><div class="ic-title-wrap"><span class="ic-badge warning">Performance · Page Weight</span><div class="ic-title">5.8 MB page — nearly 1 MB of JavaScript that never runs</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>The total mobile page weight is 5,816 KB — nearly 6 megabytes. Of that, 967 KB is JavaScript that loads but never executes on the current page. This is Shopify loading its full toolkit regardless of what the page actually needs. Each of those megabytes adds to the load time, particularly on mobile data connections.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>A bespoke build for a vet information site typically comes in under 1 MB. No unused JS, images compressed to modern formats, fonts loaded efficiently. The difference in perceived speed is dramatic.</p></div>
+  </div>
+
+  <div class="issue-card info">
+    <div class="ic-top"><div class="ic-icon">♿</div><div class="ic-title-wrap"><span class="ic-badge info">Accessibility</span><div class="ic-title">Buttons without accessible names</div></div></div>
+    <div class="issue-sub"><h4>What's happening</h4><p>Some buttons on your site don't have accessible names — meaning a screen reader can't describe what the button does to a visually impaired user. This pulls your accessibility score down from what could otherwise be near 100.</p></div>
+    <div class="issue-sub" style="margin-bottom:0;"><h4>The fix</h4><p>Every interactive element on a rebuilt site has an aria-label or visible text so screen readers can describe it accurately. Accessibility 97+ is the target.</p></div>
+  </div>
+
+  <h2 class="section-heading">What's Already Good</h2>
+  <p class="section-intro">Despite the technical issues, there's a genuinely compelling proposition here.</p>
+  <div class="good-grid">
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>SEO: 92</h4><p>Excellent — your content is doing the right things. People searching for mobile vets in Sheffield are finding you. The performance issues are costing you conversions, not discovery.</p></div></div>
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>Unique Service</h4><p>A home-visit mobile vet is a genuinely differentiated service. The current site doesn't communicate that differentiation — a rebuilt site would make it the hero of every page.</p></div></div>
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>HomeStart Packages</h4><p>New pet owner packages are a smart, high-value service. They deserve a dedicated page and a homepage feature — not buried in a menu.</p></div></div>
+    <div class="good-card"><div class="gc-icon">✅</div><div><h4>End of Life Care</h4><p>Offering dignified end of life care at home is one of the most valued things a vet can do. It should be mentioned with care and warmth — and be easy to find.</p></div></div>
+  </div>
+
+  <h2 class="section-heading">What a Rebuilt Site Would Add</h2>
+  <p class="section-intro">What the current site fails to deliver — and what a rebuild would fix from day one.</p>
+  <div class="features-grid">
+    <div class="feature-card"><div class="fc-icon">⚡</div><h4>Performance 97+ — Under 2 Seconds</h4><p>From 26 seconds to under 2. No Shopify overhead, no unused JS, images in WebP. CWV passing across the board.</p></div>
+    <div class="feature-card"><div class="fc-icon">🏠</div><h4>Home Visit USP — Front and Centre</h4><p>The homepage hero communicates the key message: we come to you. No waiting rooms. No stress. Immediately clear to every visitor.</p></div>
+    <div class="feature-card"><div class="fc-icon">🐣</div><h4>HomeStart — Dedicated Page</h4><p>Puppy, kitten and rabbit HomeStart packages get their own page with full inclusions, benefits and a booking form.</p></div>
+    <div class="feature-card"><div class="fc-icon">💰</div><h4>Prices — Clearly Listed</h4><p>Consultations from £75, vaccinations from £80–85. Showing prices builds trust and reduces the friction of "I need to call to find out."</p></div>
+    <div class="feature-card"><div class="fc-icon">📍</div><h4>Coverage Area — Clearly Mapped</h4><p>Sheffield, Dronfield, Chesterfield, Worksop and surrounding areas shown clearly — so visitors know instantly if you come to them.</p></div>
+    <div class="feature-card"><div class="fc-icon">👩‍⚕️</div><h4>Charlotte &amp; Kate — Introduced Properly</h4><p>The team is the business. A rebuilt site introduces them with warmth — because trust is the main purchase factor for a home-visit vet.</p></div>
+    <div class="feature-card"><div class="fc-icon">📐</div><h4>CLS Fixed — No Layout Shift</h4><p>Elements have reserved dimensions from the start. Nothing shifts on load. CWV passes. Google ranking improves.</p></div>
+    <div class="feature-card"><div class="fc-icon">🌿</div><h4>End of Life — Handled with Care</h4><p>A dedicated section for end of life care — written thoughtfully, easy to find, without it being distressing or hidden.</p></div>
+  </div>
+
+  <h2 class="section-heading" style="margin-top:48px;">What It Would Cost</h2>
+  <p class="section-intro">One-off fixed prices. No monthly fees except where honestly noted.</p>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="pc-name">Starter</div>
+      <div class="pc-price">£395 <span>one-off</span></div>
+      <div class="pc-desc">5 pages · Fast, clean rebuild</div>
+      <ul>
+        <li>Home, Services, HomeStart, Team, Contact</li>
+        <li>Performance 97+ · CWV PASSING</li>
+        <li>Home visit messaging front &amp; centre</li>
+        <li>Coverage area clearly shown</li>
+        <li>Prices listed</li>
+        <li>Booking enquiry form</li>
+        <li>No Shopify, no platform fees</li>
+      </ul>
+      <p class="pc-note">Updates: £15 per change, or £30/month unlimited small updates.</p>
+    </div>
+    <div class="plan-card featured">
+      <div class="pc-recommended">Most popular</div>
+      <div class="pc-name">Business</div>
+      <div class="pc-price">£795 <span>one-off</span></div>
+      <div class="pc-desc">Everything in Starter, plus:</div>
+      <ul>
+        <li>Prices per species &amp; service type</li>
+        <li>HomeStart — full dedicated page</li>
+        <li>Charlotte &amp; Kate — team profiles</li>
+        <li>End of life care — dedicated section</li>
+        <li>Coverage map / postcode check</li>
+        <li>Booking form with pet details</li>
+        <li>Training included</li>
+      </ul>
+      <p class="pc-note">No monthly fees. Everything one-off.</p>
+    </div>
+    <div class="plan-card">
+      <div class="pc-name">Premium</div>
+      <div class="pc-price">£1,295 <span>one-off</span></div>
+      <div class="pc-desc">The full works:</div>
+      <ul>
+        <li>Everything in Business</li>
+        <li>CMS — update prices yourself</li>
+        <li>Online booking with calendar</li>
+        <li>Client review / testimonial section</li>
+        <li>Blog / pet care tips section</li>
+        <li>Newsletter sign-up</li>
+        <li>Training included</li>
+      </ul>
+      <p class="pc-note">Small hosting cost may apply (~£0–9/month).</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>Ready to see what it could look like?</h2>
+    <p>I've already built a full demo — home visit messaging front and centre, HomeStart packages, services with prices, team profiles, and a coverage area page. You can see it right now.</p>
+    <a href="https://trabelo-tau.vercel.app/travellingvet.html">View the Demo Site →</a>
+    <div class="cta-meta">
+      <div class="cta-meta-item"><strong>Aidan Fry</strong>Trabelo · Sheffield</div>
+      <div class="cta-meta-item"><strong>aidan@trabelo.com</strong>Get in touch</div>
+      <div class="cta-meta-item"><strong>No obligation</strong>No pressure</div>
+    </div>
+  </div>
+  <p class="audit-footer"><strong>Trabelo · Sheffield</strong> — Website audit prepared for The Travelling Vet · travellingvet.co.uk · August 2026</p>
+</div>
+</body>
+</html>
