@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Veterinary Practice — Website Audit by Trabelo</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1a5c33;
+    --accent: #4caf70;
+    --light: #f0f8f3;
+    --border: #d4e8da;
+    --text: #1a1a1a;
+    --text-light: #5a6a5e;
+    --white: #ffffff;
+    --red: #e53e3e;
+    --amber: #d97706;
+    --green: #16a34a;
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f6faf7; color: var(--text); }
+
+  .audit-header {
+    background: #0d0d0d;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .audit-header .ah-logo { color: #fff; font-size: 1.2rem; font-weight: 800; }
+  .audit-header .ah-sub { color: #888; font-size: 0.75rem; margin-top: 2px; }
+  .audit-header .ah-demo { background: var(--accent); color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 44px 20px 80px; }
+
+  .intro-block { background: var(--white); border-radius: 16px; padding: 36px; margin-bottom: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+  .intro-block h1 { font-size: 1.9rem; font-weight: 900; color: var(--primary); line-height: 1.2; margin-bottom: 6px; }
+  .intro-block .biz-url { color: #888; font-size: 0.85rem; margin-bottom: 22px; }
+  .intro-block p { color: #444; font-size: 0.95rem; line-height: 1.7; }
+
+  .scores-section { margin-bottom: 28px; }
+  .scores-heading { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #666; text-align: center; margin-bottom: 14px; }
+  .scores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px; }
+  .score-box { background: var(--white); border-radius: 12px; padding: 18px 10px; text-align: center; box-shadow: 0 1px 10px rgba(0,0,0,0.08); }
+  .score-box .sn { font-size: 2.2rem; font-weight: 900; line-height: 1; margin-bottom: 5px; }
+  .score-box .sl { font-size: 0.7rem; color: #666; font-weight: 500; }
+  .score-box.poor .sn { color: var(--red); }
+  .score-box.needs .sn { color: var(--amber); }
+  .score-box.good .sn { color: var(--green); }
+  .score-note { background: var(--white); border-radius: 12px; padding: 16px 20px; font-size: 0.88rem; color: #444; line-height: 1.6; box-shadow: 0 1px 8px rgba(0,0,0,0.06); margin-bottom: 28px; }
+  .score-note strong { color: var(--primary); }
+
+  .scores-detail { margin-bottom: 40px; }
+  .scores-detail h2 { font-size: 1.3rem; font-weight: 800; color: var(--primary); margin-bottom: 16px; }
+  .score-row-item { background: var(--white); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+  .sri-num { font-size: 1.5rem; font-weight: 900; min-width: 52px; text-align: center; }
+  .sri-num.poor { color: var(--red); }
+  .sri-num.needs { color: var(--amber); }
+  .sri-num.good { color: var(--green); }
+  .sri-info h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); }
+  .sri-info p { font-size: 0.8rem; color: #666; margin-top: 2px; }
+  .sri-bar-wrap { flex: 1; height: 6px; background: #e8ecf0; border-radius: 3px; overflow: hidden; }
+  .sri-bar { height: 100%; border-radius: 3px; }
+  .sri-bar.poor { background: var(--red); }
+  .sri-bar.needs { background: var(--amber); }
+  .sri-bar.good { background: var(--green); }
+
+  .section-heading { font-size: 1.4rem; font-weight: 900; color: var(--primary); margin-bottom: 6px; margin-top: 44px; }
+  .section-intro { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 22px; }
+
+  .issue-card { background: var(--white); border-radius: 14px; padding: 28px; margin-bottom: 16px; box-shadow: 0 1px 10px rgba(0,0,0,0.07); border-left: 4px solid transparent; }
+  .issue-card.critical { border-left-color: var(--red); }
+  .issue-card.warning { border-left-color: var(--amber); }
+  .issue-card.info { border-left-color: var(--primary); }
+  .issue-card .ic-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+  .issue-card .ic-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .ic-badge { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-bottom: 5px; display: inline-block; }
+  .ic-badge.critical { background: #fee2e2; color: var(--red); }
+  .ic-badge.warning { background: #fef3c7; color: var(--amber); }
+  .ic-badge.info { background: #dcfce7; color: var(--primary); }
+  .issue-card .ic-title { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+  .issue-sub { margin-bottom: 12px; }
+  .issue-sub h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 4px; }
+  .issue-sub p { font-size: 0.88rem; color: #444; line-height: 1.6; }
+
+  .good-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .good-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,0.07); display: flex; gap: 12px; align-items: flex-start; }
+  .good-card .gc-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .good-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .good-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .feature-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,0.07); }
+  .feature-card .fc-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .feature-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
+  .feature-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+  .plan-card { background: var(--white); border-radius: 14px; padding: 26px 22px; box-shadow: 0 2px 14px rgba(0,0,0,0.08); border: 2px solid var(--border); position: relative; }
+  .plan-card.featured { border-color: var(--accent); }
+  .plan-card .pc-recommended { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 3px 12px; border-radius: 10px; white-space: nowrap; letter-spacing: 0.4px; text-transform: uppercase; }
+  .plan-card .pc-name { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .plan-card .pc-price { font-size: 2rem; font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: 4px; }
+  .plan-card .pc-price span { font-size: 0.8rem; font-weight: 500; color: #888; }
+  .plan-card .pc-desc { font-size: 0.78rem; color: #888; margin-bottom: 18px; }
+  .plan-card ul { list-style: none; margin-bottom: 14px; }
+  .plan-card ul li { font-size: 0.82rem; color: #444; padding: 5px 0; border-bottom: 1px solid #f0f0f0; padding-left: 18px; position: relative; line-height: 1.45; }
+  .plan-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 0.78rem; }
+  .plan-card .pc-note { font-size: 0.75rem; color: #999; line-height: 1.45; }
+
+  .cta-block { background: var(--primary); border-radius: 16px; padding: 36px; text-align: center; margin-top: 48px; color: #fff; }
+  .cta-block h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; }
+  .cta-block p { color: #9ec4a8; font-size: 0.92rem; margin-bottom: 24px; line-height: 1.55; }
+  .cta-block a { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: 14px 30px; border-radius: 10px; font-size: 1rem; font-weight: 800; margin-bottom: 14px; transition: background 0.15s; }
+  .cta-block a:hover { background: #3d9960; }
+  .cta-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+  .cta-meta-item { font-size: 0.82rem; color: #9ec4a8; }
+  .cta-meta-item strong { color: #fff; display: block; }
+
+  .audit-footer { text-align: center; color: #888; font-size: 0.76rem; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+
+  @media (max-width: 600px) {
+    .scores-grid { grid-template-columns: repeat(2, 1fr); }
+    .good-grid, .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .intro-block h1 { font-size: 1.5rem; }
+    .intro-block { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="audit-header">
+  <div>
+    <div class="ah-logo">Trabelo</div>
+    <div class="ah-sub">Website Audit Report</div>
+  </div>
+  <a href="https://trabelo-tau.vercel.app/greenvets.html" class="ah-demo">See the rebuilt demo →</a>
+</header>
+
+<div class="wrap">
+
+  <div class="intro-block">
+    <h1>Green Veterinary Practice</h1>
+    <p class="biz-url">greenvets.co.uk</p>
+    <p>Hi — I'm Aidan, I'm 18 and I do web design across Sheffield and South Yorkshire. I've had a proper look at your website and run it through Google's testing tools. As an independent practice — one of very few left in South Yorkshire — your online presence really matters for attracting new clients in your area. There are a few specific issues holding the site back, particularly around accessibility and SEO, and I've put together a free audit explaining all of them. I've also built a full demo of what a rebuilt site could look like.</p>
+  </div>
+
+  <div class="scores-section">
+    <p class="scores-heading">Google's scores for your current site</p>
+    <div class="scores-grid">
+      <div class="score-box needs"><div class="sn">72</div><div class="sl">Performance</div></div>
+      <div class="score-box needs"><div class="sn">81</div><div class="sl">Accessibility</div></div>
+      <div class="score-box good"><div class="sn">100</div><div class="sl">Best Practices</div></div>
+      <div class="score-box needs"><div class="sn">85</div><div class="sl">SEO</div></div>
+    </div>
+    <div class="score-note">
+      These are Google's own scores — out of 100 — for your site on mobile. The <strong>best practices score of 100</strong> is genuinely impressive — your site is doing everything right technically in that regard. But the accessibility score of <strong>81</strong> and SEO score of <strong>85</strong> both have specific, fixable issues that are worth addressing, and your <strong>performance score of 72</strong> means the site is slower than it should be.
+    </div>
+  </div>
+
+  <div class="scores-detail">
+    <h2>How Your Site Scores Right Now</h2>
+    <p style="font-size:0.87rem;color:#666;margin-bottom:16px;">Tested on mobile, August 2026 · Google Lighthouse 13.4.1 · Slow 4G</p>
+    <div class="score-row-item">
+      <div class="sri-num needs">72</div>
+      <div class="sri-info"><h4>Performance</h4><p>LCP of 7.1 seconds in lab testing — although real user data shows faster results</p></div>
+      <div class="sri-bar-wrap"><div class="sri-bar needs" style="width:72%"></div></div>
+    </div>
+    <div class="score-row-item">
+      <div class="sri-num needs">81</div>
+      <div class="sri-info"><h4>Accessibility</h4><p>Missing alt text, form labels, and heading hierarchy issues flagged</p></div>
+      <div class="sri-bar-wrap"><div class="sri-bar needs" style="width:81%"></div></div>
+    </div>
+    <div class="score-row-item">
+      <div class="sri-num good">100</div>
+      <div class="sri-info"><h4>Best Practices</h4><p>Perfect score — technically excellent in terms of security and modern standards</p></div>
+      <div class="sri-bar-wrap"><div class="sri-bar good" style="width:100%"></div></div>
+    </div>
+    <div class="score-row-item">
+      <div class="sri-num needs">85</div>
+      <div class="sri-info"><h4>SEO</h4><p>No meta description, missing alt text on images — both affect how Google presents you</p></div>
+      <div class="sri-bar-wrap"><div class="sri-bar needs" style="width:85%"></div></div>
+    </div>
+  </div>
+
+  <!-- ISSUES -->
+  <h2 class="section-heading">What's Going Wrong</h2>
+  <p class="section-intro">Here's what Google found — in plain English, with what each issue means for your patients and your practice.</p>
+
+  <div class="issue-card warning">
+    <div class="ic-top">
+      <div class="ic-icon">🖼️</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge warning">Accessibility &amp; SEO · Images</span>
+        <div class="ic-title">Images have no alt text — invisible to Google and screen readers</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Multiple images on your site are missing "alt text" — a short description that tells Google (and assistive technology like screen readers) what the image shows. When alt text is missing, Google can't understand what the image is, and anyone using a screen reader just hears "image" with no context.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>For anyone visiting your site with visual impairment who uses a screen reader — they lose context for a significant part of your content. And for Google, it's a missed opportunity: images with good alt text can appear in Google Image search, bringing in additional visitors who might then book an appointment.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>Every image on a rebuilt site gets descriptive, search-relevant alt text written in as standard. Not a big change, but genuinely meaningful for both accessibility and SEO.</p>
+    </div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top">
+      <div class="ic-icon">🔍</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge warning">SEO · Visibility</span>
+        <div class="ic-title">No meta description — Google fills in the gap badly</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Your site is missing a meta description — the snippet of text that appears under your link in Google search results. Without one, Google either shows nothing, or pulls a random sentence from the page, which rarely makes a compelling case for clicking through to you.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>Even with your SEO score of 85, new clients searching "independent vets Sheffield," "vets Lightwood Lane" or "emergency vet S8" may see your listing but not click it — because the snippet doesn't tell them what makes you special. For an independent practice competing against corporate chains that have marketing teams, every click matters.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A rebuilt site includes a carefully written meta description — tuned to highlight what makes Green Vets different: independent, 24/7 emergency line, located in Sheffield S8.</p>
+    </div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top">
+      <div class="ic-icon">📋</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge warning">Accessibility · Forms</span>
+        <div class="ic-title">Your contact form isn't labelled properly</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>The form fields on your contact/enquiry form don't have properly associated labels. In plain English: the form works visually, but if someone is using a screen reader or keyboard navigation — they can't tell what each field is for. The technology reads "text input" rather than "your name" or "email address."</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>For clients with visual impairment who use screen readers, filling in your contact form becomes a frustrating guessing game. Some will give up. That's an enquiry — and potentially a long-term client — lost before they've even got in touch.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A rebuilt site has all form fields properly labelled — both visually and in the underlying code. The form is easy to use for everyone, on any device.</p>
+    </div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top">
+      <div class="ic-icon">📏</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge warning">Accessibility · Structure</span>
+        <div class="ic-title">Heading structure skips levels — confuses screen readers</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Your page headings (H1, H2, H3 etc.) don't follow a logical sequence — they jump around, skipping levels. In plain English: it's a bit like a document that goes from Chapter 1 straight to Subsection 1.3.2 without the middle sections. Screen readers use heading structure to navigate pages — when it's irregular, the experience breaks down.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>Clients using assistive technology to navigate your site can't easily jump between sections or understand the structure of the page. It also contributes slightly to a lower accessibility score, which Google takes into account as a quality signal.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A rebuild uses a clean, logical heading hierarchy from the start — every section labelled correctly, easy to navigate for everyone.</p>
+    </div>
+  </div>
+
+  <div class="issue-card info">
+    <div class="ic-top">
+      <div class="ic-icon">🐌</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge info">Performance · Load Speed</span>
+        <div class="ic-title">7.1 second load time in lab tests — even if real users are faster</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Google's lab test measured a Largest Contentful Paint (the time until the main visible content appears) of 7.1 seconds. The good news is that your real-world Core Web Vitals data — measured from actual Chrome users — shows faster results, meaning the experience in practice is better than the lab suggests. But there's still a meaningful gap to close.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>Most of your clients are probably loading the site quickly enough — the real-user data passing is a good sign. But some users, particularly on slower connections or older phones, may still experience slow loads. A performance score of 72 also has some effect on Google's search ranking algorithm, and there are easy wins available (1,350ms savings from render-blocking resources, 442 KB savings from image optimisation).</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A bespoke rebuild eliminates the render-blocking resources, properly compresses and sizes every image, and removes the platform overhead from the current website builder. Target: performance 97+ on mobile.</p>
+    </div>
+  </div>
+
+  <div class="issue-card info">
+    <div class="ic-top">
+      <div class="ic-icon">🏗️</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge info">Platform</span>
+        <div class="ic-title">Built on MyWebsite NOW — a platform with performance ceilings</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Your site is built on a platform called MyWebsite NOW (a white-label Ionos product). Like most website builders, it loads a lot of code that isn't specific to your site — contributing to the render-blocking issues and some of the performance overhead that Google flags.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for you</h4>
+      <p>The accessibility issues — missing alt text, form labels, heading structure — are harder to fix properly in a page builder than in a bespoke build. You're also paying a monthly subscription for a platform that's working against your scores. A custom site is faster, more flexible, and owned by you outright.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A clean bespoke rebuild — no platform, no monthly page-builder subscription, no code you don't need. Lightweight, fast, fully accessible from the start.</p>
+    </div>
+  </div>
+
+  <!-- WHAT'S GOOD -->
+  <h2 class="section-heading">What's Already Good</h2>
+  <p class="section-intro">Several things are genuinely working well — worth recognising.</p>
+  <div class="good-grid">
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Best Practices: 100/100</h4>
+        <p>A perfect score. Your site is fully secure, uses HTTPS throughout, and follows all of Google's technical best practices correctly. That's excellent and rare.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Core Web Vitals: PASSED</h4>
+        <p>Real-world Chrome user data shows your site passing Google's Core Web Vitals — LCP 1.0s, INP 78ms, CLS 0. Your real users are having a decent experience.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Fast Server Response (TTFB 0.5s)</h4>
+        <p>Your hosting is fast — the server responds in 0.5 seconds. That's a solid foundation, and a good sign for any bespoke rebuild hosted on similar infrastructure.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Independent Practice — a Real Differentiator</h4>
+        <p>Being independently owned matters to a growing number of pet owners. Your website doesn't shout about this nearly enough — it should be front and centre.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>24/7 Emergency Line — Prominently Displayed</h4>
+        <p>The emergency number is at the top of the site. That's one thing the current site does right, and a bespoke rebuild would preserve and enhance this.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Strong Location — South Sheffield</h4>
+        <p>Lightwood Barn is a distinctive, memorable address. The site barely makes anything of the location and setting — a rebuild would change that.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <h2 class="section-heading">What a Rebuilt Site Would Add</h2>
+  <p class="section-intro">Here's what the current site can't do that a bespoke rebuild would deliver as standard.</p>
+  <div class="features-grid">
+    <div class="feature-card"><div class="fc-icon">⚡</div><h4>Performance 97+ on Mobile</h4><p>Properly optimised images, no render-blocking resources, no platform overhead. Loads in under 3 seconds on a real mobile connection.</p></div>
+    <div class="feature-card"><div class="fc-icon">♿</div><h4>Full Accessibility — Properly Done</h4><p>Alt text on every image, correctly labelled forms, logical heading structure. Accessible to everyone — and a better signal to Google.</p></div>
+    <div class="feature-card"><div class="fc-icon">🔎</div><h4>SEO 100 — Meta Descriptions &amp; Structured Data</h4><p>Compelling meta descriptions for every page. Structured data so Google understands you're a vet practice, your hours, your address, your emergency line.</p></div>
+    <div class="feature-card"><div class="fc-icon">📱</div><h4>Mobile-First Design</h4><p>Built for the phones your clients are actually on. Clean, fast and easy to navigate — no adapting a desktop layout to mobile.</p></div>
+    <div class="feature-card"><div class="fc-icon">🐾</div><h4>Online Pet Registration Form</h4><p>A proper, accessible registration form — so new clients can sign up without having to call. More enquiries, less admin.</p></div>
+    <div class="feature-card"><div class="fc-icon">🏆</div><h4>Independent Positioning — Front &amp; Centre</h4><p>"One of the last independent practices in South Yorkshire" is a powerful message. A rebuild makes it the first thing people see, not a footnote.</p></div>
+    <div class="feature-card"><div class="fc-icon">🚨</div><h4>Emergency Info — Clearly Signposted</h4><p>Your 24/7 emergency line highlighted prominently on every page — because that's often the first reason someone searches for a vet at all.</p></div>
+    <div class="feature-card"><div class="fc-icon">🌐</div><h4>Yours to Own Outright</h4><p>No monthly platform subscription. One fixed price — and the site is yours completely, no builder fees, no ongoing licence costs.</p></div>
+  </div>
+
+  <!-- PRICING -->
+  <h2 class="section-heading" style="margin-top:48px;">What It Would Cost</h2>
+  <p class="section-intro">All prices are one-off and fixed. No contracts, no monthly fees (except where honestly noted).</p>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="pc-name">Starter</div>
+      <div class="pc-price">£395 <span>one-off</span></div>
+      <div class="pc-desc">5 pages · Clean, fast rebuild</div>
+      <ul>
+        <li>Home, Services, About, Contact, Emergency</li>
+        <li>Performance 97+ on mobile</li>
+        <li>Accessibility 98+, SEO 100</li>
+        <li>Alt text on every image</li>
+        <li>Properly labelled contact form</li>
+        <li>Meta descriptions for every page</li>
+        <li>24/7 emergency line featured throughout</li>
+      </ul>
+      <p class="pc-note">Updates: £15 per change, or £30/month unlimited small updates.</p>
+    </div>
+    <div class="plan-card featured">
+      <div class="pc-recommended">Most popular</div>
+      <div class="pc-name">Business</div>
+      <div class="pc-price">£795 <span>one-off</span></div>
+      <div class="pc-desc">Everything in Starter, plus:</div>
+      <ul>
+        <li>Online pet registration form</li>
+        <li>Testimonials page</li>
+        <li>Large animal / equine section linked</li>
+        <li>"Independent practice" story section</li>
+        <li>Google Maps embed</li>
+        <li>Newsletter sign-up</li>
+        <li>Facebook feed integration</li>
+        <li>Training included</li>
+      </ul>
+      <p class="pc-note">No monthly fees. Everything included, one-off price.</p>
+    </div>
+    <div class="plan-card">
+      <div class="pc-name">Premium</div>
+      <div class="pc-price">£1,295 <span>one-off</span></div>
+      <div class="pc-desc">The full works:</div>
+      <ul>
+        <li>Everything in Business</li>
+        <li>CMS — update content yourself</li>
+        <li>Online appointment booking system</li>
+        <li>Patient portal / pet health records</li>
+        <li>Automated reminder emails</li>
+        <li>Emergency notification push alerts</li>
+        <li>Training included</li>
+      </ul>
+      <p class="pc-note">Small hosting cost may apply (~£0–9/month) for CMS and booking features.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Ready to see what it could look like?</h2>
+    <p>I've already put together a full demo of your rebuilt website — you can view it right now, no login needed. If you'd like to have a chat, everything can be sorted over email.</p>
+    <a href="https://trabelo-tau.vercel.app/greenvets.html">View the Demo Site →</a>
+    <div class="cta-meta">
+      <div class="cta-meta-item"><strong>Aidan Fry</strong>Trabelo · Sheffield</div>
+      <div class="cta-meta-item"><strong>aidan@trabelo.com</strong>Get in touch</div>
+      <div class="cta-meta-item"><strong>No obligation</strong>Take a look, no pressure</div>
+    </div>
+  </div>
+
+  <p class="audit-footer">
+    <strong>Trabelo · Sheffield</strong> — Website audit prepared for Green Veterinary Practice, greenvets.co.uk · August 2026
+  </p>
+
+</div>
+</body>
+</html>

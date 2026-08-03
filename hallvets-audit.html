@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hall Court Vets — Website Audit by Trabelo</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1e3d5a;
+    --accent: #d4832a;
+    --light: #f4f7fa;
+    --border: #e2e8f0;
+    --text: #1a1a1a;
+    --text-light: #5a6a7a;
+    --white: #ffffff;
+    --red: #e53e3e;
+    --amber: #d97706;
+    --green: #16a34a;
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: var(--text); }
+
+  /* HEADER */
+  .audit-header {
+    background: #0d0d0d;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .audit-header .ah-logo { color: #fff; font-size: 1.2rem; font-weight: 800; }
+  .audit-header .ah-sub { color: #888; font-size: 0.75rem; margin-top: 2px; }
+  .audit-header .ah-demo {
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 44px 20px 80px; }
+
+  /* INTRO */
+  .intro-block {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  }
+  .intro-block h1 {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .intro-block .biz-url { color: #888; font-size: 0.85rem; margin-bottom: 22px; }
+  .intro-block p { color: #444; font-size: 0.95rem; line-height: 1.7; }
+
+  /* SCORES */
+  .scores-section { margin-bottom: 28px; }
+  .scores-heading { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #666; text-align: center; margin-bottom: 14px; }
+  .scores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .score-box {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 18px 10px;
+    text-align: center;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.08);
+  }
+  .score-box .sn { font-size: 2.2rem; font-weight: 900; line-height: 1; margin-bottom: 5px; }
+  .score-box .sl { font-size: 0.7rem; color: #666; font-weight: 500; }
+  .score-box.poor .sn { color: var(--red); }
+  .score-box.needs .sn { color: var(--amber); }
+  .score-box.good .sn { color: var(--green); }
+  .score-note {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.6;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    margin-bottom: 28px;
+  }
+  .score-note strong { color: var(--primary); }
+
+  /* HOW YOUR SITE SCORES */
+  .scores-detail { margin-bottom: 40px; }
+  .scores-detail h2 { font-size: 1.3rem; font-weight: 800; color: var(--primary); margin-bottom: 16px; }
+  .score-row-item {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  .sri-num { font-size: 1.5rem; font-weight: 900; min-width: 52px; text-align: center; }
+  .sri-num.poor { color: var(--red); }
+  .sri-num.needs { color: var(--amber); }
+  .sri-num.good { color: var(--green); }
+  .sri-info h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); }
+  .sri-info p { font-size: 0.8rem; color: #666; margin-top: 2px; }
+  .sri-bar-wrap { flex: 1; height: 6px; background: #e8ecf0; border-radius: 3px; overflow: hidden; }
+  .sri-bar { height: 100%; border-radius: 3px; }
+  .sri-bar.poor { background: var(--red); }
+  .sri-bar.needs { background: var(--amber); }
+  .sri-bar.good { background: var(--green); }
+
+  /* ISSUES */
+  .section-heading {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 6px;
+    margin-top: 44px;
+  }
+  .section-intro {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+  .issue-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.07);
+    border-left: 4px solid transparent;
+  }
+  .issue-card.critical { border-left-color: var(--red); }
+  .issue-card.warning { border-left-color: var(--amber); }
+  .issue-card.info { border-left-color: var(--primary); }
+  .issue-card .ic-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .issue-card .ic-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .issue-card .ic-title-wrap .ic-badge {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+  .ic-badge.critical { background: #fee2e2; color: var(--red); }
+  .ic-badge.warning { background: #fef3c7; color: var(--amber); }
+  .ic-badge.info { background: #dbeafe; color: #2563eb; }
+  .issue-card .ic-title { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+  .issue-sub { margin-bottom: 12px; }
+  .issue-sub h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 4px; }
+  .issue-sub p { font-size: 0.88rem; color: #444; line-height: 1.6; }
+
+  /* WHAT'S GOOD */
+  .good-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .good-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .good-card .gc-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .good-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .good-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+
+  /* FEATURES */
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .feature-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  }
+  .feature-card .fc-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .feature-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
+  .feature-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+
+  /* PRICING */
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+  .plan-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 26px 22px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+    border: 2px solid var(--border);
+    position: relative;
+  }
+  .plan-card.featured { border-color: var(--accent); }
+  .plan-card .pc-recommended {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 10px;
+    white-space: nowrap;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+  .plan-card .pc-name { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .plan-card .pc-price { font-size: 2rem; font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: 4px; }
+  .plan-card .pc-price span { font-size: 0.8rem; font-weight: 500; color: #888; }
+  .plan-card .pc-desc { font-size: 0.78rem; color: #888; margin-bottom: 18px; }
+  .plan-card ul { list-style: none; margin-bottom: 14px; }
+  .plan-card ul li { font-size: 0.82rem; color: #444; padding: 5px 0; border-bottom: 1px solid #f0f0f0; padding-left: 18px; position: relative; line-height: 1.45; }
+  .plan-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 0.78rem; }
+  .plan-card .pc-note { font-size: 0.75rem; color: #999; line-height: 1.45; }
+
+  /* CTA */
+  .cta-block {
+    background: var(--primary);
+    border-radius: 16px;
+    padding: 36px;
+    text-align: center;
+    margin-top: 48px;
+    color: var(--white);
+  }
+  .cta-block h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; }
+  .cta-block p { color: #a8c0d4; font-size: 0.92rem; margin-bottom: 24px; line-height: 1.55; }
+  .cta-block a {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    transition: background 0.15s;
+  }
+  .cta-block a:hover { background: #b36c1f; }
+  .cta-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+  .cta-meta-item { font-size: 0.82rem; color: #a8c0d4; }
+  .cta-meta-item strong { color: var(--white); display: block; }
+
+  .audit-footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.76rem;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .scores-grid { grid-template-columns: repeat(2, 1fr); }
+    .good-grid, .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .intro-block h1 { font-size: 1.5rem; }
+    .intro-block { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="audit-header">
+  <div>
+    <div class="ah-logo">Trabelo</div>
+    <div class="ah-sub">Website Audit Report</div>
+  </div>
+  <a href="https://trabelo-tau.vercel.app/hallvets.html" class="ah-demo">See the rebuilt demo →</a>
+</header>
+
+<div class="wrap">
+
+  <div class="intro-block">
+    <h1>Hall Court Veterinary Group</h1>
+    <p class="biz-url">hallvets.co.uk</p>
+    <p>Hi — I'm Aidan, I'm 18 and I do web design across Sheffield and South Yorkshire. I've taken a proper look at your website and run it through Google's speed and quality testing tools. There are some things worth knowing about — in particular, your best practices score of 46 stands out. That's caused by security issues on the site: some content is being loaded over an insecure connection, which modern browsers flag as a warning. For a practice that's served this community for over 100 years, it's the kind of thing that's worth getting in front of.</p>
+  </div>
+
+  <div class="scores-section">
+    <p class="scores-heading">Google's scores for your current site</p>
+    <div class="scores-grid">
+      <div class="score-box poor"><div class="sn">52</div><div class="sl">Performance</div></div>
+      <div class="score-box needs"><div class="sn">83</div><div class="sl">Accessibility</div></div>
+      <div class="score-box poor"><div class="sn">46</div><div class="sl">Best Practices</div></div>
+      <div class="score-box good"><div class="sn">92</div><div class="sl">SEO</div></div>
+    </div>
+    <div class="score-note">
+      These are Google's own scores — out of 100 — for your site on mobile. The SEO score of <strong>92</strong> is genuinely good. But the performance score of <strong>52</strong> and the best practices score of <strong>46</strong> are pulling things back, and both are fixable. The accessibility score of <strong>83</strong> is reasonable but has some specific issues worth addressing.
+    </div>
+  </div>
+
+  <div class="scores-detail">
+    <h2>How Your Site Scores Right Now</h2>
+    <p style="font-size:0.87rem;color:#666;margin-bottom:16px;">Tested on mobile, August 2026 · Google Lighthouse 13.4.1 · Slow 4G</p>
+
+    <div class="score-row-item">
+      <div class="sri-num poor">52</div>
+      <div class="sri-info"><h4>Performance</h4><p>Site loads in nearly 6 seconds on mobile — well above the 3-second threshold</p></div>
+      <div class="sri-bar-wrap"><div class="sri-bar poor" style="width:52%"></div></div>
+    </div>
+    <div class="score-row-item">
+      <div class="sri-num needs">83</div>
+      <div class="sri-info"><h4>Accessibility</h4><p>Mostly good — a few contrast and ARIA issues to tidy up</p></div>
+      <div class="sri-bar-wrap"><div class="sri-bar needs" style="width:83%"></div></div>
+    </div>
+    <div class="score-row-item">
+      <div class="sri-num poor">46</div>
+      <div class="sri-info"><h4>Best Practices</h4><p>Insecure HTTP requests flagged — browsers may warn visitors about this</p></div>
+      <div class="sri-bar-wrap"><div class="sri-bar poor" style="width:46%"></div></div>
+    </div>
+    <div class="score-row-item">
+      <div class="sri-num good">92</div>
+      <div class="sri-info"><h4>SEO</h4><p>Solid — pages are indexed, headings are structured well</p></div>
+      <div class="sri-bar-wrap"><div class="sri-bar good" style="width:92%"></div></div>
+    </div>
+  </div>
+
+  <!-- ISSUES -->
+  <h2 class="section-heading">What's Going Wrong</h2>
+  <p class="section-intro">Here's what Google's tools found — explained in plain English, with what it means for your clients and your practice.</p>
+
+  <div class="issue-card critical">
+    <div class="ic-top">
+      <div class="ic-icon">🔒</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge critical">Critical · Security</span>
+        <div class="ic-title">The site is loading some content insecurely</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Google found 2 insecure requests — content being loaded over HTTP rather than HTTPS on what should be a secure site. In plain English: some bits of your website are being served without encryption. Modern browsers (Chrome, Safari, Firefox) flag this and may show a warning to visitors, or block the content entirely.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>This is why your best practices score is 46 — the second-lowest score I've seen of any practice in South Yorkshire. Clients visiting on a modern browser might see a security warning in their address bar, or content might not load at all. For a veterinary practice where trust is everything, that's not a good first impression.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>On a rebuilt site, everything is served over HTTPS from the start. No mixed content, no browser warnings, no security flags from Google.</p>
+    </div>
+  </div>
+
+  <div class="issue-card critical">
+    <div class="ic-top">
+      <div class="ic-icon">🐌</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge critical">Critical · Performance</span>
+        <div class="ic-title">Main content takes nearly 6 seconds to appear on mobile</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Google measured what's called "Largest Contentful Paint" — the time until the main visible content of your homepage has loaded. For your site, that's 5.9 seconds on a typical mobile connection. The benchmark Google considers acceptable is 2.5 seconds. Your site also has a layout shift score of 0.324 — well above the 0.1 threshold — which means the page visibly jumps around as it loads.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>Most people will close a website that doesn't load within 3–4 seconds. At nearly 6 seconds, you're losing a significant number of potential new clients before they've even seen your services. People searching for a vet in Dinnington or Handsworth will often visit 2 or 3 practices' websites — if yours is the slow one, they move on. It also affects your Google ranking: Google now uses real-world load speed as a ranking factor.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A bespoke rebuild loads only what it needs. Images are properly compressed and sized. No WordPress theme overhead, no WPBakery plugin loading. A well-built site typically hits 2–3 seconds even with good imagery.</p>
+    </div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top">
+      <div class="ic-icon">📦</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge warning">Performance · Page Size</span>
+        <div class="ic-title">The site is downloading 8.7 MB of data — most of it unnecessary</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Your total page size is 8,714 KB — nearly 9 megabytes. Google identified 6,298 KB of that could be saved just by improving image delivery (resizing, compressing and serving modern formats). On top of that, there's 393 KB of unused JavaScript and 135 KB of unused CSS loading on every page — code the site downloads but never actually uses.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>Every extra megabyte means more waiting. On a standard mobile connection, 9 MB takes time. Clients on slower rural connections — of which there are plenty in Dinnington and the surrounding area — will feel this more than most. It's also using more of their mobile data allowance than it should.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A properly built site typically loads in under 1 MB. Images are compressed and served in modern formats. There's no platform bloat — just the code the site actually needs.</p>
+    </div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top">
+      <div class="ic-icon">📐</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge warning">Performance · User Experience</span>
+        <div class="ic-title">The page jumps around as it loads</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Your Cumulative Layout Shift score is 0.324. This measures how much the page visually jumps around as images and content load in. Google's threshold for a good experience is below 0.1. At 0.324, you're more than three times over that. The main cause is images loading without defined dimensions, so the browser doesn't know how much space to leave for them.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>If someone is trying to tap a phone number or a menu link and the page suddenly shifts under their finger, they end up tapping the wrong thing — or give up. It's a genuinely frustrating experience on mobile, and it directly affects how Google scores your site.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>All images on a rebuilt site are given explicit dimensions. Content loads in place with no jumping. Layout shift score on a well-built site is typically 0.0–0.05.</p>
+    </div>
+  </div>
+
+  <div class="issue-card warning">
+    <div class="ic-top">
+      <div class="ic-icon">🔍</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge warning">SEO · Visibility</span>
+        <div class="ic-title">No meta description — Google can't describe your practice properly</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Your site is missing a meta description — the short paragraph of text that appears under your link in Google search results. When this is missing, Google either shows nothing at all or pulls a random line from the page, which is rarely the most compelling thing it could say about you.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for your clients</h4>
+      <p>Your SEO score of 92 means you're showing up in Google searches — but your listing doesn't say much about who you are. A potential new client Googling "vets Dinnington" or "vets Handsworth" might see your link with a vague or blank description, and click a competitor instead. It's a small thing that makes a real difference to click-through rates.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A rebuilt site includes carefully written descriptions for every page — tuned to what people are actually searching for in your area.</p>
+    </div>
+  </div>
+
+  <div class="issue-card info">
+    <div class="ic-top">
+      <div class="ic-icon">🏗️</div>
+      <div class="ic-title-wrap">
+        <span class="ic-badge info">Platform Limitation</span>
+        <div class="ic-title">Built on WordPress + WPBakery — a platform with real ceilings</div>
+      </div>
+    </div>
+    <div class="issue-sub">
+      <h4>What's happening</h4>
+      <p>Your site runs on WordPress using WPBakery Page Builder — a drag-and-drop page builder. It's a common setup, but WPBakery in particular is known for generating bloated, heavy HTML and loading a lot of JavaScript that slows things down. WordPress itself is a general-purpose CMS that loads a lot of code regardless of what your specific site needs.</p>
+    </div>
+    <div class="issue-sub">
+      <h4>What this means for you</h4>
+      <p>Some of the performance issues above are direct consequences of the platform — not things that can be fully fixed without changing it. Even with careful optimisation on WordPress, there's a ceiling on how fast it can go. And WPBakery sites are notoriously difficult to maintain as the platform ages.</p>
+    </div>
+    <div class="issue-sub" style="margin-bottom:0;">
+      <h4>The fix</h4>
+      <p>A clean bespoke build — lightweight, no platform overhead, hosted on modern infrastructure. The finished site is yours to own outright, no monthly WordPress licence or plugin fees.</p>
+    </div>
+  </div>
+
+  <!-- WHAT'S GOOD -->
+  <h2 class="section-heading">What's Already Good</h2>
+  <p class="section-intro">A few things on the current site that are working well and worth acknowledging.</p>
+  <div class="good-grid">
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>SEO: 92/100</h4>
+        <p>Your pages are being indexed by Google and your site has reasonable heading structure. You're showing up in local searches — a solid foundation.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Accessibility: 83/100</h4>
+        <p>The site is mostly accessible to people using assistive technology. The issues that exist are specific and fixable — it's not broken, just not quite there.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>100+ Years of History</h4>
+        <p>You have a genuinely compelling story — over a century in Sheffield, a historic setting, an independent practice. The website doesn't do that justice at all right now.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Three Surgeries — Great Coverage</h4>
+        <p>Dinnington, Handsworth and Olive Lane covers a wide area of South Yorkshire. That's a strong differentiator and the site should be making more of it.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Emergency Line Always Available</h4>
+        <p>The 24-hour emergency number is on the site. That's important information that new clients need to be able to find easily — and ideally more prominently displayed.</p>
+      </div>
+    </div>
+    <div class="good-card">
+      <div class="gc-icon">✅</div>
+      <div>
+        <h4>Sunday Appointments Now Available</h4>
+        <p>The new Sunday appointment service at Dinnington is a real differentiator for busy clients. It deserves to be front and centre — currently it's buried in the page text.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <h2 class="section-heading">What a Rebuilt Site Would Add</h2>
+  <p class="section-intro">Here's what the current site can't do that a properly built rebuild would include as standard.</p>
+  <div class="features-grid">
+    <div class="feature-card"><div class="fc-icon">⚡</div><h4>Performance 97+ on Mobile</h4><p>Loads in under 3 seconds. No WordPress overhead, no WPBakery, no bloat — just clean, fast code built specifically for your practice.</p></div>
+    <div class="feature-card"><div class="fc-icon">🔒</div><h4>Fully Secure — HTTPS Throughout</h4><p>No insecure requests. No browser warnings. A clean bill of health from Google on best practices — properly done from the ground up.</p></div>
+    <div class="feature-card"><div class="fc-icon">📱</div><h4>Mobile-First Design</h4><p>Built for the phones your clients are actually using, not adapted from a desktop layout. Looks and feels professional on every screen size.</p></div>
+    <div class="feature-card"><div class="fc-icon">📍</div><h4>Proper Multi-Location Layout</h4><p>Dedicated section for all three surgeries — hours, addresses, directions and what's available at each one. Clear, navigable, well-organised.</p></div>
+    <div class="feature-card"><div class="fc-icon">🐾</div><h4>Online Pet Registration</h4><p>A proper registration form on the site so new clients can sign up without having to call in. Reduces admin, captures more enquiries.</p></div>
+    <div class="feature-card"><div class="fc-icon">🔎</div><h4>Google Optimised — Properly</h4><p>Meta descriptions for every page. Structured data so Google understands you're a veterinary practice, your addresses, your hours, your locations.</p></div>
+    <div class="feature-card"><div class="fc-icon">🛁</div><h4>Stable Spa Featured Properly</h4><p>The grooming service is a unique offering — it should have its own proper section, not a brief mention. A rebuilt site would give it the visibility it deserves.</p></div>
+    <div class="feature-card"><div class="fc-icon">🌐</div><h4>Yours to Own Outright</h4><p>No WordPress licence, no WPBakery subscription, no platform fees. One fixed price — and the finished site is yours completely.</p></div>
+  </div>
+
+  <!-- PRICING -->
+  <h2 class="section-heading" style="margin-top:48px;">What It Would Cost</h2>
+  <p class="section-intro">All prices are one-off and fixed. No contracts, no monthly fees (except where honestly noted).</p>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="pc-name">Starter</div>
+      <div class="pc-price">£395 <span>one-off</span></div>
+      <div class="pc-desc">5 pages · Clean, fast rebuild</div>
+      <ul>
+        <li>Home, Services, About, Locations, Contact</li>
+        <li>Performance 97+ on mobile</li>
+        <li>Accessibility 98+, SEO 100</li>
+        <li>Mobile-first, fully responsive</li>
+        <li>Fully secure — HTTPS throughout</li>
+        <li>Meta descriptions for every page</li>
+        <li>Online enquiry form</li>
+        <li>All three surgery locations</li>
+      </ul>
+      <p class="pc-note">Updates: £15 per change, or £30/month unlimited small updates.</p>
+    </div>
+    <div class="plan-card featured">
+      <div class="pc-recommended">Most popular</div>
+      <div class="pc-name">Business</div>
+      <div class="pc-price">£795 <span>one-off</span></div>
+      <div class="pc-desc">Everything in Starter, plus:</div>
+      <ul>
+        <li>Pet registration form</li>
+        <li>Repeat prescription request form</li>
+        <li>Stable Spa dedicated section</li>
+        <li>Sunday appointments featured prominently</li>
+        <li>Olive Lane new branch featured</li>
+        <li>Pet care info / downloads section</li>
+        <li>Google Maps embed for each surgery</li>
+        <li>Training included</li>
+      </ul>
+      <p class="pc-note">No monthly fees. Everything included, one-off price.</p>
+    </div>
+    <div class="plan-card">
+      <div class="pc-name">Premium</div>
+      <div class="pc-price">£1,295 <span>one-off</span></div>
+      <div class="pc-desc">The full works:</div>
+      <ul>
+        <li>Everything in Business</li>
+        <li>CMS — update content yourself</li>
+        <li>Online appointment booking system</li>
+        <li>Pet health portal / client login</li>
+        <li>Newsletter sign-up &amp; email list</li>
+        <li>Automated registration confirmation emails</li>
+        <li>Facebook feed integration</li>
+        <li>Training included</li>
+      </ul>
+      <p class="pc-note">Small hosting cost may apply (~£0–9/month) for CMS and booking system.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Ready to see what it could look like?</h2>
+    <p>I've already put together a full demo of your rebuilt website — you can view it right now, no login needed. If you'd like to have a chat, everything can be sorted over email.</p>
+    <a href="https://trabelo-tau.vercel.app/hallvets.html">View the Demo Site →</a>
+    <div class="cta-meta">
+      <div class="cta-meta-item"><strong>Aidan Fry</strong>Trabelo · Sheffield</div>
+      <div class="cta-meta-item"><strong>aidan@trabelo.com</strong>Get in touch</div>
+      <div class="cta-meta-item"><strong>No obligation</strong>Take a look, no pressure</div>
+    </div>
+  </div>
+
+  <p class="audit-footer">
+    <strong>Trabelo · Sheffield</strong> — Website audit prepared for Hall Court Veterinary Group, hallvets.co.uk · August 2026
+  </p>
+
+</div>
+</body>
+</html>
