@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanctuary of Zen | Holistic Massage &amp; Wellness | Dronfield &amp; Sheffield</title>
+<meta name="description" content="Sanctuary of Zen — holistic massage, Angelic Reiki and Temple Spa treatments with Olivia in Dronfield, covering Sheffield and the surrounding area. Book online today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brown:#4A3B30;--brown-soft:#7A6552;--brown-pale:#A8967F;
+    --cream:#FBF6EF;--cream-alt:#F1E7D8;
+    --sage:#5F7850;--sage-light:#94A585;--sage-pale:#EEF2E9;--sage-deep:#425536;
+    --gold:#BF9552;--gold-light:#D9B76F;--gold-pale:#F6EEE0;
+    --rose:#C48A7B;--rose-pale:#F7E9E4;
+    --white:#fff;--text:#3A2F27;--border:#E6D9C7;
+  }
+  .ring-deco{position:absolute;border-radius:50%;border:1.5px solid currentColor;pointer-events:none;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;overflow-x:hidden;}
+
+  .topbar{background:var(--brown);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.5rem 1.5rem;display:flex;flex-wrap:wrap;gap:0.4rem 1.5rem;justify-content:center;}
+  .topbar a{color:#E8D9BE;text-decoration:none;}
+  .topbar span{display:flex;align-items:center;gap:0.4rem;}
+
+  nav{position:sticky;top:0;z-index:100;background:rgba(251,246,239,0.95);backdrop-filter:blur(6px);border-bottom:1.5px solid var(--border);}
+  .nav-inner{max-width:1160px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;height:68px;gap:0.5rem;}
+  .logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.35rem;color:var(--brown);text-decoration:none;white-space:nowrap;flex-shrink:0;line-height:1.15;}
+  .logo span{color:var(--sage);display:block;font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;}
+  .nav-links{display:flex;gap:0.1rem;list-style:none;margin-left:auto;align-items:center;}
+  .nav-links a{display:block;padding:0.4rem 0.7rem;font-size:0.8rem;font-weight:500;color:var(--brown-soft);text-decoration:none;border-radius:4px;transition:color 0.2s,background 0.2s;}
+  .nav-links a:hover{color:var(--sage);background:var(--sage-pale);}
+  .nav-cta{background:var(--sage)!important;color:var(--white)!important;font-weight:600!important;border-radius:100px!important;padding:0.5rem 1.15rem!important;margin-left:0.3rem;}
+  .nav-cta:hover{background:var(--brown)!important;color:#fff!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto;background:none;border:none;padding:4px;}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--brown);}
+  .mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:1rem 1.5rem;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu a{display:block;padding:0.65rem 0;border-bottom:1px solid var(--border);font-size:0.92rem;font-weight:500;color:var(--brown-soft);text-decoration:none;}
+  .mobile-menu a:last-child{border-bottom:none;}
+
+  .hero{position:relative;min-height:86vh;display:flex;align-items:center;overflow:hidden;}
+  .hero::after{content:'';position:absolute;top:12%;right:6%;width:220px;height:220px;border-radius:50%;border:1.5px solid rgba(232,217,190,0.35);z-index:1;pointer-events:none;}
+  .hero::before{content:'';position:absolute;top:20%;right:12%;width:150px;height:150px;border-radius:50%;border:1.5px solid rgba(201,218,184,0.3);z-index:1;pointer-events:none;}
+  .hero-bg{position:absolute;inset:0;background:linear-gradient(110deg,rgba(58,47,39,0.85) 0%,rgba(58,47,39,0.55) 55%,rgba(116,135,101,0.55) 100%),url('photos-zen/zen-hero.jpg') center 30%/cover no-repeat;z-index:0;}
+  .hero-content{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:5rem 1.5rem 3rem;display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:center;width:100%;}
+  .hero-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#E8D9BE;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+  .hero-eyebrow::before{content:'';display:block;width:28px;height:1.5px;background:#E8D9BE;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.3rem,5vw,3.8rem);color:#fff;line-height:1.1;margin-bottom:1.2rem;}
+  .hero h1 em{font-style:italic;color:#C9DAB8;font-weight:600;}
+  .hero-sub{font-size:1rem;color:rgba(255,255,255,0.85);max-width:490px;margin-bottom:2rem;line-height:1.8;}
+  .hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+  .stat-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.7rem;color:#E8D9BE;line-height:1;}
+  .stat-label{font-size:0.68rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn-primary{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-deep) 100%);color:#fff;padding:0.85rem 1.8rem;font-size:0.88rem;font-weight:600;border-radius:100px;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:box-shadow 0.2s,transform 0.15s;box-shadow:0 6px 18px rgba(66,85,54,0.28);}
+  .btn-primary:hover{box-shadow:0 10px 24px rgba(66,85,54,0.38);transform:translateY(-2px);}
+  .btn-outline{background:transparent;color:#fff;padding:0.85rem 1.8rem;font-size:0.88rem;font-weight:500;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.45);display:inline-block;transition:border-color 0.2s;}
+  .btn-outline:hover{border-color:#E8D9BE;}
+
+  .hero-card{background:rgba(58,47,39,0.88);border:1px solid rgba(232,217,190,0.3);border-radius:14px;padding:1.75rem;backdrop-filter:blur(8px);}
+  .hero-card h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.05rem;color:#E8D9BE;margin-bottom:1.1rem;}
+  .card-row{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.8rem;font-size:0.82rem;color:rgba(255,255,255,0.8);line-height:1.5;}
+  .card-icon{flex-shrink:0;}
+  .card-divider{border:none;border-top:1px solid rgba(232,217,190,0.25);margin:1.1rem 0;}
+  .card-book{display:block;text-align:center;background:var(--sage);color:#fff;padding:0.7rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.85rem;margin-bottom:0.6rem;}
+  .card-book:hover{background:#5f7052;}
+  .card-sub{font-size:0.66rem;color:rgba(255,255,255,0.45);text-align:center;letter-spacing:0.08em;text-transform:uppercase;}
+
+  .trust-strip{background:var(--sage);padding:1rem 1.5rem;display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 2.25rem;}
+  .trust-item{display:flex;align-items:center;gap:0.45rem;font-size:0.76rem;font-weight:500;color:rgba(255,255,255,0.95);}
+
+  .page-section{display:none;}
+  .page-section.active{display:block;}
+  .container{max-width:1160px;margin:0 auto;padding:0 1.5rem;}
+  .section-pad{padding:4.5rem 0;}
+  .bg-white{background:var(--white);}
+  .bg-cream{background:var(--cream);}
+  .bg-alt{background:var(--cream-alt);}
+  .bg-brown{background:var(--brown);}
+
+  .section-header{text-align:center;max-width:620px;margin:0 auto 3rem;padding:0 1rem;}
+  .section-eyebrow{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:0.65rem;}
+  .section-header h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--brown);line-height:1.2;margin-bottom:0.9rem;}
+  .section-header p{font-size:0.95rem;color:var(--brown-soft);line-height:1.75;}
+  .section-divider{width:8px;height:8px;border-radius:50%;background:var(--gold);margin:1rem auto 0;position:relative;}
+  .section-divider::before,.section-divider::after{content:'';position:absolute;top:50%;width:26px;height:1.5px;background:var(--sage-light);transform:translateY(-50%);}
+  .section-divider::before{right:100%;margin-right:8px;}
+  .section-divider::after{left:100%;margin-left:8px;}
+
+  .qual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .qual-card{background:rgba(255,255,255,0.06);border:1px solid rgba(232,217,190,0.25);border-radius:14px;padding:2rem 1.6rem;text-align:center;transition:transform 0.25s,background 0.25s;}
+  .qual-card:hover{transform:translateY(-4px);background:rgba(255,255,255,0.1);}
+  .qual-icon{font-size:2.2rem;margin-bottom:1rem;display:block;}
+  .qual-card h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.2rem;color:#E8D9BE;margin-bottom:0.6rem;}
+  .qual-card p{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.7;}
+
+  .highlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+  .highlight-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.9rem 1.6rem;text-align:center;transition:box-shadow 0.25s,transform 0.25s;}
+  .highlight-card:hover{box-shadow:0 10px 30px rgba(74,59,48,0.1);transform:translateY(-3px);}
+  .highlight-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+  .highlight-card h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.15rem;color:var(--brown);margin-bottom:0.5rem;}
+  .highlight-card p{font-size:0.85rem;color:var(--brown-soft);line-height:1.65;}
+
+  .treat-group{margin-bottom:3rem;}
+  .treat-group:last-child{margin-bottom:0;}
+  .treat-group-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem;color:var(--brown);margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:2px solid var(--sage-pale);}
+  .treat-list{display:grid;gap:0.75rem;}
+  .treat-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.4rem;}
+  .treat-row-name{font-size:0.94rem;font-weight:600;color:var(--brown);}
+  .treat-row-time{font-size:0.78rem;color:var(--brown-soft);margin-top:0.15rem;}
+  .treat-row-right{display:flex;align-items:center;gap:1rem;flex-shrink:0;}
+  .treat-row-price{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.25rem;color:var(--sage);flex-shrink:0;}
+  .treat-row-book{background:var(--sage-pale);color:var(--sage-deep);border:1.5px solid var(--sage-light);padding:0.4rem 0.95rem;border-radius:100px;font-size:0.76rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background 0.2s,color 0.2s;}
+  .treat-row-book:hover{background:var(--sage);color:#fff;}
+
+  .group-banner{background:var(--gold-pale);border:1.5px solid var(--gold);border-radius:14px;padding:2rem;margin-top:2.5rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;}
+  .group-banner h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.2rem;color:var(--brown);margin-bottom:0.4rem;}
+  .group-banner p{font-size:0.85rem;color:var(--brown-soft);line-height:1.6;}
+
+  .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+  .review-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.6rem;}
+  .review-stars{color:var(--gold);font-size:0.9rem;margin-bottom:0.6rem;}
+  .review-text{font-size:0.87rem;color:var(--text);line-height:1.7;margin-bottom:0.8rem;font-style:italic;}
+  .review-author{font-size:0.76rem;font-weight:600;color:var(--sage);}
+
+  .about-layout{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
+  .about-layout h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2rem;color:var(--brown);margin-bottom:1rem;line-height:1.2;}
+  .about-layout p{color:var(--brown-soft);font-size:0.94rem;line-height:1.85;margin-bottom:1.2rem;}
+  .about-badges{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .expect-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3.5rem;}
+  .expect-card{text-align:center;padding:1.5rem 1rem;}
+  .expect-num{width:38px;height:38px;border-radius:50%;background:var(--sage-pale);border:1.5px solid var(--sage-light);color:var(--sage-deep);font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 0.9rem;}
+  .expect-card h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.02rem;color:var(--brown);margin-bottom:0.4rem;}
+  .expect-card p{font-size:0.8rem;color:var(--brown-soft);line-height:1.6;}
+  .pull-quote{max-width:640px;margin:3.5rem auto 0;text-align:center;padding:2.25rem 2rem;background:var(--rose-pale);border-radius:16px;border:1px solid rgba(196,138,123,0.3);}
+  .pull-quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.35rem;color:var(--brown);line-height:1.5;}
+  .pull-quote span{display:block;margin-top:0.9rem;font-family:'Inter',sans-serif;font-style:normal;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose);}
+  .about-badge{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.4rem;text-align:center;}
+  .about-badge span{font-size:1.6rem;display:block;margin-bottom:0.4rem;}
+  .about-badge b{display:block;font-family:'Cormorant Garamond',serif;font-size:0.92rem;color:var(--brown);font-weight:600;}
+
+  .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+  .contact-row{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1.15rem;font-size:0.9rem;color:var(--text);line-height:1.5;}
+  .ci{flex-shrink:0;}
+  .contact-row a{color:var(--text);text-decoration:none;}
+  .contact-row a:hover{color:var(--sage);}
+  .book-card{background:var(--sage-pale);border:1px solid var(--sage);border-radius:12px;padding:1.5rem;margin-top:1.5rem;text-align:center;}
+  .book-card h4{font-family:'Cormorant Garamond',serif;color:var(--brown);margin-bottom:0.5rem;font-size:1.05rem;}
+  .book-card p{font-size:0.83rem;color:var(--brown-soft);line-height:1.6;margin-bottom:1rem;}
+  .book-card a{display:inline-block;background:var(--sage);color:#fff;padding:0.65rem 1.4rem;border-radius:100px;font-size:0.85rem;font-weight:600;text-decoration:none;}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+  .form-group label{font-size:0.74rem;font-weight:600;color:var(--brown-soft);text-transform:uppercase;letter-spacing:0.07em;}
+  .form-group input,.form-group select,.form-group textarea{padding:0.75rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--text);background:var(--white);transition:border-color 0.2s;outline:none;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sage);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+  footer{background:var(--brown);color:rgba(255,255,255,0.6);padding:3rem 1.5rem 1.25rem;}
+  .footer-inner{max-width:1160px;margin:0 auto;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+  .footer-brand .logo{color:#fff;}
+  .footer-brand p{font-size:0.82rem;line-height:1.75;margin-top:0.75rem;max-width:280px;}
+  .footer-col h4{font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#E8D9BE;margin-bottom:1rem;}
+  .footer-col a{display:block;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin-bottom:0.55rem;}
+  .footer-col a:hover{color:#E8D9BE;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;font-size:0.72rem;color:rgba(255,255,255,0.32);}
+  .trabelo-credit{color:#C9DAB8!important;font-weight:500;}
+
+  @media(max-width:900px){.hero-content{grid-template-columns:1fr;}.hero-card{display:none;}.highlight-grid{grid-template-columns:1fr 1fr;}.qual-grid{grid-template-columns:1fr;}.reviews-grid{grid-template-columns:1fr;}.about-layout{grid-template-columns:1fr;gap:2rem;}.expect-grid{grid-template-columns:1fr 1fr;}.contact-layout{grid-template-columns:1fr;gap:2rem;}.footer-grid{grid-template-columns:1fr 1fr;}.group-banner{grid-template-columns:1fr;text-align:center;}}
+  @media(max-width:600px){.nav-links{display:none;}.hamburger{display:flex;}.highlight-grid{grid-template-columns:1fr;}.about-badges{grid-template-columns:1fr 1fr;}.expect-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.treat-row{flex-direction:column;align-items:flex-start;gap:0.3rem;}.treat-row-right{width:100%;justify-content:space-between;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>💬 <a href="https://wa.me/447971550905" target="_blank" rel="noopener">WhatsApp 07971 550905</a></span>
+  <span>📍 Amàre Hair &amp; Beauty, 35a Chesterfield Rd, Dronfield S18 2XA</span>
+</div>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">Sanctuary of Zen<span>Dronfield · Sheffield</span></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('treatments')">Treatments</a></li>
+      <li><a href="#" onclick="showPage('reviews')">Reviews</a></li>
+      <li><a href="#" onclick="showPage('about')">About</a></li>
+      <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showPage('home');toggleMenu()">Home</a>
+    <a href="#" onclick="showPage('treatments');toggleMenu()">Treatments</a>
+    <a href="#" onclick="showPage('reviews');toggleMenu()">Reviews</a>
+    <a href="#" onclick="showPage('about');toggleMenu()">About</a>
+    <a href="#" onclick="showPage('contact');toggleMenu()">Contact</a>
+    <a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener">Book Now</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="page-home" class="page-section active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">Dronfield &amp; Sheffield</div>
+        <h1>Find Your <em>Peace</em></h1>
+        <p class="hero-sub">Holistic massage, Angelic Reiki and Temple Spa treatments with Olivia — a space to slow down, breathe, and be properly taken care of.</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Rated on Facebook</div></div>
+          <div class="stat"><div class="stat-num">Certified</div><div class="stat-label">Holistic Practitioner</div></div>
+          <div class="stat"><div class="stat-num">10%</div><div class="stat-label">Off — Blue Light Card</div></div>
+        </div>
+        <div class="hero-btns">
+          <a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="btn-primary">Book Now</a>
+          <a href="#" class="btn-outline" onclick="showPage('treatments')">View Treatments</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>🕊️ Quick Info</h3>
+        <div class="card-row"><span class="card-icon">📍</span><span>Amàre Hair &amp; Beauty, 35a Chesterfield Rd, Dronfield S18 2XA</span></div>
+        <div class="card-row"><span class="card-icon">🌿</span><span>Holistic Massage · Angelic Reiki · Temple Spa</span></div>
+        <div class="card-row"><span class="card-icon">💙</span><span>10% off for Blue Light Card members</span></div>
+        <hr class="card-divider">
+        <a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="card-book">Book an Appointment</a>
+        <div class="card-sub">Or message on WhatsApp</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">✓ Holistic &amp; Organic</div>
+    <div class="trust-item">✓ Angelic Reiki Certified</div>
+    <div class="trust-item">✓ Temple Spa Consultant</div>
+    <div class="trust-item">✓ Blue Light Card 10% Off</div>
+    <div class="trust-item">✓ 5★ Rated</div>
+  </div>
+
+  <div class="section-pad bg-brown">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow" style="color:#C9DAB8;">Meet Olivia</div>
+        <h2 style="color:#fff;">Fully Qualified, Truly Specialised</h2>
+        <p style="color:rgba(255,255,255,0.65);">Three disciplines, one calming space — every treatment led by proper training, not guesswork.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="qual-grid">
+        <div class="qual-card">
+          <span class="qual-icon">💆🏽‍♀️</span>
+          <h3>Holistic Massage Therapist</h3>
+          <p>Fully qualified in holistic massage — treating you as a whole person, not just easing sore muscles. Organic oils and products used wherever possible.</p>
+        </div>
+        <div class="qual-card">
+          <span class="qual-icon">🪽</span>
+          <h3>Angelic Reiki Practitioner</h3>
+          <p>A gentle, hands-on energy healing practice aimed at restoring balance — physically, emotionally and spiritually. Deeply relaxing, even if it's your first time.</p>
+        </div>
+        <div class="qual-card">
+          <span class="qual-icon">🧖🏽‍♀️</span>
+          <h3>Temple Spa Consultant</h3>
+          <p>Your local Temple Spa consultant for Sheffield &amp; Dronfield — bringing luxury, award-winning spa products into your treatments and your own home routine.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-pad bg-cream">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Treatments</div>
+        <h2>A Little Something for Every Kind of Rest</h2>
+        <p>From a quick reset to a full afternoon of luxury — every treatment is organic where possible, and entirely about you.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="highlight-grid">
+        <div class="highlight-card"><span class="highlight-icon">💆🏽‍♀️</span><h3>Massage Treatments</h3><p>Swedish, holistic, hot stones, pregnancy and more — from £30.</p></div>
+        <div class="highlight-card"><span class="highlight-icon">✨</span><h3>Face &amp; Skin Care</h3><p>Express and Temple Spa facials, holistic facials and ASMR scalp treatments.</p></div>
+        <div class="highlight-card"><span class="highlight-icon">🪽</span><h3>Spiritual &amp; Wellness</h3><p>Angelic Reiki, angel card readings, and group wellness evenings.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;"><a href="#" class="btn-primary" onclick="showPage('treatments')" style="background:var(--sage);color:#fff;">See Full Price List</a></div>
+    </div>
+  </div>
+
+  <div class="section-pad bg-white">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What People Say</div>
+        <h2>Trusted by Clients Across Sheffield &amp; Dronfield</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Absolutely amazing. Olivia melts your stress and tension away with her fabulous treatments. I love that she's so professional, attentive, and caring, showing a true dedication to your wellbeing. I look forward to every visit."</div><div class="review-author">Joanna Martin · Facebook Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Absolutely gorgeous experience, Olivia is amazing and so accommodating especially with health conditions and in general. 100% would recommend and will definitely be going back again."</div><div class="review-author">Faith Louise · Facebook Review</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section id="page-treatments" class="page-section">
+  <div style="position:relative;height:300px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(58,47,39,0.88) 0%,rgba(58,47,39,0.5) 100%), url('photos-zen/zen-hero.jpg') center 30%/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#E8D9BE;">Price List</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Treatments &amp; <em style="font-style:italic;color:#C9DAB8;">Prices</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-cream">
+    <div class="container">
+
+      <div class="treat-group">
+        <div class="treat-group-title">💆🏽‍♀️ Massage Treatments</div>
+        <div class="treat-list">
+          <div class="treat-row"><div><div class="treat-row-name">Indian Head Massage</div><div class="treat-row-time">45 minutes</div></div><div class="treat-row-right"><div class="treat-row-price">£35</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Mini Massage</div><div class="treat-row-time">35 minutes — targeted area, e.g. legs &amp; feet or back, neck &amp; shoulders</div></div><div class="treat-row-right"><div class="treat-row-price">£30</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Swedish Full Body</div><div class="treat-row-time">60 minutes</div></div><div class="treat-row-right"><div class="treat-row-price">£55</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Holistic Full Body</div><div class="treat-row-time">75 minutes</div></div><div class="treat-row-right"><div class="treat-row-price">£70</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Pregnancy Massage</div><div class="treat-row-time">60 minutes</div></div><div class="treat-row-right"><div class="treat-row-price">£45</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Full Body Hot Stones</div><div class="treat-row-time">95 minutes</div></div><div class="treat-row-right"><div class="treat-row-price">£80</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Luxury Full Body &amp; Facial</div><div class="treat-row-time">1 hour 45 minutes</div></div><div class="treat-row-right"><div class="treat-row-price">£95</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+        </div>
+      </div>
+
+      <div class="treat-group">
+        <div class="treat-group-title">✨ Face &amp; Skin Care</div>
+        <div class="treat-list">
+          <div class="treat-row"><div><div class="treat-row-name">Express Facial</div></div><div class="treat-row-right"><div class="treat-row-price">£30</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Temple Spa Facial</div></div><div class="treat-row-right"><div class="treat-row-price">£35</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Holistic Facial &amp; Massage</div></div><div class="treat-row-right"><div class="treat-row-price">£40</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Facial &amp; Scalp Massage</div></div><div class="treat-row-right"><div class="treat-row-price">£40</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Scratch &amp; Comb ASMR Add-On</div></div><div class="treat-row-right"><div class="treat-row-price">£10</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+        </div>
+      </div>
+
+      <div class="treat-group">
+        <div class="treat-group-title">🪽 Spiritual &amp; Wellness</div>
+        <div class="treat-list">
+          <div class="treat-row"><div><div class="treat-row-name">Angelic Reiki</div><div class="treat-row-time">45 minutes</div></div><div class="treat-row-right"><div class="treat-row-price">£40</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+          <div class="treat-row"><div><div class="treat-row-name">Angel Card Reading</div><div class="treat-row-time">30 minutes</div></div><div class="treat-row-right"><div class="treat-row-price">£20</div><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="treat-row-book">Book</a></div></div>
+        </div>
+      </div>
+
+      <div class="group-banner">
+        <div>
+          <h4>🏠 Wellness Evenings &amp; Spa to Go</h4>
+          <p>Host a wellness evening at home with friends or colleagues (£10pp), or book the Sunday Spa to Go special (£10pp) — a little group self-care, brought to you.</p>
+        </div>
+        <a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="btn-primary" style="background:var(--gold);white-space:nowrap;">Enquire Now</a>
+      </div>
+
+      <div style="text-align:center;margin-top:2.5rem;"><a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="btn-primary" style="background:var(--sage);">Book an Appointment</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="page-reviews" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(58,47,39,0.88) 0%,rgba(58,47,39,0.5) 100%), url('photos-zen/zen-hero.jpg') center 30%/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#E8D9BE;">5★ Rated</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Client <em style="font-style:italic;color:#C9DAB8;">Reviews</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-cream">
+    <div class="container">
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Absolutely amazing. Olivia melts your stress and tension away with her fabulous treatments. I love that she's so professional, attentive, and caring, showing a true dedication to your wellbeing. I look forward to every visit."</div><div class="review-author">Joanna Martin · Facebook Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Absolutely gorgeous experience, Olivia is amazing and so accommodating especially with health conditions and in general. 100% would recommend and will definitely be going back again."</div><div class="review-author">Faith Louise · Facebook Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Olivia is so professional and welcoming. Had such a relaxing massage with her, would definitely recommend to friends and family."</div><div class="review-author">Aliyah Driver · Facebook Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"100% would recommend having a treatment with Olivia. Relaxing, calm space &amp; very professional."</div><div class="review-author">Olivia Wild · Facebook Review</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="page-about" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(58,47,39,0.9) 0%,rgba(58,47,39,0.55) 100%), url('photos-zen/zen-hero.jpg') center 30%/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#E8D9BE;">Meet Olivia</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">About <em style="font-style:italic;color:#C9DAB8;">Sanctuary of Zen</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-cream">
+    <div class="container about-layout">
+      <div>
+        <div class="section-eyebrow">Our Story</div>
+        <h2>A space to properly switch off</h2>
+        <p>I'm Olivia — a fully qualified Holistic Massage Therapist, Angelic Reiki Practitioner, and your local Temple Spa consultant for the Sheffield and Dronfield area.</p>
+        <p>I take care of your mind, body and soul with a range of treatments, using organic products wherever I can. Based at Amàre Hair &amp; Beauty in Dronfield, I also host group wellness evenings for anyone wanting to share a little self-care with friends or family.</p>
+        <p>For me, this was never just about massage — it's about giving people permission to properly stop, even if it's only for an hour. Every treatment is unhurried, personalised to you, and treats you as a whole person rather than just a list of aches to fix.</p>
+        <a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener" class="btn-primary" style="background:var(--sage);color:#fff;">Book Now</a>
+      </div>
+      <div class="about-badges">
+        <div class="about-badge"><span>🌿</span><b>Organic Where Possible</b></div>
+        <div class="about-badge"><span>🪽</span><b>Angelic Reiki Certified</b></div>
+        <div class="about-badge"><span>🧖🏽‍♀️</span><b>Temple Spa Consultant</b></div>
+        <div class="about-badge"><span>💙</span><b>Blue Light Card 10% Off</b></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="section-header" style="margin-bottom:0;">
+        <div class="section-eyebrow">First Time Here?</div>
+        <h2>What to Expect</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="expect-grid">
+        <div class="expect-card"><div class="expect-num">1</div><h4>A Warm Welcome</h4><p>A relaxed chat first — about you, your health, and what you need from the session.</p></div>
+        <div class="expect-card"><div class="expect-num">2</div><h4>Tailored to You</h4><p>Every treatment adapted on the day, including for pregnancy or health conditions.</p></div>
+        <div class="expect-card"><div class="expect-num">3</div><h4>Time to Properly Relax</h4><p>No clock-watching — just space to switch off, fully.</p></div>
+        <div class="expect-card"><div class="expect-num">4</div><h4>Aftercare Advice</h4><p>Simple guidance to help the benefits last well beyond your visit.</p></div>
+      </div>
+      <div class="pull-quote">
+        <p>"I love that she's so professional, attentive, and caring, showing a true dedication to your wellbeing."</p>
+        <span>Joanna Martin, Client</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="page-contact" class="page-section">
+  <div style="position:relative;height:260px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(58,47,39,0.9) 0%,rgba(58,47,39,0.6) 100%), url('photos-zen/zen-hero.jpg') center 30%/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#E8D9BE;">Get In Touch</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Book Your <em style="font-style:italic;color:#C9DAB8;">Treatment</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-cream">
+    <div class="container">
+      <div class="contact-layout">
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.4rem;color:var(--brown);margin-bottom:1.5rem;">Find Us</h3>
+          <div class="contact-row"><span class="ci">💬</span><div><strong>WhatsApp</strong><br><a href="https://wa.me/447971550905" target="_blank" rel="noopener">07971 550905</a></div></div>
+          <div class="contact-row"><span class="ci">📍</span><div><strong>Location</strong><br>Amàre Hair &amp; Beauty, 35a Chesterfield Rd, Dronfield S18 2XA</div></div>
+          <div class="contact-row"><span class="ci">💙</span><div><strong>Blue Light Card</strong><br>10% off for all Blue Light Card members</div></div>
+          <div class="book-card">
+            <h4>📅 Book Online</h4>
+            <p>Check live availability and book instantly.</p>
+            <a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener">Book an Appointment</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.4rem;color:var(--brown);margin-bottom:1.5rem;">Send an Enquiry</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+              <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone</label><input type="tel" placeholder="07700 000 000" required></div>
+              <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+            </div>
+            <div class="form-group"><label>Which treatment?</label>
+              <select><option value="">Select...</option><option>Massage Treatment</option><option>Face &amp; Skin Care</option><option>Angelic Reiki / Angel Card Reading</option><option>Wellness Evening (Group)</option><option>Not sure — advise me</option></select>
+            </div>
+            <div class="form-group"><label>Anything else?</label><textarea placeholder="Any health conditions, preferences, or questions..."></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;background:var(--sage);">Send Enquiry</button>
+          </form>
+          <div id="form-success" style="display:none;background:var(--sage-pale);border:1px solid var(--sage);border-radius:8px;padding:1.25rem;margin-top:1rem;text-align:center;">
+            <strong style="color:var(--sage);">Thank you!</strong> Olivia will be in touch shortly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" onclick="showPage('home')">Sanctuary of Zen<span>Amàre Hair &amp; Beauty · Dronfield S18</span></a>
+        <p>Holistic massage, Angelic Reiki and Temple Spa treatments with Olivia, covering Dronfield, Sheffield and the surrounding area.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#" onclick="showPage('treatments')">Treatments</a>
+        <a href="#" onclick="showPage('reviews')">Reviews</a>
+        <a href="#" onclick="showPage('about')">About</a>
+        <a href="https://sanctuaryofzenbookings.as.me/schedule/f11c8ed9" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/447971550905" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.facebook.com/profile.php?id=61589276925197" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sanctuary of Zen · Dronfield, S18 2XA</span>
+      <span>Website concept built by <a href="#" class="trabelo-credit">Trabelo · Sheffield</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id){document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));const t=document.getElementById('page-'+id);if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}return false;}
+  function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+  function handleForm(e){e.preventDefault();e.target.style.display='none';document.getElementById('form-success').style.display='block';}
+  document.addEventListener('click',function(e){const n=document.getElementById('main-nav');if(!n.contains(e.target))document.getElementById('mobile-menu').classList.remove('open');});
+</script>
+
+</body>
+</html>

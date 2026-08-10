@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — Sanctuary of Zen | Trabelo</title>
+<meta name="description" content="A free audit of Sanctuary of Zen's booking page — what's slowing it down, what it's costing, and what a proper website could look like instead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brown:#3A2F27;--brown-soft:#7A6552;--white:#fff;--off:#FBF6EF;--border:#E6D9C7;--text:#3A2F27;--mid:#6B5B4C;
+    --sage:#748765;--sage-pale:#EEF2E9;
+    --red:#B7473A;--red-pale:#FBEDEA;--amber:#AD8A57;--amber-pale:#F6EEE0;--green:#5C7A4C;--green-pale:#EEF2E9;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text);line-height:1.6;}
+  .audit-header{background:var(--brown);padding:3.5rem 1.5rem 4rem;text-align:center;}
+  .trabelo-badge{display:inline-block;background:rgba(148,165,133,0.18);border:1px solid rgba(148,165,133,0.4);color:#C9DAB8;font-size:0.72rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;}
+  .audit-header h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.8rem,4vw,3rem);color:#fff;margin-bottom:0.75rem;line-height:1.2;}
+  .audit-header h1 span{color:#C9DAB8;font-style:italic;}
+  .subtitle{color:rgba(255,255,255,0.55);font-size:0.9rem;margin-bottom:2.5rem;}
+  .audit-meta{display:inline-flex;flex-wrap:wrap;gap:0.5rem 1.5rem;justify-content:center;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1rem 2rem;font-size:0.82rem;color:rgba(255,255,255,0.45);}
+  .audit-meta strong{color:rgba(255,255,255,0.8);}
+  .container{max-width:840px;margin:0 auto;padding:0 1.5rem;}
+  .section{padding:3rem 0;}
+  .section+.section{border-top:1px solid var(--border);}
+  .scores-intro{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;max-width:840px;margin:0 auto;transform:translateY(-2rem);position:relative;z-index:1;}
+  .scores-intro h2{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--brown);margin-bottom:1.25rem;text-align:center;font-weight:600;}
+  .score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  .score-item{text-align:center;padding:1rem;border-radius:8px;border:1.5px solid;}
+  .score-item.fail{background:var(--red-pale);border-color:#e4bcb5;}
+  .score-item.warn{background:var(--amber-pale);border-color:#dfc79a;}
+  .score-item.pass{background:var(--green-pale);border-color:#b7cba9;}
+  .score-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:2.4rem;line-height:1;margin-bottom:0.3rem;}
+  .score-item.fail .score-num{color:var(--red);}
+  .score-item.warn .score-num{color:var(--amber);}
+  .score-item.pass .score-num{color:var(--green);}
+  .score-label{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.2rem;}
+  .score-item.fail .score-label{color:var(--red);}
+  .score-item.warn .score-label{color:var(--amber);}
+  .score-item.pass .score-label{color:var(--green);}
+  .score-verdict{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.08em;opacity:0.65;}
+  .score-note{margin-top:1.25rem;font-size:0.78rem;color:var(--mid);text-align:center;padding-top:1rem;border-top:1px solid var(--border);}
+  .section-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;color:var(--brown);margin-bottom:0.5rem;}
+  .section-intro{font-size:0.93rem;color:var(--mid);line-height:1.7;margin-bottom:2rem;}
+  .issue-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1.25rem;}
+  .issue-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);}
+  .issue-header.critical{background:var(--red-pale);border-bottom-color:#e4bcb5;}
+  .issue-header.warning{background:var(--amber-pale);border-bottom-color:#dfc79a;}
+  .issue-tag{font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.25rem 0.6rem;border-radius:4px;flex-shrink:0;}
+  .issue-tag.critical{background:var(--red);color:#fff;}
+  .issue-tag.warning{background:var(--amber);color:#fff;}
+  .issue-header h3{font-size:0.94rem;font-weight:600;color:var(--brown);line-height:1.35;}
+  .issue-body{padding:1.25rem 1.5rem;}
+  .issue-block{margin-bottom:1rem;}
+  .issue-block:last-child{margin-bottom:0;}
+  .issue-block-label{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid);margin-bottom:0.35rem;}
+  .issue-block p{font-size:0.87rem;color:var(--text);line-height:1.65;}
+  .issue-block p strong{color:var(--brown);}
+  .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .feature-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;display:flex;gap:0.85rem;align-items:flex-start;}
+  .feature-icon{font-size:1.4rem;flex-shrink:0;}
+  .feature-card h4{font-size:0.9rem;font-weight:600;color:var(--brown);margin-bottom:0.3rem;}
+  .feature-card p{font-size:0.82rem;color:var(--mid);line-height:1.6;}
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+  .pricing-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;position:relative;display:flex;flex-direction:column;}
+  .pricing-card.featured{border-color:var(--sage);box-shadow:0 4px 24px rgba(116,135,101,0.18);}
+  .pricing-recommended{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--sage);color:#fff;font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.25rem 0.9rem;border-radius:100px;white-space:nowrap;}
+  .pricing-tier{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);margin-bottom:0.5rem;}
+  .pricing-price{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:2rem;color:var(--brown);line-height:1;margin-bottom:0.25rem;}
+  .pricing-desc{font-size:0.78rem;color:var(--mid);margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);line-height:1.55;}
+  .pricing-features{list-style:none;flex:1;margin-bottom:1.5rem;}
+  .pricing-features li{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.82rem;color:var(--text);padding:0.35rem 0;border-bottom:1px solid rgba(230,217,199,0.5);line-height:1.45;}
+  .pricing-features li:last-child{border-bottom:none;}
+  .pricing-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+  .pricing-cta{display:block;text-align:center;padding:0.75rem;border-radius:100px;font-size:0.85rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:background 0.2s;}
+  .pricing-card.featured .pricing-cta{background:var(--sage);color:#fff;}
+  .pricing-card:not(.featured) .pricing-cta{background:var(--off);color:var(--brown);border:1.5px solid var(--border);}
+  .pricing-note{font-size:0.73rem;color:var(--mid);text-align:center;margin-top:1rem;line-height:1.6;}
+  .audit-cta{background:var(--brown);padding:3.5rem 1.5rem;text-align:center;}
+  .audit-cta h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;margin-bottom:0.75rem;line-height:1.2;}
+  .audit-cta h2 span{color:#C9DAB8;font-style:italic;}
+  .audit-cta p{color:rgba(255,255,255,0.6);font-size:0.95rem;max-width:500px;margin:0 auto 2rem;line-height:1.7;}
+  .cta-contact{display:inline-flex;flex-direction:column;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.05);border:1px solid rgba(148,165,133,0.35);border-radius:10px;padding:1.5rem 2.5rem;margin-bottom:1.5rem;}
+  .cta-contact a{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#fff;text-decoration:none;font-weight:600;}
+  .cta-contact a:hover{color:#C9DAB8;}
+  .cta-contact span{font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;}
+  .audit-footer{background:#2C231D;padding:1.5rem;text-align:center;font-size:0.73rem;color:rgba(255,255,255,0.28);}
+  .audit-footer a{color:#C9DAB8;text-decoration:none;}
+  @media(max-width:700px){.score-grid{grid-template-columns:repeat(2,1fr);}.pricing-grid{grid-template-columns:1fr;}.features-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="audit-header">
+  <div class="trabelo-badge">Website Audit · Prepared by Trabelo</div>
+  <h1>A Free Audit for<br><span>Sanctuary of Zen</span></h1>
+  <p class="subtitle">sanctuaryofzenbookings.as.me · Prepared by Aidan, Trabelo · Sheffield</p>
+  <div class="audit-meta">
+    <div><strong>Business:</strong> Sanctuary of Zen</div>
+    <div><strong>Location:</strong> Dronfield &amp; Sheffield</div>
+    <div><strong>Industry:</strong> Holistic Massage &amp; Wellness</div>
+    <div><strong>Audit Date:</strong> August 2026</div>
+  </div>
+</div>
+
+<div style="padding:0 1.5rem;">
+  <div class="scores-intro">
+    <h2>Your Google PageSpeed Scores (Mobile)</h2>
+    <div class="score-grid">
+      <div class="score-item fail"><div class="score-num">35</div><div class="score-label">Performance</div><div class="score-verdict">Needs Work</div></div>
+      <div class="score-item pass"><div class="score-num">100</div><div class="score-label">Accessibility</div><div class="score-verdict">Good</div></div>
+      <div class="score-item pass"><div class="score-num">96</div><div class="score-label">Best Practices</div><div class="score-verdict">Good</div></div>
+      <div class="score-item pass"><div class="score-num">100</div><div class="score-label">SEO</div><div class="score-verdict">Good</div></div>
+    </div>
+    <div class="score-note">Google Lighthouse · Mobile · August 2026 · Red = 0–49 · Amber = 50–89 · Green = 90–100. Performance is the one number that's really letting things down — and it's a big one.</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section" style="padding-top:0.5rem;">
+    <p style="font-size:1rem;color:var(--mid);line-height:1.8;">Hi Olivia — I'm Aidan. I do web design across Sheffield and the surrounding area, and I came across Sanctuary of Zen while looking at local wellness businesses. Genuinely lovely reviews, and exactly the kind of personal, caring service that deserves a website that reflects it.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.8;margin-top:1rem;">Right now, there isn't really a "website" as such — just a booking page, and I ran that through Google's testing tool. It scored <strong style="color:var(--red);">35 out of 100</strong> for performance, with the main content taking <strong style="color:var(--red);">nearly 18 seconds</strong> to appear on a phone. For a wellness brand built around calm, that's a pretty ironic first impression. Here's the full picture.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What's Not Working — and Why It Matters</div>
+    <p class="section-intro">This is your booking page, built on Acuity Scheduling — so none of this is a reflection of you or your work, it's the platform. Here's what's actually happening.</p>
+
+    <div class="issue-card">
+      <div class="issue-header critical">
+        <span class="issue-tag critical">Critical</span>
+        <h3>Performance score of 35 — the main content takes nearly 18 seconds to appear on mobile</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google's mobile test shows the <strong>Largest Contentful Paint is 17.9 seconds</strong> — that's how long it takes for the main content to actually appear on a phone. The first thing to appear takes 9 seconds on its own. The page is also blocked from rendering for <strong>8.2 seconds</strong> by scripts and styles that have to load first.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your clients</div><p>Someone finds you on Facebook, taps through on their phone to check your prices or book a massage — and waits the best part of 18 seconds before anything useful shows up. Most people give up within 3 seconds. For a business built on trust and a sense of calm, a slow, janky booking page undoes exactly the impression you're trying to give before anyone's even read a word.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>A proper website that loads fast and shows off your treatments, reviews and story straight away — with your existing booking system linked in, not replaced, so nothing about how you take bookings has to change.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header critical">
+        <span class="issue-tag critical">Critical</span>
+        <h3>The page loads 4.2MB of data — most of it never gets used</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google found <strong>1,089 KB of unused JavaScript</strong> and <strong>40 KB of unused CSS</strong> loading on every visit, plus 688 KB of images that could be delivered far more efficiently. In total the page is <strong>4,219 KB</strong> — for a page that's really just a list of treatments and a booking calendar.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your clients</div><p>All of that has to be downloaded before someone can even see your prices — especially painful for anyone checking on mobile data rather than home wifi. It's also most of the reason the page takes so long to load in the first place.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>A hand-built site loads only what it actually needs — no bloated booking-platform overhead. Target load size: a fraction of the current 4.2MB.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">Layout</span>
+        <h3>The page visibly jumps around as it loads</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google measures this as <strong>Cumulative Layout Shift of 0.195</strong> — content is moving around on screen as the page loads, mostly because images don't have their size set in advance, so the page doesn't know how much space to leave for them.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your clients</div><p>Buttons and prices shift position while someone's trying to tap them — easy to end up tapping the wrong thing, or just feeling like the page is a bit unstable. Small thing, but it chips away at the "calm and cared-for" feeling the rest of your brand works hard for.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>Properly sized images and a stable layout from the first paint — nothing jumping around. Target CLS: under 0.1, comfortably in Google's "good" range.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">Trust</span>
+        <h3>There's nowhere for a new client to see your reviews, your story, or what you actually offer</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>The booking page is just a list of treatment names and prices — no photos, no reviews, nothing about you or your qualifications. Your genuinely excellent reviews only live on Facebook, where someone has to scroll to find them.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your clients</div><p>Booking a massage or Reiki session is personal — people want to feel comfortable with who they're booking before they commit, especially first-time clients. Right now, nothing on the booking page itself builds that trust; they have to already believe in you before they even land there.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>Your reviews, your qualifications and your story front and centre — so trust is built before someone even reaches the booking calendar, not left to chance.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What a Proper Website Adds</div>
+    <p class="section-intro">Everything your booking page can't do — without touching how you actually take bookings.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⚡</div><div><h4>Performance Score 97+</h4><p>From 35 to 97+ — a page that loads in a couple of seconds, not eighteen.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">⭐</div><div><h4>Your Reviews, Front and Centre</h4><p>Your genuinely lovely Facebook reviews given real visual weight, not buried in a feed.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🌿</div><div><h4>A Design That Actually Feels Calm</h4><p>Soft, considered design that matches the sense of peace you're actually selling — not a generic booking widget.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><div><h4>Your Existing Booking System, Kept</h4><p>Your Acuity booking calendar stays exactly as it is — linked in, not replaced. No new system to learn.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">💙</div><div><h4>Blue Light Discount, Clearly Shown</h4><p>Your 10% Blue Light Card offer given proper visibility, not a line in a Facebook caption.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🏠</div><div><h4>Group Experiences Showcased</h4><p>Wellness evenings and Spa to Go properly explained — a genuine point of difference most competitors won't have.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📱</div><div><h4>Mobile-First</h4><p>Built for how people actually find you — on their phone, often in the evening.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🔍</div><div><h4>SEO Score 100</h4><p>Set up properly so you show up for searches like "holistic massage Dronfield" or "Reiki Sheffield".</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What It Would Cost</div>
+    <p class="section-intro">Three tiers, all one-off prices. No monthly fees, no surprises.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card featured">
+        <div class="pricing-recommended">Recommended for Sanctuary of Zen</div>
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">£395</div>
+        <div class="pricing-desc">Your booking system already works — this is about fixing the speed and trust problems, not rebuilding what isn't broken.</div>
+        <ul class="pricing-features">
+          <li>Up to 5 pages — Home, Treatments &amp; Prices, Reviews, About, Contact</li>
+          <li>Performance score 97+</li>
+          <li>Full treatment menu &amp; prices, properly laid out</li>
+          <li>Group wellness evenings &amp; Spa to Go highlighted</li>
+          <li>Your reviews &amp; story featured properly</li>
+          <li>Blue Light Card offer highlighted</li>
+          <li>Mobile-first, no layout shift</li>
+          <li>Your existing Acuity booking system linked in — nothing to change</li>
+          <li>Enquiry form</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">Updates: £15/change or £30/month unlimited.</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-desc">Worth knowing about for later — not needed to fix what's covered above, but genuinely useful if you want to grow beyond it.</div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Live events calendar for wellness evenings — you update it yourself in Google Calendar, the site updates automatically</li>
+          <li>Temple Spa product showcase — a proper catalogue, not just a mention</li>
+          <li>Facebook feed embedded live on the site (Instagram too, if you're on there)</li>
+          <li>Email list signup — your own mailing list, not just Facebook followers</li>
+          <li>Dedicated pages per treatment category, if the menu grows</li>
+          <li>No monthly fees</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">One-off price. No monthly fees.</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-desc">Everything in Business plus a CMS and a blog for wellness tips and updates.</div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>CMS — edit prices &amp; pages yourself</li>
+          <li>Blog / wellness tips section</li>
+          <li>Priority updates 12 months</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="audit-cta">
+  <div class="container">
+    <h2>Happy to have a <span>no-pressure chat</span></h2>
+    <p>If anything here is useful, or you'd like to see the demo site I've already put together for Sanctuary of Zen, just drop me a message. I'm Sheffield-based and easy to get hold of.</p>
+    <div class="cta-contact">
+      <span>Reach Aidan directly</span>
+      <a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a>
+    </div>
+  </div>
+</div>
+<div class="audit-footer"><p>Prepared by <a href="#">Aidan Fry</a> at <a href="#">Trabelo · Sheffield</a> · aidan@trabelo.com · Free, no obligation · August 2026</p></div>
+
+</body>
+</html>
