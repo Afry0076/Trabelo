@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BKM Glazing | Windows, Doors &amp; Glazing | Rotherham &amp; South Yorkshire</title>
+<meta name="description" content="BKM Glazing — fast, reliable window and door fitting, composite doors, UPVC doors and broken/misted unit repairs across Rotherham and South Yorkshire. Free fast quotes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#175C3B;--green-light:#2C8659;--green-pale:#EAF4EE;--green-bg:#F5F9F6;
+    --black:#14161A;--black-soft:#1E2126;--white:#fff;--off:#F7F9F8;--border:#D6E3DA;--text:#1A2420;--mid:#4C5A52;--light:#7A8A81;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text);line-height:1.6;overflow-x:hidden;}
+
+  .topbar{background:var(--black);color:rgba(255,255,255,0.7);font-size:0.78rem;padding:0.45rem 1.5rem;display:flex;flex-wrap:wrap;gap:0.4rem 1.5rem;justify-content:center;}
+  .topbar a{color:#7ED4A3;text-decoration:none;}
+  .topbar span{display:flex;align-items:center;gap:0.4rem;}
+
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:3px solid var(--green);box-shadow:0 2px 14px rgba(20,22,26,0.08);}
+  .nav-inner{max-width:1160px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;height:64px;gap:0.5rem;}
+  .logo{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--black);text-decoration:none;white-space:nowrap;flex-shrink:0;line-height:1.2;}
+  .logo span{color:var(--green);display:block;font-family:'Inter',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;}
+  .nav-links{display:flex;gap:0.1rem;list-style:none;margin-left:auto;}
+  .nav-links a{display:block;padding:0.4rem 0.65rem;font-size:0.8rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:4px;transition:color 0.2s,background 0.2s;}
+  .nav-links a:hover{color:var(--green);background:var(--green-pale);}
+  .nav-cta{background:var(--green)!important;color:var(--white)!important;font-weight:600!important;border-radius:6px!important;padding:0.45rem 1rem!important;}
+  .nav-cta:hover{background:var(--green-light)!important;color:#fff!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto;background:none;border:none;padding:4px;}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--black);}
+  .mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:1rem 1.5rem;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu a{display:block;padding:0.65rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;font-weight:500;color:var(--mid);text-decoration:none;}
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu a:hover{color:var(--green);}
+
+  .hero{position:relative;min-height:86vh;display:flex;align-items:center;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,22,26,0.9) 0%,rgba(20,22,26,0.6) 60%,rgba(23,92,59,0.55) 100%),url('photos/bkm-windows-doors-full-house.jpg') center/cover no-repeat;z-index:0;}
+  .hero-content{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:5rem 1.5rem 3rem;display:grid;grid-template-columns:1fr 310px;gap:3rem;align-items:center;width:100%;}
+  .hero-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#7ED4A3;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+  .hero-eyebrow::before{content:'';display:block;width:28px;height:1.5px;background:#7ED4A3;}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.1rem,5vw,3.6rem);color:#fff;line-height:1.12;margin-bottom:1.2rem;}
+  .hero h1 em{font-style:italic;color:#7ED4A3;}
+  .hero-sub{font-size:1rem;color:rgba(255,255,255,0.8);max-width:500px;margin-bottom:2rem;line-height:1.75;}
+  .hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+  .stat-num{font-family:'DM Serif Display',serif;font-size:1.9rem;color:#7ED4A3;line-height:1;}
+  .stat-label{font-size:0.7rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn-primary{background:var(--green);color:#fff;padding:0.85rem 1.75rem;font-size:0.88rem;font-weight:600;border-radius:6px;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:background 0.2s,transform 0.15s;}
+  .btn-primary:hover{background:var(--green-light);transform:translateY(-1px);}
+  .btn-outline{background:transparent;color:#fff;padding:0.85rem 1.75rem;font-size:0.88rem;font-weight:500;border-radius:6px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.4);display:inline-block;transition:border-color 0.2s;}
+  .btn-outline:hover{border-color:#7ED4A3;}
+
+  .hero-card{background:rgba(20,22,26,0.92);border:1px solid rgba(44,134,89,0.4);border-radius:10px;padding:1.75rem;backdrop-filter:blur(8px);}
+  .hero-card h3{font-family:'DM Serif Display',serif;font-size:1rem;color:#7ED4A3;margin-bottom:1.1rem;}
+  .card-row{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.8rem;font-size:0.83rem;color:rgba(255,255,255,0.75);line-height:1.5;}
+  .card-icon{color:#7ED4A3;flex-shrink:0;}
+  .card-divider{border:none;border-top:1px solid rgba(44,134,89,0.3);margin:1.1rem 0;}
+  .card-phone{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;text-align:center;display:block;text-decoration:none;margin-bottom:0.3rem;}
+  .card-phone:hover{color:#7ED4A3;}
+  .card-sub{font-size:0.67rem;color:rgba(255,255,255,0.4);text-align:center;letter-spacing:0.1em;text-transform:uppercase;}
+
+  .trust-strip{background:var(--green);padding:1rem 1.5rem;display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 2.5rem;}
+  .trust-item{display:flex;align-items:center;gap:0.45rem;font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.92);}
+
+  .page-section{display:none;}
+  .page-section.active{display:block;}
+  .container{max-width:1160px;margin:0 auto;padding:0 1.5rem;}
+  .section-pad{padding:4.5rem 0;}
+  .bg-white{background:var(--white);}
+  .bg-off{background:var(--off);}
+  .bg-black{background:var(--black);}
+
+  .section-header{text-align:center;max-width:600px;margin:0 auto 3rem;padding:0 1rem;}
+  .section-eyebrow{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:0.65rem;}
+  .section-header h2{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3.5vw,2.5rem);color:var(--black);line-height:1.2;margin-bottom:0.9rem;}
+  .section-header p{font-size:0.95rem;color:var(--mid);line-height:1.7;}
+  .section-divider{width:40px;height:3px;background:var(--green);margin:0.9rem auto 0;border-radius:2px;}
+
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+  .service-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.75rem 1.5rem;border-top:3px solid var(--green);transition:box-shadow 0.25s,transform 0.25s;}
+  .service-card:hover{box-shadow:0 8px 28px rgba(20,22,26,0.1);transform:translateY(-3px);}
+  .service-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+  .service-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--black);margin-bottom:0.5rem;}
+  .service-card p{font-size:0.83rem;color:var(--mid);line-height:1.65;}
+
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:1rem;}
+  .gallery-item{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--off);cursor:pointer;padding:0;font:inherit;display:block;width:100%;height:100%;}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.35s ease;}
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-large{grid-column:span 2;grid-row:span 2;}
+  .gallery-cap{position:absolute;left:0;right:0;bottom:0;padding:0.6rem 0.8rem;background:linear-gradient(0deg,rgba(20,22,26,0.85),transparent);color:#fff;font-size:0.74rem;font-weight:600;pointer-events:none;}
+
+  .lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(14,15,17,0.94);align-items:center;justify-content:center;padding:2rem 1.5rem;}
+  .lightbox.open{display:flex;}
+  .lightbox-inner{max-width:1000px;max-height:88vh;width:min(94vw,900px);display:flex;flex-direction:column;align-items:center;}
+  .lightbox-inner img{width:100%;height:auto;max-height:75vh;border-radius:8px;object-fit:contain;}
+  .lightbox-cap{color:#fff;font-size:0.9rem;margin-top:1rem;text-align:center;}
+  .lightbox-close{position:absolute;top:1.25rem;right:1.5rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
+  .lightbox-close:hover{background:rgba(255,255,255,0.2);}
+
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;}
+  .process-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.25rem;text-align:center;}
+  .process-time{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--green);margin-bottom:0.4rem;}
+  .process-card p{font-size:0.8rem;color:var(--mid);}
+
+  .reviews-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem;}
+  .review-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;}
+  .review-stars{color:#F5B700;font-size:0.9rem;margin-bottom:0.5rem;}
+  .review-text{font-size:0.85rem;color:var(--text);line-height:1.65;margin-bottom:0.75rem;font-style:italic;}
+  .review-author{font-size:0.75rem;font-weight:600;color:var(--green);}
+
+  .about-layout{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
+  .about-layout h2{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--black);margin-bottom:1rem;line-height:1.2;}
+  .about-layout p{color:var(--mid);font-size:0.94rem;line-height:1.8;margin-bottom:1.25rem;}
+  .about-badges{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .about-badge{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;}
+  .about-badge b{display:block;font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--green);margin-bottom:0.3rem;}
+  .about-badge span{font-size:0.75rem;color:var(--mid);}
+
+  .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+  .contact-row{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1.1rem;font-size:0.9rem;color:var(--text);line-height:1.5;}
+  .ci{color:var(--green);flex-shrink:0;}
+  .contact-row a{color:var(--text);text-decoration:none;}
+  .contact-row a:hover{color:var(--green);}
+  .fb-card{background:#EAF4EE;border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-top:1.5rem;}
+  .fb-card h4{font-family:'DM Serif Display',serif;color:var(--black);margin-bottom:0.5rem;font-size:1rem;}
+  .fb-card p{font-size:0.83rem;color:var(--mid);line-height:1.6;margin-bottom:1rem;}
+  .fb-card a{display:inline-block;background:var(--green);color:#fff;padding:0.6rem 1.1rem;border-radius:6px;font-size:0.82rem;font-weight:600;text-decoration:none;}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+  .form-group label{font-size:0.75rem;font-weight:600;color:var(--mid);text-transform:uppercase;letter-spacing:0.08em;}
+  .form-group input,.form-group select,.form-group textarea{padding:0.75rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--text);background:var(--white);transition:border-color 0.2s;outline:none;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+  footer{background:var(--black);color:rgba(255,255,255,0.55);padding:3rem 1.5rem 1.25rem;}
+  .footer-inner{max-width:1160px;margin:0 auto;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+  .footer-brand .logo{color:#fff;}
+  .footer-brand p{font-size:0.82rem;line-height:1.7;margin-top:0.75rem;max-width:280px;}
+  .footer-col h4{font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7ED4A3;margin-bottom:1rem;}
+  .footer-col a{display:block;font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:0.5rem;transition:color 0.2s;}
+  .footer-col a:hover{color:#7ED4A3;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;font-size:0.72rem;color:rgba(255,255,255,0.28);}
+  .footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none;}
+  .trabelo-credit{color:#7ED4A3!important;font-weight:500;}
+
+  @media(max-width:900px){.hero-content{grid-template-columns:1fr;}.hero-card{display:none;}.services-grid{grid-template-columns:1fr 1fr;}.process-grid{grid-template-columns:1fr 1fr;}.reviews-grid{grid-template-columns:1fr;}.about-layout{grid-template-columns:1fr;gap:2rem;}.contact-layout{grid-template-columns:1fr;gap:2rem;}.footer-grid{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;}.gallery-large{grid-column:span 2;grid-row:span 1;}}
+  @media(max-width:600px){.nav-links{display:none;}.hamburger{display:flex;}.services-grid{grid-template-columns:1fr;}.process-grid{grid-template-columns:1fr 1fr;}.about-badges{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:130px;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📞 <a href="tel:07902334278">07902 334278</a></span>
+  <span>✉ <a href="mailto:bkmglazing26@outlook.com">bkmglazing26@outlook.com</a></span>
+  <span>📍 Moorgate Road, Rotherham, S60</span>
+</div>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">BKM Glazing<span>Rotherham · South Yorkshire</span></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('services')">Services</a></li>
+      <li><a href="#" onclick="showPage('reviews')">Reviews</a></li>
+      <li><a href="#" onclick="showPage('about')">About</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta">Free Quote</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showPage('home');toggleMenu()">Home</a>
+    <a href="#" onclick="showPage('services');toggleMenu()">Services</a>
+    <a href="#" onclick="showPage('reviews');toggleMenu()">Reviews</a>
+    <a href="#" onclick="showPage('about');toggleMenu()">About Us</a>
+    <a href="#" onclick="showPage('contact');toggleMenu()">Free Quote</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="page-home" class="page-section active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">Rotherham &amp; All South Yorkshire</div>
+        <h1>Fast, Reliable <em>Glazing You Can Trust</em></h1>
+        <p class="hero-sub">Windows, composite doors, UPVC doors and broken or misted unit repairs — done properly, done fast. Free, no-obligation quotes across South Yorkshire and the surrounding areas.</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Facebook Rated</div></div>
+          <div class="stat"><div class="stat-num">Same-Day</div><div class="stat-label">Glass Available</div></div>
+          <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Fast Quotes</div></div>
+        </div>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Get a Free Quote</a>
+          <a href="#" class="btn-outline" onclick="showPage('services')">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>📋 Quick Info</h3>
+        <div class="card-row"><span class="card-icon">📍</span><span>Moorgate Road, Rotherham S60 — covers all South Yorkshire</span></div>
+        <div class="card-row"><span class="card-icon">⚡</span><span>Same-day glass, next-day glazing with your sizes</span></div>
+        <div class="card-row"><span class="card-icon">🎁</span><span>Free, fast, no-obligation quotes</span></div>
+        <div class="card-row"><span class="card-icon">⭐</span><span>5-star rated — trusted by local customers</span></div>
+        <hr class="card-divider">
+        <a href="tel:07902334278" class="card-phone">07902 334278</a>
+        <div class="card-sub">Call or WhatsApp for a free quote</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">✓ Free Fast Quotes</div>
+    <div class="trust-item">✓ All South Yorkshire Covered</div>
+    <div class="trust-item">✓ Composite &amp; UPVC Doors</div>
+    <div class="trust-item">✓ 5★ Facebook Rated</div>
+    <div class="trust-item">✓ Broken &amp; Misted Unit Repairs</div>
+  </div>
+
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What We Do</div>
+        <h2>Glazing Done Properly, Every Time</h2>
+        <p>From a single broken pane to a full set of new doors — fast, reliable work you don't have to chase up.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card"><span class="service-icon">🪟</span><h3>Window Fitting</h3><p>New windows fitted properly, with all the advice you need on styles, colours and frames.</p></div>
+        <div class="service-card"><span class="service-icon">🚪</span><h3>Composite Doors</h3><p>Durable, secure composite doors in a range of colours and finishes to suit your home.</p></div>
+        <div class="service-card"><span class="service-icon">🏠</span><h3>UPVC Doors</h3><p>Reliable, low-maintenance UPVC doors fitted quickly and finished properly.</p></div>
+        <div class="service-card"><span class="service-icon">🔧</span><h3>Broken &amp; Misted Units</h3><p>Foggy, cracked or broken glass units replaced fast — often same-day if you've got your sizes.</p></div>
+        <div class="service-card"><span class="service-icon">🪞</span><h3>Glass Replacement</h3><p>Straightforward glass replacement for windows and doors, done quickly and cleanly.</p></div>
+        <div class="service-card"><span class="service-icon">📋</span><h3>Free Quotes</h3><p>Free, no-obligation quotes on every job — just get in touch and we'll sort you a price.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-pad bg-white">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Recent Work</div>
+        <h2>Jobs We've Actually Done</h2>
+        <p>Real photos from real jobs across South Yorkshire — not stock images.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="gallery-grid">
+        <button type="button" class="gallery-item gallery-large" onclick="openLightbox('photos/bkm-composite-door-diamond.jpg','Composite Door — Diamond Glazing')"><img src="photos/bkm-composite-door-diamond.jpg" alt="Anthracite composite front door with diamond-shaped glazing panels" loading="lazy"><span class="gallery-cap">Composite Door — Diamond Glazing</span></button>
+        <button type="button" class="gallery-item" onclick="openLightbox('photos/bkm-composite-door-green.jpg','Composite Door — Racing Green')"><img src="photos/bkm-composite-door-green.jpg" alt="Dark green composite front door with decorative glass side panel" loading="lazy"><span class="gallery-cap">Composite Door — Racing Green</span></button>
+        <button type="button" class="gallery-item" onclick="openLightbox('photos/bkm-composite-door-anthracite.jpg','Composite Door Fitting')"><img src="photos/bkm-composite-door-anthracite.jpg" alt="Anthracite composite door freshly fitted" loading="lazy"><span class="gallery-cap">Composite Door Fitting</span></button>
+        <button type="button" class="gallery-item" onclick="openLightbox('photos/bkm-windows-doors-full-house.jpg','Full Windows &amp; Door Upgrade')"><img src="photos/bkm-windows-doors-full-house.jpg" alt="Full house upgrade with new anthracite UPVC windows and front door" loading="lazy"><span class="gallery-cap">Full Windows &amp; Door Upgrade</span></button>
+        <button type="button" class="gallery-item" onclick="openLightbox('photos/bkm-conservatory-exterior.jpg','Conservatory Installation')"><img src="photos/bkm-conservatory-exterior.jpg" alt="White UPVC conservatory exterior" loading="lazy"><span class="gallery-cap">Conservatory Installation</span></button>
+        <button type="button" class="gallery-item" onclick="openLightbox('photos/bkm-conservatory-interior.jpg','Conservatory — Inside View')"><img src="photos/bkm-conservatory-interior.jpg" alt="Conservatory interior with tiled roof panels" loading="lazy"><span class="gallery-cap">Conservatory — Inside View</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">How Fast?</div>
+        <h2>Typical Turnaround Times</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="process-grid">
+        <div class="process-card"><div class="process-time">Same Day</div><p>Glass replacement, if it's in stock</p></div>
+        <div class="process-card"><div class="process-time">Next Day</div><p>Glazing jobs, with your sizes ready</p></div>
+        <div class="process-card"><div class="process-time">~4 Weeks</div><p>Composite doors, delivered &amp; fitted</p></div>
+        <div class="process-card"><div class="process-time">3–4 Weeks</div><p>New frames, depending on colour</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What People Say</div>
+        <h2>Trusted by Local Customers</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Just been out to fit 4 new glass units in bedroom and they look brilliant, fast and convenient, would definitely recommend using his service."</div><div class="review-author">Mason Naylor · Facebook Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Couldn't ask for more — arrived on time to measure up and then to fit the patio doors. Gave all the advice possible and very reasonably priced."</div><div class="review-author">Steven Burkinshaw · Facebook Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Easy to talk to and explain your issue, Brett comes and sorts it doing a professional job with a professional attitude — would 100% use again."</div><div class="review-author">Robert Watson · Facebook Review</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="page-services" class="page-section">
+  <div style="position:relative;height:300px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,22,26,0.9) 0%,rgba(20,22,26,0.5) 100%), url('photos/bkm-composite-door-diamond.jpg') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7ED4A3;">Windows, Doors &amp; Glass</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Our <em style="font-style:italic;color:#7ED4A3;">Services</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card"><span class="service-icon">🪟</span><h3>Window Fitting</h3><p>New windows fitted properly first time, with honest advice on the best options for your home and budget.</p></div>
+        <div class="service-card"><span class="service-icon">🚪</span><h3>Composite Doors</h3><p>Strong, secure and low-maintenance composite doors, delivered and fitted in around 4 weeks depending on style.</p></div>
+        <div class="service-card"><span class="service-icon">🏠</span><h3>UPVC Doors</h3><p>Reliable UPVC doors fitted quickly, with frames ready in 3–4 weeks depending on colour.</p></div>
+        <div class="service-card"><span class="service-icon">🔧</span><h3>Broken &amp; Misted Units</h3><p>Cracked, foggy or failed double-glazed units replaced fast — often same-day with the right sizes.</p></div>
+        <div class="service-card"><span class="service-icon">🪞</span><h3>Glass Replacement</h3><p>Straightforward glass replacement for windows, doors and units — quick, clean, no mess left behind.</p></div>
+        <div class="service-card"><span class="service-icon">📋</span><h3>Free, Fast Quotes</h3><p>Every job starts with a free, no-obligation quote — just get in touch with what you need sorting.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;"><a href="#" class="btn-primary" onclick="showPage('contact')" style="background:var(--green);">Get a Free Quote</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="page-reviews" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,22,26,0.9) 0%,rgba(20,22,26,0.5) 100%), url('photos/bkm-composite-door-green.jpg') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7ED4A3;">5★ Rated</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Customer <em style="font-style:italic;color:#7ED4A3;">Reviews</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Just been out to fit 4 new glass units in bedroom and they look brilliant, fast and convenient, would definitely recommend using his service."</div><div class="review-author">Mason Naylor · Facebook Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Couldn't ask for more — arrived on time to measure up and then to fit the patio doors. Gave all the advice possible and very reasonably priced.. if you are looking for windows or doors fitting look no further!"</div><div class="review-author">Steven Burkinshaw · Facebook Review</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Easy to talk to and explain your issue, Brett comes and sorts it doing a professional job with a professional attitude — would 100% use again and recommend to family and friends."</div><div class="review-author">Robert Watson · Facebook Review</div></div>
+      </div>
+      <div class="fb-card" style="max-width:520px;margin:3rem auto 0;text-align:center;">
+        <h4>See more on Facebook</h4>
+        <p>More reviews and recent jobs are posted on the BKM Glazing Facebook page — give it a follow to keep up with new work.</p>
+        <a href="https://www.facebook.com/profile.php?id=61590386382927" target="_blank" rel="noopener">Visit our Facebook Page</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="page-about" class="page-section">
+  <div style="position:relative;height:280px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,22,26,0.92) 0%,rgba(20,22,26,0.6) 100%), url('photos/bkm-house-exterior.jpg') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7ED4A3;">Rotherham-Based</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">About <em style="font-style:italic;color:#7ED4A3;">BKM Glazing</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container about-layout">
+      <div>
+        <div class="section-eyebrow">Our Story</div>
+        <h2>Fast, honest glazing — done right</h2>
+        <p>BKM Glazing is based on Moorgate Road in Rotherham, covering South Yorkshire and the surrounding areas. Every job is handled with a professional, no-nonsense attitude — from a single broken unit to a full set of new doors.</p>
+        <p>Free, fast quotes on every job, honest advice on the best option for your home, and work that's fitted properly the first time.</p>
+        <a href="#" class="btn-primary" onclick="showPage('contact')">Get a Free Quote</a>
+      </div>
+      <div class="about-badges">
+        <div class="about-badge"><b>5★</b><span>Facebook Rating</span></div>
+        <div class="about-badge"><b>S. Yorks</b><span>Full Coverage</span></div>
+        <div class="about-badge"><b>Free</b><span>Every Quote</span></div>
+        <div class="about-badge"><b>Same-Day</b><span>Glass Available</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="page-contact" class="page-section">
+  <div style="position:relative;height:260px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,22,26,0.92) 0%,rgba(20,22,26,0.65) 100%), url('photos/bkm-conservatory-exterior.jpg') center/cover no-repeat;"></div>
+    <div style="position:relative;text-align:center;padding:2rem 1.5rem;">
+      <div class="section-eyebrow" style="color:#7ED4A3;">Free, Fast Quotes</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;">Get a <em style="font-style:italic;color:#7ED4A3;">Free Quote</em></h1>
+    </div>
+  </div>
+  <div class="section-pad bg-off">
+    <div class="container">
+      <div class="contact-layout">
+        <div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--black);margin-bottom:1.5rem;">Get In Touch</h3>
+          <div class="contact-row"><span class="ci">📞</span><div><strong>Phone / WhatsApp</strong><br><a href="tel:07902334278">07902 334278</a></div></div>
+          <div class="contact-row"><span class="ci">✉</span><div><strong>Email</strong><br><a href="mailto:bkmglazing26@outlook.com">bkmglazing26@outlook.com</a></div></div>
+          <div class="contact-row"><span class="ci">📍</span><div><strong>Based In</strong><br>Moorgate Road, Rotherham S60 — covers all South Yorkshire</div></div>
+          <div class="fb-card">
+            <h4>💬 Message us on WhatsApp</h4>
+            <p>Quickest way to get a free quote — send a photo of the job and we'll get back to you.</p>
+            <a href="https://wa.me/447902334278" target="_blank" rel="noopener">Message on WhatsApp</a>
+          </div>
+          <div class="fb-card">
+            <h4>👍 Follow us on Facebook</h4>
+            <p>See recent jobs and reviews, and stay in the loop with new work.</p>
+            <a href="https://www.facebook.com/profile.php?id=61590386382927" target="_blank" rel="noopener">Visit our Facebook Page</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--black);margin-bottom:1.5rem;">Request a Free Quote</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+              <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone</label><input type="tel" placeholder="07700 000 000" required></div>
+              <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+            </div>
+            <div class="form-group"><label>What do you need?</label>
+              <select required><option value="">Select...</option><option>Window Fitting</option><option>Composite Door</option><option>UPVC Door</option><option>Broken / Misted Unit</option><option>Glass Replacement</option><option>Other / Not Sure</option></select>
+            </div>
+            <div class="form-group"><label>Tell us about the job</label><textarea placeholder="What needs doing, and roughly how many windows/doors..."></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;background:var(--green);">Request Free Quote</button>
+          </form>
+          <div id="form-success" style="display:none;background:#EAF4EE;border:1px solid #B7D9C4;border-radius:6px;padding:1.25rem;margin-top:1rem;text-align:center;">
+            <strong style="color:var(--green);">Thanks!</strong> We'll be in touch shortly with your free quote.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" onclick="showPage('home')">BKM Glazing<span>Moorgate Road · Rotherham S60</span></a>
+        <p>Fast, reliable window and door fitting, composite doors, UPVC doors and glass repairs across Rotherham and South Yorkshire.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#" onclick="showPage('services')">Window Fitting</a>
+        <a href="#" onclick="showPage('services')">Composite Doors</a>
+        <a href="#" onclick="showPage('services')">UPVC Doors</a>
+        <a href="#" onclick="showPage('contact')">Free Quote</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:07902334278">07902 334278</a>
+        <a href="mailto:bkmglazing26@outlook.com">bkmglazing26@outlook.com</a>
+        <a href="https://www.facebook.com/profile.php?id=61590386382927" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BKM Glazing · Moorgate Road, Rotherham S60</span>
+      <span>Website concept built by <a href="#" class="trabelo-credit">Trabelo · Sheffield</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <div class="lightbox-inner">
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-cap" id="lightbox-cap"></div>
+  </div>
+</div>
+
+<script>
+  function showPage(id){document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));const t=document.getElementById('page-'+id);if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}return false;}
+  function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+  function handleForm(e){e.preventDefault();e.target.style.display='none';document.getElementById('form-success').style.display='block';}
+  document.addEventListener('click',function(e){const n=document.getElementById('main-nav');if(!n.contains(e.target))document.getElementById('mobile-menu').classList.remove('open');});
+
+  function openLightbox(src,caption){
+    document.getElementById('lightbox-img').src=src;
+    document.getElementById('lightbox-img').alt=caption;
+    document.getElementById('lightbox-cap').textContent=caption;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+</script>
+
+</body>
+</html>
