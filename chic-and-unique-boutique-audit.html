@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — Chic &amp; Unique Boutique | Trabelo</title>
+<meta name="description" content="A free audit of Chic &amp; Unique Boutique's website — real Google PageSpeed data, what's holding it back, and what a custom-built storefront would change.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1714;--white:#fff;--cream:#FAF7F3;--stone:#EFEAE3;--border:#E3DCD2;--text:#211D19;--mid:#6B6259;
+    --accent:#A65C6E;--accent-dark:#7E4353;--accent-pale:#F7ECEF;
+    --amber:#B0640F;--amber-pale:#FEF6EC;--green:#1E7E44;--green-pale:#F0F8F3;--red:#C43B3B;--red-pale:#FBEBEB;
+    --display:'Playfair Display',serif;--sans:'Inter',sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.6;}
+  .audit-header{background:var(--ink);padding:3.5rem 1.5rem 4rem;text-align:center;}
+  .trabelo-badge{display:inline-block;background:rgba(166,92,110,0.18);border:1px solid rgba(166,92,110,0.45);color:#e5a7b6;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;}
+  .audit-header h1{font-family:var(--display);font-weight:600;font-style:italic;font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:0.75rem;line-height:1.2;}
+  .audit-header h1 span{color:var(--accent);font-style:normal;}
+  .subtitle{color:rgba(255,255,255,0.55);font-size:0.9rem;margin-bottom:2.5rem;}
+  .audit-meta{display:inline-flex;flex-wrap:wrap;gap:0.5rem 1.5rem;justify-content:center;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1rem 2rem;font-size:0.82rem;color:rgba(255,255,255,0.45);}
+  .audit-meta strong{color:rgba(255,255,255,0.8);}
+  .container{max-width:840px;margin:0 auto;padding:0 1.5rem;}
+  .section{padding:3rem 0;}
+  .section+.section{border-top:1px solid var(--border);}
+  .scores-intro{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;max-width:840px;margin:0 auto;transform:translateY(-2rem);position:relative;z-index:1;}
+  .scores-intro h2{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--text);margin-bottom:0.25rem;text-align:center;}
+  .scores-sub{text-align:center;font-size:0.78rem;color:var(--mid);margin-bottom:1.25rem;}
+  .score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.85rem;}
+  .score-item{text-align:center;padding:0.9rem 0.5rem;border-radius:8px;border:1.5px solid;}
+  .score-item.fail{background:var(--red-pale);border-color:#e6bcbc;}
+  .score-item.warn{background:var(--amber-pale);border-color:#f0d0a8;}
+  .score-item.pass{background:var(--green-pale);border-color:#a8d8b8;}
+  .score-num{font-family:var(--display);font-weight:700;font-size:2.1rem;line-height:1;margin-bottom:0.3rem;}
+  .score-item.fail .score-num{color:var(--red);}
+  .score-item.warn .score-num{color:var(--amber);}
+  .score-item.pass .score-num{color:var(--green);}
+  .score-label{font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.2rem;}
+  .score-item.fail .score-label{color:var(--red);}
+  .score-item.warn .score-label{color:var(--amber);}
+  .score-item.pass .score-label{color:var(--green);}
+  .score-verdict{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;opacity:0.65;}
+  .score-note{margin-top:1.25rem;font-size:0.78rem;color:var(--mid);text-align:center;padding-top:1rem;border-top:1px solid var(--border);}
+  .section-title{font-family:var(--display);font-weight:600;font-size:1.6rem;color:var(--text);margin-bottom:0.5rem;}
+  .section-intro{font-size:0.93rem;color:var(--mid);line-height:1.7;margin-bottom:2rem;}
+  .issue-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1.25rem;}
+  .issue-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);}
+  .issue-header.critical{background:var(--red-pale);border-bottom-color:#e6bcbc;}
+  .issue-header.warning{background:var(--amber-pale);border-bottom-color:#f0d0a8;}
+  .issue-header.good{background:var(--green-pale);border-bottom-color:#a8d8b8;}
+  .issue-tag{font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.25rem 0.6rem;border-radius:4px;flex-shrink:0;}
+  .issue-tag.critical{background:var(--red);color:#fff;}
+  .issue-tag.warning{background:var(--amber);color:#fff;}
+  .issue-tag.good{background:var(--green);color:#fff;}
+  .issue-header h3{font-size:0.94rem;font-weight:700;color:var(--text);line-height:1.35;}
+  .issue-body{padding:1.25rem 1.5rem;}
+  .issue-block{margin-bottom:1rem;}
+  .issue-block:last-child{margin-bottom:0;}
+  .issue-block-label{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid);margin-bottom:0.35rem;}
+  .issue-block p{font-size:0.87rem;color:var(--text);line-height:1.65;}
+  .issue-block p strong{color:var(--text);}
+  .compare{display:grid;grid-template-columns:1fr auto 1fr;gap:0;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:0.5rem;}
+  .compare-col{padding:1.5rem;}
+  .compare-col.now{border-right:1px solid var(--border);}
+  .compare-arrow{display:flex;align-items:center;justify-content:center;padding:0 0.5rem;color:var(--accent);font-size:1.3rem;background:var(--accent-pale);}
+  .compare-label{font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid);margin-bottom:1rem;text-align:center;}
+  .compare-row{display:flex;justify-content:space-between;align-items:center;padding:0.55rem 0;border-bottom:1px solid rgba(228,220,210,0.6);font-size:0.85rem;}
+  .compare-row:last-child{border-bottom:none;}
+  .compare-row b{font-family:var(--display);font-size:1.1rem;}
+  .compare-col.now .compare-row b{color:var(--amber);}
+  .compare-col.after .compare-row b{color:var(--green);}
+  .pages-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .page-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;}
+  .page-card .num{font-family:var(--display);font-weight:700;font-size:0.85rem;color:var(--accent);margin-bottom:0.3rem;}
+  .page-card h4{font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+  .page-card p{font-size:0.82rem;color:var(--mid);line-height:1.6;}
+  .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .feature-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;display:flex;gap:0.85rem;align-items:flex-start;}
+  .feature-icon{font-size:1.4rem;flex-shrink:0;}
+  .feature-card h4{font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+  .feature-card p{font-size:0.82rem;color:var(--mid);line-height:1.6;}
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+  .pricing-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;position:relative;display:flex;flex-direction:column;}
+  .pricing-card.featured{border-color:var(--accent);box-shadow:0 4px 24px rgba(166,92,110,0.15);}
+  .pricing-recommended{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.25rem 0.9rem;border-radius:100px;white-space:nowrap;}
+  .pricing-tier{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);margin-bottom:0.5rem;}
+  .pricing-price{font-family:var(--display);font-weight:700;font-size:2.1rem;color:var(--text);line-height:1;margin-bottom:0.25rem;}
+  .pricing-desc{font-size:0.78rem;color:var(--mid);margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);line-height:1.55;}
+  .pricing-features{list-style:none;flex:1;margin-bottom:1.5rem;}
+  .pricing-features li{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.82rem;color:var(--text);padding:0.35rem 0;border-bottom:1px solid rgba(228,228,230,0.6);line-height:1.45;}
+  .pricing-features li:last-child{border-bottom:none;}
+  .pricing-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+  .pricing-cta{display:block;text-align:center;padding:0.75rem;border-radius:4px;font-size:0.78rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:background 0.2s;text-transform:uppercase;letter-spacing:0.05em;}
+  .pricing-card.featured .pricing-cta{background:var(--accent);color:#fff;}
+  .pricing-card:not(.featured) .pricing-cta{background:var(--cream);color:var(--text);border:1.5px solid var(--border);}
+  .pricing-note{font-size:0.73rem;color:var(--mid);text-align:center;margin-top:1rem;line-height:1.6;}
+  .audit-cta{background:var(--ink);padding:3.5rem 1.5rem;text-align:center;}
+  .audit-cta h2{font-family:var(--display);font-weight:600;font-style:italic;font-size:clamp(1.6rem,3vw,2.3rem);color:#fff;margin-bottom:0.75rem;line-height:1.2;}
+  .audit-cta h2 span{color:var(--accent);font-style:normal;}
+  .audit-cta p{color:rgba(255,255,255,0.6);font-size:0.95rem;max-width:520px;margin:0 auto 2rem;line-height:1.7;}
+  .cta-contact{display:inline-flex;flex-direction:column;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.05);border:1px solid rgba(166,92,110,0.4);border-radius:10px;padding:1.5rem 2.5rem;margin-bottom:1.5rem;}
+  .cta-contact a{font-family:var(--display);font-size:1.5rem;color:#fff;text-decoration:none;}
+  .cta-contact a:hover{color:var(--accent);}
+  .cta-contact span{font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;}
+  .audit-footer{background:#0F0D0B;padding:1.5rem;text-align:center;font-size:0.73rem;color:rgba(255,255,255,0.28);}
+  .audit-footer a{color:#e5a7b6;text-decoration:none;}
+  @media(max-width:700px){.score-grid{grid-template-columns:repeat(2,1fr);}.pricing-grid{grid-template-columns:1fr;}.features-grid{grid-template-columns:1fr;}.pages-grid{grid-template-columns:1fr;}.compare{grid-template-columns:1fr;}.compare-col.now{border-right:none;border-bottom:1px solid var(--border);}.compare-arrow{padding:0.5rem 0;}}
+</style>
+</head>
+<body>
+<div class="audit-header">
+  <div class="trabelo-badge">Website Audit · Prepared by Trabelo</div>
+  <h1>A Free Audit for<br><span>Chic &amp; Unique Boutique</span></h1>
+  <p class="subtitle">chicanduniqueboutique.co.uk · Prepared by Aidan, Trabelo · Sheffield</p>
+  <div class="audit-meta">
+    <div><strong>Business:</strong> Chic &amp; Unique Boutique</div>
+    <div><strong>Location:</strong> Mexborough, South Yorkshire</div>
+    <div><strong>Platform:</strong> Shopify</div>
+    <div><strong>Audit Date:</strong> August 2026</div>
+  </div>
+</div>
+
+<div style="padding:0 1.5rem;">
+  <div class="scores-intro">
+    <h2>Your Google PageSpeed Scores</h2>
+    <div class="scores-sub">Mobile — the one that matters most, since most of your shoppers are browsing on their phone</div>
+    <div class="score-grid">
+      <div class="score-item warn"><div class="score-num">71</div><div class="score-label">Performance</div><div class="score-verdict">Needs Work</div></div>
+      <div class="score-item warn"><div class="score-num">84</div><div class="score-label">Accessibility</div><div class="score-verdict">Needs Work</div></div>
+      <div class="score-item pass"><div class="score-num">92</div><div class="score-label">Best Practices</div><div class="score-verdict">Good</div></div>
+      <div class="score-item pass"><div class="score-num">92</div><div class="score-label">SEO</div><div class="score-verdict">Good</div></div>
+    </div>
+    <div class="score-note">Google Lighthouse · Mobile · August 2026 · Red = 0–49 · Amber = 50–89 · Green = 90–100. On desktop, Performance jumps to 94 (LCP 1.2s) — mobile is where the gap really shows: LCP 8.5s, and 941 KiB of possible image savings.</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section" style="padding-top:0.5rem;">
+    <p style="font-size:1rem;color:var(--mid);line-height:1.8;">Hi — I'm Aidan, I do web design across Sheffield and South Yorkshire. I'll be straight with you: your site isn't broken. It's on Shopify, it's clean, it's on-brand, and your SEO (92) and search-crawlability are both genuinely solid — you're not invisible on Google. That's rarer than you'd think for a boutique your size, so credit where it's due.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.8;margin-top:1rem;">But "solid" and "working against you" aren't opposites. Google's own test on your site shows a real gap between desktop (Performance <strong style="color:var(--green);">94</strong>) and mobile (Performance <strong style="color:var(--amber);">71</strong>, main content taking <strong style="color:var(--amber);">8.5 seconds</strong> to appear) — and most of your customers are finding you on their phone, not a desktop. That gap, plus a handful of accessibility issues, is what a fully custom-built storefront is designed to close. Here's exactly what's happening, and what I'd build instead.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What's Holding the Current Site Back</div>
+    <p class="section-intro">A generic Shopify theme is built to work for thousands of different shops — which means it's never built specifically for yours. This is where that shows up, in Google's own numbers.</p>
+
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">Performance</span>
+        <h3>8.5 seconds before a mobile shopper sees a single product</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google's mobile test measures a <strong>Largest Contentful Paint of 8.5 seconds</strong>, with <strong>941 KiB of potential savings</strong> flagged directly on image delivery, and a total mobile page weight of <strong>3.3MB</strong>. On desktop the same page loads in 1.2 seconds — the theme simply isn't built mobile-first.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your customers</div><p>Someone taps through from a Google search or an Instagram link on their phone, and waits over 8 seconds before they see anything to buy. A meaningful share of that traffic won't wait — they're gone before your products even render. And because Google ranks mobile pages on speed, this score itself is part of why you're harder to find.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>A storefront built mobile-first from the ground up, with images sized and loaded properly for every device — targeting Performance 97+ instead of 71.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">Accessibility</span>
+        <h3>Some customers are being locked out without anyone noticing</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google flags missing <strong>alt text on product images</strong>, <strong>text/background colour combinations below contrast minimums</strong>, <strong>touch targets too small</strong> for a thumb on mobile, and a <strong>heading order that skips levels</strong> across the site.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your customers</div><p>Screen-reader users and low-vision shoppers have a genuinely harder time browsing and buying — that's real lost sales, not a technicality. It also quietly affects Google Image Search, since alt text is one of the signals it uses to understand and surface product photos.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>Built to proper accessibility standards from day one — Accessibility 98+ instead of 84, with every image, colour and heading done right the first time.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">Under the Hood</span>
+        <h3>The page loads more code than it ever uses</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google flags <strong>39 KiB of unused CSS</strong> and <strong>32 KiB of unused JavaScript</strong>, plus render-blocking requests costing around <strong>150ms</strong> before the page can even start drawing — most likely leftover theme features and apps you're not actively using.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your customers</div><p>It compounds everything above — every extra kilobyte is more time spent downloading before anything useful appears, especially off wifi.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>A lean, purpose-built front end with nothing loaded that isn't actually used.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header good">
+        <span class="issue-tag good">Already Good — Kept</span>
+        <h3>Your SEO, Shopify backend and AI-shopping readiness stay exactly as they are</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>SEO scores <strong>92 on both mobile and desktop</strong>, and the site scores <strong>4/4 on mobile Agentic Browsing</strong> — Google's newer check for how well AI shopping assistants can read and use a site. Your cart, checkout, payments and stock all run through Shopify, and work fine.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for you</div><p>None of this needs replacing. A rebuild here means a new front door on a foundation that already works — not starting your shop over from nothing.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Current vs. What a Rebuild Targets</div>
+    <p class="section-intro">Same real Google Lighthouse categories, mobile scores, side by side.</p>
+    <div class="compare">
+      <div class="compare-col now">
+        <div class="compare-label">Right Now</div>
+        <div class="compare-row"><span>Performance</span><b>71</b></div>
+        <div class="compare-row"><span>Accessibility</span><b>84</b></div>
+        <div class="compare-row"><span>Best Practices</span><b>92</b></div>
+        <div class="compare-row"><span>SEO</span><b>92</b></div>
+        <div class="compare-row"><span>Mobile LCP</span><b>8.5s</b></div>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-col after">
+        <div class="compare-label">Rebuild Target</div>
+        <div class="compare-row"><span>Performance</span><b>97+</b></div>
+        <div class="compare-row"><span>Accessibility</span><b>98+</b></div>
+        <div class="compare-row"><span>Best Practices</span><b>100</b></div>
+        <div class="compare-row"><span>SEO</span><b>100</b></div>
+        <div class="compare-row"><span>Mobile LCP</span><b>&lt;2s</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What a Custom Storefront Would Include</div>
+    <p class="section-intro">Built around how you're actually structured — your existing collections, not a generic template. Every "Shop Now" still goes straight into your real Shopify cart and checkout, exactly as it does now.</p>
+    <div class="pages-grid">
+      <div class="page-card"><div class="num">01</div><h4>Home / Lookbook</h4><p>A proper first impression — seasonal styling, new arrivals, your brand story front and centre. Space held for your own photography throughout.</p></div>
+      <div class="page-card"><div class="num">02</div><h4>Shop by Collection</h4><p>Denim, Co-ords, Dresses/Playsuits, Knitwear, Plus Size, Skirts/Skorts, Tops, Footwear — laid out properly, each linking into your real Shopify collections.</p></div>
+      <div class="page-card"><div class="num">03</div><h4>New In</h4><p>A dedicated page for what's just landed — currently a single homepage banner.</p></div>
+      <div class="page-card"><div class="num">04</div><h4>About / Our Story</h4><p>Why Chic &amp; Unique exists, what makes the boutique different from a big-chain shop — currently nowhere on the site at all.</p></div>
+      <div class="page-card"><div class="num">05</div><h4>Contact</h4><p>Your existing details — Mexborough address, phone, email — properly presented, not buried in a plain contact page.</p></div>
+      <div class="page-card"><div class="num">06</div><h4>Sale / Offers</h4><p>Given real visual weight instead of a single nav link — sale browsing is a habit, worth making it easy.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What Changes for Your Customers</div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⚡</div><div><h4>Mobile Performance 97+</h4><p>From an 8.5 second wait to well under 2 — built mobile-first, not adapted from desktop.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🛍️</div><div><h4>Your Real Shopify Cart, Kept</h4><p>Checkout, payments and stock stay exactly as they are — nothing to migrate, nothing to relearn.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📖</div><div><h4>Actual Brand Storytelling</h4><p>An About page, a proper lookbook feel — the personality a generic theme can't give you.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">♿</div><div><h4>Accessibility Fixed Sitewide</h4><p>Contrast, alt text, tap targets and heading order done properly from the first line of code.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📱</div><div><h4>Mobile-First, Not Mobile-Adapted</h4><p>Designed for how most of your customers actually shop — on their phone.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🖼️</div><div><h4>Built for Your Photography</h4><p>Every page structured with real space for your own product and lifestyle shots — not stock imagery.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What It Would Cost</div>
+    <p class="section-intro">Two tiers, both one-off prices. No monthly fees.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card featured">
+        <div class="pricing-recommended">Recommended</div>
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-desc">A fully custom storefront, built around your real collections and brand — your Shopify cart and checkout untouched.</div>
+        <ul class="pricing-features">
+          <li>Up to 8 pages — Home/Lookbook, Shop by Collection, New In, About, Sale, Contact</li>
+          <li>Performance 97+, Accessibility 98+, SEO 100 targeted</li>
+          <li>Mobile-first design across every page</li>
+          <li>Space built in for your own product photography</li>
+          <li>Every "Shop Now" links straight into your existing Shopify cart</li>
+          <li>Enquiry form &amp; full contact details</li>
+          <li>No monthly fees</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">Updates: £15/change or £30/month unlimited.</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-desc">Everything in Business, plus the tools to keep the storefront current as your stock changes.</div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>Live Instagram feed embedded on the site</li>
+          <li>CMS — update lookbook &amp; new-in content yourself</li>
+          <li>Style-guide / blog section for seasonal content</li>
+          <li>Newsletter signup integration</li>
+          <li>Priority updates for 12 months</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="audit-cta">
+  <div class="container">
+    <h2>Happy to show you a <span>free demo</span></h2>
+    <p>Everything above is real, free, no-obligation Google data — nothing here costs you anything to read. If it's useful, I can put together a working demo of what this would actually look like, free as well. Just say the word.</p>
+    <div class="cta-contact">
+      <span>Reach Aidan directly</span>
+      <a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a>
+    </div>
+  </div>
+</div>
+<div class="audit-footer"><p>Prepared by <a href="#">Aidan Fry</a> at <a href="#">Trabelo · Sheffield</a> · aidan@trabelo.com · Free, no obligation · August 2026</p></div>
+
+</body>
+</html>
