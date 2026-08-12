@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — In The Red Aesthetics | Trabelo</title>
+<meta name="description" content="A free audit of In The Red Aesthetics' booking page — what's slowing it down, why Google can't find it, and what a proper website could look like instead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0D0D0D;--white:#fff;--off:#F7F7F8;--border:#E4E4E6;--text:#18181A;--mid:#5C5C60;
+    --red:#D91E36;--red-dark:#A3152A;--red-pale:#FDEBEE;
+    --amber:#B0640F;--amber-pale:#FEF6EC;--green:#1E7E44;--green-pale:#F0F8F3;
+    --display:'Bebas Neue',sans-serif;--sans:'Inter',sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--sans);background:var(--off);color:var(--text);line-height:1.6;}
+  .audit-header{background:var(--black);padding:3.5rem 1.5rem 4rem;text-align:center;}
+  .trabelo-badge{display:inline-block;background:rgba(217,30,54,0.15);border:1px solid rgba(217,30,54,0.4);color:#ff6b7d;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;}
+  .audit-header h1{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:0.75rem;line-height:1.15;letter-spacing:0.01em;}
+  .audit-header h1 span{color:var(--red);}
+  .subtitle{color:rgba(255,255,255,0.55);font-size:0.9rem;margin-bottom:2.5rem;}
+  .audit-meta{display:inline-flex;flex-wrap:wrap;gap:0.5rem 1.5rem;justify-content:center;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1rem 2rem;font-size:0.82rem;color:rgba(255,255,255,0.45);}
+  .audit-meta strong{color:rgba(255,255,255,0.8);}
+  .container{max-width:840px;margin:0 auto;padding:0 1.5rem;}
+  .section{padding:3rem 0;}
+  .section+.section{border-top:1px solid var(--border);}
+  .scores-intro{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;max-width:840px;margin:0 auto;transform:translateY(-2rem);position:relative;z-index:1;}
+  .scores-intro h2{font-family:var(--display);font-weight:400;font-size:1.2rem;color:var(--text);margin-bottom:1.25rem;text-align:center;letter-spacing:0.01em;}
+  .score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  .score-item{text-align:center;padding:1rem;border-radius:8px;border:1.5px solid;}
+  .score-item.fail{background:var(--red-pale);border-color:#f0bcc3;}
+  .score-item.warn{background:var(--amber-pale);border-color:#f0d0a8;}
+  .score-item.pass{background:var(--green-pale);border-color:#a8d8b8;}
+  .score-num{font-family:var(--display);font-weight:400;font-size:2.4rem;line-height:1;margin-bottom:0.3rem;}
+  .score-item.fail .score-num{color:var(--red);}
+  .score-item.warn .score-num{color:var(--amber);}
+  .score-item.pass .score-num{color:var(--green);}
+  .score-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.2rem;}
+  .score-item.fail .score-label{color:var(--red);}
+  .score-item.warn .score-label{color:var(--amber);}
+  .score-item.pass .score-label{color:var(--green);}
+  .score-verdict{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.08em;opacity:0.65;}
+  .score-note{margin-top:1.25rem;font-size:0.78rem;color:var(--mid);text-align:center;padding-top:1rem;border-top:1px solid var(--border);}
+  .section-title{font-family:var(--display);font-weight:400;font-size:1.6rem;color:var(--text);margin-bottom:0.5rem;letter-spacing:0.01em;}
+  .section-intro{font-size:0.93rem;color:var(--mid);line-height:1.7;margin-bottom:2rem;}
+  .issue-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1.25rem;}
+  .issue-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);}
+  .issue-header.critical{background:var(--red-pale);border-bottom-color:#f0bcc3;}
+  .issue-header.warning{background:var(--amber-pale);border-bottom-color:#f0d0a8;}
+  .issue-tag{font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.25rem 0.6rem;border-radius:4px;flex-shrink:0;}
+  .issue-tag.critical{background:var(--red);color:#fff;}
+  .issue-tag.warning{background:var(--amber);color:#fff;}
+  .issue-header h3{font-size:0.94rem;font-weight:700;color:var(--text);line-height:1.35;}
+  .issue-body{padding:1.25rem 1.5rem;}
+  .issue-block{margin-bottom:1rem;}
+  .issue-block:last-child{margin-bottom:0;}
+  .issue-block-label{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid);margin-bottom:0.35rem;}
+  .issue-block p{font-size:0.87rem;color:var(--text);line-height:1.65;}
+  .issue-block p strong{color:var(--text);}
+  .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .feature-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;display:flex;gap:0.85rem;align-items:flex-start;}
+  .feature-icon{font-size:1.4rem;flex-shrink:0;}
+  .feature-card h4{font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+  .feature-card p{font-size:0.82rem;color:var(--mid);line-height:1.6;}
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+  .pricing-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;position:relative;display:flex;flex-direction:column;}
+  .pricing-card.featured{border-color:var(--red);box-shadow:0 4px 24px rgba(217,30,54,0.15);}
+  .pricing-recommended{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.25rem 0.9rem;border-radius:100px;white-space:nowrap;}
+  .pricing-tier{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);margin-bottom:0.5rem;}
+  .pricing-price{font-family:var(--display);font-weight:400;font-size:2.1rem;color:var(--text);line-height:1;margin-bottom:0.25rem;}
+  .pricing-desc{font-size:0.78rem;color:var(--mid);margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);line-height:1.55;}
+  .pricing-features{list-style:none;flex:1;margin-bottom:1.5rem;}
+  .pricing-features li{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.82rem;color:var(--text);padding:0.35rem 0;border-bottom:1px solid rgba(228,228,230,0.6);line-height:1.45;}
+  .pricing-features li:last-child{border-bottom:none;}
+  .pricing-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+  .pricing-cta{display:block;text-align:center;padding:0.75rem;border-radius:4px;font-size:0.78rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:background 0.2s;text-transform:uppercase;letter-spacing:0.05em;}
+  .pricing-card.featured .pricing-cta{background:var(--red);color:#fff;}
+  .pricing-card:not(.featured) .pricing-cta{background:var(--off);color:var(--text);border:1.5px solid var(--border);}
+  .pricing-note{font-size:0.73rem;color:var(--mid);text-align:center;margin-top:1rem;line-height:1.6;}
+  .audit-cta{background:var(--black);padding:3.5rem 1.5rem;text-align:center;}
+  .audit-cta h2{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3vw,2.3rem);color:#fff;margin-bottom:0.75rem;line-height:1.2;letter-spacing:0.01em;}
+  .audit-cta h2 span{color:var(--red);}
+  .audit-cta p{color:rgba(255,255,255,0.6);font-size:0.95rem;max-width:500px;margin:0 auto 2rem;line-height:1.7;}
+  .cta-contact{display:inline-flex;flex-direction:column;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.05);border:1px solid rgba(217,30,54,0.35);border-radius:10px;padding:1.5rem 2.5rem;margin-bottom:1.5rem;}
+  .cta-contact a{font-family:var(--display);font-size:1.5rem;color:#fff;text-decoration:none;letter-spacing:0.02em;}
+  .cta-contact a:hover{color:var(--red);}
+  .cta-contact span{font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;}
+  .audit-footer{background:#050505;padding:1.5rem;text-align:center;font-size:0.73rem;color:rgba(255,255,255,0.28);}
+  .audit-footer a{color:#ff6b7d;text-decoration:none;}
+  @media(max-width:700px){.score-grid{grid-template-columns:repeat(2,1fr);}.pricing-grid{grid-template-columns:1fr;}.features-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="audit-header">
+  <div class="trabelo-badge">Website Audit · Prepared by Trabelo</div>
+  <h1>A Free Audit for<br><span>In The Red Aesthetics</span></h1>
+  <p class="subtitle">facesconsent.com/in-the-red-aesthetics · Prepared by Aidan, Trabelo · Sheffield</p>
+  <div class="audit-meta">
+    <div><strong>Business:</strong> In The Red Aesthetics</div>
+    <div><strong>Location:</strong> Dalton, Rotherham</div>
+    <div><strong>Industry:</strong> Aesthetics &amp; Skin Clinic</div>
+    <div><strong>Audit Date:</strong> August 2026</div>
+  </div>
+</div>
+
+<div style="padding:0 1.5rem;">
+  <div class="scores-intro">
+    <h2>Your Google PageSpeed Scores (Mobile)</h2>
+    <div class="score-grid">
+      <div class="score-item fail"><div class="score-num">32</div><div class="score-label">Performance</div><div class="score-verdict">Needs Work</div></div>
+      <div class="score-item pass"><div class="score-num">91</div><div class="score-label">Accessibility</div><div class="score-verdict">Good</div></div>
+      <div class="score-item pass"><div class="score-num">92</div><div class="score-label">Best Practices</div><div class="score-verdict">Good</div></div>
+      <div class="score-item warn"><div class="score-num">61</div><div class="score-label">SEO</div><div class="score-verdict">Needs Work</div></div>
+    </div>
+    <div class="score-note">Google Lighthouse · Mobile · August 2026 · Red = 0–49 · Amber = 50–89 · Green = 90–100. Performance and SEO are the two that stand out — and SEO's problem is the more serious of the two.</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section" style="padding-top:0.5rem;">
+    <p style="font-size:1rem;color:var(--mid);line-height:1.8;">Hi Millie — I'm Aidan. I do web design across Sheffield and South Yorkshire, and I came across In The Red Aesthetics on Facebook. That logo alone is stronger branding than most clinics twice your size have — genuinely a shame it's not being used anywhere except social media.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.8;margin-top:1rem;">The link you share to book — facesconsent.com — isn't really your own website. It's a shared booking platform's clinic page, and I ran it through Google's testing tool. The results explain a lot: a performance score of <strong style="color:var(--red);">32 out of 100</strong>, and — more seriously — <strong style="color:var(--red);">Google is currently blocked from indexing the page at all</strong>. Here's the full picture.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What's Not Working — and Why It Matters</div>
+    <p class="section-intro">This is Faces Consent's platform, not something you built — so none of this reflects on you or your work. Here's what's actually happening.</p>
+
+    <div class="issue-card">
+      <div class="issue-header critical">
+        <span class="issue-tag critical">Critical</span>
+        <h3>Google can't index this page at all — you're invisible in search results</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google's own test flags two things directly: <strong>"Page is blocked from indexing"</strong> and <strong>"Links are not crawlable."</strong> In plain terms, Google is not allowed to add this page to search results, and even if it could, it can't follow the links on it properly.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your clients</div><p>Someone searching "botox Rotherham," "aesthetics Dalton" or "lip filler near me" will never find you through Google — no matter how good your work is or how many 5-star reviews you get. Right now, the only way anyone finds you is if they already know to look on Facebook or Instagram, or someone tells them directly.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>A real website that Google can actually index and rank — properly set up from day one, targeting the exact searches your future clients are already typing.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header critical">
+        <span class="issue-tag critical">Critical</span>
+        <h3>Performance score of 32 — the main content takes 14 seconds to appear on mobile</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google's mobile test shows a <strong>Largest Contentful Paint of 14.0 seconds</strong>, with the page frozen or unresponsive for a combined <strong>1,250ms</strong> across 20 separate long tasks. The page also loads <strong>4.7MB</strong> of data — most of it, <strong>1.5MB</strong>, is JavaScript that never actually gets used.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your clients</div><p>Someone finds your page, taps through on their phone, and waits 14 seconds before they can even see your treatment list — let alone book. For a decision as personal as aesthetic treatments, that's a long time for doubt to creep in before they've even read a word about you.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>A fast, purpose-built site — target load time under 2 seconds, with your existing Faces Consent booking system linked in, not replaced.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">Trust</span>
+        <h3>It's a shared booking page, not your own brand</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>The page is a generic clinic listing on someone else's platform — your logo, your story, and the reviews you've actually earned on Facebook don't appear anywhere on it. It shows "0 reviews" on the page itself, even though you have genuine 5-star reviews just one click away that no one visiting this page ever sees.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your clients</div><p>Aesthetic treatments are personal — people want to feel confident in who's doing them before they book. A generic booking widget with your logo missing and "0 reviews" showing does the opposite of building that confidence, even though the reality (your actual reviews, your actual results) says otherwise.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>Your brand, your story and your real reviews front and centre — the confidence-building your work has already earned, actually visible.</p></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <div class="issue-header warning">
+        <span class="issue-tag warning">Trust &amp; Security</span>
+        <h3>The page asks for your location before you've even chosen to do anything</h3>
+      </div>
+      <div class="issue-body">
+        <div class="issue-block"><div class="issue-block-label">What's happening</div><p>Google flags that the page <strong>requests location access automatically on load</strong> — before a visitor has clicked anything. It's also missing standard security protections (the kind that stop a page being embedded fraudulently on another site) and logs errors to the browser console.</p></div>
+        <div class="issue-block"><div class="issue-block-label">What this means for your clients</div><p>An unexpected "allow this site to know your location?" pop-up before someone's even looked at your treatments is the kind of thing that makes people close the tab, especially anyone cautious about their privacy — not the first impression a trust-based service wants to make.</p></div>
+        <div class="issue-block"><div class="issue-block-label">The fix</div><p>No unexpected permission requests, proper security headers set up from the start — the kind of technical hygiene that (rightly) never gets noticed because nothing goes wrong.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What a Proper Website Adds</div>
+    <p class="section-intro">Everything the booking platform can't do — without touching how you actually take bookings.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⚡</div><div><h4>Performance Score 97+</h4><p>From 32 to 97+ — a page that loads in a couple of seconds, not fourteen.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🔍</div><div><h4>Actually Findable on Google</h4><p>SEO score 100 and properly indexable — so "aesthetics Rotherham" can actually lead to you.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">⭐</div><div><h4>Your Real Reviews, Shown</h4><p>Your genuine 5-star Facebook reviews given real visual weight — not hidden behind "0 reviews."</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🎨</div><div><h4>Your Actual Brand</h4><p>That logo and identity, built into a site that looks like In The Red — not a generic template.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><div><h4>Your Existing Booking, Kept</h4><p>Faces Consent stays exactly as it is — linked in, not replaced. No new system to learn.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">💉</div><div><h4>Full Treatment Menu, Properly Laid Out</h4><p>Every category you offer, clearly priced and organised — not hidden behind filter tabs.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">📱</div><div><h4>Mobile-First</h4><p>Built for how people actually find you — on their phone, researching before they commit.</p></div></div>
+      <div class="feature-card"><div class="feature-icon">🔒</div><div><h4>No Surprise Pop-Ups</h4><p>No location requests, no console errors — clean, professional, trustworthy from first load.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What It Would Cost</div>
+    <p class="section-intro">Three tiers, all one-off prices. No monthly fees, no surprises.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card featured">
+        <div class="pricing-recommended">Recommended for In The Red</div>
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">£395</div>
+        <div class="pricing-desc">Your booking system already works — this fixes the speed, trust and Google-visibility problems in one go.</div>
+        <ul class="pricing-features">
+          <li>Up to 5 pages — Home, Treatments &amp; Prices, Reviews, About, Contact</li>
+          <li>Performance score 97+, SEO score 100</li>
+          <li>Full treatment menu &amp; prices, properly laid out</li>
+          <li>Your real reviews &amp; brand featured properly</li>
+          <li>Mobile-first, no layout shift</li>
+          <li>Your existing Faces Consent booking linked in — nothing to change</li>
+          <li>Enquiry form</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">Updates: £15/change or £30/month unlimited.</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">£795</div>
+        <div class="pricing-desc">Worth knowing about for later, not needed to fix what's covered above.</div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Before &amp; after gallery — expected in this industry, currently nowhere</li>
+          <li>Instagram feed embedded live on the site</li>
+          <li>Dedicated pages per treatment category, as the menu grows</li>
+          <li>No monthly fees</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">One-off price. No monthly fees.</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">£1,295</div>
+        <div class="pricing-desc">Everything in Business plus a CMS and a blog for treatment guides and aftercare advice.</div>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>CMS — edit prices &amp; pages yourself</li>
+          <li>Blog / treatment guides section</li>
+          <li>Priority updates 12 months</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com" class="pricing-cta">Get in Touch</a>
+        <div class="pricing-note">Small hosting cost may apply (~£0–9/month).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="audit-cta">
+  <div class="container">
+    <h2>Happy to have a <span>no-pressure chat</span></h2>
+    <p>If anything here is useful, or you'd like to see the demo site I've already put together for In The Red Aesthetics, just drop me a message. I'm Sheffield-based and easy to get hold of.</p>
+    <div class="cta-contact">
+      <span>Reach Aidan directly</span>
+      <a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a>
+    </div>
+  </div>
+</div>
+<div class="audit-footer"><p>Prepared by <a href="#">Aidan Fry</a> at <a href="#">Trabelo · Sheffield</a> · aidan@trabelo.com · Free, no obligation · August 2026</p></div>
+
+</body>
+</html>
