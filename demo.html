@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SheffTech — Phone, Computer &amp; Console Repairs in Sheffield</title>
+<meta name="description" content="Electronics repair shop on City Road, Sheffield S2. Phone screens, laptops, PCs, PlayStation, Xbox, Nintendo Switch, iPads and Sat-Navs. Rated 4.9 from 191 Google reviews. Same-day repairs, free parking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" media="print">
+<script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
+<style>
+:root{
+  /* sampled from the SheffTech logo + shop signage */
+  --navy:#08182E;
+  --navy-2:#0E2748;
+  --navy-3:#143459;
+  --blue:#1568B8;
+  --blue-lt:#3FA2F0;
+  --blue-pale:#E8F3FD;
+  --cyan:#1FC4E4;
+  --red:#C42622;
+  --green:#15803D;
+  --ink:#0C1B2A;
+  --body:#4B5D70;
+  --muted:#64748B;
+  --white:#fff;
+  --paper:#F6F9FC;
+  --line:#DFE7EF;
+  --line-soft:#EDF2F7;
+  --head:'Space Grotesk',system-ui,sans-serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --sh:0 1px 2px rgba(8,24,46,.05),0 8px 24px rgba(8,24,46,.06);
+  --sh-lg:0 20px 50px rgba(8,24,46,.13);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+body{font-family:var(--sans);background:var(--white);color:var(--body);line-height:1.68;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--head);color:var(--ink);line-height:1.14;letter-spacing:-.02em;font-weight:700;}
+h1{font-size:clamp(2.1rem,5vw,3.5rem);}
+h2{font-size:clamp(1.7rem,3.4vw,2.6rem);}
+h3{font-size:1.2rem;font-weight:600;letter-spacing:-.01em;}
+h4{font-size:1rem;font-weight:600;letter-spacing:0;}
+p+p{margin-top:.9rem;}
+
+.container{max-width:1160px;margin:0 auto;padding:0 1.5rem;}
+.narrow{max-width:820px;margin:0 auto;}
+.section{padding:5rem 0;}
+.section-sm{padding:3.25rem 0;}
+.bg-paper{background:var(--paper);}
+.bg-navy{background:var(--navy);color:rgba(255,255,255,.76);}
+.bg-navy h1,.bg-navy h2,.bg-navy h3,.bg-navy h4{color:#fff;}
+.bg-blue{background:var(--blue-pale);}
+
+.eyebrow{font-family:var(--head);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:.85rem;}
+.bg-navy .eyebrow,.hero .eyebrow,.tik .eyebrow{color:var(--cyan);}
+.sec-head{max-width:680px;margin-bottom:2.75rem;}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+.sec-head p{margin-top:.9rem;font-size:1.03rem;}
+.lead{font-size:1.08rem;}
+
+/* ---------- top bar ---------- */
+.topbar{background:var(--navy);color:rgba(255,255,255,.8);font-size:.79rem;}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:.55rem;padding-bottom:.55rem;}
+.topbar a{color:rgba(255,255,255,.86);text-decoration:none;}
+.topbar a:hover{color:var(--cyan);}
+.topbar .tb-l,.topbar .tb-r{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;}
+.tb-item{display:inline-flex;align-items:center;gap:.42rem;}
+.tb-item svg{width:14px;height:14px;flex:none;opacity:.85;}
+@media(max-width:760px){.topbar .tb-r{display:none;}.topbar .container{justify-content:center;}}
+
+/* ---------- nav ---------- */
+.site-header{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;height:74px;}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;flex:none;}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(140deg,var(--blue-lt),var(--blue) 55%,var(--navy-3));display:grid;place-items:center;flex:none;box-shadow:0 4px 12px rgba(27,123,212,.32);}
+.brand-mark svg{width:21px;height:21px;}
+.brand-txt{display:flex;flex-direction:column;line-height:1.05;}
+.brand-txt b{font-family:var(--head);font-size:1.2rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;}
+.brand-txt b i{font-style:normal;color:var(--blue);}
+.brand-txt span{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.nav-links{display:flex;align-items:center;gap:.35rem;list-style:none;}
+.nav-links button{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:.87rem;font-weight:500;color:var(--body);padding:.5rem .78rem;border-radius:7px;transition:background .18s,color .18s;}
+.nav-links button:hover{background:var(--paper);color:var(--ink);}
+.nav-links button.active{color:var(--blue);background:var(--blue-pale);font-weight:600;}
+.burger{display:none;background:none;border:1px solid var(--line);width:44px;height:42px;border-radius:9px;cursor:pointer;}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);margin:4px auto;border-radius:2px;}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--line);max-height:76vh;overflow-y:auto;}
+.mobile-menu.open{display:block;}
+.mobile-menu button{display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line-soft);padding:.95rem 1.5rem;font-family:var(--sans);font-size:.95rem;font-weight:500;color:var(--ink);cursor:pointer;}
+.mobile-menu button:hover{background:var(--paper);}
+@media(max-width:1010px){.nav-links{display:none;}.nav .btn{display:none;}.burger{display:block;}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--sans);font-size:.9rem;font-weight:600;padding:.82rem 1.5rem;border-radius:9px;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .18s,box-shadow .18s,background .18s,color .18s,border-color .18s;line-height:1.2;}
+.btn svg{width:16px;height:16px;flex:none;}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 14px rgba(21,104,184,.3);}
+.btn-primary:hover{background:#0F508F;transform:translateY(-2px);box-shadow:0 8px 22px rgba(21,104,184,.38);}
+.btn-dark{background:var(--navy);color:#fff;}
+.btn-dark:hover{background:var(--navy-2);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-pale);}
+.btn-ghost-lt{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.28);}
+.btn-ghost-lt:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.5);}
+.btn-wa{background:#25D366;color:#0a2e18;}
+.btn-wa:hover{background:#1fbb59;transform:translateY(-2px);}
+.btn-lg{padding:1rem 1.85rem;font-size:.97rem;}
+.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;}
+.btn-row.center{justify-content:center;}
+
+/* ---------- page switching ---------- */
+.page{display:none;}
+.page.active{display:block;animation:fade .4s ease;}
+@keyframes fade{from{opacity:0;transform:translate3d(0,10px,0);}to{opacity:1;transform:none;}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--navy);color:rgba(255,255,255,.8);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:
+   radial-gradient(1000px 520px at 78% 8%,rgba(31,196,228,.16),transparent 62%),
+   radial-gradient(760px 460px at 8% 92%,rgba(27,123,212,.24),transparent 66%);}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.06fr .94fr;gap:3.25rem;align-items:center;padding:4.5rem 0 4.75rem;}
+.hero h1{color:#fff;}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--cyan),var(--blue-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p.lead{margin-top:1.15rem;font-size:1.1rem;color:rgba(255,255,255,.82);max-width:52ch;}
+.hero .btn-row{margin-top:1.9rem;}
+.hero-note{margin-top:1.5rem;font-size:.84rem;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.hero-photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12);}
+.hero-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;}
+.hero-badge{position:absolute;left:1rem;bottom:1rem;right:1rem;background:rgba(8,24,46,.9);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:.85rem 1rem;display:flex;align-items:center;gap:.85rem;}
+.hero-badge .hb-ic{width:34px;height:34px;border-radius:8px;background:var(--blue);display:grid;place-items:center;flex:none;}
+.hero-badge .hb-ic svg{width:17px;height:17px;}
+.hero-badge b{display:block;color:#fff;font-family:var(--head);font-size:.92rem;}
+.hero-badge span{font-size:.78rem;color:rgba(255,255,255,.65);}
+@media(max-width:940px){.hero-inner{grid-template-columns:1fr;gap:2.5rem;padding:3.25rem 0 3.5rem;}}
+
+/* rating stars */
+.stars{display:inline-flex;gap:2px;}
+.stars svg{width:15px;height:15px;fill:#FFB400;}
+.rating-line{display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:.88rem;}
+
+/* ---------- trust strip ---------- */
+.trust{background:var(--white);border-bottom:1px solid var(--line);}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.trust-item{padding:1.6rem 1.25rem;text-align:center;border-right:1px solid var(--line-soft);}
+.trust-item:last-child{border-right:none;}
+.trust-item b{display:block;font-family:var(--head);font-size:1.5rem;color:var(--ink);line-height:1.1;}
+.trust-item span{font-size:.8rem;color:var(--muted);display:block;margin-top:.25rem;}
+@media(max-width:760px){.trust-grid{grid-template-columns:1fr 1fr;}.trust-item{border-bottom:1px solid var(--line-soft);}.trust-item:nth-child(2){border-right:none;}}
+
+/* ---------- service cards ---------- */
+.grid{display:grid;gap:1.35rem;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:960px){.g4{grid-template-columns:repeat(2,1fr);}.g3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:680px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.6rem;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.card.hoverable{cursor:pointer;}
+.card.hoverable:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:#C6DCF2;}
+.card h3{margin-bottom:.55rem;}
+.card p{font-size:.93rem;}
+.card-ic{width:46px;height:46px;border-radius:11px;background:var(--blue-pale);display:grid;place-items:center;margin-bottom:1.05rem;}
+.card-ic svg{width:23px;height:23px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.card-more{margin-top:.9rem;font-size:.85rem;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:.35rem;}
+.card ul{list-style:none;margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+.card ul li{font-size:.76rem;background:var(--paper);border:1px solid var(--line-soft);color:var(--body);padding:.24rem .58rem;border-radius:99px;}
+
+/* dark card variant */
+.bg-navy .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.13);}
+.bg-navy .card p{color:rgba(255,255,255,.72);}
+.bg-navy .card-ic{background:rgba(31,196,228,.14);}
+.bg-navy .card-ic svg{stroke:var(--cyan);}
+.bg-navy .card ul li{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:rgba(255,255,255,.75);}
+
+/* ---------- split ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3.25rem;align-items:center;}
+.split.wide-l{grid-template-columns:1.15fr .85fr;}
+.split img{border-radius:16px;box-shadow:var(--sh-lg);width:100%;object-fit:cover;}
+@media(max-width:900px){.split,.split.wide-l{grid-template-columns:1fr;gap:2.25rem;}}
+
+/* ---------- checklist ---------- */
+.checks{list-style:none;display:grid;gap:.75rem;margin-top:1.4rem;}
+.checks li{display:flex;gap:.7rem;align-items:flex-start;font-size:.96rem;}
+.checks li svg{width:19px;height:19px;flex:none;margin-top:.2rem;stroke:var(--green);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+.bg-navy .checks li{color:rgba(255,255,255,.8);}
+.bg-navy .checks li svg{stroke:var(--cyan);}
+
+/* ---------- price table ---------- */
+.ptable{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.93rem;}
+.ptable caption{caption-side:top;text-align:left;font-family:var(--head);font-weight:600;color:var(--ink);font-size:1.05rem;padding:0 0 .7rem;}
+.ptable th{background:var(--paper);text-align:left;font-family:var(--head);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.75rem 1rem;font-weight:600;border-bottom:1px solid var(--line);}
+.ptable td{padding:.8rem 1rem;border-bottom:1px solid var(--line-soft);vertical-align:middle;}
+.ptable tr:last-child td{border-bottom:none;}
+.ptable td:first-child{color:var(--ink);font-weight:500;}
+.ptable .turn{color:var(--muted);font-size:.86rem;white-space:nowrap;}
+.ptable .price{text-align:right;white-space:nowrap;}
+.pblank{display:inline-block;min-width:62px;height:1.5rem;border-bottom:2px dotted #C3D2E0;vertical-align:middle;}
+.price-note{margin-top:.9rem;font-size:.85rem;color:var(--muted);display:flex;gap:.5rem;align-items:flex-start;}
+.price-note svg{width:16px;height:16px;flex:none;margin-top:.2rem;stroke:var(--muted);fill:none;stroke-width:2;}
+.tbl-wrap{overflow-x:auto;}
+
+/* ---------- reviews ---------- */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+@media(max-width:940px){.rev-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:660px){.rev-grid{grid-template-columns:1fr;}}
+.review{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;gap:.8rem;}
+.review p{font-size:.94rem;color:var(--ink);flex:1;}
+.review-who{display:flex;align-items:center;gap:.7rem;padding-top:.85rem;border-top:1px solid var(--line-soft);}
+.rev-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(140deg,var(--blue-lt),var(--blue));color:#fff;display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:.85rem;flex:none;}
+.review-who b{display:block;font-size:.88rem;color:var(--ink);font-weight:600;}
+.review-who span{font-size:.76rem;color:var(--muted);}
+.rev-src{margin-left:auto;font-size:.7rem;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:.16rem .55rem;}
+
+.rating-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2.5rem;}
+@media(max-width:660px){.rating-cards{grid-template-columns:1fr;}}
+.rating-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.5rem;display:flex;align-items:center;gap:1.15rem;}
+.rc-score{font-family:var(--head);font-size:2.5rem;font-weight:700;color:var(--ink);line-height:1;}
+.rating-card b{display:block;color:var(--ink);font-size:.95rem;}
+.rating-card span{font-size:.84rem;color:var(--muted);}
+
+/* ---------- tiktok ---------- */
+.tik{background:#0F1D33;background-image:linear-gradient(120deg,#0B1220,#12233D 55%,#0C2A3A);color:rgba(255,255,255,.78);border-radius:20px;padding:2.75rem;position:relative;overflow:hidden;}
+.tik::after{content:'';position:absolute;right:-70px;top:-70px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(31,196,228,.26),transparent 68%);}
+.tik-in{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:center;}
+.tik h2{color:#fff;}
+.tik-stats{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1.5rem;}
+.tik-stats div b{display:block;font-family:var(--head);font-size:1.7rem;color:#fff;line-height:1.1;}
+.tik-stats div span{font-size:.8rem;color:rgba(255,255,255,.6);}
+.tik-phone{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.15);box-shadow:0 24px 60px rgba(0,0,0,.45);}
+.tik-phone img{aspect-ratio:1/1;object-fit:cover;width:100%;}
+@media(max-width:860px){.tik{padding:2rem;}.tik-in{grid-template-columns:1fr;}}
+
+/* ---------- shop ---------- */
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem;}
+@media(max-width:940px){.shop-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.shop-grid{grid-template-columns:1fr;}}
+.prod{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;}
+.prod:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.prod-img{aspect-ratio:16/10;background:var(--paper);overflow:hidden;position:relative;}
+.prod-img img{width:100%;height:100%;object-fit:cover;}
+.prod-ph{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(140deg,var(--blue-pale),#DCEBFA);}
+.prod-ph svg{width:52px;height:52px;stroke:var(--blue);fill:none;stroke-width:1.3;opacity:.55;}
+.prod-tag{position:absolute;top:.7rem;left:.7rem;background:var(--navy);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:.28rem .6rem;border-radius:99px;}
+.prod-tag.green{background:var(--green);}
+.prod-tag.red{background:var(--red);}
+.prod-body{padding:1.25rem;display:flex;flex-direction:column;flex:1;gap:.55rem;}
+.prod-body h3{font-size:1.05rem;}
+.prod-body p{font-size:.88rem;flex:1;}
+.prod-foot{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-top:.5rem;padding-top:.9rem;border-top:1px solid var(--line-soft);}
+.prod-price{font-family:var(--head);font-weight:700;color:var(--ink);font-size:1.05rem;}
+.btn-cart{background:var(--blue);color:#fff;border:none;font-family:var(--sans);font-size:.83rem;font-weight:600;padding:.55rem 1rem;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:background .18s;}
+.btn-cart:hover{background:#0F508F;}
+.btn-cart svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+
+.demo-banner{background:#FFF7E6;border:1px solid #F5D98B;border-radius:12px;padding:1rem 1.15rem;display:flex;gap:.8rem;align-items:flex-start;margin-bottom:2rem;}
+.demo-banner svg{width:20px;height:20px;flex:none;margin-top:.15rem;stroke:#B7791F;fill:none;stroke-width:2;stroke-linecap:round;}
+.demo-banner p{font-size:.9rem;color:#7C5A16;}
+.demo-banner b{color:#5C420F;}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;counter-reset:s;}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.steps{grid-template-columns:1fr;}}
+.step{position:relative;padding-top:2.9rem;}
+.step::before{counter-increment:s;content:'0' counter(s);position:absolute;top:0;left:0;font-family:var(--head);font-size:1.55rem;font-weight:700;color:var(--blue);opacity:.32;}
+.step h3{margin-bottom:.4rem;}
+.step p{font-size:.92rem;}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.info-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.6rem;margin-bottom:1.25rem;}
+.info-row{display:flex;gap:.9rem;align-items:flex-start;padding:.7rem 0;border-bottom:1px solid var(--line-soft);}
+.info-row:last-child{border-bottom:none;padding-bottom:0;}
+.info-row:first-child{padding-top:0;}
+.info-ic{width:36px;height:36px;border-radius:9px;background:var(--blue-pale);display:grid;place-items:center;flex:none;}
+.info-ic svg{width:17px;height:17px;stroke:var(--blue);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+.info-row b{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.15rem;}
+.info-row a,.info-row span{color:var(--ink);font-size:.98rem;text-decoration:none;font-weight:500;}
+.info-row a:hover{color:var(--blue);}
+
+.hours{width:100%;border-collapse:collapse;font-size:.94rem;}
+.hours td{padding:.52rem 0;border-bottom:1px solid var(--line-soft);}
+.hours td:last-child{text-align:right;color:var(--ink);font-weight:500;}
+.hours tr:last-child td{border-bottom:none;}
+.hours tr.today td{color:var(--blue);font-weight:700;}
+.hours tr.today td:last-child{color:var(--blue);}
+.hours .shut{color:var(--muted);font-weight:400;}
+
+.form-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.75rem;}
+.field{margin-bottom:1.05rem;}
+.field label{display:block;font-size:.83rem;font-weight:600;color:var(--ink);margin-bottom:.4rem;}
+.field input,.field select,.field textarea{width:100%;padding:.75rem .9rem;border:1px solid var(--line);border-radius:9px;font-family:var(--sans);font-size:.95rem;color:var(--ink);background:var(--white);transition:border-color .18s,box-shadow .18s;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(27,123,212,.13);}
+.field textarea{min-height:110px;resize:vertical;}
+.form-note{font-size:.8rem;color:var(--muted);margin-top:.9rem;}
+
+.map-embed{border-radius:14px;overflow:hidden;border:1px solid var(--line);height:280px;background:var(--paper);position:relative;}
+.map-embed iframe{width:100%;height:100%;border:0;display:block;}
+
+/* ---------- faq ---------- */
+.faq-item{border:1px solid var(--line);border-radius:12px;margin-bottom:.8rem;background:var(--white);overflow:hidden;}
+.faq-item summary{padding:1.1rem 1.35rem;cursor:pointer;font-family:var(--head);font-weight:600;color:var(--ink);font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:1.35rem;color:var(--blue);font-weight:400;flex:none;line-height:1;}
+.faq-item[open] summary::after{content:'\2212';}
+.faq-item .faq-body{padding:0 1.35rem 1.25rem;font-size:.95rem;}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy);color:rgba(255,255,255,.66);padding:3.5rem 0 0;font-size:.92rem;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:2.5rem;}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr;}}
+footer h4{color:#fff;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:1rem;}
+footer a{color:rgba(255,255,255,.66);text-decoration:none;}
+footer a:hover{color:var(--cyan);}
+.foot-links{list-style:none;display:grid;gap:.55rem;}
+.foot-links button{background:none;border:none;color:rgba(255,255,255,.66);font-family:var(--sans);font-size:.92rem;cursor:pointer;padding:0;text-align:left;}
+.foot-links button:hover{color:var(--cyan);}
+.foot-brand p{font-size:.9rem;margin-top:.9rem;max-width:34ch;}
+.socials{display:flex;gap:.6rem;margin-top:1.2rem;}
+.socials a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.08);display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);transition:background .18s,transform .18s;}
+.socials a:hover{background:var(--blue);transform:translateY(-2px);}
+.socials svg{width:17px;height:17px;fill:#fff;}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:1.4rem 0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.83rem;color:rgba(255,255,255,.5);}
+.foot-bottom a{color:var(--cyan);}
+
+/* ---------- mobile call bar ---------- */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:80;background:rgba(8,24,46,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.14);padding:.6rem .8rem;gap:.55rem;align-items:center;}
+.mobile-bar .btn{flex:1;padding:.72rem .9rem;font-size:.86rem;}
+@media(max-width:760px){.mobile-bar{display:flex;}body{padding-bottom:72px;}}
+
+/* reveal */
+.reveal{opacity:0;transform:translate3d(0,16px,0);transition:opacity .55s ease,transform .55s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:2px;border-radius:4px;}
+.bg-navy :focus-visible,footer :focus-visible,.mobile-bar :focus-visible{outline-color:var(--cyan);}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+</style>
+</head>
+<body>
+
+<!-- ======= TOP BAR ======= -->
+<div class="topbar">
+  <div class="container">
+    <div class="tb-l">
+      <a href="tel:07463921129" class="tb-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>07463 921 129</a>
+      <a href="tel:01143603663" class="tb-item">0114 360 3663</a>
+      <a href="mailto:info@shefftech.co.uk" class="tb-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>info@shefftech.co.uk</a>
+    </div>
+    <div class="tb-r">
+      <span class="tb-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>205 City Road, Sheffield S2 5HF</span>
+      <span class="tb-item" id="tb-open"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ======= HEADER ======= -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="brand" onclick="showPage('home');return false;" aria-label="SheffTech home">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4"/><path d="m9.5 8.5 2 2-2 2M14 12.5h1"/></svg></span>
+        <span class="brand-txt"><b>Sheff<i>Tech</i></b><span>Electronic Repairs</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><button onclick="showPage('home')" data-nav="home" class="active">Home</button></li>
+        <li><button onclick="showPage('repairs')" data-nav="repairs">Repairs</button></li>
+        <li><button onclick="showPage('shop')" data-nav="shop">Shop</button></li>
+        <li><button onclick="showPage('business')" data-nav="business">Business</button></li>
+        <li><button onclick="showPage('about')" data-nav="about">About</button></li>
+        <li><button onclick="showPage('reviews')" data-nav="reviews">Reviews</button></li>
+        <li><button onclick="showPage('contact')" data-nav="contact">Contact</button></li>
+      </ul>
+      <a href="tel:07463921129" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+        Call for a quote
+      </a>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('repairs')">Repairs &amp; Prices</button>
+    <button onclick="showPage('shop')">Shop &amp; Trade-In</button>
+    <button onclick="showPage('business')">Business &amp; Schools</button>
+    <button onclick="showPage('about')">About Us</button>
+    <button onclick="showPage('reviews')">Reviews</button>
+    <button onclick="showPage('contact')">Contact &amp; Opening Hours</button>
+  </div>
+</header>
+
+<!-- ============================================================ HOME -->
+<section class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">Sheffield S2 · Since 2013</span>
+          <h1>Broken screen? Dead console?<br><em>We'll have it fixed today.</em></h1>
+          <p class="lead">SheffTech is an independent repair shop on City Road, near Sheffield city centre. Phones, laptops, PCs, PlayStation, Xbox, Nintendo Switch, iPads, Sat-Navs — and the awkward jobs nobody else will take on.</p>
+          <div class="btn-row">
+            <a href="tel:07463921129" class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>Call 07463 921 129</a>
+            <a href="https://wa.me/447463921129?text=Hi%20SheffTech%2C%20I%27d%20like%20a%20quote%20for%20a%20repair" target="_blank" rel="noopener" class="btn btn-wa btn-lg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.2-.3 0-.5.1-.6l.6-.7c.2-.2.2-.4.3-.6 0-.2 0-.4-.1-.6l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.1 1.2-1.1 2.8s1.2 3.2 1.3 3.5c.2.2 2.3 3.6 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5 0-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z"/></svg>WhatsApp us</a>
+          </div>
+          <div class="hero-note">
+            <span class="rating-line"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span> <b style="color:#fff;">4.9</b> from 191 Google reviews</span>
+            <span>·</span><span>Free parking on Manor Laith Road</span>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="photos/shopfront.webp" alt="The SheffTech repair shop on the corner of City Road and Manor Laith Road, Sheffield" width="1024" height="768" fetchpriority="high">
+          <div class="hero-badge">
+            <span class="hb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <div><b>Walk in — no appointment needed</b><span>205 City Road, S2 5HF · on the corner of Manor Laith Rd</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item"><b>4.9 ★</b><span>191 Google reviews</span></div>
+        <div class="trust-item"><b>13 years</b><span>Repairing since 2013</span></div>
+        <div class="trust-item"><b>Same day</b><span>On most common repairs</span></div>
+        <div class="trust-item"><b>3–12 mth</b><span>Warranty on every repair</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- services -->
+  <div class="section">
+    <div class="container">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">What we fix</span>
+        <h2>Eight repair services, one workshop.</h2>
+        <p>If it has a circuit board in it, bring it in. We take on most repairs as long as parts are available or we have the skill set needed.</p>
+      </div>
+      <div class="grid g4">
+        <div class="card hoverable reveal" onclick="showPage('repairs')">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
+          <h3>Mobile phone repairs</h3>
+          <p>Screen replacement, battery, speaker issues, charging ports and motherboard work. Same-day iPhone screens, genuine Samsung screens.</p>
+          <ul><li>iPhone</li><li>Samsung</li><li>Huawei</li><li>Oppo</li><li>Xiaomi</li></ul>
+          <span class="card-more">See what's covered →</span>
+        </div>
+        <div class="card hoverable reveal" onclick="showPage('repairs')">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="15" rx="2"/><path d="M11.5 15h1"/><path d="M2 21h20"/></svg></div>
+          <h3>iPad &amp; tablet repairs</h3>
+          <p>Apple iPad, Samsung Tab, Microsoft Surface Pro — we repair them all. Screens, charging ports, power issues and software faults.</p>
+          <ul><li>iPad</li><li>Galaxy Tab</li><li>Surface Pro</li><li>Lenovo</li></ul>
+          <span class="card-more">See what's covered →</span>
+        </div>
+        <div class="card hoverable reveal" onclick="showPage('repairs')">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/><path d="M9.5 17h5"/></svg></div>
+          <h3>Computer repairs</h3>
+          <p>Laptop screens, desktop PCs, gaming rigs, MacBooks. Hard drive replacement, data recovery, virus removal and OS installs.</p>
+          <ul><li>Laptops</li><li>Desktops</li><li>MacBook</li><li>Upgrades</li></ul>
+          <span class="card-more">See what's covered →</span>
+        </div>
+        <div class="card hoverable reveal" onclick="showPage('repairs')">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L15 15H9l-1.6 1.8A3 3 0 0 1 2 15v-3a4 4 0 0 1 4-4z"/><path d="M7 11.5v2M6 12.5h2"/><circle cx="16.5" cy="12" r=".6" fill="currentColor"/><circle cx="18.5" cy="13.8" r=".6" fill="currentColor"/></svg></div>
+          <h3>Game console repairs</h3>
+          <p>PS4, PS5, Xbox, Nintendo Switch, Switch Lite, OLED and Steam Deck. HDMI ports, disc drives, overheating and software faults.</p>
+          <ul><li>PlayStation</li><li>Xbox</li><li>Switch</li><li>Steam Deck</li><li>Retro</li></ul>
+          <span class="card-more">See what's covered →</span>
+        </div>
+        <div class="card hoverable reveal" onclick="showPage('repairs')">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m9 15 6-6M9 9h.01M15 15h.01"/></svg></div>
+          <h3>TomTom &amp; Sat-Nav repairs</h3>
+          <p>All known brands including TomTom and Garmin. Car, truck, camper and walking Sat-Navs — screens, batteries, ports and map fixes.</p>
+          <ul><li>TomTom</li><li>Garmin</li><li>Post-in welcome</li></ul>
+          <span class="card-more">See what's covered →</span>
+        </div>
+        <div class="card hoverable reveal" onclick="showPage('repairs')">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+          <h3>Other electronics</h3>
+          <p>Headphones, smart watches, DJ equipment, VR headsets and general electronics. Small soldering jobs through to large PCB work.</p>
+          <ul><li>DJ gear</li><li>Headphones</li><li>VR</li><li>Soldering</li></ul>
+          <span class="card-more">See what's covered →</span>
+        </div>
+        <div class="card hoverable reveal" onclick="showPage('repairs')">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="10" rx="3"/><path d="M6 10.5v3M4.5 12h3"/><circle cx="17" cy="11" r=".8" fill="currentColor"/><circle cx="18.8" cy="13.2" r=".8" fill="currentColor"/></svg></div>
+          <h3>Nintendo Switch repairs</h3>
+          <p>Our most popular console repair. Joy-Con stick drift replaced within the hour, plus screens, charging ports, rails and housings.</p>
+          <ul><li>Stick drift</li><li>Screens</li><li>Charging</li><li>Rails</li></ul>
+          <span class="card-more">See what's covered →</span>
+        </div>
+        <div class="card hoverable reveal" onclick="showPage('repairs')">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M3 7h18M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/><path d="M5 7v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7"/><path d="M10 11v6M14 11v6"/></svg></div>
+          <h3>Console deep clean</h3>
+          <p>Full strip-down of PS4, PS5 and Xbox to clear the dust carpets that block the heat sink. Smoother gameplay, faster loads, cooler running.</p>
+          <ul><li>PS4 / PS5</li><li>Xbox</li><li>Laptops</li><li>PCs</li></ul>
+          <span class="card-more">See the full process →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- deep clean feature -->
+  <div class="section bg-paper">
+    <div class="container">
+      <div class="split wide-l">
+        <div class="reveal">
+          <span class="eyebrow">Our signature job</span>
+          <h2>The console deep clean that went viral.</h2>
+          <p class="lead" style="margin-top:1rem;">Over time, dust, dirt and debris build up inside your console, leading to overheating, performance issues and even hardware failure. Most people clean the fan and stop there — which misses the problem entirely.</p>
+          <p>The dust builds into "dust carpets" that block the vents on the heat sink. That's what kills the console's ability to disperse heat. The only way to clear it is to fully dismantle the machine — side panels, cooling fan, top shell, disc drive, motherboard, mid-section, right down to the power supply.</p>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Every component cleaned, then reassembled and tested</li>
+            <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Fixes loud fans, random power-offs and overheating shutdowns</li>
+            <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Also available for laptops, gaming PCs and other electronics</li>
+            <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Smoother gameplay, faster load times, a longer life out of the machine</li>
+          </ul>
+          <div class="btn-row" style="margin-top:1.75rem;">
+            <button onclick="showPage('repairs')" class="btn btn-dark">See the full strip-down</button>
+            <a href="tel:07463921129" class="btn btn-outline">Get a quote</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <img src="photos/pc-interior.webp" alt="Inside a gaming PC during a SheffTech deep clean, showing the cooling fan and heat sink" width="1024" height="1024" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- tiktok -->
+  <div class="section">
+    <div class="container">
+      <div class="tik reveal">
+        <div class="tik-in">
+          <div>
+            <span class="eyebrow">@shefftech</span>
+            <h2>Watch us take it apart.</h2>
+            <p style="margin-top:1rem;font-size:1.03rem;">We film the jobs. Dust-caked consoles, stick drift repairs, water-damaged boards brought back from the dead — it's genuinely satisfying to watch, and you might even see your own device on there.</p>
+            <div class="tik-stats">
+              <div><b>35.9K</b><span>Likes on TikTok</span></div>
+              <div><b>1M+</b><span>Views on our best clean</span></div>
+              <div><b>Since 2013</b><span>Sheffield, UK</span></div>
+            </div>
+            <div class="btn-row" style="margin-top:1.9rem;">
+              <a href="https://www.tiktok.com/@shefftech" target="_blank" rel="noopener" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-1.8-2.5v-3.2a5.8 5.8 0 1 0 4.9 5.7V9.7a7.3 7.3 0 0 0 4.3 1.4V8a4.3 4.3 0 0 1-3.3-2.2z"/></svg>Follow on TikTok</a>
+              <a href="https://www.facebook.com/SheffTech/" target="_blank" rel="noopener" class="btn btn-ghost-lt">See us on Facebook</a>
+            </div>
+          </div>
+          <div class="tik-phone">
+            <img src="photos/pc-interior.webp" alt="A dust-caked gaming PC interior before a SheffTech deep clean" width="1024" height="1024" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- why us -->
+  <div class="section bg-navy">
+    <div class="container">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">Why people keep coming back</span>
+        <h2>Dedication to customer service — and honesty.</h2>
+        <p>The way we see it, without customers we don't have a business. The only way to gain and keep them is by providing the best service we can.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Honesty is the best policy</h3>
+          <p>If we don't think your device is repairable, or that repairing it isn't cost-effective, we'll be honest and tell you. You won't be talked into a job that isn't worth doing.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Fast turnaround</h3>
+          <p>iPhone screen replacements can be done within the hour. PC and laptop work is often same-day. If a part isn't in stock, keep your device until it lands.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M9 12.5 11 14.5 15.5 10"/><rect x="3" y="4" width="18" height="16" rx="2.5"/></svg></div>
+          <h3>Warranty on every repair</h3>
+          <p>We use the best quality parts possible and back that up with a warranty on every repair — from 3 to 12 months depending on the job. Just ask which applies to yours.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>We'll have a go</h3>
+          <p>New device we've never seen before? If we can source the parts or we have the skills, we'll consider it. Most shops say no — we'd rather try.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+          <h3>13 years of it</h3>
+          <p>We started in 2013 on iPhones, learnt fast and widened out to computers, consoles and everything else. That's a lot of devices through the door.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/><path d="M12 2v1M20.5 6l-.9.5M3.5 6l.9.5"/></svg></div>
+          <h3>Independent and local</h3>
+          <p>One shop, on a corner in S2, run by people you'll actually meet. No call centre, no franchise script, no sending your device off to a processing hub.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- how it works -->
+  <div class="section">
+    <div class="container">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>Four steps, no appointment needed.</h2>
+        <p>We operate a walk-in repair service — but if you'd prefer a set time, call, email or message us on Facebook and we'll book you in.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Get in touch</h3><p>Call, text, WhatsApp or use the form. Tell us the device and what's gone wrong and we'll give you a price before you travel.</p></div>
+        <div class="step reveal"><h3>Bring it in</h3><p>Walk in during opening hours — free parking on Manor Laith Road. Not local? Post it to us and we'll arrange the return.</p></div>
+        <div class="step reveal"><h3>We fix it</h3><p>Most common repairs are done the same day, many within the hour. If a part needs ordering, keep your device until it arrives.</p></div>
+        <div class="step reveal"><h3>Collect &amp; go</h3><p>Pay when it's done, walk out with a working device and a warranty on the repair between 3 and 12 months.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- reviews preview -->
+  <div class="section bg-paper">
+    <div class="container">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">What Sheffield says</span>
+        <h2>4.9 stars from 191 reviews.</h2>
+      </div>
+      <div class="rev-grid">
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"A fantastic little business with very professional, knowledgeable and friendly staff. Thanks again guys for the very speedy repair of my Samsung. I will definitely be recommending."</p><div class="review-who"><span class="rev-av">DC</span><div><b>Darren Challenger</b><span>Samsung repair</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Excellent service from Kyle and Rob — they went the extra mile to get my PC up and running. If I could give a 6★ I would. Keep up the good work guys."</p><div class="review-who"><span class="rev-av">MM</span><div><b>Michael Mincher</b><span>PC repair</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Great service and excellent quality, had a few repairs here and always been spot on. Highly recommend this place."</p><div class="review-who"><span class="rev-av">LE</span><div><b>Liamski Eyre</b><span>Repeat customer</span></div><span class="rev-src">Facebook</span></div></div>
+      </div>
+      <div class="btn-row center" style="margin-top:2.25rem;">
+        <button onclick="showPage('reviews')" class="btn btn-outline">Read more reviews</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- cta -->
+  <div class="section bg-navy">
+    <div class="container narrow" style="text-align:center;">
+      <h2 class="reveal">Bring it in — we'll take a look.</h2>
+      <p class="lead reveal" style="margin-top:1rem;">Walk in during opening hours, or get a price first. If we can't fix it, we'll tell you straight and it won't cost you anything to ask.</p>
+      <div class="btn-row center reveal" style="margin-top:2rem;">
+        <a href="tel:07463921129" class="btn btn-primary btn-lg">Call 07463 921 129</a>
+        <button onclick="showPage('contact')" class="btn btn-ghost-lt btn-lg">Find us &amp; opening hours</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ REPAIRS -->
+<section class="page" id="page-repairs">
+  <div class="section-sm bg-navy">
+    <div class="container">
+      <span class="eyebrow">Repairs</span>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.9rem);">Everything we fix, and what it costs.</h1>
+      <p class="lead" style="margin-top:1rem;max-width:60ch;">We cover most aspects of electronic repair — from a cracked iPhone screen to large PCB soldering work. If the service you need isn't listed, contact us anyway. We take on most repairs as long as parts are available or we have the skill set needed.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <div class="demo-banner reveal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16h.01"/></svg>
+        <p><b>Prices to be confirmed.</b> The price columns below are laid out and ready — the figures are left blank so SheffTech can fill in their own. Publishing prices is one of the biggest single changes you can make to enquiry quality: people who see a price arrive already decided.</p>
+      </div>
+
+      <div class="tbl-wrap reveal" style="margin-bottom:2.75rem;">
+        <table class="ptable">
+          <caption>Mobile phone repairs</caption>
+          <thead><tr><th>Repair</th><th>Typical turnaround</th><th style="text-align:right;">From</th></tr></thead>
+          <tbody>
+            <tr><td>iPhone screen replacement — aftermarket</td><td class="turn">Often within the hour</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>iPhone screen replacement — genuine part</td><td class="turn">Same day</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Samsung screen replacement — genuine</td><td class="turn">Same day</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Battery replacement</td><td class="turn">Same day</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Charging port replacement</td><td class="turn">Often same day</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Speaker / microphone repair</td><td class="turn">Same day</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Motherboard / IC level repair</td><td class="turn">Quoted after diagnosis</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Water damage treatment</td><td class="turn">Quoted after diagnosis</td><td class="price">£<span class="pblank"></span></td></tr>
+          </tbody>
+        </table>
+        <p class="price-note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16h.01"/></svg>We try to offer two options on a screen replacement: a genuine/original part for best quality, and an aftermarket option that's much cheaper and often still very good. We'll explain the difference before you commit.</p>
+      </div>
+
+      <div class="split wide-l reveal" style="margin-bottom:3rem;">
+        <div>
+          <span class="eyebrow">Phones</span>
+          <h2>All brands, past and present.</h2>
+          <p style="margin-top:1rem;">Our number one service for the past 13 years has been phone screen replacements. We repair all models of Apple iPhone, past and present, and cover Samsung, Huawei, Sony, Oppo, Xiaomi, OnePlus, ZTE and more. We will always consider any phone repair regardless of brand.</p>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Same-day iPhone screen replacement, often within the hour</li>
+            <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Genuine Samsung screen replacement service</li>
+            <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Batteries degrade with age and heavy use — a replacement fixes most power issues and extends the life of the phone</li>
+            <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Charging ports stretch and fill with pocket lint until they stop working. Usually a same-day fix</li>
+          </ul>
+        </div>
+        <div><img src="photos/phone-repair.webp" alt="A SheffTech technician replacing a phone screen with a precision screwdriver" width="500" height="500" loading="lazy"></div>
+      </div>
+
+      <div class="grid g2" style="margin-bottom:2.75rem;">
+        <div class="tbl-wrap reveal">
+          <table class="ptable">
+            <caption>iPad &amp; tablet repairs</caption>
+            <thead><tr><th>Repair</th><th style="text-align:right;">From</th></tr></thead>
+            <tbody>
+              <tr><td>iPad screen replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Samsung Tab screen replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Surface Pro screen replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Tablet battery replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Charging port replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Software / power fault diagnosis</td><td class="price">£<span class="pblank"></span></td></tr>
+            </tbody>
+          </table>
+          <p class="price-note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16h.01"/></svg>A tablet repair averages less than 15% of the cost of buying a replacement — better for the budget and better for the planet.</p>
+        </div>
+        <div class="tbl-wrap reveal">
+          <table class="ptable">
+            <caption>Computer &amp; laptop repairs</caption>
+            <thead><tr><th>Repair</th><th style="text-align:right;">From</th></tr></thead>
+            <tbody>
+              <tr><td>Laptop screen replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Virus removal &amp; "refresh" service</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Operating system install / upgrade</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Hard drive / SSD replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Keyboard or hinge repair</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Fan &amp; overheating service</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>RAM / storage / graphics upgrade</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Data recovery</td><td class="price">£<span class="pblank"></span></td></tr>
+            </tbody>
+          </table>
+          <p class="price-note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16h.01"/></svg>Our diagnostic and labour fees are very low compared with others. Not sure what's wrong? We'll diagnose it first.</p>
+        </div>
+      </div>
+
+      <div class="tbl-wrap reveal" style="margin-bottom:2.75rem;">
+        <table class="ptable">
+          <caption>Console repairs — PlayStation, Xbox, Nintendo Switch</caption>
+          <thead><tr><th>Repair</th><th>Console</th><th style="text-align:right;">From</th></tr></thead>
+          <tbody>
+            <tr><td>Internal deep clean</td><td class="turn">PS4, PS5, Xbox</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>HDMI port replacement</td><td class="turn">PS4, PS5, Xbox</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Disc drive repair or replacement</td><td class="turn">PS4, PS5, Xbox</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Software / OS error recovery</td><td class="turn">All consoles</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Joy-Con stick drift repair</td><td class="turn">Switch — within the hour</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Switch screen replacement</td><td class="turn">Switch / Lite / OLED</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Switch charging port replacement</td><td class="turn">Switch / Lite / OLED</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Switch battery replacement</td><td class="turn">Switch / Lite / OLED</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Joy-Con rail replacement</td><td class="turn">Same day</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Housing / casing replacement</td><td class="turn">Colour changes available</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Controller repair — sticks, buttons, battery</td><td class="turn">All consoles</td><td class="price">£<span class="pblank"></span></td></tr>
+            <tr><td>Retro &amp; classic console repair</td><td class="turn">Subject to parts</td><td class="price">£<span class="pblank"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid g2" style="margin-bottom:2.75rem;">
+        <div class="tbl-wrap reveal">
+          <table class="ptable">
+            <caption>TomTom &amp; Sat-Nav repairs</caption>
+            <thead><tr><th>Repair</th><th style="text-align:right;">From</th></tr></thead>
+            <tbody>
+              <tr><td>Screen replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Battery replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Charging port replacement</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>GPS fix / map update</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Repair by post (postage each way)</td><td class="price">~£5</td></tr>
+            </tbody>
+          </table>
+          <p class="price-note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16h.01"/></svg>Car, truck, camper and walking Sat-Navs — TomTom, Garmin and all known brands. We do <b>not</b> repair Sat-Navs built into a vehicle's centre console.</p>
+        </div>
+        <div class="tbl-wrap reveal">
+          <table class="ptable">
+            <caption>Other electronics</caption>
+            <thead><tr><th>Repair</th><th style="text-align:right;">From</th></tr></thead>
+            <tbody>
+              <tr><td>Headphone repair — cushions, cables, jacks</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>DJ &amp; music equipment repair</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>VR headset repair</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Smart watch repair</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Small soldering jobs</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Large PCB work</td><td class="price">£<span class="pblank"></span></td></tr>
+              <tr><td>Diagnosis — device not listed</td><td class="price">£<span class="pblank"></span></td></tr>
+            </tbody>
+          </table>
+          <p class="price-note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16h.01"/></svg>We often get devices in we've never repaired before. If we can source the parts or we have the skills needed, we'll have a go.</p>
+        </div>
+      </div>
+
+      <!-- deep clean walkthrough -->
+      <div class="reveal" style="background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:2.5rem;margin-bottom:2.75rem;">
+        <span class="eyebrow">Step by step</span>
+        <h2>Inside a console deep clean.</h2>
+        <p class="lead" style="margin-top:1rem;max-width:70ch;">We pride ourselves on providing the best service possible. Here's exactly what happens to your console when you leave it with us — and why cleaning just the fan doesn't work.</p>
+        <div class="grid g3" style="margin-top:2rem;">
+          <div class="card"><h3 style="color:var(--blue);margin-bottom:.4rem;font-size:1rem;">01 · Check the fan</h3><p>Remove the side panel and inspect the cooling fan. Anything more than a light dusting means there's a lot more inside.</p></div>
+          <div class="card"><h3 style="color:var(--blue);margin-bottom:.4rem;font-size:1rem;">02 · Fan &amp; top shell out</h3><p>Side panels off, then the cooling fan and top shell come away to reveal the inner top side of the console.</p></div>
+          <div class="card"><h3 style="color:var(--blue);margin-bottom:.4rem;font-size:1rem;">03 · Assess the build-up</h3><p>The top heat sink and disc drive are usually surrounded by dust — and it gives us a first look at the bottom side too.</p></div>
+          <div class="card"><h3 style="color:var(--blue);margin-bottom:.4rem;font-size:1rem;">04 · Disc drive &amp; board</h3><p>Disc drive out, remaining screws removed, and the main board is ready to lift clear of the chassis.</p></div>
+          <div class="card"><h3 style="color:var(--blue);margin-bottom:.4rem;font-size:1rem;">05 · The dust carpets</h3><p>Under the mid-section is where dust forms carpets that block the heat sink vents. This is the bit a fan clean never reaches.</p></div>
+          <div class="card"><h3 style="color:var(--blue);margin-bottom:.4rem;font-size:1rem;">06 · Power supply</h3><p>The PSU vent is another prime spot. It runs warm in normal use — heavy dust build-up here is genuinely a fire risk.</p></div>
+        </div>
+        <p style="margin-top:1.5rem;font-size:.95rem;">Every part is cleaned, then the console is reassembled and tested. If you think yours might benefit, <a href="tel:07463921129" style="color:var(--blue);font-weight:600;">call us for a quote</a>.</p>
+      </div>
+
+      <!-- data recovery + diagnosis -->
+      <div class="grid g2">
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+          <h3>Data recovery</h3>
+          <p>We may be able to recover lost, damaged or inaccessible data from hard drives, SSDs, memory cards and USB flash drives. Call us for more information about our data recovery service.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+          <h3>Diagnosis service</h3>
+          <p>If you're unsure what's wrong with your device, we can diagnose it. Our diagnosis service covers the full range of electronics we repair — so you get an answer and a price before committing to anything.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:2.5rem;padding:1.4rem 1.6rem;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:12px;">
+        <p style="font-size:.94rem;color:#991B1B;"><b>What we don't repair:</b> printers, TVs, monitors, or Sat-Navs built into a vehicle's centre console.</p>
+      </div>
+
+      <div class="btn-row center" style="margin-top:2.75rem;">
+        <a href="tel:07463921129" class="btn btn-primary btn-lg">Call for a quote</a>
+        <a href="https://wa.me/447463921129?text=Hi%20SheffTech%2C%20I%27d%20like%20a%20quote%20for%20a%20repair" target="_blank" rel="noopener" class="btn btn-wa btn-lg">Message on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SHOP -->
+<section class="page" id="page-shop">
+  <div class="section-sm bg-navy">
+    <div class="container">
+      <span class="eyebrow">Shop &amp; trade-in</span>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.9rem);">We sell phones. We buy broken ones.</h1>
+      <p class="lead" style="margin-top:1rem;max-width:62ch;">Refurbished handsets, custom-built gaming PCs, accessories and parts — plus cash for your broken device, whatever state it's in. It's been in the shop window for years. Now it's online.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <div class="demo-banner reveal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16h.01"/></svg>
+        <p><b>This is a demonstration storefront.</b> Nothing here can be bought and no payment is processed — the buttons are deliberately inert. It's here to show how an online shop would sit inside the site, and what stock, pricing and checkout would look like once it's wired up properly.</p>
+      </div>
+
+      <div class="sec-head reveal">
+        <span class="eyebrow">Refurbished stock</span>
+        <h2>Used phones, checked and warranted.</h2>
+        <p>Every handset is tested, cleaned and covered by the same warranty as our repairs. Stock changes weekly — call to check what's in.</p>
+      </div>
+
+      <div class="shop-grid" style="margin-bottom:3.5rem;">
+        <div class="prod reveal">
+          <div class="prod-img"><img src="photos/phone-display.jpg" alt="A refurbished smartphone on display at SheffTech" loading="lazy"><span class="prod-tag green">In stock</span></div>
+          <div class="prod-body">
+            <h3>Refurbished iPhone</h3>
+            <p>Fully tested, battery health checked and reset. A range of models and storage sizes — ask what's in this week.</p>
+            <div class="prod-foot"><span class="prod-price">£<span class="pblank"></span></span><button class="btn-cart" onclick="demoBuy()"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg>Add to basket</button></div>
+          </div>
+        </div>
+        <div class="prod reveal">
+          <div class="prod-img"><div class="prod-ph"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div><span class="prod-tag green">In stock</span></div>
+          <div class="prod-body">
+            <h3>Refurbished Android</h3>
+            <p>Samsung, Google, Motorola and more. Unlocked, wiped and ready to go with a charger included.</p>
+            <div class="prod-foot"><span class="prod-price">£<span class="pblank"></span></span><button class="btn-cart" onclick="demoBuy()"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg>Add to basket</button></div>
+          </div>
+        </div>
+        <div class="prod reveal">
+          <div class="prod-img"><img src="photos/gaming-pc.jpg" alt="A custom-built gaming PC by SheffTech with RGB lighting" loading="lazy"><span class="prod-tag">Built to order</span></div>
+          <div class="prod-body">
+            <h3>Custom gaming PC</h3>
+            <p>By far our favourite service. Built to your spec, your budget or your requirements — tell us what you want to achieve and we'll recommend the parts.</p>
+            <div class="prod-foot"><span class="prod-price">£<span class="pblank"></span></span><button class="btn-cart" onclick="demoBuy()"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg>Configure build</button></div>
+          </div>
+        </div>
+        <div class="prod reveal">
+          <div class="prod-img"><div class="prod-ph"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg></div><span class="prod-tag">Built to order</span></div>
+          <div class="prod-body">
+            <h3>Workstation PC</h3>
+            <p>Non-gaming custom builds for video production, music production or general office work. Same approach, specified around the software you actually run.</p>
+            <div class="prod-foot"><span class="prod-price">£<span class="pblank"></span></span><button class="btn-cart" onclick="demoBuy()"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg>Configure build</button></div>
+          </div>
+        </div>
+        <div class="prod reveal">
+          <div class="prod-img"><div class="prod-ph"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/></svg></div><span class="prod-tag">Accessories</span></div>
+          <div class="prod-body">
+            <h3>Cases, chargers &amp; cables</h3>
+            <p>Screen protectors, charging cables, plugs, cases and console accessories. The everyday bits, without the mark-up.</p>
+            <div class="prod-foot"><span class="prod-price">£<span class="pblank"></span></span><button class="btn-cart" onclick="demoBuy()"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg>Add to basket</button></div>
+          </div>
+        </div>
+        <div class="prod reveal">
+          <div class="prod-img"><div class="prod-ph"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2M5 7v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7"/></svg></div><span class="prod-tag">Book it in</span></div>
+          <div class="prod-body">
+            <h3>Console deep clean</h3>
+            <p>Book the full strip-down and clean for your PS4, PS5 or Xbox. Pick a slot, drop it in, collect it running quietly again.</p>
+            <div class="prod-foot"><span class="prod-price">£<span class="pblank"></span></span><button class="btn-cart" onclick="demoBuy()"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg>Book a slot</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- we buy -->
+      <div class="reveal" style="background:var(--navy);color:rgba(255,255,255,.78);border-radius:20px;padding:2.75rem;">
+        <div class="split">
+          <div>
+            <span class="eyebrow" style="color:var(--cyan);">Trade-in</span>
+            <h2 style="color:#fff;">We buy broken phones.</h2>
+            <p style="margin-top:1rem;font-size:1.03rem;">Cracked, water-damaged, won't turn on, screen black — it doesn't matter. If it's sat in a drawer doing nothing, bring it in and we'll make you an offer on the spot. No listing it online, no posting it off, no waiting for a payment that may never come.</p>
+            <ul class="checks">
+              <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Any condition considered — including devices written off elsewhere</li>
+              <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Offer made while you wait, paid there and then</li>
+              <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Trade it against a repair or a refurbished handset instead, if you'd rather</li>
+              <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Parts get reused, which keeps our repair prices down and devices out of landfill</li>
+            </ul>
+            <div class="btn-row" style="margin-top:1.85rem;">
+              <a href="tel:07463921129" class="btn btn-primary">Get an offer — call us</a>
+              <a href="https://wa.me/447463921129?text=Hi%20SheffTech%2C%20I%27ve%20got%20a%20broken%20phone%20to%20sell" target="_blank" rel="noopener" class="btn btn-ghost-lt">Send a photo on WhatsApp</a>
+            </div>
+          </div>
+          <div><img src="photos/phone-display.jpg" alt="Phones on display at SheffTech" style="border-radius:14px;" loading="lazy"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BUSINESS -->
+<section class="page" id="page-business">
+  <div class="section-sm bg-navy">
+    <div class="container">
+      <span class="eyebrow">B2B &amp; corporate</span>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.9rem);">Repairs for schools, colleges and businesses.</h1>
+      <p class="lead" style="margin-top:1rem;max-width:62ch;">We currently manage repairs for a number of businesses and schools across Sheffield and South Yorkshire. We're always happy to take on new clients.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">What's included</span>
+        <h2>Built around how organisations actually work.</h2>
+        <p>Kit breaks, and it breaks at the worst time. The point of a trade account is that it doesn't become your problem to solve twice.</p>
+      </div>
+      <div class="grid g3" style="margin-bottom:3rem;">
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M3 17V7a2 2 0 0 1 2-2h9v12H3z"/><path d="M14 9h4l3 3v5h-7z"/><circle cx="7" cy="19" r="1.8"/><circle cx="17.5" cy="19" r="1.8"/></svg></div><h3>Call-out technician</h3><p>We come to you. On-site diagnosis and repair where the device can't leave the building, or where moving it is more disruptive than fixing it in place.</p></div>
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6z"/><path d="M12 8v4l2.5 1.5"/></svg></div><h3>Priority repairs</h3><p>Trade jobs jump the queue. A classroom set of tablets or a till system going down is not the same as a cracked screen, and it isn't treated the same.</p></div>
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M3 7h13v10H3z"/><path d="M16 10h3l2 3v4h-5z"/><path d="M6 17v2M13 17v2"/></svg></div><h3>Pick-up &amp; drop-off</h3><p>We collect the devices and return them when they're done. Nobody on your team has to spend an afternoon ferrying kit across Sheffield.</p></div>
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.5"/></svg></div><h3>Bulk discount</h3><p>Volume pricing on multi-device jobs. A whole year group's worth of iPads costs less per unit than one walk-in repair.</p></div>
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="m10 14 1.5 1.5L15 12"/></svg></div><h3>Product sourcing</h3><p>Need twenty of something specific? We'll source hardware, parts and accessories at trade prices rather than you paying retail.</p></div>
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div><h3>Data handled properly</h3><p>We don't wipe or factory reset devices without being asked. Where a device holds sensitive data, we'll agree how it's handled before work starts.</p></div>
+      </div>
+
+      <div class="reveal" style="background:var(--blue-pale);border:1px solid #C6DCF2;border-radius:18px;padding:2.5rem;">
+        <div class="split">
+          <div>
+            <h2>The numbers make the case on their own.</h2>
+            <p style="margin-top:1rem;">The price of a tablet repair averages <b style="color:var(--ink);">less than 15% of the cost of buying a replacement</b>. Add the financial and environmental impact of replacing hardware that could be fixed, and repairing your technology is simply the sensible option for an organisation running dozens or hundreds of devices.</p>
+            <p>We know the importance of technology in a workplace, which is why we offer a quick, affordable service to all schools and businesses in South Yorkshire.</p>
+          </div>
+          <div>
+            <div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.75rem;">
+              <h3 style="margin-bottom:1rem;">Open a trade account</h3>
+              <p style="font-size:.94rem;margin-bottom:1.35rem;">For more information about our B2B service, please call or email us and we'll talk through volumes, turnaround and pricing.</p>
+              <div class="info-row"><span class="info-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span><div><b>Phone</b><a href="tel:07463921129">07463 921 129</a></div></div>
+              <div class="info-row"><span class="info-ic"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><path d="m2 7 10 6 10-6"/></svg></span><div><b>Business enquiries</b><a href="mailto:info@shefftech.co.uk">info@shefftech.co.uk</a></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ABOUT -->
+<section class="page" id="page-about">
+  <div class="section-sm bg-navy">
+    <div class="container">
+      <span class="eyebrow">About us</span>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.9rem);">Thirteen years on the same corner.</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="split wide-l reveal" style="margin-bottom:3.5rem;">
+        <div>
+          <h2>How we got here.</h2>
+          <p style="margin-top:1rem;" class="lead">SheffTech began in 2013 specialising in iPhone repairs. We quickly learnt new skills and expanded our repair service to cover all mobile phones.</p>
+          <p>After a year of repairing phones, we extended our services to cover computers and consoles. Now, we repair all electronic devices including Sat-Navs, headphones, VR headsets and much more.</p>
+          <p>We believe the thing that sets us apart from the rest is our dedication to customer service and honesty. We always aim to go above and beyond with each customer and provide the best customer service we can. The way we see it, without customers we don't have a business — and the only way to gain and maintain customers is by providing the best customer service possible.</p>
+          <p><b style="color:var(--ink);">Honesty is the best policy.</b> If we don't think your device is repairable, or that it isn't cost-effective to repair, we will be honest and tell you.</p>
+        </div>
+        <div><img src="photos/shopfront.webp" alt="The SheffTech shopfront at 205 City Road, Sheffield" loading="lazy"></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:3.5rem;">
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 14-1.5 7 5-2.5 5 2.5-1.5-7"/></svg></div><h3>Business of the Month</h3><p>Awarded Business of the Month, December 2019, by <i>The Star</i>.</p></div>
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5c0 5.1-7 9.5-7 9.5z"/></svg></div><h3>Macmillan support</h3><p>Macmillan is close to our hearts. We take part in advertising campaigns that support them.</p></div>
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></div><h3>4.9 from 191 reviews</h3><p>With a big presence on social media, our customers have left us a lot of feedback.</p></div>
+        <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.4"/></svg></div><h3>Rooted in S2</h3><p>Serving Sheffield, Rotherham, Dinnington and Chesterfield — plus post-in repairs from anywhere.</p></div>
+      </div>
+
+      <div class="reveal" style="background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:2.5rem;">
+        <div class="sec-head" style="margin-bottom:1.75rem;">
+          <span class="eyebrow">Common questions</span>
+          <h2>Before you bring it in.</h2>
+        </div>
+        <details class="faq-item"><summary>Will I lose my data?</summary><div class="faq-body">Unless your problem is related to software or the motherboard, you should not lose any data during your repair — you wouldn't lose anything during a screen replacement, for example. However, this cannot be guaranteed, as other issues can arise during a repair, so we always recommend backing up your data before bringing it in. We do not wipe or factory reset devices.</div></details>
+        <details class="faq-item"><summary>What warranty do I get?</summary><div class="faq-body">We use the best quality parts possible and we back that statement up with a warranty on every repair. Warranties range from 3 months to 12 months. Each repair has a different warranty period, so please ask us for the warranty information relating to your repair.</div></details>
+        <details class="faq-item"><summary>How do I book a repair?</summary><div class="faq-body">We operate a walk-in repair service, but if you prefer you can book an appointment. To book a repair, call, email, WhatsApp or message us on Facebook.</div></details>
+        <details class="faq-item"><summary>How long does a repair take?</summary><div class="faq-body">It varies by repair type. iPhone screen replacements can be completed within an hour. PC and laptop repairs can be same-day. If your part isn't in stock we may ask for a deposit so you can keep hold of your device while the part is delivered to us — once it arrives, we can complete the repair the same day.</div></details>
+        <details class="faq-item"><summary>How can I pay?</summary><div class="faq-body">We currently accept cash or bank transfer.</div></details>
+        <details class="faq-item"><summary>Where are you, and is there parking?</summary><div class="faq-body">We're at 205 City Road, Sheffield, S2 5HF — between Granville Road and City Road Post Office, opposite T&amp;G's Sandwich Shop, on the corner of Manor Laith Road. Free parking is available on Manor Laith Road.</div></details>
+        <details class="faq-item"><summary>Can I send my device by post?</summary><div class="faq-body">Yes. We accept post-in repairs — this is common for Sat-Navs and Nintendo Switch consoles. Contact us directly to arrange it. Postage is around £5 each way.</div></details>
+        <details class="faq-item"><summary>Is there anything you don't repair?</summary><div class="faq-body">We don't repair printers, TVs, monitors, or Sat-Navs built into a vehicle's centre console. Almost everything else, we'll consider.</div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ REVIEWS -->
+<section class="page" id="page-reviews">
+  <div class="section-sm bg-navy">
+    <div class="container">
+      <span class="eyebrow">Reviews</span>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.9rem);">Take a look at the reviews we've built up.</h1>
+      <p class="lead" style="margin-top:1rem;max-width:60ch;">With a big presence on social media, our customers have left us a lot of feedback. Here's a sample — the rest are on Google and Facebook.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow">The numbers</span>
+        <h2>Rated across both platforms.</h2>
+      </div>
+      <div class="rating-cards reveal">
+        <div class="rating-card">
+          <span class="rc-score">4.9</span>
+          <div>
+            <span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span>
+            <b>Google reviews</b><span>191 reviews and counting</span>
+          </div>
+        </div>
+        <div class="rating-card">
+          <span class="rc-score">100%</span>
+          <div>
+            <span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span>
+            <b>Facebook recommendations</b><span>100% recommend from 52 reviews</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-grid">
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"A fantastic little business with very professional, knowledgeable and friendly staff. Thanks again guys for the very speedy repair of my Samsung. I will definitely be recommending."</p><div class="review-who"><span class="rev-av">DC</span><div><b>Darren Challenger</b><span>Samsung repair</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Excellent service from Kyle and Rob — they went the extra mile to get my PC up and running. If I could give a 6★ I would. Keep up the good work guys."</p><div class="review-who"><span class="rev-av">MM</span><div><b>Michael Mincher</b><span>PC repair</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Great service and excellent quality, had a few repairs here and always been spot on. Highly recommend this place."</p><div class="review-who"><span class="rev-av">LE</span><div><b>Liamski Eyre</b><span>Repeat customer</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Popped in today — very quick and fast, great service. Would highly recommend!"</p><div class="review-who"><span class="rev-av">UN</span><div><b>Uzair Najib</b><span>Walk-in repair</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Brilliant service — fast and reliable. Highly recommend!"</p><div class="review-who"><span class="rev-av">RM</span><div><b>Rebecca Mchendry</b><span>Phone repair</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Really good, quick service — quality replacements."</p><div class="review-who"><span class="rev-av">AR</span><div><b>Alex John Robert</b><span>Screen replacement</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Great job, good service and price!"</p><div class="review-who"><span class="rev-av">EB</span><div><b>Edward Bannerdale</b><span>Repair customer</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal"><span class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></span><p>"Brilliant."</p><div class="review-who"><span class="rev-av">AH</span><div><b>Andrew John Harvey</b><span>Repair customer</span></div><span class="rev-src">Facebook</span></div></div>
+        <div class="review reveal" style="background:var(--navy);border-color:rgba(255,255,255,.14);"><h3 style="color:#fff;">Leave us a review</h3><p style="color:rgba(255,255,255,.75);">If we've fixed something for you, a review genuinely helps a small independent shop more than anything else you could do. Thank you.</p><div class="btn-row" style="margin-top:.4rem;"><a href="https://www.facebook.com/SheffTech/" target="_blank" rel="noopener" class="btn btn-ghost-lt" style="font-size:.83rem;padding:.6rem 1.1rem;">Review on Facebook</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTACT -->
+<section class="page" id="page-contact">
+  <div class="section-sm bg-navy">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.9rem);">Find us, call us, or send it in.</h1>
+      <p class="lead" style="margin-top:1rem;max-width:60ch;">For a quote you can contact us by phone, WhatsApp, email or social media. If your enquiry is urgent, we recommend calling or sending a text — if you can't get through, text us and we'll call you back.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Everything in one place</span>
+        <h2>Where we are and when we're open.</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="info-card">
+            <h3 style="margin-bottom:1.1rem;">Get in touch</h3>
+            <div class="info-row"><span class="info-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span><div><b>Mobile — call or text</b><a href="tel:07463921129">07463 921 129</a></div></div>
+            <div class="info-row"><span class="info-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span><div><b>Shop landline</b><a href="tel:01143603663">0114 360 3663</a></div></div>
+            <div class="info-row"><span class="info-ic"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><path d="m2 7 10 6 10-6"/></svg></span><div><b>Email</b><a href="mailto:info@shefftech.co.uk">info@shefftech.co.uk</a></div></div>
+            <div class="info-row"><span class="info-ic"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.4"/></svg></span><div><b>Address</b><span>205 City Road, Sheffield, S2 5HF</span></div></div>
+          </div>
+
+          <div class="info-card">
+            <h3 style="margin-bottom:1.1rem;">Opening hours</h3>
+            <table class="hours" id="hours-table">
+              <tr data-day="1"><td>Monday</td><td>10:00 – 17:00</td></tr>
+              <tr data-day="2"><td>Tuesday</td><td>10:00 – 17:00</td></tr>
+              <tr data-day="3"><td>Wednesday</td><td>10:00 – 17:00</td></tr>
+              <tr data-day="4"><td>Thursday</td><td>10:00 – 17:00</td></tr>
+              <tr data-day="5"><td>Friday</td><td>10:00 – 15:00</td></tr>
+              <tr data-day="6"><td>Saturday</td><td>11:00 – 14:00</td></tr>
+              <tr data-day="0"><td>Sunday</td><td class="shut">Closed</td></tr>
+            </table>
+            <p style="font-size:.85rem;color:var(--muted);margin-top:.9rem;">Closed Sundays and bank holidays. Hours can occasionally change — give us a ring if you're travelling in.</p>
+          </div>
+
+          <div class="info-card">
+            <h3 style="margin-bottom:.7rem;">Finding us</h3>
+            <p style="font-size:.95rem;">We're on City Road on the corner of Manor Laith Road — between Granville Road and the City Road Post Office, opposite T&amp;G's Sandwich Shop. <b style="color:var(--ink);">Free parking is available on Manor Laith Road.</b></p>
+            <div class="map-embed" style="margin-top:1.1rem;">
+              <iframe title="Map showing SheffTech at 205 City Road, Sheffield S2 5HF" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.4520%2C53.3690%2C-1.4380%2C53.3760&amp;layer=mapnik&amp;marker=53.3725%2C-1.4450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3 style="margin-bottom:.7rem;">Not local? Post it in.</h3>
+            <p style="font-size:.95rem;">We accept post-in repairs from anywhere in the UK — most commonly Sat-Navs and Nintendo Switch consoles. Contact us directly to arrange it. Postage is around £5 each way. We also serve Rotherham, Dinnington and Chesterfield directly.</p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="form-card">
+            <h3 style="margin-bottom:.5rem;">Request a quote</h3>
+            <p style="font-size:.93rem;margin-bottom:1.5rem;">Fill in the form with as much detail as possible about your device and the issue, and we'll come back to you with a price.</p>
+            <form onsubmit="demoForm(event)">
+              <div class="field"><label for="f-name">Your name</label><input id="f-name" type="text" required autocomplete="name"></div>
+              <div class="field"><label for="f-email">Your email</label><input id="f-email" type="email" required autocomplete="email"></div>
+              <div class="field"><label for="f-phone">Contact number <span style="color:var(--muted);font-weight:400;">(optional)</span></label><input id="f-phone" type="tel" autocomplete="tel"></div>
+              <div class="field"><label for="f-service">What needs fixing?</label>
+                <select id="f-service">
+                  <option>Mobile phone repair</option>
+                  <option>iPad / tablet repair</option>
+                  <option>Computer or laptop repair</option>
+                  <option>Game console repair</option>
+                  <option>Nintendo Switch repair</option>
+                  <option>Console deep clean</option>
+                  <option>TomTom / Sat-Nav repair</option>
+                  <option>Other electronics</option>
+                  <option>Data recovery</option>
+                  <option>Custom PC build</option>
+                  <option>Selling a broken device</option>
+                  <option>Business / school enquiry</option>
+                </select>
+              </div>
+              <div class="field"><label for="f-device">Device make and model</label><input id="f-device" type="text" placeholder="e.g. iPhone 13 Pro, PS5 Slim, Switch OLED"></div>
+              <div class="field"><label for="f-msg">Your message</label><textarea id="f-msg" placeholder="Tell us what's happened and what's not working"></textarea></div>
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Send my enquiry</button>
+              <p class="form-note" id="form-note">Demo form — this doesn't send anywhere. On the live site it would land in the SheffTech inbox within seconds.</p>
+            </form>
+          </div>
+
+          <div class="btn-row" style="margin-top:1.25rem;">
+            <a href="https://wa.me/447463921129?text=Hi%20SheffTech%2C%20I%27d%20like%20a%20quote%20for%20a%20repair" target="_blank" rel="noopener" class="btn btn-wa" style="flex:1;">WhatsApp</a>
+            <a href="https://www.facebook.com/SheffTech/" target="_blank" rel="noopener" class="btn btn-outline" style="flex:1;">Facebook</a>
+            <a href="https://www.tiktok.com/@shefftech" target="_blank" rel="noopener" class="btn btn-outline" style="flex:1;">TikTok</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="brand" onclick="showPage('home');return false;" style="margin-bottom:.2rem;">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4"/><path d="m9.5 8.5 2 2-2 2M14 12.5h1"/></svg></span>
+          <span class="brand-txt"><b style="color:#fff;">Sheff<i style="color:var(--cyan);">Tech</i></b><span style="color:rgba(255,255,255,.5);">Electronic Repairs</span></span>
+        </a>
+        <p>Independent electronics repair shop on City Road, Sheffield. Repairing phones, computers, consoles and everything else since 2013.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/SheffTech/" target="_blank" rel="noopener" aria-label="SheffTech on Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.tiktok.com/@shefftech" target="_blank" rel="noopener" aria-label="SheffTech on TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-1.8-2.5v-3.2a5.8 5.8 0 1 0 4.9 5.7V9.7a7.3 7.3 0 0 0 4.3 1.4V8a4.3 4.3 0 0 1-3.3-2.2z"/></svg></a>
+          <a href="https://wa.me/447463921129" target="_blank" rel="noopener" aria-label="SheffTech on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.2-.3 0-.5.1-.6l.6-.7c.2-.2.2-.4.3-.6 0-.2 0-.4-.1-.6l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.1 1.2-1.1 2.8s1.2 3.2 1.3 3.5c.2.2 2.3 3.6 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5 0-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z"/></svg></a>
+          <a href="mailto:info@shefftech.co.uk" aria-label="Email SheffTech"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Repairs</h4>
+        <ul class="foot-links">
+          <li><button onclick="showPage('repairs')">Mobile phones</button></li>
+          <li><button onclick="showPage('repairs')">iPads &amp; tablets</button></li>
+          <li><button onclick="showPage('repairs')">Computers &amp; laptops</button></li>
+          <li><button onclick="showPage('repairs')">Game consoles</button></li>
+          <li><button onclick="showPage('repairs')">Nintendo Switch</button></li>
+          <li><button onclick="showPage('repairs')">Console deep clean</button></li>
+          <li><button onclick="showPage('repairs')">TomTom &amp; Sat-Nav</button></li>
+          <li><button onclick="showPage('repairs')">Other electronics</button></li>
+        </ul>
+      </div>
+      <div>
+        <h4>SheffTech</h4>
+        <ul class="foot-links">
+          <li><button onclick="showPage('home')">Home</button></li>
+          <li><button onclick="showPage('shop')">Shop &amp; trade-in</button></li>
+          <li><button onclick="showPage('business')">Business &amp; schools</button></li>
+          <li><button onclick="showPage('about')">About us</button></li>
+          <li><button onclick="showPage('reviews')">Reviews</button></li>
+          <li><button onclick="showPage('contact')">Contact</button></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit the shop</h4>
+        <p style="font-size:.92rem;margin-bottom:.9rem;">205 City Road<br>Sheffield<br>S2 5HF</p>
+        <p style="font-size:.92rem;"><a href="tel:07463921129">07463 921 129</a><br><a href="tel:01143603663">0114 360 3663</a><br><a href="mailto:info@shefftech.co.uk">info@shefftech.co.uk</a></p>
+        <p style="font-size:.88rem;margin-top:.9rem;color:rgba(255,255,255,.5);">Mon–Thu 10–5 · Fri 10–3<br>Sat 11–2 · Sun closed</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SheffTech · 205 City Road, Sheffield S2 5HF</span>
+      <span>Website concept built by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Sheffield</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a href="tel:07463921129" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>Call</a>
+  <a href="https://wa.me/447463921129?text=Hi%20SheffTech%2C%20I%27d%20like%20a%20quote%20for%20a%20repair" target="_blank" rel="noopener" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.2-.3 0-.5.1-.6l.6-.7c.2-.2.2-.4.3-.6 0-.2 0-.4-.1-.6l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.1 1.2-1.1 2.8s1.2 3.2 1.3 3.5c.2.2 2.3 3.6 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5 0-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z"/></svg>WhatsApp</a>
+</div>
+
+<script>
+var HOURS={1:[10,17],2:[10,17],3:[10,17],4:[10,17],5:[10,15],6:[11,14],0:null};
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  var el=document.getElementById('page-'+id);
+  if(el) el.classList.add('active');
+  document.querySelectorAll('[data-nav]').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-nav')===id);
+  });
+  var m=document.getElementById('mobile-menu');
+  if(m) m.classList.remove('open');
+  var bg=document.querySelector('.burger');
+  if(bg) bg.setAttribute('aria-expanded','false');
+  window.scrollTo({top:0,behavior:'instant'});
+  runReveal();
+}
+
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var bg=document.querySelector('.burger');
+  var open=m.classList.toggle('open');
+  if(bg) bg.setAttribute('aria-expanded',open?'true':'false');
+}
+
+function demoBuy(){
+  alert("This is a demonstration site, so nothing can actually be bought here and no payment is taken.\n\nOn a live build this would add the item to a basket and check out securely by card. Everything you see is ready for that — it just isn't switched on.");
+}
+
+function demoForm(e){
+  e.preventDefault();
+  var n=document.getElementById('form-note');
+  n.innerHTML='<b style="color:#166534;">Thanks — that would have sent.</b> This is a demonstration site, so nothing was actually submitted. On the live site this enquiry would arrive in the SheffTech inbox within seconds.';
+  n.style.color='#166534';
+}
+
+function runReveal(){
+  try{
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+      return;
+    }
+    document.querySelectorAll('.page.active .reveal').forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight - 40) el.classList.add('in');
+    });
+  }catch(e){}
+}
+
+(function(){
+  try{
+    var now=new Date(), d=now.getDay(), h=now.getHours()+now.getMinutes()/60;
+    var t=HOURS[d], open=!!(t && h>=t[0] && h<t[1]);
+    var el=document.getElementById('tb-open');
+    if(el){
+      el.innerHTML= open
+        ? '<span style="width:8px;height:8px;border-radius:50%;background:#4ADE80;display:inline-block;"></span> Open now until '+t[1]+':00'
+        : '<span style="width:8px;height:8px;border-radius:50%;background:#94A3B8;display:inline-block;"></span> Closed now — see opening hours';
+    }
+    var row=document.querySelector('#hours-table tr[data-day="'+d+'"]');
+    if(row) row.classList.add('today');
+  }catch(e){}
+  runReveal();
+  window.addEventListener('scroll',runReveal,{passive:true});
+  window.addEventListener('resize',runReveal,{passive:true});
+})();
+</script>
+</body>
+</html>

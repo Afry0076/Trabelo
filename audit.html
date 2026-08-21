@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit — SheffTech | Trabelo</title>
+<meta name="description" content="A free website audit for SheffTech, Sheffield. Real Google PageSpeed data, what it's costing in enquiries, and what fixing it involves.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" media="print">
+<script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
+<style>
+:root{
+  --navy:#08182E;--navy-2:#0E2748;--blue:#1568B8;--blue-lt:#3FA2F0;--blue-pale:#E8F3FD;
+  --cyan:#1FC4E4;--red:#C42622;--amber:#B7791F;--green:#15803D;
+  --ink:#0C1B2A;--body:#4B5D70;--muted:#64748B;--white:#fff;--paper:#F6F9FC;
+  --line:#DFE7EF;--line-soft:#EDF2F7;
+  --head:'Space Grotesk',system-ui,sans-serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+  --sh-lg:0 20px 50px rgba(8,24,46,.13);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+body{font-family:var(--sans);background:var(--white);color:var(--body);line-height:1.68;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:var(--blue);}
+h1,h2,h3,h4{font-family:var(--head);color:var(--ink);line-height:1.15;letter-spacing:-.02em;font-weight:700;}
+h1{font-size:clamp(2rem,4.6vw,3.2rem);}
+h2{font-size:clamp(1.6rem,3.2vw,2.3rem);}
+h3{font-size:1.15rem;font-weight:600;}
+h4{font-size:.95rem;font-weight:600;letter-spacing:0;}
+p+p{margin-top:.9rem;}
+.container{max-width:1060px;margin:0 auto;padding:0 1.5rem;}
+.section{padding:4.25rem 0;}
+.bg-paper{background:var(--paper);}
+.bg-navy{background:var(--navy);color:rgba(255,255,255,.76);}
+.bg-navy h2,.bg-navy h3,.bg-navy h4{color:#fff;}
+.eyebrow{font-family:var(--head);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:.85rem;}
+.bg-navy .eyebrow,.audit-head .eyebrow{color:var(--cyan);}
+.sec-head{max-width:700px;margin-bottom:2.5rem;}
+.sec-head p{margin-top:.9rem;font-size:1.03rem;}
+.lead{font-size:1.08rem;}
+
+/* header */
+.audit-head{background:var(--navy);color:rgba(255,255,255,.78);position:relative;overflow:hidden;}
+.audit-head::before{content:'';position:absolute;inset:0;background:radial-gradient(900px 500px at 80% 0%,rgba(31,196,228,.16),transparent 62%),radial-gradient(700px 420px at 5% 100%,rgba(27,123,212,.24),transparent 66%);}
+.ah-in{position:relative;padding:3.5rem 0 4rem;}
+.ah-brand{display:flex;align-items:center;gap:.7rem;margin-bottom:2rem;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.ah-brand b{color:#fff;font-family:var(--head);letter-spacing:-.01em;text-transform:none;font-size:1.1rem;}
+.audit-head h1{color:#fff;max-width:19ch;}
+.audit-head p.lead{margin-top:1.1rem;color:rgba(255,255,255,.8);max-width:60ch;}
+.ah-meta{margin-top:1.75rem;display:flex;gap:1.5rem;flex-wrap:wrap;font-size:.85rem;color:rgba(255,255,255,.58);}
+
+/* score grid */
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem;}
+@media(max-width:760px){.scores{grid-template-columns:repeat(2,1fr);}}
+.score{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:1.35rem;text-align:center;}
+.score b{display:block;font-family:var(--head);font-size:2.5rem;line-height:1;font-weight:700;}
+.score span{display:block;font-size:.78rem;color:rgba(255,255,255,.6);margin-top:.5rem;letter-spacing:.04em;}
+.s-bad b{color:#FF9B57;}
+.s-mid b{color:#FFD166;}
+.s-good b{color:#4ADE80;}
+
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin-top:1rem;}
+@media(max-width:760px){.metrics{grid-template-columns:repeat(2,1fr);}}
+.metric{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.8rem;text-align:center;}
+.metric b{display:block;font-family:var(--head);font-size:1.1rem;color:#fff;}
+.metric span{font-size:.68rem;color:rgba(255,255,255,.52);letter-spacing:.04em;}
+.metric.warn b{color:#FF9B57;}
+
+/* issue cards */
+.issue{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;padding:1.75rem;margin-bottom:1.25rem;}
+.issue.critical{border-left-color:var(--red);}
+.issue.medium{border-left-color:var(--amber);}
+.issue.low{border-left-color:var(--blue);}
+.issue-top{display:flex;align-items:flex-start;gap:1rem;justify-content:space-between;flex-wrap:wrap;margin-bottom:1rem;}
+.issue h3{flex:1;min-width:60%;}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.28rem .68rem;border-radius:99px;white-space:nowrap;flex:none;}
+.tag.critical{background:#FEE2E2;color:#991B1B;}
+.tag.medium{background:#FEF3C7;color:#92400E;}
+.tag.low{background:var(--blue-pale);color:#1E5FA8;}
+.issue-row{margin-bottom:.9rem;}
+.issue-row:last-child{margin-bottom:0;}
+.issue-row b{display:block;font-family:var(--head);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.28rem;}
+.issue-row p{font-size:.95rem;}
+.fix{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:9px;padding:.9rem 1.1rem;}
+.fix b{color:#166534;}
+.fix p{color:#15803D;}
+.codeline{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.15rem .45rem;color:var(--ink);white-space:nowrap;}
+
+/* grid */
+.grid{display:grid;gap:1.25rem;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:860px){.g3{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.g2,.g3{grid-template-columns:1fr;}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:1.5rem;}
+.card p{font-size:.93rem;}
+.card h3{margin-bottom:.5rem;}
+.card-ic{width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:grid;place-items:center;margin-bottom:.95rem;}
+.card-ic svg{width:21px;height:21px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.bg-navy .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.13);}
+.bg-navy .card p{color:rgba(255,255,255,.72);}
+.bg-navy .card-ic{background:rgba(31,196,228,.14);}
+.bg-navy .card-ic svg{stroke:var(--cyan);}
+
+.checks{list-style:none;display:grid;gap:.7rem;margin-top:1.2rem;}
+.checks li{display:flex;gap:.7rem;align-items:flex-start;font-size:.95rem;}
+.checks li svg{width:18px;height:18px;flex:none;margin-top:.25rem;stroke:var(--green);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.bg-navy .checks li{color:rgba(255,255,255,.8);}
+.bg-navy .checks li svg{stroke:var(--cyan);}
+
+/* comparison bar */
+.cmp{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.6rem;}
+.cmp-row{margin-bottom:1.1rem;}
+.cmp-row:last-child{margin-bottom:0;}
+.cmp-lab{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:.35rem;}
+.cmp-lab b{color:var(--ink);font-family:var(--head);}
+.bar{height:10px;border-radius:99px;background:var(--line-soft);overflow:hidden;}
+.bar i{display:block;height:100%;border-radius:99px;}
+.bar i.now{background:linear-gradient(90deg,#F59E0B,#EF4444);}
+.bar i.after{background:linear-gradient(90deg,var(--cyan),var(--green));}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:start;}
+@media(max-width:880px){.tiers{grid-template-columns:1fr;}}
+.tier{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.85rem;position:relative;}
+.tier.pick{border:2px solid var(--blue);box-shadow:0 16px 44px rgba(27,123,212,.16);}
+.tier-flag{position:absolute;top:-12px;left:1.85rem;background:var(--blue);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.3rem .8rem;border-radius:99px;}
+.tier h3{font-size:1.05rem;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:.78rem;}
+.tier .amt{font-family:var(--head);font-size:2.5rem;font-weight:700;color:var(--ink);line-height:1;margin:.6rem 0 .2rem;}
+.tier .per{font-size:.83rem;color:var(--muted);}
+.tier .desc{font-size:.93rem;margin:1.1rem 0;padding-bottom:1.1rem;border-bottom:1px solid var(--line-soft);}
+.tier ul{list-style:none;display:grid;gap:.55rem;}
+.tier ul li{display:flex;gap:.55rem;align-items:flex-start;font-size:.9rem;}
+.tier ul li svg{width:16px;height:16px;flex:none;margin-top:.22rem;stroke:var(--green);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--sans);font-size:.9rem;font-weight:600;padding:.82rem 1.5rem;border-radius:9px;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .18s,background .18s,color .18s,border-color .18s;line-height:1.2;}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 14px rgba(27,123,212,.3);}
+.btn-primary:hover{background:#0F508F;transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-pale);}
+.btn-ghost-lt{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.28);}
+.btn-ghost-lt:hover{background:rgba(255,255,255,.18);}
+.btn-lg{padding:1rem 1.85rem;font-size:.97rem;}
+.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;}
+.btn-row.center{justify-content:center;}
+
+.callout{background:var(--blue-pale);border:1px solid #C6DCF2;border-radius:14px;padding:1.6rem;}
+.callout p{font-size:.96rem;}
+.warnbox{background:#FEF2F2;border:1px solid #FCA5A5;border-radius:12px;padding:1.35rem 1.6rem;}
+.warnbox p{color:#991B1B;font-size:.95rem;}
+.warnbox b{color:#7F1D1D;}
+
+.tbl-wrap{overflow-x:auto;}
+table.data{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+table.data th{background:var(--paper);text-align:left;font-family:var(--head);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:.7rem .95rem;border-bottom:1px solid var(--line);}
+table.data td{padding:.75rem .95rem;border-bottom:1px solid var(--line-soft);}
+table.data tr:last-child td{border-bottom:none;}
+table.data td:first-child{color:var(--ink);font-weight:500;}
+.pill{font-size:.72rem;font-weight:700;padding:.2rem .55rem;border-radius:99px;white-space:nowrap;}
+.pill.bad{background:#FEE2E2;color:#991B1B;}
+.pill.ok{background:#DCFCE7;color:#166534;}
+
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2.5rem 0;font-size:.88rem;}
+footer a{color:var(--cyan);}
+.foot-in{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+
+.reveal{opacity:0;transform:translate3d(0,16px,0);transition:opacity .55s ease,transform .55s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:2px;border-radius:4px;}
+.bg-navy :focus-visible,footer :focus-visible,.audit-head :focus-visible{outline-color:var(--cyan);}
+</style>
+</head>
+<body>
+
+<header class="audit-head">
+  <div class="container">
+    <div class="ah-in">
+      <div class="ah-brand"><b>Trabelo</b> <span>· Website audit</span></div>
+      <span class="eyebrow">Prepared for SheffTech · 205 City Road, Sheffield</span>
+      <h1>Your website is losing you calls.</h1>
+      <p class="lead">This is a free, no-obligation audit of <b style="color:#fff;">shefftech.co.uk</b>, run with Google's own tools and then checked by hand. Nothing in here is guesswork or a sales estimate — every number is something you can verify yourself in about two minutes.</p>
+      <p class="lead">The short version: the site is not badly broken, but it has four faults that are directly costing you enquiries, and one of them means a customer who taps your main contact button gets nothing at all.</p>
+      <div class="ah-meta">
+        <span>Audited 21 August 2026</span>
+        <span>·</span><span>Google Lighthouse, mobile</span>
+        <span>·</span><span>Moto G Power, Slow 4G</span>
+      </div>
+
+      <div class="scores">
+        <div class="score s-mid"><b>78</b><span>PERFORMANCE</span></div>
+        <div class="score s-mid"><b>88</b><span>ACCESSIBILITY</span></div>
+        <div class="score s-good"><b>100</b><span>BEST PRACTICES</span></div>
+        <div class="score s-good"><b>92</b><span>SEO</span></div>
+      </div>
+      <div class="metrics">
+        <div class="metric warn"><b>2.3s</b><span>FIRST PAINT</span></div>
+        <div class="metric warn"><b>5.0s</b><span>MAIN CONTENT</span></div>
+        <div class="metric"><b>0ms</b><span>BLOCKING</span></div>
+        <div class="metric warn"><b>0.082</b><span>LAYOUT SHIFT</span></div>
+        <div class="metric"><b>2.3s</b><span>SPEED INDEX</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- summary -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What these numbers actually mean.</h2>
+      <p>Google scores every website out of 100 in four areas. Anything under 90 is flagged as needing work. Here's where you sit and, more usefully, why it matters to someone standing in the street with a cracked phone.</p>
+    </div>
+
+    <div class="grid g2 reveal" style="margin-bottom:2rem;">
+      <div class="card">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Performance — 78 / 100</h3>
+        <p>The headline problem is <b style="color:var(--ink);">5.0 seconds</b> before your main content appears on a phone. Google's own research is that <b style="color:var(--ink);">53% of mobile visits are abandoned after three seconds</b>. You are two full seconds past that line, every visit.</p>
+        <p>The good news: your blocking time is 0ms, which means the site isn't jammed — it's just carrying far more weight than it needs to. The homepage pulls <b style="color:var(--ink);">1.8MB across 36 requests and 11 separate JavaScript files</b>, of which Google says 361KB of JavaScript and 96KB of CSS are never used at all.</p>
+      </div>
+      <div class="card">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div>
+        <h3>Accessibility — 88 / 100</h3>
+        <p>Google flags <b style="color:var(--ink);">colour contrast failures</b>, links that can only be told apart by colour, and links with no readable name for a screen reader. Seven of your thirteen homepage images have no alt text, and eleven tap targets are smaller than the recommended minimum.</p>
+        <p>This isn't only an ethics point. Roughly one in five UK adults has a disability, and contrast failures affect anyone reading a phone outdoors in daylight — which is exactly where somebody with a smashed screen is standing.</p>
+      </div>
+    </div>
+
+    <div class="callout reveal">
+      <p><b style="color:var(--ink);">One thing worth saying up front:</b> Best Practices is a clean 100 and SEO is 92. Whoever built this did not do a bad job for its time — the site is secure, it's responsive, it doesn't have horizontal scroll on a phone, and the written content is genuinely good. The problems below are almost all things that have <em>drifted</em> over the years rather than things that were built wrong. That matters, because it means most of the value here is already written; it's just buried.</p>
+    </div>
+  </div>
+</div>
+
+<!-- the four faults -->
+<div class="section bg-paper">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Found by hand</span>
+      <h2>Four faults Google can't see.</h2>
+      <p>Automated tools test how a page loads. They can't tell whether the phone number on it is correct. These four were found by going through the site page by page, and they are more damaging than anything in the scores above.</p>
+    </div>
+
+    <div class="issue critical reveal">
+      <div class="issue-top">
+        <h3>1. Your main contact button dials a number that doesn't exist.</h3>
+        <span class="tag critical">Critical</span>
+      </div>
+      <div class="issue-row">
+        <b>What's happening</b>
+        <p>On your Contact page, the button labelled <b style="color:var(--ink);">"Call us for an instant quote"</b> links to <span class="codeline">tel:0746391129</span>. That is ten digits. A UK mobile number is eleven. The digit <b style="color:var(--ink);">2</b> is missing from the middle.</p>
+      </div>
+      <div class="issue-row">
+        <b>What this means for your customers</b>
+        <p>Someone lands on your Contact page — the page people go to specifically <em>because</em> they've decided to get in touch — taps the most obvious button on it, and their phone either fails to dial or opens a blank keypad. Most people don't try again. They go back to Google and tap the next repair shop. You never find out it happened, because a call that never connects leaves no trace.</p>
+      </div>
+      <div class="issue-row fix">
+        <b>The fix</b>
+        <p>One character. On a rebuild, every phone link on the site is generated from a single source, so this class of error can't happen again — change the number once and it changes in all thirty places.</p>
+      </div>
+    </div>
+
+    <div class="issue critical reveal">
+      <div class="issue-top">
+        <h3>2. Your Sat-Nav page tells customers to call the wrong number.</h3>
+        <span class="tag critical">Critical</span>
+      </div>
+      <div class="issue-row">
+        <b>What's happening</b>
+        <p>The Sat-Nav repairs page says: "please call us on <b style="color:var(--red);">07463921<u>2</u>29</b>". Your actual number, in the footer of that very same page, is <b style="color:var(--ink);">07463921<u>1</u>29</b>. One digit different.</p>
+      </div>
+      <div class="issue-row">
+        <b>What this means for your customers</b>
+        <p>Sat-Nav repair is one of your most distinctive services and one of the few you take in by post — meaning these are customers from outside Sheffield who found you specifically. They're the hardest visitors to earn and they're being sent to a stranger's phone. Worse, the two numbers appear within a few inches of each other, which reads to a careful customer as a business that isn't paying attention.</p>
+      </div>
+      <div class="issue-row fix">
+        <b>The fix</b>
+        <p>Same as above — contact details defined once and pulled through everywhere. Also worth adding the shop landline (0114 360 3663), which is painted on your shop window but appears nowhere on the website.</p>
+      </div>
+    </div>
+
+    <div class="issue medium reveal">
+      <div class="issue-top">
+        <h3>3. Your opening hours contradict themselves depending on which page you land on.</h3>
+        <span class="tag medium">High</span>
+      </div>
+      <div class="issue-row">
+        <b>What's happening</b>
+        <p>There are two different sets of opening hours live on the site right now, and which one you see depends on where Google drops you.</p>
+      </div>
+      <div class="issue-row">
+        <div class="tbl-wrap">
+          <table class="data">
+            <thead><tr><th>Day</th><th>Home, About, FAQ, Computers, Consoles, Sat-Nav, Tablets</th><th>Services, Nintendo Switch, Deep clean, Mobile phones</th></tr></thead>
+            <tbody>
+              <tr><td>Monday</td><td>10:00 – 17:00</td><td>10:00 – 15:00</td></tr>
+              <tr><td>Wednesday</td><td>10:00 – 17:00</td><td>10:00 – 15:00</td></tr>
+              <tr><td>Saturday</td><td>11:00 – 14:00</td><td>"Closed / we may be open – call us"</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="issue-row">
+        <b>What this means for your customers</b>
+        <p>Somebody reads "open till 5" on the homepage, finishes work at 4:15 and drives over — and you shut at 3. That is a wasted journey and, realistically, a lost customer and possibly a one-star review. The Saturday line is worse: <em>"Closed / we may be open – call us"</em> asks the customer to do the work of finding out whether you're trading. Most won't. And the heading above that table reads <b>"OPENING HOURSE"</b>.</p>
+      </div>
+      <div class="issue-row fix">
+        <b>The fix</b>
+        <p>One set of hours, written once, appearing on every page — plus a live "Open now / Closed" indicator that reads the real time and tells the visitor immediately. The demo has this built and working; look at the top bar.</p>
+      </div>
+    </div>
+
+    <div class="issue medium reveal">
+      <div class="issue-top">
+        <h3>4. "Blog" in your main menu opens a 2017 story about a data breach.</h3>
+        <span class="tag medium">High</span>
+      </div>
+      <div class="issue-row">
+        <b>What's happening</b>
+        <p>The BLOG item in your navigation doesn't go to a blog index. It links directly to a single post titled <em>"Three Mobile hack may have affected 76,000 more customers"</em>, published around 2017. The neighbouring posts are about refurbishing an iPhone 6.</p>
+      </div>
+      <div class="issue-row">
+        <b>What this means for your customers</b>
+        <p>A visitor clicking a top-level menu item lands on a nine-year-old news story about customer data being stolen. It has nothing to do with your services, and it silently tells the reader the business stopped updating its website nearly a decade ago. Related: your mobile phone page still describes the <b style="color:var(--ink);">iPhone XR / 11 as "the latest"</b>. That was 2019. Anyone with an iPhone 15 reads that and assumes you can't help them.</p>
+      </div>
+      <div class="issue-row fix">
+        <b>The fix</b>
+        <p>Retire the blog or replace it with something that earns its place — repair guides, "is it worth fixing?" explainers, the deep-clean walkthrough. Model numbers get written as ranges rather than named handsets, so the page doesn't age.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- google visibility -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Search visibility</span>
+      <h2>191 five-star reviews that Google can't display.</h2>
+    </div>
+
+    <div class="grid g2 reveal" style="margin-bottom:1.75rem;">
+      <div class="issue low" style="margin-bottom:0;">
+        <div class="issue-top"><h3>No business schema on the site</h3><span class="tag low">Opportunity</span></div>
+        <div class="issue-row">
+          <p style="font-size:.95rem;">Your site carries generic page markup but <b style="color:var(--ink);">no LocalBusiness data at all</b> — no structured address, no opening hours, no service list, and crucially no <span class="codeline">AggregateRating</span>. That's the code that lets Google show a gold star rating next to your listing in search results.</p>
+          <p style="font-size:.95rem;">You have a 4.9 average from 191 reviews. That is a genuinely exceptional number for any business, and it is your single strongest asset. Right now a search result for SheffTech shows a plain blue link, the same as a shop with no reviews at all.</p>
+        </div>
+      </div>
+      <div class="issue low" style="margin-bottom:0;">
+        <div class="issue-top"><h3>No H1 heading on the homepage</h3><span class="tag low">Opportunity</span></div>
+        <div class="issue-row">
+          <p style="font-size:.95rem;">Your homepage has <b style="color:var(--ink);">no H1 element anywhere on it.</b> The H1 is the single most important on-page signal you can give a search engine about what a page is for. Yours is missing entirely, so Google is left to infer it.</p>
+          <p style="font-size:.95rem;">Google also flags <b style="color:var(--ink);">8 links with non-descriptive text</b> — "Learn more", "click here" — which carry no meaning for search or for screen readers. Each of those is a wasted signal pointing at a service page you'd like to rank.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="warnbox reveal">
+      <p><b>Also worth knowing:</b> Google reported <b>"No Data"</b> for real-user experience on your site. That means not enough people are visiting to generate a field report — which tells you the site is getting very little organic traffic relative to how well-known the shop clearly is locally. The business is doing the work; the website isn't bringing anyone in.</p>
+    </div>
+  </div>
+</div>
+
+<!-- missing revenue -->
+<div class="section bg-navy">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The bit that surprised us</span>
+      <h2>Your shop window sells things your website doesn't mention.</h2>
+      <p>We looked at a photograph of your shopfront. Three revenue streams are advertised in the window that appear nowhere on shefftech.co.uk.</p>
+    </div>
+    <div class="grid g3" style="margin-bottom:2rem;">
+      <div class="card reveal">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M3 7h18l-1.5 12h-15z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
+        <h3>"We Sell Used Phones"</h3>
+        <p>Painted on the window. Not one word about it online. Refurbished handsets are exactly what someone searches for when a repair quote comes back higher than they hoped.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>"We Buy Broken Phones"</h3>
+        <p>Also on the window, also invisible online. "Sell my broken iPhone Sheffield" is a search with real volume and real intent — someone with cash in mind, ready to walk in today.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></div>
+        <h3>Your landline: 0114 360 3663</h3>
+        <p>On the shop sign and the window vinyl. Nowhere on the website. Some customers — particularly older ones and business accounts — will simply trust a landline more than a mobile.</p>
+      </div>
+    </div>
+    <div class="callout reveal" style="background:rgba(31,196,228,.1);border-color:rgba(31,196,228,.3);">
+      <p style="color:rgba(255,255,255,.85);"><b style="color:#fff;">The same is true of your best marketing.</b> Your TikTok has 35,900 likes and a console clean that reportedly passed a million views. On the website it's one small button near the bottom of the homepage. Meanwhile your deep-clean page contains a genuinely excellent six-stage photo walkthrough of a console strip-down — the best content you own — and almost nobody will ever find it, because it sits three clicks deep with no link from the homepage.</p>
+    </div>
+  </div>
+</div>
+
+<!-- what changes -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What a rebuild changes</span>
+      <h2>Same business. Same words, mostly. Different result.</h2>
+      <p>We've already built you a working demo — not a mockup, not a slide, a real site on a real link you can open on your phone right now. Here's what's different about it.</p>
+    </div>
+
+    <div class="cmp reveal" style="margin-bottom:2rem;">
+      <div class="cmp-row">
+        <div class="cmp-lab"><span>Mobile performance score</span><b>78 → 100</b></div>
+        <div class="bar"><i class="now" style="width:78%;"></i></div>
+        <div class="bar" style="margin-top:5px;"><i class="after" style="width:100%;"></i></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-lab"><span>Time until your content appears</span><b>5.0s → under 1.5s</b></div>
+        <div class="bar"><i class="now" style="width:100%;"></i></div>
+        <div class="bar" style="margin-top:5px;"><i class="after" style="width:30%;"></i></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-lab"><span>Page weight</span><b>1.8MB → around 150KB</b></div>
+        <div class="bar"><i class="now" style="width:100%;"></i></div>
+        <div class="bar" style="margin-top:5px;"><i class="after" style="width:9%;"></i></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-lab"><span>Accessibility score</span><b>88 → 100</b></div>
+        <div class="bar"><i class="now" style="width:88%;"></i></div>
+        <div class="bar" style="margin-top:5px;"><i class="after" style="width:100%;"></i></div>
+      </div>
+    </div>
+
+    <div class="grid g3">
+      <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></div><h3>Contact details that work</h3><p>Every phone link tested and correct. A sticky call and WhatsApp bar pinned to the bottom of every mobile screen, so getting in touch is never more than one tap away wherever they are on the site.</p></div>
+      <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>One set of opening hours</h3><p>Written once, shown everywhere, with a live "Open now until 5pm" indicator that reads the actual time and highlights today's row automatically.</p></div>
+      <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg></div><h3>Your reviews, working for you</h3><p>LocalBusiness and AggregateRating schema so Google can show your 4.9 stars in search results, plus a reviews page that puts the Google and Facebook feedback where new customers actually see it.</p></div>
+      <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h12"/></svg></div><h3>Published price format</h3><p>A proper price table for every service, laid out and ready for your figures. People who see a price before they call arrive already decided — and you stop fielding calls that were only ever going to be about cost.</p></div>
+      <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg></div><h3>A shop page that exists</h3><p>Used handsets, custom gaming PCs, accessories and a "we buy broken phones" trade-in section — the things already in your window, finally online and searchable.</p></div>
+      <div class="card reveal"><div class="card-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h3>The TikTok front and centre</h3><p>Your best marketing asset given a proper section on the homepage instead of a small button at the bottom, with the deep-clean walkthrough promoted rather than buried.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- pricing -->
+<div class="section bg-paper">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What it costs</span>
+      <h2>Fixed prices, published, no monthly fees.</h2>
+      <p>One payment, at the end, once the site is finished and you're happy with it. No deposit at any point — you see the whole thing working before any money changes hands. The demo you've already been sent cost you nothing and there's no obligation attached to it.</p>
+    </div>
+
+    <div class="tiers reveal">
+      <div class="tier">
+        <h3>Starter</h3>
+        <div class="amt">£395</div>
+        <div class="per">one-off · £0/month</div>
+        <p class="desc">Five pages. Everything needed to look credible and be found — the fixes above, done properly.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>5 pages, mobile-first, hand-coded</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Every contact link tested and correct</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>LocalBusiness + review schema</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Working enquiry form</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Free hosting, 14-day cover</li>
+        </ul>
+      </div>
+      <div class="tier pick">
+        <span class="tier-flag">What we'd recommend</span>
+        <h3>Business</h3>
+        <div class="amt">£795</div>
+        <div class="per">one-off · £0/month</div>
+        <p class="desc">Eight pages — this is the demo you've been sent. A page per service so each one can rank on its own.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Everything in Starter, plus:</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>8 pages — a page per repair type</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Full price tables for every service</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Reviews page with real visual weight</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Business &amp; schools trade page</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Analytics installed and explained</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h3>Platform</h3>
+        <div class="amt">£1,495</div>
+        <div class="per">one-off · £0/month</div>
+        <p class="desc">Twelve pages, plus a real online shop. The right answer if you actually want to sell online.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Everything in Business, plus:</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Working shop with card payments</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Stock you manage yourself</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Online repair booking</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Content panel — edit your own text</li>
+          <li><svg viewBox="0 0 24 24"><path d="m4 12 6 6L20 6"/></svg>Blog / news that's worth having</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout reveal" style="margin-top:2rem;">
+      <p><b style="color:var(--ink);">On the shop:</b> the demo's storefront is deliberately inert — nothing can be bought and no payment is processed, because it's a demonstration. Making it real means card payments, stock management and order handling, which is the £1,495 tier. If selling online is genuinely the plan, that's the honest recommendation. If it isn't, £795 is the right build and nobody should talk you into more.</p>
+    </div>
+
+    <div class="grid g3 reveal" style="margin-top:1.5rem;">
+      <div class="card"><h4 style="margin-bottom:.4rem;">No deposit</h4><p>You pay once, at the end, when the site is finished and you've approved it. Until then it costs you nothing.</p></div>
+      <div class="card"><h4 style="margin-bottom:.4rem;">£0 a month</h4><p>A hand-coded static site has no running costs, so hosting is free permanently, in your own account. Your only bill is the domain you already own.</p></div>
+      <div class="card"><h4 style="margin-bottom:.4rem;">Updates when you need them</h4><p>£15 per change or £30/month unlimited — optional, cancel any time. Or add a content panel and do it yourself.</p></div>
+    </div>
+
+    <div class="btn-row center reveal" style="margin-top:2rem;">
+      <a href="https://trabelo.com/pricing" target="_blank" rel="noopener" class="btn btn-outline">See full pricing, line by line →</a>
+    </div>
+  </div>
+</div>
+
+<!-- cta -->
+<div class="section bg-navy">
+  <div class="container" style="text-align:center;max-width:760px;">
+    <span class="eyebrow reveal">Next step</span>
+    <h2 class="reveal">Go and look at the demo first.</h2>
+    <p class="lead reveal" style="margin-top:1rem;">It's already built and it's already live. Open it on your phone, click through every page, and judge it the way one of your customers would. If it's not right, say so and that's genuinely the end of it — no charge, no chasing.</p>
+    <div class="btn-row center reveal" style="margin-top:2rem;">
+      <a href="demo.html" class="btn btn-primary btn-lg">Open the SheffTech demo →</a>
+      <a href="mailto:aidan@trabelo.com?subject=SheffTech%20website" class="btn btn-ghost-lt btn-lg">Email Aidan</a>
+    </div>
+    <p class="reveal" style="margin-top:1.75rem;font-size:.88rem;color:rgba(255,255,255,.55);">Every figure in this audit is from Google Lighthouse run on shefftech.co.uk on 21 August 2026, or from the site itself. You can verify any of it at <a href="https://pagespeed.web.dev" target="_blank" rel="noopener" style="color:var(--cyan);">pagespeed.web.dev</a>.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="foot-in">
+      <span>Website audit prepared by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Sheffield</span>
+      <span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function runReveal(){
+  try{
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+      return;
+    }
+    document.querySelectorAll('.reveal').forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight - 40) el.classList.add('in');
+    });
+  }catch(e){}
+}
+runReveal();
+window.addEventListener('scroll',runReveal,{passive:true});
+window.addEventListener('resize',runReveal,{passive:true});
+</script>
+</body>
+</html>
