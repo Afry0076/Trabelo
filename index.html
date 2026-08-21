@@ -3,76 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SheffTech — Free Website Audit &amp; Demo Rebuild | Trabelo</title>
-<meta name="description" content="A free website audit and a working demo rebuild for SheffTech, Sheffield. Built by Trabelo. No cost, no obligation.">
+<title>Crookes Club — Free Website Audit &amp; Demo Rebuild | Trabelo</title>
+<meta name="description" content="A free website audit and a working demo rebuild for Crookes Club, Sheffield. Built by Trabelo. No cost, no obligation.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" media="print">
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" media="print">
 <script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
 <style>
 :root{
-  --navy:#08182E;--blue:#1B7BD4;--cyan:#1FC4E4;--green:#4ADE80;--amber:#FFD166;--orange:#FF9B57;
-  --head:'Space Grotesk',system-ui,sans-serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+  --red:#C0392B;--red-dark:#A93226;--red-lt:#E85D4E;--red-glow:rgba(192,57,43,.25);
+  --dark:#0D0D0D;--charcoal:#141414;--slate:#1C1C1C;--panel:#242424;
+  --cream:#F5F5F0;--text:#F0EDE8;--muted:#9A9590;--muted-2:#B5B0AA;
+  --gold:#C9A84C;--gold-lt:#E0C374;--green:#4ADE80;--amber:#F5B942;
+  --border:rgba(255,255,255,.1);--border-2:rgba(255,255,255,.18);
+  --display:'Bebas Neue',Impact,sans-serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{-webkit-text-size-adjust:100%;}
 body{
-  font-family:var(--sans);background:var(--navy);color:rgba(255,255,255,.76);
-  line-height:1.68;font-size:16px;-webkit-font-smoothing:antialiased;
+  font-family:var(--sans);background:var(--dark);color:var(--muted-2);
+  line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;
   min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;
 }
 body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
-  radial-gradient(900px 520px at 82% 4%,rgba(31,196,228,.17),transparent 62%),
-  radial-gradient(760px 480px at 4% 96%,rgba(27,123,212,.24),transparent 66%);}
-.wrap{position:relative;max-width:960px;margin:0 auto;padding:3rem 1.5rem 4rem;width:100%;flex:1;}
-h1,h2,h3{font-family:var(--head);color:#fff;line-height:1.14;letter-spacing:-.02em;font-weight:700;}
-h1{font-size:clamp(2rem,5vw,3.1rem);}
+  radial-gradient(900px 520px at 82% 4%,rgba(192,57,43,.28),transparent 62%),
+  radial-gradient(760px 470px at 4% 96%,rgba(201,168,76,.13),transparent 66%);}
+.wrap{position:relative;max-width:980px;margin:0 auto;padding:3rem 1.5rem 4rem;width:100%;flex:1;}
+h1,h2{font-family:var(--display);color:var(--cream);font-weight:400;letter-spacing:.01em;line-height:1;}
+h1{font-size:clamp(2.5rem,6.5vw,4.4rem);color:#fff;}
+h1 em{font-style:normal;color:var(--red-lt);}
+h2{font-size:1.6rem;}
 a{color:inherit;}
 
-.brand{display:flex;align-items:center;gap:.7rem;margin-bottom:2.75rem;font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.55);}
-.brand b{color:#fff;font-family:var(--head);letter-spacing:-.01em;text-transform:none;font-size:1.15rem;}
+.brand{display:flex;align-items:center;gap:.7rem;margin-bottom:2.75rem;font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.brand b{color:var(--cream);font-family:var(--display);letter-spacing:.03em;text-transform:none;font-size:1.55rem;font-weight:400;}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem;}
+.lead{font-size:1.1rem;color:var(--text);max-width:64ch;margin-top:1.3rem;}
 
-.eyebrow{font-family:var(--head);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.9rem;}
-.lead{font-size:1.09rem;color:rgba(255,255,255,.82);max-width:62ch;margin-top:1.15rem;}
+.dev-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2.5rem 0 .9rem;}
+@media(max-width:720px){.dev-row{grid-template-columns:1fr;gap:1.75rem;}}
+.dev-label{display:flex;align-items:center;gap:.55rem;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;}
+.dev-label svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:1.8;}
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;}
+.score{background:rgba(255,255,255,.05);border:1px solid var(--border-2);border-radius:5px;padding:.9rem .4rem;text-align:center;}
+.score b{display:block;font-family:var(--display);font-size:1.9rem;line-height:1;font-weight:400;}
+.score span{display:block;font-size:.58rem;color:var(--muted);margin-top:.35rem;letter-spacing:.07em;text-transform:uppercase;}
+.s-bad b{color:var(--red-lt);} .s-mid b{color:var(--amber);} .s-good b{color:var(--green);}
+.score-note{font-size:.86rem;color:var(--muted);}
+.score-note b{color:var(--cream);}
 
-.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin:2.5rem 0 .85rem;}
-@media(max-width:640px){.scores{grid-template-columns:repeat(2,1fr);}}
-.score{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:1.15rem .8rem;text-align:center;}
-.score b{display:block;font-family:var(--head);font-size:2.15rem;line-height:1;font-weight:700;}
-.score span{display:block;font-size:.68rem;color:rgba(255,255,255,.55);margin-top:.45rem;letter-spacing:.06em;}
-.s-mid b{color:var(--amber);} .s-good b{color:var(--green);}
-.score-note{font-size:.82rem;color:rgba(255,255,255,.5);}
-
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.75rem;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.35rem;margin-top:2.75rem;}
 @media(max-width:760px){.cards{grid-template-columns:1fr;}}
 .opt{
-  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);border-radius:17px;
-  padding:1.9rem;display:flex;flex-direction:column;gap:.75rem;text-decoration:none;
-  transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease;
+  background:var(--charcoal);border:1px solid var(--border);border-radius:8px;
+  padding:1.95rem;display:flex;flex-direction:column;gap:.8rem;text-decoration:none;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
 }
-.opt:hover{transform:translateY(-4px);border-color:rgba(31,196,228,.5);background:rgba(255,255,255,.085);box-shadow:0 20px 46px rgba(0,0,0,.35);}
-.opt-ic{width:46px;height:46px;border-radius:12px;background:rgba(31,196,228,.15);display:grid;place-items:center;margin-bottom:.35rem;}
-.opt-ic svg{width:23px;height:23px;stroke:var(--cyan);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.opt h2{font-size:1.35rem;}
+.opt:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 22px 50px rgba(0,0,0,.55);}
+.opt.primary{border-color:rgba(201,168,76,.4);background:linear-gradient(150deg,rgba(201,168,76,.09),var(--charcoal));}
+.opt.primary:hover{border-color:var(--gold);}
+.opt-ic{width:48px;height:48px;border-radius:5px;background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.35);display:grid;place-items:center;margin-bottom:.3rem;}
+.opt-ic svg{width:23px;height:23px;stroke:var(--red-lt);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.opt.primary .opt-ic{background:rgba(201,168,76,.14);border-color:rgba(201,168,76,.35);}
+.opt.primary .opt-ic svg{stroke:var(--gold);}
+.opt h2{font-size:1.85rem;}
 .opt p{font-size:.95rem;flex:1;}
-.opt .go{font-family:var(--head);font-weight:600;font-size:.92rem;color:var(--cyan);display:inline-flex;align-items:center;gap:.4rem;margin-top:.35rem;}
-.opt.primary{border-color:rgba(31,196,228,.42);background:rgba(31,196,228,.09);}
-.tagline{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--navy);background:var(--cyan);border-radius:99px;padding:.24rem .7rem;align-self:flex-start;}
+.opt .go{font-weight:700;font-size:.88rem;color:var(--gold);display:inline-flex;align-items:center;gap:.4rem;margin-top:.4rem;letter-spacing:.03em;}
+.tagline{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1A1405;background:var(--gold);border-radius:3px;padding:.28rem .7rem;align-self:flex-start;}
 
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.75rem;}
-@media(max-width:640px){.facts{grid-template-columns:1fr;}}
-.fact{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.15rem 1.25rem;}
-.fact b{display:block;color:#fff;font-family:var(--head);font-size:.95rem;margin-bottom:.25rem;}
-.fact span{font-size:.87rem;color:rgba(255,255,255,.62);}
+@media(max-width:680px){.facts{grid-template-columns:1fr;}}
+.fact{background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:6px;padding:1.2rem 1.3rem;}
+.fact b{display:block;color:var(--cream);font-size:.95rem;margin-bottom:.25rem;}
+.fact span{font-size:.87rem;color:var(--muted);}
 
-.note{margin-top:2.75rem;padding:1.4rem 1.6rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;font-size:.94rem;}
-.note b{color:#fff;}
+.note{margin-top:2.75rem;padding:1.5rem 1.7rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);border-radius:6px;font-size:.95rem;}
+.note b{color:var(--gold-lt);}
 
-footer{position:relative;border-top:1px solid rgba(255,255,255,.1);padding:1.6rem 0;font-size:.85rem;color:rgba(255,255,255,.5);}
+footer{position:relative;border-top:1px solid var(--border);padding:1.7rem 0;font-size:.85rem;color:var(--muted);background:#000;}
 footer .wrap{padding:0 1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;flex:none;}
-footer a{color:var(--cyan);}
-:focus-visible{outline:2.5px solid var(--cyan);outline-offset:3px;border-radius:6px;}
+footer a{color:var(--gold);}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:4px;}
 </style>
 </head>
 <body>
@@ -80,30 +92,44 @@ footer a{color:var(--cyan);}
 <div class="wrap">
   <div class="brand"><b>Trabelo</b> <span>· Sheffield</span></div>
 
-  <span class="eyebrow">Prepared for SheffTech · 205 City Road, S2 5HF</span>
-  <h1>We rebuilt your website.<br>Have a look — it's free.</h1>
-  <p class="lead">Nobody asked us to, and nothing here costs you anything. We ran Google's own tools over shefftech.co.uk, found four faults that are quietly costing you calls, then built you a working replacement so you can see the difference rather than read about it.</p>
+  <span class="eyebrow">Prepared for Crookes Club · Mulehouse Road, S10 1TD</span>
+  <h1>We rebuilt your website.<br><em>Have a look — it's free.</em></h1>
+  <p class="lead">Sheffield's No.1 live music venue on TripAdvisor, 2019 Entertainment Club of the Year, a 500-capacity room and something on every night of the week — running on a GoDaddy template from 2018. We ran Google's own tools over it, then built you a working replacement so you can see the difference rather than read about it.</p>
 
-  <div class="scores">
-    <div class="score s-mid"><b>78</b><span>PERFORMANCE</span></div>
-    <div class="score s-mid"><b>88</b><span>ACCESSIBILITY</span></div>
-    <div class="score s-good"><b>100</b><span>BEST PRACTICES</span></div>
-    <div class="score s-good"><b>92</b><span>SEO</span></div>
+  <div class="dev-row">
+    <div>
+      <div class="dev-label"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg> On a phone</div>
+      <div class="scores">
+        <div class="score s-mid"><b>85</b><span>Perf</span></div>
+        <div class="score s-mid"><b>82</b><span>Access</span></div>
+        <div class="score s-good"><b>96</b><span>Practices</span></div>
+        <div class="score s-mid"><b>85</b><span>SEO</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="dev-label"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg> On a laptop</div>
+      <div class="scores">
+        <div class="score s-bad"><b>57</b><span>Perf</span></div>
+        <div class="score s-bad"><b>76</b><span>Access</span></div>
+        <div class="score s-good"><b>92</b><span>Practices</span></div>
+        <div class="score s-good"><b>92</b><span>SEO</span></div>
+      </div>
+    </div>
   </div>
-  <p class="score-note">Google Lighthouse, mobile, 21 August 2026 — your current site. Two of these are good. Two aren't, and one number behind them matters more than all four: <b style="color:#fff;">5.0 seconds</b> before your content appears on a phone.</p>
+  <p class="score-note">Google Lighthouse — your current site. The number that matters most isn't in that grid: someone checking what's on, on their phone, waits <b>12.1 seconds</b> before the page is usable.</p>
 
   <div class="cards">
-    <a href="demo.html" class="opt primary">
+    <a href="crookes-demo.html" class="opt primary">
       <span class="tagline">Start here</span>
       <div class="opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="m9 9 3 2-3 2"/></svg></div>
       <h2>The demo rebuild</h2>
-      <p>A real, working version of your site on a live link — seven pages, your services, your reviews, your words. Includes a price-table format ready for your figures, a shop page for the used phones you already sell, and your TikTok given the space it deserves. Open it on your phone.</p>
+      <p>A real, working version of your site on a live link — eight pages, your real events, your actual day-by-day opening hours, both function rooms, the full weekly schedule, and dedicated pages for Sheffield Jazz and the Comedy Village. Open it on your phone.</p>
       <span class="go">Open the demo →</span>
     </a>
-    <a href="audit.html" class="opt">
+    <a href="crookes-audit.html" class="opt">
       <div class="opt-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
       <h2>The written audit</h2>
-      <p>What's actually wrong, ranked by what it costs you rather than by severity score. Includes the broken call button on your contact page, the wrong phone number on your Sat-Nav page, the two contradicting sets of opening hours, and why 191 five-star reviews aren't showing up in Google.</p>
+      <p>What's actually wrong, ranked by what it costs the club rather than by severity score. Including the big one: Google currently can't see a single one of your events, so you're invisible in "gigs in Sheffield this weekend" — the search that should be sending you people.</p>
       <span class="go">Read the audit →</span>
     </a>
   </div>
@@ -115,7 +141,7 @@ footer a{color:var(--cyan);}
   </div>
 
   <div class="note">
-    <p><b>One thing to flag before you look:</b> on your Contact page, the button labelled "Call us for an instant quote" links to a ten-digit number. UK mobiles have eleven. It does not dial. That's a one-character fix and it's worth doing today whatever you decide about the rest — details are in the audit.</p>
+    <p><b>Updated August 2026.</b> Both the demo and the audit have been rebuilt from scratch since we first sent them over — the demo has gone from six pages to eight, and now includes everything the £795 option actually covers: the TicketSource events feed, proper Sheffield Jazz and Comedy Village pages, the room-hire enquiry form that routes itself, and the full weekly activity schedule with today highlighted. Worth another look.</p>
   </div>
 </div>
 
