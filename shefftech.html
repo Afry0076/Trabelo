@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SheffTech — Free Website Audit &amp; Demo Rebuild | Trabelo</title>
+<meta name="description" content="A free website audit and a working demo rebuild for SheffTech, Sheffield. Built by Trabelo. No cost, no obligation.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" media="print">
+<script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
+<style>
+:root{
+  --navy:#08182E;--blue:#1B7BD4;--cyan:#1FC4E4;--green:#4ADE80;--amber:#FFD166;--orange:#FF9B57;
+  --head:'Space Grotesk',system-ui,sans-serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--sans);background:var(--navy);color:rgba(255,255,255,.76);
+  line-height:1.68;font-size:16px;-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;
+}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
+  radial-gradient(900px 520px at 82% 4%,rgba(31,196,228,.17),transparent 62%),
+  radial-gradient(760px 480px at 4% 96%,rgba(27,123,212,.24),transparent 66%);}
+.wrap{position:relative;max-width:960px;margin:0 auto;padding:3rem 1.5rem 4rem;width:100%;flex:1;}
+h1,h2,h3{font-family:var(--head);color:#fff;line-height:1.14;letter-spacing:-.02em;font-weight:700;}
+h1{font-size:clamp(2rem,5vw,3.1rem);}
+a{color:inherit;}
+
+.brand{display:flex;align-items:center;gap:.7rem;margin-bottom:2.75rem;font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.brand b{color:#fff;font-family:var(--head);letter-spacing:-.01em;text-transform:none;font-size:1.15rem;}
+
+.eyebrow{font-family:var(--head);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.9rem;}
+.lead{font-size:1.09rem;color:rgba(255,255,255,.82);max-width:62ch;margin-top:1.15rem;}
+
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin:2.5rem 0 .85rem;}
+@media(max-width:640px){.scores{grid-template-columns:repeat(2,1fr);}}
+.score{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:1.15rem .8rem;text-align:center;}
+.score b{display:block;font-family:var(--head);font-size:2.15rem;line-height:1;font-weight:700;}
+.score span{display:block;font-size:.68rem;color:rgba(255,255,255,.55);margin-top:.45rem;letter-spacing:.06em;}
+.s-mid b{color:var(--amber);} .s-good b{color:var(--green);}
+.score-note{font-size:.82rem;color:rgba(255,255,255,.5);}
+
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.75rem;}
+@media(max-width:760px){.cards{grid-template-columns:1fr;}}
+.opt{
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);border-radius:17px;
+  padding:1.9rem;display:flex;flex-direction:column;gap:.75rem;text-decoration:none;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.opt:hover{transform:translateY(-4px);border-color:rgba(31,196,228,.5);background:rgba(255,255,255,.085);box-shadow:0 20px 46px rgba(0,0,0,.35);}
+.opt-ic{width:46px;height:46px;border-radius:12px;background:rgba(31,196,228,.15);display:grid;place-items:center;margin-bottom:.35rem;}
+.opt-ic svg{width:23px;height:23px;stroke:var(--cyan);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.opt h2{font-size:1.35rem;}
+.opt p{font-size:.95rem;flex:1;}
+.opt .go{font-family:var(--head);font-weight:600;font-size:.92rem;color:var(--cyan);display:inline-flex;align-items:center;gap:.4rem;margin-top:.35rem;}
+.opt.primary{border-color:rgba(31,196,228,.42);background:rgba(31,196,228,.09);}
+.tagline{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--navy);background:var(--cyan);border-radius:99px;padding:.24rem .7rem;align-self:flex-start;}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.75rem;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fact{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.15rem 1.25rem;}
+.fact b{display:block;color:#fff;font-family:var(--head);font-size:.95rem;margin-bottom:.25rem;}
+.fact span{font-size:.87rem;color:rgba(255,255,255,.62);}
+
+.note{margin-top:2.75rem;padding:1.4rem 1.6rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;font-size:.94rem;}
+.note b{color:#fff;}
+
+footer{position:relative;border-top:1px solid rgba(255,255,255,.1);padding:1.6rem 0;font-size:.85rem;color:rgba(255,255,255,.5);}
+footer .wrap{padding:0 1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;flex:none;}
+footer a{color:var(--cyan);}
+:focus-visible{outline:2.5px solid var(--cyan);outline-offset:3px;border-radius:6px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand"><b>Trabelo</b> <span>· Sheffield</span></div>
+
+  <span class="eyebrow">Prepared for SheffTech · 205 City Road, S2 5HF</span>
+  <h1>We rebuilt your website.<br>Have a look — it's free.</h1>
+  <p class="lead">Nobody asked us to, and nothing here costs you anything. We ran Google's own tools over shefftech.co.uk, found four faults that are quietly costing you calls, then built you a working replacement so you can see the difference rather than read about it.</p>
+
+  <div class="scores">
+    <div class="score s-mid"><b>78</b><span>PERFORMANCE</span></div>
+    <div class="score s-mid"><b>88</b><span>ACCESSIBILITY</span></div>
+    <div class="score s-good"><b>100</b><span>BEST PRACTICES</span></div>
+    <div class="score s-good"><b>92</b><span>SEO</span></div>
+  </div>
+  <p class="score-note">Google Lighthouse, mobile, 21 August 2026 — your current site. Two of these are good. Two aren't, and one number behind them matters more than all four: <b style="color:#fff;">5.0 seconds</b> before your content appears on a phone.</p>
+
+  <div class="cards">
+    <a href="shefftech-index.html" class="opt primary">
+      <span class="tagline">Start here</span>
+      <div class="opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="m9 9 3 2-3 2"/></svg></div>
+      <h2>The demo rebuild</h2>
+      <p>A real, working version of your site on a live link — seven pages, your services, your reviews, your words. Includes a price-table format ready for your figures, a shop page for the used phones you already sell, and your TikTok given the space it deserves. Open it on your phone.</p>
+      <span class="go">Open the demo →</span>
+    </a>
+    <a href="shefftech-audit.html" class="opt">
+      <div class="opt-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
+      <h2>The written audit</h2>
+      <p>What's actually wrong, ranked by what it costs you rather than by severity score. Includes the broken call button on your contact page, the wrong phone number on your Sat-Nav page, the two contradicting sets of opening hours, and why 191 five-star reviews aren't showing up in Google.</p>
+      <span class="go">Read the audit →</span>
+    </a>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>Free, and yours to keep</b><span>No deposit, no card, no obligation. Take the findings and fix them yourself if you'd rather.</span></div>
+    <div class="fact"><b>Nothing is live</b><span>Your real site is untouched. This sits on our link until you say otherwise.</span></div>
+    <div class="fact"><b>Don't like it? Say so</b><span>That's genuinely the end of it. No charge, no chasing, no hard feelings.</span></div>
+  </div>
+
+  <div class="note">
+    <p><b>One thing to flag before you look:</b> on your Contact page, the button labelled "Call us for an instant quote" links to a ten-digit number. UK mobiles have eleven. It does not dial. That's a one-character fix and it's worth doing today whatever you decide about the rest — details are in the audit.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Built by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Fixed-price websites, Sheffield</span>
+    <span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
