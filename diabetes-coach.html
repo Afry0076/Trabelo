@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Diabetes Lifestyle Coach — Free Website Demo | Trabelo</title>
+<meta name="description" content="A free, working website demo built for The Diabetes Lifestyle Coach by Trabelo. No cost, no obligation.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap" media="print">
+<script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
+<style>
+:root{
+  --dark:#1F1815;--dark-2:#2A211C;
+  --mocha:#A88477;--blush:#D8B4A2;--blush-lt:#F1DDD1;
+  --teal:#4E9086;--teal-lt:#6FB3A8;
+  --display:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--sans);background:var(--dark);color:rgba(255,255,255,.74);
+  line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;
+}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
+  radial-gradient(900px 520px at 84% 2%,rgba(216,180,162,.17),transparent 62%),
+  radial-gradient(760px 480px at 2% 98%,rgba(78,144,134,.2),transparent 66%);}
+.wrap{position:relative;max-width:980px;margin:0 auto;padding:3rem 1.5rem 4rem;width:100%;flex:1;}
+h1,h2{font-family:var(--display);color:#fff;line-height:1.1;letter-spacing:-.02em;font-weight:600;}
+h1{font-size:clamp(2.1rem,5vw,3.3rem);}
+h1 em{font-style:italic;color:var(--blush);font-weight:400;}
+a{color:inherit;}
+
+.brand{display:flex;align-items:center;gap:.7rem;margin-bottom:2.75rem;font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.brand b{color:#fff;font-family:var(--display);letter-spacing:-.01em;text-transform:none;font-size:1.2rem;font-weight:600;}
+
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blush);display:block;margin-bottom:1rem;}
+.lead{font-size:1.1rem;color:rgba(255,255,255,.82);max-width:64ch;margin-top:1.3rem;}
+
+.flag{
+  margin:2.5rem 0 0;padding:1.5rem 1.7rem;background:rgba(216,180,162,.09);
+  border:1px solid rgba(216,180,162,.28);border-left:3px solid var(--blush);border-radius:14px;
+}
+.flag b{color:#fff;}
+.flag .url{font-family:var(--sans);color:var(--blush);font-weight:600;}
+
+.cards{display:grid;grid-template-columns:1.25fr .75fr;gap:1.25rem;margin-top:2.5rem;}
+@media(max-width:760px){.cards{grid-template-columns:1fr;}}
+.opt{
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);border-radius:18px;
+  padding:2rem;display:flex;flex-direction:column;gap:.75rem;text-decoration:none;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.opt:hover{transform:translateY(-4px);border-color:rgba(216,180,162,.5);background:rgba(255,255,255,.085);box-shadow:0 22px 50px rgba(0,0,0,.4);}
+.opt-ic{width:48px;height:48px;border-radius:14px;background:rgba(216,180,162,.16);display:grid;place-items:center;margin-bottom:.35rem;}
+.opt-ic svg{width:24px;height:24px;stroke:var(--blush);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.opt h2{font-size:1.45rem;}
+.opt p{font-size:.96rem;flex:1;}
+.opt .go{font-weight:600;font-size:.94rem;color:var(--blush);display:inline-flex;align-items:center;gap:.4rem;margin-top:.35rem;}
+.opt.primary{border-color:rgba(216,180,162,.42);background:rgba(216,180,162,.09);}
+.tagline{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#2A211C;background:var(--blush);border-radius:99px;padding:.26rem .8rem;align-self:flex-start;}
+
+.inside{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-top:.4rem;}
+.inside li{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem;}
+.inside svg{width:16px;height:16px;flex:none;margin-top:5px;stroke:var(--teal-lt);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fact{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.2rem 1.3rem;}
+.fact b{display:block;color:#fff;font-size:.95rem;margin-bottom:.25rem;}
+.fact span{font-size:.88rem;color:rgba(255,255,255,.6);}
+
+.note{margin-top:2.5rem;padding:1.5rem 1.7rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;font-size:.95rem;}
+.note b{color:#fff;}
+.note p+p{margin-top:.8rem;}
+
+footer{position:relative;border-top:1px solid rgba(255,255,255,.1);padding:1.6rem 0;font-size:.85rem;color:rgba(255,255,255,.5);}
+footer .wrap{padding:0 1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;flex:none;}
+footer a{color:var(--blush);}
+:focus-visible{outline:2.5px solid var(--blush);outline-offset:3px;border-radius:6px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand"><b>Trabelo</b> <span>· Fixed-price websites</span></div>
+
+  <span class="eyebrow">Prepared for Ellis · The Diabetes Lifestyle Coach</span>
+  <h1>We built your website.<br>Have a look — <em>it's free.</em></h1>
+  <p class="lead">Nobody asked us to, and nothing here costs you anything. We took what's already on your Facebook page — your Diabetes MOT, your credentials, the things you help people with — and built a real, working website out of it, so you can see it rather than imagine it.</p>
+
+  <div class="flag">
+    <p><b>One thing we noticed first.</b> Your Facebook cover banner sends people to <span class="url">thediabeteslifestylecoach.com</span> — and right now that address shows a <b>"Coming Soon"</b> holding page. So every person who reads your banner, types it in and expects to find you… doesn't. That's the gap this fills, and the domain is already yours.</p>
+  </div>
+
+  <div class="cards">
+    <a href="diabetes-coach-index.html" class="opt primary">
+      <span class="tagline">Start here</span>
+      <div class="opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="m9 9 3 2-3 2"/></svg></div>
+      <h2>Your demo website</h2>
+      <p>Five pages, live on a real link, built from your own words and your own photo. Open it on your phone and judge it the way one of your clients would.</p>
+      <span class="go">Open the demo →</span>
+    </a>
+
+    <div class="opt">
+      <div class="opt-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
+      <h2>What's inside</h2>
+      <ul class="inside">
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Home, About, Work With Me, Learn, Contact</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>The £120 Diabetes MOT, laid out properly</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>A working HbA1c converter, built for you</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>An enquiry form that works at 11pm</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Your colours, your wording, your photo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>Free, and no obligation</b><span>No deposit, no card, no contract. Look at it and decide afterwards.</span></div>
+    <div class="fact"><b>Nothing is live</b><span>This sits on our link only. Your Facebook page and your domain are untouched.</span></div>
+    <div class="fact"><b>Don't like it? Say so</b><span>That's genuinely the end of it. No charge, no chasing, no hard feelings.</span></div>
+  </div>
+
+  <div class="note">
+    <p><b>A couple of things to know while you look.</b> Anywhere we didn't have your real information — your programme prices, how you actually run the booking process — you'll see a small dashed note saying so. Nothing in this demo pretends to be a fact we don't have, and there are no invented reviews or testimonials anywhere on it.</p>
+    <p>The whole thing is a <b>£395 five-page build, one payment, nothing monthly</b>. Hosting genuinely costs nothing at this size, and the domain you already own stays in your name. If you want it, the words and prices become yours to correct and it goes live on <b>thediabeteslifestylecoach.com</b>.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Built by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Fixed-price websites, no monthly fees</span>
+    <span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
