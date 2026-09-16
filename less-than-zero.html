@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Less Than Zero Barbers — Free Website Audit &amp; Demo Rebuild | Trabelo</title>
+<meta name="description" content="A free website audit and working demo rebuild for Less Than Zero Barbers and LTZ Group, by Trabelo. No cost, no obligation.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" media="print">
+<script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
+<style>
+:root{--black:#0B0B0C;--char:#131315;--bone:#EFE8DC;--bone-2:#CFC6B8;--body:#A9A298;--muted:#7E786F;--brass:#C9A35B;--brass-lt:#E2C27F;--brass-dk:#9C7B3C;--red:#E07A6A;--amber:#E8B45E;--green:#7FC79A;--line:rgba(239,232,220,.1);--line-2:rgba(239,232,220,.2);--serif:'Instrument Serif',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:var(--sans);background:var(--black);color:var(--body);line-height:1.72;font-size:16.5px;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;position:relative;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(800px 480px at 85% 0%,rgba(201,163,91,.15),transparent 64%);}
+.wrap{position:relative;max-width:980px;margin:0 auto;padding:3rem 1.5rem 4rem;width:100%;flex:1;}
+h1,h2{font-family:var(--serif);font-weight:400;color:var(--bone);line-height:1.02;}
+h1{font-size:clamp(2.4rem,5.4vw,3.8rem);}
+h2{font-size:1.8rem;}
+em{font-style:italic;color:var(--brass-lt);}
+a{color:inherit;}
+.brand{display:flex;align-items:center;gap:.7rem;margin-bottom:2.6rem;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.brand b{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:var(--bone);text-transform:none;letter-spacing:0;}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:2rem;align-items:center;}
+.intro img{width:150px;height:150px;opacity:.9;}
+@media(max-width:640px){.intro{grid-template-columns:minmax(0,1fr);}.intro img{width:90px;height:90px;order:-1;}}
+.label{font-size:.66rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:1.1rem;}
+.lead{font-size:1.1rem;color:var(--bone-2);margin-top:1.3rem;max-width:62ch;}
+.scores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:2.6rem 0 .9rem;}
+@media(max-width:640px){.scores{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.score{background:var(--black);padding:1.2rem .7rem;text-align:center;}
+.score b{display:block;font-family:var(--serif);font-weight:400;font-size:2.8rem;line-height:1;}
+.score span{display:block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.45rem;}
+.bad b{color:var(--red);} .good b{color:var(--green);}
+.note{font-size:.84rem;color:var(--muted);}
+.note b{color:var(--bone);}
+.flag{margin-top:2.4rem;border:1px solid rgba(224,122,106,.4);border-left:2px solid var(--red);padding:1.5rem 1.7rem;background:rgba(224,122,106,.05);}
+.flag b{color:var(--bone);}
+.flag .code{display:block;margin:.8rem 0;padding:.8rem 1rem;background:rgba(0,0,0,.45);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.84rem;color:#F2C2BA;}
+.cards{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.2rem;margin-top:2.4rem;}
+@media(max-width:760px){.cards{grid-template-columns:minmax(0,1fr);}}
+.opt{border:1px solid var(--line-2);padding:2rem;display:flex;flex-direction:column;gap:.7rem;text-decoration:none;transition:border-color .25s,background .25s,transform .25s;}
+.opt:hover{border-color:var(--brass);background:rgba(201,163,91,.05);transform:translateY(-3px);}
+.opt.primary{border-color:var(--brass-dk);}
+.opt small{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);}
+.opt p{font-size:.95rem;flex:1;}
+.opt .go{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--brass-lt);}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.4rem;}
+@media(max-width:640px){.facts{grid-template-columns:minmax(0,1fr);}}
+.fact{background:var(--black);padding:1.2rem 1.3rem;}
+.fact b{display:block;color:var(--bone);font-size:.94rem;font-weight:600;margin-bottom:.25rem;}
+.fact span{font-size:.87rem;}
+.note-box{margin-top:2.4rem;border:1px solid var(--line);padding:1.5rem 1.7rem;font-size:.94rem;}
+.note-box b{color:var(--bone);}
+.note-box p+p{margin-top:.8rem;}
+footer{border-top:1px solid var(--line);padding:1.6rem 0;font-size:.82rem;color:var(--muted);position:relative;}
+footer .wrap{padding:0 1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;flex:none;}
+footer a{color:var(--brass);}
+:focus-visible{outline:1.5px solid var(--brass-lt);outline-offset:3px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><b>Trabelo</b><span>· Fixed-price websites</span></div>
+
+  <div class="intro">
+    <div>
+      <span class="label">Prepared for Less Than Zero Barbers · LTZ Group</span>
+      <h1>We audited your website and <em>rebuilt it.</em> Both are free.</h1>
+    </div>
+    <img src="photos-less-than-zero/crest-white.png" alt="Less Than Zero crest" width="560" height="560">
+  </div>
+  <p class="lead">Nobody asked us to, and nothing here costs you anything. We ran Google's own tools over lessthanzerobarbers.com, went through every page, and found seven things holding it back — one of which is stopping new customers booking. Then we built you a replacement so you can see the difference rather than read about it.</p>
+
+  <div class="scores">
+    <div class="score bad"><b>45</b><span>Performance</span></div>
+    <div class="score good"><b>91</b><span>Accessibility</span></div>
+    <div class="score good"><b>96</b><span>Best Practices</span></div>
+    <div class="score good"><b>92</b><span>SEO</span></div>
+  </div>
+  <p class="note">Google Lighthouse, mobile, 16 September 2026. The number that matters most: <b>8.9 seconds</b> before your homepage's main content appears on a phone.</p>
+
+  <div class="flag">
+    <p><b>One thing to check before anything else.</b> Tap <b>"Make an Appointment Now"</b> on your homepage as a first-time visitor. It opens a website log-in page:</p>
+    <span class="code">Log In · New to this site? Sign Up</span>
+    <p>The same happens from the Barbershops page and from "Pre Authorisation" in your menu. Your regulars book through the app and never see it — it's new customers who hit the wall. Separately, the <b>info@lessthanzerobarbers.com</b> link on your site actually opens an email to <b>ltzbarbers@aol.co.uk</b>. Worth checking that inbox today.</p>
+  </div>
+
+  <div class="cards">
+    <a href="less-than-zero-index.html" class="opt primary">
+      <small>Start here</small>
+      <h2>The demo rebuild</h2>
+      <p>Five pages built from your own photos, reviews and awards. One-tap booking for each shop, a style guide with "what to tell your barber", and a two-question route finder for the Training Academy.</p>
+      <span class="go">Open the demo →</span>
+    </a>
+    <a href="less-than-zero-audit.html" class="opt">
+      <small>The detail</small>
+      <h2>The written audit</h2>
+      <p>Seven findings ranked by what they cost you — the booking wall, the email mismatch, 8.9-second load times, missing hours and prices, and what Google actually sees on your homepage.</p>
+      <span class="go">Read the audit →</span>
+    </a>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>Free, yours to keep</b><span>No deposit, no card, no obligation. Fix it yourselves if you'd rather.</span></div>
+    <div class="fact"><b>Nothing is live</b><span>Your real site is untouched. This sits on our link only.</span></div>
+    <div class="fact"><b>Not for you? Say so</b><span>That's genuinely the end of it. No chasing.</span></div>
+  </div>
+
+  <div class="note-box">
+    <p><b>A couple of things to know while you look.</b> Everything in the demo comes from your own site and pages — your awards timeline, your three shops and managers, your academy routes and your real Booksy reviews. Where we didn't have something, like opening hours or prices, you'll see a small dashed note rather than a guess.</p>
+    <p>The demo is our <b>£395 five-page build</b>. Your current site is closer to twelve pages, so the audit is upfront that the like-for-like replacement is the larger build — and why.</p>
+  </div>
+</div>
+<footer>
+  <div class="wrap">
+    <span>Built by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Fixed-price websites, no monthly fees</span>
+    <span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span>
+  </div>
+</footer>
+</body>
+</html>

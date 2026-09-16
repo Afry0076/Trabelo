@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Less Than Zero Barbers — Website Audit | Trabelo</title>
+<meta name="description" content="A free, independent audit of lessthanzerobarbers.com, prepared by Trabelo. Real Google data, plain English, no obligation.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" media="print">
+<script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
+<style>
+:root{
+  --black:#0B0B0C;--char:#131315;--char-2:#1B1B1E;
+  --bone:#EFE8DC;--bone-2:#CFC6B8;--body:#A9A298;--muted:#7E786F;
+  --brass:#C9A35B;--brass-lt:#E2C27F;--brass-dk:#9C7B3C;
+  --red:#E07A6A;--amber:#E8B45E;--green:#7FC79A;
+  --line:rgba(239,232,220,.1);--line-2:rgba(239,232,220,.2);
+  --serif:'Instrument Serif',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:var(--sans);background:var(--black);color:var(--body);line-height:1.72;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--bone);line-height:1.05;}
+h1{font-size:clamp(2.5rem,5.5vw,4.2rem);}
+h2{font-size:clamp(2rem,3.8vw,3rem);}
+h3{font-size:1.65rem;}
+h4{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.5rem;}
+em{font-style:italic;color:var(--brass-lt);}
+p+p{margin-top:.95rem;}
+.container{max-width:1060px;margin:0 auto;padding:0 1.5rem;}
+.section{padding:4.5rem 0;}
+@media(max-width:760px){.section{padding:3rem 0;}}
+.label{font-size:.66rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.1rem;}
+.label::before{content:'';width:26px;height:1px;background:var(--brass);}
+.lead{font-size:1.12rem;color:var(--bone-2);}
+
+.mast{border-bottom:1px solid var(--line);padding:3rem 0 3.5rem;background:radial-gradient(700px 400px at 85% 0%,rgba(201,163,91,.14),transparent 64%);}
+.brandline{display:flex;gap:.7rem;align-items:center;margin-bottom:2.4rem;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.brandline b{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:var(--bone);text-transform:none;letter-spacing:0;}
+.mast .lead{margin-top:1.3rem;max-width:62ch;}
+.scores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:2.6rem 0 .9rem;}
+@media(max-width:640px){.scores{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.score{background:var(--black);padding:1.3rem .8rem;text-align:center;}
+.score b{display:block;font-family:var(--serif);font-weight:400;font-size:3rem;line-height:1;}
+.score span{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.5rem;}
+.bad b{color:var(--red);} .mid b{color:var(--amber);} .good b{color:var(--green);}
+.note{font-size:.84rem;color:var(--muted);}
+.note b{color:var(--bone);}
+.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem;margin-top:1.6rem;}
+@media(max-width:760px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.metric{border:1px solid var(--line);padding:.85rem .6rem;text-align:center;}
+.metric b{display:block;font-family:var(--serif);font-weight:400;font-size:1.6rem;color:var(--bone);line-height:1;}
+.metric span{display:block;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;}
+.metric.bad b{color:var(--red);}
+
+.intro{border:1px solid var(--brass-dk);padding:2.3rem;background:linear-gradient(160deg,var(--char-2),var(--black));}
+.intro b{color:var(--bone);}
+.code{display:block;margin:.9rem 0;padding:.9rem 1.1rem;background:rgba(0,0,0,.4);border-left:2px solid var(--brass);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.84rem;color:var(--bone-2);line-height:1.65;word-break:break-word;}
+.code.red{border-left-color:var(--red);}
+
+.finding{border:1px solid var(--line);margin-bottom:1.5rem;}
+.f-head{display:flex;gap:1.2rem;align-items:flex-start;padding:1.7rem 1.9rem;border-bottom:1px solid var(--line);}
+.f-num{font-family:var(--serif);font-size:2.6rem;color:var(--brass);line-height:.9;flex:none;width:2.2rem;}
+.tag{display:inline-block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:.25rem .6rem;border:1px solid;}
+.tag.crit{color:var(--red);border-color:rgba(224,122,106,.45);}
+.tag.high{color:var(--amber);border-color:rgba(232,180,94,.45);}
+.tag.med{color:var(--bone-2);border-color:var(--line-2);}
+.f-head h3{margin-top:.55rem;}
+.f-body{padding:.6rem 1.9rem 1.6rem;}
+.row{padding:1rem 0;border-bottom:1px dashed var(--line);}
+.row:last-child{border-bottom:none;}
+.row p{font-size:.97rem;}
+.row b{color:var(--bone);}
+.row.fix h4{color:var(--green);}
+@media(max-width:600px){.f-head{padding:1.3rem;}.f-body{padding:.4rem 1.3rem 1.2rem;}}
+
+.grid{display:grid;gap:1.3rem;}
+.grid>*{min-width:0;}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr));}
+@media(max-width:860px){.g3{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.g3{grid-template-columns:minmax(0,1fr);}}
+.add{border:1px solid var(--line);padding:1.7rem;}
+.add h3{font-size:1.4rem;margin-bottom:.5rem;}
+.add p{font-size:.92rem;}
+
+.tier{border:1px solid var(--line);padding:2.1rem 1.9rem;display:flex;flex-direction:column;position:relative;}
+.tier.feat{border-color:var(--brass);}
+.tier.feat::after{content:'Recommended';position:absolute;top:-11px;left:1.9rem;background:var(--brass);color:#141009;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:.3rem .8rem;}
+.tier small{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);}
+.tier .price{font-family:var(--serif);font-size:3.2rem;color:var(--bone);line-height:1;margin:.7rem 0 .2rem;}
+.tier .sub{font-size:.8rem;color:var(--muted);margin-bottom:1.2rem;}
+.tier ul{list-style:none;flex:1;margin-bottom:1.5rem;display:grid;gap:.45rem;}
+.tier li{font-size:.92rem;padding-left:1.1rem;position:relative;}
+.tier li::before{content:'';position:absolute;left:0;top:.72em;width:6px;height:1px;background:var(--brass);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:1rem 1.5rem;text-decoration:none;border:1px solid transparent;transition:all .25s;}
+.btn-brass{background:var(--brass);color:#141009;}
+.btn-brass:hover{background:var(--brass-lt);}
+.btn-line{border-color:var(--line-2);color:var(--bone);}
+.btn-line:hover{border-color:var(--brass);color:var(--brass-lt);}
+.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;}
+.honest{border:1px solid var(--line);padding:1.5rem 1.7rem;margin-top:1.6rem;font-size:.95rem;}
+.honest b{color:var(--bone);}
+.cta{border:1px solid var(--line);text-align:center;padding:3.6rem 2rem;background:radial-gradient(520px 260px at 50% 0%,rgba(201,163,91,.14),transparent 70%),var(--char);}
+.cta p{max-width:54ch;margin:1rem auto 2rem;}
+footer{border-top:1px solid var(--line);padding:1.8rem 0;font-size:.82rem;color:var(--muted);}
+footer .container{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+footer a{color:var(--brass);text-decoration:none;}
+:focus-visible{outline:1.5px solid var(--brass-lt);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="container">
+    <div class="brandline"><b>Trabelo</b><span>· Fixed-price websites</span></div>
+    <span class="label">Website audit · lessthanzerobarbers.com · 16 September 2026</span>
+    <h1>An award-winning group.<br><em>A website that isn't keeping up.</em></h1>
+    <p class="lead">This is a free, independent audit — nobody asked us to do it and there's no obligation attached. Everything below was measured with Google's own tools or checked directly on your live pages, so you can verify every line yourself.</p>
+    <div class="scores">
+      <div class="score bad"><b>45</b><span>Performance</span></div>
+      <div class="score good"><b>91</b><span>Accessibility</span></div>
+      <div class="score good"><b>96</b><span>Best Practices</span></div>
+      <div class="score good"><b>92</b><span>SEO</span></div>
+    </div>
+    <p class="note">Google Lighthouse, homepage, mobile, 16 September 2026. Three of those are respectable. The first one isn't — and the scores don't measure the biggest problem on the site at all, which is what happens when someone tries to book.</p>
+    <div class="metrics">
+      <div class="metric"><b>2.9s</b><span>First paint</span></div>
+      <div class="metric bad"><b>8.9s</b><span>Main content</span></div>
+      <div class="metric bad"><b>870ms</b><span>Blocking</span></div>
+      <div class="metric"><b>0.03</b><span>Layout shift</span></div>
+      <div class="metric bad"><b>6.4s</b><span>Speed index</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="intro">
+      <p><b>To the LTZ team — one thing to check today, whatever you decide about the rest.</b></p>
+      <p>Open your homepage on a phone and press <b>"Make an Appointment Now"</b>. It takes you to <span style="font-family:monospace;">lessthanzerobarbers.com/booksy</span>, and a first-time visitor sees this:</p>
+      <span class="code red">Log In · New to this site? Sign Up · Email · Password · Forgot password?</span>
+      <p>That's a Wix members' log-in page. The same button on your Barbershops page — and the "Powered by Booksy &amp; Fresha" link beside it — goes to the same place. So does <b>"Pre Authorisation"</b> in your main menu. Someone who wants a skin fade on Saturday is asked to create an account on your website before they can get anywhere near Booksy.</p>
+      <p>Your regulars won't notice, because they book straight through the Booksy or Fresha app. New customers are exactly the people who come through the website — and they're the ones hitting the wall.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <span class="label">What's not working</span>
+    <h2 style="margin-bottom:2.2rem;">Seven findings, <em>worst first.</em></h2>
+
+    <div class="finding">
+      <div class="f-head"><span class="f-num">1</span><div><span class="tag crit">Critical · check today</span><h3>Your booking button leads to a log-in page</h3></div></div>
+      <div class="f-body">
+        <div class="row"><h4>What's happening</h4><p>"Make an Appointment Now" on the homepage and Barbershops page, "Powered by Booksy &amp; Fresha", and "Pre Authorisation" in the main menu all land on a Wix sign-in wall. On the Woodseats page, the only link labelled Booksy — the "Booksy Reviews" heading — goes to Instagram instead.</p></div>
+        <div class="row"><h4>What this costs you</h4><p>The website's single most important job is turning a stranger into a booking, and right now that path is blocked at the last step. Every new customer who gives up at the log-in screen books with the barber down the road instead — and never shows up in any number you can see.</p></div>
+        <div class="row fix"><h4>The fix</h4><p>Point every booking button straight at each shop's own Booksy or Fresha page — no account, no detour. The demo has a "pick your shop" booking page that does exactly this, one tap per shop.</p></div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="f-head"><span class="f-num">2</span><div><span class="tag crit">Critical</span><h3>8.9 seconds to load on a phone</h3></div></div>
+      <div class="f-body">
+        <div class="row"><h4>What's happening</h4><p>Your homepage's main content takes <b>8.9 seconds</b> to appear on a mid-range phone over 4G, and the page is frozen for <b>870ms</b> while scripts run. The page weighs <b>3,437 KiB</b>, of which <b>701 KiB is JavaScript that's never used</b>. On top of Wix's own code, the page loads Google Analytics, Tag Manager, a Facebook pixel, Sentry error tracking and two separate third-party widget scripts.</p></div>
+        <div class="row"><h4>What this costs you</h4><p>Most people give a page about three seconds. The ones searching "barbers near me" on their phone are comparing you against every other result on the screen — and the one that loads first gets the tap.</p></div>
+        <div class="row fix"><h4>The fix</h4><p>A hand-coded site with no page-builder overhead and only the tracking you actually use. For comparison, Trabelo's own site loads its main content in 1.5 seconds on the same test — and the demo is built the same way.</p></div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="f-head"><span class="f-num">3</span><div><span class="tag high">High</span><h3>The email address you show isn't where it goes</h3></div></div>
+      <div class="f-body">
+        <div class="row"><h4>What's happening</h4><p>On your homepage and contact page, a link reads <b>info@lessthanzerobarbers.com</b> — but clicking it opens an email to a different address entirely:</p><span class="code">Shows:&nbsp;&nbsp;info@lessthanzerobarbers.com<br>Sends to: ltzbarbers@aol.co.uk</span></div>
+        <div class="row"><h4>What this costs you</h4><p>If that AOL inbox isn't checked as closely as the info@ address, training enquiries, apprenticeship applications and business emails are going somewhere nobody's looking. Nobody will ever tell you — they'll just assume you didn't reply.</p></div>
+        <div class="row fix"><h4>The fix</h4><p>One-line change: make the link match the address. Worth checking the AOL inbox today in case anything's already waiting there.</p></div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="f-head"><span class="f-num">4</span><div><span class="tag high">High</span><h3>A customer lands on a training company's homepage</h3></div></div>
+      <div class="f-body">
+        <div class="row"><h4>What's happening</h4><p>The main headline on your homepage is <b>"Developing the next generation of barbers, professionals &amp; business leaders"</b>. The page title Google shows is:</p><span class="code">LTZ Group - Training - Barbers - FAF, Sheffield &amp; Chesterfield</span><p>"FAF" means nothing to someone looking for a haircut, and Woodseats isn't mentioned. Behind the scenes the homepage has <b>five separate H1 headings and no H2s</b>, so Google has no clear idea what the main subject of the page is.</p></div>
+        <div class="row"><h4>What this costs you</h4><p>The group genuinely is both — a barbering business and an education business. But the two audiences want different things, and the homepage currently talks to the smaller one first. A customer wanting a cut, a price and a time has to work to find any of the three.</p></div>
+        <div class="row fix"><h4>The fix</h4><p>Lead with the chair — cuts, shops, booking — and give the academy its own clearly signposted front door. The demo does both, and adds a two-question "route finder" so trainees land on the right programme without reading every page.</p></div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="f-head"><span class="f-num">5</span><div><span class="tag high">High</span><h3>No opening hours or prices anywhere</h3></div></div>
+      <div class="f-body">
+        <div class="row"><h4>What's happening</h4><p>We checked the homepage, Barbershops, Woodseats, About and Contact pages. None of them show opening hours for any of your three shops, and none show a single price. The Woodseats page is almost entirely a reviews feed.</p></div>
+        <div class="row"><h4>What this costs you</h4><p>"Are they open now?" and "how much is a skin fade?" are the two questions every new customer has. If the website can't answer them, they ring — or, more often, they go to Google Maps and pick whoever's listing shows the hours.</p></div>
+        <div class="row fix"><h4>The fix</h4><p>Hours and a price list on every shop page, with a live "open now" indicator. The demo leaves slots for both, because we won't publish figures we don't have.</p></div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="f-head"><span class="f-num">6</span><div><span class="tag med">Medium</span><h3>Typos on the page that sells your services</h3></div></div>
+      <div class="f-body">
+        <div class="row"><h4>What's happening</h4><p>Your Barbershops page — the one describing the haircuts — currently reads:</p><span class="code">"…tailored to your style, haiur tyoe and lifesycle, no matter what LTZ Group brnd you choose"<br>"Whether youre after a modern taper fade, skinfade ,burst fade…"<br>"More than 2800 verified reviews across Google, Boosky &amp; Fresha"</span><p>The contact page also lists your Woodseats manager as "Luke DIlly".</p></div>
+        <div class="row"><h4>What this costs you</h4><p>You sell precision and attention to detail — "Boosky" in the sentence about your 2,800 reviews undercuts exactly the thing that sentence is trying to prove.</p></div>
+        <div class="row fix"><h4>The fix</h4><p>Ten minutes of proofreading. The demo's copy is rewritten from yours, cleanly.</p></div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="f-head"><span class="f-num">7</span><div><span class="tag med">Medium</span><h3>The smaller things Google notices</h3></div></div>
+      <div class="f-body">
+        <div class="row"><h4>What's happening</h4><p>Lighthouse flags images without alt text and links with no readable name — by our count, around ten homepage links have no text a screen reader or search engine can read. The browser logs errors to the console. And two different Instagram accounts are linked across the site: <b>@lessthanzerobarbers</b> in the footer and <b>@ltzbarbers</b> on the Woodseats page.</p></div>
+        <div class="row"><h4>What this costs you</h4><p>Individually minor. Together they tell Google the site isn't well maintained — and they're the difference between a 92 SEO score and a 100.</p></div>
+        <div class="row fix"><h4>The fix</h4><p>Handled as standard in a rebuild: every image described, every link named, one set of social accounts.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--char);">
+  <div class="container">
+    <span class="label">What a rebuild adds</span>
+    <h2 style="margin-bottom:2rem;">What you'd <em>have instead.</em></h2>
+    <div class="grid g3">
+      <div class="add"><h3>Booking in one tap</h3><p>Pick Woodseats, LTZ Chesterfield or F.AF — straight to that shop's Booksy or Fresha page. No log-in, ever.</p></div>
+      <div class="add"><h3>Loads in about a second</h3><p>No page builder, no unused scripts. Target Performance 97+ instead of 45.</p></div>
+      <div class="add"><h3>A style guide</h3><p>Your own photos of real cuts, with "what to tell your barber" — so new customers arrive knowing what to ask for.</p></div>
+      <div class="add"><h3>An academy route finder</h3><p>Two questions, and a would-be barber sees whether the apprenticeship, the NVQ diploma or a private course fits them.</p></div>
+      <div class="add"><h3>Your awards, told properly</h3><p>From Best New Business in 2017 to Top 50 SME Apprenticeship Employer four years running — as a timeline, not a list.</p></div>
+      <div class="add"><h3>£0 a month</h3><p>No Wix plan to renew. Hosting a hand-coded site genuinely costs nothing at this size.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="label">What it costs</span>
+    <h2 style="margin-bottom:.8rem;">Fixed prices. <em>One payment.</em></h2>
+    <p class="lead" style="max-width:62ch;margin-bottom:2.6rem;">No deposit, and nothing to pay until it's finished and you're happy with it. No monthly fees afterwards.</p>
+    <div class="grid g3">
+      <div class="tier">
+        <small>Starter</small>
+        <div class="price">£395</div><div class="sub">5 pages · one-off</div>
+        <ul><li>The demo you've been sent, built out</li><li>Home, shops, academy, story, book</li><li>Booking fixed, style guide, route finder</li><li>Performance 97+ target</li></ul>
+        <a class="btn btn-line" href="mailto:aidan@trabelo.com?subject=LTZ%20-%20Starter">Ask about Starter</a>
+      </div>
+      <div class="tier">
+        <small>Business</small>
+        <div class="price">£795</div><div class="sub">8 pages · one-off</div>
+        <ul><li>Everything in Starter</li><li>A dedicated page for each of your three shops — hours, prices, map</li><li>Each shop ranks locally on its own</li><li>A careers &amp; leadership page</li></ul>
+        <a class="btn btn-line" href="mailto:aidan@trabelo.com?subject=LTZ%20-%20Business">Ask about Business</a>
+      </div>
+      <div class="tier">
+        <small>Platform</small>
+        <div class="price">£1,495</div><div class="sub">12 pages · one-off</div>
+        <ul><li>Everything in Business</li><li>A full page for each training route</li><li>Booksy or Fresha booking built into each shop page, where their widgets allow</li><li>Room for F.AF and international expansion</li></ul>
+        <a class="btn btn-line" href="mailto:aidan@trabelo.com?subject=LTZ%20-%20Platform">Ask about Platform</a>
+      </div>
+    </div>
+    <div class="honest">
+      <p><b>Honest recommendation:</b> your current site already has around twelve pages — three shops, an academy with four distinct routes, leadership, about, reviews, contact — and each training route carries careful funding and delivery wording that deserves its own page. Platform is the like-for-like replacement, which is why we'd suggest it. The £395 demo shows you the direction; it's deliberately the smallest version.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="cta">
+      <span class="label">No obligation</span>
+      <h2>Look at the demo <em>first.</em></h2>
+      <p>We've already rebuilt it so you can judge it on your own phone rather than imagine it. And if you'd rather take this audit and fix the booking button yourselves, that's genuinely fine.</p>
+      <div class="btn-row">
+        <a class="btn btn-brass" href="less-than-zero-index.html">Open the demo</a>
+        <a class="btn btn-line" href="mailto:aidan@trabelo.com?subject=LTZ%20website">Email Aidan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>Audit by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Measured 16 September 2026 with Google Lighthouse</span>
+    <span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span>
+  </div>
+</footer>
+</body>
+</html>
