@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squeaky Clean — Website Audit | Trabelo</title>
+<meta name="description" content="A free, independent website audit of squeaky-clean.co.uk, prepared by Trabelo. Real Google data, plain English, no obligation.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" media="print">
+<script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
+<style>
+:root{
+  --navy:#141F45;--navy-2:#1C2C5E;--navy-3:#27407F;--navy-soft:#EDF0F8;
+  --pink:#E3187C;--pink-dk:#C2136A;--pink-lt:#FF5FA8;--pink-pale:#FDE8F2;
+  --cream:#FCFAFB;--cream-2:#F5F1F4;
+  --ink:#141F45;--body:#4E5470;--muted:#818799;
+  --red:#C7342A;--red-pale:#FBE9E7;
+  --amber:#B5760A;--amber-pale:#FDF3E2;
+  --green:#12885C;--green-pale:#E2F4EC;
+  --line:rgba(20,31,69,.12);--line-2:rgba(20,31,69,.22);
+  --display:'Outfit',system-ui,sans-serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cream);color:var(--body);line-height:1.72;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{color:var(--ink);line-height:1.14;}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.025em;}
+h1{font-size:clamp(2.1rem,4.8vw,3.4rem);}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);}
+h3{font-size:1.24rem;}
+h4{font-size:.95rem;font-family:var(--sans);font-weight:700;}
+p+p{margin-top:.95rem;}
+.container{max-width:1080px;margin:0 auto;padding:0 1.5rem;}
+.section{padding:4.5rem 0;}
+@media(max-width:760px){.section{padding:3rem 0;}}
+.narrow{max-width:760px;}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:.9rem;}
+.eyebrow.on-dark{color:var(--pink-lt);}
+.lead{font-size:1.12rem;}
+
+/* header */
+.masthead{background:var(--navy);color:rgba(255,255,255,.78);position:relative;overflow:hidden;padding:3rem 0 3.5rem;}
+.masthead::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(700px 400px at 84% 4%,rgba(227,24,124,.3),transparent 62%),
+  radial-gradient(620px 420px at 4% 96%,rgba(39,64,127,.7),transparent 66%);}
+.masthead>*{position:relative;}
+.masthead h1{color:#fff;margin-top:.4rem;}
+.masthead .lead{color:rgba(255,255,255,.84);margin-top:1.1rem;max-width:62ch;}
+.brandline{display:flex;align-items:center;gap:.7rem;margin-bottom:2.2rem;font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.brandline b{color:#fff;font-family:var(--display);font-weight:700;letter-spacing:-.01em;text-transform:none;font-size:1.15rem;}
+
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin:2.4rem 0 .8rem;}
+@media(max-width:640px){.scores{grid-template-columns:repeat(2,1fr);}}
+.score{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:1.15rem .8rem;text-align:center;}
+.score b{display:block;font-family:var(--display);font-size:2.1rem;line-height:1;font-weight:800;}
+.score span{display:block;font-size:.66rem;color:rgba(255,255,255,.58);margin-top:.45rem;letter-spacing:.08em;text-transform:uppercase;}
+.s-bad b{color:#FF8A7A;} .s-mid b{color:#FFC46B;} .s-good b{color:#5BE0A6;}
+.score-note{font-size:.84rem;color:rgba(255,255,255,.55);}
+.score-note b{color:#fff;}
+
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-top:1.6rem;}
+@media(max-width:760px){.metrics{grid-template-columns:repeat(2,1fr);}}
+.metric{background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:.85rem .7rem;text-align:center;}
+.metric b{display:block;font-family:var(--display);font-size:1.3rem;color:#fff;line-height:1;font-weight:700;}
+.metric span{display:block;font-size:.6rem;color:rgba(255,255,255,.5);margin-top:.35rem;letter-spacing:.07em;text-transform:uppercase;}
+.metric.bad b{color:#FF8A7A;}
+
+/* intro */
+.intro-card{background:var(--white,#fff);border:1px solid var(--line);border-radius:22px;padding:2.2rem;box-shadow:0 18px 44px rgba(20,31,69,.1);}
+
+/* findings */
+.finding{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-bottom:1.6rem;box-shadow:0 4px 16px rgba(20,31,69,.06);}
+.f-head{display:flex;gap:1.1rem;align-items:flex-start;padding:1.6rem 1.8rem;border-bottom:1px solid var(--line);}
+.f-num{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.05rem;color:#fff;background:var(--navy);}
+.f-head h3{margin-bottom:.3rem;}
+.f-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.66rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;padding:.28rem .7rem;border-radius:99px;}
+.f-tag.critical{background:var(--red-pale);color:var(--red);}
+.f-tag.high{background:var(--amber-pale);color:var(--amber);}
+.f-tag.med{background:var(--navy-soft);color:var(--navy-3);}
+.f-body{padding:1.6rem 1.8rem;}
+.f-row{padding:.9rem 0;border-bottom:1px dashed var(--line);}
+.f-row:last-child{border-bottom:none;padding-bottom:0;}
+.f-row h4{color:var(--muted);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.4rem;}
+.f-row p{font-size:.97rem;}
+.f-row.fix h4{color:var(--green);}
+.quote-box{background:var(--cream-2);border-left:3px solid var(--pink);border-radius:8px;padding:.9rem 1.1rem;margin-top:.7rem;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.85rem;color:var(--ink);word-break:break-word;line-height:1.6;}
+.quote-box.red{border-left-color:var(--red);}
+
+/* adds */
+.grid{display:grid;gap:1.3rem;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:860px){.g3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.g2,.g3{grid-template-columns:1fr;}}
+.add{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.6rem;}
+.add .ic{width:44px;height:44px;border-radius:12px;background:var(--pink-pale);display:grid;place-items:center;margin-bottom:.9rem;}
+.add .ic svg{width:21px;height:21px;stroke:var(--pink-dk);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.add h4{margin-bottom:.35rem;font-size:1rem;}
+.add p{font-size:.92rem;}
+
+/* tiers */
+.tier{background:#fff;border:1px solid var(--line);border-radius:22px;padding:2rem 1.8rem;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(20,31,69,.06);}
+.tier.feature{border:1.5px solid var(--pink);position:relative;box-shadow:0 18px 44px rgba(227,24,124,.16);}
+.tier.feature::after{content:'Recommended';position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;font-size:.64rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:.38rem 1rem;border-radius:99px;white-space:nowrap;}
+.tier h3{font-size:1.2rem;}
+.tier .price{font-family:var(--display);font-size:2.3rem;font-weight:800;color:var(--ink);line-height:1;margin:.9rem 0 .2rem;}
+.tier .sub{font-size:.82rem;color:var(--muted);margin-bottom:1.3rem;}
+.tier ul{list-style:none;flex:1;margin-bottom:1.4rem;}
+.tier li{display:flex;gap:.6rem;align-items:flex-start;padding:.4rem 0;font-size:.92rem;}
+.tier li svg{width:16px;height:16px;flex:none;margin-top:5px;stroke:var(--green);fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-size:.92rem;font-weight:700;padding:.95rem 1.6rem;border-radius:12px;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-pink{background:linear-gradient(140deg,var(--pink),var(--pink-dk));color:#fff;box-shadow:0 10px 26px rgba(227,24,124,.3);}
+.btn-pink:hover{transform:translateY(-2px);}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line-2);}
+.btn-ghost:hover{border-color:var(--navy);transform:translateY(-2px);}
+.btn-light{background:#fff;color:var(--navy);}
+.btn-light:hover{transform:translateY(-2px);}
+.btn-lg{padding:1.1rem 2rem;font-size:1rem;}
+.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;}
+.btn-row.center{justify-content:center;}
+
+.cta{background:linear-gradient(150deg,var(--navy-2),var(--navy));color:rgba(255,255,255,.84);border-radius:26px;padding:3.2rem 2.6rem;text-align:center;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(520px 300px at 14% 8%,rgba(227,24,124,.3),transparent 62%);}
+.cta>*{position:relative;}
+.cta h2{color:#fff;}
+.cta p{margin:1rem auto 2rem;max-width:56ch;}
+@media(max-width:700px){.cta{padding:2.2rem 1.4rem;}}
+
+.note{background:var(--navy-soft);border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem;font-size:.94rem;}
+.note b{color:var(--ink);}
+
+footer{background:var(--navy);color:rgba(255,255,255,.5);padding:1.8rem 0;font-size:.85rem;}
+footer .container{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+footer a{color:var(--pink-lt);text-decoration:none;}
+:focus-visible{outline:2.5px solid var(--pink);outline-offset:3px;border-radius:8px;}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="container">
+    <div class="brandline"><b>Trabelo</b> <span>· Fixed-price websites</span></div>
+    <span class="eyebrow">Website audit · squeaky-clean.co.uk · 16 September 2026</span>
+    <h1>Your website is costing you<br>the jobs you're best at.</h1>
+    <p class="lead">This is a free, independent audit of squeaky-clean.co.uk. Nobody asked us to do it and there's no obligation attached to it. Everything below is either measured with Google's own tools or quoted directly from your live pages — and you can check every line of it yourself.</p>
+
+    <div class="scores">
+      <div class="score s-mid"><b>59</b><span>Performance</span></div>
+      <div class="score s-mid"><b>89</b><span>Accessibility</span></div>
+      <div class="score s-good"><b>100</b><span>Best Practices</span></div>
+      <div class="score s-good"><b>100</b><span>SEO</span></div>
+    </div>
+    <p class="score-note">Google Lighthouse, mobile, 16 September 2026. Two of those are excellent. But the score that matters least here is the SEO 100 — that only checks the <em>tags exist</em>, not whether they say anything sensible. As you'll see below, yours don't.</p>
+
+    <div class="metrics">
+      <div class="metric bad"><b>4.8s</b><span>First paint</span></div>
+      <div class="metric bad"><b>13.2s</b><span>Main content</span></div>
+      <div class="metric"><b>140ms</b><span>Blocking</span></div>
+      <div class="metric"><b>0</b><span>Layout shift</span></div>
+      <div class="metric bad"><b>6.2s</b><span>Speed index</span></div>
+    </div>
+    <p class="score-note" style="margin-top:.9rem;">On a normal phone on 4G, <b>your main content takes 13.2 seconds to appear.</b> Most people give a website about three.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container narrow">
+    <div class="intro-card">
+      <p><b style="color:var(--ink);">Vicky — before anything else, one thing needs fixing today,</b> whatever you decide about the rest of this.</p>
+      <p>On your Bio-Hazard Cleaning Services page, under the heading <b>"Unattended Deaths &amp; Clean Ups Following A Death"</b>, the text currently reads:</p>
+      <div class="quote-box red">"Add your pricing strategy. Be sure to include important details like value, length of service, and why it's unique."</div>
+      <p style="margin-top:1rem;">That's the Squarespace template instruction. It was never replaced, and it's live on your site right now. So a person whose husband or mother has just died at home clicks the one heading that matches what's happened to them — and reads a note telling <em>you</em> to write something there.</p>
+      <p>Nobody has told you, because the people who see it don't ring to complain. They close the tab. It takes two minutes to fix and it's the single most valuable two minutes you'll spend on that website.</p>
+      <p style="margin-top:1.2rem;">The rest of this audit is the same kind of thing: real faults, ranked by what they're costing you rather than by how technical they sound.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <span class="eyebrow">What's not working</span>
+    <h2 style="margin-bottom:2.2rem;">Seven findings, worst first</h2>
+
+    <!-- 1 -->
+    <div class="finding">
+      <div class="f-head">
+        <span class="f-num">1</span>
+        <div>
+          <span class="f-tag critical">Critical · fix today</span>
+          <h3 style="margin-top:.5rem;">Template placeholder text on your most sensitive service</h3>
+        </div>
+      </div>
+      <div class="f-body">
+        <div class="f-row"><h4>What's happening</h4><p>Under "Unattended Deaths &amp; Clean Ups Following A Death" on your bio-hazard page, the unedited Squarespace placeholder is still in place. Two further headings — <b>Crime Scene Cleaning</b> and <b>Mental Health Crisis</b> — have no text under them at all.</p></div>
+        <div class="f-row"><h4>What this means for your customers</h4><p>These are the pages people reach at the worst moment of their lives, usually at night, usually in a hurry. What they find is an unfinished page. The natural conclusion is that the business is unfinished too — so they ring a national franchise instead, and that job was worth several hundred pounds to you.</p></div>
+        <div class="f-row fix"><h4>The fix</h4><p>Write the three missing descriptions properly and sensitively. In the demo rebuild these are already drafted for you to approve or change.</p></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="finding">
+      <div class="f-head">
+        <span class="f-num">2</span>
+        <div>
+          <span class="f-tag critical">Critical</span>
+          <h3 style="margin-top:.5rem;">Your highest-value service is invisible on your homepage</h3>
+        </div>
+      </div>
+      <div class="f-body">
+        <div class="f-row"><h4>What's happening</h4><p>You've told us bio-hazard cleaning is the focus of your business. Your Facebook cover says the same — bio-hazard, mental health cleans, trauma and decomposition. Your homepage doesn't contain the words "bio-hazard", "trauma" or "specialist" anywhere. The page is instead topped by a scrolling banner advertising cleaning products, repeated four times. To find the bio-hazard page you must open a hamburger menu and pick the third item, on a URL that ends <span style="font-family:monospace;">/biohazard-cleaning-services-1</span>.</p></div>
+        <div class="f-row"><h4>What this means for your customers</h4><p>Anyone who lands on your homepage looking for trauma or hoarding cleaning assumes you're a domestic cleaner and leaves. Meanwhile the trailing "-1" on that URL is the sign of a duplicate page, which means Google may well be ranking the wrong one — or splitting you across both.</p></div>
+        <div class="f-row fix"><h4>The fix</h4><p>Split the business into its two honest halves on the homepage — everyday cleaning and specialist bio-hazard — with the specialist side given equal weight and its own clean URL, plus a phone-first emergency prompt. That's exactly what the demo does.</p></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="finding">
+      <div class="f-head">
+        <span class="f-num">3</span>
+        <div>
+          <span class="f-tag critical">Critical</span>
+          <h3 style="margin-top:.5rem;">13.2 seconds before your content appears on a phone</h3>
+        </div>
+      </div>
+      <div class="f-body">
+        <div class="f-row"><h4>What's happening</h4><p>Google measures your Largest Contentful Paint — the moment the main thing on screen finishes loading — at <b>13.2 seconds</b> on a mid-range Android over 4G. First paint is 4.8 seconds. Behind it: 740ms of render-blocking requests, 799 KiB of unoptimised images, 354 KiB of unused JavaScript and 135 KiB of unused CSS.</p></div>
+        <div class="f-row"><h4>What this means for your customers</h4><p>Most people abandon a page after about three seconds. On a phone — which is where your customers are, standing in a kitchen they want cleaned — the majority never see your site at all. They see a blank white screen, then they leave. You never find out it happened.</p></div>
+        <div class="f-row fix"><h4>The fix</h4><p>A hand-coded static site with no page-builder overhead. For comparison, Trabelo's own site loads its main content in 1.5 seconds on the same test, and the demo we've built for you is built the same way.</p></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="finding">
+      <div class="f-head">
+        <span class="f-num">4</span>
+        <div>
+          <span class="f-tag high">High</span>
+          <h3 style="margin-top:.5rem;">Three email addresses and two phone numbers</h3>
+        </div>
+      </div>
+      <div class="f-body">
+        <div class="f-row"><h4>What's happening</h4><p>Depending on where somebody finds you, they're given a different way to contact you:</p>
+          <div class="quote-box">Website footer → Enquiriessqueakyclean@outlook.com<br>Facebook contact info → squeakycleanvb@outlook.com<br>Facebook cover image → squeakycleantheonlywaytogleam@gmail.com</div>
+          <p style="margin-top:.7rem;">Your homepage also carries <b>two different mobile numbers</b> — 07507 354681 and 07936 507936.</p>
+        </div>
+        <div class="f-row"><h4>What this means for your customers</h4><p>Enquiries are landing in inboxes you may not be watching. If one of those three is checked less often, some of your leads are simply sitting unread — and you'd have no way of knowing. Two phone numbers also makes a business look like it's changed hands, which matters when you're asking someone to trust you with a key to their house.</p></div>
+        <div class="f-row fix"><h4>The fix</h4><p>Pick one address and one number, put them everywhere, and forward the other two. Ten minutes of work, and it may be the highest-return job on this list.</p></div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="finding">
+      <div class="f-head">
+        <span class="f-num">5</span>
+        <div>
+          <span class="f-tag high">High</span>
+          <h3 style="margin-top:.5rem;">What Google actually shows when someone searches for you</h3>
+        </div>
+      </div>
+      <div class="f-body">
+        <div class="f-row"><h4>What's happening</h4><p>Your homepage title tag is <b>262 characters long</b> — Google shows about 60. It's a marketing sentence that gets cut off mid-thought:</p>
+          <div class="quote-box">Squeaky Clean Delivers excellent cleaning services in a concentrated geographical area to Penistone and the local area in South &amp; West Yorkshire, our goal is to provide each of our clients with a safe</div>
+          <p style="margin-top:.7rem;">The description underneath it — the grey text in Google results — is a list of place names with broken punctuation that ends mid-word:</p>
+          <div class="quote-box">Delivering excellent cleaning services in Millhouse green  Oxspring , Holmfirth, Oughtibridge,Inbirchworth ,Denbydale,Green Moor, Stainborough , Springvale, Highgreen, Ecclesfield ,Chapeltown, Sheffield  , Darton,  Baraugh Gree</div>
+          <p style="margin-top:.7rem;">Your inner pages are worse — each one has the raw web address pasted into its title: <span style="font-family:monospace;">"Contact Us https://www.squeaky-clean.co.uk Squeaky Clean"</span>.</p>
+        </div>
+        <div class="f-row"><h4>What this means for your customers</h4><p>That mess is your shop window in Google. It's the only thing a stranger sees before deciding whether to click you or the company below you. "Baraugh Gree" is also a misspelling of Barugh Green — as is "Stocksksbridge" for Stocksbridge and "Inbirchworth" for Ingbirchworth, both of which appear on your live pages. Misspelling the towns you serve is the one thing local search really can't forgive.</p></div>
+        <div class="f-row fix"><h4>The fix</h4><p>A proper 55-character title and a written description for every page, with the area names spelled correctly and used as genuine local SEO rather than a keyword dump.</p></div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="finding">
+      <div class="f-head">
+        <span class="f-num">6</span>
+        <div>
+          <span class="f-tag high">High</span>
+          <h3 style="margin-top:.5rem;">Your proof is on Facebook. Your website has none of it.</h3>
+        </div>
+      </div>
+      <div class="f-body">
+        <div class="f-row"><h4>What's happening</h4><p>Your <b>Accreditations &amp; Qualifications</b> page contains one line of text — "Trademark Registration Certificate" — and nothing else. No logos, no certificates, no DBS or insurance detail. Yet your Facebook cover carries the Federation of Master Cleaners, the Domestic Cleaning Alliance and DCBN badges, and your Facebook page holds <b>35 reviews with a 100% recommendation rate</b>. Not one of those reviews appears on your website.</p></div>
+        <div class="f-row"><h4>What this means for your customers</h4><p>You are asking people to let you into their home, or to handle a death in the family, and the page that's meant to prove you're qualified is empty. Meanwhile the strongest evidence you own — a decade of genuine recommendations and three industry memberships — is sitting on a platform plenty of your older commercial customers never open.</p></div>
+        <div class="f-row fix"><h4>The fix</h4><p>Reviews on the homepage, accreditation badges beside them, and a real accreditations page with the certificates on it. All of that is already laid out in the demo, waiting for your logo files.</p></div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="finding">
+      <div class="f-head">
+        <span class="f-num">7</span>
+        <div>
+          <span class="f-tag med">Medium</span>
+          <h3 style="margin-top:.5rem;">Your contact page has no way to contact you</h3>
+        </div>
+      </div>
+      <div class="f-body">
+        <div class="f-row"><h4>What's happening</h4><p>The Contact Us page is a bare form with six required fields. No phone number, no email address, no address, no map, no hours. Your Facebook says you're always open — the website never mentions it. Elsewhere, 16 of your 20 images have no alt text, several links have no readable name, and some text fails Google's colour contrast check, which is what's holding Accessibility at 89.</p></div>
+        <div class="f-row"><h4>What this means for your customers</h4><p>Someone with an emergency — a flood, sharps found in a garden, a death — does not want to fill in a six-field form. They want a number to ring, and if they can't see one in about five seconds they ring somebody else. That's your highest-value work walking away at the last step.</p></div>
+        <div class="f-row fix"><h4>The fix</h4><p>Phone number in the header of every page, tappable on a phone, plus a contact page that leads with the number and keeps the form for the jobs that aren't urgent.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <span class="eyebrow">What a rebuild adds</span>
+    <h2 style="margin-bottom:2rem;">What you'd have instead</h2>
+    <div class="grid g3">
+      <div class="add">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 4.5 13H11l-1 9 8.5-11H12z"/></svg></div>
+        <h4>Loads in about a second</h4>
+        <p>Hand-written code with no page-builder weight. Target Performance 97+ instead of 59.</p>
+      </div>
+      <div class="add">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9.5"/><path d="M12 9V2.5M12 15l-5.6 3.2M12 15l5.6 3.2"/></svg></div>
+        <h4>Bio-hazard given its own front door</h4>
+        <p>Equal billing on the homepage, its own clean URL, and a ring-don't-email prompt where it belongs.</p>
+      </div>
+      <div class="add">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
+        <h4>An instant coverage checker</h4>
+        <p>People type their town or postcode and get an answer in one second, instead of squinting at a misspelt list.</p>
+      </div>
+      <div class="add">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg></div>
+        <h4>Your 35 reviews, on your own site</h4>
+        <p>Working for you in Google rather than sitting where only Facebook users see them.</p>
+      </div>
+      <div class="add">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></div>
+        <h4>One number, tappable, everywhere</h4>
+        <p>In the header of every page and pinned to the bottom of the screen on a phone.</p>
+      </div>
+      <div class="add">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
+        <h4>Local SEO done properly</h4>
+        <p>Every town spelled correctly, in real sentences, with business data Google can actually read.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">What it costs</span>
+    <h2 style="margin-bottom:.8rem;">Fixed prices. One payment. Nothing monthly.</h2>
+    <p class="lead" style="max-width:62ch;margin-bottom:2.4rem;">No deposit, and you don't pay until it's finished and you're happy with it. Hosting genuinely costs nothing at this size, so there's no monthly bill afterwards — the only unavoidable cost is your domain, which you already own.</p>
+
+    <div class="grid g3">
+      <div class="tier">
+        <h3>Starter</h3>
+        <p style="font-size:.92rem;">The demo you've been sent, built out properly.</p>
+        <div class="price">£395</div>
+        <div class="sub">5 pages · one-off</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Home, services, bio-hazard, shop, contact</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Coverage checker and quote form</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Reviews and accreditations on the site</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Performance 97+ target, SEO fixed</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>£0 per month, forever</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com?subject=Squeaky%20Clean%20-%20Starter" class="btn btn-ghost">Ask about Starter</a>
+      </div>
+
+      <div class="tier feature">
+        <h3>Business</h3>
+        <p style="font-size:.92rem;">Room for each service and each town to have its own page.</p>
+        <div class="price">£795</div>
+        <div class="sub">8 pages · one-off</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Everything in Starter</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>A page per major service, so each can rank</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Separate bio-hazard section with its own pages</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Accreditations page with certificates</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Both brochures hosted and linked properly</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>£0 per month, forever</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com?subject=Squeaky%20Clean%20-%20Business" class="btn btn-pink">Ask about Business</a>
+      </div>
+
+      <div class="tier">
+        <h3>Platform</h3>
+        <p style="font-size:.92rem;">If the shop is going to be a real part of the business.</p>
+        <div class="price">£1,495</div>
+        <div class="sub">12 pages · one-off</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Everything in Business</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Working online shop with card payments</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>A landing page for each town you cover</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Booking or quote-request workflow</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>£0 per month, forever</li>
+        </ul>
+        <a href="mailto:aidan@trabelo.com?subject=Squeaky%20Clean%20-%20Platform" class="btn btn-ghost">Ask about Platform</a>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1.8rem;">
+      <p><b>Honest recommendation:</b> the £395 Starter fixes everything in this audit, and the demo already shows you what it looks like. The £795 Business is the one we'd actually suggest here, for one reason only — you run two genuinely different businesses under one name, and giving bio-hazard its own set of pages is what lets it rank on Google separately from the domestic cleaning. If the shop grows, Platform makes sense later. It doesn't yet.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="cta">
+      <span class="eyebrow on-dark">No obligation</span>
+      <h2>Have a look at the demo first</h2>
+      <p>We've already rebuilt your site so you can judge it rather than imagine it. It's free, it's yours to keep either way, and if you'd rather just take this audit and fix things yourself, that's genuinely fine too.</p>
+      <div class="btn-row center">
+        <a href="squeaky-clean-index.html" class="btn btn-light btn-lg">Open the demo rebuild</a>
+        <a href="mailto:aidan@trabelo.com?subject=Squeaky%20Clean%20website" class="btn btn-pink btn-lg">Email Aidan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>Audit by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Measured 16 September 2026 with Google Lighthouse</span>
+    <span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
