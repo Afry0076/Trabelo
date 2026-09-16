@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Medics Sheffield — Free Website Demo | Trabelo</title>
+<meta name="description" content="A free, working website demo built for Property Medics Sheffield by Trabelo. No cost, no obligation.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" media="print">
+<script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
+<style>
+:root{
+  --dark:#0B1733;--green:#52B83F;--green-2:#7ED36D;--orange:#F29245;--yellow:#FFD200;
+  --display:'Sora',system-ui,sans-serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:var(--sans);background:var(--dark);color:rgba(255,255,255,.75);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(860px 500px at 86% 0%,rgba(82,184,63,.2),transparent 62%),radial-gradient(700px 460px at 0% 100%,rgba(242,146,69,.14),transparent 66%);}
+.wrap{position:relative;max-width:980px;margin:0 auto;padding:3rem 1.5rem 4rem;width:100%;flex:1;}
+h1,h2,h3{font-family:var(--display);color:#fff;line-height:1.08;letter-spacing:-.035em;font-weight:800;}
+h1{font-size:clamp(2.1rem,5vw,3.2rem);}
+h1 em{font-style:normal;color:var(--green-2);}
+h2{font-size:1.4rem;}
+a{color:inherit;}
+.brand{display:flex;align-items:center;gap:.7rem;margin-bottom:2.6rem;font-size:.77rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.brand b{color:#fff;font-family:var(--display);letter-spacing:-.02em;text-transform:none;font-size:1.2rem;}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--green-2);display:block;margin-bottom:1rem;}
+.lead{font-size:1.09rem;color:rgba(255,255,255,.84);max-width:64ch;margin-top:1.2rem;}
+
+.intro{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:2rem;align-items:center;}
+.intro .logo{background:#fff;border-radius:22px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,.4);}
+.intro .logo img{width:100%;height:auto;display:block;}
+@media(max-width:640px){.intro{grid-template-columns:minmax(0,1fr);}.intro .logo{width:120px;order:-1;}}
+
+.quote{margin-top:2.4rem;padding:1.5rem 1.7rem;background:rgba(82,184,63,.09);border:1px solid rgba(82,184,63,.3);border-left:3px solid var(--green);border-radius:14px;}
+.quote b{color:#fff;}
+.quote .said{font-family:var(--display);font-size:1.25rem;color:#fff;letter-spacing:-.02em;display:block;margin-bottom:.6rem;}
+
+.cards{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:1.2rem;margin-top:2.4rem;}
+@media(max-width:760px){.cards{grid-template-columns:minmax(0,1fr);}}
+.opt{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:1.9rem;display:flex;flex-direction:column;gap:.7rem;text-decoration:none;transition:transform .22s,border-color .22s,background .22s,box-shadow .22s;}
+a.opt:hover{transform:translateY(-4px);border-color:rgba(82,184,63,.6);background:rgba(255,255,255,.085);box-shadow:0 22px 50px rgba(0,0,0,.4);}
+.opt.primary{border-color:rgba(82,184,63,.45);background:rgba(82,184,63,.1);}
+.opt-ic{width:48px;height:48px;border-radius:14px;background:rgba(82,184,63,.18);display:grid;place-items:center;margin-bottom:.3rem;}
+.opt-ic svg{width:24px;height:24px;stroke:var(--green-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.opt p{font-size:.95rem;flex:1;}
+.opt .go{font-weight:700;font-size:.94rem;color:var(--green-2);margin-top:.3rem;}
+.tag{font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0B1733;background:var(--green);border-radius:99px;padding:.26rem .8rem;align-self:flex-start;}
+.inside{list-style:none;display:grid;gap:.55rem;}
+.inside li{display:flex;gap:.6rem;font-size:.92rem;}
+.inside svg{width:16px;height:16px;flex:none;margin-top:5px;stroke:var(--green-2);fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+
+.why{margin-top:3rem;}
+.why h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.6rem;}
+.why > p{max-width:62ch;}
+.reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.6rem;}
+@media(max-width:700px){.reasons{grid-template-columns:minmax(0,1fr);}}
+.reason{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:1.4rem 1.5rem;}
+.reason .n{font-family:var(--display);font-weight:800;color:var(--orange);font-size:.85rem;letter-spacing:.04em;}
+.reason h3{font-size:1.08rem;margin:.35rem 0 .45rem;letter-spacing:-.02em;}
+.reason p{font-size:.92rem;}
+.reason b{color:#fff;}
+
+.maths{margin-top:1rem;display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.4rem;align-items:center;background:linear-gradient(120deg,rgba(82,184,63,.16),rgba(255,255,255,.04));border:1px solid rgba(82,184,63,.32);border-radius:16px;padding:1.5rem 1.7rem;}
+.maths .big{font-family:var(--display);font-weight:800;color:#fff;font-size:3rem;line-height:1;letter-spacing:-.05em;}
+.maths .big small{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green-2);margin-top:.4rem;font-family:var(--sans);font-weight:700;}
+.maths p{font-size:.95rem;}
+.maths b{color:#fff;}
+@media(max-width:560px){.maths{grid-template-columns:minmax(0,1fr);}}
+
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2.4rem;}
+@media(max-width:640px){.facts{grid-template-columns:minmax(0,1fr);}}
+.fact{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.15rem 1.3rem;}
+.fact b{display:block;color:#fff;font-size:.94rem;margin-bottom:.25rem;}
+.fact span{font-size:.87rem;color:rgba(255,255,255,.62);}
+.note{margin-top:2.4rem;padding:1.5rem 1.7rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;font-size:.94rem;}
+.note b{color:#fff;}
+.note p+p{margin-top:.8rem;}
+footer{position:relative;border-top:1px solid rgba(255,255,255,.1);padding:1.6rem 0;font-size:.85rem;color:rgba(255,255,255,.5);}
+footer .wrap{padding:0 1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;flex:none;}
+footer a{color:var(--green-2);}
+:focus-visible{outline:2.5px solid var(--green-2);outline-offset:3px;border-radius:6px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand"><b>Trabelo</b> <span>· Fixed-price websites</span></div>
+
+  <div class="intro">
+    <div>
+      <span class="eyebrow">Prepared for Property Medics Sheffield · Oakes Street, S9</span>
+      <h1>We built you a website.<br><em>Have a look first</em> — then decide.</h1>
+      <p class="lead">No pressure and no cost. We took your flyers, your services and your photos and turned them into a real, working website, so you can judge it on your own phone rather than take our word for what one would do.</p>
+    </div>
+    <div class="logo"><img src="photos-property-medics/logo-emblem.jpg" alt="Property Medics Sheffield logo" width="412" height="348"></div>
+  </div>
+
+  <div class="quote">
+    <span class="said">"Message us with your job details."</span>
+    <p>That's the line at the bottom of your flyers. Right now, a customer who reads it has to work out what details you need, type it all into WhatsApp themselves, and hope they've covered it. <b>The demo turns that line into a 30-second job builder</b> — they tap the job, how urgent it is and their area, and your WhatsApp receives a message you can actually quote from.</p>
+  </div>
+
+  <div class="cards">
+    <a href="property-medics-index.html" class="opt primary">
+      <span class="tag">Start here</span>
+      <div class="opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="m9 9 3 2-3 2"/></svg></div>
+      <h2>Your demo website</h2>
+      <p>Five pages on a real link, in your own navy, green and orange, with your logo, your prices and your own job photos. Open it on your phone and try the WhatsApp builder.</p>
+      <span class="go">Open the demo →</span>
+    </a>
+    <div class="opt">
+      <div class="opt-ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <h2>What's inside</h2>
+      <ul class="inside">
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>A WhatsApp job builder</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>A gas safety due-date checker for landlords</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Your cooker prices and 5% off offer</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Every service one tap from a quote</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Call and WhatsApp buttons pinned on mobile</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="why">
+    <h2>Not sure you need a website? That's fair.</h2>
+    <p>You've got Facebook, flyers and a phone that rings. Here's the honest case for a site anyway — and if none of it applies to you, say so and that's the end of it.</p>
+
+    <div class="reasons">
+      <div class="reason">
+        <span class="n">01</span>
+        <h3>Right now, people find a Gumtree link</h3>
+        <p>The only website link on your Facebook page is <b>gumtree.co.uk</b>. So a customer who wants to check you out before ringing ends up on a classifieds site — surrounded by other traders' adverts.</p>
+      </div>
+      <div class="reason">
+        <span class="n">02</span>
+        <h3>Landlords come back every year</h3>
+        <p>A landlord needs a gas safety certificate <b>every 12 months, per property</b>. The demo has a landlord page with a certificate due-date checker built to win that repeat work — the kind of customer who searches Google, not Facebook.</p>
+      </div>
+      <div class="reason">
+        <span class="n">03</span>
+        <h3>You've grown past a flyer</h3>
+        <p>Your own post says <b>"We have expanded"</b> — twelve services across three trades. A flyer can list them. A website can explain each one and take someone straight from "do they do plastering?" to a quote.</p>
+      </div>
+      <div class="reason">
+        <span class="n">04</span>
+        <h3>It works alongside Facebook</h3>
+        <p>Nothing replaces your page. Your posts still go out as normal — the website is simply somewhere solid for them, and for your flyers and van, to point people to.</p>
+      </div>
+    </div>
+
+    <div class="maths">
+      <div class="big">6<small>cooker installs</small></div>
+      <p>At <b>your own £65 gas cooker price</b>, the £395 website costs roughly six installs — <b>once</b>. There's no monthly fee after that, ever. If it brings in one boiler installation, or one landlord who comes back every year, it's paid for itself.</p>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>No deposit, nothing upfront</b><span>You pay once, only when it's finished and you're happy with it.</span></div>
+    <div class="fact"><b>Nothing is live</b><span>This sits on our link only. Your Facebook page is untouched.</span></div>
+    <div class="fact"><b>Don't want it? Say so</b><span>That's genuinely the end of it. No charge, no chasing.</span></div>
+  </div>
+
+  <div class="note">
+    <p><b>A couple of things to know while you look.</b> Anywhere we didn't have your real information — other prices, more job photos, how you like to take payment — you'll see a small dashed note saying so. Nothing pretends to be a fact we don't have, and there are no invented reviews anywhere on it. The van photo on the homepage is a stand-in until we have one of yours.</p>
+    <p>The demo is our <b>£395 five-page build — one payment, £0 a month</b>. Hosting genuinely costs nothing at this size. The only running cost is a domain name of your own, about £12 a year, paid direct and registered in your name.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Built by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Fixed-price websites, no monthly fees</span>
+    <span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
