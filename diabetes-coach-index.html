@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Diabetes Lifestyle Coach — Ellis · Nurse-led diabetes coaching, online UK-wide</title>
-<meta name="description" content="Nurse-led diabetes lifestyle coaching for Type 2 and prediabetes. Diabetes MOT and lifestyle review, £120. Evidence-based support with a Registered Nurse and NHS Diabetes Lead. Online, UK-wide.">
+<meta name="description" content="Nurse-led diabetes lifestyle coaching for Type 2 and prediabetes. Packages from £120, including a free 15 minute discovery call. Evidence-based support with a Registered Nurse and NHS Diabetes Lead. Online, UK-wide.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#FCF7F3">
 <meta property="og:title" content="The Diabetes Lifestyle Coach — Ellis">
@@ -167,13 +167,13 @@ em.hl{font-style:italic;color:var(--mocha);}
 .blob.b2{width:460px;height:460px;background:radial-gradient(circle,rgba(220,233,230,.95),transparent 70%);bottom:-150px;left:-80px;animation-delay:-7s;}
 .blob.b3{width:360px;height:360px;background:radial-gradient(circle,rgba(240,221,209,.9),transparent 70%);top:36%;left:42%;animation-delay:-13s;}
 @keyframes drift{0%,100%{transform:translate3d(0,0,0) scale(1);}33%{transform:translate3d(24px,-26px,0) scale(1.07);}66%{transform:translate3d(-20px,18px,0) scale(.95);}}
-.hero-in{position:relative;padding:5rem 0 5.5rem;display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center;}
+.hero-in{position:relative;padding:5rem 0 5.5rem;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:4rem;align-items:center;}
 .hero h1 em{font-style:italic;color:var(--mocha);font-weight:400;}
 .hero p.lead{margin-top:1.6rem;max-width:50ch;}
 .hero .btn-row{margin-top:2.2rem;}
 .hero-note{margin-top:1.5rem;font-size:.86rem;color:var(--muted);display:flex;align-items:center;gap:.5rem;}
 .hero-note svg{width:15px;height:15px;stroke:var(--teal);fill:none;stroke-width:2;flex:none;}
-@media(max-width:980px){.hero-in{grid-template-columns:1fr;gap:3rem;padding:3.5rem 0 4rem;}}
+@media(max-width:980px){.hero-in{grid-template-columns:minmax(0,1fr);gap:3rem;padding:3.5rem 0 4rem;}}
 
 .pill-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
 .pill{
@@ -195,16 +195,24 @@ em.hl{font-style:italic;color:var(--mocha);}
   position:absolute;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border:1px solid rgba(255,255,255,.9);border-radius:var(--r-lg);box-shadow:var(--sh);padding:1.1rem 1.3rem;
 }
-.fc-price{bottom:-26px;left:-26px;min-width:225px;}
-.fc-price b{display:block;font-family:var(--display);font-size:2.1rem;color:var(--ink);line-height:1;}
-.fc-price span{display:block;font-size:.76rem;color:var(--muted);margin-top:.35rem;letter-spacing:.02em;}
-.fc-price .tag{display:inline-block;font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);padding:.26rem .6rem;border-radius:99px;margin-bottom:.6rem;}
-.fc-nurse{top:-20px;right:-18px;display:flex;align-items:center;gap:.7rem;}
-.fc-nurse .ic{width:38px;height:38px;border-radius:50%;background:var(--teal-pale);display:grid;place-items:center;flex:none;}
-.fc-nurse .ic svg{width:19px;height:19px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.fc-nurse b{display:block;font-size:.84rem;color:var(--ink);line-height:1.2;}
-.fc-nurse span{display:block;font-size:.72rem;color:var(--muted);}
-@media(max-width:1100px){.fc-price{left:-10px;}.fc-nurse{right:-6px;}}
+/* hero badge strip — sits under the chart, never over it */
+.hero-badges{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:.9rem;margin-top:1rem;}
+@media(max-width:520px){.hero-badges{grid-template-columns:minmax(0,1fr);}}
+.hb{
+  background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.9);border-radius:var(--r-lg);padding:1rem 1.15rem;
+  box-shadow:var(--sh);text-align:left;font-family:var(--sans);
+}
+.hb-call{cursor:pointer;transition:transform .22s cubic-bezier(.2,.8,.3,1),box-shadow .22s;}
+.hb-call:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);}
+.hb-call .tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);padding:.24rem .6rem;border-radius:99px;margin-bottom:.5rem;}
+.hb-call b{display:block;font-family:var(--display);font-size:1.9rem;color:var(--ink);line-height:1;}
+.hb-call span{display:block;font-size:.74rem;color:var(--muted);margin-top:.3rem;line-height:1.45;}
+.hb-nurse{display:flex;align-items:center;gap:.7rem;}
+.hb-nurse .ic{width:38px;height:38px;border-radius:50%;background:var(--teal-pale);display:grid;place-items:center;flex:none;}
+.hb-nurse .ic svg{width:19px;height:19px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.hb-nurse b{display:block;font-size:.84rem;color:var(--ink);line-height:1.2;}
+.hb-nurse span span{display:block;font-size:.72rem;color:var(--muted);}
 @media(max-width:560px){
   .float-card{position:static;margin-top:1rem;width:100%;}
   .photo-frame{aspect-ratio:4/5;}
@@ -221,11 +229,11 @@ em.hl{font-style:italic;color:var(--mocha);}
 /* ---------- grids + cards ---------- */
 .grid{display:grid;gap:1.5rem;}
 .grid>*{min-width:0;}
-.g2{grid-template-columns:repeat(2,1fr);}
-.g3{grid-template-columns:repeat(3,1fr);}
-.g4{grid-template-columns:repeat(4,1fr);}
-@media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr);}.g3{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:700px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr));}
+@media(max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr));}.g3{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:700px){.g2,.g3,.g4{grid-template-columns:minmax(0,1fr);}}
 
 .card{
   background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:2rem 1.8rem;
@@ -252,8 +260,8 @@ em.hl{font-style:italic;color:var(--mocha);}
 .mini p{font-size:.93rem;}
 
 /* support icon grid */
-.sup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;}
-@media(max-width:900px){.sup-grid{grid-template-columns:repeat(2,1fr);}}
+.sup-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem;}
+@media(max-width:900px){.sup-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 .sup{
   background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:1.4rem 1.2rem;
   text-align:center;transition:transform .25s,border-color .25s,background .25s;
@@ -264,9 +272,9 @@ em.hl{font-style:italic;color:var(--mocha);}
 .sup b{display:block;font-size:.9rem;color:var(--ink);line-height:1.35;}
 
 /* ---------- MOT feature ---------- */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
-.split.wide-l{grid-template-columns:1.1fr .9fr;}
-@media(max-width:920px){.split,.split.wide-l{grid-template-columns:1fr;gap:2.5rem;}}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3.5rem;align-items:center;}
+.split.wide-l{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);}
+@media(max-width:920px){.split,.split.wide-l{grid-template-columns:minmax(0,1fr);gap:2.5rem;}}
 
 .mot-card{
   background:linear-gradient(165deg,#fff,#FDF8F4);border:1px solid var(--line-2);border-radius:var(--r-xl);
@@ -295,8 +303,8 @@ em.hl{font-style:italic;color:var(--mocha);}
   radial-gradient(520px 300px at 4% 96%,rgba(63,125,117,.4),transparent 66%);pointer-events:none;}
 .tool>*{position:relative;}
 .tool h3{color:#fff;font-size:1.65rem;}
-.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;align-items:start;margin-top:1.8rem;}
-@media(max-width:820px){.tool{padding:1.8rem;}.tool-grid{grid-template-columns:1fr;gap:1.6rem;}}
+.tool-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.2rem;align-items:start;margin-top:1.8rem;}
+@media(max-width:820px){.tool{padding:1.8rem;}.tool-grid{grid-template-columns:minmax(0,1fr);gap:1.6rem;}}
 .field{margin-bottom:1.1rem;}
 .field label{display:block;font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blush);margin-bottom:.5rem;}
 .field input,.field select,.field textarea{
@@ -313,6 +321,18 @@ em.hl{font-style:italic;color:var(--mocha);}
 .seg button.on{background:var(--blush);color:#3B2A22;}
 .readout{background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-md);padding:1.5rem;}
 .readout .big{font-family:var(--display);font-size:2.9rem;color:#fff;line-height:1;}
+/* gauge */
+.gauge-wrap{position:relative;max-width:260px;margin:0 auto .2rem;}
+.gauge{width:100%;height:auto;display:block;overflow:visible;}
+.g-track{fill:none;stroke:rgba(255,255,255,.12);stroke-width:14;stroke-linecap:round;}
+.g-zone{fill:none;stroke-width:3.5;stroke-linecap:round;opacity:.85;}
+.z-norm{stroke:#7AC48A;} .z-pre{stroke:#E8BE6C;} .z-dia{stroke:#E08A78;}
+.g-prog{fill:none;stroke:var(--blush);stroke-width:14;stroke-linecap:round;
+  stroke-dasharray:283;stroke-dashoffset:283;transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.3,1),stroke .4s;}
+.g-knob{fill:#fff;stroke:var(--mocha-dk);stroke-width:3;transition:transform .8s cubic-bezier(.2,.8,.3,1);transform-origin:110px 112px;}
+.gauge-val{position:absolute;left:0;right:0;bottom:2px;text-align:center;}
+.gauge-val b{display:block;font-family:var(--display);font-size:2.9rem;color:#fff;line-height:1;}
+.gauge-val span{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.2rem;}
 .readout .sm{font-size:.82rem;color:rgba(255,255,255,.6);margin-top:.3rem;}
 .readout .row{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.9rem;}
 .readout .row:last-child{border-bottom:none;}
@@ -388,7 +408,7 @@ em.hl{font-style:italic;color:var(--mocha);}
 .ai-media img{width:100%;height:100%;object-fit:cover;object-position:54% 20%;}
 @media(max-width:920px){
   .about-intro{padding:2.5rem 0 4rem;}
-  .ai-grid{grid-template-columns:1fr;padding-left:0;gap:2.5rem;}
+  .ai-grid{grid-template-columns:minmax(0,1fr);padding-left:0;gap:2.5rem;}
   .ai-text{padding:0 1.5rem;}
   .ai-media{border-radius:var(--r-xl);margin:0 1.5rem;min-height:420px;}
 }
@@ -399,13 +419,180 @@ em.hl{font-style:italic;color:var(--mocha);}
 .cred b{display:block;color:var(--ink);font-size:.95rem;}
 .cred span{font-size:.88rem;color:var(--muted);}
 
-.values{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
-@media(max-width:820px){.values{grid-template-columns:1fr;}}
+.values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;}
+@media(max-width:820px){.values{grid-template-columns:minmax(0,1fr);}}
 .value{border-left:3px solid var(--blush);padding:.3rem 0 .3rem 1.4rem;}
 .value h4{margin-bottom:.4rem;font-size:1.02rem;}
 .value p{font-size:.94rem;}
 
 /* ---------- pricing ---------- */
+/* ---------- plate method ---------- */
+.rule-t{border-top:1px solid var(--line);}
+.plate-holder{display:grid;gap:1.4rem;justify-items:center;}
+.plate{width:100%;max-width:340px;height:auto;display:block;}
+.plate-rim{fill:#fff;stroke:var(--line-2);stroke-width:1.5;}
+.plate-base{fill:var(--cream);}
+.slice{cursor:pointer;transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.3,1);transform-origin:160px 160px;stroke:#fff;stroke-width:3;opacity:.55;outline:none;}
+.slice[data-k="veg"]{fill:#7FAE6B;}
+.slice[data-k="protein"]{fill:var(--mocha);}
+.slice[data-k="carbs"]{fill:var(--blush);}
+.slice:hover{opacity:.8;}
+.slice.on{opacity:1;transform:scale(1.045);}
+.slice:focus-visible{stroke:var(--teal);stroke-width:4;}
+.plate-inner{fill:#fff;filter:drop-shadow(0 6px 18px rgba(94,66,54,.18));pointer-events:none;}
+.plate-frac{font-family:var(--display);font-size:2.1rem;fill:var(--ink);pointer-events:none;}
+.plate-lab{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.2em;fill:var(--muted);pointer-events:none;}
+.plate-info{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.3rem 1.5rem;
+  box-shadow:var(--sh-sm);width:100%;min-height:150px;
+}
+.plate-info h4{font-size:1.05rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.55rem;}
+.plate-info h4 i{width:12px;height:12px;border-radius:4px;flex:none;font-style:normal;}
+.plate-info p{font-size:.93rem;}
+.plate-info .eg{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+.plate-info .eg span{font-size:.78rem;background:var(--cream-2);border:1px solid var(--line);padding:.24rem .6rem;border-radius:99px;color:var(--body);}
+.plate-legend{display:grid;gap:.5rem;margin-top:1.6rem;}
+.plate-legend button{
+  display:flex;align-items:center;gap:.7rem;background:none;border:1px solid var(--line);
+  border-radius:12px;padding:.7rem .9rem;cursor:pointer;text-align:left;font-size:.92rem;color:var(--ink);
+  transition:border-color .2s,background .2s,transform .2s;
+}
+.plate-legend button:hover{transform:translateX(3px);border-color:var(--line-2);}
+.plate-legend button.on{border-color:var(--mocha);background:var(--cream-2);}
+.plate-legend i{width:14px;height:14px;border-radius:4px;flex:none;}
+.plate-legend b{font-weight:600;}
+.plate-legend small{color:var(--muted);margin-left:auto;font-size:.8rem;font-weight:600;}
+
+/* ---------- package finder ---------- */
+.finder{
+  margin-top:2.2rem;border:1px solid var(--line-2);border-radius:var(--r-xl);overflow:hidden;
+  background:linear-gradient(165deg,var(--white),#FDF8F4);box-shadow:var(--sh);
+}
+.finder-head{padding:2rem 2.2rem 1.4rem;border-bottom:1px solid var(--line);}
+.finder-head h3{font-size:1.9rem;}
+.finder-head p{margin-top:.5rem;font-size:.95rem;}
+.finder-qs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;padding:1.8rem 2.2rem;}
+@media(max-width:860px){.finder-qs{grid-template-columns:minmax(0,1fr);gap:1.6rem;}.finder-head,.finder-qs{padding-left:1.4rem;padding-right:1.4rem;}}
+.fq h4{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;font-size:1rem;}
+.fq h4 i{font-style:normal;width:25px;height:25px;border-radius:8px;background:var(--mocha);color:#fff;display:grid;place-items:center;font-size:.76rem;font-weight:700;flex:none;}
+.fq-opts{display:grid;gap:.55rem;}
+.fq-opts button{
+  text-align:left;background:var(--white);border:1px solid var(--line-2);border-radius:14px;
+  padding:.85rem 1rem;cursor:pointer;font-size:.93rem;color:var(--ink);line-height:1.4;
+  transition:border-color .2s,background .2s,transform .2s;
+}
+.fq-opts button small{display:block;font-size:.78rem;color:var(--muted);margin-top:.15rem;}
+.fq-opts button:hover{border-color:var(--mocha);transform:translateY(-2px);}
+.fq-opts button.on{border-color:var(--mocha);background:var(--blush-lt);}
+.fq-opts button.on small{color:var(--mocha-dk);}
+.finder-out{display:none;padding:0 2.2rem 2.2rem;}
+@media(max-width:860px){.finder-out{padding:0 1.4rem 1.6rem;}}
+.finder-out.show{display:block;animation:fadeUp .45s cubic-bezier(.2,.8,.3,1);}
+.fo-card{
+  background:linear-gradient(140deg,var(--mocha),var(--mocha-dk));color:rgba(255,255,255,.88);
+  border-radius:var(--r-lg);padding:1.8rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);
+  gap:1.4rem;align-items:center;box-shadow:var(--sh);
+}
+@media(max-width:700px){.fo-card{grid-template-columns:minmax(0,1fr);}}
+.fo-card small{font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blush-lt);}
+.fo-card h4{color:#fff;font-family:var(--display);font-weight:600;font-size:1.6rem;margin:.4rem 0 .5rem;line-height:1.2;}
+.fo-card p{font-size:.94rem;}
+.fo-price{font-family:var(--display);font-size:2.6rem;color:#fff;line-height:1;text-align:center;}
+.fo-price span{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blush-lt);margin-top:.3rem;}
+.fo-alt{margin-top:1rem;font-size:.88rem;color:var(--muted);}
+.fo-alt b{color:var(--ink);}
+
+/* ---------- about layout ---------- */
+.about-split{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:3.4rem;align-items:start;}
+@media(max-width:900px){.about-split{grid-template-columns:minmax(0,1fr);gap:2.2rem;}}
+.about-pic{position:relative;position:sticky;top:110px;}
+@media(max-width:900px){.about-pic{position:relative;top:0;max-width:420px;margin:0 auto;}}
+.pic-frame{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);border:6px solid var(--white);aspect-ratio:4/5;}
+.pic-frame img{width:100%;height:100%;object-fit:cover;object-position:52% 22%;}
+.pic-badge{
+  position:absolute;left:-14px;bottom:-18px;display:flex;align-items:center;gap:.7rem;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.9);border-radius:var(--r-lg);padding:.8rem 1.1rem;box-shadow:var(--sh);
+}
+.pic-badge .ic{width:36px;height:36px;border-radius:50%;background:var(--teal-pale);display:grid;place-items:center;flex:none;}
+.pic-badge .ic svg{width:18px;height:18px;stroke:var(--teal);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+.pic-badge b{display:block;font-size:.9rem;color:var(--ink);line-height:1.2;}
+.pic-badge span span{display:block;font-size:.72rem;color:var(--muted);}
+@media(max-width:560px){.pic-badge{left:8px;bottom:-14px;}}
+.about-copy p:first-child{margin-top:0;}
+
+/* ---------- hero data visual ---------- */
+.viz-card{
+  background:rgba(255,255,255,.72);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);
+  border:1px solid rgba(255,255,255,.9);border-radius:var(--r-xl);padding:1.6rem 1.5rem 1.4rem;
+  box-shadow:var(--sh-lg);position:relative;overflow:hidden;
+}
+.viz-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(216,180,162,.16),transparent 55%);pointer-events:none;}
+.viz-card>*{position:relative;}
+.viz-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.1rem;}
+.viz-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mocha);}
+.viz-head h3{font-size:1.18rem;margin-top:.3rem;line-height:1.25;}
+.viz-live{display:inline-flex;align-items:center;gap:.4rem;font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);padding:.3rem .6rem;border-radius:99px;flex:none;}
+.viz-live .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:vizPulse 2.4s ease-in-out infinite;}
+@keyframes vizPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(1.3);}}
+.viz-chart{width:100%;height:auto;display:block;overflow:visible;}
+.viz-band{fill:rgba(47,97,92,.09);}
+.viz-bandtext{font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;fill:var(--teal);opacity:.75;}
+.viz-grid line{stroke:rgba(140,106,93,.14);stroke-width:1;stroke-dasharray:3 5;}
+.viz-axis{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;fill:var(--muted);}
+.viz-line{fill:none;stroke-linecap:round;stroke-width:3;}
+.viz-steady{stroke-dasharray:900;}
+.viz-spike{stroke:var(--rose);stroke-dasharray:5 6;opacity:.75;stroke-width:2.4;}
+.viz-steady{stroke:var(--mocha-dk);filter:drop-shadow(0 4px 10px rgba(140,106,93,.3));}
+.viz-fill{fill:url(#fillSteady);}
+.viz-peak{fill:var(--rose);}
+.viz-now{fill:var(--mocha-dk);stroke:#fff;stroke-width:2.5;}
+.viz-legend{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:.5rem;font-size:.78rem;color:var(--body);}
+.viz-legend span{display:inline-flex;align-items:center;gap:.45rem;}
+.viz-legend i{width:16px;height:3px;border-radius:2px;flex:none;}
+.viz-legend .k-spike{background:var(--rose);}
+.viz-legend .k-steady{background:var(--mocha-dk);}
+.viz-note{font-size:.82rem;color:var(--muted);margin-top:.9rem;line-height:1.55;border-top:1px solid var(--line);padding-top:.9rem;}
+
+@media(prefers-reduced-motion:no-preference){
+  .viz-steady{stroke-dashoffset:900;animation:vizDraw 1.9s cubic-bezier(.4,0,.2,1) .5s forwards;}
+  .viz-spike,.viz-peak{opacity:0;animation:vizFadeSpike .9s ease .2s forwards;}
+  .viz-fill,.viz-now{opacity:0;animation:vizFade .8s ease 1.9s forwards;}
+  .viz-now{animation:vizFade .8s ease 1.9s forwards,vizBeat 2.6s ease-in-out 2.9s infinite;}
+  @keyframes vizDraw{to{stroke-dashoffset:0;}}
+  @keyframes vizFade{to{opacity:1;}}
+  @keyframes vizFadeSpike{to{opacity:.75;}}
+  @keyframes vizBeat{0%,100%{r:5.5;}50%{r:7.5;}}
+}
+
+/* package preview cards */
+.pkg{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.7rem 1.5rem;
+  text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:.5rem;font-family:var(--sans);
+  box-shadow:var(--sh-sm);transition:transform .28s cubic-bezier(.2,.8,.3,1),box-shadow .28s,border-color .28s;
+}
+.pkg:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:var(--mocha);}
+.pkg-tag{font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);padding:.28rem .65rem;border-radius:99px;align-self:flex-start;}
+.pkg h3{font-size:1.1rem;margin-top:.3rem;line-height:1.25;}
+.pkg p{font-size:.9rem;flex:1;color:var(--body);}
+.pkg-price{font-family:var(--display);font-size:2rem;color:var(--ink);line-height:1;margin-top:.3rem;}
+.pkg-go{font-size:.82rem;font-weight:600;color:var(--mocha);}
+
+/* free discovery call band */
+.disc-band{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);gap:2rem;align-items:center;
+  background:linear-gradient(140deg,var(--teal-pale),#EAF3F1);border:1px solid rgba(47,97,92,.24);
+  border-radius:var(--r-xl);padding:2.1rem 2.2rem;box-shadow:var(--sh-sm);
+}
+.disc-band h3{font-size:1.75rem;}
+.disc-act{display:grid;gap:.9rem;justify-items:center;}
+.disc-price{font-family:var(--display);font-size:2.6rem;color:var(--teal);line-height:1;}
+@media(max-width:780px){
+  .disc-band{grid-template-columns:minmax(0,1fr);gap:1.4rem;padding:1.7rem;text-align:center;}
+  .disc-band .eyebrow{justify-content:center;}
+  .disc-act .btn{width:100%;}
+}
+
 .tier{
   background:var(--white);border:1px solid var(--line);border-radius:var(--r-xl);padding:2.2rem 2rem;
   display:flex;flex-direction:column;box-shadow:var(--sh-sm);transition:transform .28s,box-shadow .28s,border-color .28s;
@@ -449,8 +636,8 @@ em.hl{font-style:italic;color:var(--mocha);}
   outline:none;border-color:var(--mocha);background:#fff;box-shadow:0 0 0 4px rgba(140,106,93,.1);
 }
 .form-card textarea{resize:vertical;min-height:130px;}
-.f2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-@media(max-width:600px){.f2{grid-template-columns:1fr;}}
+.f2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;}
+@media(max-width:600px){.f2{grid-template-columns:minmax(0,1fr);}}
 .form-note{margin-top:1rem;font-size:.9rem;padding:.9rem 1.1rem;border-radius:12px;background:var(--cream-2);color:var(--muted);}
 
 .info-row{display:flex;gap:1rem;align-items:flex-start;padding:1.15rem 0;border-bottom:1px solid var(--line);}
@@ -472,9 +659,9 @@ em.hl{font-style:italic;color:var(--mocha);}
 /* ---------- footer ---------- */
 footer{background:#241C18;color:rgba(255,255,255,.62);padding:4rem 0 0;font-size:.93rem;}
 footer h4{color:#fff;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.1rem;}
-.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:3rem;}
-@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
-@media(max-width:560px){.foot-grid{grid-template-columns:1fr;}}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr);gap:2.5rem;padding-bottom:3rem;}
+@media(max-width:900px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;}}
+@media(max-width:560px){.foot-grid{grid-template-columns:minmax(0,1fr);}}
 footer .brand-txt b{color:#fff;}
 footer .brand-txt span{color:var(--blush);}
 .foot-links{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
@@ -505,9 +692,9 @@ footer .brand-txt span{color:var(--blush);}
 <div class="topbar">
   <div class="container">
     <div class="tb-l">
-      <a href="mailto:thediabeteslifestylecoach@hotmail.com" class="tb-item">
+      <a href="mailto:ellis@thediabeteslifestylecoach.com" class="tb-item">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        thediabeteslifestylecoach@hotmail.com
+        ellis@thediabeteslifestylecoach.com
       </a>
     </div>
     <div class="tb-r">
@@ -545,8 +732,8 @@ footer .brand-txt span{color:var(--blush);}
         <li><button data-nav="contact" onclick="showPage('contact')">Contact</button></li>
       </ul>
 
-      <button class="btn btn-primary" onclick="showPage('work')">
-        Book a Diabetes MOT
+      <button class="btn btn-primary" onclick="showPage('contact')">
+        Book a free call
       </button>
 
       <button class="burger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -560,7 +747,7 @@ footer .brand-txt span{color:var(--blush);}
     <button onclick="showPage('work')">Work With Me</button>
     <button onclick="showPage('learn')">Learn</button>
     <button onclick="showPage('contact')">Contact</button>
-    <div class="mm-cta"><button class="btn btn-primary" style="width:100%" onclick="showPage('work')">Book a Diabetes MOT — £120</button></div>
+    <div class="mm-cta"><button class="btn btn-primary" style="width:100%" onclick="showPage('contact')">Book a free discovery call</button></div>
   </div>
 </header>
 
@@ -582,11 +769,11 @@ footer .brand-txt span{color:var(--blush);}
           <h1>Feel in control<br>of your diabetes <em>again.</em></h1>
           <p class="lead">I'm Ellis — a Registered Nurse and NHS Diabetes Lead. I help people understand what's actually happening in their body, and turn that into small changes that hold. Evidence-based, practical, and completely without judgement.</p>
           <div class="btn-row">
-            <button class="btn btn-primary btn-lg" onclick="showPage('work')">
-              Book a Diabetes MOT — £120
+            <button class="btn btn-primary btn-lg" onclick="showPage('contact')">
+              Book a free discovery call
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
-            <button class="btn btn-ghost btn-lg" onclick="showPage('about')">Meet Ellis</button>
+            <button class="btn btn-ghost btn-lg" onclick="showPage('work')">See packages</button>
           </div>
           <p class="hero-note">
             <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
@@ -595,22 +782,67 @@ footer .brand-txt span{color:var(--blush);}
         </div>
 
         <div class="hero-visual">
-          <div class="photo-frame">
-            <img src="photos-diabetes-coach/ellis-portrait.jpg" alt="Ellis, diabetes lifestyle coach and registered nurse, at her desk" width="654" height="762" fetchpriority="high">
+          <div class="viz-card">
+            <div class="viz-head">
+              <div>
+                <span class="viz-eyebrow">Same meal, different order</span>
+                <h3>What your blood sugar does next</h3>
+              </div>
+              <span class="viz-live"><span class="dot"></span>Illustration</span>
+            </div>
+
+            <svg class="viz-chart" viewBox="0 0 420 240" role="img" aria-label="An illustration comparing a sharp blood sugar spike with a steadier rise after the same meal">
+              <defs>
+                <linearGradient id="fillSteady" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#8C6A5D" stop-opacity=".28"/>
+                  <stop offset="100%" stop-color="#8C6A5D" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+
+              <rect class="viz-band" x="24" y="126" width="376" height="56" rx="10"/>
+              <text class="viz-bandtext" x="34" y="145">In-range zone</text>
+
+              <g class="viz-grid">
+                <line x1="24" y1="40" x2="400" y2="40"/>
+                <line x1="24" y1="83" x2="400" y2="83"/>
+                <line x1="24" y1="126" x2="400" y2="126"/>
+                <line x1="24" y1="182" x2="400" y2="182"/>
+              </g>
+
+              <path class="viz-line viz-spike" d="M24,180 C70,176 92,52 132,44 C172,36 196,120 236,146 C288,180 340,176 400,172"/>
+              <path class="viz-fill" d="M24,180 C74,178 104,140 146,132 C196,122 236,146 276,156 C324,168 352,166 400,164 L400,200 L24,200 Z"/>
+              <path class="viz-line viz-steady" d="M24,180 C74,178 104,140 146,132 C196,122 236,146 276,156 C324,168 352,166 400,164"/>
+
+              <circle class="viz-peak" cx="132" cy="44" r="4.5"/>
+              <circle class="viz-now" cx="400" cy="164" r="5.5"/>
+
+              <text class="viz-axis" x="24" y="216">Meal</text>
+              <text class="viz-axis" x="196" y="216">1 hour</text>
+              <text class="viz-axis" x="356" y="216">2 hours</text>
+            </svg>
+
+            <div class="viz-legend">
+              <span><i class="k-spike"></i>Carbs first</span>
+              <span><i class="k-steady"></i>Veg &amp; protein first</span>
+            </div>
+
+            <p class="viz-note">Same food, same plate — just eaten in a different order. This is the kind of thing we unpick together, rather than cutting foods out.</p>
           </div>
-          <div class="float-card fc-price">
-            <span class="tag">Most booked</span>
-            <b>£120</b>
-            <span>Diabetes MOT &amp; lifestyle review<br>60–90 minute video consultation</span>
-          </div>
-          <div class="float-card fc-nurse">
-            <span class="ic">
-              <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="M12 8v6M9 11h6"/></svg>
-            </span>
-            <span>
-              <b>Nurse-led</b>
-              <span>Not a fad diet</span>
-            </span>
+          <div class="hero-badges">
+            <button class="hb hb-call" onclick="showPage('contact')">
+              <span class="tag">Start here</span>
+              <b>Free</b>
+              <span>15 minute discovery call<br>No pressure and no pitch</span>
+            </button>
+            <div class="hb hb-nurse">
+              <span class="ic">
+                <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="M12 8v6M9 11h6"/></svg>
+              </span>
+              <span>
+                <b>Nurse-led</b>
+                <span>Not a fad diet</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -661,41 +893,49 @@ footer .brand-txt span{color:var(--blush);}
     </div>
   </section>
 
-  <!-- the MOT -->
+  <!-- packages -->
   <section class="section bg-cream2">
     <div class="container">
-      <div class="split wide-l">
-        <div class="reveal">
-          <span class="eyebrow">The Diabetes MOT</span>
-          <h2>One appointment.<br>A proper look at everything.</h2>
-          <p class="lead" style="margin-top:1.2rem;">A 60–90 minute video consultation where we go through your diagnosis, your medications, your lifestyle and your latest results — and finish with a four-week plan that actually fits around your life.</p>
-          <p style="margin-top:1rem;">Perfect if you've recently been diagnosed with prediabetes or Type 2 diabetes, or if you're looking to regain control and refresh your diabetes management.</p>
-          <div class="btn-row" style="margin-top:2rem;">
-            <button class="btn btn-teal btn-lg" onclick="showPage('work')">See what's included</button>
-            <button class="btn btn-ghost btn-lg" onclick="showPage('contact')">Ask a question first</button>
-          </div>
-        </div>
-        <div class="reveal d1">
-          <div class="mot-card">
-            <div class="mot-head">
-              <span class="tag">Diabetes MOT &amp; lifestyle review</span>
-              <h3>Everything, in one go</h3>
-              <div class="price"><b>£120</b><span>one appointment · 60–90 minutes</span></div>
-            </div>
-            <div class="mot-body">
-              <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span><b>Diagnosis and medication review</b> — what you're on and why (where applicable)</span></div>
-              <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span><b>Comprehensive lifestyle assessment</b></span></div>
-              <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span><b>Understanding your medications</b> — benefits and potential side effects</span></div>
-              <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span><b>Foot health and nerve awareness</b></span></div>
-              <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span><b>Your latest HbA1c reviewed</b>, with meaningful long-term goals set</span></div>
-              <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span><b>A personalised 4-week action plan</b> — nutrition, meal planning, activity and stress</span></div>
-              <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span><b>A written summary to keep</b>, with next steps and relapse-prevention strategies</span></div>
-              <div class="mot-foot">
-                <button class="btn btn-primary" style="width:100%" onclick="showPage('work')">Book your Diabetes MOT</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Ways to work together</span>
+        <h2>Four ways in — and <em class="hl">one free chat</em> to find the right one</h2>
+        <p>Whether you want one proper appointment or twelve weeks of support, we start the same way: a free 15 minute call so you can decide without spending anything.</p>
+      </div>
+
+      <div class="grid g4">
+        <button class="pkg reveal" onclick="showPage('work')">
+          <span class="pkg-tag">12 weeks</span>
+          <h3>1:1 Transformation Programme</h3>
+          <p>Weekly 1:1 coaching, WhatsApp support throughout and habits built to last a lifetime.</p>
+          <span class="pkg-price">£600</span>
+          <span class="pkg-go">See what's included →</span>
+        </button>
+        <button class="pkg reveal d1" onclick="showPage('work')">
+          <span class="pkg-tag">6 weeks</span>
+          <h3>Refresh and Reset</h3>
+          <p>Refresh your habits, strengthen your understanding and feel back in control.</p>
+          <span class="pkg-price">£350</span>
+          <span class="pkg-go">See what's included →</span>
+        </button>
+        <button class="pkg reveal d2" onclick="showPage('work')">
+          <span class="pkg-tag">4 weeks</span>
+          <h3>GLP-1 Success Package</h3>
+          <p>Start your GLP-1 journey with confidence — side effects, nutrition and lasting habits.</p>
+          <span class="pkg-price">£275</span>
+          <span class="pkg-go">See what's included →</span>
+        </button>
+        <button class="pkg reveal d3" onclick="showPage('work')">
+          <span class="pkg-tag">One appointment</span>
+          <h3>Diabetes MOT &amp; lifestyle review</h3>
+          <p>A proper look at everything in 60–90 minutes, with a four-week plan to keep.</p>
+          <span class="pkg-price">£120</span>
+          <span class="pkg-go">See what's included →</span>
+        </button>
+      </div>
+
+      <div class="btn-row center" style="margin-top:2.4rem;">
+        <button class="btn btn-teal btn-lg" onclick="showPage('contact')">Book a free discovery call</button>
+        <button class="btn btn-ghost btn-lg" onclick="showPage('work')">Compare all packages</button>
       </div>
     </div>
   </section>
@@ -745,6 +985,35 @@ footer .brand-txt span{color:var(--blush);}
     </div>
   </section>
 
+  <!-- plate method -->
+  <section class="section bg-white rule-t">
+    <div class="container">
+      <div class="split wide-l">
+        <div class="reveal">
+          <span class="eyebrow">No food is banned</span>
+          <h2>Start with the plate, <em class="hl">not the scales.</em></h2>
+          <p class="lead" style="margin-top:1.1rem;">One of the simplest places to begin is how a plate is put together — no weighing, no counting, no cutting anything out. Tap each part to see what I mean.</p>
+          <div class="plate-legend" id="plate-legend"></div>
+          <p style="margin-top:1.4rem;font-size:.9rem;color:var(--muted);">A general starting point, not a prescription — in a consultation we shape it around what you actually like eating, your medication and your routine.</p>
+        </div>
+
+        <div class="reveal d1 plate-holder">
+          <svg class="plate" viewBox="0 0 320 320" role="img" aria-label="A plate split into half non-starchy vegetables, one quarter protein and one quarter carbohydrates">
+            <circle class="plate-rim" cx="160" cy="160" r="150"/>
+            <circle class="plate-base" cx="160" cy="160" r="138"/>
+            <path class="slice" data-k="veg" d="M160,160 L160,26 A134,134 0 0 1 160,294 Z" tabindex="0" role="button" aria-label="Half the plate: non-starchy vegetables" onclick="setSlice('veg')" onfocus="setSlice('veg')"/>
+            <path class="slice" data-k="protein" d="M160,160 L160,294 A134,134 0 0 1 26,160 Z" tabindex="0" role="button" aria-label="A quarter of the plate: protein" onclick="setSlice('protein')" onfocus="setSlice('protein')"/>
+            <path class="slice" data-k="carbs" d="M160,160 L26,160 A134,134 0 0 1 160,26 Z" tabindex="0" role="button" aria-label="A quarter of the plate: carbohydrates" onclick="setSlice('carbs')" onfocus="setSlice('carbs')"/>
+            <circle class="plate-inner" cx="160" cy="160" r="46"/>
+            <text class="plate-frac" id="plate-frac" x="160" y="153" text-anchor="middle">½</text>
+            <text class="plate-lab" id="plate-lab" x="160" y="174" text-anchor="middle">VEG</text>
+          </svg>
+          <div class="plate-info" id="plate-info"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- HbA1c tool -->
   <section class="section bg-white">
     <div class="container">
@@ -772,7 +1041,22 @@ footer .brand-txt span{color:var(--blush);}
 
           <div>
             <div class="readout">
-              <div class="row">
+              <div class="gauge-wrap">
+                <svg class="gauge" viewBox="0 0 220 128" role="img" aria-label="A dial showing where your HbA1c sits">
+                  <path class="g-track" d="M20,112 A90,90 0 0 1 200,112"/>
+                  <path class="g-zone z-norm" d="M20,112 A90,90 0 0 1 51.6,43.6"/>
+                  <path class="g-zone z-pre" d="M53.8,41.4 A90,90 0 0 1 67.1,33.3"/>
+                  <path class="g-zone z-dia" d="M71.3,31.1 A90,90 0 0 1 200,112"/>
+                  <path class="g-prog" id="g-prog" d="M20,112 A90,90 0 0 1 200,112"/>
+                  <circle class="g-knob" id="g-knob" cx="110" cy="22" r="7"/>
+                </svg>
+                <div class="gauge-val">
+                  <b id="out-big">53</b>
+                  <span id="out-unit">mmol/mol</span>
+                </div>
+              </div>
+              <div class="band dia" id="out-band"><span class="dot"></span><span id="out-band-text">Diabetes range</span></div>
+              <div class="row" style="margin-top:1.1rem;">
                 <span>In mmol/mol</span><b id="out-mmol">53 mmol/mol</b>
               </div>
               <div class="row">
@@ -781,11 +1065,7 @@ footer .brand-txt span{color:var(--blush);}
               <div class="row">
                 <span>Estimated average glucose</span><b id="out-eag">8.6 mmol/L</b>
               </div>
-              <div style="margin-top:1.3rem;">
-                <div class="big" id="out-big">53</div>
-                <div class="sm">mmol/mol — roughly the average of your blood sugar over the last 2–3 months</div>
-              </div>
-              <div class="band dia" id="out-band"><span class="dot"></span><span id="out-band-text">Diabetes range</span></div>
+              <div class="sm" style="margin-top:1rem;">Roughly the average of your blood sugar over the last 2–3 months.</div>
             </div>
             <p class="tool-note">This is a unit converter, not a diagnosis, and it can't tell you whether your number is right <em>for you</em> — targets are personal and depend on your age, your medications and your health history. Bring your result to our consultation and we'll talk it through properly.</p>
           </div>
@@ -805,20 +1085,16 @@ footer .brand-txt span{color:var(--blush);}
           <div class="btn-row" style="margin-top:2rem;">
             <button class="btn btn-primary btn-lg" onclick="showPage('contact')">Get started</button>
           </div>
-          <div class="demo-note">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-5M12 8h.01"/></svg>
-            <span><b>Note for Ellis:</b> these four steps are our best guess from your Facebook page. Tell Aidan how you actually run it and the wording changes to match.</span>
-          </div>
         </div>
         <div class="reveal d1">
           <div class="card" style="padding:1.6rem 1.8rem;">
             <div class="mini">
               <span class="n">1</span>
-              <div><h4>Get in touch</h4><p>Message me with where you're at. If the MOT isn't the right fit, I'll tell you that rather than book you in.</p></div>
+              <div><h4>Book your free 15 minute call</h4><p>Pick a time that suits you. We work out where you're at and which package fits — and if none of them do, I'll say so.</p></div>
             </div>
             <div class="mini">
               <span class="n">2</span>
-              <div><h4>A few questions before we meet</h4><p>A short form about your diagnosis, medications and recent results so we don't spend our call on admin.</p></div>
+              <div><h4>A few questions before we meet</h4><p>A short form about your diagnosis, medications and recent results so we don't spend our session on admin.</p></div>
             </div>
             <div class="mini">
               <span class="n">3</span>
@@ -902,7 +1178,7 @@ footer .brand-txt span{color:var(--blush);}
         <h2>"I'll start Monday…"</h2>
         <p>We've all said it. You don't need to be perfect, and you don't need to have it worked out before you get in touch — that's the bit I'm here for.</p>
         <div class="btn-row center">
-          <button class="btn btn-light btn-lg" onclick="showPage('work')">Book a Diabetes MOT — £120</button>
+          <button class="btn btn-light btn-lg" onclick="showPage('contact')">Book a free discovery call</button>
           <button class="btn btn-outline-light btn-lg" onclick="showPage('contact')">Send me a message</button>
         </div>
       </div>
@@ -914,33 +1190,63 @@ footer .brand-txt span{color:var(--blush);}
 <!-- ===================== ABOUT ===================== -->
 <div class="page" id="page-about">
 
-  <section class="about-intro">
-    <div class="ai-grid">
-        <div class="ai-text reveal">
-          <span class="eyebrow">About</span>
-          <h2>Hi, I'm Ellis</h2>
-          <p class="lead" style="margin-top:1.2rem;">I'm a Diabetes Lifestyle Coach, Registered Nurse and NHS Diabetes Lead — and I help people feel confident and in control of their diabetes.</p>
-          <p>Through education, practical support and sustainable lifestyle strategies, I help people improve their blood sugar management and create healthy habits that last.</p>
-          <p>My goal is to help you take control of your health, build confidence in managing your diabetes, and make realistic lifestyle changes that fit your life — not someone else's. Whether you've recently been diagnosed or have been living with diabetes for years, you're in the right place.</p>
+  <section class="section" style="padding-bottom:3rem;">
+    <div class="container narrow center">
+      <div class="reveal">
+        <span class="eyebrow center">About</span>
+        <h2>Hi, I'm Ellis <span style="color:var(--rose);">♥</span></h2>
+        <p style="margin-top:.9rem;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mocha);">Diabetes Lifestyle Coach · Registered Nurse · NHS Diabetes Lead</p>
+      </div>
+    </div>
 
-          <div class="creds">
-            <div class="cred">
-              <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
-              <div><b>Registered Nurse</b><span>Clinically trained, working within professional standards</span></div>
-            </div>
-            <div class="cred">
-              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
-              <div><b>NHS Diabetes Lead</b><span>Day-to-day diabetes care inside the NHS, not theory from a course</span></div>
-            </div>
-            <div class="cred">
-              <svg viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v18H5.5A2.5 2.5 0 0 1 3 18.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v18h5.5a2.5 2.5 0 0 0 2.5-2.5z"/></svg>
-              <div><b>Diabetes Lifestyle Coach</b><span>Evidence-based coaching for Type 2 and prediabetes</span></div>
-            </div>
+    <div class="container" style="margin-top:2.6rem;">
+      <div class="about-split">
+        <div class="about-pic reveal">
+          <div class="pic-frame">
+            <img src="photos-diabetes-coach/ellis-portrait.jpg" alt="Ellis — Registered Nurse, NHS Diabetes Lead and Diabetes Lifestyle Coach" width="654" height="762" loading="lazy">
+          </div>
+          <div class="pic-badge">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <span><b>Ellis</b><span>RN · NHS Diabetes Lead</span></span>
           </div>
         </div>
-        <div class="ai-media reveal d1">
-          <img src="photos-diabetes-coach/ellis-portrait.jpg" alt="Ellis — The Diabetes Lifestyle Coach" width="654" height="762" loading="lazy">
+        <div class="about-copy reveal d1">
+        <p class="lead">If you've ever been told <em class="hl">"you need to lose weight," "eat better,"</em> or <em class="hl">"get your blood sugars down"</em> — but were left wondering <em class="hl">"Okay… but how do I actually do that?"</em>, you're in the right place.</p>
+        <p style="margin-top:1.4rem;">I'm Ellis, a Registered Nurse and NHS Diabetes Lead, with a passion for helping people feel more confident and in control of their Type 2 diabetes and prediabetes.</p>
+        <p>Through my work in diabetes care, I've seen how overwhelming it can feel. There's so much information out there — what you should eat, what you shouldn't eat, how much exercise you need, medications, blood glucose numbers, HbA1c… and sometimes it can feel like you're expected to figure it all out yourself.</p>
+        <p style="font-family:var(--display);font-size:1.5rem;color:var(--ink);margin-top:1.6rem;line-height:1.3;">I believe diabetes education should feel different.</p>
+        <p>My approach is practical, realistic and completely without judgement. I'm not here to give you another strict diet or tell you that you need to completely change your life overnight. I'm here to help you understand what's happening in your body, make sense of the information you're given and turn that knowledge into small, realistic changes that fit around your life.</p>
+        <p>Because managing diabetes isn't about being perfect. It's about finding an approach you can actually live with long term.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container narrow">
+      <div class="disclaimer reveal" style="border-left-color:var(--mocha);background:var(--white);">
+        <h3 style="font-size:1.3rem;margin-bottom:.9rem;">Why I started The Diabetes Lifestyle Coach</h3>
+        <p>My professional experience in diabetes care, combined with seeing the impact diabetes can have on people and families, is what inspired me to create The Diabetes Lifestyle Coach.</p>
+        <p>I wanted to create a space where people could get clear, evidence-based education and personalised lifestyle support without feeling judged, overwhelmed or like they had failed.</p>
+        <p>Whether you've recently been diagnosed, have been living with Type 2 diabetes for years, have been told you're at risk, or simply feel like you need some extra support — you don't have to figure it all out alone.</p>
+        <p style="font-family:var(--display);font-size:1.35rem;color:var(--mocha);margin-top:1.2rem;">Let's make diabetes feel simpler. <span style="color:var(--rose);">♥</span></p>
+        <p style="margin-top:.6rem;font-size:.85rem;color:var(--muted);letter-spacing:.04em;">Ellis — Registered Nurse | NHS Diabetes Lead | Diabetes Lifestyle Coach</p>
+      </div>
+
+      <div class="creds reveal d1" style="margin-top:2rem;">
+        <div class="cred">
+          <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><b>Registered Nurse</b><span>Clinically trained, working within professional standards</span></div>
+        </div>
+        <div class="cred">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+          <div><b>NHS Diabetes Lead</b><span>Day-to-day diabetes care inside the NHS, not theory from a course</span></div>
+        </div>
+        <div class="cred">
+          <svg viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v18H5.5A2.5 2.5 0 0 1 3 18.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v18h5.5a2.5 2.5 0 0 0 2.5-2.5z"/></svg>
+          <div><b>Diabetes Lifestyle Coach</b><span>Evidence-based coaching for Type 2 and prediabetes</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -952,16 +1258,16 @@ footer .brand-txt span{color:var(--blush);}
       </div>
       <div class="values reveal">
         <div class="value">
-          <h4>No judgement, ever</h4>
-          <p>You will not be told off in my consultation. Not about your weight, not about your numbers, not about the fortnight it all went sideways. People change when they feel supported, not ashamed.</p>
+          <h4>No judgement, just support</h4>
+          <p>You won't be judged for where you're starting from — whether that's your weight, your blood glucose, food choices or simply feeling like you've lost your way. My job is to listen, understand what's going on and help you move forward without shame or guilt.</p>
         </div>
         <div class="value">
-          <h4>Evidence, not trends</h4>
-          <p>Everything I recommend is grounded in the evidence and in what I see working in NHS clinic. No detoxes, no miracle supplements, no cutting out entire food groups because the internet said so.</p>
+          <h4>Evidence over internet noise</h4>
+          <p>There's a lot of conflicting diabetes advice online. I'll help you separate fact from fad, using evidence-based information and my experience working in NHS diabetes care. No quick fixes, no miracle cures, no unnecessary restriction — and no cutting out entire food groups because the internet said so. Just clear, practical information you can actually understand and use.</p>
         </div>
         <div class="value">
-          <h4>Realistic, or it isn't a plan</h4>
-          <p>A plan you can't stick to isn't a plan, it's a list of ways to feel like you failed. Yours has to fit your job, your family and your budget — otherwise we build a different one.</p>
+          <h4>A plan that fits your life</h4>
+          <p>You don't need a perfect routine. Your work, family, budget, social life and everything in between matter. We'll focus on realistic changes that work for you — because a plan only works if it's something you can maintain. Small steps. Real life. Lasting change.</p>
         </div>
       </div>
     </div>
@@ -974,8 +1280,11 @@ footer .brand-txt span{color:var(--blush);}
         <h2 style="margin-bottom:1.6rem;">What this is — and what it isn't</h2>
       </div>
       <div class="disclaimer reveal d1" style="text-align:left;">
-        <p><b>Diabetes coaching works alongside your NHS care, not instead of it.</b> I don't prescribe, I don't change your medication, and I don't replace your GP, practice nurse or diabetes team. What I do is give you the time and the explanation that a ten-minute appointment can't — so you understand your condition, your medications and your options, and you can have better conversations with the people who do prescribe.</p>
-        <p>If anything we discuss suggests you need clinical review, I'll say so and point you to the right place.</p>
+        <p><b>Diabetes coaching is there to complement your usual health care, not replace it.</b></p>
+        <p>I don't prescribe medication, change your prescribed treatment or replace your GP or diabetes team. Instead I give you the time, education and practical support to better understand your diabetes and the lifestyle factors that can influence it.</p>
+        <p>We'll discuss your lifestyle and the ways you can change it to make a real impact on your health and your diabetes.</p>
+        <p>If something comes up that needs a clinical assessment or medication review, I'll encourage you to speak to your diabetes team or GP.</p>
+        <p>Think of me as that extra layer of support — helping you understand, prepare and take action.</p>
       </div>
     </div>
   </section>
@@ -986,7 +1295,7 @@ footer .brand-txt span{color:var(--blush);}
         <h2>Let's have a proper conversation</h2>
         <p>Sixty to ninety minutes, one fixed price, and a plan in writing at the end of it.</p>
         <div class="btn-row center">
-          <button class="btn btn-light btn-lg" onclick="showPage('work')">Book a Diabetes MOT — £120</button>
+          <button class="btn btn-light btn-lg" onclick="showPage('contact')">Book a free discovery call</button>
         </div>
       </div>
     </div>
@@ -1002,63 +1311,125 @@ footer .brand-txt span{color:var(--blush);}
       <div class="sec-head center reveal">
         <span class="eyebrow center">Work with me</span>
         <h2>Support that fits where you are</h2>
-        <p>Start with a one-off review, or work with me over a longer stretch if you'd rather have someone in your corner while the habits bed in.</p>
+        <p>Four ways to work together — from a single appointment to twelve weeks with someone in your corner the whole way. Every one starts with a free chat, so you know it's right before you spend anything.</p>
       </div>
 
-      <div class="grid g3">
-        <div class="tier reveal">
-          <h3>Discovery chat</h3>
-          <p style="font-size:.94rem;">A short, free call to work out whether coaching is right for you before you spend anything.</p>
-          <div class="t-price">Free</div>
-          <div class="t-sub">15 minutes · video or phone</div>
+      <div class="disc-band reveal">
+        <div>
+          <span class="eyebrow">Start here · Free</span>
+          <h3>Free 15 minute discovery call</h3>
+          <p style="margin-top:.6rem;">Let's have a proper conversation. No pressure and no pitch — just a chance to tell me where you're at, ask anything you like, and find out honestly whether I'm the right person to help.</p>
+        </div>
+        <div class="disc-act">
+          <div class="disc-price">Free</div>
+          <button class="btn btn-teal btn-lg" onclick="showPage('contact')">Book a discovery call</button>
+        </div>
+      </div>
+
+      <div class="grid g2" style="margin-top:2rem;">
+        <div class="tier feature reveal">
+          <h3>12 Week 1:1 Transformation Programme</h3>
+          <p style="font-size:.94rem;">Designed for people who are ready to transform their health, improve their diabetes management and build habits that last a lifetime.</p>
+          <div class="t-price">£600</div>
+          <div class="t-sub">12 weeks · 1:1 coaching with ongoing support</div>
           <ul>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Talk through where you're stuck</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Find out how the MOT works</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>An honest answer on whether I can help</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>No pressure, no pitch</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>60–90 minute comprehensive initial assessment via video consultation</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Weekly 1:1 accountability and coaching sessions</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Midpoint and final review to monitor progress and refine your plan</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Personalised nutrition plan with realistic, achievable goals</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Ongoing WhatsApp support throughout the programme</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Regular progress reviews and goal adjustments</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Individualised exercise guidance tailored to your ability</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Practical strategies to improve sleep and manage stress</li>
           </ul>
-          <button class="btn btn-ghost" onclick="showPage('contact')">Request a chat</button>
+          <button class="btn btn-primary" onclick="showPage('contact')">Enquire about the 12 week programme</button>
         </div>
 
-        <div class="tier feature reveal d1">
-          <h3>Diabetes MOT &amp; lifestyle review</h3>
-          <p style="font-size:.94rem;">The full picture in one appointment, with a four-week plan and a written summary to keep.</p>
-          <div class="t-price">£120</div>
-          <div class="t-sub">60–90 minutes · online video consultation</div>
+        <div class="tier reveal d1">
+          <h3>6 Week Refresh and Reset</h3>
+          <p style="font-size:.94rem;">A focused programme to refresh your habits, strengthen your understanding of diabetes and help you feel back in control — with tools and support to build healthy habits that last.</p>
+          <div class="t-price">£350</div>
+          <div class="t-sub">6 weeks · weekly video check-ins</div>
           <ul>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Diagnosis and current medications reviewed</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>60–90 minute initial video consultation</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Review of your diagnosis and current medications (where applicable)</li>
             <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Comprehensive lifestyle assessment</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Medication benefits and side effects explained</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Foot health and nerve awareness</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>HbA1c reviewed, long-term goals set</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Personalised 4-week action plan</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Written summary and relapse prevention</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Expert education on diabetes and reducing your risk of complications</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Review of your latest HbA1c and long-term goals</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Weekly video check-ins and progress support</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Blood glucose tracking and insights</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Personalised nutrition and exercise guidance</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>A tailored 6-week action plan with ongoing support</li>
           </ul>
-          <button class="btn btn-primary" onclick="showPage('contact')">Book your MOT</button>
+          <button class="btn btn-ghost" onclick="showPage('contact')">Enquire about the 6 week reset</button>
         </div>
 
-        <div class="tier reveal d2">
-          <h3>Ongoing coaching programme</h3>
-          <p style="font-size:.94rem;">For when the plan is set and what you need is someone alongside you while it becomes normal.</p>
-          <div class="t-price">From £—</div>
-          <div class="t-sub">Multi-week · regular check-ins</div>
+        <div class="tier reveal">
+          <h3>4 Week GLP-1 Success Package</h3>
+          <p style="font-size:.94rem;">Start your GLP-1 journey with confidence — understand how your medication works, manage side effects, optimise your nutrition and build habits for long-term weight management and blood glucose control.</p>
+          <div class="t-price">£275</div>
+          <div class="t-sub">4 weeks · weekly 1:1 video coaching</div>
           <ul>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Everything in the Diabetes MOT</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Regular one-to-one check-ins</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Plan adjusted as your results change</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Message support between sessions</li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>GLP-1 support if you're starting or on one</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>60–90 minute initial assessment via video call</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Weekly 1:1 video coaching sessions</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Personalised nutrition and protein guidance</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Education on your GLP-1 medication</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Support with managing common side effects</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Exercise advice tailored to your ability and goals</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Blood glucose support (where appropriate)</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Ongoing WhatsApp support throughout the programme</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Personalised action plan with realistic goals</li>
           </ul>
-          <button class="btn btn-ghost" onclick="showPage('contact')">Enquire about programmes</button>
+          <button class="btn btn-ghost" onclick="showPage('contact')">Enquire about GLP-1 support</button>
+        </div>
+
+        <div class="tier reveal d1">
+          <h3>Diabetes MOT &amp; lifestyle review</h3>
+          <p style="font-size:.94rem;">Perfect if you've recently been diagnosed with prediabetes or Type 2 diabetes, or if you're looking to regain control and refresh your diabetes management.</p>
+          <div class="t-price">£120</div>
+          <div class="t-sub">One appointment · 60–90 minute video consultation</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Review your diagnosis and current medications (where applicable)</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Complete a comprehensive lifestyle assessment</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Improve your understanding of your medications, including benefits and potential side effects</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Discuss foot health and nerve awareness</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Review your latest HbA1c results and establish meaningful long-term goals</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Develop a personalised 4-week action plan tailored to your lifestyle</li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Receive a written consultation summary with practical next steps</li>
+          </ul>
+          <button class="btn btn-ghost" onclick="showPage('contact')">Book a Diabetes MOT</button>
         </div>
       </div>
 
-      <div style="text-align:center;">
-        <div class="demo-note" style="margin-top:2rem;">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-5M12 8h.01"/></svg>
-          <span><b>Note for Ellis:</b> the MOT is priced from your own post. The free discovery chat and the ongoing programme are structures we've laid out ready for your real details — send your programme names, lengths and prices and they drop straight in.</span>
+      <!-- package finder -->
+      <div class="finder reveal">
+        <div class="finder-head">
+          <span class="eyebrow">Not sure which one?</span>
+          <h3>Answer two questions</h3>
+          <p>No email, no sign-up — just a straight suggestion. You can always change your mind on the call.</p>
         </div>
+        <div class="finder-qs">
+          <div class="fq">
+            <h4><i>1</i>Where are you right now?</h4>
+            <div class="fq-opts" id="fq1">
+              <button type="button" data-v="new" onclick="fpick(1,this)">Just diagnosed, or told I'm at risk<small>Prediabetes or a recent Type 2 diagnosis</small></button>
+              <button type="button" data-v="stuck" onclick="fpick(1,this)">Living with it a while, feeling stuck<small>Numbers have crept up, old advice isn't working</small></button>
+              <button type="button" data-v="glp1" onclick="fpick(1,this)">On a GLP-1, or about to start one<small>Mounjaro, Ozempic, Wegovy and the like</small></button>
+              <button type="button" data-v="questions" onclick="fpick(1,this)">I just want my questions answered<small>Somebody to explain it all properly, once</small></button>
+            </div>
+          </div>
+          <div class="fq">
+            <h4><i>2</i>How much support do you want?</h4>
+            <div class="fq-opts" id="fq2">
+              <button type="button" data-v="one" onclick="fpick(2,this)">One proper appointment<small>A full review and a plan to take away</small></button>
+              <button type="button" data-v="few" onclick="fpick(2,this)">A few weeks of structure<small>Check-ins while the habits bed in</small></button>
+              <button type="button" data-v="long" onclick="fpick(2,this)">Someone alongside me properly<small>Weekly support and real accountability</small></button>
+            </div>
+          </div>
+        </div>
+        <div class="finder-out" id="finder-out" aria-live="polite"></div>
       </div>
+
     </div>
   </section>
 
@@ -1066,18 +1437,24 @@ footer .brand-txt span{color:var(--blush);}
     <div class="container">
       <div class="split">
         <div class="reveal">
-          <span class="eyebrow">Inside the MOT</span>
-          <h2>What the 90 minutes actually covers</h2>
-          <p class="lead" style="margin-top:1.2rem;">Most people have never had this much uninterrupted time with someone who knows diabetes. Here's how we use it.</p>
-          <p style="margin-top:1rem;">You don't need to prepare anything clever. Your latest HbA1c result and a list of what you're taking is plenty — and if you don't have those to hand, we'll work out how to get them.</p>
+          <span class="eyebrow">The 12 week programme</span>
+          <h2>By the end of this programme, <em class="hl">you'll…</em></h2>
+          <p class="lead" style="margin-top:1.2rem;">Twelve weeks is long enough for the habits to stop feeling like effort and start feeling like normal life. This is what we're working towards together.</p>
+          <p style="margin-top:1rem;font-family:var(--display);font-size:1.3rem;color:var(--mocha);line-height:1.35;">You don't have to do this alone — I'm here to support you every step of the way.</p>
+          <div class="btn-row" style="margin-top:1.8rem;">
+            <button class="btn btn-primary btn-lg" onclick="showPage('contact')">Book a free discovery call</button>
+          </div>
         </div>
         <div class="reveal d1">
-          <div class="card" style="padding:1.6rem 1.8rem;">
-            <div class="mini"><span class="n">1</span><div><h4>Where you are now</h4><p>Your diagnosis, how long you've had it, what you've already tried and what's made life harder.</p></div></div>
-            <div class="mini"><span class="n">2</span><div><h4>Your medications, explained</h4><p>What each one does, why you're on it, what to expect from it and what to watch for.</p></div></div>
-            <div class="mini"><span class="n">3</span><div><h4>Your numbers</h4><p>Your latest HbA1c in plain English, and what a realistic target looks like for you specifically.</p></div></div>
-            <div class="mini"><span class="n">4</span><div><h4>Your lifestyle, honestly</h4><p>Food, movement, sleep, stress, work patterns — the real version, not the tidy one.</p></div></div>
-            <div class="mini"><span class="n">5</span><div><h4>The four-week plan</h4><p>Built with you, not handed to you. Small enough to start on Monday and actually keep going.</p></div></div>
+          <div class="card" style="padding:1.9rem 2rem;">
+            <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Develop a <b>deeper understanding of Type 2 diabetes</b> and your blood glucose levels</span></div>
+            <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Feel <b>confident managing your blood glucose levels</b></span></div>
+            <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Understand how your diabetes medications work, <b>including GLP-1 therapies</b> (where appropriate)</span></div>
+            <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Build <b>sustainable nutrition and lifestyle habits</b></span></div>
+            <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Gain confidence in planning <b>balanced, enjoyable meals</b></span></div>
+            <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Increase physical activity <b>safely and effectively</b></span></div>
+            <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Improve <b>sleep, stress management and overall wellbeing</b></span></div>
+            <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span><b>Reduce your HbA1c</b> and lower your risk of long-term complications</span></div>
           </div>
         </div>
       </div>
@@ -1091,6 +1468,8 @@ footer .brand-txt span{color:var(--blush);}
         <h2>Before you book</h2>
       </div>
       <div class="reveal d1">
+        <details class="faq"><summary>How much does it cost, and which package do I need?</summary><p>The Diabetes MOT is £120 for one appointment, the 4 Week GLP-1 Success Package is £275, the 6 Week Refresh and Reset is £350, and the 12 Week 1:1 Transformation Programme is £600. If you're not sure which fits, that's exactly what the free 15 minute discovery call is for — I'd rather point you to the right one than sell you the biggest one.</p></details>
+        <details class="faq"><summary>What happens on the free discovery call?</summary><p>Fifteen minutes, no pressure and no pitch. You tell me where you're at, ask me anything you like, and I'll give you an honest answer about whether I can help and which package makes sense. If the answer is that you don't need me, I'll say that too.</p></details>
         <details class="faq"><summary>Do I need a referral from my GP?</summary><p>No. You can book directly. Coaching sits alongside your NHS care rather than replacing it, so there's no referral and no waiting list — though I'd always encourage you to keep your diabetes team in the loop.</p></details>
         <details class="faq"><summary>Will you change my medication?</summary><p>No — I don't prescribe and I won't tell you to stop or alter anything you've been prescribed. What I will do is make sure you understand what you're taking and why, so that any conversation you have with your prescriber is a much better one.</p></details>
         <details class="faq"><summary>I'm on a GLP-1. Can you help with that?</summary><p>Yes. GLP-1 support is one of the things I'm asked about most — what to expect when starting, how to eat well while your appetite is suppressed, protecting muscle, and building the habits that mean the results hold.</p></details>
@@ -1183,12 +1562,6 @@ footer .brand-txt span{color:var(--blush);}
         </article>
       </div>
 
-      <div style="text-align:center;">
-        <div class="demo-note" style="margin-top:2.5rem;">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-5M12 8h.01"/></svg>
-          <span><b>Note for Ellis:</b> the SGLT2 article is your own post. The other five are topic suggestions drawn from what you already talk about — this page is the part that gets you found on Google, because each article can rank for what people are typing at midnight.</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1233,11 +1606,12 @@ footer .brand-txt span{color:var(--blush);}
               <div class="field">
                 <label for="c-type">What are you interested in?</label>
                 <select id="c-type">
+                  <option>A free 15 minute discovery call</option>
+                  <option>12 Week 1:1 Transformation Programme (£600)</option>
+                  <option>6 Week Refresh and Reset (£350)</option>
+                  <option>4 Week GLP-1 Success Package (£275)</option>
                   <option>Diabetes MOT &amp; lifestyle review (£120)</option>
-                  <option>A free 15-minute discovery chat</option>
-                  <option>Ongoing coaching programme</option>
-                  <option>GLP-1 support</option>
-                  <option>Something else</option>
+                  <option>Not sure yet — help me choose</option>
                 </select>
               </div>
               <div class="field">
@@ -1253,6 +1627,14 @@ footer .brand-txt span{color:var(--blush);}
         </div>
 
         <div class="reveal d1">
+          <div class="disc-band" style="display:block;padding:1.6rem 1.7rem;margin-bottom:1.8rem;">
+            <span class="eyebrow">Ready to book?</span>
+            <h3 style="font-size:1.45rem;">Book straight into my diary</h3>
+            <p style="margin-top:.5rem;font-size:.95rem;">Free 15 minute discovery calls and all consultations are booked through Practice Better — pick a time that suits you and you'll get your confirmation straight away.</p>
+            <a class="btn btn-teal" style="margin-top:1.1rem;" href="#" onclick="bookingNote(event)">Book online</a>
+            <div class="form-note" id="booking-note" style="display:none;margin-top:.9rem;"></div>
+          </div>
+
           <h3 style="margin-bottom:.5rem;">Other ways to reach me</h3>
           <p style="font-size:.96rem;margin-bottom:1rem;">If you'd rather message than fill in a form, that's completely fine — plenty of people do.</p>
 
@@ -1260,7 +1642,7 @@ footer .brand-txt span{color:var(--blush);}
             <span class="info-ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
             <div>
               <b>Email</b>
-              <a href="mailto:thediabeteslifestylecoach@hotmail.com">thediabeteslifestylecoach@hotmail.com</a>
+              <a href="mailto:ellis@thediabeteslifestylecoach.com">ellis@thediabeteslifestylecoach.com</a>
             </div>
           </div>
           <div class="info-row">
@@ -1326,7 +1708,7 @@ footer .brand-txt span{color:var(--blush);}
         <div class="socials">
           <a href="https://www.facebook.com/profile.php?id=61591426322663" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
           <a href="https://www.instagram.com/thediabeteslifestylecoach" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2a3.9 3.9 0 0 1-2.3 2.3c-.4.17-1 .37-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42a3.9 3.9 0 0 1-2.3-2.3c-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 3.1a6.7 6.7 0 1 0 0 13.4 6.7 6.7 0 0 0 0-13.4zm0 11a4.3 4.3 0 1 1 0-8.6 4.3 4.3 0 0 1 0 8.6zm6.9-11.3a1.6 1.6 0 1 1-3.1 0 1.6 1.6 0 0 1 3.1 0z"/></svg></a>
-          <a href="mailto:thediabeteslifestylecoach@hotmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+          <a href="mailto:ellis@thediabeteslifestylecoach.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
         </div>
       </div>
       <div>
@@ -1351,7 +1733,7 @@ footer .brand-txt span{color:var(--blush);}
       </div>
       <div>
         <h4>Contact</h4>
-        <p style="margin-bottom:.7rem;"><a href="mailto:thediabeteslifestylecoach@hotmail.com" style="color:var(--blush);text-decoration:none;word-break:break-word;">thediabeteslifestylecoach@hotmail.com</a></p>
+        <p style="margin-bottom:.7rem;"><a href="mailto:ellis@thediabeteslifestylecoach.com" style="color:var(--blush);text-decoration:none;word-break:break-word;">ellis@thediabeteslifestylecoach.com</a></p>
         <p style="font-size:.86rem;">Online consultations, UK-wide<br>Based in Langford, Central Bedfordshire SG18</p>
         <p style="font-size:.82rem;margin-top:1rem;color:rgba(255,255,255,.4);">Coaching supports your NHS care — it doesn't replace your GP or diabetes team.</p>
       </div>
@@ -1364,7 +1746,7 @@ footer .brand-txt span{color:var(--blush);}
 </footer>
 
 <div class="mobile-bar">
-  <button class="btn btn-primary" onclick="showPage('work')">Book — £120</button>
+  <button class="btn btn-primary" onclick="showPage('contact')">Free call</button>
   <button class="btn btn-ghost" onclick="showPage('contact')">Message</button>
 </div>
 
@@ -1375,17 +1757,47 @@ footer .brand-txt span{color:var(--blush);}
   "name":"The Diabetes Lifestyle Coach",
   "description":"Nurse-led diabetes lifestyle coaching for Type 2 diabetes and prediabetes. Online video consultations across the UK.",
   "areaServed":"United Kingdom",
-  "email":"thediabeteslifestylecoach@hotmail.com",
+  "email":"ellis@thediabeteslifestylecoach.com",
   "address":{"@type":"PostalAddress","addressLocality":"Langford","addressRegion":"Central Bedfordshire","postalCode":"SG18","addressCountry":"GB"},
   "sameAs":["https://www.instagram.com/thediabeteslifestylecoach","https://www.facebook.com/profile.php?id=61591426322663"],
   "founder":{"@type":"Person","name":"Ellis","jobTitle":"Registered Nurse and Diabetes Lifestyle Coach"},
-  "makesOffer":{
-    "@type":"Offer",
-    "name":"Diabetes MOT & lifestyle review",
-    "price":"120",
-    "priceCurrency":"GBP",
-    "description":"A 60-90 minute personalised video consultation covering diagnosis, medications, lifestyle assessment, HbA1c review, a four-week action plan and a written summary."
-  }
+  "makesOffer":[
+    {
+      "@type":"Offer",
+      "name":"Free 15 minute discovery call",
+      "price":"0",
+      "priceCurrency":"GBP",
+      "description":"A free 15 minute video call to talk through where you are and which package fits, with no pressure and no obligation."
+    },
+    {
+      "@type":"Offer",
+      "name":"12 Week 1:1 Transformation Programme",
+      "price":"600",
+      "priceCurrency":"GBP",
+      "description":"Twelve weeks of 1:1 coaching with a comprehensive initial assessment, weekly coaching sessions, a personalised nutrition plan, ongoing WhatsApp support and midpoint and final reviews."
+    },
+    {
+      "@type":"Offer",
+      "name":"6 Week Refresh and Reset",
+      "price":"350",
+      "priceCurrency":"GBP",
+      "description":"A focused six-week programme with an initial video consultation, weekly video check-ins, blood glucose tracking, personalised nutrition and exercise guidance and a tailored action plan."
+    },
+    {
+      "@type":"Offer",
+      "name":"4 Week GLP-1 Success Package",
+      "price":"275",
+      "priceCurrency":"GBP",
+      "description":"Four weeks of coaching for people using a GLP-1 medication, covering how the medication works, managing side effects, nutrition and protein guidance and safe physical activity."
+    },
+    {
+      "@type":"Offer",
+      "name":"Diabetes MOT & lifestyle review",
+      "price":"120",
+      "priceCurrency":"GBP",
+      "description":"A 60-90 minute personalised video consultation covering diagnosis, medications, lifestyle assessment, HbA1c review, a four-week action plan and a written summary."
+    }
+  ]
 }
 </script>
 
@@ -1410,6 +1822,81 @@ function toggleMenu(){
   var bg=document.querySelector('.burger');
   var open=m.classList.toggle('open');
   if(bg) bg.setAttribute('aria-expanded',open?'true':'false');
+}
+
+/* ---- the plate ---- */
+var PLATE={
+  veg:{frac:'½',lab:'VEG',col:'#7FAE6B',title:'Half the plate — non-starchy veg',
+    text:'The part that fills you up without pushing your blood sugar around much. It also slows down everything else on the plate, which is why it\'s worth eating first.',
+    eg:['Broccoli','Peppers','Salad','Green beans','Cauliflower','Courgette','Mushrooms']},
+  protein:{frac:'¼',lab:'PROTEIN',col:'#8C6A5D',title:'A quarter — protein',
+    text:'Keeps you full for longer and protects muscle, which matters a lot if you\'re losing weight or using a GLP-1 medication.',
+    eg:['Chicken','Fish','Eggs','Beans &amp; lentils','Tofu','Greek yoghurt','Lean mince']},
+  carbs:{frac:'¼',lab:'CARBS',col:'#D8B4A2',title:'A quarter — carbohydrates',
+    text:'Not the enemy, and not banned. It\'s the portion size and what you eat alongside it that changes how your body handles it.',
+    eg:['Potatoes','Rice','Pasta','Bread','Oats','Couscous','Fruit']}
+};
+function setSlice(k){
+  var p=PLATE[k];
+  document.querySelectorAll('.slice').forEach(function(s){s.classList.toggle('on',s.getAttribute('data-k')===k);});
+  document.querySelectorAll('.plate-legend button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-k')===k);});
+  document.getElementById('plate-frac').textContent=p.frac;
+  document.getElementById('plate-lab').textContent=p.lab;
+  document.getElementById('plate-info').innerHTML='<h4><i style="background:'+p.col+'"></i>'+p.title+'</h4><p>'+p.text+'</p><div class="eg">'+p.eg.map(function(e){return '<span>'+e+'</span>';}).join('')+'</div>';
+}
+function buildPlateLegend(){
+  var box=document.getElementById('plate-legend');
+  if(!box)return;
+  box.innerHTML=['veg','protein','carbs'].map(function(k){
+    var p=PLATE[k];
+    return '<button type="button" data-k="'+k+'" onclick="setSlice(\''+k+'\')"><i style="background:'+p.col+'"></i><b>'+p.lab.charAt(0)+p.lab.slice(1).toLowerCase()+'</b><small>'+p.frac+' of the plate</small></button>';
+  }).join('');
+}
+
+/* ---- package finder ---- */
+var FA={1:null,2:null};
+var PKGS={
+  mot:{name:'Diabetes MOT & lifestyle review',price:'£120',sub:'One appointment'},
+  glp1:{name:'4 Week GLP-1 Success Package',price:'£275',sub:'4 weeks'},
+  six:{name:'6 Week Refresh and Reset',price:'£350',sub:'6 weeks'},
+  twelve:{name:'12 Week 1:1 Transformation Programme',price:'£600',sub:'12 weeks'}
+};
+var WHY={
+  new:'You\'ve had the diagnosis and not much else. ',
+  stuck:'You\'ve been at this a while and the old advice has stopped fitting. ',
+  glp1:'You\'re using a GLP-1, so the medication and the habits need working on together. ',
+  questions:'You mainly want somebody to explain it all properly. '
+};
+var FIT={
+  mot:'One 60–90 minute session covers your diagnosis, your medications, your HbA1c and your lifestyle, and you leave with a four-week plan and a written summary to keep.',
+  glp1:'Four weeks focused on how your medication works, managing side effects, protein and nutrition, and building habits that hold once the appetite change settles.',
+  six:'Six weeks with weekly video check-ins, blood glucose tracking and a tailored action plan — long enough to build momentum without a big commitment.',
+  twelve:'Twelve weeks of weekly 1:1 coaching with WhatsApp support throughout, a midpoint and final review, and a plan that adjusts as your results change.'
+};
+function fpick(q,btn){
+  document.querySelectorAll('#fq'+q+' button').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');FA[q]=btn.getAttribute('data-v');
+  if(FA[1]&&FA[2])fresult();
+}
+function fresult(){
+  var key;
+  if(FA[2]==='one')key='mot';
+  else if(FA[2]==='long')key='twelve';
+  else key=(FA[1]==='glp1')?'glp1':'six';
+  var p=PKGS[key];
+  var alt=(key==='twelve')?'six':(key==='mot'?'six':'mot');
+  var el=document.getElementById('finder-out');
+  el.innerHTML='<div class="fo-card"><div><small>Sounds like a good fit</small><h4>'+p.name+'</h4><p>'+WHY[FA[1]]+FIT[key]+'</p></div>'+
+    '<div><div class="fo-price">'+p.price+'<span>'+p.sub+'</span></div><button class="btn btn-light" style="margin-top:1rem;width:100%" onclick="showPage(\'contact\')">Enquire about this</button></div></div>'+
+    '<p class="fo-alt"><b>Not convinced?</b> The free 15 minute discovery call is there precisely for this — we can talk it through and land on the right one together, or look at the '+PKGS[alt].name+' instead.</p>';
+  el.classList.add('show');
+}
+
+function bookingNote(e){
+  e.preventDefault();
+  var n=document.getElementById('booking-note');
+  n.style.display='block';
+  n.innerHTML='<b style="color:#2F615C;">This is where your Practice Better booking page opens.</b> Demo only — send Aidan your Practice Better links and every "book" button on the site goes straight there.';
 }
 
 function demoForm(e){
@@ -1455,16 +1942,30 @@ function calcA1c(){
   document.getElementById('out-pct').textContent=pct.toFixed(1)+'%';
   document.getElementById('out-eag').textContent=(eag>0?eag.toFixed(1):'—')+' mmol/L';
   document.getElementById('out-big').textContent=(UNIT==='mmol')?Math.round(mmol):pct.toFixed(1);
-  document.querySelector('.readout .sm').textContent=(UNIT==='mmol')
-    ? 'mmol/mol — roughly the average of your blood sugar over the last 2–3 months'
-    : '% — roughly the average of your blood sugar over the last 2–3 months';
+  document.getElementById('out-unit').textContent=(UNIT==='mmol')?'mmol/mol':'%';
 
   var band=document.getElementById('out-band');
   var txt=document.getElementById('out-band-text');
   band.classList.remove('normal','pre','dia');
-  if(mmol<42){ band.classList.add('normal'); txt.textContent='Below the prediabetes range'; }
-  else if(mmol<48){ band.classList.add('pre'); txt.textContent='Prediabetes range'; }
-  else { band.classList.add('dia'); txt.textContent='Diabetes range'; }
+  var colour;
+  if(mmol<42){ band.classList.add('normal'); txt.textContent='Below the prediabetes range'; colour='#7AC48A'; }
+  else if(mmol<48){ band.classList.add('pre'); txt.textContent='Prediabetes range'; colour='#E8BE6C'; }
+  else { band.classList.add('dia'); txt.textContent='Diabetes range'; colour='#E08A78'; }
+
+  /* dial: 20–100 mmol/mol across a half circle */
+  var f=(mmol-20)/80; if(f<0)f=0; if(f>1)f=1;
+  var prog=document.getElementById('g-prog');
+  if(prog){
+    prog.style.strokeDashoffset=String(283*(1-f));
+    prog.style.stroke=colour;
+  }
+  var knob=document.getElementById('g-knob');
+  if(knob){
+    var th=(1-f)*Math.PI;
+    knob.setAttribute('cx',(110+90*Math.cos(th)).toFixed(1));
+    knob.setAttribute('cy',(112-90*Math.sin(th)).toFixed(1));
+    knob.style.stroke=colour;
+  }
 }
 
 function runReveal(){
@@ -1481,6 +1982,8 @@ function runReveal(){
 
 (function(){
   calcA1c();
+  buildPlateLegend();
+  setSlice('veg');
   runReveal();
   window.addEventListener('scroll',runReveal,{passive:true});
   window.addEventListener('resize',runReveal,{passive:true});
