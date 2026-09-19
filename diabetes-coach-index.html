@@ -6,12 +6,18 @@
 <title>The Diabetes Lifestyle Coach — Ellis Ford · Nurse-led diabetes coaching, online UK-wide</title>
 <meta name="description" content="Nurse-led diabetes lifestyle coaching for Type 2 and prediabetes. Packages from £120, including a free 15 minute discovery call. Evidence-based support with a Registered Nurse and NHS Diabetes Lead. Online, UK-wide.">
 <meta name="theme-color" content="#FCF7F3">
-<meta property="og:title" content="The Diabetes Lifestyle Coach — Ellis">
+<meta property="og:title" content="The Diabetes Lifestyle Coach — Ellis Ford">
 <meta property="og:description" content="Nurse-led diabetes lifestyle coaching for Type 2 and prediabetes. Evidence-based, no judgement. Online, UK-wide.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://thediabeteslifestylecoach.co.uk/">
+<meta property="og:image" content="https://thediabeteslifestylecoach.co.uk/photos-diabetes-coach/brand-banner.jpg">
+<meta property="og:site_name" content="The Diabetes Lifestyle Coach">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://thediabeteslifestylecoach.co.uk/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%238C6A5D%22/%3E%3Cpath d=%22M18.6 7.6a3.6 3.6 0 0 0-5.1 0L12 9.1l-1.5-1.5a3.6 3.6 0 1 0-5.1 5.1L12 19.3l6.6-6.6a3.6 3.6 0 0 0 0-5.1z%22 fill=%22%23fff%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="photos-diabetes-coach/ellis-portrait.jpg">
 <link rel="stylesheet" id="gf" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" media="print">
 <script>var gf=document.getElementById('gf');if(gf){gf.addEventListener('load',function(){this.media='all';});}</script>
 <style>
@@ -52,12 +58,12 @@ body{
 img{max-width:100%;height:auto;display:block;}
 a{color:inherit;}
 button{font:inherit;}
-h1,h2,h3,h4{color:var(--ink);line-height:1.12;}
+h1,h2,h3,.h4{color:var(--ink);line-height:1.12;}
 h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;}
 h1{font-size:clamp(2.5rem,5.6vw,4.3rem);line-height:1.04;}
 h2{font-size:clamp(2rem,3.9vw,3.1rem);}
 h3{font-size:1.3rem;}
-h4{font-size:1rem;font-weight:700;font-family:var(--sans);letter-spacing:-.01em;}
+.h4{font-size:1rem;font-weight:700;font-family:var(--sans);letter-spacing:-.01em;line-height:1.3;}
 p+p{margin-top:1rem;}
 em.hl{font-style:italic;color:var(--mocha);}
 
@@ -148,7 +154,8 @@ em.hl{font-style:italic;color:var(--mocha);}
 
 /* ---------- pages ---------- */
 .page{display:none;}
-.page.active{display:block;animation:fadeUp .5s cubic-bezier(.2,.8,.3,1);}
+.page.active{display:block;}
+html.pg-nav .page.active{animation:fadeUp .5s cubic-bezier(.2,.8,.3,1);}
 @keyframes fadeUp{from{opacity:0;transform:translate3d(0,14px,0);}to{opacity:1;transform:none;}}
 
 .reveal{opacity:0;transform:translate3d(0,22px,0);transition:opacity .7s cubic-bezier(.2,.8,.3,1),transform .7s cubic-bezier(.2,.8,.3,1);}
@@ -255,7 +262,7 @@ em.hl{font-style:italic;color:var(--mocha);}
   flex:none;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;
   display:grid;place-items:center;font-size:.85rem;font-weight:700;font-family:var(--sans);
 }
-.mini h4{margin-bottom:.2rem;}
+.mini .h4{margin-bottom:.2rem;}
 .mini p{font-size:.93rem;}
 
 /* support icon grid */
@@ -421,7 +428,7 @@ em.hl{font-style:italic;color:var(--mocha);}
 .values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;}
 @media(max-width:820px){.values{grid-template-columns:minmax(0,1fr);}}
 .value{border-left:3px solid var(--blush);padding:.3rem 0 .3rem 1.4rem;}
-.value h4{margin-bottom:.4rem;font-size:1.02rem;}
+.value .h4{margin-bottom:.4rem;font-size:1.02rem;}
 .value p{font-size:.94rem;}
 
 /* ---------- pricing ---------- */
@@ -510,7 +517,7 @@ a.post,a.feat{text-decoration:none;color:inherit;}
 .art-side{position:sticky;top:104px;display:grid;gap:1.2rem;}
 @media(max-width:980px){.art-side{position:static;}}
 .take{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--sh-sm);}
-.take h4{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mocha);margin-bottom:.8rem;}
+.take .h4{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mocha);margin-bottom:.8rem;}
 .take ol{margin:0;padding:0;list-style:none;counter-reset:t;}
 .take li{counter-increment:t;position:relative;padding-left:2rem;font-size:.92rem;line-height:1.5;margin-top:.7rem;}
 .take li::before{content:counter(t);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:7px;background:var(--cream-2);color:var(--mocha-dk);font-size:.74rem;font-weight:700;display:grid;place-items:center;}
@@ -598,8 +605,8 @@ a.post,a.feat{text-decoration:none;color:inherit;}
   background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.3rem 1.5rem;
   box-shadow:var(--sh-sm);width:100%;min-height:150px;
 }
-.plate-info h4{font-size:1.05rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.55rem;}
-.plate-info h4 i{width:12px;height:12px;border-radius:4px;flex:none;font-style:normal;}
+.plate-info .h4{font-size:1.05rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.55rem;}
+.plate-info .h4 i{width:12px;height:12px;border-radius:4px;flex:none;font-style:normal;}
 .plate-info p{font-size:.93rem;}
 .plate-info .eg{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.4rem;}
 .plate-info .eg span{font-size:.78rem;background:var(--cream-2);border:1px solid var(--line);padding:.24rem .6rem;border-radius:99px;color:var(--body);}
@@ -625,8 +632,8 @@ a.post,a.feat{text-decoration:none;color:inherit;}
 .finder-head p{margin-top:.5rem;font-size:.95rem;}
 .finder-qs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;padding:1.8rem 2.2rem;}
 @media(max-width:860px){.finder-qs{grid-template-columns:minmax(0,1fr);gap:1.6rem;}.finder-head,.finder-qs{padding-left:1.4rem;padding-right:1.4rem;}}
-.fq h4{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;font-size:1rem;}
-.fq h4 i{font-style:normal;width:25px;height:25px;border-radius:8px;background:var(--mocha);color:#fff;display:grid;place-items:center;font-size:.76rem;font-weight:700;flex:none;}
+.fq .h4{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;font-size:1rem;}
+.fq .h4 i{font-style:normal;width:25px;height:25px;border-radius:8px;background:var(--mocha);color:#fff;display:grid;place-items:center;font-size:.76rem;font-weight:700;flex:none;}
 .fq-opts{display:grid;gap:.55rem;}
 .fq-opts button{
   text-align:left;background:var(--white);border:1px solid var(--line-2);border-radius:14px;
@@ -647,7 +654,7 @@ a.post,a.feat{text-decoration:none;color:inherit;}
 }
 @media(max-width:700px){.fo-card{grid-template-columns:minmax(0,1fr);}}
 .fo-card small{font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blush-lt);}
-.fo-card h4{color:#fff;font-family:var(--display);font-weight:600;font-size:1.6rem;margin:.4rem 0 .5rem;line-height:1.2;}
+.fo-card .h4{color:#fff;font-family:var(--display);font-weight:600;font-size:1.6rem;margin:.4rem 0 .5rem;line-height:1.2;}
 .fo-card p{font-size:.94rem;}
 .fo-price{font-family:var(--display);font-size:2.6rem;color:#fff;line-height:1;text-align:center;}
 .fo-price span{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blush-lt);margin-top:.3rem;}
@@ -683,7 +690,7 @@ a.post,a.feat{text-decoration:none;color:inherit;}
 .viz-card>*{position:relative;}
 .viz-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.1rem;}
 .viz-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mocha);}
-.viz-head h3{font-size:1.18rem;margin-top:.3rem;line-height:1.25;}
+.viz-head h2{font-size:1.18rem;margin-top:.3rem;line-height:1.25;}
 .viz-live{display:inline-flex;align-items:center;gap:.4rem;font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);padding:.3rem .6rem;border-radius:99px;flex:none;}
 .viz-live .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:vizPulse 2.4s ease-in-out infinite;}
 @keyframes vizPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(1.3);}}
@@ -810,7 +817,7 @@ a.post,a.feat{text-decoration:none;color:inherit;}
 
 /* ---------- footer ---------- */
 footer{background:#241C18;color:rgba(255,255,255,.62);padding:4rem 0 0;font-size:.93rem;}
-footer h4{color:#fff;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.1rem;}
+footer .h4{color:#fff;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.1rem;}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr);gap:2.5rem;padding-bottom:3rem;}
 @media(max-width:900px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;}}
 @media(max-width:560px){.foot-grid{grid-template-columns:minmax(0,1fr);}}
@@ -823,8 +830,8 @@ footer .brand-txt span{color:var(--blush);}
 .socials a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:background .22s,transform .22s;}
 .socials a:hover{background:var(--mocha);transform:translateY(-2px);}
 .socials svg{width:18px;height:18px;fill:rgba(255,255,255,.8);}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:1.5rem 0 2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.84rem;color:rgba(255,255,255,.45);}
-.foot-bottom a{color:var(--blush);text-decoration:none;}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:1.5rem 0 2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.84rem;color:rgba(255,255,255,.72);}
+.foot-bottom a{color:var(--blush);text-decoration:underline;text-underline-offset:2px;}
 
 /* ---------- mobile bar ---------- */
 .mobile-bar{
@@ -836,6 +843,32 @@ footer .brand-txt span{color:var(--blush);}
 
 :focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:8px;}
 ::selection{background:var(--blush);color:var(--ink);}
+/* ---------- cookie choice ---------- */
+.cookie{position:fixed;left:22px;bottom:22px;z-index:120;max-width:400px;background:var(--white);border:1px solid var(--line-2);border-radius:var(--r-md);box-shadow:0 18px 50px rgba(42,33,28,.18);padding:1.1rem 1.2rem;font-size:.88rem;line-height:1.55;color:var(--body);}
+.cookie[hidden]{display:none;}
+.cookie b{color:var(--ink);}
+.cookie .ck-btns{display:flex;gap:.5rem;margin-top:.8rem;}
+.cookie .ck-btns .btn{flex:1;padding:.7rem 1rem;font-size:.88rem;}
+.ck-link{background:none;border:0;padding:0;font:inherit;color:var(--teal);text-decoration:underline;cursor:pointer;}
+@media(max-width:700px){.cookie{left:12px;right:12px;bottom:86px;max-width:none;}}
+.foot-mini{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
+.foot-mini:hover{color:#fff;}
+/* ---------- privacy page ---------- */
+.legal{max-width:72ch;margin:0 auto;}
+.legal h1{font-family:var(--display);font-size:clamp(2rem,4vw,2.8rem);color:var(--ink);line-height:1.1;margin:.6rem 0 .4rem;}
+.legal-upd{color:var(--muted);font-size:.86rem;margin-bottom:1.6rem;}
+.legal h2{font-family:var(--display);font-size:1.35rem;color:var(--ink);margin:2rem 0 .5rem;}
+.legal p,.legal li{font-size:.98rem;line-height:1.7;}
+.legal ul{margin:.5rem 0 .8rem 1.2rem;}
+.legal li{margin:.35rem 0;}
+.legal a{color:var(--teal);}
+/* ---------- form consent ---------- */
+.consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.84rem;line-height:1.5;color:var(--body);margin:.2rem 0 1rem;cursor:pointer;}
+.consent input{margin-top:.2rem;width:18px;height:18px;flex:none;accent-color:var(--mocha);}
+.consent a{color:var(--teal);}
+/* ---------- booker: consent gate ---------- */
+.ba-consent{margin-top:.9rem;font-size:.84rem;color:var(--muted);}
+.ba-consent button{background:none;border:0;padding:0;font:inherit;color:var(--teal);text-decoration:underline;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -866,7 +899,7 @@ footer .brand-txt span{color:var(--blush);}
 <header class="site-header">
   <div class="container">
     <nav class="nav">
-      <button class="brand" onclick="showPage('home')" aria-label="The Diabetes Lifestyle Coach — home">
+      <button class="brand" onclick="showPage('home')">
         <span class="brand-mark">
           <svg viewBox="0 0 24 24"><path d="M20.8 6.6a4.7 4.7 0 0 0-6.7 0L12 8.7l-2.1-2.1a4.7 4.7 0 1 0-6.7 6.7l8.8 8.8 8.8-8.8a4.7 4.7 0 0 0 0-6.7z"/></svg>
         </span>
@@ -904,6 +937,7 @@ footer .brand-txt span{color:var(--blush);}
 </header>
 
 <!-- ===================== HOME ===================== -->
+<main id="main">
 <div class="page active" id="page-home">
 
   <section class="hero">
@@ -938,7 +972,7 @@ footer .brand-txt span{color:var(--blush);}
             <div class="viz-head">
               <div>
                 <span class="viz-eyebrow">Same meal, different order</span>
-                <h3>What your blood sugar does next</h3>
+                <h2>What your blood sugar does next</h2>
               </div>
               <span class="viz-live"><span class="dot"></span>Illustration</span>
             </div>
@@ -1242,19 +1276,19 @@ footer .brand-txt span{color:var(--blush);}
           <div class="card" style="padding:1.6rem 1.8rem;">
             <div class="mini">
               <span class="n">1</span>
-              <div><h4>Book your free 15 minute call</h4><p>Pick a time that suits you. We work out where you're at and which package fits — and if none of them do, I'll say so.</p></div>
+              <div><h3 class="h4">Book your free 15 minute call</h3><p>Pick a time that suits you. We work out where you're at and which package fits — and if none of them do, I'll say so.</p></div>
             </div>
             <div class="mini">
               <span class="n">2</span>
-              <div><h4>A few questions before we meet</h4><p>A short form about your diagnosis, medications and recent results so we don't spend our session on admin.</p></div>
+              <div><h3 class="h4">A few questions before we meet</h3><p>A short form about your diagnosis, medications and recent results so we don't spend our session on admin.</p></div>
             </div>
             <div class="mini">
               <span class="n">3</span>
-              <div><h4>Your 60–90 minute consultation</h4><p>On video, from your own front room. We go through everything and build the plan together.</p></div>
+              <div><h3 class="h4">Your 60–90 minute consultation</h3><p>On video, from your own front room. We go through everything and build the plan together.</p></div>
             </div>
             <div class="mini">
               <span class="n">4</span>
-              <div><h4>Your written summary arrives</h4><p>Your four-week action plan and next steps in writing, so you're not relying on memory a fortnight later.</p></div>
+              <div><h3 class="h4">Your written summary arrives</h3><p>Your four-week action plan and next steps in writing, so you're not relying on memory a fortnight later.</p></div>
             </div>
           </div>
         </div>
@@ -1376,15 +1410,15 @@ footer .brand-txt span{color:var(--blush);}
       </div>
       <div class="values reveal">
         <div class="value">
-          <h4>No judgement, just support</h4>
+          <h3 class="h4">No judgement, just support</h3>
           <p>You won't be judged for where you're starting from — whether that's your weight, your blood glucose, food choices or simply feeling like you've lost your way. My job is to listen, understand what's going on and help you move forward without shame or guilt.</p>
         </div>
         <div class="value">
-          <h4>Evidence over internet noise</h4>
+          <h3 class="h4">Evidence over internet noise</h3>
           <p>There's a lot of conflicting diabetes advice online. I'll help you separate fact from fad, using evidence-based information and my experience working in NHS diabetes care. No quick fixes, no miracle cures, no unnecessary restriction — and no cutting out entire food groups because the internet said so. Just clear, practical information you can actually understand and use.</p>
         </div>
         <div class="value">
-          <h4>A plan that fits your life</h4>
+          <h3 class="h4">A plan that fits your life</h3>
           <p>You don't need a perfect routine. Your work, family, budget, social life and everything in between matter. We'll focus on realistic changes that work for you — because a plan only works if it's something you can maintain. Small steps. Real life. Lasting change.</p>
         </div>
       </div>
@@ -1532,7 +1566,7 @@ footer .brand-txt span{color:var(--blush);}
         </div>
         <div class="finder-qs">
           <div class="fq">
-            <h4><i>1</i>Where are you right now?</h4>
+            <h3 class="h4"><i>1</i>Where are you right now?</h3>
             <div class="fq-opts" id="fq1">
               <button type="button" data-v="new" onclick="fpick(1,this)">Just diagnosed, or told I'm at risk<small>Prediabetes or a recent Type 2 diagnosis</small></button>
               <button type="button" data-v="stuck" onclick="fpick(1,this)">Living with it a while, feeling stuck<small>Numbers have crept up, old advice isn't working</small></button>
@@ -1541,7 +1575,7 @@ footer .brand-txt span{color:var(--blush);}
             </div>
           </div>
           <div class="fq">
-            <h4><i>2</i>How much support do you want?</h4>
+            <h3 class="h4"><i>2</i>How much support do you want?</h3>
             <div class="fq-opts" id="fq2">
               <button type="button" data-v="one" onclick="fpick(2,this)">One proper appointment<small>A full review and a plan to take away</small></button>
               <button type="button" data-v="few" onclick="fpick(2,this)">A few weeks of structure<small>Check-ins while the habits bed in</small></button>
@@ -1781,6 +1815,7 @@ footer .brand-txt span{color:var(--blush);}
                 <label for="c-msg">Where are you at?</label>
                 <textarea id="c-msg" placeholder="Recently diagnosed, been managing it for years, not sure where to start — whatever's useful. No detail is too small."></textarea>
               </div>
+              <label class="consent"><input type="checkbox" id="c-consent" required><span>I'm happy for Ellis to use what I've shared, including any health information, to reply to me. See the <a href="#" onclick="showPage('privacy');return false;">privacy notice</a>.</span></label>
               <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Send my enquiry</button>
               <div class="form-note" id="form-note">
                 Your message goes straight to Ellis. Nothing is shared with anyone else, and you won't be added to any list you didn't ask for.
@@ -1848,6 +1883,60 @@ footer .brand-txt span{color:var(--blush);}
 
 </div>
 
+<!-- ===================== PRIVACY & COOKIES ===================== -->
+<div class="page" id="page-privacy">
+  <section class="section">
+    <div class="container">
+      <div class="legal">
+        <span class="eyebrow">Privacy &amp; cookies</span>
+        <h1>How your information is looked after</h1>
+        <p class="legal-upd">Last updated: September 2026</p>
+
+        <h2>Who I am</h2>
+        <p>This website belongs to <strong>Ellis Ford, trading as The Diabetes Lifestyle Coach</strong>, based in Langford, Bedfordshire. I'm responsible (the "data controller") for any personal information you share with me through it. You can contact me about anything on this page at <a href="mailto:ellis@thediabeteslifestylecoach.com">ellis@thediabeteslifestylecoach.com</a>.</p>
+
+        <h2>What I collect, and why</h2>
+        <ul>
+          <li><strong>When you send a message</strong> through the contact form: your name, email address, the service you're interested in, and anything you choose to write. I use this only to reply to you.</li>
+          <li><strong>When you book a call</strong>: bookings are made through Practice Better, a secure practice management platform. They collect your booking details on my behalf.</li>
+          <li><strong>If you become a client</strong>: the health information needed to support you, like your diagnosis, medications and results, is kept in Practice Better and handled under the separate agreement we make when you start.</li>
+        </ul>
+        <p>Health information is a "special category" of personal data. I only use it with your <strong>explicit consent</strong>, which you give when you tick the box on the contact form or book with me. You can withdraw it at any time by emailing me.</p>
+
+        <h2>Who else sees it</h2>
+        <p>Nobody, apart from the services that make this website and my practice work:</p>
+        <ul>
+          <li><strong>Practice Better</strong>: bookings, client records and video consultations.</li>
+          <li><strong>Web3Forms</strong>: passes contact-form messages to my inbox.</li>
+          <li><strong>My email provider</strong>: where messages arrive.</li>
+          <li><strong>The website's hosting provider</strong>: keeps short-term technical logs to keep the site secure.</li>
+        </ul>
+        <p>I never sell your information, never add you to a mailing list you didn't ask for, and never share it for marketing.</p>
+
+        <h2>How long I keep it</h2>
+        <p>If you send an enquiry and don't go on to work with me, I delete it within 12 months. Client records are kept for as long as professional and legal obligations require, and then securely deleted.</p>
+
+        <h2>Your rights</h2>
+        <p>You can ask to see the information I hold about you, correct it, delete it, or ask me to stop using it. Just email me. There's no charge, and I'll reply within one month. If you're unhappy with how your information has been handled, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk</a>, though I'd appreciate the chance to put it right first.</p>
+
+        <h2 id="cookies">Cookies</h2>
+        <p>This website doesn't use advertising or tracking cookies, and there are no analytics following you around.</p>
+        <ul>
+          <li><strong>Remembering your choice</strong>: a small setting saved in your browser so this site remembers whether you allowed the booking calendar. It's strictly necessary, so it doesn't need consent.</li>
+          <li><strong>Booking calendar (optional)</strong>: the booking diary on the contact page is provided by Practice Better. When it's shown on this site, Practice Better may set its own cookies to make booking work securely. It only loads if you choose <em>Allow</em>. If you'd rather not, you can still book on Practice Better's own site using the link provided.</li>
+          <li><strong>Fonts</strong>: text styles are loaded from Google Fonts, which receives your IP address to send them but doesn't set cookies.</li>
+        </ul>
+        <p><button type="button" class="btn btn-ghost" onclick="openCookies()">Change my cookie choice</button></p>
+
+        <h2>Medical disclaimer</h2>
+        <p>The information on this website is general education, not personal medical advice. Coaching supports your NHS care and doesn't replace your GP or diabetes team. Never stop or change a medicine without speaking to the person who prescribes it. If you feel unwell, contact your GP or NHS 111, or call 999 in an emergency.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="container">
@@ -1867,7 +1956,7 @@ footer .brand-txt span{color:var(--blush);}
         </div>
       </div>
       <div>
-        <h4>Navigate</h4>
+        <h3 class="h4">Navigate</h3>
         <ul class="foot-links">
           <li><button onclick="showPage('home')">Home</button></li>
           <li><button onclick="showPage('about')">About Ellis</button></li>
@@ -1877,7 +1966,7 @@ footer .brand-txt span{color:var(--blush);}
         </ul>
       </div>
       <div>
-        <h4>Support with</h4>
+        <h3 class="h4">Support with</h3>
         <ul class="foot-links">
           <li><button onclick="showPage('work')">Diabetes MOT</button></li>
           <li><button onclick="showPage('work')">GLP-1 support</button></li>
@@ -1887,15 +1976,15 @@ footer .brand-txt span{color:var(--blush);}
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h3 class="h4">Contact</h3>
         <p style="margin-bottom:.7rem;"><a href="mailto:ellis@thediabeteslifestylecoach.com" style="color:var(--blush);text-decoration:none;word-break:break-word;">ellis@thediabeteslifestylecoach.com</a></p>
         <p style="font-size:.86rem;">Online consultations, UK-wide<br>Based in Langford, Central Bedfordshire SG18</p>
-        <p style="font-size:.82rem;margin-top:1rem;color:rgba(255,255,255,.4);">Coaching supports your NHS care — it doesn't replace your GP or diabetes team.</p>
+        <p style="font-size:.82rem;margin-top:1rem;color:rgba(255,255,255,.72);">Coaching supports your NHS care — it doesn't replace your GP or diabetes team.</p>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 The Diabetes Lifestyle Coach · Empower your choices, elevate your life</span>
-      <span>Website concept built by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a></span>
+      <span><button class="foot-mini" onclick="showPage('privacy')">Privacy &amp; cookies</button> · <button class="foot-mini" onclick="openCookies()">Cookie settings</button> · Website by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a></span>
     </div>
   </div>
 </footer>
@@ -1908,6 +1997,14 @@ footer .brand-txt span{color:var(--blush);}
     <span class="fc-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><i></i></span>
     <span class="fc-txt"><b>Book a free call</b><small>15 minutes · no pressure</small></span>
   </button>
+</div>
+
+<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie choice" hidden>
+  <p><b>Cookies, kept simple.</b> No tracking or adverts here. The only optional cookies come from the Practice Better booking calendar, if you let it show on this site. <button type="button" class="ck-link" onclick="showPage('privacy');setTimeout(function(){var c=document.getElementById('cookies');if(c)c.scrollIntoView();},60)">More info</button></p>
+  <div class="ck-btns">
+    <button type="button" class="btn btn-ghost" onclick="setCookieChoice('essential')">Essential only</button>
+    <button type="button" class="btn btn-primary" onclick="setCookieChoice('all')">Allow</button>
+  </div>
 </div>
 
 <div class="mobile-bar">
@@ -1969,6 +2066,7 @@ footer .brand-txt span{color:var(--blush);}
 
 <script>
 function showPage(id){
+  document.documentElement.classList.add('pg-nav');
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   var el=document.getElementById('page-'+id);
   if(el) el.classList.add('active');
@@ -2034,7 +2132,7 @@ ${warn('Get urgent medical help if you notice:','Feeling or being sick, tummy pa
 ${tip('Ask for it in writing','If nobody has ever talked you through your sick-day rules, ask your GP, practice nurse or pharmacist at your next appointment. It\'s one of the things I cover in the Diabetes MOT, too.')}
 <p>Always take your medication as prescribed, and never stop or change it without speaking to the person who prescribes it. <strong>Know your medication, know your plan.</strong></p>`},
 
-{slug:'glp1',cat:'Medications',icon:'jab',
+{slug:'glp1',cat:'Medications',icon:'jab',img:'photos-diabetes-coach/post-glp1.jpg',
  title:'Starting a GLP-1: what to actually expect',
  dek:'What the first few weeks tend to feel like, why the side effects usually settle, and how to protect your muscle while your appetite drops away.',
  take:['GLP-1 medicines reduce appetite and help your body release insulin when you eat.','Side effects are usually worst when starting or increasing the dose, and often settle.','Smaller meals, eating slowly and stopping when full make a real difference.','Prioritise protein and strength exercise to protect your muscle.'],
@@ -2056,7 +2154,7 @@ ${tip('A simple rule to start with','Build each meal around a source of protein 
 ${warn('Seek urgent help if:','You have severe tummy pain that won\'t go away (sometimes spreading to your back), or you\'re being sick so much you can\'t keep fluids down. Contact your GP or NHS 111, or call 999 in an emergency.')}
 <p>A GLP-1 can be a genuinely useful tool — but the habits you build alongside it are what make the results last. That's exactly what the 4 Week GLP-1 Success Package is for.</p>`},
 
-{slug:'food-order',cat:'Nutrition',icon:'food',
+{slug:'food-order',cat:'Nutrition',icon:'food',img:'photos-diabetes-coach/post-food-order.jpg',
  title:'Carbs aren\'t the enemy — but order matters',
  dek:'Why the same meal can affect your blood sugar differently depending on what you eat first, and four simple swaps that take no willpower at all.',
  take:['No food is banned — carbohydrate is fuel, not the enemy.','Eating vegetables and protein before carbohydrate can soften the rise in blood glucose.','Pairing carbs with protein, fibre or healthy fats slows them down.','A short walk after eating helps your muscles use glucose.'],
@@ -2076,7 +2174,7 @@ ${tip('Try it for a week','If you use a glucose meter or sensor, try the same me
 <h3>What this isn't</h3>
 <p>This isn't a diet and it doesn't mean carbohydrate portions stop mattering. It's one small, realistic change you can make without giving anything up — which is exactly the kind of change that tends to stick.</p>`},
 
-{slug:'hba1c',cat:'Your numbers',icon:'clock',
+{slug:'hba1c',cat:'Your numbers',icon:'clock',img:'photos-diabetes-coach/post-hba1c.jpg',
  title:'HbA1c: the number everyone quotes, explained',
  dek:'What it actually measures, why it\'s an average rather than a snapshot, and why a "good" target is personal rather than one-size-fits-all.',
  take:['HbA1c reflects your average blood glucose over roughly the last 2–3 months.','Below 42 mmol/mol is the normal range; 42–47 is prediabetes; 48 or above is the diabetes range.','Targets are personal — agree yours with your diabetes team.','Some conditions, like anaemia, can make HbA1c less reliable.'],
@@ -2097,7 +2195,7 @@ ${tip('Convert your own number','There\'s a free HbA1c converter on the home pag
 <p>Anything that changes how long your red blood cells live can affect the result — for example <strong>anaemia</strong>, recent blood loss or transfusion, some inherited haemoglobin variants, and pregnancy. If your HbA1c doesn't seem to match how your glucose readings look day to day, it's worth asking about.</p>
 <p>Bring your latest result to any of my consultations and we'll go through what it means for you — not just what the chart says.</p>`},
 
-{slug:'walk',cat:'Movement',icon:'walk',
+{slug:'walk',cat:'Movement',icon:'walk',img:'photos-diabetes-coach/post-walk.jpg',
  title:'The ten-minute walk that changes your afternoon',
  dek:'Why when you move matters nearly as much as how much — and the easiest habit to bolt onto a day you can\'t fit anything else into.',
  take:['Working muscles take glucose out of your blood.','A short walk soon after a meal can lower the post-meal peak.','Aim for 150 minutes of moderate activity a week, plus strength work twice a week.','If you take insulin or a sulfonylurea, check how activity affects you.'],
@@ -2116,7 +2214,7 @@ ${tip('The bigger picture','UK guidance for adults is at least 150 minutes of mo
 <h3>A few sensible checks</h3>
 <p>If you take <strong>insulin or a sulfonylurea</strong> such as gliclazide, more activity can lower your blood glucose further, so check how it affects you and carry something sugary. Wear comfortable, well-fitting shoes, and check your feet afterwards — especially if you have reduced feeling in them. If you have a heart condition or haven't been active for a long time, have a word with your GP before stepping things up.</p>`},
 
-{slug:'feet',cat:'Everyday health',icon:'foot',
+{slug:'feet',cat:'Foot care',icon:'foot',img:'photos-diabetes-coach/post-feet.jpg',
  title:'Feet: the five-minute check nobody shows you',
  dek:'What to look for, how often, and the changes worth ringing someone about the same day rather than waiting for your annual review.',
  take:['Diabetes can reduce feeling and circulation in your feet.','Check both feet every day, including between your toes.','Never walk barefoot, and check inside your shoes.','A new wound, redness, heat, swelling or colour change needs same-day advice.'],
@@ -2141,7 +2239,7 @@ ${warn('Contact your GP, practice nurse or foot protection team the same day if 
 <h3>Your annual foot check</h3>
 <p>Everyone with diabetes should have their feet checked at least once a year as part of their NHS diabetes review, and be told their level of risk. If you've never been told yours, ask. Foot health and nerve awareness is part of every Diabetes MOT I do.</p>`},
 
-{slug:'prediabetes',cat:'Getting started',icon:'leaf',
+{slug:'prediabetes',cat:'Getting started',icon:'leaf',img:'photos-diabetes-coach/post-prediabetes.jpg',
  title:'Told you have prediabetes? Here\'s what it means',
  dek:'What the result actually tells you, why it\'s a warning rather than a diagnosis, and the changes that make the biggest difference.',
  take:['Prediabetes means an HbA1c of 42–47 mmol/mol.','It\'s a warning sign, not a diagnosis of Type 2 diabetes.','Many people can reduce their risk of going on to develop Type 2.','Ask your GP about the NHS Diabetes Prevention Programme.'],
@@ -2161,7 +2259,7 @@ ${tip('Free NHS support','The NHS Diabetes Prevention Programme offers free supp
 <h3>What happens next</h3>
 <p>Your GP will usually recheck your HbA1c, often once a year. In the meantime, you don't need to overhaul your whole life. You need two or three changes you can realistically keep going — which is exactly what the Diabetes MOT is designed to find.</p>`},
 
-{slug:'sick-days',cat:'Everyday health',icon:'therm',
+{slug:'sick-days',cat:'Sick days',icon:'therm',img:'photos-diabetes-coach/post-sick-days.jpg',
  title:'Sick day rules: what to do when you\'re unwell',
  dek:'Why illness pushes blood glucose up even when you\'re not eating, what to keep doing, and which medicines might need a temporary pause.',
  take:['Illness often raises blood glucose, even when you\'re eating less.','Keep drinking fluids, and check your glucose more often if you can.','Some medicines may need pausing when you\'re dehydrated — only on your team\'s advice.','Know when to get help, and have your plan written down before you need it.'],
@@ -2181,7 +2279,7 @@ ${warn('Only pause a medicine if your own team has told you to','Sick-day advice
 <p>Contact your GP or NHS 111 if you can't keep fluids down, if you're being sick repeatedly, or if your blood glucose stays high despite following your plan. If you have symptoms like tummy pain, fast breathing, confusion or fruity-smelling breath, <strong>call 999</strong>.</p>
 ${tip('Sort it before you need it','The worst time to work out your sick-day rules is when you\'re already ill. Ask for them in writing, and keep them somewhere easy to find.')}`},
 
-{slug:'sleep-stress',cat:'Everyday health',icon:'moon',
+{slug:'sleep-stress',cat:'Sleep and stress',icon:'moon',img:'photos-diabetes-coach/post-sleep-stress.jpg',
  title:'Sleep, stress and your blood sugar',
  dek:'The two things that can nudge your numbers up even on a "perfect" day of eating — and what you can realistically do about them.',
  take:['Stress hormones raise blood glucose.','Short or poor sleep can make your body less responsive to insulin.','Tiredness increases cravings the next day — that\'s biology, not weakness.','Loud snoring and daytime sleepiness are worth mentioning to your GP.'],
@@ -2210,7 +2308,7 @@ function artIcon(a,size){return '<svg viewBox="0 0 24 24"'+(size?' style="width:
 var CLOCK='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
 
 function postCard(a,d){
-  var art=a.img?'<img src="'+a.img+'" alt="" loading="lazy">':'<div class="post-art">'+artIcon(a)+'</div>';
+  var art=a.img?'<img src="'+a.img+'" alt="" width="960" height="600" loading="lazy" decoding="async">':'<div class="post-art">'+artIcon(a)+'</div>';
   return '<a class="post reveal'+(d?' d'+d:'')+'" href="#learn/'+a.slug+'" onclick="openArticle(\''+a.slug+'\');return false;">'+
     '<div class="post-img">'+art+'</div><div class="post-body"><span class="post-cat">'+a.cat+'</span><h3>'+a.title+'</h3><p>'+a.dek+'</p>'+
     '<div class="post-meta">'+CLOCK+a.read+' min read</div><span class="go">Read this →</span></div></a>';
@@ -2269,7 +2367,7 @@ function openArticle(slug){
         '<p class="art-legal">This article is general information, not personal medical advice. Never stop or change a medicine without speaking to the person who prescribes it. If you feel unwell, contact your GP or NHS 111 — or call 999 in an emergency.</p>'+
       '</article>'+
       '<aside class="art-side">'+
-        '<div class="take"><h4>Key takeaways</h4><ol>'+a.take.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ol></div>'+
+        '<div class="take"><h3 class="h4">Key takeaways</h3><ol>'+a.take.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ol></div>'+
         '<div class="side-cta"><b>Want this explained for your situation?</b><p>A free 15 minute call — no pressure, no pitch.</p><button class="btn btn-light" onclick="bookCall()">Book a free call</button></div>'+
       '</aside>'+
     '</div>'+
@@ -2301,7 +2399,7 @@ function setSlice(k){
   document.querySelectorAll('.plate-legend button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-k')===k);});
   document.getElementById('plate-frac').textContent=p.frac;
   document.getElementById('plate-lab').textContent=p.lab;
-  document.getElementById('plate-info').innerHTML='<h4><i style="background:'+p.col+'"></i>'+p.title+'</h4><p>'+p.text+'</p><div class="eg">'+p.eg.map(function(e){return '<span>'+e+'</span>';}).join('')+'</div>';
+  document.getElementById('plate-info').innerHTML='<h3 class="h4"><i style="background:'+p.col+'"></i>'+p.title+'</h3><p>'+p.text+'</p><div class="eg">'+p.eg.map(function(e){return '<span>'+e+'</span>';}).join('')+'</div>';
 }
 function buildPlateLegend(){
   var box=document.getElementById('plate-legend');
@@ -2345,7 +2443,7 @@ function fresult(){
   var p=PKGS[key];
   var alt=(key==='twelve')?'six':(key==='mot'?'six':'mot');
   var el=document.getElementById('finder-out');
-  el.innerHTML='<div class="fo-card"><div><small>Sounds like a good fit</small><h4>'+p.name+'</h4><p>'+WHY[FA[1]]+FIT[key]+'</p></div>'+
+  el.innerHTML='<div class="fo-card"><div><small>Sounds like a good fit</small><h3 class="h4">'+p.name+'</h3><p>'+WHY[FA[1]]+FIT[key]+'</p></div>'+
     '<div><div class="fo-price">'+p.price+'<span>'+p.sub+'</span></div><button class="btn btn-light" style="margin-top:1rem;width:100%" onclick="bookCall()">Start with a free call</button></div></div>'+
     '<p class="fo-alt"><b>Not convinced?</b> The free 15 minute discovery call is there precisely for this — we can talk it through and land on the right one together, or look at the '+PKGS[alt].name+' instead.</p>';
   el.classList.add('show');
@@ -2355,13 +2453,39 @@ function fresult(){
 var PB_URL='https://my.practicebetter.io/#/6aa8f3e623641dbdc1debacf/bookings?s=6aa8f9dc23641dbdc1df02a6';
 /* Practice Better only allows embedding on https:// pages. Anywhere else (a local preview,
    an opened file) show the designed booking panel instead, so "refused to connect" never shows. */
-function bookerFallback(){
+function bookerFallback(gated){
   var fr=document.getElementById('booker-frame');
   if(fr)fr.classList.add('alt');
+  var alt=document.getElementById('booker-alt'),n=document.getElementById('ba-consent');
+  if(gated&&alt&&!n){
+    n=document.createElement('p');n.id='ba-consent';n.className='ba-consent';
+    n.innerHTML='Prefer to book without leaving this page? <button type="button" onclick="setCookieChoice(\'all\')">Show Ellis\'s diary here</button> (this lets Practice Better set its booking cookies).';
+    alt.appendChild(n);
+  }
+  if(!gated&&n)n.remove();
+}
+/* ---- cookie choice: the Practice Better diary is the only thing that sets optional cookies ---- */
+var CK='dlc-cookie-choice';
+function cookieChoice(){try{return localStorage.getItem(CK);}catch(e){return null;}}
+function openCookies(){var c=document.getElementById('cookie');if(c)c.hidden=false;}
+function setCookieChoice(v){
+  try{localStorage.setItem(CK,v);}catch(e){}
+  var c=document.getElementById('cookie');if(c)c.hidden=true;
+  var f=document.getElementById('pb-frame'),fr=document.getElementById('booker-frame');
+  if(v==='all'){
+    var n=document.getElementById('ba-consent');if(n)n.remove();
+    if(document.getElementById('page-contact').classList.contains('active')&&f&&!f.dataset.done){
+      if(fr)fr.classList.remove('alt');
+      loadBooker();
+    }
+  }else if(f&&f.getAttribute('src')){
+    f.removeAttribute('src');delete f.dataset.done;bookerFallback(true);
+  }
 }
 function loadBooker(){
   var f=document.getElementById('pb-frame');
   if(!f||f.getAttribute('src')||f.dataset.done)return;
+  if(cookieChoice()!=='all'){bookerFallback(true);return;}
   f.dataset.done='1';
   if(location.protocol!=='https:'){bookerFallback();return;}
   var loaded=false;
@@ -2507,6 +2631,7 @@ function onScrollUI(){
   renderLearnChips();
   renderLearn();
   renderHomePosts();
+  if(!cookieChoice())openCookies();
   var m=(location.hash||'').match(/^#learn\/([a-z0-9-]+)$/);
   if(m&&artBySlug(m[1])>-1)openArticle(m[1]);
   calcA1c();
