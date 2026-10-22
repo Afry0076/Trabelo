@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trabelo FC · see your club's new website</title>
+<meta name="description" content="Pick a package, find your club and see your own colours and badge on a real club website. Core £395, Plus £795, Pro £1,495. Built by Trabelo.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1d4ed8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M50 4 94 18v40c0 30-22 48-44 58C28 106 6 88 6 58V18z' fill='%231d4ed8'/%3E%3Ctext x='50' y='74' font-family='Arial' font-weight='900' font-size='40' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts-trabelo-fc/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts-trabelo-fc/inter-latin.woff2) format('woff2')}
+@font-face{font-family:'Inter Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('Arimo');size-adjust:107.5%;ascent-override:90.13%;descent-override:22.44%;line-gap-override:0%}
+:root{
+  --c1:#1d4ed8;--c2:#ffffff;--on1:#fff;--on2:#111;--brand:#1d4ed8;--hero:#1d4ed8;--hero-ink:#fff;--stripe:#ffffff;
+  --bg:#f4f5f7;--card:#fff;--ink:#0e1420;--muted:#596273;--line:#e2e5ea;--soft:#eef0f4;
+  --demo:#0a0e16;--demo2:#141b27;--demo-ink:#e8edf6;--demo-muted:#9aa5b8;--tb:#3b82f6;
+  --plus:#b45309;--plus-bg:#fff4e0;--pro:#6d28d9;--pro-bg:#f1eafe;--core:#0f766e;--core-bg:#e2f6f3;
+  --r:14px;--shadow:0 1px 2px rgba(15,20,30,.06),0 6px 24px rgba(15,20,30,.07);
+  font-family:Inter,'Inter Fallback',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--brand)}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--tb);outline-offset:2px;border-radius:6px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+/* ---------- Demo chrome (Trabelo, not club-themed) ---------- */
+.demobar{position:sticky;top:0;z-index:40;background:var(--demo);color:var(--demo-ink);border-bottom:1px solid #1f2836}
+.demobar .wrap{display:flex;align-items:center;gap:12px;min-height:58px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.tb-logo{font-weight:900;letter-spacing:.12em;font-size:15px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+.tb-logo small{font-weight:500;letter-spacing:0;color:var(--demo-muted);font-size:12px}
+.tiers{display:flex;background:var(--demo2);border:1px solid #263042;border-radius:999px;padding:3px;margin-left:auto}
+.tiers button{background:none;border:0;color:var(--demo-muted);padding:7px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px;white-space:nowrap}
+.tiers button[aria-pressed=true]{background:#fff;color:#0a0e16}
+.tiers button span{font-weight:500;opacity:.75;margin-left:4px}
+.dbtn{background:var(--demo2);border:1px solid #263042;color:var(--demo-ink);border-radius:999px;padding:8px 14px;font-weight:600;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap}
+.dbtn:hover{border-color:#3a475e}
+.dbtn.primary{background:var(--tb);border-color:var(--tb);color:#fff}
+.dbtn .mini{width:20px;height:24px}
+.demo-actions{display:flex;gap:8px;align-items:center}
+.lbl-toggle{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--demo-muted);cursor:pointer}
+@media (max-width:860px){.tiers{margin-left:0;order:3;width:100%;justify-content:space-between}.tiers button{flex:1;padding:7px 6px}.demo-actions{margin-left:auto}.lbl-toggle{display:none}}
+@media (max-width:520px){.demo-actions .hide-sm{display:none}}
+.welcome{background:linear-gradient(90deg,#123a8a,#1d4ed8);color:#fff;font-size:14px}
+.welcome .wrap{display:flex;gap:10px;align-items:center;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+.welcome button{margin-left:auto;background:rgba(255,255,255,.15);border:0;color:#fff;border-radius:999px;padding:5px 12px;cursor:pointer}
+
+/* tier tags */
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:2px 8px;vertical-align:middle;white-space:nowrap}
+.tag.core{background:var(--core-bg);color:var(--core)}.tag.plus{background:var(--plus-bg);color:var(--plus)}.tag.pro{background:var(--pro-bg);color:var(--pro)}
+body.nolabels .tag.auto{display:none}
+.example{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center}
+
+/* ---------- Chooser & info pages (Trabelo styled) ---------- */
+.tb-hero{background:radial-gradient(1200px 500px at 80% -10%,#1e3a8a 0,transparent 60%),var(--demo);color:#fff;padding:56px 0 64px}
+.tb-hero h1{font-size:clamp(34px,5.4vw,60px);line-height:1.02;margin:0 0 14px;font-weight:900;letter-spacing:-.025em}
+.tb-hero p.lead{font-size:clamp(17px,2vw,20px);color:#c9d3e4;max-width:640px;margin:0 0 28px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.steps-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.steps-row span{background:#162033;border:1px solid #26334a;color:#cfd8e8;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.steps-row b{color:#fff;margin-right:4px}
+.finder{background:#fff;color:var(--ink);border-radius:18px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.finder h2{margin:0 0 4px;font-size:18px}
+.finder p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.preview-card{display:flex;gap:14px;align-items:center;background:var(--soft);border-radius:12px;padding:12px;margin-top:12px}
+.preview-card .crest{width:56px;height:68px;flex:none}
+.preview-card b{display:block;font-size:17px}
+.swatches{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.sw{width:26px;height:26px;border-radius:50%;border:2px solid rgba(0,0,0,.15);cursor:pointer;padding:0}
+.sw[aria-pressed=true]{outline:3px solid var(--tb);outline-offset:2px}
+.colour-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.colour-row label{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+input[type=color]{width:44px;height:34px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:2px;cursor:pointer}
+.search{position:relative}
+.search input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;background:#fff}
+.search input:focus{border-color:var(--tb);outline:none;box-shadow:0 0 0 4px rgba(59,130,246,.18)}
+.search svg.mag{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+.results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);max-height:320px;overflow:auto;z-index:30;margin:0;padding:6px;list-style:none}
+.results li{padding:9px 10px;border-radius:8px;cursor:pointer;display:flex;gap:10px;align-items:center}
+.results li[aria-selected=true],.results li:hover{background:var(--soft)}
+.results .dot{width:18px;height:18px;border-radius:50%;flex:none;border:1px solid rgba(0,0,0,.15)}
+.results small{display:block;color:var(--muted);font-size:12px}
+.results mark{background:#fde68a;color:inherit;border-radius:3px}
+.results .none{color:var(--muted);cursor:default}
+.section{padding:56px 0}
+.section h2.big{font-size:clamp(26px,3.4vw,38px);letter-spacing:-.02em;margin:0 0 8px;line-height:1.1}
+.section .sub{color:var(--muted);margin:0 0 28px;max-width:680px}
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.pkgs{grid-template-columns:1fr}}
+.pkg{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow)}
+.pkg.featured{border:2px solid var(--plus)}
+.pkg .ribbon{position:absolute;top:-12px;left:24px;background:var(--plus);color:#fff;font-size:12px;font-weight:800;border-radius:999px;padding:4px 10px;letter-spacing:.03em}
+.pkg h3{margin:6px 0 2px;font-size:22px}
+.pkg .price{font-size:40px;font-weight:900;letter-spacing:-.03em;margin:6px 0 2px}
+.pkg .price small{font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0}
+.pkg .who{color:var(--muted);font-size:14px;margin:0 0 14px}
+.pkg ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:7px;font-size:14.5px}
+.pkg li{display:flex;gap:8px}
+.pkg li::before{content:"";width:18px;height:18px;flex:none;margin-top:2px;border-radius:50%;background:var(--core-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%230f766e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.pkg li.inc::before{background-color:var(--soft);background-image:none;content:"+";color:var(--muted);font-weight:800;font-size:13px;line-height:18px;text-align:center}
+.pkg .terms{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+.pkg .terms b{color:var(--ink)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border-radius:12px;padding:12px 18px;font-weight:700;border:1.5px solid var(--line);background:#fff;cursor:pointer;text-decoration:none;color:var(--ink)}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.tb{background:var(--tb);color:#fff;border-color:var(--tb)}
+.btn.club{background:var(--brand);color:#fff;border-color:var(--brand)}
+.btn.block{width:100%}
+.btn.sm{padding:8px 12px;font-size:14px;border-radius:10px}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:900px){.trust{grid-template-columns:1fr 1fr}}
+.trust div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14px}
+.trust b{display:block;font-size:15px;margin-bottom:2px}
+.serp{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;max-width:660px;font-family:Arial,sans-serif;box-shadow:var(--shadow)}
+.serp .q{border:1px solid #dfe1e5;border-radius:999px;padding:10px 16px;color:#202124;margin-bottom:16px;font-size:15px}
+.serp .site{display:flex;gap:10px;align-items:center;font-size:13px;color:#202124}
+.serp .site .fav{width:26px;height:26px;border-radius:50%;background:var(--soft);display:grid;place-items:center;overflow:hidden}
+.serp .site .fav svg{width:18px;height:22px}
+.serp .site small{display:block;color:#4d5156;font-size:12px}
+.serp h4{color:#1a0dab;font-size:20px;font-weight:400;margin:6px 0 4px}
+.serp p{color:#4d5156;font-size:14px;margin:0 0 10px;line-height:1.5}
+.serp .links{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;margin-bottom:10px}
+.serp .links a{color:#1a0dab;font-size:15px;text-decoration:none}
+.serp .ev{border-top:1px solid #ebebeb;padding-top:8px;display:grid;gap:4px;font-size:13px;color:#4d5156}
+.serp .ev div{display:grid;grid-template-columns:110px 1fr;gap:8px}
+.serp .ev b{color:#202124;font-weight:400}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 16px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-weight:800;color:var(--muted)}
+.faq details[open] summary::after{content:"–"}
+.faq details p,.faq details ul{margin:0 0 14px;color:#2a3242}
+.journey{counter-reset:j;display:grid;gap:12px;padding:0;list-style:none;margin:0}
+.journey li{counter-increment:j;display:grid;grid-template-columns:44px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+.journey li::before{content:counter(j);width:44px;height:44px;border-radius:12px;background:var(--demo);color:#fff;display:grid;place-items:center;font-weight:900;font-size:18px}
+.journey b{display:block}
+.journey span{color:var(--muted);font-size:14.5px}
+.who-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border-radius:6px;padding:2px 6px;margin-left:6px}
+.who-tag.you{background:#fef3c7;color:#92400e}.who-tag.me{background:#dbeafe;color:#1e40af}
+.cmp{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:14.5px;border:1px solid var(--line)}
+.cmp th,.cmp td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.cmp thead th{background:var(--demo);color:#fff;font-size:14px}
+.cmp tbody th{font-weight:600;color:#2a3242;width:30%}
+.tablewrap{overflow-x:auto;border-radius:14px}
+.checklist{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.checklist li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14.5px}
+.no-list li::before{content:"✕ ";color:#b91c1c;font-weight:800}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:820px){.grid2{grid-template-columns:1fr}}
+.tb-foot{background:var(--demo);color:var(--demo-muted);padding:28px 0;font-size:14px}
+.tb-foot a{color:#cfd8e8}
+.tb-foot .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+
+/* ---------- The club site (themed by club colours) ---------- */
+.club-head{background:var(--hero);color:var(--hero-ink);position:relative;overflow:hidden}
+.club-head::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:repeating-linear-gradient(90deg,var(--stripe) 0 40px,var(--c1) 40px 80px)}
+.club-head .wrap{display:flex;align-items:center;gap:14px;padding-top:14px;padding-bottom:18px}
+.club-head .crest{width:52px;height:63px;flex:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25))}
+.club-head .nm{font-weight:900;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(18px,2.6vw,26px);line-height:1.05}
+.club-head .lg{font-size:13px;opacity:.85}
+.club-head .social{margin-left:auto;display:flex;gap:8px}
+.club-head .social a{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);color:inherit}
+.club-head .social svg{width:16px;height:16px}
+@media (max-width:600px){.club-head .social{display:none}}
+.club-nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:58px;z-index:20}
+@media (max-width:860px){.demobar{position:static}.club-nav{top:0}#openAsk{display:none}}
+.club-nav ul{list-style:none;margin:0;padding:0 12px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin;max-width:1160px;margin:0 auto}
+.club-nav a{position:relative;display:flex;align-items:center;gap:6px;padding:13px 12px;text-decoration:none;color:#2a3242;font-weight:700;font-size:14px;white-space:nowrap;border-bottom:3px solid transparent}
+.club-nav a[aria-current=page]{color:var(--brand);border-bottom-color:var(--brand)}
+.club-nav a.locked{color:#9aa3b2}
+.club-nav a.locked svg{width:12px;height:12px}
+.exstrip{background:#fffbea;border-bottom:1px solid #f4e3a3;font-size:13px;color:#6b5310}
+.exstrip .wrap{padding-top:7px;padding-bottom:7px;line-height:1.7}
+.page{padding:28px 0 56px;min-height:60vh}
+.page h1.ph{font-size:clamp(28px,4vw,42px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;margin:0 0 6px;line-height:1.05}
+.page .lede{color:var(--muted);margin:0 0 24px;max-width:700px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 10px;font-size:17px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cols2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+@media (max-width:900px){.cols,.cols2{grid-template-columns:1fr}}
+.club-hero{background:var(--hero);color:var(--hero-ink);border-radius:22px;padding:28px;position:relative;overflow:hidden;margin-bottom:22px;min-height:260px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.club-hero::before{content:"";position:absolute;right:-60px;top:-40px;width:340px;height:440px;background:repeating-linear-gradient(115deg,transparent 0 26px,color-mix(in srgb,var(--stripe) 22%,transparent) 26px 52px);transform:rotate(8deg);pointer-events:none}
+.club-hero .crest{width:130px;height:158px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.3));position:relative}
+.club-hero h1{font-size:clamp(30px,5vw,56px);font-weight:900;text-transform:uppercase;line-height:.98;margin:0 0 8px;letter-spacing:-.025em;position:relative}
+.club-hero p{margin:0 0 16px;opacity:.9;position:relative;max-width:520px}
+.club-hero .btns{display:flex;gap:10px;flex-wrap:wrap;position:relative}
+.club-hero .btn{border:0}
+.btn.on-hero{background:var(--hero-ink);color:var(--hero)}
+.btn.ghost-hero{background:transparent;color:var(--hero-ink);border:1.5px solid color-mix(in srgb,var(--hero-ink) 45%,transparent)}
+@media (max-width:640px){.club-hero{grid-template-columns:1fr;padding:22px;text-align:left}.club-hero .crest{width:84px;height:102px}}
+.next{display:grid;gap:14px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;text-align:center}
+.vs .team{font-weight:800;font-size:15px;display:grid;justify-items:center;gap:6px}
+.vs .team .crest{width:46px;height:56px}
+.vs .ko{font-weight:900;font-size:13px;color:var(--muted);text-transform:uppercase}
+.oppcrest{width:46px;height:56px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.countdown div{background:var(--soft);border-radius:10px;padding:8px 4px;text-align:center}
+.countdown b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums;color:var(--brand)}
+.countdown span{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.meta-line{font-size:14px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.result-big{display:flex;align-items:center;justify-content:center;gap:16px;font-weight:900;font-size:34px;font-variant-numeric:tabular-nums}
+.wdl{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;font-size:12px;font-weight:900;color:#fff}
+.wdl.W{background:#16a34a}.wdl.D{background:#9ca3af}.wdl.L{background:#dc2626}
+table.tbl{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--line)}
+.tbl th:nth-child(2),.tbl td:nth-child(2){text-align:left}
+.tbl thead th{font-size:12px;color:var(--muted);text-transform:uppercase}
+.tbl tr.us td{background:color-mix(in srgb,var(--brand) 10%,#fff);font-weight:800}
+.tbl td.pts{font-weight:800}
+.list{display:grid;gap:10px}
+.fx{display:grid;grid-template-columns:86px 1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.fx .d{font-weight:800;font-size:13px;line-height:1.2;text-transform:uppercase}
+.fx .d small{display:block;color:var(--muted);font-weight:600}
+.fx .o{font-weight:700}
+.fx .o small{display:block;color:var(--muted);font-weight:500;font-size:13px}
+.fx .ha{font-size:11px;font-weight:800;border-radius:6px;padding:2px 6px;margin-right:6px;vertical-align:middle}
+.ha.H{background:var(--brand);color:#fff}.ha.A{background:var(--soft);color:#2a3242}
+.fx .score{font-weight:900;font-size:18px;font-variant-numeric:tabular-nums;display:flex;gap:8px;align-items:center}
+@media (max-width:560px){.fx{grid-template-columns:70px 1fr}.fx .act{grid-column:1/-1}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--brand);color:#fff;border-color:var(--brand)}
+.squad{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.player{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:left;padding:0;cursor:default}
+.player.clickable{cursor:pointer}
+.player.clickable:hover{border-color:var(--brand)}
+.player .shirt{background:var(--hero);height:120px;display:grid;place-items:center;position:relative}
+.player .shirt svg{height:96px;width:auto}
+.player .info{padding:10px 12px;display:block}.player .shirt{display:grid}
+.player .info b{display:block}
+.player .info small{color:var(--muted)}
+.player .cap{position:absolute;top:8px;left:8px;background:#fff;color:#111;font-size:11px;font-weight:900;border-radius:6px;padding:1px 6px}
+.posh{margin:26px 0 12px;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.info-grid .card p{margin:0;color:#2a3242;font-size:15px}
+.ico{width:38px;height:38px;border-radius:10px;background:color-mix(in srgb,var(--brand) 12%,#fff);color:var(--brand);display:grid;place-items:center;margin-bottom:10px}
+.ico svg{width:20px;height:20px}
+.form{display:grid;gap:12px}
+.form label{display:grid;gap:5px;font-weight:600;font-size:14px}
+.form input,.form select,.form textarea{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;font-weight:400}
+.form textarea{min-height:110px;resize:vertical}
+.form .check{display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:14px}
+.form .check input{margin-top:4px}
+.people{display:grid;gap:10px}
+.person{display:flex;gap:12px;align-items:center}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.person small{display:block;color:var(--muted)}
+.locked-panel{background:#fff;border:2px dashed var(--line);border-radius:20px;padding:34px;text-align:center;max-width:720px;margin:20px auto}
+.locked-panel .lk{width:58px;height:58px;border-radius:16px;margin:0 auto 12px;display:grid;place-items:center}
+.locked-panel ul{text-align:left;max-width:460px;margin:16px auto;display:grid;gap:6px}
+.spons{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.slot{aspect-ratio:3/2;border:2px dashed var(--line);border-radius:12px;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:13px;font-weight:600;background:#fff;padding:8px}
+.slot.gold{border-color:#d4a72c}.slot.taken{border-style:solid;background:var(--soft);color:#2a3242}
+.tiers-sp{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.sp-tier .amt{font-size:28px;font-weight:900;letter-spacing:-.02em}
+.sp-tier ul{padding-left:18px;margin:8px 0 14px;font-size:14px;color:#2a3242}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.product .pic{background:linear-gradient(160deg,var(--soft),#fff);border-radius:12px;height:190px;display:grid;place-items:center;margin-bottom:12px}
+.product .pic svg{height:150px;width:auto}
+.product .row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}
+.product .pr{font-size:20px;font-weight:900}
+.pitch-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:start}
+@media (max-width:900px){.pitch-wrap{grid-template-columns:1fr}}
+.pitch{position:relative;background:repeating-linear-gradient(90deg,#2f8f3e 0 10%,#2a8338 10% 20%);border-radius:16px;padding:14px;box-shadow:inset 0 0 0 4px rgba(255,255,255,.35)}
+.pitch svg.lines{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);pointer-events:none}
+.sq-grid{position:relative;display:grid;grid-template-columns:repeat(10,1fr);gap:3px;aspect-ratio:10/7}
+.sq{border:0;border-radius:4px;background:rgba(255,255,255,.14);color:#fff;font-size:10px;font-weight:800;cursor:pointer;padding:0;min-height:0;display:grid;place-items:center}
+.sq:hover{background:rgba(255,255,255,.4)}
+.sq.taken{background:var(--c1);color:var(--on1);cursor:default;box-shadow:inset 0 0 0 2px var(--c2)}
+.progress{height:14px;background:var(--soft);border-radius:999px;overflow:hidden;margin:8px 0}
+.progress span{display:block;height:100%;background:var(--brand);border-radius:999px}
+.wall{display:flex;flex-wrap:wrap;gap:6px;max-height:220px;overflow:auto}
+.wall span{background:var(--soft);border-radius:999px;padding:4px 10px;font-size:13px}
+.flip{background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line)}
+.flip .pg{min-height:440px;padding:28px;display:grid;align-content:start;gap:12px}
+.flip .cover{background:var(--hero);color:var(--hero-ink);text-align:center;align-content:center;justify-items:center}
+.flip .cover .crest{width:110px;height:134px}
+.flip .cover h2{font-size:clamp(26px,4vw,40px);text-transform:uppercase;font-weight:900;margin:0;line-height:1}
+.flip .bar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-top:1px solid var(--line);background:var(--soft)}
+.ad{border-radius:12px;padding:16px;background:color-mix(in srgb,var(--c1) 10%,#fff);border:1px solid color-mix(in srgb,var(--c1) 30%,#fff)}
+.ad b{display:block;font-size:18px}
+.mem{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.mem .amt{font-size:30px;font-weight:900}
+.mem ul{padding-left:18px;font-size:14px;color:#2a3242}
+.news{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.post{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;padding:0;display:flex;flex-direction:column}
+.post:hover{border-color:var(--brand)}
+.post .img{height:140px;background:var(--hero);position:relative;overflow:hidden}
+.post .img::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,transparent 0 22px,color-mix(in srgb,var(--stripe) 18%,transparent) 22px 44px)}
+.post .img span{position:absolute;left:12px;bottom:10px;z-index:1;background:#fff;color:#111;font-size:11px;font-weight:800;text-transform:uppercase;border-radius:6px;padding:2px 8px}
+.post .bd{padding:14px}
+.post .bd b{display:block;font-size:16px;line-height:1.3;margin-bottom:6px}
+.post .bd small{color:var(--muted)}
+.article{max-width:740px}
+.article p{font-size:17px;line-height:1.7}
+.timeline{list-style:none;padding:0;margin:0;border-left:3px solid var(--brand);display:grid;gap:18px}
+.timeline li{padding-left:18px;position:relative}
+.timeline li::before{content:"";position:absolute;left:-9px;top:5px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--brand)}
+.timeline b{color:var(--brand);font-weight:900}
+.honours{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.honour{background:var(--hero);color:var(--hero-ink);border-radius:14px;padding:16px}
+.honour b{font-size:15px;display:block}
+.honour span{opacity:.85;font-size:13px}
+.spot{display:flex;gap:14px;align-items:center}
+.spot .logo{width:84px;height:56px;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-weight:900;font-size:12px;color:var(--muted);text-align:center;flex:none}
+.club-foot{background:#0f141d;color:#c3cad6;padding:36px 0 24px;margin-top:20px;font-size:14px}
+.club-foot .grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
+@media (max-width:800px){.club-foot .grid{grid-template-columns:1fr}}
+.club-foot a{color:#e3e8f0}
+.club-foot .crest{width:44px;height:54px}
+.club-foot .sp-strip{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.club-foot .sp-strip span{border:1px dashed #3a4456;border-radius:8px;padding:6px 10px;font-size:12px}
+.credit{border-top:1px solid #222b38;margin-top:22px;padding-top:14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:#8d97a8}
+
+/* dialogs, toasts */
+dialog{border:0;border-radius:18px;padding:0;max-width:600px;width:calc(100% - 24px);box-shadow:0 30px 80px rgba(0,0,0,.4);color:var(--ink)}
+dialog::backdrop{background:rgba(8,12,20,.6)}
+.dlg-h{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2}
+.dlg-h h2{margin:0;font-size:19px}
+.dlg-b{padding:18px 20px;max-height:min(72vh,720px);overflow:auto}
+.x{background:var(--soft);border:0;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1}
+.note{background:#eff6ff;border:1px solid #cfe0ff;color:#1e3a8a;border-radius:12px;padding:12px 14px;font-size:14px}
+.note.warn{background:#fffbeb;border-color:#fde68a;color:#78350f}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#0e1420;color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;z-index:100;opacity:0;transition:.25s;max-width:calc(100% - 32px);box-shadow:var(--shadow)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.fab{position:fixed;right:16px;bottom:16px;z-index:35;background:var(--tb);color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:800;box-shadow:0 10px 30px rgba(29,78,216,.45);cursor:pointer;display:none}
+@media (max-width:860px){.fab{display:block}}
+.upload{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.upload label.btn{cursor:pointer}
+.feat-checks{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media (max-width:520px){.feat-checks{grid-template-columns:1fr}}
+.feat-checks label{display:flex;gap:8px;align-items:center;font-weight:400;font-size:14px}
+
+/* printable sponsor pack */
+#print-pack{display:none}
+@media print{
+  body.printing > *:not(#print-pack){display:none!important}
+  body.printing #print-pack{display:block;color:#000}
+  #print-pack .pp-head{display:flex;gap:16px;align-items:center;border-bottom:6px solid var(--c1);padding-bottom:12px;margin-bottom:16px}
+  #print-pack .crest{width:70px;height:85px}
+  #print-pack table{width:100%;border-collapse:collapse}
+  #print-pack td,#print-pack th{border:1px solid #ccc;padding:8px;text-align:left}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="sr">Skip to content</a>
+<noscript><p style="padding:20px">This demo needs JavaScript switched on. Email <a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a> and I'll send screenshots instead.</p></noscript>
+
+<header class="demobar">
+  <div class="wrap">
+    <a class="tb-logo" href="#/" aria-label="Trabelo club website demo, start">TRABELO <small>Club website demo</small></a>
+    <div class="tiers" role="group" aria-label="Choose a package to preview">
+      <button type="button" data-tier="core">Core<span>£395</span></button>
+      <button type="button" data-tier="plus">Plus<span>£795</span></button>
+      <button type="button" data-tier="pro">Pro<span>£1,495</span></button>
+    </div>
+    <div class="demo-actions">
+      <label class="lbl-toggle"><input type="checkbox" id="labels" checked> Package labels</label>
+      <button type="button" class="dbtn" id="openPersonal"><span class="mini" id="miniCrest" aria-hidden="true"></span><span>Your club</span></button>
+      <a class="dbtn hide-sm" href="#/how">How it works</a>
+      <button type="button" class="dbtn primary" id="openAsk">Ask Aidan</button>
+    </div>
+  </div>
+</header>
+<div id="welcome"></div>
+<main id="main"></main>
+<button type="button" class="fab" id="fabAsk">Ask Aidan</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="print-pack"></div>
+
+<!-- Personalise -->
+<dialog id="dlgPersonal" aria-labelledby="pTitle">
+  <div class="dlg-h"><h2 id="pTitle">Make it your club</h2><button class="x" type="button" data-close aria-label="Close">×</button></div>
+  <div class="dlg-b">
+    <div class="form">
+      <div>
+        <label for="pSearch" style="font-weight:700;font-size:14px">Find your club</label>
+        <div class="search" data-search="p" style="margin-top:6px"></div>
+        <p class="example" style="margin-top:6px">Over 2,600 clubs from step 2 down. Not listed? Just type your club's name and press Enter.</p>
+      </div>
+      <div>
+        <b style="font-size:14px">Club colours</b>
+        <div class="colour-row">
+          <label><input type="color" id="pc1"> Main</label>
+          <label><input type="color" id="pc2"> Second</label>
+          <button class="btn sm" type="button" id="swapC">Swap</button>
+        </div>
+        <div class="swatches" id="swatches" aria-label="Quick colours"></div>
+        <p class="example" style="margin-top:6px" id="colourSource"></p>
+      </div>
+      <div>
+        <b style="font-size:14px">Badge</b>
+        <p class="example" style="margin:4px 0 8px">We make a crest from your initials and colours. Got your badge? Add it, and it stays on your device. Nothing is uploaded.</p>
+        <div class="upload">
+          <span id="pCrest" style="width:56px;height:68px;display:inline-block"></span>
+          <label class="btn sm" for="badgeFile">Add your badge</label>
+          <input type="file" id="badgeFile" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="sr">
+          <button class="btn sm" type="button" id="removeBadge" hidden>Use the crest instead</button>
+        </div>
+      </div>
+      <div class="note">Your real website uses your real badge, photos and details. This is a preview so you can picture it.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn tb" type="button" data-close>Done, show me</button>
+        <button class="btn" type="button" id="copyLink">Copy link to share with the committee</button>
+        <button class="btn" type="button" id="resetClub">Reset</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Ask Aidan -->
+<dialog id="dlgAsk" aria-labelledby="aTitle">
+  <div class="dlg-h"><h2 id="aTitle">Ask Aidan</h2><button class="x" type="button" data-close aria-label="Close">×</button></div>
+  <div class="dlg-b">
+    <p style="margin-top:0;color:var(--muted)">Questions, things you'd add or take away, or "we want it". It comes straight to me, and I reply myself, usually the same day.</p>
+    <form class="form" id="askForm" novalidate>
+      <div class="grid2" style="gap:12px">
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Your role at the club
+          <select name="role"><option>Chair</option><option>Secretary</option><option>Treasurer</option><option>Commercial / sponsorship</option><option>Media / website</option><option>Committee member</option><option>Manager / coach</option><option>Other</option></select>
+        </label>
+      </div>
+      <label>Club<input name="club" id="askClub" required></label>
+      <div class="grid2" style="gap:12px">
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <label>WhatsApp number (optional)<input name="phone" type="tel" autocomplete="tel"></label>
+      </div>
+      <label>Which package are you leaning towards?
+        <select name="package" id="askPkg"><option value="Core £395">Core £395</option><option value="Plus £795">Plus £795</option><option value="Pro £1,495">Pro £1,495</option><option value="Not sure yet">Not sure yet</option></select>
+      </label>
+      <fieldset style="border:0;padding:0;margin:0">
+        <legend style="font-weight:600;font-size:14px;margin-bottom:6px">Anything you'd definitely want? (optional)</legend>
+        <div class="feat-checks">
+          <label><input type="checkbox" name="want" value="Sponsor-a-square fundraiser"> Sponsor-a-square fundraiser</label>
+          <label><input type="checkbox" name="want" value="Sponsors page and sponsor pack"> Sponsors page and pack</label>
+          <label><input type="checkbox" name="want" value="Club shop"> Club shop</label>
+          <label><input type="checkbox" name="want" value="Matchday programme"> Matchday programme</label>
+          <label><input type="checkbox" name="want" value="Membership / season tickets"> Membership / season tickets</label>
+          <label><input type="checkbox" name="want" value="News and match reports"> News and match reports</label>
+          <label><input type="checkbox" name="want" value="Junior / women's section"> Junior / women's section</label>
+          <label><input type="checkbox" name="want" value="Editing it ourselves"> Editing it ourselves</label>
+        </div>
+      </fieldset>
+      <label>Has spending on this been discussed?
+        <select name="authority"><option>Not yet, I'm just looking</option><option>I'll take it to the committee</option><option>The committee has agreed a budget</option><option>I make the decision</option></select>
+      </label>
+      <label>Your message
+        <textarea name="message" placeholder="e.g. Looks great. We'd want the sponsor-a-square fundraiser because we've got a few local firms who'd back it, and we need it live before pre-season. Can the squad page show our under-23s too?"></textarea>
+      </label>
+      <input type="text" name="botcheck" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="check"><input type="checkbox" name="consent" required> I'm happy for Trabelo to use these details to reply to me about a club website. Nothing else, and never passed on.</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn tb" type="submit" id="askSend">Send to Aidan</button>
+        <button class="btn" type="button" id="askWa">Send on WhatsApp instead</button>
+      </div>
+      <p class="example" id="askNote"></p>
+    </form>
+  </div>
+</dialog>
+
+<!-- General info dialog (demo notes, player profiles, squares, articles) -->
+<dialog id="dlgInfo" aria-labelledby="iTitle">
+  <div class="dlg-h"><h2 id="iTitle"></h2><button class="x" type="button" data-close aria-label="Close">×</button></div>
+  <div class="dlg-b" id="iBody"></div>
+</dialog>
+
+<script nonce="tr4b3l0n1">
+'use strict';
+/* =====================================================================
+   Trabelo FC: one demo, three packages. Everything here is example data
+   except the club list (public facts from Wikipedia, in trabelo-fc-clubs.json).
+   ===================================================================== */
+
+// Settings Aidan can change
+const WEB3FORMS_KEY = '';                 // create at web3forms.com with aidan@trabelo.com and paste the key here
+const AIDAN_EMAIL = 'aidan@trabelo.com';
+const AIDAN_WHATSAPP = '447368593511';    // same number as on trabelo.com
+const PRICES = { core: 395, plus: 795, pro: 1495 };
+const TIERS = ['core', 'plus', 'pro'];
+const TIER_NAME = { core: 'Core', plus: 'Plus', pro: 'Pro' };
+
+const PAGES = [
+  { id: 'home', name: 'Home', tier: 'core' },
+  { id: 'fixtures', name: 'Fixtures & Results', tier: 'core' },
+  { id: 'squad', name: 'Squad', tier: 'core' },
+  { id: 'news', name: 'News', tier: 'pro' },
+  { id: 'matchday', name: 'Club & Matchday', tier: 'core' },
+  { id: 'sponsors', name: 'Sponsors', tier: 'plus' },
+  { id: 'fundraiser', name: 'Pitch Fundraiser', tier: 'plus' },
+  { id: 'shop', name: 'Shop', tier: 'plus' },
+  { id: 'programme', name: 'Programme', tier: 'pro' },
+  { id: 'membership', name: 'Membership', tier: 'pro' },
+  { id: 'history', name: 'History', tier: 'pro' },
+  { id: 'contact', name: 'Contact', tier: 'core' },
+];
+const LOCKED_INFO = {
+  news: ['News & match reports', 'Match reports, signings, sponsor news and club notices, each with its own page that shares nicely on Facebook and WhatsApp.', ['Match reports with scorers and line-ups', 'Filter by reports, club news, juniors', 'Every article shareable with its own link']],
+  sponsors: ['Sponsors', 'A proper home for your sponsors, and a way to get more of them.', ['Sponsor packages with your prices, from match ball to kit sponsor', 'Sponsor wall with logos and links', 'A sponsor pack your committee can print or email', 'Enquiries go straight to your commercial contact']],
+  fundraiser: ['Pitch Fundraiser', 'Supporters and local businesses sponsor a square of your pitch. Their name goes on the pitch map and the supporters wall, and the money goes straight to the club.', ['Interactive pitch with numbered squares', 'Pay by card through your club\'s own Stripe account', 'Live total raised against your target', 'Supporters wall']],
+  shop: ['Club shop', 'Shirts, scarves, programmes and tickets, paid for by card into the club\'s account.', ['Up to 12 products', 'Card payments through your club\'s own Stripe account', 'Trabelo never handles the money']],
+  programme: ['Matchday programme', 'A digital programme for every home game, with sponsor adverts inside and an archive of past issues.', ['Cover, welcome, opposition, squad numbers, adverts', 'Flick through on a phone, or download', 'Archive of every issue']],
+  membership: ['Membership & season tickets', 'Supporters sign up and pay online, and the details go to your treasurer.', ['Your membership tiers and prices', 'Card payment through your club\'s Stripe', 'No passwords for supporters to forget']],
+  history: ['History & honours', 'Your story, told properly: founding, grounds, promotions, cup runs and club legends.', ['Timeline', 'Honours board', 'Notable former players']],
+};
+
+// ---------- utilities ----------
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+  del(k) { try { localStorage.removeItem(k); } catch {} },
+};
+function hashStr(s) { let h = 2166136261; for (const ch of s) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed) { let a = seed >>> 0; return () => { a += 0x6D2B79F5; let t = a; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const pick = (r, arr) => arr[Math.floor(r() * arr.length)];
+function shuffle(r, arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+let toastT;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 3200); }
+const money = n => '£' + n.toLocaleString('en-GB');
+const fmtDate = d => d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+const fmtTime = d => d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+// ---------- colour maths ----------
+function hexToRgb(h) { h = h.replace('#', ''); if (h.length === 3) h = h.split('').map(c => c + c).join(''); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); }
+function rgbToHex(r) { return '#' + r.map(v => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, '0')).join(''); }
+function lum(h) { return hexToRgb(h).map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; }).reduce((a, v, i) => a + v * [.2126, .7152, .0722][i], 0); }
+function contrast(a, b) { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); }
+function mix(a, b, t) { const x = hexToRgb(a), y = hexToRgb(b); return rgbToHex(x.map((v, i) => v + (y[i] - v) * t)); }
+const inkOn = c => contrast(c, '#ffffff') >= contrast(c, '#111111') ? '#ffffff' : '#111111';
+function readable(c, bg = '#ffffff', target = 4.5) { let out = c, t = 0; while (contrast(out, bg) < target && t < 1) { t += .08; out = mix(c, '#000000', t); } return out; }
+const validHex = h => /^#?[0-9a-f]{6}$/i.test(h || '') ? '#' + h.replace('#', '').toLowerCase() : null;
+
+// ---------- state ----------
+const DEFAULT_CLUB = { name: 'Trabelo FC', league: 'Northern Counties East League', division: 'Division One', step: 6, ground: '', c1: '#1d4ed8', c2: '#ffffff', badge: '', real: false, colourSource: '' };
+const state = {
+  tier: store.get('tfc.tier', 'core'),
+  club: Object.assign({}, DEFAULT_CLUB, store.get('tfc.club', {})),
+  labels: store.get('tfc.labels', true),
+  fromLink: false,
+};
+let CLUBS = null; // lazy-loaded public list
+let clubsPromise = null;
+function loadClubs() {
+  if (!clubsPromise) clubsPromise = fetch('trabelo-fc-clubs.json').then(r => r.json()).then(j => {
+    CLUBS = j.c.map(r => ({ name: r[0], league: j.L[r[1]], division: j.D[r[2]], step: r[3], c1: r[4] ? '#' + r[4] : '', c2: r[5] ? '#' + r[5] : '', ground: r[6] || '', key: r[0].toLowerCase() }));
+    return CLUBS;
+  }).catch(() => (CLUBS = []));
+  return clubsPromise;
+}
+
+// URL parameters (personalised links from Aidan): ?club=&c1=&c2=&t=
+(function readParams() {
+  const q = new URLSearchParams(location.search);
+  const name = (q.get('club') || '').trim().slice(0, 60);
+  if (name) {
+    state.fromLink = true;
+    state.club = Object.assign({}, DEFAULT_CLUB, { name, badge: '', real: false });
+    const c1 = validHex(q.get('c1')), c2 = validHex(q.get('c2'));
+    if (c1) { state.club.c1 = c1; state.club.colourSource = 'link'; }
+    if (c2) state.club.c2 = c2;
+  }
+  if (TIERS.includes(q.get('t'))) state.tier = q.get('t');
+})();
+
+function saveClub() { store.set('tfc.club', state.club); }
+
+// ---------- theming ----------
+function applyTheme() {
+  const { c1, c2 } = state.club;
+  const r = document.documentElement.style;
+  const brand = readable(contrast(c1, '#fff') >= contrast(c2, '#fff') ? c1 : c2);
+  let hero = c1;
+  if (lum(c1) > .45) hero = lum(c2) < .45 ? c2 : mix(c1, '#0b0f17', .72);
+  const stripe = hero === c1 ? c2 : c1;
+  r.setProperty('--c1', c1); r.setProperty('--c2', c2);
+  r.setProperty('--on1', inkOn(c1)); r.setProperty('--on2', inkOn(c2));
+  r.setProperty('--brand', brand); r.setProperty('--hero', hero); r.setProperty('--hero-ink', inkOn(hero));
+  r.setProperty('--stripe', contrast(stripe, hero) < 1.3 ? inkOn(hero) : stripe);
+  $('meta[name=theme-color]').setAttribute('content', hero);
+}
+
+// ---------- crest ----------
+const GENERIC = new Set(['fc', 'afc', 'f.c.', 'a.f.c.', 'the', 'and', '&', 'of', 'club', 'football', 'cf', 'sc', 'jfc']);
+function initials(name) {
+  const w = name.replace(/[^\p{L}\p{N}&.' -]/gu, ' ').split(/\s+/).filter(x => x && !GENERIC.has(x.toLowerCase()));
+  if (!w.length) return 'FC';
+  if (w.length === 1) return (w[0][0] + 'FC').toUpperCase();
+  return w.slice(0, 3).map(x => x[0]).join('').toUpperCase();
+}
+let crestN = 0;
+function crest(cls = 'crest', club = state.club) {
+  if (club.badge) return `<img class="${cls}" src="${club.badge}" alt="${esc(club.name)} badge" style="object-fit:contain">`;
+  const id = 'cc' + (++crestN);
+  const ini = initials(club.name);
+  const fs = ini.length > 2 ? 30 : 38;
+  const ink = inkOn(club.c1);
+  return `<svg class="${cls}" viewBox="0 0 100 120" role="img" aria-label="${esc(club.name)} crest">
+  <defs><clipPath id="${id}"><path d="M50 6 92 19v39c0 29-21 46-42 56C29 104 8 87 8 58V19z"/></clipPath></defs>
+  <path d="M50 2 96 16v42c0 32-23 51-46 61C27 109 4 90 4 58V16z" fill="${club.c2}"/>
+  <g clip-path="url(#${id})"><rect width="100" height="120" fill="${club.c1}"/>
+  <path d="M-10 92 110 34v14L-10 106z" fill="${club.c2}" opacity=".9"/>
+  <rect x="8" y="19" width="84" height="15" fill="${club.c2}" opacity=".95"/></g>
+  <text x="50" y="30" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="8.5" letter-spacing="1.5" fill="${inkOn(club.c2)}">EST. ${esc(foundedYear())}</text>
+  <text x="50" y="${ini.length > 2 ? 73 : 76}" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="${fs}" fill="${ink}" stroke="${club.c1}" stroke-width="1.2" paint-order="stroke">${esc(ini)}</text>
+</svg>`;
+}
+function oppCrest(name) {
+  const r = rng(hashStr(name));
+  const cols = ['#b91c1c', '#1e3a8a', '#065f46', '#7c2d12', '#111827', '#6b21a8', '#0369a1', '#a16207', '#be123c', '#334155'];
+  return crest('oppcrest', { name, c1: pick(r, cols), c2: pick(r, ['#ffffff', '#fde047', '#111827', '#e5e7eb']), badge: '' });
+}
+function foundedYear() { const r = rng(hashStr(state.club.name + 'est')); return 1875 + Math.floor(r() * 120); }
+
+// ---------- example data generators ----------
+const FIRST = ['Jack', 'Harry', 'Tom', 'Josh', 'Liam', 'Ben', 'Callum', 'Ryan', 'Connor', 'Kyle', 'Danny', 'Jordan', 'Lewis', 'Sam', 'Owen', 'Reece', 'Adam', 'Matt', 'Luke', 'Jamie', 'Nathan', 'Ollie', 'Charlie', 'Kieran', 'Ethan', 'Alfie', 'Max', 'Joe'];
+const LAST = ['Walker', 'Hughes', 'Turner', 'Barker', 'Shaw', 'Holmes', 'Lambert', 'Fletcher', 'Marsh', 'Booth', 'Kirk', 'Atkinson', 'Whitehead', 'Hirst', 'Ward', 'Mellor', 'Bradley', 'Sykes', 'Haigh', 'Brook', 'Cooper', 'Fox', 'Lord', 'Wood', 'Dixon', 'Gill', 'Parkin', 'Senior'];
+const FICT_RIVALS = ['Millbrook Town', 'Riverside Athletic', 'Hollins Green', 'Castle Vale', 'Northgate Rovers', 'St Albury', 'Kirkby Lane', 'Westfield United', 'Ashby Colliery', 'Harlow Park', 'Brookside Wanderers', 'Oakfield Town', 'Denby Bridge', 'Thornley Celtic', 'Marsh Lane', 'Greywell Sports', 'Elmsworth', 'Calder Vale', 'Langley Rangers'];
+
+let DATA = null;
+function buildData() {
+  const c = state.club;
+  const r = rng(hashStr(c.name));
+  let rivals = [];
+  if (c.real && CLUBS) rivals = CLUBS.filter(x => x.league === c.league && x.division === c.division && x.name !== c.name).map(x => x.name);
+  if (rivals.length < 7) rivals = FICT_RIVALS.filter(x => x !== c.name);
+  rivals = shuffle(r, rivals).slice(0, 19);
+  const teams = [c.name, ...rivals];
+
+  // league table (example)
+  const played = 11 + Math.floor(r() * 4);
+  const table = teams.map(t => {
+    const p = played - (r() < .3 ? 1 : 0);
+    let w = Math.floor(r() * (p + 1)); let d = Math.floor(r() * (p - w + 1)); const l = p - w - d;
+    const gf = w * 2 + d + Math.floor(r() * 8), ga = l * 2 + d + Math.floor(r() * 8);
+    return { t, p, w, d, l, gf, ga, gd: gf - ga, pts: w * 3 + d, form: Array.from({ length: 5 }, () => pick(r, 'WWDLL')) };
+  }).sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf);
+  table.forEach((x, i) => x.pos = i + 1);
+
+  // fixtures: next Saturdays at 3pm, one Tuesday night, one cup tie
+  const now = new Date();
+  const sat = new Date(now); sat.setHours(15, 0, 0, 0);
+  sat.setDate(sat.getDate() + ((6 - sat.getDay() + 7) % 7));
+  if (sat <= now) sat.setDate(sat.getDate() + 7);
+  const opp = shuffle(r, rivals);
+  const ground = c.ground || `${c.name.replace(/\b(FC|AFC)\b/g, '').trim()} Park`;
+  const fixtures = [];
+  for (let i = 0; i < 8; i++) {
+    const d = new Date(sat); d.setDate(sat.getDate() + i * 7);
+    const home = i % 2 === 0;
+    fixtures.push({ date: d, opp: opp[i % opp.length], home, comp: i === 3 ? 'County Senior Cup' : 'League', venue: home ? ground : `${opp[i % opp.length]} (away)` });
+    if (i === 1) { const t = new Date(d); t.setDate(d.getDate() + 3); t.setHours(19, 45, 0, 0); fixtures.push({ date: t, opp: opp[(i + 5) % opp.length], home: true, comp: 'League', venue: ground }); }
+  }
+  fixtures.sort((a, b) => a.date - b.date);
+  const results = [];
+  for (let i = 1; i <= 7; i++) {
+    const d = new Date(sat); d.setDate(sat.getDate() - i * 7);
+    const us = Math.floor(r() * 4), them = Math.floor(r() * 3);
+    results.push({ date: d, opp: opp[(i + 8) % opp.length], home: i % 2 === 1, us, them, comp: 'League', res: us > them ? 'W' : us === them ? 'D' : 'L' });
+  }
+
+  // squad (example names)
+  const used = new Set();
+  const nm = () => { let n; do { n = pick(r, FIRST) + ' ' + pick(r, LAST); } while (used.has(n)); used.add(n); return n; };
+  const pos = [['Goalkeepers', 'GK', 2], ['Defenders', 'DEF', 6], ['Midfielders', 'MID', 6], ['Forwards', 'FWD', 4]];
+  const nums = shuffle(r, Array.from({ length: 30 }, (_, i) => i + 2)).filter(n => n !== 1);
+  let ni = 0; const squad = [];
+  pos.forEach(([group, code, n]) => { for (let i = 0; i < n; i++) squad.push({ name: nm(), group, code, num: code === 'GK' && i === 0 ? 1 : nums[ni++], apps: 3 + Math.floor(r() * 12), goals: code === 'FWD' ? Math.floor(r() * 9) : code === 'MID' ? Math.floor(r() * 5) : Math.floor(r() * 2), joined: 2016 + Math.floor(r() * 10), age: 18 + Math.floor(r() * 16) }); });
+  squad[8].captain = true;
+  const staff = [['Manager', nm()], ['Assistant Manager', nm()], ['Coach', nm()], ['Physio', nm()]];
+  const committee = [['Chair', nm()], ['Secretary', nm()], ['Treasurer', nm()], ['Welfare Officer', nm()], ['Commercial Manager', nm()]];
+
+  // fundraiser squares (example)
+  const taken = new Set(shuffle(r, Array.from({ length: 100 }, (_, i) => i + 1)).slice(0, 23 + Math.floor(r() * 12)));
+  const SUP = ['The Walker Family', 'Bob & Jean', 'Mick\'s Taxis', 'In memory of Grandad Ted', 'The Under-12s', 'Sarah H', 'Kev the Groundsman', 'The Red Lion', 'Smith Plumbing', 'Ollie, aged 7', 'The Hirst Family', 'Away-day Lads', 'Pete & Linda', 'Barker Builders', 'Fox & Hounds', 'Dave from the bar', 'The Booth Family', 'Jenny M', 'Club legend Gaz', 'A proud dad'];
+  const squares = [...taken].map((n, i) => ({ n, who: SUP[i % SUP.length] }));
+
+  DATA = { teams, table, fixtures, results, squad, staff, committee, squares, ground, rivals };
+  return DATA;
+}
+
+// ---------- routing ----------
+function route() {
+  const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+  if (!parts.length) return { view: 'chooser' };
+  if (parts[0] === 'how') return { view: 'how' };
+  if (TIERS.includes(parts[0])) {
+    const page = PAGES.find(p => p.id === parts[1]) ? parts[1] : 'home';
+    return { view: 'site', tier: parts[0], page, sub: parts[2] };
+  }
+  return { view: 'chooser' };
+}
+const rank = t => TIERS.indexOf(t);
+const has = t => rank(state.tier) >= rank(t);
+function go(hash) { if (location.hash === hash) render(); else location.hash = hash; }
+
+function render() {
+  const rt = route();
+  if (rt.tier && rt.tier !== state.tier) { state.tier = rt.tier; store.set('tfc.tier', state.tier); }
+  document.body.classList.toggle('nolabels', !state.labels);
+  $$('.tiers button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tier === state.tier)));
+  $('#miniCrest').innerHTML = crest('mini');
+  applyTheme();
+  if (!DATA) buildData();
+  renderWelcome();
+  const main = $('#main');
+  if (rt.view === 'chooser') { main.innerHTML = viewChooser(); mountSearches(); document.title = 'Trabelo FC · see your club\'s new website'; }
+  else if (rt.view === 'how') { main.innerHTML = viewHow(); document.title = 'How it works · Trabelo club websites'; }
+  else { main.innerHTML = viewSite(rt); document.title = `${state.club.name} · ${PAGES.find(p => p.id === rt.page).name}`; afterSite(rt); }
+  window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', render);
+
+function renderWelcome() {
+  const el = $('#welcome');
+  if (!state.fromLink || store.get('tfc.welcomeClosed', false)) { el.innerHTML = ''; return; }
+  el.innerHTML = `<div class="welcome"><div class="wrap"><span>👋 This preview was set up for <b>${esc(state.club.name)}</b> by Aidan at Trabelo. Click around, and switch packages at the top.</span><button type="button" id="closeWelcome">Got it</button></div></div>`;
+  $('#closeWelcome').onclick = () => { store.set('tfc.welcomeClosed', true); el.innerHTML = ''; };
+}
+
+// small helpers for tags and icons
+const tag = (t, auto = true) => `<span class="tag ${t}${auto ? ' auto' : ''}">${TIER_NAME[t]}</span>`;
+const ICON = {
+  lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+  cal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.4 7-13a7 7 0 1 0-14 0c0 5.6 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>',
+  car: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 16l1.5-5h11L19 16M4 16h16v3H4zM7 19v2M17 19v2"/></svg>',
+  ticket: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 0 0-4V4H3z" transform="translate(0 2)"/></svg>',
+  beer: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h10v14H6zM16 9h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2M6 6a3 3 0 0 1 5-2 3 3 0 0 1 5 2"/></svg>',
+  access: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="4" r="2"/><path d="M8 9h8M12 9v6l-3 6M12 15l3 6"/></svg>',
+  flag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  fb: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>',
+  x: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.3l-7.2 8.2L22 21h-6.6l-5.1-6.7L4.4 21H1.1l7.7-8.8L1 3h6.8l4.6 6.1zm-1.2 16h1.8L6.8 4.9H4.9z"/></svg>',
+  ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
+};
+const shirt = (a, b, style = 'stripes') => {
+  const body = style === 'stripes'
+    ? `<rect x="22" y="20" width="56" height="70" fill="${a}"/>${[0, 1, 2].map(i => `<rect x="${29 + i * 16}" y="20" width="8" height="70" fill="${b}"/>`).join('')}`
+    : `<rect x="22" y="20" width="56" height="70" fill="${a}"/><rect x="22" y="44" width="56" height="10" fill="${b}"/>`;
+  return `<svg viewBox="0 0 100 100" aria-hidden="true"><defs><clipPath id="sh${++crestN}"><path d="M35 8 22 14 4 30l12 14 6-5v51h56V39l6 5 12-14-18-16-13-6c-2 6-8 9-15 9s-13-3-15-9z"/></clipPath></defs><g clip-path="url(#sh${crestN})"><rect width="100" height="100" fill="${a}"/>${body}<rect x="0" y="14" width="22" height="30" fill="${b}"/><rect x="78" y="14" width="22" height="30" fill="${b}"/></g><path d="M35 8 22 14 4 30l12 14 6-5v51h56V39l6 5 12-14-18-16-13-6c-2 6-8 9-15 9s-13-3-15-9z" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="1.5"/></svg>`;
+};
+
+/* =====================================================================
+   VIEW: chooser (the link Aidan sends)
+   ===================================================================== */
+function pkgCard(t) {
+  const f = {
+    core: ['5 pages: Home, Fixtures & Results, Squad, Club & Matchday, Contact', 'Your badge and colours across the whole site', 'Fixtures, results and league table that update themselves', 'Next match countdown and add-to-calendar', 'Away fans guide, parking, prices and bar info', 'Contact form to the right committee member', 'Sponsor strip, set up for Google, fast on phones'],
+    plus: ['8 pages: everything in Core, plus Sponsors, Pitch Fundraiser and Shop', 'Sponsor-a-square pitch: supporters and firms pay the club directly', 'Sponsor packages, sponsor wall and a printable sponsor pack', 'Club shop: shirts, scarves, tickets, paid into your account', 'Sponsor a player, newsletter, volunteer and ground hire forms'],
+    pro: ['12 pages: everything in Plus, plus Programme, Membership, News and History', 'Digital matchday programme with sponsor adverts and archive', 'Membership and season tickets with online payment', 'News and match reports, player profiles and stats', 'Junior or women\'s sections, more custom design touches'],
+  }[t];
+  const terms = {
+    core: '<b>No deposit.</b> You pay when you\'ve seen it finished and you\'re happy, before it goes live. Preview within about 10 working days of getting your details.',
+    plus: '<b>30% to book your build slot</b>, the rest when you\'re happy and before it goes live. Preview within about 15 working days.',
+    pro: '<b>30% to book your build slot</b>, the rest when you\'re happy and before it goes live. Preview within about 25 working days.',
+  }[t];
+  const who = { core: 'For most clubs: a proper, fast website that\'s easy to find.', plus: 'For clubs with sponsors, or that want more of them. The site pays for itself.', pro: 'For bigger clubs, or clubs that want everything in one place.' }[t];
+  return `<article class="pkg ${t === 'plus' ? 'featured' : ''}">
+    ${t === 'plus' ? '<span class="ribbon">MOST CLUBS PICK THIS</span>' : ''}
+    ${tag(t, false)}
+    <h3>${TIER_NAME[t]}</h3>
+    <div class="price">${money(PRICES[t])} <small>one-off</small></div>
+    <p class="who">${who}</p>
+    <ul>${f.map((x, i) => `<li class="${i === 0 && t !== 'core' ? 'inc' : ''}">${esc(x)}</li>`).join('')}</ul>
+    <a class="btn ${t === 'plus' ? 'tb' : 'dark'} block" href="#/${t}/home">See the ${TIER_NAME[t]} demo</a>
+    <p class="terms" style="margin-bottom:0">${terms}</p>
+  </article>`;
+}
+function viewChooser() {
+  const c = state.club;
+  return `
+  <section class="tb-hero"><div class="wrap hero-grid">
+    <div>
+      <div class="steps-row"><span><b>1</b>Find your club</span><span><b>2</b>Check your colours</span><span><b>3</b>Pick a package</span></div>
+      <h1>See your club's new website in 30 seconds.</h1>
+      <p class="lead">Built for non-league clubs by Trabelo. Find your club below, and every page of the demo changes to your name, colours and crest.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn tb" href="#/${state.tier}/home">Show me the demo</a>
+        <a class="btn" href="#/how" style="background:transparent;color:#fff;border-color:#334155">How it works and what it costs</a>
+      </div>
+    </div>
+    <div class="finder">
+      <h2>Find your club</h2>
+      <p>Type the first few letters, like "alb" for Albion Sports.</p>
+      <div class="search" data-search="hero"></div>
+      <div class="preview-card">${crest()}<div><b>${esc(c.name)}</b><span class="example">${c.real ? esc(c.league) + ' · Step ' + c.step : 'Pick your club, or type its name'}</span></div></div>
+      <div class="colour-row">
+        <label><input type="color" data-colour="c1" value="${c.c1}"> Main colour</label>
+        <label><input type="color" data-colour="c2" value="${c.c2}"> Second colour</label>
+      </div>
+      <p class="example" style="margin:8px 0 0">${colourNote()}</p>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <h2 class="big">Three packages. One price each. No surprises.</h2>
+    <p class="sub">Start with Core and upgrade whenever you like: you only pay the difference. Every package is built for your club, hosted with no monthly hosting bill, and handed over in your club's name.</p>
+    <div class="pkgs">${TIERS.map(pkgCard).join('')}</div>
+  </div></section>
+
+  <section class="section" style="padding-top:0"><div class="wrap grid2" style="align-items:center">
+    <div>
+      <h2 class="big">Found on Google, the way a club should be.</h2>
+      <p class="sub">Every site is built so Google understands your fixtures, ground and club. This is an illustration of how ${esc(c.name)} could appear. Nobody can guarantee a ranking, and I won't pretend to.</p>
+      <div class="trust" style="grid-template-columns:1fr 1fr">
+        <div><b>Fast on phones</b>Built to score 95+ on Google's speed test.</div>
+        <div><b>Your money stays yours</b>Sponsor and shop payments go straight to the club's account.</div>
+        <div><b>Yours to keep</b>Once paid, everything moves into accounts in your club's name.</div>
+        <div><b>One person, start to finish</b>You deal with me, not a call centre.</div>
+      </div>
+    </div>
+    ${serp()}
+  </div></section>
+
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <div class="card" style="display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center">
+      <div class="avatar" style="width:56px;height:56px;background:var(--demo);font-size:20px">AF</div>
+      <div><b style="font-size:17px">Hi, I'm Aidan.</b><p style="margin:2px 0 0;color:var(--muted)">I play non-league myself, so I know what a club site needs to do on a Saturday. Our team also built Doncaster City FC's website. Ask me anything about this demo, or tell me what you'd change.</p></div>
+      <button class="btn tb" type="button" data-ask>Ask Aidan</button>
+    </div>
+  </div></section>
+  ${tbFooter()}`;
+}
+function colourNote() {
+  const s = state.club.colourSource;
+  if (s === 'wiki') return 'Colours taken from your club\'s kit on Wikipedia. Wrong? Change them above.';
+  if (s === 'link') return 'Colours set for your club. Wrong? Change them above.';
+  return 'Pick your club and we\'ll fill in your colours where we know them.';
+}
+function serp() {
+  const c = state.club, d = DATA;
+  const slug = c.name.toLowerCase().replace(/[^a-z0-9]+/g, '') + (/\bfc\b/i.test(c.name) ? '' : 'fc');
+  const ev = d.fixtures.slice(0, 3).map(f => `<div><b>${fmtDate(f.date)}, ${fmtTime(f.date)}</b><span>${f.home ? esc(c.name) + ' v ' + esc(f.opp) : esc(f.opp) + ' v ' + esc(c.name)}</span></div>`).join('');
+  return `<div class="serp" aria-label="Illustration of a Google search result">
+    <div class="q">${esc(c.name.toLowerCase())} fixtures</div>
+    <div class="site"><span class="fav">${crest('')}</span><div>${esc(c.name)}<small>https://${esc(slug)}.co.uk</small></div></div>
+    <h4>${esc(c.name)} | Official Website, Fixtures &amp; Results</h4>
+    <p>Fixtures, results and the latest ${esc(c.league)} table. Find the ground, kick-off times, admission and how to support the club.</p>
+    <div class="links"><a>Fixtures &amp; Results</a><a>Squad</a><a>Matchday Info</a><a>Contact</a></div>
+    <div class="ev">${ev}</div>
+    <p class="example" style="margin:10px 0 0;font-family:Inter,sans-serif">Illustration, using example fixtures.</p>
+  </div>`;
+}
+function tbFooter() {
+  return `<footer class="tb-foot"><div class="wrap"><span>© ${new Date().getFullYear()} Trabelo Ltd · Club websites for non-league football</span><span><a href="mailto:${AIDAN_EMAIL}">${AIDAN_EMAIL}</a> · <a href="https://wa.me/${AIDAN_WHATSAPP}" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://trabelo.com" target="_blank" rel="noopener">trabelo.com</a></span></div></footer>`;
+}
+
+/* =====================================================================
+   VIEW: how it works, prices, terms, FAQ
+   ===================================================================== */
+function viewHow() {
+  const row = (k, a, b, c) => `<tr><th scope="row">${k}</th><td>${a}</td><td>${b}</td><td>${c}</td></tr>`;
+  return `
+  <section class="tb-hero" style="padding:44px 0"><div class="wrap">
+    <h1 style="font-size:clamp(30px,4.6vw,48px)">How it works, and exactly what it costs.</h1>
+    <p class="lead" style="margin:0">No hidden extras, no monthly hosting bill. Here's everything, including the bits most web people leave out.</p>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <h2 class="big">Start to finish</h2>
+    <p class="sub">About an hour of your time in total, in small pieces. <span class="who-tag you">You</span> marks your part, <span class="who-tag me">Aidan</span> marks mine.</p>
+    <ol class="journey">
+      <li><div><b>Pick a package <span class="who-tag you">You</span></b><span>Have a click around the demo. If you're not sure, ask me, and I'll tell you honestly which one fits.</span></div></li>
+      <li><div><b>Committee says yes <span class="who-tag you">You</span></b><span>I'll need an email from your chair, secretary or treasurer confirming the club is going ahead. It protects you as much as me.</span></div></li>
+      <li><div><b>Short agreement <span class="who-tag me">Aidan</span> <span class="who-tag you">You</span></b><span>Two pages in plain English: what you get, the price, when you pay. Replying "I agree" counts as signing. Plus and Pro pay 30% at this point to book the build slot.</span></div></li>
+      <li><div><b>Send the basics <span class="who-tag you">You</span></b><span>Club name, badge, colours, ground address, and who has your web address and FA Full-Time login. I chase the rest later, not on day one.</span></div></li>
+      <li><div><b>I build it <span class="who-tag me">Aidan</span></b><span>On a private preview link only you can see. Core in about 10 working days, Plus about 15, Pro about 25, from when I have your basics.</span></div></li>
+      <li><div><b>You tell me what to change <span class="who-tag you">You</span></b><span>Two rounds of changes are included. Wording, photos, colours, layout, anything.</span></div></li>
+      <li><div><b>You say "happy for it to go live" <span class="who-tag you">You</span></b><span>Then I send one invoice for what's left, payable by bank transfer from the club's account.</span></div></li>
+      <li><div><b>It goes live, and it's yours <span class="who-tag me">Aidan</span></b><span>Once paid, the site goes onto your web address and everything moves into accounts in your club's name, with a written list of every login.</span></div></li>
+    </ol>
+  </div></section>
+
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <h2 class="big">The three packages side by side</h2>
+    <div class="tablewrap"><table class="cmp">
+      <thead><tr><th></th><th>Core £395</th><th>Plus £795</th><th>Pro £1,495</th></tr></thead>
+      <tbody>
+        ${row('Pages included', '5', '8', '12 (extra pages £40 each, up to 20)')}
+        ${row('Swap a page for another', 'Yes, free', 'Yes, free', 'Yes, free')}
+        ${row('Extra pages', '£40 each', '£40 each', '£40 each')}
+        ${row('Payment', 'No deposit. Pay when happy, before go-live', '30% to start, 70% when happy, before go-live', '30% to start, 70% when happy, before go-live')}
+        ${row('Preview ready', 'About 10 working days', 'About 15 working days', 'About 25 working days')}
+        ${row('Free fixes after launch', '14 days', '14 days', '30 days')}
+        ${row('Fixtures, results and table', 'Updates itself', 'Updates itself', 'Updates itself, plus calendar subscribe')}
+        ${row('Sponsors', 'Sponsor strip', 'Packages, wall, pack, sponsor a player', 'Everything in Plus, plus programme adverts')}
+        ${row('Taking money online', '—', 'Fundraiser and shop, into your Stripe', 'Plus membership and season tickets')}
+        ${row('News', 'Club notices on the home page', 'Club notices on the home page', 'Full news and match reports')}
+        ${row('Editing it yourselves', 'Send changes to me', 'Send changes to me', 'Optional edit panel, £150')}
+        ${row('Upgrade later', 'Pay the difference', 'Pay the difference', '—')}
+      </tbody>
+    </table></div>
+  </div></section>
+
+  <section class="section" style="padding-top:0"><div class="wrap grid2">
+    <div>
+      <h2 class="big" style="font-size:26px">What I'll need from you</h2>
+      <ul class="checklist">
+        <li>Club name exactly as you want it, your badge (the original file if you have it) and colours</li>
+        <li>Ground address and postcode, kick-off times, admission prices, bar and parking details</li>
+        <li>Your web address: who bought it, and the login (or the person who has it)</li>
+        <li>FA Full-Time: your secretary or league can copy the fixtures "code snippet" for me</li>
+        <li>Squad list and committee contacts, including your welfare officer</li>
+        <li>Plus and Pro: a Stripe account in the club's name (needs a bank account and ID; allow a few days)</li>
+        <li>Photos if you have them. Under-18s only with consent; I'll show first names only by default</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="big" style="font-size:26px">What's not included (so nobody's surprised)</h2>
+      <ul class="checklist no-list">
+        <li>Live scores during matches. Fixtures, results and the table update automatically from the FA's own system</li>
+        <li>Lotteries, raffles or prize draws, which need licensing. Happy to link to your existing lottery provider</li>
+        <li>A members' login area. Sign-ups go to your treasurer by email instead</li>
+        <li>Writing your club's news for you (I can quote for it)</li>
+        <li>Photography, unless we agree it separately</li>
+        <li>Your web address renewal, about £12 a year, paid by the club to the registrar</li>
+      </ul>
+    </div>
+  </div></section>
+
+  <section class="section" style="padding-top:0"><div class="wrap grid2">
+    <div>
+      <h2 class="big" style="font-size:26px">After it's live</h2>
+      <ul class="checklist">
+        <li><b>Free fixes:</b> 14 days (Pro 30 days) for anything not working as agreed</li>
+        <li><b>Small changes after that:</b> £15 each. Things like a new player, new sponsor logo or new prices</li>
+        <li><b>Club Care:</b> £30 a month for up to 10 small changes a month, cancel any time. Handy in season</li>
+        <li><b>Bigger additions:</b> quoted first, and only done if you agree</li>
+        <li><b>Upgrades:</b> move up a package any time and pay the difference</li>
+      </ul>
+    </div>
+    <div class="faq">
+      <h2 class="big" style="font-size:26px">Questions clubs ask</h2>
+      <details><summary>Who owns the website?</summary><p>You do, once it's paid for. The site, the web address and every account are in your club's name, and you can take it to anyone else at any time.</p></details>
+      <details><summary>Is there a monthly fee?</summary><p>No. There's no monthly hosting bill. The only running cost is your web address, about £12 a year. Club Care is optional.</p></details>
+      <details><summary>Why a 30% deposit on Plus and Pro?</summary><p>They take a lot more building, so the 30% books your slot. You still don't pay the rest until you've seen it finished and you're happy. Core has no deposit at all.</p></details>
+      <details><summary>How do the fixtures update?</summary><p>From the FA's Full-Time system, which your league already uses. I add the official feed, so results and the table update when the league updates them.</p></details>
+      <details><summary>How does the money from the shop and squares reach us?</summary><p>Through a Stripe account in the club's name, straight into the club's bank account. Trabelo never touches your money. Stripe charges a small fee per payment, which you'll see before you sign up.</p></details>
+      <details><summary>Can we update it ourselves?</summary><p>On Pro there's an optional edit panel (£150). Otherwise send me the change and it's done, usually within 48 hours.</p></details>
+      <details><summary>What about photos of junior players?</summary><p>Only with consent, following FA safeguarding guidance. By default I show first names and positions only for under-18s, and I'll check with your welfare officer.</p></details>
+      <details><summary>Will it get us to the top of Google?</summary><p>It'll be built the right way for Google, fast and properly labelled. But nobody can honestly guarantee a ranking, and anyone who does is guessing.</p></details>
+    </div>
+  </div></section>
+
+  <section class="section" style="padding-top:0"><div class="wrap"><div class="card" style="text-align:center;padding:30px">
+    <h2 style="margin:0 0 8px">Seen enough to ask a question?</h2>
+    <p style="color:var(--muted);margin:0 0 16px">It comes straight to me. No sales team, no pressure.</p>
+    <button class="btn tb" type="button" data-ask>Ask Aidan</button> <a class="btn" href="#/${state.tier}/home">Back to the demo</a>
+  </div></div></section>
+  ${tbFooter()}`;
+}
+
+/* =====================================================================
+   VIEW: the club website
+   ===================================================================== */
+function viewSite(rt) {
+  const c = state.club;
+  const nav = PAGES.filter(p => rank(p.tier) <= rank('pro')).map(p => {
+    const locked = !has(p.tier);
+    return `<li><a href="#/${state.tier}/${p.id}" class="${locked ? 'locked' : ''}" ${rt.page === p.id ? 'aria-current="page"' : ''}>${esc(p.name)}${locked ? ICON.lock + `<span class="sr">(${TIER_NAME[p.tier]} package)</span>` : ''}</a></li>`;
+  }).join('');
+  const page = PAGES.find(p => p.id === rt.page);
+  const body = !has(page.tier) ? viewLocked(page) : ({
+    home: pHome, fixtures: pFixtures, squad: pSquad, news: pNews, matchday: pMatchday, sponsors: pSponsors,
+    fundraiser: pFundraiser, shop: pShop, programme: pProgramme, membership: pMembership, history: pHistory, contact: pContact,
+  }[page.id])(rt);
+  return `
+  <div class="club-head"><div class="wrap">
+    <a href="#/${state.tier}/home" aria-label="${esc(c.name)} home">${crest()}</a>
+    <div><div class="nm">${esc(c.name)}</div><div class="lg">${esc(c.league)}${c.division ? ' · ' + esc(c.division) : ''}</div></div>
+    <div class="social"><a href="#" data-demo="Your Facebook page" aria-label="Facebook">${ICON.fb}</a><a href="#" data-demo="Your X account" aria-label="X">${ICON.x}</a><a href="#" data-demo="Your Instagram" aria-label="Instagram">${ICON.ig}</a></div>
+  </div></div>
+  <nav class="club-nav" aria-label="Club website"><ul>${nav}</ul></nav>
+  <div class="exstrip"><div class="wrap"><b>Demo:</b> the fixtures, players, people and news are examples. Your real ones replace them. ${tag(state.tier, false)} package shown, ${PAGES.filter(p => has(p.tier)).length} pages.</div></div>
+  <div class="page"><div class="wrap">${body}</div></div>
+  ${clubFooter()}`;
+}
+
+function viewLocked(page) {
+  const [title, text, bullets] = LOCKED_INFO[page.id];
+  const t = page.tier;
+  return `<div class="locked-panel">
+    <div class="lk" style="background:var(--${t}-bg);color:var(--${t})">${ICON.lock.replace('<svg', '<svg width="26" height="26"')}</div>
+    ${tag(t, false)}
+    <h1 class="ph" style="margin-top:8px">${esc(title)}</h1>
+    <p style="color:var(--muted)">${esc(text)}</p>
+    <ul>${bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+    <p style="font-size:14px;color:var(--muted)">This page comes with ${TIER_NAME[t]} (${money(PRICES[t])}). Start on ${TIER_NAME[state.tier]} and you can add it later for the difference.</p>
+    <a class="btn tb" href="#/${t}/${page.id}">See it on ${TIER_NAME[t]}</a>
+  </div>`;
+}
+
+function nextMatchCard() {
+  const c = state.club, f = DATA.fixtures[0];
+  const H = f.home ? c.name : f.opp, A = f.home ? f.opp : c.name;
+  const cr = n => n === c.name ? crest() : oppCrest(n);
+  return `<div class="card next">
+    <h3>Next match ${tag('core')}</h3>
+    <div class="vs"><div class="team">${cr(H)}<span>${esc(H)}</span></div><div class="ko">${fmtTime(f.date)}<br>${fmtDate(f.date)}</div><div class="team">${cr(A)}<span>${esc(A)}</span></div></div>
+    <div class="countdown" id="countdown" data-t="${f.date.getTime()}"><div><b>-</b><span>days</span></div><div><b>-</b><span>hrs</span></div><div><b>-</b><span>mins</span></div><div><b>-</b><span>secs</span></div></div>
+    <div class="meta-line"><span>${esc(f.comp)}</span><span>${esc(f.venue)}</span></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm club" type="button" data-ics="0">${ICON.cal.replace('<svg', '<svg width="16" height="16"')} Add to calendar</button><a class="btn sm" href="#/${state.tier}/matchday">Getting here</a></div>
+  </div>`;
+}
+function lastResultCard() {
+  const c = state.club, r = DATA.results[0];
+  const H = r.home ? c.name : r.opp, A = r.home ? r.opp : c.name;
+  const hs = r.home ? r.us : r.them, as = r.home ? r.them : r.us;
+  return `<div class="card"><h3>Last result <span class="wdl ${r.res}">${r.res}</span></h3>
+    <div class="result-big"><span style="font-size:15px;font-weight:700;text-align:right;flex:1">${esc(H)}</span><span>${hs} – ${as}</span><span style="font-size:15px;font-weight:700;flex:1">${esc(A)}</span></div>
+    <p class="example" style="justify-content:center;margin:8px 0 0">${fmtDate(r.date)} · ${esc(r.comp)}</p></div>`;
+}
+function miniTable() {
+  const c = state.club, t = DATA.table;
+  const us = t.findIndex(x => x.t === c.name);
+  let rows = t.slice(0, 5);
+  if (us >= 5) rows = [...t.slice(0, 3), t[us - 1], t[us]];
+  return `<div class="card"><h3>League table ${tag('core')}</h3><table class="tbl"><thead><tr><th>#</th><th>Club</th><th>P</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+    ${rows.map(x => `<tr class="${x.t === c.name ? 'us' : ''}"><td>${x.pos}</td><td>${esc(x.t)}</td><td>${x.p}</td><td>${x.gd > 0 ? '+' : ''}${x.gd}</td><td class="pts">${x.pts}</td></tr>`).join('')}
+  </tbody></table><a class="btn sm" style="margin-top:12px" href="#/${state.tier}/fixtures">Full table</a></div>`;
+}
+
+function pHome() {
+  const c = state.club, d = DATA;
+  const raised = d.squares.length * 50;
+  return `
+  <section class="club-hero">
+    ${crest()}
+    <div>
+      <h1>${esc(c.name)}</h1>
+      <p>Welcome to the home of ${esc(c.name)}. Fixtures, results, matchday info and everything else, in one place.</p>
+      <div class="btns"><a class="btn on-hero" href="#/${state.tier}/fixtures">Fixtures &amp; results</a><a class="btn ghost-hero" href="#/${state.tier}/matchday">Matchday info</a>${has('plus') ? `<a class="btn ghost-hero" href="#/${state.tier}/fundraiser">Sponsor a square</a>` : ''}</div>
+    </div>
+  </section>
+  <div class="cols" style="margin-bottom:18px">${nextMatchCard()}${lastResultCard()}${miniTable()}</div>
+  ${has('plus') ? `<div class="cols2" style="margin-bottom:18px">
+    <div class="card"><h3>Pitch Fundraiser ${tag('plus')}</h3><p style="margin:0 0 6px"><b>${money(raised)}</b> raised of £5,000 by ${d.squares.length} supporters and local firms.</p><div class="progress"><span style="width:${raised / 50}%"></span></div><a class="btn sm club" href="#/${state.tier}/fundraiser">Sponsor a square, £50</a></div>
+    <div class="card"><h3>Sponsor spotlight ${tag('plus')}</h3><div class="spot"><div class="logo">YOUR<br>LOGO</div><div><b>Your business here</b><p class="example" style="margin:2px 0 8px">Rotates through your sponsors, with a link to each.</p><a class="btn sm" href="#/${state.tier}/sponsors">Become a sponsor</a></div></div></div>
+  </div>` : ''}
+  ${has('pro') ? `<div class="cols" style="margin-bottom:18px">
+    <div class="card"><h3>Matchday programme ${tag('pro')}</h3><p class="example" style="margin:0 0 10px">Issue ${7 + d.results.length} for ${esc(d.fixtures[0].opp)}, out on matchday.</p><a class="btn sm club" href="#/${state.tier}/programme">Read the programme</a></div>
+    <div class="card"><h3>Season tickets ${tag('pro')}</h3><p class="example" style="margin:0 0 10px">Every home league game, with discounts at the bar.</p><a class="btn sm club" href="#/${state.tier}/membership">Join the club</a></div>
+    <div class="card"><h3>Shop ${tag('plus')}</h3><p class="example" style="margin:0 0 10px">Home shirts are in, in ${esc(c.name)} colours.</p><a class="btn sm club" href="#/${state.tier}/shop">Visit the shop</a></div>
+  </div>` : ''}
+  <div class="cols2">
+    ${has('pro') ? `<div class="card"><h3>Latest news ${tag('pro')}</h3><div class="list">${articles().slice(0, 3).map(a => `<a href="#/${state.tier}/news/${a.slug}" style="text-decoration:none;color:inherit"><b>${esc(a.title)}</b><br><small class="example">${esc(a.cat)} · ${esc(a.when)}</small></a>`).join('')}</div></div>`
+      : `<div class="card"><h3>Club notices ${tag('core')}</h3><div class="list">
+        <div><b>Volunteers wanted for the tea bar</b><br><small class="example">Two hours on a home Saturday. Speak to anyone at the club.</small></div>
+        <div><b>Pre-season friendlies announced</b><br><small class="example">Full list on the fixtures page.</small></div></div></div>`}
+    <div class="card"><h3>Matchday ${tag('core')}</h3><div class="list" style="font-size:15px">
+      <div>${ICON.pin.replace('<svg', '<svg width="16" height="16" style="vertical-align:-3px"')} ${esc(d.ground)}</div>
+      <div>${ICON.ticket.replace('<svg', '<svg width="16" height="16" style="vertical-align:-3px"')} Adults £6 · Concessions £3 · Under-16s free</div>
+      <div>${ICON.clock.replace('<svg', '<svg width="16" height="16" style="vertical-align:-3px"')} Saturdays 3pm · Midweek 7:45pm</div>
+    </div></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>Our sponsors ${tag('core')}</h3><div class="spons">${['Main sponsor', 'Kit sponsor', 'Ground sponsor', 'Your logo here', 'Your logo here', 'Your logo here'].map((s, i) => `<div class="slot ${i < 3 ? 'gold' : ''}">${s}</div>`).join('')}</div></div>
+  <div style="margin-top:18px">${serp()}</div>`;
+}
+
+function fixtureRow(f, i) {
+  const c = state.club;
+  return `<div class="fx"><div class="d">${fmtDate(f.date)}<small>${fmtTime(f.date)}</small></div>
+    <div class="o"><span class="ha ${f.home ? 'H' : 'A'}">${f.home ? 'H' : 'A'}</span>${f.home ? esc(c.name) + ' v ' + esc(f.opp) : esc(f.opp) + ' v ' + esc(c.name)}<small>${esc(f.comp)} · ${esc(f.venue)}${has('pro') && i % 3 === 0 ? ' · Match sponsor: <i>your name here</i>' : ''}</small></div>
+    <div class="act"><button class="btn sm" type="button" data-ics="${i}" aria-label="Add ${esc(f.opp)} match to calendar">${ICON.cal.replace('<svg', '<svg width="15" height="15"')} Calendar</button></div></div>`;
+}
+function pFixtures(rt) {
+  const c = state.club, d = DATA;
+  const tab = rt.sub || 'fixtures';
+  const tabs = [['fixtures', 'Fixtures'], ['results', 'Results'], ['table', 'Table']];
+  let body = '';
+  if (tab === 'fixtures') body = `<div class="chips" role="group" aria-label="Filter">${['All', 'Home', 'Away'].map((x, i) => `<button class="chip" type="button" data-filter="${x}" aria-pressed="${i === 0}">${x}</button>`).join('')}${has('pro') ? `<button class="chip" type="button" data-ics="all">Subscribe: all fixtures ${tag('pro')}</button>` : ''}</div><div class="list" id="fxList">${d.fixtures.map(fixtureRow).join('')}</div>`;
+  if (tab === 'results') body = `<div class="list">${d.results.map(r => `<div class="fx"><div class="d">${fmtDate(r.date)}<small>${esc(r.comp)}</small></div><div class="o"><span class="ha ${r.home ? 'H' : 'A'}">${r.home ? 'H' : 'A'}</span>${r.home ? esc(c.name) + ' v ' + esc(r.opp) : esc(r.opp) + ' v ' + esc(c.name)}</div><div class="score"><span class="wdl ${r.res}">${r.res}</span>${r.home ? r.us + ' – ' + r.them : r.them + ' – ' + r.us}</div></div>`).join('')}</div>`;
+  if (tab === 'table') body = `<div class="card" style="overflow-x:auto"><table class="tbl"><thead><tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr></thead><tbody>
+    ${d.table.map(x => `<tr class="${x.t === c.name ? 'us' : ''}"><td>${x.pos}</td><td>${esc(x.t)}</td><td>${x.p}</td><td>${x.w}</td><td>${x.d}</td><td>${x.l}</td><td>${x.gf}</td><td>${x.ga}</td><td>${x.gd > 0 ? '+' : ''}${x.gd}</td><td class="pts">${x.pts}</td><td style="white-space:nowrap">${x.form.map(f => `<span class="wdl ${f}" style="width:16px;height:16px;font-size:9px;margin:0 1px">${f}</span>`).join('')}</td></tr>`).join('')}
+  </tbody></table></div>`;
+  return `<h1 class="ph">Fixtures &amp; Results</h1>
+  <p class="lede">${c.real ? `Using clubs from your real division, ${esc(c.division)}, ` : ''}example dates and scores. On your site these update themselves from the FA's Full-Time system. ${tag('core')}</p>
+  <div class="chips">${tabs.map(([id, n]) => `<a class="chip" ${tab === id ? 'aria-current="page"' : ''} aria-pressed="${tab === id}" href="#/${state.tier}/fixtures/${id}" style="text-decoration:none;color:inherit">${n}</a>`).join('')}</div>
+  ${body}`;
+}
+
+function pSquad() {
+  const d = DATA;
+  const groups = ['Goalkeepers', 'Defenders', 'Midfielders', 'Forwards'];
+  const playerCard = (p, i) => `<button type="button" class="player ${has('pro') ? 'clickable' : ''}" data-player="${i}" ${has('pro') ? '' : 'tabindex="-1"'}>
+    <span class="shirt">${p.captain ? '<span class="cap">C</span>' : ''}${shirtNumber(p.num)}</span>
+    <span class="info"><b>${esc(p.name)}</b><small>${esc(p.group.slice(0, -1))} · #${p.num}</small>${has('plus') ? `<br><small style="color:var(--brand);font-weight:700">Sponsor this player</small>` : ''}</span></button>`;
+  return `<h1 class="ph">Squad</h1>
+  <p class="lede">Example players. ${has('pro') ? 'Tap a player for their profile and stats.' : 'Player profiles and stats come with Pro.'} ${tag('core')} ${has('plus') ? tag('plus') + ' sponsor a player' : ''}</p>
+  <div class="chips" role="group" aria-label="Filter by position">${['All', ...groups].map((g, i) => `<button class="chip" type="button" data-pos="${g}" aria-pressed="${i === 0}">${g}</button>`).join('')}</div>
+  ${groups.map(g => `<section data-group="${g}"><h2 class="posh">${g}</h2><div class="squad">${d.squad.map((p, i) => p.group === g ? playerCard(p, i) : '').join('')}</div></section>`).join('')}
+  <section data-group="Management"><h2 class="posh">Management</h2><div class="squad">${d.staff.map(([role, n]) => `<div class="player"><div class="shirt"><span class="avatar" style="width:64px;height:64px;font-size:22px;background:var(--hero-ink);color:var(--hero)">${esc(n.split(' ').map(x => x[0]).join(''))}</span></div><div class="info"><b>${esc(n)}</b><small>${esc(role)}</small></div></div>`).join('')}</div></section>`;
+}
+function shirtNumber(n) {
+  const c = state.club;
+  return `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M35 8 22 14 4 30l12 14 6-5v51h56V39l6 5 12-14-18-16-13-6c-2 6-8 9-15 9s-13-3-15-9z" fill="${c.c1}" stroke="${c.c2}" stroke-width="3"/><text x="50" y="72" text-anchor="middle" font-family="Inter,Arial" font-weight="900" font-size="34" fill="${inkOn(c.c1)}">${n}</text></svg>`;
+}
+
+function pMatchday() {
+  const c = state.club, d = DATA;
+  const maps = 'https://www.google.com/maps/search/' + encodeURIComponent((c.ground || c.name + ' football ground'));
+  const info = [
+    [ICON.pin, 'The ground', `${esc(d.ground)}<br><span class="example">Your full address and postcode go here.</span><br><a href="${maps}" target="_blank" rel="noopener">Open in Google Maps</a>`],
+    [ICON.clock, 'Kick-off times', 'Saturdays 3pm. Midweek games 7:45pm. Gates open an hour before kick-off.'],
+    [ICON.ticket, 'Admission', 'Adults £6 · Concessions £3 · Under-16s free with a paying adult. Card and cash at the gate.'],
+    [ICON.car, 'Parking', 'Free car park at the ground, with overflow on the street. Please don\'t block neighbours\' drives.'],
+    [ICON.beer, 'Bar & food', 'Clubhouse bar open from 1pm on matchdays. Hot food, tea and coffee from the tea bar.'],
+    [ICON.access, 'Accessibility', 'Level access to the main stand and clubhouse. Accessible toilet. Assistance dogs welcome.'],
+    [ICON.flag, 'Away fans', 'No segregation, everyone\'s welcome in the clubhouse. Nearest station and bus routes listed here.'],
+  ];
+  return `<h1 class="ph">Club &amp; Matchday</h1>
+  <p class="lede">Everything a first-time visitor or away fan needs. Visiting supporters search for exactly this, so it's good for Google too. ${tag('core')}</p>
+  <div class="info-grid">${info.map(([ic, h, p]) => `<div class="card"><div class="ico">${ic}</div><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
+  <div class="card" style="margin-top:18px"><h3>About ${esc(c.name)}</h3><p style="margin:0">Founded in ${foundedYear()}, ${esc(c.name)} play in the ${esc(c.league)}. This is where a short history of the club goes, in your words.${has('pro') ? ` <a href="#/${state.tier}/history">Read the full history</a>.` : ''}</p></div>`;
+}
+
+function pContact() {
+  const d = DATA;
+  return `<h1 class="ph">Contact</h1>
+  <p class="lede">Messages go straight to the right person's inbox. Example contacts shown. ${tag('core')}</p>
+  <div class="cols2">
+    <div class="card"><h3>Send a message</h3>
+      <form class="form" data-demo-form="Your message would go straight to the right committee member's inbox.">
+        <div class="grid2" style="gap:12px"><label>Name<input required></label><label>Email<input type="email" required></label></div>
+        <label>What's it about?<select><option>General enquiry (Secretary)</option>${has('plus') ? '<option>Sponsorship (Commercial Manager)</option><option>Ground or room hire</option>' : ''}<option>Playing for the club (Manager)</option><option>Welfare or safeguarding (Welfare Officer)</option></select></label>
+        <label>Message<textarea required></textarea></label>
+        <label class="check"><input type="checkbox" required> I agree to the club using my details to reply to this message.</label>
+        <button class="btn club" type="submit">Send message</button>
+      </form>
+    </div>
+    <div class="card"><h3>Committee</h3><div class="people">${d.committee.map(([role, n]) => `<div class="person"><span class="avatar">${esc(n.split(' ').map(x => x[0]).join(''))}</span><div><b>${esc(n)}</b><small>${esc(role)}${role === 'Welfare Officer' ? ' · for any safeguarding concern' : ''}</small></div></div>`).join('')}</div>
+    ${has('plus') ? `<hr style="border:0;border-top:1px solid var(--line);margin:16px 0"><h3>Stay in touch ${tag('plus')}</h3><form class="form" data-demo-form="On your site this adds them to your club newsletter list."><label>Email for club news<input type="email" required></label><button class="btn sm club" type="submit">Sign up</button></form>` : ''}
+    </div>
+  </div>`;
+}
+
+function pSponsors() {
+  const tiers = [
+    ['Match ball', 40, ['Name in the programme and on the website', 'Social media thank-you post']],
+    ['Player sponsor', 60, ['Your name on the player\'s profile all season', 'Shout-out when they score']],
+    ['Matchday sponsor', 150, ['Name on the fixture and programme cover', 'Hospitality for four', 'Social media post']],
+    ['Pitch-side board', 300, ['Board for the season, facing the main stand', 'Logo and link on the sponsor wall', 'Listed in the sponsor pack']],
+    ['Kit sponsor', 0, ['Logo on the shirt', 'Top spot on the sponsor wall', 'Price on application']],
+  ];
+  return `<h1 class="ph">Sponsors</h1>
+  <p class="lede">A proper home for your sponsors, and a way to get more of them. Prices are examples: your club sets its own. ${tag('plus')}</p>
+  <div class="tiers-sp">${tiers.map(([n, p, b]) => `<div class="card sp-tier"><h3>${n}</h3><div class="amt">${p ? money(p) : 'Ask us'}${p && p >= 150 ? '<small style="font-size:13px;font-weight:600;color:var(--muted)"> /season</small>' : ''}</div><ul>${b.map(x => `<li>${x}</li>`).join('')}</ul><button class="btn sm club" type="button" data-sponsor="${n}">Enquire</button></div>`).join('')}</div>
+  <div class="cols2" style="margin-top:18px">
+    <div class="card"><h3>Sponsor wall</h3><div class="spons">${['Main sponsor', 'Kit sponsor', 'Ground sponsor', 'Gold sponsor', 'Gold sponsor', 'Your logo here', 'Your logo here', 'Your logo here'].map((s, i) => `<div class="slot ${i < 5 ? 'gold' : ''}">${s}</div>`).join('')}</div><p class="example" style="margin-top:10px">Each logo links to the sponsor's own website, which sponsors love.</p></div>
+    <div class="card"><h3>Sponsor pack</h3><p style="margin:0 0 12px">A one-page pack with your packages and prices. Print it, or save it as a PDF and email it to local businesses.</p><button class="btn club" type="button" id="printPack">Open the sponsor pack</button></div>
+  </div>`;
+}
+
+function pFundraiser() {
+  const d = DATA, c = state.club;
+  const taken = new Map(d.squares.map(s => [s.n, s.who]));
+  const raised = d.squares.length * 50;
+  return `<h1 class="ph">Pitch Fundraiser</h1>
+  <p class="lede">Sponsor a square of the ${esc(c.name)} pitch for £50. Your name goes on the pitch map and the supporters wall, and every penny goes to the club. Example supporters shown. ${tag('plus')}</p>
+  <div class="pitch-wrap">
+    <div>
+      <div class="pitch">
+        <svg class="lines" viewBox="0 0 100 70" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="rgba(255,255,255,.75)" stroke-width=".5"><rect x="1" y="1" width="98" height="68"/><line x1="50" y1="1" x2="50" y2="69"/><circle cx="50" cy="35" r="9"/><rect x="1" y="17" width="15" height="36"/><rect x="84" y="17" width="15" height="36"/><rect x="1" y="27" width="5" height="16"/><rect x="94" y="27" width="5" height="16"/></g></svg>
+        <div class="sq-grid" role="group" aria-label="Pitch squares">${Array.from({ length: 100 }, (_, i) => { const n = i + 1, w = taken.get(n); return `<button type="button" class="sq ${w ? 'taken' : ''}" data-sq="${n}" aria-label="Square ${n}, ${w ? 'sponsored by ' + esc(w) : 'available, £50'}">${w ? '' : n}</button>`; }).join('')}</div>
+      </div>
+      <p class="example" style="margin-top:8px">Tap any free square. Squares are marked as sponsored once the payment has come through.</p>
+    </div>
+    <div class="card">
+      <h3>${money(raised)} raised</h3>
+      <div class="progress" aria-label="${raised / 50}% of target"><span style="width:${raised / 50}%"></span></div>
+      <p class="example" style="margin:0 0 14px">Target £5,000 for new floodlights · ${100 - d.squares.length} squares left</p>
+      <h3>Supporters wall</h3>
+      <div class="wall">${d.squares.map(s => `<span>${esc(s.who)}</span>`).join('')}</div>
+      <div class="note" style="margin-top:14px">Payments go through a Stripe account in the club's name, straight into the club's bank account.</div>
+    </div>
+  </div>`;
+}
+
+function pShop() {
+  const c = state.club;
+  const items = [
+    ['Home shirt 26/27', 38, shirt(c.c1, c.c2, 'stripes'), true],
+    ['Away shirt 26/27', 38, shirt(c.c2, c.c1, 'band'), true],
+    ['Bar scarf', 14, `<svg viewBox="0 0 100 100"><g transform="rotate(-20 50 50)">${Array.from({ length: 9 }, (_, i) => `<rect x="${8 + i * 9.4}" y="38" width="9.4" height="24" fill="${i % 2 ? c.c2 : c.c1}"/>`).join('')}<rect x="8" y="38" width="85" height="24" fill="none" stroke="rgba(0,0,0,.2)"/></g></svg>`, false],
+    ['Bobble hat', 15, `<svg viewBox="0 0 100 100"><circle cx="50" cy="20" r="10" fill="${c.c2}"/><path d="M22 70c0-24 12-42 28-42s28 18 28 42z" fill="${c.c1}"/><rect x="20" y="66" width="60" height="16" rx="4" fill="${c.c2}"/></svg>`, false],
+    ['Club mug', 8, `<svg viewBox="0 0 100 100"><rect x="24" y="28" width="44" height="54" rx="6" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><path d="M68 40h8a8 8 0 0 1 0 16h-8" fill="none" stroke="#cbd5e1" stroke-width="5"/><g transform="translate(34 38) scale(.24)">${''}</g><rect x="24" y="44" width="44" height="12" fill="${c.c1}"/></svg>`, false],
+    ['Season programme bundle', 25, `<svg viewBox="0 0 100 100"><rect x="26" y="16" width="48" height="66" rx="3" fill="${c.c1}"/><rect x="30" y="20" width="48" height="66" rx="3" fill="${c.c2}" stroke="rgba(0,0,0,.15)"/><rect x="34" y="28" width="40" height="8" fill="${c.c1}"/></svg>`, false],
+  ];
+  return `<h1 class="ph">Shop</h1>
+  <p class="lede">Your products, your prices, paid by card straight into the club's account. Up to 12 products. Examples in your colours shown. ${tag('plus')}</p>
+  <div class="products">${items.map(([n, p, svg, sizes], i) => `<div class="card product"><div class="pic">${svg}</div><b>${n}</b>${sizes ? `<label class="example" style="margin-top:6px">Size <select style="margin-left:6px;border:1px solid var(--line);border-radius:8px;padding:3px 6px"><option>S</option><option>M</option><option selected>L</option><option>XL</option><option>XXL</option></select></label>` : ''}<div class="row"><span class="pr">${money(p)}</span><button class="btn sm club" type="button" data-buy="${n}">Buy now</button></div></div>`).join('')}</div>`;
+}
+
+function pProgramme() {
+  return `<h1 class="ph">Matchday Programme</h1>
+  <p class="lede">A digital programme for every home game. Flick through on a phone, or download it. Adverts inside are another thing to sell to sponsors. ${tag('pro')}</p>
+  <div class="cols2"><div class="flip" id="flip"></div>
+  <div class="card"><h3>Past issues</h3><div class="list">${DATA.results.filter(r => r.home).map((r, i) => `<div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><span><b>Issue ${6 - i}</b> v ${esc(r.opp)}<br><small class="example">${fmtDate(r.date)}</small></span><button class="btn sm" type="button" data-demo="Opens that issue">Read</button></div>`).join('')}</div></div></div>`;
+}
+let flipIndex = 0;
+function flipPages() {
+  const c = state.club, d = DATA, f = d.fixtures.find(x => x.home) || d.fixtures[0];
+  const sq = d.squad;
+  return [
+    `<div class="pg cover">${crest()}<span style="font-weight:800;letter-spacing:.1em;font-size:13px">OFFICIAL MATCHDAY PROGRAMME · £2</span><h2>${esc(c.name)}<br><span style="font-size:.55em">v ${esc(f.opp)}</span></h2><span>${fmtDate(f.date)} · ${fmtTime(f.date)} · ${esc(d.ground)}</span></div>`,
+    `<div class="pg"><h2 style="margin:0">From the Chair</h2><p>Welcome back to ${esc(d.ground)} for this afternoon's game against ${esc(f.opp)}. A warm welcome to their players, officials and supporters.</p><p>This is where your chair's welcome goes each week: results, thanks to volunteers, and what's coming up at the club.</p><p><b>${esc(d.committee[0][1])}</b>, Chair</p></div>`,
+    `<div class="pg"><h2 style="margin:0">Today's opponents</h2>${oppCrest(f.opp).replace('class="oppcrest"', 'class="oppcrest" style="width:70px;height:85px"')}<p>${esc(f.opp)} arrive with a point to prove. A profile of today's visitors, their recent form and players to watch goes here.</p><div class="ad"><b>This page sponsored by</b>Your business could sponsor the opposition page. Ask about programme adverts.</div></div>`,
+    `<div class="pg"><h2 style="margin:0">${esc(c.name)} squad</h2><div style="columns:2;font-size:15px">${sq.map(p => `<div><b style="display:inline-block;width:28px">${p.num}</b>${esc(p.name)}</div>`).join('')}</div></div>`,
+    `<div class="pg"><h2 style="margin:0">Our sponsors</h2><div class="ad"><b>Full-page advert</b>Your business, your message, every home game.</div><div class="grid2" style="gap:10px"><div class="ad"><b>Half page</b>Local trades love these.</div><div class="ad"><b>Half page</b>Pubs, takeaways, taxis.</div></div></div>`,
+    `<div class="pg"><h2 style="margin:0">Fixtures &amp; table</h2><div class="list">${d.fixtures.slice(1, 5).map(x => `<div><b>${fmtDate(x.date)}</b> · ${x.home ? 'H' : 'A'} v ${esc(x.opp)}</div>`).join('')}</div><p class="example">Plus the full league table, updated automatically.</p></div>`,
+  ];
+}
+function renderFlip() {
+  const el = $('#flip'); if (!el) return;
+  const pages = flipPages();
+  flipIndex = Math.max(0, Math.min(pages.length - 1, flipIndex));
+  el.innerHTML = pages[flipIndex] + `<div class="bar"><button class="btn sm" type="button" data-flip="-1" ${flipIndex === 0 ? 'disabled' : ''}>‹ Back</button><span class="example">Page ${flipIndex + 1} of ${pages.length}</span><button class="btn sm club" type="button" data-flip="1" ${flipIndex === pages.length - 1 ? 'disabled' : ''}>Next ›</button></div><div style="padding:0 14px 14px;text-align:right"><button class="btn sm" type="button" data-demo="Downloads this issue as a PDF">Download PDF</button></div>`;
+}
+
+function pMembership() {
+  const t = [
+    ['Supporter', 20, ['Membership card and voting at the AGM', '10% off at the bar', 'Club newsletter']],
+    ['Season ticket', 90, ['Entry to every home league game', 'Free programme each week', 'Supporter benefits included']],
+    ['Family', 120, ['Two adults and up to three under-16s', 'Every home league game', 'Discount in the shop']],
+    ['Vice-President', 250, ['Season ticket and hospitality', 'Name in every programme', 'Invite to the end-of-season do']],
+  ];
+  return `<h1 class="ph">Membership &amp; Season Tickets</h1>
+  <p class="lede">Supporters choose, pay by card, and the details go straight to your treasurer. No passwords, no login area. Example tiers and prices. ${tag('pro')}</p>
+  <div class="mem">${t.map(([n, p, b]) => `<div class="card"><h3>${n}</h3><div class="amt">${money(p)}<small style="font-size:13px;color:var(--muted);font-weight:600"> /season</small></div><ul>${b.map(x => `<li>${x}</li>`).join('')}</ul><button class="btn club block" type="button" data-join="${n}">Join</button></div>`).join('')}</div>`;
+}
+
+function articles() {
+  const c = state.club, d = DATA, r = d.results[0], f = d.fixtures[0];
+  const scorers = d.squad.filter(p => p.code === 'FWD' || p.code === 'MID').slice(0, Math.max(1, r.us));
+  return [
+    { slug: 'match-report', cat: 'Match report', when: fmtDate(r.date), title: `${r.res === 'W' ? 'Win' : r.res === 'D' ? 'Draw' : 'Defeat'} ${r.home ? 'at home to' : 'away at'} ${r.opp}`,
+      body: [`${c.name} ${r.res === 'W' ? 'took all three points' : r.res === 'D' ? 'shared the points' : 'came away empty-handed'} ${r.home ? 'at ' + d.ground : 'on the road'} against ${r.opp}, with the game finishing ${r.us}–${r.them}.`, r.us ? `Goals came from ${scorers.slice(0, r.us).map(p => p.name).join(', ')}.` : 'It was a frustrating afternoon in front of goal.', 'A full match report, line-up, substitutes and the manager\'s thoughts go here, written by your media volunteer or sent to me to post.'] },
+    { slug: 'new-signing', cat: 'Club news', when: 'This week', title: `${d.squad[14].name} signs for ${c.name}`, body: [`${c.name} are pleased to confirm the signing of ${d.squad[14].name}, who joins ahead of the game against ${f.opp}.`, 'Signing announcements like this get shared all over local Facebook groups, and every share links back to your site.'] },
+    { slug: 'sponsor-welcome', cat: 'Sponsors', when: 'Last week', title: 'Welcome to our new matchday sponsor', body: ['A warm welcome to our newest sponsor. Thank-you posts like this keep sponsors coming back next season.'] },
+    { slug: 'juniors', cat: 'Juniors', when: '2 weeks ago', title: 'Under-12s through to the cup semi-final', body: ['Junior news lives alongside the first team, so families can find everything in one place.'] },
+    { slug: 'floodlights', cat: 'Club news', when: '3 weeks ago', title: 'Floodlight appeal passes halfway', body: ['Thanks to everyone who has sponsored a square on the pitch fundraiser. We\'re past halfway to our target.'] },
+    { slug: 'agm', cat: 'Club notices', when: 'Last month', title: 'AGM date confirmed', body: ['All members are welcome at the club AGM in the clubhouse. Agenda and minutes posted here.'] },
+  ];
+}
+function pNews(rt) {
+  const all = articles();
+  if (rt.sub) {
+    const a = all.find(x => x.slug === rt.sub) || all[0];
+    return `<a href="#/${state.tier}/news" class="btn sm" style="margin-bottom:14px">‹ All news</a><article class="article"><span class="example">${esc(a.cat)} · ${esc(a.when)}</span><h1 class="ph" style="text-transform:none;font-size:clamp(26px,3.6vw,38px)">${esc(a.title)}</h1>${a.body.map(p => `<p>${esc(p)}</p>`).join('')}<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" data-share>Share this</button></div></article>`;
+  }
+  const cats = ['All', ...new Set(all.map(a => a.cat))];
+  return `<h1 class="ph">News</h1><p class="lede">Match reports, signings and club news. Example stories. ${tag('pro')}</p>
+  <div class="chips">${cats.map((x, i) => `<button class="chip" type="button" data-cat="${esc(x)}" aria-pressed="${i === 0}">${esc(x)}</button>`).join('')}</div>
+  <div class="news">${all.map(a => `<a class="post" href="#/${state.tier}/news/${a.slug}" data-cat-item="${esc(a.cat)}" style="text-decoration:none;color:inherit"><div class="img"><span>${esc(a.cat)}</span></div><div class="bd"><b>${esc(a.title)}</b><small>${esc(a.when)}</small></div></a>`).join('')}</div>`;
+}
+
+function pHistory() {
+  const c = state.club, y = foundedYear(), d = DATA;
+  return `<h1 class="ph">History &amp; Honours</h1><p class="lede">Your story, told properly. Example history shown: yours goes here, in your words. ${tag('pro')}</p>
+  <div class="cols2"><div class="card"><h3>Timeline</h3><ol class="timeline">
+    <li><b>${y}</b><br>${esc(c.name)} founded by local workers and play on a field behind the pub.</li>
+    <li><b>${y + 31}</b><br>The club moves to ${esc(d.ground)}.</li>
+    <li><b>${Math.min(y + 74, 2001)}</b><br>First league title, and the clubhouse is built by volunteers.</li>
+    <li><b>2019</b><br>New floodlights arrive after a community appeal.</li>
+    <li><b>${new Date().getFullYear()}</b><br>The new website launches.</li>
+  </ol></div>
+  <div><div class="honours">${[['League Champions', '1998–99, 2011–12'], ['County Senior Cup', '1987, 2004'], ['League Cup', '2016–17'], ['Fair Play Award', '2022–23']].map(([a, b]) => `<div class="honour"><b>${a}</b><span>${b}</span></div>`).join('')}</div>
+  <div class="card" style="margin-top:14px"><h3>Club legends</h3><div class="people">${d.squad.slice(0, 3).map(p => `<div class="person"><span class="avatar">${esc(p.name.split(' ').map(x => x[0]).join(''))}</span><div><b>${esc(p.name.split(' ')[1])} family</b><small>Three generations at the club</small></div></div>`).join('')}</div></div></div></div>`;
+}
+
+function clubFooter() {
+  const c = state.club;
+  return `<footer class="club-foot"><div class="wrap"><div class="grid">
+    <div><div style="display:flex;gap:10px;align-items:center">${crest()}<b style="color:#fff;text-transform:uppercase">${esc(c.name)}</b></div><p>${esc(DATA.ground)}<br>${esc(c.league)}</p></div>
+    <div><b style="color:#fff">The club</b><p>${PAGES.filter(p => has(p.tier)).slice(0, 6).map(p => `<a href="#/${state.tier}/${p.id}">${esc(p.name)}</a>`).join('<br>')}</p></div>
+    <div><b style="color:#fff">Our sponsors</b><div class="sp-strip"><span>Main sponsor</span><span>Kit sponsor</span><span>Your logo</span></div><p style="margin-top:12px"><a href="#" data-demo="Privacy notice page, included with every site">Privacy</a> · <a href="#" data-demo="Safeguarding page with your welfare officer's details">Safeguarding</a></p></div>
+  </div><div class="credit"><span>© ${new Date().getFullYear()} ${esc(c.name)}</span><span>Website by <a href="#/">Trabelo</a></span></div></div></footer>`;
+}
+
+/* =====================================================================
+   Behaviour
+   ===================================================================== */
+let cdTimer;
+function afterSite(rt) {
+  clearInterval(cdTimer);
+  const cd = $('#countdown');
+  if (cd) {
+    const tick = () => {
+      let s = Math.max(0, Math.floor((+cd.dataset.t - Date.now()) / 1000));
+      const v = [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60];
+      $$('b', cd).forEach((b, i) => b.textContent = v[i]);
+    };
+    tick(); cdTimer = setInterval(tick, 1000);
+  }
+  if (rt.page === 'programme' && has('pro')) renderFlip();
+}
+
+// .ics calendar files
+function icsFor(list) {
+  const c = state.club, p = n => String(n).padStart(2, '0');
+  const dt = d => `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}T${p(d.getHours())}${p(d.getMinutes())}00`;
+  const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+  const ev = list.map((f, i) => ['BEGIN:VEVENT', `UID:${stamp}-${i}@trabelo-fc-demo`, `DTSTAMP:${stamp}`, `DTSTART:${dt(f.date)}`, 'DURATION:PT2H',
+    `SUMMARY:${(f.home ? c.name + ' v ' + f.opp : f.opp + ' v ' + c.name).replace(/[,;]/g, ' ')}`, `LOCATION:${f.venue.replace(/[,;]/g, ' ')}`, 'END:VEVENT'].join('\r\n'));
+  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Trabelo//Club demo//EN', ...ev, 'END:VCALENDAR'].join('\r\n');
+}
+function download(name, text, type) {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+function info(title, html) { $('#iTitle').textContent = title; $('#iBody').innerHTML = html; $('#dlgInfo').showModal(); }
+const demoNote = (what) => `<div class="note">${esc(what)}</div><p class="example" style="margin-top:12px">This is the demo, so nothing is sent or charged.</p>`;
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('button, a');
+  if (!t) return;
+  if (t.matches('[data-tier]')) { const p = route(); go(`#/${t.dataset.tier}/${p.view === 'site' ? p.page : 'home'}`); return; }
+  if (t.matches('[data-close]')) { t.closest('dialog').close(); return; }
+  if (t.matches('[data-ask]') || t.id === 'openAsk' || t.id === 'fabAsk') { openAsk(); return; }
+  if (t.id === 'openPersonal') { openPersonal(); return; }
+  if (t.matches('[data-demo]')) { e.preventDefault(); info('On your website', demoNote(t.dataset.demo)); return; }
+  if (t.matches('[data-ics]')) {
+    const v = t.dataset.ics;
+    const list = v === 'all' ? DATA.fixtures : [DATA.fixtures[+v]];
+    download(v === 'all' ? 'fixtures.ics' : 'match.ics', icsFor(list), 'text/calendar');
+    toast(v === 'all' ? 'All fixtures added. On your site this is a live calendar feed.' : 'Calendar file downloaded. Open it to add the match.');
+    return;
+  }
+  if (t.matches('[data-filter]')) {
+    $$('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === t)));
+    $$('#fxList .fx').forEach((row, i) => { const f = DATA.fixtures[i]; row.hidden = t.dataset.filter === 'Home' ? !f.home : t.dataset.filter === 'Away' ? f.home : false; });
+    return;
+  }
+  if (t.matches('[data-pos]')) {
+    $$('[data-pos]').forEach(b => b.setAttribute('aria-pressed', String(b === t)));
+    $$('[data-group]').forEach(s => s.hidden = t.dataset.pos !== 'All' && s.dataset.group !== t.dataset.pos);
+    return;
+  }
+  if (t.matches('[data-cat]')) {
+    $$('[data-cat]').forEach(b => b.setAttribute('aria-pressed', String(b === t)));
+    $$('[data-cat-item]').forEach(a => a.hidden = t.dataset.cat !== 'All' && a.dataset.catItem !== t.dataset.cat);
+    return;
+  }
+  if (t.matches('[data-player]') && has('pro')) {
+    const p = DATA.squad[+t.dataset.player];
+    info(p.name, `<div style="display:flex;gap:16px;align-items:center;margin-bottom:14px"><div style="width:90px;background:var(--hero);border-radius:14px;padding:8px">${shirtNumber(p.num)}</div><div><b style="font-size:18px">${esc(p.name)}</b><br><span class="example">${esc(p.group.slice(0, -1))} · #${p.num}${p.captain ? ' · Captain' : ''}</span></div></div>
+      <table class="tbl"><thead><tr><th>Apps</th><th>Goals</th><th>Joined</th><th>Age</th></tr></thead><tbody><tr><td>${p.apps}</td><td>${p.goals}</td><td>${p.joined}</td><td>${p.age}</td></tr></tbody></table>
+      <p>A short profile in the player's or manager's words goes here.</p>
+      <div class="note">Player sponsor: <b>your name here</b>, £60 for the season. ${tag('plus', false)}</div>`);
+    return;
+  }
+  if (t.matches('[data-sq]')) {
+    const n = +t.dataset.sq, s = DATA.squares.find(x => x.n === n);
+    if (s) { info(`Square ${n}`, `<p style="font-size:18px;margin-top:0">Sponsored by <b>${esc(s.who)}</b>.</p><p class="example">Thank you for supporting ${esc(state.club.name)}.</p>`); return; }
+    info(`Sponsor square ${n}`, `<form class="form" data-demo-form="Opens a secure Stripe card payment in the club's name. Once paid, square ${n} is marked with your name."><label>Name to show on the pitch<input required maxlength="40" placeholder="e.g. The Walker Family"></label><label>Your email (for the receipt)<input type="email" required></label><button class="btn club" type="submit">Pay £50 by card</button></form>`);
+    return;
+  }
+  if (t.matches('[data-buy]')) { info(t.dataset.buy, demoNote('Opens a secure Stripe checkout in your club\'s name. The money goes straight to the club. Trabelo never handles it.')); return; }
+  if (t.matches('[data-join]')) { info(`Join: ${t.dataset.join}`, demoNote('The supporter pays by card through the club\'s Stripe account, and their details go straight to your treasurer by email.')); return; }
+  if (t.matches('[data-sponsor]')) { info(`Sponsorship: ${t.dataset.sponsor}`, `<form class="form" data-demo-form="This enquiry would go straight to your commercial manager."><label>Business name<input required></label><label>Your email<input type="email" required></label><label>Anything we should know?<textarea></textarea></label><button class="btn club" type="submit">Send enquiry</button></form>`); return; }
+  if (t.matches('[data-flip]')) { flipIndex += +t.dataset.flip; renderFlip(); return; }
+  if (t.matches('[data-share]')) { const url = location.href; if (navigator.share) navigator.share({ title: document.title, url }).catch(() => {}); else navigator.clipboard?.writeText(url).then(() => toast('Link copied. On your site each story has its own link.')); return; }
+  if (t.id === 'printPack') { printPack(); return; }
+  if (t.id === 'swapC') { const { c1, c2 } = state.club; setColours(c2, c1, 'manual'); return; }
+  if (t.id === 'resetClub') { state.club = Object.assign({}, DEFAULT_CLUB); saveClub(); DATA = null; syncPersonal(); render(); toast('Back to Trabelo FC.'); return; }
+  if (t.id === 'removeBadge') { state.club.badge = ''; saveClub(); syncPersonal(); render(); return; }
+  if (t.id === 'copyLink') { copyLink(); return; }
+  if (t.id === 'askWa') { sendWhatsApp(); return; }
+  if (t.matches('.sw')) { const which = t.closest('[data-for]')?.dataset.for || 'c1'; const cl = { ...state.club }; cl[which] = t.dataset.c; setColours(cl.c1, cl.c2, 'manual'); return; }
+});
+document.addEventListener('submit', e => {
+  const f = e.target;
+  if (f.matches('[data-demo-form]')) {
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    const msg = f.dataset.demoForm;
+    if (f.closest('dialog')) f.closest('dialog').close();
+    info('On your website', demoNote(msg));
+  }
+});
+$('#labels').checked = state.labels;
+$('#labels').addEventListener('change', e => { state.labels = e.target.checked; store.set('tfc.labels', state.labels); document.body.classList.toggle('nolabels', !state.labels); });
+
+function printPack() {
+  const c = state.club;
+  const rows = [['Match ball', '£40'], ['Player sponsor', '£60 /season'], ['Matchday sponsor', '£150'], ['Pitch-side board', '£300 /season'], ['Kit sponsor', 'Ask us']];
+  $('#print-pack').innerHTML = `<div class="pp-head">${crest()}<div><h1 style="margin:0">${esc(c.name)}</h1><p style="margin:0">Sponsorship pack ${new Date().getFullYear()}/${String(new Date().getFullYear() + 1).slice(2)}</p></div></div>
+    <p>Support ${esc(c.name)} and put your business in front of players, families and supporters every week, at ${esc(DATA.ground)} and online.</p>
+    <table><thead><tr><th>Package</th><th>Price</th></tr></thead><tbody>${rows.map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join('')}</tbody></table>
+    <p>Contact our Commercial Manager: ${esc(DATA.committee[4][1])} · example@yourclub.co.uk</p><p style="font-size:12px;color:#555">Example pack generated by the Trabelo demo.</p>`;
+  document.body.classList.add('printing');
+  window.print();
+  setTimeout(() => document.body.classList.remove('printing'), 500);
+}
+
+// ---------- club search (combobox) ----------
+function mountSearches() { $$('[data-search]').forEach(mountSearch); }
+function mountSearch(box) {
+  if (box.dataset.ready) return; box.dataset.ready = '1';
+  const id = 'res-' + box.dataset.search;
+  box.innerHTML = `<svg class="mag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+    <input type="text" ${box.dataset.search === 'p' ? 'id="pSearch"' : ''} role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="${id}" placeholder="Start typing your club's name…" autocomplete="off" spellcheck="false" value="${state.club.real || state.club.name !== DEFAULT_CLUB.name ? esc(state.club.name) : ''}">
+    <ul class="results" id="${id}" role="listbox" hidden></ul>`;
+  const input = $('input', box), list = $('ul', box);
+  let items = [], active = -1;
+  const close = () => { list.hidden = true; input.setAttribute('aria-expanded', 'false'); active = -1; };
+  const hl = (name, q) => { const i = name.toLowerCase().indexOf(q); return i < 0 ? esc(name) : esc(name.slice(0, i)) + '<mark>' + esc(name.slice(i, i + q.length)) + '</mark>' + esc(name.slice(i + q.length)); };
+  async function update() {
+    const q = input.value.trim().toLowerCase();
+    if (q.length < 2) { close(); return; }
+    await loadClubs();
+    const starts = [], wordStarts = [], contains = [];
+    for (const c of CLUBS) {
+      if (c.key.startsWith(q)) starts.push(c);
+      else if (c.key.split(/[\s-]+/).some(w => w.startsWith(q))) wordStarts.push(c);
+      else if (c.key.includes(q)) contains.push(c);
+    }
+    items = [...starts, ...wordStarts, ...contains].slice(0, 12);
+    list.innerHTML = items.length ? items.map((c, i) => `<li role="option" id="${id}-${i}" data-i="${i}" aria-selected="false"><span class="dot" style="background:${c.c1 ? `linear-gradient(135deg,${c.c1} 50%,${c.c2} 50%)` : '#e5e7eb'}"></span><span>${hl(c.name, q)}<small>${esc(c.league)}${c.division ? ' · ' + esc(c.division) : ''} · Step ${c.step}</small></span></li>`).join('')
+      : `<li class="none" aria-disabled="true">Not in our list. Press Enter to use "${esc(input.value.trim())}"</li>`;
+    list.hidden = false; input.setAttribute('aria-expanded', 'true'); active = -1;
+  }
+  const setActive = i => { active = i; $$('li[role=option]', list).forEach((li, k) => li.setAttribute('aria-selected', String(k === i))); const li = $(`#${id}-${i}`); if (li) { li.scrollIntoView({ block: 'nearest' }); input.setAttribute('aria-activedescendant', li.id); } };
+  input.addEventListener('input', update);
+  input.addEventListener('focus', () => { loadClubs(); if (input.value.trim().length >= 2) update(); });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (list.hidden) update(); else setActive(Math.min(items.length - 1, active + 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(Math.max(0, active - 1)); }
+    else if (e.key === 'Enter') { e.preventDefault(); if (active >= 0 && items[active]) choose(items[active]); else if (items.length && input.value.trim().length > 2 && items[0].key === input.value.trim().toLowerCase()) choose(items[0]); else if (input.value.trim()) chooseFree(input.value.trim()); close(); }
+    else if (e.key === 'Escape') close();
+  });
+  list.addEventListener('mousedown', e => { const li = e.target.closest('li[data-i]'); if (li) { e.preventDefault(); choose(items[+li.dataset.i]); close(); } });
+  input.addEventListener('blur', () => setTimeout(close, 120));
+  function choose(c) {
+    input.value = c.name;
+    state.club = Object.assign({}, state.club, { name: c.name, league: c.league, division: c.division, step: c.step, ground: c.ground, real: true });
+    if (c.c1) { state.club.c1 = c.c1; state.club.c2 = c.c2; state.club.colourSource = 'wiki'; }
+    else state.club.colourSource = '';
+    afterClubChange(c.c1 ? `${c.name}, in your colours. Wrong colours? Change them.` : `${c.name} set. Now pick your colours.`);
+  }
+  function chooseFree(name) {
+    state.club = Object.assign({}, state.club, { name: name.slice(0, 60), league: 'Your league', division: '', ground: '', real: false, colourSource: '' });
+    afterClubChange(`${name} set. Now pick your colours.`);
+  }
+}
+function afterClubChange(msg) { state.club.badge = state.club.badge || ''; saveClub(); DATA = null; buildData(); syncPersonal(); render(); toast(msg); }
+
+// ---------- personalise dialog ----------
+const SWATCHES = ['#c8102e', '#e10600', '#7a263a', '#003da5', '#1d4ed8', '#6cabdd', '#0b1f45', '#ffcd00', '#f59e0b', '#ff7a00', '#007a33', '#00a650', '#5b2c83', '#111111', '#ffffff'];
+function setColours(c1, c2, src) { state.club.c1 = c1; state.club.c2 = c2; if (src) state.club.colourSource = src; saveClub(); syncPersonal(); render(); }
+function syncPersonal() {
+  $('#pc1').value = state.club.c1; $('#pc2').value = state.club.c2;
+  $('#pCrest').innerHTML = crest('crest" style="width:56px;height:68px');
+  $('#removeBadge').hidden = !state.club.badge;
+  $('#colourSource').textContent = colourNote();
+  const ps = $('#pSearch'); if (ps && document.activeElement !== ps) ps.value = state.club.name === DEFAULT_CLUB.name && !state.club.real ? '' : state.club.name;
+  $$('.sw').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.c === state.club[b.closest('[data-for]').dataset.for])));
+}
+function openPersonal() {
+  const sw = $('#swatches');
+  if (!sw.dataset.ready) {
+    sw.dataset.ready = '1';
+    sw.innerHTML = ['c1', 'c2'].map(k => `<div data-for="${k}" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;width:100%"><small style="width:52px;color:var(--muted)">${k === 'c1' ? 'Main' : 'Second'}</small>${SWATCHES.map(c => `<button type="button" class="sw" data-c="${c}" style="background:${c}" aria-label="${k === 'c1' ? 'Main' : 'Second'} colour ${c}" aria-pressed="false"></button>`).join('')}</div>`).join('');
+  }
+  mountSearch($('[data-search=p]'));
+  syncPersonal();
+  $('#dlgPersonal').showModal();
+  loadClubs();
+}
+$('#pc1').addEventListener('input', e => setColours(e.target.value, state.club.c2, 'manual'));
+$('#pc2').addEventListener('input', e => setColours(state.club.c1, e.target.value, 'manual'));
+document.addEventListener('input', e => {
+  if (e.target.matches('[data-colour]')) { const cl = { ...state.club }; cl[e.target.dataset.colour] = e.target.value; state.club.c1 = cl.c1; state.club.c2 = cl.c2; state.club.colourSource = 'manual'; saveClub(); applyTheme(); $$('.preview-card .crest, #miniCrest').forEach(() => {}); const pc = $('.preview-card'); if (pc) pc.firstElementChild.outerHTML = crest(); $('#miniCrest').innerHTML = crest('mini'); }
+});
+document.addEventListener('change', e => { if (e.target.matches('[data-colour]')) render(); });
+
+// badge upload: resized in the browser, kept on this device only
+$('#badgeFile').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f) return;
+  if (f.size > 8 * 1024 * 1024) { toast('That file is a bit big. Try one under 8MB.'); return; }
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const max = 280, s = Math.min(1, max / Math.max(img.width, img.height));
+      const cv = document.createElement('canvas'); cv.width = Math.round(img.width * s); cv.height = Math.round(img.height * s);
+      cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+      state.club.badge = cv.toDataURL('image/png');
+      saveClub(); syncPersonal(); render(); toast('Badge added. It stays on this device.');
+    };
+    img.onerror = () => toast('Couldn\'t read that image. Try a PNG or JPG.');
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(f);
+  e.target.value = '';
+});
+
+function shareLink() {
+  const u = new URL(location.href.split('#')[0].split('?')[0]);
+  u.searchParams.set('club', state.club.name);
+  u.searchParams.set('c1', state.club.c1.slice(1)); u.searchParams.set('c2', state.club.c2.slice(1));
+  u.searchParams.set('t', state.tier);
+  return u.toString() + '#/' + state.tier + '/home';
+}
+function copyLink() {
+  const link = shareLink();
+  (navigator.clipboard ? navigator.clipboard.writeText(link) : Promise.reject()).then(() => toast(state.club.badge ? 'Link copied. Your badge doesn\'t travel with it, so others see the crest.' : 'Link copied. Send it to your committee.'))
+    .catch(() => info('Your link', `<p>Copy this link:</p><input style="width:100%;padding:8px" readonly value="${esc(link)}">`));
+}
+
+// ---------- Ask Aidan ----------
+function openAsk() {
+  $('#askClub').value = state.club.name === DEFAULT_CLUB.name ? '' : state.club.name;
+  $('#askPkg').value = { core: 'Core £395', plus: 'Plus £795', pro: 'Pro £1,495' }[state.tier];
+  $('#askNote').textContent = WEB3FORMS_KEY ? '' : 'This opens your email app with everything filled in. Or send it on WhatsApp.';
+  $('#dlgAsk').showModal();
+}
+function askSummary(fd) {
+  const wants = fd.getAll('want');
+  return [
+    `Club: ${fd.get('club')}`, `Name: ${fd.get('name')} (${fd.get('role')})`, `Email: ${fd.get('email')}`, fd.get('phone') ? `WhatsApp: ${fd.get('phone')}` : '',
+    `Package: ${fd.get('package')}`, wants.length ? `Wants: ${wants.join(', ')}` : '', `Spending discussed: ${fd.get('authority')}`,
+    `Demo colours: ${state.club.c1} / ${state.club.c2}`, '', fd.get('message') || '',
+  ].filter((x, i) => x !== '' || i === 8).join('\n');
+}
+$('#askForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target;
+  if (!f.reportValidity()) return;
+  const fd = new FormData(f);
+  if (fd.get('botcheck')) return;
+  const subject = `Club website enquiry: ${fd.get('club')} (${fd.get('package')})`;
+  const body = askSummary(fd);
+  if (WEB3FORMS_KEY) {
+    const btn = $('#askSend'); btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject, from_name: 'Trabelo FC demo', replyto: fd.get('email'), message: body }) });
+      const j = await res.json();
+      if (!j.success) throw new Error();
+      $('#dlgAsk').close(); f.reset(); info('Sent', '<p style="font-size:18px;margin-top:0">Thanks, that\'s with me now.</p><p>I\'ll reply myself, usually the same day.</p>');
+    } catch { toast('That didn\'t send. Opening your email app instead.'); location.href = `mailto:${AIDAN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; }
+    finally { btn.disabled = false; btn.textContent = 'Send to Aidan'; }
+  } else {
+    location.href = `mailto:${AIDAN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+});
+function sendWhatsApp() {
+  const f = $('#askForm'), fd = new FormData(f);
+  const text = `Hi Aidan, it's ${fd.get('name') || '…'} from ${fd.get('club') || state.club.name}. I've been looking at the club website demo (${fd.get('package')}).${fd.getAll('want').length ? ' We\'d want: ' + fd.getAll('want').join(', ') + '.' : ''} ${fd.get('message') || ''}`.trim();
+  window.open(`https://wa.me/${AIDAN_WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+}
+
+// close dialogs when clicking the backdrop
+$$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+render();
+// A club picked on an earlier visit: reload the list so fixtures use its real division rivals.
+if (state.club.real && !state.fromLink) loadClubs().then(() => { DATA = null; render(); });
+if (state.club.real === false && state.fromLink) loadClubs().then(list => {
+  // A personalised link: fill in league/division/ground if the club is in the list.
+  const m = list.find(c => c.key === state.club.name.toLowerCase());
+  if (m) { Object.assign(state.club, { league: m.league, division: m.division, step: m.step, ground: m.ground, real: true }); if (!state.club.colourSource && m.c1) Object.assign(state.club, { c1: m.c1, c2: m.c2, colourSource: 'wiki' }); saveClub(); DATA = null; render(); }
+});
+</script>
+</body>
+</html>

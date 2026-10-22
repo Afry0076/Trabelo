@@ -1,0 +1,12 @@
+# Netlify copy of vercel.json's headers, so this folder deploys to either host unchanged.
+# Vercel ignores this file (.vercelignore). If you change one, change both.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: SAMEORIGIN
+
+/trabelo*
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'nonce-tr4b3l0n1'; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
