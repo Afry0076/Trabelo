@@ -547,7 +547,7 @@ dialog::backdrop{background:rgba(8,12,20,.6)}
           <label><input type="checkbox" name="want" value="Sponsor-a-square fundraiser"> Sponsor-a-square fundraiser</label>
           <label><input type="checkbox" name="want" value="Sponsors page and sponsor pack"> Sponsors page and pack</label>
           <label><input type="checkbox" name="want" value="Club shop"> Club shop</label>
-          <label><input type="checkbox" name="want" value="Matchday programme"> Matchday programme</label>
+          <label><input type="checkbox" name="want" value="Fixtures for every team"> Fixtures for every team</label>
           <label><input type="checkbox" name="want" value="Membership / season tickets"> Membership / season tickets</label>
           <label><input type="checkbox" name="want" value="Social media graphics"> Social media graphics</label>
           <label><input type="checkbox" name="want" value="Junior / women's section"> Junior / women's section</label>
@@ -601,22 +601,22 @@ const PAGES = [
   { id: 'home', name: 'Home', tier: 'core' },
   { id: 'fixtures', name: 'Fixtures & Results', tier: 'core' },
   { id: 'squad', name: 'Squad', tier: 'core' },
+  { id: 'teams', name: 'Teams', tier: 'pro' },
   { id: 'news', name: 'News', tier: 'pro' },
   { id: 'matchday', name: 'Club & Matchday', tier: 'core' },
   { id: 'sponsors', name: 'Sponsors', tier: 'plus' },
   { id: 'fundraiser', name: 'Pitch Fundraiser', tier: 'plus' },
   { id: 'shop', name: 'Shop', tier: 'plus' },
-  { id: 'programme', name: 'Programme', tier: 'pro' },
   { id: 'membership', name: 'Membership', tier: 'pro' },
   { id: 'history', name: 'History', tier: 'pro' },
   { id: 'contact', name: 'Contact', tier: 'core' },
 ];
 const LOCKED_INFO = {
-  news: ['News & match reports', 'Match reports, signings, sponsor news and club notices, each with its own page that shares nicely on Facebook and WhatsApp.', ['Match reports with scorers', 'Filter by reports, club news, juniors', 'Every article shareable with its own link', 'One-tap result graphics for social media']],
-  sponsors: ['Sponsors', 'A proper home for your sponsors, and a way to get more of them.', ['Sponsor packages with your prices, from match ball to kit sponsor', 'Sponsor wall with logos and links', 'A sponsor pack your committee can print or email', 'Match sponsor shown on every fixture']],
+  news: ['News & match reports', 'Match reports, signings and club notices. The club posts them itself from a Google Sheet, and each story gets its own page to share on Facebook and WhatsApp.', ['Posted by the club from a simple spreadsheet', 'Filter by reports, club news, juniors', 'Every story has its own link to share']],
+  teams: ['Every team at the club', 'Fixtures, results and tables for your reserves, under-18s or women\'s team, straight from the FA, alongside the first team.', ['One page per team, updating itself', 'Squads for each team from the Google Sheet', 'Set up once at build, nothing to do weekly']],
+  sponsors: ['Sponsors', 'A proper home for your sponsors, and a way to get more of them.', ['Sponsor packages with your prices, from match ball to kit sponsor', 'Sponsor wall with logos and links', 'A sponsor pack your committee can print or email', 'Sponsor spotlight on the home page']],
   fundraiser: ['Pitch Fundraiser', 'Supporters and local businesses sponsor a square of your pitch. Their name goes on the pitch map and the supporters wall, and the money goes straight to the club.', ['Interactive pitch with numbered squares', 'Pay by card through your club\'s own Stripe account', 'Running total against your target', 'Supporters wall']],
   shop: ['Club shop', 'Shirts, scarves, programmes and tickets, paid for by card into the club\'s account.', ['Up to 12 products', 'Card payments through your club\'s own Stripe account', 'Trabelo never handles the money']],
-  programme: ['Matchday programme', 'A digital programme for every home game, with sponsor adverts inside and an archive of past issues.', ['Cover, welcome, opposition, squad numbers, adverts', 'Flick through on a phone, or download', 'Archive of every issue']],
   membership: ['Membership & season tickets', 'Supporters sign up and pay online, and the details go to your treasurer.', ['Your membership tiers and prices', 'Card payment through your club\'s Stripe', 'No passwords for supporters to forget']],
   history: ['History & honours', 'Your story, told properly: founding, grounds, promotions, cup runs and club legends.', ['Timeline', 'Honours board', 'Club legends']],
 };
@@ -949,9 +949,9 @@ const waShare = text => `https://wa.me/?text=${encodeURIComponent(text)}`;
    ===================================================================== */
 function pkgCard(t) {
   const f = {
-    core: ['5 pages: Home, Fixtures & Results, Squad, Club & Matchday, Contact', 'Your badge and colours across the whole site', 'Fixtures, results and league table that update themselves', 'Next match countdown, matchday mode and add-to-calendar', 'Season stats, league position graph and results ticker', 'Away fans guide, parking, prices and bar info', 'Contact form to the right committee member'],
-    plus: ['8 pages: everything in Core, plus Sponsors, Pitch Fundraiser and Shop', 'Sponsor-a-square pitch: supporters and firms pay the club directly', 'Sponsor packages, sponsor wall and a printable sponsor pack', 'Match sponsor shown on fixtures', 'Club shop: shirts, scarves, tickets, paid into your account', 'Sponsor a player, newsletter and volunteer sign-up'],
-    pro: ['12 pages: everything in Plus, plus Programme, Membership, News and History', 'Digital matchday programme with sponsor adverts', 'One-tap result and matchday graphics for social media', 'Starting XI on a pitch, player profiles and stats', 'Membership and season tickets with online payment', 'Reserves, under-18s or women\'s team fixtures in one place'],
+    core: ['5 pages: Home, Fixtures & Results, Squad, Club & Matchday, Contact', 'Your badge and colours across the whole site, in the look you choose', 'Fixtures, results and league table straight from the FA, updating themselves', 'Squad and club notices you update yourselves from a simple Google Sheet', 'Matchday info, away fans guide, prices, parking and bar', 'Contact form that goes to the right committee member', 'Fast on phones and set up properly for Google'],
+    plus: ['8 pages: everything in Core, plus Sponsors, Pitch Fundraiser and Shop', 'Sponsor-a-square pitch: supporters and firms pay the club directly by card', 'Sponsor packages, sponsor wall and a printable sponsor pack', 'Sponsor a player, and a sponsor spotlight on the home page', 'Club shop: shirts, scarves and tickets, paid into the club\'s account', 'Newsletter sign-up and a volunteer form'],
+    pro: ['12 pages: everything in Plus, plus News, Membership, History and Teams', 'News and match reports the club posts itself from the Google Sheet', 'Membership and season tickets with online payment', 'Fixtures, results and tables for every team at the club', 'Player profiles, plus a club history and honours page', 'A social media graphic maker: type the score, download the graphic'],
   }[t];
   const terms = {
     core: '<b>No deposit.</b> You pay when you\'ve seen it finished and you\'re happy, before it goes live. Preview in about 10 working days.',
@@ -1082,7 +1082,7 @@ function viewHow() {
   return `
   <section class="tb-hero" style="padding:44px 0"><div class="wrap">
     <h1 style="font-size:clamp(30px,4.6vw,48px)">How it works, and exactly what it costs.</h1>
-    <p class="lead" style="margin:0 0 18px">No hidden extras, no monthly hosting bill. Here's everything, including the bits most web people leave out.</p>
+    <p class="lead" style="margin:0 0 18px">No hidden extras, no monthly hosting bill, and nothing you have to pay someone to update every week.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn tb" href="#/start">Start your website</a><a class="btn" href="${PACK_PDF}" target="_blank" rel="noopener" style="background:transparent;color:#fff;border-color:#334155">Download the club pack (PDF)</a></div>
   </div></section>
 
@@ -1097,8 +1097,18 @@ function viewHow() {
       <li><div><b>I build it <span class="who-tag me">Aidan</span></b><span>On a private preview link. Core in about 10 working days, Plus about 15, Pro about 25, from when I have your brief.</span></div></li>
       <li><div><b>You tell me what to change <span class="who-tag you">You</span></b><span>Two rounds of changes are included. Wording, photos, colours, layout, anything.</span></div></li>
       <li><div><b>You say "happy for it to go live" <span class="who-tag you">You</span></b><span>Then I send one invoice for what's left, payable by bank transfer from the club's account.</span></div></li>
-      <li><div><b>It goes live, and it's yours <span class="who-tag me">Aidan</span></b><span>Once paid, the site goes onto your web address and everything moves into accounts in your club's name, with a written list of every login.</span></div></li>
+      <li><div><b>It goes live, and it's yours <span class="who-tag me">Aidan</span></b><span>Once paid, the site goes onto your web address, everything moves into accounts in your club's name, and you get your club's Google Sheet for updates.</span></div></li>
     </ol>
+  </div></section>
+
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <h2 class="big">What keeps itself up to date</h2>
+    <p class="sub">The whole point is that nobody has to "do the website" every week.</p>
+    <div class="nextsteps">
+      <div><b><span>1</span>Fixtures, results, table</b><p>Straight from the FA's Full-Time system, which your league already uses. When the league updates a result, your site updates. No live scores.</p></div>
+      <div><b><span>2</span>Squad, notices, sponsors, news</b><p>Your club edits a simple Google Sheet: add a signing, post a notice, tick off a sponsored square. The site picks it up within minutes. No logins, nothing to learn.</p></div>
+      <div><b><span>3</span>Everything else</b><p>Matchday info, history, prices and pages are set once when it's built. Want a design change later? £15 a change, and only if you ask.</p></div>
+    </div>
   </div></section>
 
   <section class="section" style="padding-top:0"><div class="wrap">
@@ -1112,12 +1122,11 @@ function viewHow() {
         ${row('Payment', 'No deposit. Pay when happy, before go-live', '30% deposit to start, 70% when happy, before go-live', '30% deposit to start, 70% when happy, before go-live')}
         ${row('Preview ready', 'About 10 working days', 'About 15 working days', 'About 25 working days')}
         ${row('Free fixes after launch', '14 days', '14 days', '30 days')}
-        ${row('Fixtures, results and table', 'Update themselves', 'Update themselves', 'Update themselves, plus every team')}
-        ${row('Match centre', 'Countdown, matchday mode, stats, position graph', 'Plus match sponsor', 'Plus starting XI and social graphics')}
-        ${row('Sponsors', 'Sponsor strip', 'Packages, wall, pack, sponsor a player', 'Everything in Plus, plus programme adverts')}
+        ${row('Fixtures, results and table', 'From the FA, automatic', 'From the FA, automatic', 'From the FA, automatic, for every team')}
+        ${row('Updated by the club (Google Sheet)', 'Squad, club notices, sponsor strip', 'Plus sponsors and pitch squares', 'Plus news, player profiles and other teams\' squads')}
+        ${row('Sponsors', 'Sponsor strip', 'Packages, wall, pack, sponsor a player', 'Everything in Plus')}
         ${row('Taking money online', '—', 'Fundraiser and shop, into your Stripe', 'Plus membership and season tickets')}
-        ${row('News', 'Club notices on the home page', 'Club notices on the home page', 'Full news and match reports')}
-        ${row('Editing it yourselves', 'Send changes to me', 'Send changes to me', 'Optional edit panel, £150')}
+        ${row('Social media graphics', '—', '—', 'Type the score, download the graphic')}
         ${row('Upgrade later', 'Pay the difference', 'Pay the difference', '—')}
       </tbody>
     </table></div>
@@ -1130,21 +1139,21 @@ function viewHow() {
         <li>Club name exactly as you want it, your badge (the original file if you have it) and colours</li>
         <li>Ground address and postcode, kick-off times, admission prices, bar and parking details</li>
         <li>Your web address: who bought it, and the login (or the person who has it)</li>
-        <li>FA Full-Time: your secretary or league can copy the fixtures "code snippet" for me</li>
+        <li>FA Full-Time: whoever is your Full-Time team admin copies the "code snippets" for me (Media, then Code Snippets)</li>
         <li>Squad list and committee contacts, including your welfare officer</li>
+        <li>Someone at the club with a Google account to look after the club's Google Sheet</li>
         <li>Plus and Pro: a Stripe account in the club's name (needs a bank account and ID; allow a few days)</li>
-        <li>Photos if you have them. Under-18s only with consent; first names only by default</li>
       </ul>
       <p style="margin-top:14px"><a class="btn tb" href="#/start">Do it all in one go: the club brief</a></p>
     </div>
     <div>
       <h2 class="big" style="font-size:26px">What's not included (so nobody's surprised)</h2>
       <ul class="checklist no-list">
-        <li>Live scores during matches. Fixtures, results and the table update automatically from the FA's own system</li>
+        <li>Live scores, live stats or automatic player stats. The FA only shares fixtures, results and tables</li>
+        <li>A matchday programme or weekly line-ups</li>
         <li>Lotteries, raffles or prize draws, which need licensing. Happy to link to your existing lottery provider</li>
         <li>A members' login area. Sign-ups go to your treasurer by email instead</li>
-        <li>Writing your club's news for you (I can quote for it)</li>
-        <li>Photography, unless we agree it separately</li>
+        <li>Writing your news for you, or updating the Google Sheet for you</li>
         <li>Your web address renewal, about £12 a year, paid by the club to the registrar</li>
       </ul>
     </div>
@@ -1155,8 +1164,8 @@ function viewHow() {
       <h2 class="big" style="font-size:26px">After it's live</h2>
       <ul class="checklist">
         <li><b>Free fixes:</b> 14 days (Pro 30 days) for anything not working as agreed</li>
-        <li><b>Small changes after that:</b> £15 each. A new player, new sponsor logo or new prices</li>
-        <li><b>Club Care:</b> £30 a month for up to 10 small changes a month, cancel any time. Handy in season</li>
+        <li><b>Your updates:</b> squad, notices, sponsors and news are yours to change in the Google Sheet, any time, free</li>
+        <li><b>Design or page changes:</b> £15 each, only if you ask</li>
         <li><b>Bigger additions:</b> quoted first, and only done if you agree</li>
         <li><b>Upgrades:</b> move up a package any time and pay the difference</li>
       </ul>
@@ -1164,15 +1173,15 @@ function viewHow() {
     <div class="faq">
       <h2 class="big" style="font-size:26px">Questions clubs ask</h2>
       <details><summary>Who owns the website?</summary><p>You do, once it's paid for. The site, the web address and every account are in your club's name, and you can take it to anyone else at any time.</p></details>
-      <details><summary>Is there a monthly fee?</summary><p>No. There's no monthly hosting bill. The only running cost is your web address, about £12 a year. Club Care is optional.</p></details>
-      <details><summary>Can the design be changed from the demo?</summary><p>Yes. The demo shows what's possible. Your site can have a different layout, different pages and different features. Tell me what you like and what you don't.</p></details>
+      <details><summary>Is there a monthly fee?</summary><p>No. There's no monthly hosting bill and no maintenance fee. The only running cost is your web address, about £12 a year.</p></details>
+      <details><summary>How do we update the squad, notices and news?</summary><p>In a Google Sheet that belongs to the club. Add a row for a new signing or a news story, and the website shows it within minutes. If you can use a spreadsheet, you can update the site.</p></details>
+      <details><summary>How do the fixtures update?</summary><p>From the FA's Full-Time system, which your league already uses. Your Full-Time team admin copies the official "code snippets" for me once, and from then on results and the table update whenever the league updates them.</p></details>
+      <details><summary>Do you do live scores or season stats?</summary><p>No. The FA only shares fixtures, results and league tables, so that's what the site shows. I won't promise anything I can't keep running without you paying someone every week.</p></details>
+      <details><summary>Can the design be changed from the demo?</summary><p>Yes. The demo shows what's possible. Your site can have a different layout, different pages and different features.</p></details>
       <details><summary>Why a 30% deposit on Plus and Pro?</summary><p>They take a lot more building, so a 30% deposit books your slot. It isn't refundable once work has started, because that time is set aside for your club. You still don't pay the rest until you've seen it finished and you're happy. Core has no deposit at all.</p></details>
-      <details><summary>How do the fixtures update?</summary><p>From the FA's Full-Time system, which your league already uses. I add the official feed, so results and the table update when the league updates them.</p></details>
       <details><summary>How does money from the shop and squares reach us?</summary><p>Through a Stripe account in the club's name, straight into the club's bank account. Trabelo never touches your money. Stripe charges a small fee per payment.</p></details>
-      <details><summary>Where is the site hosted?</summary><p>On a free hosting account in the club\'s own name, normally Cloudflare Pages: no monthly bill and no third-party branding. If moving the club\'s web address settings to Cloudflare isn\'t practical, for example because the club\'s email runs through the same provider and nobody has the login, I use Netlify instead. It\'s also free, and shows a small "Powered by Netlify" badge in the corner. Either way the club owns the account.</p></details>
-      <details><summary>Can we update it ourselves?</summary><p>On Pro there's an optional edit panel (£150). Otherwise send me the change and it's done, usually within 48 hours.</p></details>
+      <details><summary>Where is the site hosted?</summary><p>On a free hosting account in the club's own name, normally Cloudflare Pages: no monthly bill and no third-party branding. If moving the club\'s web address settings to Cloudflare isn\'t practical, I use Netlify instead, which is also free and shows a small "Powered by Netlify" badge. Either way the club owns the account.</p></details>
       <details><summary>What about photos of junior players?</summary><p>Only with consent, following FA safeguarding guidance. By default I show first names and positions only for under-18s, and I'll check with your welfare officer.</p></details>
-      <details><summary>Will it get us to the top of Google?</summary><p>It'll be built the right way for Google, fast and properly labelled. Nobody can honestly guarantee a ranking.</p></details>
     </div>
   </div></section>
 
@@ -1183,15 +1192,14 @@ function viewHow() {
   </div></div></section>
   ${tbFooter()}`;
 }
-
 /* =====================================================================
    VIEW: the club brief ("start your website")
    ===================================================================== */
 const BRIEF_KEY = 'tfc.brief';
 const BRIEF = [
   { title: 'Package', why: 'Pick what you want. You can change your mind before anything is agreed.', fields: [
-    { k: 'package', type: 'radio', label: 'Package', req: true, opts: [['Core £395', '5 pages. No deposit.'], ['Plus £795', '8 pages, fundraiser, sponsors, shop. 30% deposit.'], ['Pro £1,495', '12 pages, programme, membership, news. 30% deposit.'], ['Not sure yet', 'I\'ll recommend one after reading your answers.']] },
-    { k: 'extras', type: 'checks', label: 'Extras (optional)', opts: ['Extra pages (£40 each)', 'Self-edit panel, Pro only (£150)', 'Club Care after launch (£30/month)', 'Juniors or women\'s section'] },
+    { k: 'package', type: 'radio', label: 'Package', req: true, opts: [['Core £395', '5 pages. No deposit.'], ['Plus £795', '8 pages, fundraiser, sponsors, shop. 30% deposit.'], ['Pro £1,495', '12 pages, news, membership, every team. 30% deposit.'], ['Not sure yet', 'I\'ll recommend one after reading your answers.']] },
+    { k: 'extras', type: 'checks', label: 'Extras (optional)', opts: ['Extra pages (£40 each)', 'Juniors or women\'s section'] },
     { k: 'golive', type: 'text', label: 'When would you like it live? (e.g. before pre-season)' },
   ] },
   { title: 'Your club', why: 'This goes on the website and into Google, so it needs to be exact.', fields: [
@@ -1210,6 +1218,7 @@ const BRIEF = [
     { k: 'contact', type: 'textarea', label: 'Day-to-day contact, if different (name, role, email, phone)' },
     { k: 'secretary', type: 'text', label: 'Email for general enquiries from the website' },
     { k: 'welfare', type: 'text', label: 'Welfare officer name and email' },
+    { k: 'sheet', type: 'text', label: 'Who will keep the club\'s Google Sheet up to date (squad, notices, sponsors)?' },
     { k: 'commercial', type: 'text', label: 'Sponsorship enquiries go to (Plus and Pro)' },
   ] },
   { title: 'Matchday', why: 'The page first-time visitors and away fans read. Rough notes are fine.', fields: [
@@ -1221,7 +1230,7 @@ const BRIEF = [
   { title: 'Setting it up', why: 'The technical bits. "Not sure" is a fine answer: I\'ll help.', fields: [
     { k: 'domain', type: 'radio', label: 'Web address (domain)', req: true, opts: [['We own one', 'Put it below, and who has the login'], ['We need a new one', 'About £12 a year, bought in the club\'s name'], ['Not sure', 'I\'ll check for you']] },
     { k: 'domainInfo', type: 'text', label: 'Domain name and who has the login' },
-    { k: 'fulltime', type: 'radio', label: 'FA Full-Time (for automatic fixtures)', opts: [['Our secretary can get the code snippet', 'Media menu, "code snippets"'], ['We\'ll ask the league', ''], ['Not sure', 'I\'ll explain what to ask for']] },
+    { k: 'fulltime', type: 'radio', label: 'FA Full-Time (for automatic fixtures)', opts: [['Our Full-Time team admin can copy the code snippets', 'Media, then Code Snippets'], ['We\'ll ask the league', ''], ['Not sure', 'I\'ll explain what to ask for']] },
     { k: 'stripe', type: 'radio', label: 'Stripe, for taking payments (Plus and Pro)', opts: [['We have one in the club\'s name', ''], ['We\'ll set one up', 'Needs the club bank account and ID'], ['Not needed (Core)', '']] },
   ] },
   { title: 'Content', why: 'Paste what you have. Anything missing, I\'ll ask for later.', fields: [
@@ -1317,8 +1326,8 @@ function viewSite(rt) {
   }).join('');
   const page = PAGES.find(p => p.id === rt.page);
   const body = !has(page.tier) ? viewLocked(page) : ({
-    home: pHome, fixtures: pFixtures, squad: pSquad, news: pNews, matchday: pMatchday, sponsors: pSponsors,
-    fundraiser: pFundraiser, shop: pShop, programme: pProgramme, membership: pMembership, history: pHistory, contact: pContact,
+    home: pHome, fixtures: pFixtures, squad: pSquad, teams: pTeams, news: pNews, matchday: pMatchday, sponsors: pSponsors,
+    fundraiser: pFundraiser, shop: pShop, membership: pMembership, history: pHistory, contact: pContact,
   }[page.id])(rt);
   const isHome = rt.page === 'home' && has('core');
   return `<div class="site look-${state.look} ${state.labels ? '' : 'nolabels'}">
@@ -1328,10 +1337,8 @@ function viewSite(rt) {
     <div class="social"><a href="#" data-demo="Your Facebook page" aria-label="Facebook">${ICON.fb}</a><a href="#" data-demo="Your X account" aria-label="X">${ICON.x}</a><a href="#" data-demo="Your Instagram" aria-label="Instagram">${ICON.ig}</a></div>
   </div></div>
   <nav class="club-nav" aria-label="Club website"><ul>${nav}</ul></nav>
-  ${ticker()}
-  ${state.matchday ? matchdayBar() : ''}
   <div class="exstrip"><div class="wrap"><b>Demo:</b> fixtures, players, people and opponents are made up, and the design can be changed. ${tag(state.tier, false)} package shown, ${PAGES.filter(p => has(p.tier)).length} pages.
-    <button type="button" id="mdToggle">${state.matchday ? 'Turn off matchday mode' : 'Preview matchday mode'}</button><button type="button" id="lblToggle">${state.labels ? 'Hide' : 'Show'} package labels</button><button type="button" id="introAgain">What am I looking at?</button></div></div>
+    <button type="button" id="lblToggle">${state.labels ? 'Hide' : 'Show'} package labels</button><button type="button" id="introAgain">What am I looking at?</button></div></div>
   ${isHome ? homeHero() : ''}
   <div class="page"><div class="wrap">${body}</div></div>
   ${clubFooter()}</div>`;
@@ -1349,54 +1356,44 @@ function viewLocked(page) {
     <a class="btn tb" href="#/${t}/${page.id}">See it on ${TIER_NAME[t]}</a>
   </div>`;
 }
-function ticker() {
-  const c = state.club, d = DATA;
-  const items = [
-    ...d.results.slice(0, 4).map(r => `<span><b>FT</b> ${r.home ? `${esc(c.name)} ${r.us}–${r.them} ${esc(r.opp)}` : `${esc(r.opp)} ${r.them}–${r.us} ${esc(c.name)}`}</span>`),
-    `<span><b>NEXT</b> ${fmtDate(d.fixtures[0].date)} ${fmtTime(d.fixtures[0].date)} v ${esc(d.fixtures[0].opp)}</span>`,
-    `<span><b>TABLE</b> ${ordinal(d.us.pos)} in ${esc(c.division || c.league)}, ${d.us.pts} points</span>`,
-    has('plus') ? `<span><b>FUNDRAISER</b> ${money(d.squares.length * 50)} raised for new floodlights</span>` : '',
-  ].join('');
-  return `<div class="ticker" aria-label="Latest scores (example)"><div class="in"><span class="lbl">Latest · example</span><div class="track">${items}${items}</div></div></div>`;
-}
 const ordinal = n => n + (['th', 'st', 'nd', 'rd'][(n % 100 - 20) % 10] || ['th', 'st', 'nd', 'rd'][n % 100] || 'th');
-function matchdayBar() {
-  const f = DATA.fixtures[0];
-  return `<div class="matchday"><div class="wrap"><span class="live"><i></i>IT'S MATCHDAY</span><span>${esc(state.club.name)} v ${esc(f.opp)} · Kick-off ${fmtTime(f.date)} · Gates open 2pm · Adults £6 · Bar open from 1pm</span>${tag('core')}</div></div>`;
-}
 function homeHero() {
   const c = state.club;
   return `<section class="stadium">${heroMedia('hero', 1)}<div class="wrap">
     <div>
       ${crest()}
       <h1>${esc(c.name)}</h1>
-      <p class="tagline">${state.matchday ? `Matchday at ${esc(DATA.ground)}. Gates open at 2pm, see you there.` : `Welcome to the home of ${esc(c.name)}. Fixtures, results, matchday info and everything else, in one place.`}</p>
+      <p class="tagline">Welcome to the home of ${esc(c.name)}. Fixtures, results, matchday info and everything else, in one place.</p>
       <div class="btns"><a class="btn on-hero" href="#/${state.tier}/fixtures">Fixtures &amp; results</a><a class="btn ghost-hero" href="#/${state.tier}/matchday">Matchday info</a>${has('plus') ? `<a class="btn ghost-hero" href="#/${state.tier}/fundraiser">Sponsor a square</a>` : ''}</div>
     </div>
-    ${nextMatchCard(true)}
+    <div class="glass">${fxWidget('fixtures', 4, true)}</div>
   </div></section><div class="kitband"></div>`;
 }
-function nextMatchCard(glass = false) {
-  const c = state.club, f = DATA.fixtures[0];
-  const H = f.home ? c.name : f.opp, A = f.home ? f.opp : c.name;
-  const cr = n => n === c.name ? crest() : oppCrest(n);
-  const shareText = `${H} v ${A}, ${fmtDate(f.date)} ${fmtTime(f.date)} at ${f.venue}. See you there!`;
-  return `<div class="${glass ? 'glass' : 'card'} next">
-    <h3 style="display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:15px;text-transform:uppercase;letter-spacing:.06em">${state.matchday ? 'Today' : 'Next match'} ${EX} ${tag('core')}</h3>
-    <div class="vs"><div class="team">${cr(H)}<span>${esc(H)}</span></div><div class="ko">${fmtTime(f.date)}<br>${fmtDate(f.date)}</div><div class="team">${cr(A)}<span>${esc(A)}</span></div></div>
-    <div class="countdown" id="countdown" data-t="${f.date.getTime()}"><div><b>-</b><span>days</span></div><div><b>-</b><span>hrs</span></div><div><b>-</b><span>mins</span></div><div><b>-</b><span>secs</span></div></div>
-    <div class="meta-line"><span>${esc(f.comp)}</span><span>${esc(f.venue)}</span>${has('plus') ? `<span>Match sponsor: <i>your business here</i> ${tag('plus')}</span>` : ''}</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn sm ${glass ? 'on-hero' : 'club'}" type="button" data-ics="0">${ICON.cal} Add to calendar</button><a class="btn sm ${glass ? 'ghost-hero' : ''}" href="${waShare(shareText)}" target="_blank" rel="noopener">${ICON.wa} Send to the group chat</a></div>
-  </div>`;
+// The FA's Full-Time "code snippets" give fixtures, results and league tables, and nothing else.
+// fxWidget shows example data in that shape, so the demo only promises what a real site can show.
+function fxWidget(kind, n = 5, glass = false) {
+  const c = state.club, d = DATA;
+  const title = { fixtures: 'Coming up', results: 'Latest results', table: 'League table' }[kind];
+  let body = '';
+  if (kind === 'fixtures') body = d.fixtures.slice(0, n).map(f => `<tr><td>${fmtDate(f.date)}<br><small>${fmtTime(f.date)}</small></td><td style="text-align:left">${f.home ? 'H' : 'A'} · ${esc(f.opp)}<br><small>${esc(f.comp)}</small></td></tr>`).join('');
+  if (kind === 'results') body = d.results.slice(0, n).map(r => `<tr><td>${fmtDate(r.date)}</td><td style="text-align:left">${r.home ? 'H' : 'A'} · ${esc(r.opp)}</td><td><span class="wdl ${r.res}">${r.res}</span> ${r.us}–${r.them}</td></tr>`).join('');
+  if (kind === 'table') {
+    const t = d.table, us = t.findIndex(x => x.t === c.name);
+    let rows = t.slice(0, n);
+    if (us >= n) rows = [...t.slice(0, n - 2), t[us - 1], t[us]];
+    body = `<tr><th>#</th><th style="text-align:left">Club</th><th>P</th><th>GD</th><th>Pts</th></tr>` + rows.map(x => `<tr class="${x.t === c.name ? 'us' : ''}"><td>${x.pos}</td><td style="text-align:left">${esc(x.t)}</td><td>${x.p}</td><td>${x.gd > 0 ? '+' : ''}${x.gd}</td><td class="pts">${x.pts}</td></tr>`).join('');
+  }
+  return `<h3 style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px;font-size:15px;text-transform:uppercase;letter-spacing:.05em">${title} ${EX} ${tag('core')}</h3>
+    <table class="tbl" style="${glass ? 'color:#fff' : ''}"><tbody>${body}</tbody></table>
+    <p class="example" style="margin:8px 0 0;${glass ? 'color:rgba(255,255,255,.7)' : ''}">From the FA's Full-Time feed: updates itself when your league does.</p>`;
 }
-function lastResultCard() {
-  const c = state.club, r = DATA.results[0];
-  const H = r.home ? c.name : r.opp, A = r.home ? r.opp : c.name;
-  const hs = r.home ? r.us : r.them, as = r.home ? r.them : r.us;
-  return `<div class="card"><h3>Last result <span class="wdl ${r.res}">${r.res}</span> ${EX}</h3>
-    <div class="result-big"><span style="font-size:15px;font-weight:700;text-align:right;flex:1">${esc(H)}</span><span>${hs} – ${as}</span><span style="font-size:15px;font-weight:700;flex:1">${esc(A)}</span></div>
-    <p class="example" style="justify-content:center;margin:8px 0 0">${fmtDate(r.date)} · ${esc(r.comp)}</p>
-    ${has('pro') ? `<div style="text-align:center;margin-top:12px"><button class="btn sm club" type="button" data-gfx="result">${ICON.img} Make the result graphic ${tag('pro')}</button></div>` : ''}</div>`;
+// How the club updates things itself: a shared Google Sheet the site reads.
+function sheetNote(what, small = false) {
+  const cols = { squad: ['Name', 'Position', 'No.'], notices: ['Notice', 'Date'], news: ['Headline', 'Date', 'Story'], sponsors: ['Sponsor', 'Website', 'Level'], squares: ['Square', 'Name to show'] }[what];
+  const rows = { squad: [['Jack Walker', 'GK', '1'], ['New signing', 'MID', '14']], notices: [['Tea bar volunteers', '12 Oct'], ['Friendlies announced', '5 Oct']], news: [['New signing', 'This week', 'We are pleased…'], ['Match report', 'Sat', 'A great win…']], sponsors: [['Smith Plumbing', 'smithplumbing.co.uk', 'Gold'], ['The Red Lion', 'redlion.pub', 'Silver']], squares: [['23', 'The Walker Family'], ['57', 'Mick\'s Taxis']] }[what];
+  const sheet = `<table style="border-collapse:collapse;font:12px/1.3 Arial,sans-serif;background:#fff;color:#202124;border:1px solid #dadce0;width:100%;max-width:340px"><tr>${cols.map(h => `<th style="background:#f1f3f4;border:1px solid #dadce0;padding:3px 6px;text-align:left">${h}</th>`).join('')}</tr>${rows.map(r => `<tr>${r.map(v => `<td style="border:1px solid #dadce0;padding:3px 6px">${esc(v)}</td>`).join('')}</tr>`).join('')}</table>`;
+  if (small) return `<p class="example" style="margin:10px 0 0">✏️ The club updates these in its Google Sheet.</p>`;
+  return `<div class="card" style="display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-bottom:18px"><div style="font-size:28px">✏️</div><div><b>Updated by the club, not by me</b><p style="margin:4px 0 10px;color:var(--muted);font-size:14.5px">This comes from a Google Sheet that belongs to your club. Add a row, change a number, and the website shows it within minutes. No logins, nothing to learn, no charge.</p>${sheet}</div></div>`;
 }
 function miniTable() {
   const c = state.club, t = DATA.table;
@@ -1406,29 +1403,6 @@ function miniTable() {
   return `<div class="card"><h3>League table ${EX} ${tag('core')}</h3><table class="tbl"><thead><tr><th>#</th><th>Club</th><th>P</th><th>GD</th><th>Pts</th></tr></thead><tbody>
     ${rows.map(x => `<tr class="${x.t === c.name ? 'us' : ''}"><td>${x.pos}</td><td>${esc(x.t)}</td><td>${x.p}</td><td>${x.gd > 0 ? '+' : ''}${x.gd}</td><td class="pts">${x.pts}</td></tr>`).join('')}
   </tbody></table><a class="btn sm" style="margin-top:12px" href="#/${state.tier}/fixtures/table">Full table</a></div>`;
-}
-function statsBand() {
-  const u = DATA.us;
-  const s = [[u.w, 'Wins'], [u.gf, 'Goals scored'], [DATA.cleanSheets, 'Clean sheets'], [u.pts, 'Points'], [DATA.crowd, 'Average crowd']];
-  return `<section class="slant"><div class="wrap"><p class="example" style="justify-content:center;color:inherit;opacity:.85;margin:0 0 14px">Season so far ${EX} ${tag('core')}</p><div class="stats">${s.map(([n, l]) => `<div><b data-count="${n}">0</b><span>${l}</span></div>`).join('')}</div></div></section>`;
-}
-function positionGraph() {
-  const p = DATA.positions, W = 600, H = 170, n = p.length;
-  const x = i => 30 + i * (W - 50) / Math.max(1, n - 1), y = v => 14 + (v - 1) * (H - 34) / 19;
-  const pts = p.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
-  return `<div class="card graph"><h3>League position this season ${EX} ${tag('core')}</h3>
-    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="League position by game, currently ${ordinal(p[n - 1])}">
-      ${[1, 5, 10, 15, 20].map(v => `<line x1="30" x2="${W - 20}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="0" y="${y(v) + 4}" font-size="11" fill="var(--muted)">${ordinal(v)}</text>`).join('')}
-      <polyline points="${pts}" fill="none" stroke="var(--brand)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
-      ${p.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="${i === n - 1 ? 6 : 3.5}" fill="${i === n - 1 ? 'var(--brand)' : 'var(--card)'}" stroke="var(--brand)" stroke-width="2"/>`).join('')}
-    </svg><p class="example" style="margin:6px 0 0">Game by game. Currently ${ordinal(p[n - 1])}.</p></div>`;
-}
-function h2hCard() {
-  const f = DATA.fixtures[0], c = state.club;
-  const tally = ['W', 'D', 'L'].map(k => DATA.h2h.filter(x => x.res === k).length);
-  return `<div class="card"><h3>Head to head v ${esc(f.opp)} ${EX} ${tag('core')}</h3>
-    <p style="margin:0 0 10px;font-weight:700">Won ${tally[0]} · Drawn ${tally[1]} · Lost ${tally[2]}</p>
-    <div class="h2h">${DATA.h2h.map(h => `<div><small class="example">${h.season}</small><span>${h.home ? esc(c.name) + ' ' + h.us + '–' + h.them + ' ' + esc(f.opp) : esc(f.opp) + ' ' + h.them + '–' + h.us + ' ' + esc(c.name)}</span><span class="wdl ${h.res}">${h.res}</span></div>`).join('')}</div></div>`;
 }
 function articles() {
   const c = state.club, d = DATA, r = d.results[0], f = d.fixtures[0];
@@ -1449,63 +1423,56 @@ function pHome() {
   const c = state.club, d = DATA;
   const raised = d.squares.length * 50;
   return `
-  <div class="cols" style="margin-bottom:18px">${lastResultCard()}${miniTable()}${h2hCard()}</div>
-  </div>${statsBand()}<div class="wrap">
-  <div class="cols2" style="margin-bottom:18px">${positionGraph()}
+  <div class="cols" style="margin-bottom:18px">
+    <div class="card">${fxWidget('results', 4)}</div>
+    <div class="card">${fxWidget('table', 5)}</div>
+    <div class="card"><h3>Club notices ${tag('core')}</h3><div class="list">
+      <div><b>Volunteers wanted for the tea bar</b><br><small class="example">Two hours on a home Saturday. Speak to anyone at the club.</small></div>
+      <div><b>New signing: welcome ${esc(d.squad[14].name)}</b><br><small class="example">Joins from ${esc(d.opps[3])}.</small></div>
+      <div><b>Pre-season friendlies announced</b><br><small class="example">Full list on the fixtures page.</small></div>
+    </div>${sheetNote('notices', true)}</div>
+  </div>
+  <div class="cols2" style="margin-bottom:18px">
     <div class="card"><h3>Matchday ${tag('core')}</h3><div class="list" style="font-size:15px">
       <div>${ICON.pin.replace('<svg', '<svg width="16" height="16" style="vertical-align:-3px"')} ${esc(d.ground)}</div>
       <div>${ICON.ticket.replace('<svg', '<svg width="16" height="16" style="vertical-align:-3px"')} Adults £6 · Concessions £3 · Under-16s free</div>
       <div>${ICON.clock.replace('<svg', '<svg width="16" height="16" style="vertical-align:-3px"')} Saturdays 3pm · Midweek 7:45pm</div>
       <div>${ICON.beer.replace('<svg', '<svg width="16" height="16" style="vertical-align:-3px"')} Clubhouse bar open from 1pm</div>
     </div><a class="btn sm club" style="margin-top:12px" href="#/${state.tier}/matchday">Getting here</a></div>
+    ${has('plus') ? `<div class="card"><h3>Sponsor spotlight ${tag('plus')}</h3><div class="spot"><div class="logo">YOUR<br>LOGO</div><div><b>Your business here</b><p class="example" style="margin:2px 0 8px">Rotates through the sponsors in your Google Sheet, with a link to each.</p><a class="btn sm" href="#/${state.tier}/sponsors">Become a sponsor</a></div></div></div>`
+      : `<div class="card"><h3>Our sponsors ${tag('core')}</h3><div class="spons">${['Main sponsor', 'Kit sponsor', 'Your logo here', 'Your logo here'].map((s, i) => `<div class="slot ${i < 2 ? 'gold' : ''}">${s}</div>`).join('')}</div></div>`}
   </div>
-  ${has('plus') ? `<div class="cols2" style="margin-bottom:18px">
-    <div class="card"><h3>Pitch Fundraiser ${tag('plus')}</h3><p style="margin:0 0 6px"><b>${money(raised)}</b> raised of £5,000 by ${d.squares.length} supporters and local firms. ${EX}</p><div class="progress"><span style="width:${raised / 50}%"></span></div><a class="btn sm club" href="#/${state.tier}/fundraiser">Sponsor a square, £50</a></div>
-    <div class="card"><h3>Sponsor spotlight ${tag('plus')}</h3><div class="spot"><div class="logo">YOUR<br>LOGO</div><div><b>Your business here</b><p class="example" style="margin:2px 0 8px">Rotates through your sponsors, with a link to each.</p><a class="btn sm" href="#/${state.tier}/sponsors">Become a sponsor</a></div></div></div>
-  </div>` : ''}
-  ${has('pro') ? `<h2 class="disp" style="font-size:26px;margin:28px 0 14px">Latest news ${tag('pro')}</h2><div class="news" style="margin-bottom:18px">${articles().slice(0, 3).map(postCard).join('')}</div>`
-    : `<div class="card" style="margin-bottom:18px"><h3>Club notices ${tag('core')}</h3><div class="list">
-        <div><b>Volunteers wanted for the tea bar</b><br><small class="example">Two hours on a home Saturday. Speak to anyone at the club.</small></div>
-        <div><b>Pre-season friendlies announced</b><br><small class="example">Full list on the fixtures page.</small></div></div></div>`}
-  <div class="card"><h3>Our sponsors ${tag('core')}</h3><div class="spons">${['Main sponsor', 'Kit sponsor', 'Ground sponsor', 'Your logo here', 'Your logo here', 'Your logo here'].map((s, i) => `<div class="slot ${i < 3 ? 'gold' : ''}">${s}</div>`).join('')}</div></div>
+  ${has('plus') ? `<div class="card" style="margin-bottom:18px"><h3>Pitch Fundraiser ${tag('plus')}</h3><p style="margin:0 0 6px"><b>${money(raised)}</b> raised of £5,000 by ${d.squares.length} supporters and local firms. ${EX}</p><div class="progress"><span style="width:${raised / 50}%"></span></div><a class="btn sm club" href="#/${state.tier}/fundraiser">Sponsor a square, £50</a></div>` : ''}
+  ${has('pro') ? `<h2 class="disp" style="font-size:26px;margin:28px 0 14px">Latest news ${tag('pro')}</h2><div class="news" style="margin-bottom:18px">${articles().slice(0, 3).map(postCard).join('')}</div>` : ''}
   <div style="margin-top:18px">${serp()}</div>`;
 }
-
-function fixtureRow(f, i) {
-  const c = state.club;
-  const txt = `${f.home ? c.name + ' v ' + f.opp : f.opp + ' v ' + c.name}, ${fmtDate(f.date)} ${fmtTime(f.date)} at ${f.venue}`;
-  return `<div class="fx"><div class="d">${fmtDate(f.date)}<small>${fmtTime(f.date)}</small></div>
-    <div class="o"><span class="ha ${f.home ? 'H' : 'A'}">${f.home ? 'H' : 'A'}</span>${f.home ? esc(c.name) + ' v ' + esc(f.opp) : esc(f.opp) + ' v ' + esc(c.name)}<small>${esc(f.comp)} · ${esc(f.venue)}${has('plus') && f.sponsor ? ' · Match sponsor: <i>your name here</i>' : ''}</small></div>
-    <div class="act"><button class="btn sm" type="button" data-ics="${i}" aria-label="Add the ${esc(f.opp)} match to your calendar">${ICON.cal} Calendar</button><a class="btn sm" href="${waShare(txt)}" target="_blank" rel="noopener" aria-label="Share on WhatsApp">${ICON.wa}</a>${has('pro') ? `<button class="btn sm" type="button" data-gfx="fixture" data-i="${i}" aria-label="Make a matchday graphic">${ICON.img}</button>` : ''}</div></div>`;
-}
 function pFixtures(rt) {
-  const c = state.club, d = DATA, t = has('pro') ? teamFixtures() : d;
+  const c = state.club, d = DATA;
   const tab = rt.sub || 'fixtures';
   const tabs = [['fixtures', 'Fixtures'], ['results', 'Results'], ['table', 'Table']];
-  const teamChips = has('pro') ? `<div class="chips" role="group" aria-label="Team">${TEAMS.map(x => `<button class="chip" type="button" data-team="${x}" aria-pressed="${state.team === x}">${x}</button>`).join('')} ${tag('pro')}</div>` : '';
   let body = '';
-  if (tab === 'fixtures') body = `<div class="chips" role="group" aria-label="Filter">${['All', 'Home', 'Away'].map((x, i) => `<button class="chip" type="button" data-filter="${x}" aria-pressed="${i === 0}">${x}</button>`).join('')}${has('pro') ? `<button class="chip" type="button" data-ics="all">Subscribe to all fixtures ${tag('pro')}</button>` : ''}</div><div class="list" id="fxList">${t.fixtures.map(fixtureRow).join('')}</div>`;
-  if (tab === 'results') body = `<div class="list">${t.results.map((r, i) => `<div class="fx"><div class="d">${fmtDate(r.date)}<small>${esc(r.comp)}</small></div><div class="o"><span class="ha ${r.home ? 'H' : 'A'}">${r.home ? 'H' : 'A'}</span>${r.home ? esc(c.name) + ' v ' + esc(r.opp) : esc(r.opp) + ' v ' + esc(c.name)}${has('plus') && i === 0 ? '<small>Man of the match sponsored by <i>your business here</i></small>' : ''}</div><div class="score"><span class="wdl ${r.res}">${r.res}</span>${r.home ? r.us + ' – ' + r.them : r.them + ' – ' + r.us}${has('pro') ? `<button class="btn sm" type="button" data-gfx="result" data-i="${i}" aria-label="Make a result graphic">${ICON.img}</button>` : ''}</div></div>`).join('')}</div>`;
-  if (tab === 'table') body = `<div class="card" style="overflow-x:auto"><table class="tbl"><thead><tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr></thead><tbody>
-    ${d.table.map(x => `<tr class="${x.t === c.name ? 'us' : ''}"><td>${x.pos}</td><td>${esc(x.t)}</td><td>${x.p}</td><td>${x.w}</td><td>${x.d}</td><td>${x.l}</td><td>${x.gf}</td><td>${x.ga}</td><td>${x.gd > 0 ? '+' : ''}${x.gd}</td><td class="pts">${x.pts}</td><td style="white-space:nowrap">${x.form.map(f => `<span class="wdl ${f}" style="width:16px;height:16px;font-size:9px;margin:0 1px">${f}</span>`).join('')}</td></tr>`).join('')}
-  </tbody></table></div><div style="margin-top:18px">${positionGraph()}</div>`;
+  if (tab === 'fixtures') body = `<div class="card">${fxWidget('fixtures', 8)}</div>`;
+  if (tab === 'results') body = `<div class="card">${fxWidget('results', 7)}</div>`;
+  if (tab === 'table') body = `<div class="card" style="overflow-x:auto"><h3 style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px;font-size:15px;text-transform:uppercase;letter-spacing:.05em">League table ${EX} ${tag('core')}</h3><table class="tbl"><thead><tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+    ${d.table.map(x => `<tr class="${x.t === c.name ? 'us' : ''}"><td>${x.pos}</td><td>${esc(x.t)}</td><td>${x.p}</td><td>${x.w}</td><td>${x.d}</td><td>${x.l}</td><td>${x.gf}</td><td>${x.ga}</td><td>${x.gd > 0 ? '+' : ''}${x.gd}</td><td class="pts">${x.pts}</td></tr>`).join('')}
+  </tbody></table><p class="example" style="margin:8px 0 0">From the FA's Full-Time feed: updates itself when your league does.</p></div>`;
   return `<h1 class="ph">Fixtures &amp; Results</h1>
-  <p class="lede">Example opponents, dates and scores. On your site these update themselves from the FA's Full-Time system. ${tag('core')}</p>
-  ${teamChips}
+  <p class="lede">Straight from the FA's Full-Time system, which your league already uses. When the league updates a result or the table, this page updates. Nobody at the club has to do anything. Example opponents and scores shown. ${tag('core')}</p>
   <div class="chips">${tabs.map(([id, n]) => `<a class="chip" ${tab === id ? 'aria-current="page"' : ''} aria-pressed="${tab === id}" href="#/${state.tier}/fixtures/${id}">${n}</a>`).join('')}</div>
-  ${body}`;
+  ${body}
+  ${has('pro') ? `<p style="margin-top:16px"><a class="btn sm" href="#/${state.tier}/teams">Fixtures for every team at the club</a> ${tag('pro')}</p>` : ''}`;
 }
-
-function startingXI() {
-  const d = DATA, sq = d.squad, c = state.club;
-  const gk = sq.find(p => p.code === 'GK'), def = sq.filter(p => p.code === 'DEF').slice(0, 4), mid = sq.filter(p => p.code === 'MID').slice(0, 4), fwd = sq.filter(p => p.code === 'FWD').slice(0, 2);
-  const lines = [[fwd, 70], [mid, 170], [def, 270], [[gk], 360]];
-  const dots = lines.map(([ps, y]) => ps.map((p, i) => { const x = 150 + (i - (ps.length - 1) / 2) * (ps.length === 2 ? 90 : 68); return `<g><circle cx="${x}" cy="${y}" r="17" fill="${c.c1}" stroke="${c.c2}" stroke-width="3"/><text x="${x}" y="${y + 5}" text-anchor="middle" font-size="14" font-weight="900" fill="${inkOn(c.c1)}" font-family="Inter,Arial">${p.num}</text><text x="${x}" y="${y + 33}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" font-family="Inter,Arial">${esc(surname(p.name))}</text></g>`; }).join('')).join('');
-  const subs = sq.filter(p => ![gk, ...def, ...mid, ...fwd].includes(p)).slice(0, 5);
-  return `<div class="card" style="margin-bottom:22px"><h3>Starting XI v ${esc(d.fixtures[0].opp)} ${EX} ${tag('pro')}</h3><div class="xi">
-    <div class="xi-pitch"><svg viewBox="0 0 300 400" role="img" aria-label="Starting eleven in a 4-4-2"><g fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><rect x="6" y="6" width="288" height="388"/><line x1="6" y1="200" x2="294" y2="200"/><circle cx="150" cy="200" r="36"/><rect x="80" y="330" width="140" height="64"/><rect x="80" y="6" width="140" height="64"/></g>${dots}</svg></div>
-    <div><p class="example" style="margin:0 0 8px">4-4-2. The manager or media volunteer updates it before kick-off, and it looks like this on phones.</p><b>Subs</b><ul style="padding-left:18px;margin:6px 0 0">${subs.map(p => `<li>${p.num}. ${esc(p.name)}</li>`).join('')}</ul></div>
-  </div></div>`;
+function pTeams() {
+  const t = teamFixtures();
+  return `<h1 class="ph">Teams</h1>
+  <p class="lede">Fixtures, results and tables for every team at the club, each from its own FA Full-Time feed. Set up once when the site is built, then it looks after itself. Example data shown. ${tag('pro')}</p>
+  <div class="chips" role="group" aria-label="Team">${TEAMS.map(x => `<button class="chip" type="button" data-team="${x}" aria-pressed="${state.team === x}">${x}</button>`).join('')}</div>
+  <div class="cols2"><div class="card">${fxWidgetFor(t, 'fixtures')}</div><div class="card">${fxWidgetFor(t, 'results')}</div></div>
+  <div style="margin-top:18px">${sheetNote('squad')}</div>`;
+}
+function fxWidgetFor(t, kind) {
+  const keep = DATA; DATA = Object.assign({}, DATA, { fixtures: t.fixtures, results: t.results });
+  const html = fxWidget(kind, 5).replace(tag('core'), tag('pro')); DATA = keep; return html.replace('Coming up', `${esc(state.team)}: coming up`).replace('Latest results', `${esc(state.team)}: results`);
 }
 function pSquad() {
   const d = DATA;
@@ -1514,8 +1481,8 @@ function pSquad() {
     <span class="shirt">${p.captain ? '<span class="cap">C</span>' : ''}<span class="num">${p.num}</span>${playerFigure(p)}</span>
     <span class="info"><b>${esc(p.name)}</b><small>${esc(p.group.slice(0, -1))} · #${p.num}</small>${has('plus') ? `<br><small style="color:var(--brand);font-weight:700">Sponsor this player</small>` : ''}</span></button>`;
   return `<h1 class="ph">Squad</h1>
-  <p class="lede">Example players. ${has('pro') ? 'Tap a player for their profile and stats.' : 'Player profiles and stats come with Pro.'} ${tag('core')} ${has('plus') ? tag('plus') + ' sponsor a player' : ''}</p>
-  ${has('pro') ? startingXI() : ''}
+  <p class="lede">Example players. ${has('pro') ? 'Tap a player for their profile.' : 'Player profiles come with Pro.'} ${tag('core')} ${has('plus') ? tag('plus') + ' sponsor a player' : ''}</p>
+  ${sheetNote('squad')}
   <div class="chips" role="group" aria-label="Filter by position">${['All', ...groups].map((g, i) => `<button class="chip" type="button" data-pos="${g}" aria-pressed="${i === 0}">${g}</button>`).join('')}</div>
   ${groups.map(g => `<section data-group="${g}"><h2 class="posh">${g}</h2><div class="squad">${d.squad.map((p, i) => p.group === g ? playerCard(p, i) : '').join('')}</div></section>`).join('')}
   <section data-group="Management"><h2 class="posh">Management</h2><div class="squad">${d.staff.map(([role, n]) => `<div class="player"><span class="shirt" style="place-items:center"><span class="avatar" style="width:64px;height:64px;font-size:22px;background:#fff;color:#111">${esc(n.split(' ').map(x => x[0]).join(''))}</span></span><span class="info"><b>${esc(n)}</b><small>${esc(role)}</small></span></div>`).join('')}</div></section>`;
@@ -1569,7 +1536,7 @@ function pSponsors() {
   const tiers = [
     ['Match ball', 40, ['Name in the programme and on the website', 'Social media thank-you post']],
     ['Player sponsor', 60, ['Your name on the player\'s profile all season', 'Shout-out when they score']],
-    ['Matchday sponsor', 150, ['Name on the fixture and programme cover', 'Hospitality for four', 'Social media post']],
+    ['Matchday sponsor', 150, ['Name on the website and in a social media post', 'Hospitality for four', 'Shout-out on the tannoy']],
     ['Pitch-side board', 300, ['Board for the season, facing the main stand', 'Logo and link on the sponsor wall', 'Listed in the sponsor pack']],
     ['Kit sponsor', 0, ['Logo on the shirt', 'Top spot on the sponsor wall', 'Price on application']],
   ];
@@ -1622,35 +1589,11 @@ function pShop() {
   <div class="products">${items.map(([n, p, svg, sizes]) => `<div class="card product"><div class="pic">${svg}</div><b>${n}</b>${sizes ? `<label class="example" style="margin-top:6px">Size <select style="margin-left:6px;border:1px solid var(--line);border-radius:8px;padding:3px 6px;background:var(--card);color:var(--ink)"><option>S</option><option>M</option><option selected>L</option><option>XL</option><option>XXL</option></select></label>` : ''}<div class="row"><span class="pr">${money(p)}</span><button class="btn sm club" type="button" data-buy="${n}">Buy now</button></div></div>`).join('')}</div>`;
 }
 
-function pProgramme() {
-  return `<h1 class="ph">Matchday Programme</h1>
-  <p class="lede">A digital programme for every home game. Flick through on a phone, or download it. Adverts inside are something else to sell to sponsors. ${tag('pro')}</p>
-  <div class="cols2"><div class="flip" id="flip"></div>
-  <div class="card"><h3>Past issues ${EX}</h3><div class="list">${DATA.results.filter(r => r.home).map((r, i) => `<div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><span><b>Issue ${6 - i}</b> v ${esc(r.opp)}<br><small class="example">${fmtDate(r.date)}</small></span><button class="btn sm" type="button" data-demo="Opens that issue">Read</button></div>`).join('')}</div></div></div>`;
-}
-let flipIndex = 0;
-function flipPages() {
-  const c = state.club, d = DATA, f = d.fixtures.find(x => x.home) || d.fixtures[0];
-  return [
-    `<div class="pg cover">${stadiumScene(7).replace('class="scene"', 'class="scene" style="position:absolute;inset:0;width:100%;height:100%;opacity:.55"')}<div style="position:relative;display:grid;justify-items:center;gap:10px">${crest()}<span style="font-weight:800;letter-spacing:.1em;font-size:13px">OFFICIAL MATCHDAY PROGRAMME · £2</span><h2>${esc(c.name)}<br><span style="font-size:.55em">v ${esc(f.opp)}</span></h2><span>${fmtDate(f.date)} · ${fmtTime(f.date)} · ${esc(d.ground)}</span></div></div>`,
-    `<div class="pg"><h2 style="margin:0">From the Chair</h2><p>Welcome back to ${esc(d.ground)} for this afternoon's game against ${esc(f.opp)}. A warm welcome to their players, officials and supporters.</p><p>This is where your chair's welcome goes each week: results, thanks to volunteers, and what's coming up at the club.</p><p><b>${esc(d.committee[0][1])}</b>, Chair</p></div>`,
-    `<div class="pg"><h2 style="margin:0">Today's opponents</h2>${oppCrest(f.opp).replace('class="oppcrest"', 'class="oppcrest" style="width:70px;height:85px"')}<p>${esc(f.opp)} arrive with a point to prove. A profile of today's visitors, their recent form and players to watch goes here.</p><div class="ad"><b>This page sponsored by</b>Your business could sponsor the opposition page.</div></div>`,
-    `<div class="pg"><h2 style="margin:0">${esc(c.name)} squad</h2><div style="columns:2;font-size:15px">${d.squad.map(p => `<div><b style="display:inline-block;width:28px">${p.num}</b>${esc(p.name)}</div>`).join('')}</div></div>`,
-    `<div class="pg"><h2 style="margin:0">Our sponsors</h2><div class="ad"><b>Full-page advert</b>Your business, your message, every home game.</div><div class="grid2" style="gap:10px"><div class="ad"><b>Half page</b>Local trades love these.</div><div class="ad"><b>Half page</b>Pubs, takeaways, taxis.</div></div></div>`,
-    `<div class="pg"><h2 style="margin:0">Fixtures &amp; table</h2><div class="list">${d.fixtures.slice(1, 5).map(x => `<div><b>${fmtDate(x.date)}</b> · ${x.home ? 'H' : 'A'} v ${esc(x.opp)}</div>`).join('')}</div><p class="example">Plus the full league table, updated automatically.</p></div>`,
-  ];
-}
-function renderFlip() {
-  const el = $('#flip'); if (!el) return;
-  const pages = flipPages();
-  flipIndex = Math.max(0, Math.min(pages.length - 1, flipIndex));
-  el.innerHTML = pages[flipIndex] + `<div class="bar"><button class="btn sm" type="button" data-flip="-1" ${flipIndex === 0 ? 'disabled' : ''}>‹ Back</button><span class="example">Page ${flipIndex + 1} of ${pages.length}</span><button class="btn sm club" type="button" data-flip="1" ${flipIndex === pages.length - 1 ? 'disabled' : ''}>Next ›</button></div><div style="padding:0 14px 14px;text-align:right"><button class="btn sm" type="button" data-demo="Downloads this issue as a PDF">Download PDF</button></div>`;
-}
 
 function pMembership() {
   const t = [
     ['Supporter', 20, ['Membership card and voting at the AGM', '10% off at the bar', 'Club newsletter']],
-    ['Season ticket', 90, ['Entry to every home league game', 'Free programme each week', 'Supporter benefits included']],
+    ['Season ticket', 90, ['Entry to every home league game', '10% off at the bar', 'Supporter benefits included']],
     ['Family', 120, ['Two adults and up to three under-16s', 'Every home league game', 'Discount in the shop']],
     ['Vice-President', 250, ['Season ticket and hospitality', 'Name in every programme', 'Invite to the end-of-season do']],
   ];
@@ -1698,35 +1641,7 @@ function clubFooter() {
    Behaviour
    ===================================================================== */
 let cdTimer;
-function afterSite(rt) {
-  clearInterval(cdTimer);
-  const cd = $('#countdown');
-  if (cd) {
-    const tick = () => {
-      const s = Math.max(0, Math.floor((+cd.dataset.t - Date.now()) / 1000));
-      const v = [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60];
-      $$('b', cd).forEach((b, i) => b.textContent = v[i]);
-    };
-    tick(); cdTimer = setInterval(tick, 1000);
-  }
-  // count-up stats when they scroll into view
-  const nums = $$('[data-count]');
-  if (nums.length) {
-    const run = el => { const to = +el.dataset.count, t0 = performance.now(); const step = t => { const k = Math.min(1, (t - t0) / 900); el.textContent = Math.round(to * (1 - (1 - k) ** 3)); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); };
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) nums.forEach(el => el.textContent = el.dataset.count);
-    else { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: .4 }); nums.forEach(el => io.observe(el)); }
-  }
-  if (rt.page === 'programme' && has('pro')) renderFlip();
-}
-
-function icsFor(list) {
-  const c = state.club, p = n => String(n).padStart(2, '0');
-  const dt = d => `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}T${p(d.getHours())}${p(d.getMinutes())}00`;
-  const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
-  const ev = list.map((f, i) => ['BEGIN:VEVENT', `UID:${stamp}-${i}@trabelo-fc-demo`, `DTSTAMP:${stamp}`, `DTSTART:${dt(f.date)}`, 'DURATION:PT2H',
-    `SUMMARY:${(f.home ? c.name + ' v ' + f.opp : f.opp + ' v ' + c.name).replace(/[,;]/g, ' ')}`, `LOCATION:${f.venue.replace(/[,;]/g, ' ')}`, 'END:VEVENT'].join('\r\n'));
-  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Trabelo//Club demo//EN', ...ev, 'END:VCALENDAR'].join('\r\n');
-}
+function afterSite() {}
 function downloadBlob(name, blob) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
@@ -1734,8 +1649,9 @@ function downloadBlob(name, blob) {
 }
 
 // social graphics drawn on a canvas (Pro)
-async function makeGraphic(kind, i = 0) {
-  const c = state.club, d = DATA;
+// Social graphics (Pro): the club types the score, the browser draws the graphic. No data feed needed.
+async function makeGraphic(v) {
+  const c = state.club;
   await document.fonts.load('900 80px Inter');
   const S = 1080, cv = document.createElement('canvas'); cv.width = cv.height = S;
   const x = cv.getContext('2d');
@@ -1747,38 +1663,46 @@ async function makeGraphic(kind, i = 0) {
   x.restore();
   x.fillStyle = c.c1; x.fillRect(0, S - 120, S, 120); x.fillStyle = c.c2; x.fillRect(0, S - 120, S, 10);
   const img = new Image();
-  const src = c.badge || 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(crest('crest', c));
-  await new Promise(res => { img.onload = res; img.onerror = res; img.src = src; });
+  img.src = c.badge || 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(crest('crest', c));
+  await new Promise(res => { img.onload = res; img.onerror = res; });
   try { x.drawImage(img, S / 2 - 110, 80, 220, 268); } catch {}
   x.textAlign = 'center'; x.fillStyle = '#fff';
-  const fitText = (t, max, size) => { let s = size; do { x.font = `900 ${s}px Inter, Arial`; s -= 4; } while (x.measureText(t).width > max && s > 20); };
-  if (kind === 'result') {
-    const r = d.results[i] || d.results[0];
-    const H = r.home ? c.name : r.opp, A = r.home ? r.opp : c.name, hs = r.home ? r.us : r.them, as = r.home ? r.them : r.us;
-    x.font = '800 44px Inter, Arial'; x.fillStyle = c.c2 === '#ffffff' ? '#fff' : c.c2; x.fillText('FULL TIME', S / 2, 430);
-    x.fillStyle = '#fff'; x.font = '900 190px Inter, Arial'; x.fillText(`${hs} – ${as}`, S / 2, 640);
-    fitText(H.toUpperCase(), 460, 52); x.textAlign = 'right'; x.fillText(H.toUpperCase(), S / 2 - 40, 740);
-    fitText(A.toUpperCase(), 460, 52); x.textAlign = 'left'; x.fillText(A.toUpperCase(), S / 2 + 40, 740);
-    x.textAlign = 'center'; x.font = '600 36px Inter, Arial'; x.fillStyle = 'rgba(255,255,255,.75)'; x.fillText(`${r.comp} · ${fmtDate(r.date)}`, S / 2, 820);
+  const fit = (t, max, size) => { let s = size; do { x.font = `900 ${s}px Inter, Arial`; s -= 4; } while (x.measureText(t).width > max && s > 20); };
+  if (v.kind === 'result') {
+    const H = v.home ? c.name : v.opp, A = v.home ? v.opp : c.name, hs = v.home ? v.us : v.them, as = v.home ? v.them : v.us;
+    x.font = '800 44px Inter, Arial'; x.fillText('FULL TIME', S / 2, 430);
+    x.font = '900 190px Inter, Arial'; x.fillText(`${hs} – ${as}`, S / 2, 640);
+    fit(H.toUpperCase(), 460, 52); x.textAlign = 'right'; x.fillText(H.toUpperCase(), S / 2 - 40, 740);
+    fit(A.toUpperCase(), 460, 52); x.textAlign = 'left'; x.fillText(A.toUpperCase(), S / 2 + 40, 740);
+    x.textAlign = 'center'; x.font = '600 36px Inter, Arial'; x.fillStyle = 'rgba(255,255,255,.75)'; x.fillText(v.comp, S / 2, 820);
   } else {
-    const f = d.fixtures[i] || d.fixtures[0];
     x.font = '800 48px Inter, Arial'; x.fillText('MATCHDAY', S / 2, 430);
-    fitText(`v ${f.opp.toUpperCase()}`, 960, 96); x.fillText(`v ${f.opp.toUpperCase()}`, S / 2, 560);
-    x.font = '900 120px Inter, Arial'; x.fillText(fmtTime(f.date), S / 2, 720);
-    x.font = '600 38px Inter, Arial'; x.fillStyle = 'rgba(255,255,255,.8)'; x.fillText(`${fmtDate(f.date)} · ${f.venue}`.slice(0, 48), S / 2, 800);
+    fit(`v ${v.opp.toUpperCase()}`, 960, 96); x.fillText(`v ${v.opp.toUpperCase()}`, S / 2, 560);
+    x.font = '900 120px Inter, Arial'; x.fillText(v.ko, S / 2, 720);
+    x.font = '600 38px Inter, Arial'; x.fillStyle = 'rgba(255,255,255,.8)'; x.fillText(v.comp.slice(0, 48), S / 2, 800);
   }
   x.fillStyle = inkOn(c.c1); x.font = '800 40px Inter, Arial'; x.textAlign = 'center'; x.fillText(c.name.toUpperCase(), S / 2, S - 45);
   return cv;
 }
-async function openGraphic(kind, i) {
-  info('Social media graphic', '<p class="example">Drawing…</p>');
-  const cv = await makeGraphic(kind, +i || 0);
-  $('#iBody').innerHTML = `<div class="gfx"><img src="${cv.toDataURL('image/png')}" alt="${kind === 'result' ? 'Result' : 'Matchday'} graphic in club colours"></div>
-    <p class="example" style="justify-content:center;margin:12px 0">Ready for Instagram, Facebook or X. On your site it's one tap after every game. ${tag('pro', false)}</p>
-    <div style="display:flex;gap:10px;justify-content:center"><button class="btn tb" type="button" id="gfxDl">Download PNG</button></div>`;
-  $('#gfxDl').onclick = () => cv.toBlob(b => downloadBlob(`${kind}-graphic.png`, b));
+function openGraphic() {
+  const r = DATA.results[0];
+  info('Make a social media graphic', `<p style="margin-top:0;color:#5a6372">Type the score after the game and download a graphic in your colours, ready for Instagram, Facebook or X. ${tag('pro', false)}</p>
+    <form class="form" id="gfxForm">
+      <label>Graphic<select name="kind"><option value="result">Full-time result</option><option value="fixture">Matchday (before the game)</option></select></label>
+      <label>Opponent<input name="opp" required value="${esc(r.opp)}"></label>
+      <div class="grid2" style="gap:12px"><label>Our score<input name="us" type="number" min="0" max="30" value="${r.us}"></label><label>Their score<input name="them" type="number" min="0" max="30" value="${r.them}"></label></div>
+      <div class="grid2" style="gap:12px"><label>Home or away<select name="ha"><option value="H">Home</option><option value="A">Away</option></select></label><label>Kick-off (matchday)<input name="ko" value="15:00"></label></div>
+      <label>Competition<input name="comp" value="League"></label>
+      <button class="btn tb" type="submit">Make the graphic</button>
+    </form><div id="gfxOut" style="margin-top:14px"></div>`);
 }
-
+async function drawGraphic(f) {
+  const v = { kind: f.kind.value, opp: f.opp.value.trim() || 'Opponents', us: +f.us.value || 0, them: +f.them.value || 0, home: f.ha.value === 'H', ko: f.ko.value || '15:00', comp: f.comp.value || 'League' };
+  const out = $('#gfxOut'); out.innerHTML = '<p class="example">Drawing…</p>';
+  const cv = await makeGraphic(v);
+  out.innerHTML = `<div class="gfx"><img src="${cv.toDataURL('image/png')}" alt="Graphic in club colours"></div><div style="display:flex;justify-content:center;margin-top:12px"><button class="btn tb" type="button" id="gfxDl">Download PNG</button></div>`;
+  $('#gfxDl').onclick = () => cv.toBlob(b => downloadBlob(`${v.kind}-graphic.png`, b));
+}
 function info(title, html) { $('#iTitle').textContent = title; $('#iBody').innerHTML = html; if (!$('#dlgInfo').open) $('#dlgInfo').showModal(); }
 const demoNote = what => `<div class="note">${esc(what)}</div><p class="example" style="margin-top:12px">This is the demo, so nothing is sent or charged.</p>`;
 
@@ -1791,25 +1715,13 @@ document.addEventListener('click', e => {
   if (t.matches('[data-ask]') || t.id === 'openAsk' || t.id === 'fabAsk') { openAsk(); return; }
   if (t.id === 'openPersonal') { openPersonal(); return; }
   if (t.id === 'ribbon' || t.id === 'introAgain') { showIntro(); return; }
-  if (t.id === 'mdToggle') { state.matchday = !state.matchday; DATA = null; render(); toast(state.matchday ? 'Matchday mode: what supporters see on the day of a game.' : 'Matchday mode off.'); return; }
+
   if (t.id === 'lblToggle') { state.labels = !state.labels; store.set('tfc.labels', state.labels); render(); return; }
   if (t.matches('[data-look]')) { state.look = t.dataset.look; store.set('tfc.look', state.look); render(); if ($('#dlgPersonal').open) mountLooks(); toast(`${LOOKS[state.look][0]} look. Your real site can be styled however you like.`); return; }
   if (t.matches('[data-demo]')) { e.preventDefault(); info('On your website', demoNote(t.dataset.demo)); return; }
-  if (t.matches('[data-gfx]')) { openGraphic(t.dataset.gfx, t.dataset.i); return; }
-  if (t.matches('[data-ics]')) {
-    const v = t.dataset.ics, src = has('pro') ? teamFixtures() : DATA;
-    const list = v === 'all' ? src.fixtures : [src.fixtures[+v]];
-    downloadBlob(v === 'all' ? 'fixtures.ics' : 'match.ics', new Blob([icsFor(list)], { type: 'text/calendar' }));
-    toast(v === 'all' ? 'All fixtures added. On your site this is a live calendar feed.' : 'Calendar file downloaded. Open it to add the match.');
-    return;
-  }
+  if (t.matches('[data-gfx]')) { openGraphic(); return; }
   if (t.matches('[data-team]')) { state.team = t.dataset.team; render(); return; }
-  if (t.matches('[data-filter]')) {
-    $$('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === t)));
-    const src = has('pro') ? teamFixtures() : DATA;
-    $$('#fxList .fx').forEach((row, i) => { const f = src.fixtures[i]; row.hidden = t.dataset.filter === 'Home' ? !f.home : t.dataset.filter === 'Away' ? f.home : false; });
-    return;
-  }
+
   if (t.matches('[data-pos]')) {
     $$('[data-pos]').forEach(b => b.setAttribute('aria-pressed', String(b === t)));
     $$('[data-group]').forEach(s => s.hidden = t.dataset.pos !== 'All' && s.dataset.group !== t.dataset.pos);
@@ -1823,8 +1735,7 @@ document.addEventListener('click', e => {
   if (t.matches('[data-player]') && has('pro')) {
     const p = DATA.squad[+t.dataset.player];
     info(p.name, `<div style="display:flex;gap:16px;align-items:center;margin-bottom:14px"><div style="width:96px;background:var(--deep);border-radius:14px;padding:8px 8px 0">${playerFigure(p)}</div><div><b style="font-size:18px">${esc(p.name)}</b><br><span class="example">${esc(p.group.slice(0, -1))} · #${p.num}${p.captain ? ' · Captain' : ''} · example player</span></div></div>
-      <table class="tbl"><thead><tr><th>Apps</th><th>Goals</th><th>Joined</th><th>Age</th></tr></thead><tbody><tr><td>${p.apps}</td><td>${p.goals}</td><td>${p.joined}</td><td>${p.age}</td></tr></tbody></table>
-      <p>A short profile in the player's or manager's words goes here.</p>
+      <p>Joined in ${p.joined}. A short profile in the player's or manager's words goes here. The club adds it in its Google Sheet.</p>
       <div class="note">Player sponsor: <b>your name here</b>, £60 for the season. ${tag('plus', false)}</div>`);
     return;
   }
@@ -1838,7 +1749,7 @@ document.addEventListener('click', e => {
   if (t.matches('[data-buy]')) { info(t.dataset.buy, demoNote('Opens a secure Stripe checkout in your club\'s name. The money goes straight to the club. Trabelo never handles it.')); return; }
   if (t.matches('[data-join]')) { info(`Join: ${t.dataset.join}`, demoNote('The supporter pays by card through the club\'s Stripe account, and their details go straight to your treasurer by email.')); return; }
   if (t.matches('[data-sponsor]')) { info(`Sponsorship: ${t.dataset.sponsor}`, `<form class="form" data-demo-form="This enquiry would go straight to your commercial manager."><label>Business name<input required></label><label>Your email<input type="email" required></label><label>Anything we should know?<textarea></textarea></label><button class="btn club" type="submit">Send enquiry</button></form>`); return; }
-  if (t.matches('[data-flip]')) { flipIndex += +t.dataset.flip; renderFlip(); return; }
+
   if (t.matches('[data-share]')) { const url = location.href; if (navigator.share) navigator.share({ title: document.title, url }).catch(() => {}); else navigator.clipboard?.writeText(url).then(() => toast('Link copied. On your site each story has its own link.')); return; }
   if (t.matches('[data-step]')) { go('#/start/' + t.dataset.step); return; }
   if (t.id === 'printPack') { printArea(sponsorPackHtml()); return; }
@@ -1861,6 +1772,7 @@ document.addEventListener('submit', e => {
     info('On your website', demoNote(f.dataset.demoForm));
   }
   if (f.id === 'briefForm') e.preventDefault();
+  if (f.id === 'gfxForm') { e.preventDefault(); drawGraphic(f); }
 });
 
 function sponsorPackHtml() {
