@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jam's own booking vs Fresha — the honest comparison | Trabelo</title>
+<meta name="description" content="What Fresha costs Jam Hairdressing each year, compared with a one-off website that has booking built in. Using Fresha's own published prices.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#170B14">
+<link rel="preload" href="fonts-jam-hairdressing/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts-jam-hairdressing/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700 800;font-display:swap;src:url(fonts-jam-hairdressing/archivo-latin.woff2) format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts-jam-hairdressing/inter-latin.woff2) format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 500;font-display:swap;src:url(fonts-jam-hairdressing/jetbrains-mono-latin.woff2) format('woff2');}
+@font-face{font-family:'Archivo Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans');size-adjust:90.4%;ascent-override:97.14%;descent-override:23.23%;line-gap-override:0%;}
+@font-face{font-family:'Inter Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans');size-adjust:107%;ascent-override:90.55%;descent-override:22.55%;line-gap-override:0%;}
+:root{--ink:#0B0B0B;--paper:#F8F3EE;--body:#3D3639;--muted:#6E6468;--line:rgba(40,20,30,.1);--line-2:rgba(40,20,30,.2);
+--night:#170B14;--berry:#D6336C;--berry-dk:#A81F52;--peach:#FF9F7A;--butter:#F6D47A;--sage:#7DB59C;--sage-dk:#2F6B55;--lilac:#B9A3EC;
+--blush:#FBE7EE;--sage-t:#E5F1EA;--peach-t:#FFEDE3;--lilac-t:#EFE9FC;--dbody:rgba(255,255,255,.76);--dmuted:rgba(255,255,255,.55);--dline:rgba(255,255,255,.12);--dline-2:rgba(255,255,255,.24);
+--display:'Archivo','Archivo Fallback','Arial Black',Arial,sans-serif;--sans:'Inter','Inter Fallback',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+--sh:0 18px 44px rgba(60,20,40,.11);--ease:cubic-bezier(.2,.8,.3,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:var(--sans);background:var(--paper);color:var(--body);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;}
+button,input,select{font:inherit;color:inherit;}
+:focus-visible{outline:2px solid var(--berry);outline-offset:3px;}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.025em;color:var(--ink);line-height:1.02;}
+h2{font-size:clamp(1.9rem,4vw,3rem);text-transform:uppercase;}
+.container{max-width:1080px;margin:0 auto;padding:0 1.5rem;}
+@media(max-width:480px){.container{padding:0 1rem;}}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1rem;}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--berry);box-shadow:12px 0 0 var(--peach),24px 0 0 var(--sage);margin-right:24px;}
+.field{position:relative;overflow:hidden;background:var(--night);isolation:isolate;color:var(--dbody);}
+.field::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(900px 620px at 88% 0%,rgba(214,51,108,.62),transparent 62%),radial-gradient(700px 520px at 0% 100%,rgba(255,159,122,.42),transparent 62%),radial-gradient(640px 520px at 45% 55%,rgba(90,24,80,.75),transparent 70%);}
+.field h1,.field h2,.field h3{color:#fff;}
+.field .eyebrow{color:var(--dmuted);}
+.grad{background:linear-gradient(90deg,var(--peach),var(--butter));-webkit-background-clip:text;background-clip:text;color:transparent;}
+header.field{padding:2.4rem 0 4.5rem;}
+.brand{display:flex;align-items:center;gap:.7rem;margin-bottom:3rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dmuted);flex-wrap:wrap;}
+.brand b{font-family:var(--display);font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-.02em;text-transform:none;}
+.brand a{margin-left:auto;color:#fff;text-decoration:none;border:1px solid var(--dline-2);padding:.4rem .8rem;border-radius:99px;}
+h1{font-size:clamp(2.6rem,7vw,5.2rem);text-transform:uppercase;letter-spacing:-.045em;line-height:.9;max-width:14ch;}
+.lead{font-size:1.12rem;margin-top:1.4rem;max-width:62ch;}
+.lead b{color:#fff;}
+.section{padding:4.5rem 0;}
+.sub{color:var(--muted);margin-top:.8rem;max-width:64ch;}
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:1.5rem;margin-top:-3rem;position:relative;z-index:2;}
+@media(max-width:900px){.calc{grid-template-columns:minmax(0,1fr);}}
+.card{background:#fff;border-radius:26px;box-shadow:var(--sh);padding:clamp(1.4rem,3vw,2rem);}
+.card h3{font-size:1rem;text-transform:uppercase;margin-bottom:1.1rem;}
+.inp{margin-bottom:1.4rem;}
+.inp label{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;font-weight:600;color:var(--ink);}
+.inp label output{font-family:var(--display);font-size:1.3rem;letter-spacing:-.02em;}
+.inp small{display:block;font-size:.78rem;color:var(--muted);margin-top:.15rem;}
+input[type=range]{width:100%;margin-top:.6rem;accent-color:var(--berry);height:28px;}
+.sw-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem 0;border-top:1px solid var(--line);font-size:.88rem;}
+.sw-row b{color:var(--ink);display:block;}
+.sw-row span{font-size:.78rem;color:var(--muted);}
+.sw{position:relative;width:42px;height:24px;flex:none;}
+.sw input{opacity:0;width:0;height:0;position:absolute;}
+.sw span{position:absolute;inset:0;border-radius:99px;background:var(--line-2);cursor:pointer;transition:background .2s;}
+.sw span::before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#fff;transition:transform .2s var(--ease);box-shadow:0 1px 3px rgba(0,0,0,.2);}
+.sw input:checked+span{background:var(--sage-dk);}
+.sw input:checked+span::before{transform:translateX(18px);}
+.sw input:focus-visible+span{outline:2px solid var(--berry);outline-offset:2px;}
+.res{background:var(--ink);color:var(--dbody);position:relative;overflow:hidden;isolation:isolate;}
+.res::before{content:'';position:absolute;z-index:-1;width:360px;height:360px;right:-120px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(214,51,108,.6),transparent 65%);}
+.res h3{color:#fff;}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.big div{border-radius:18px;padding:1.1rem 1.2rem;}
+.big .fr{background:rgba(255,255,255,.08);border:1px solid var(--dline);}
+.big .jm{background:#fff;color:var(--body);}
+.big span{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;}
+.big .fr span{color:var(--dmuted);}
+.big .jm span{color:var(--muted);}
+.big b{display:block;font-family:var(--display);font-size:clamp(1.9rem,4vw,2.6rem);letter-spacing:-.04em;line-height:1.05;margin-top:.35rem;}
+.big .fr b{color:#fff;}
+.big .jm b{color:var(--ink);}
+.big small{display:block;font-size:.76rem;margin-top:.2rem;}
+.bd{margin-top:1.1rem;font-size:.86rem;}
+.bd div{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px dashed var(--dline-2);}
+.bd div b{color:#fff;font-family:var(--mono);font-weight:500;}
+.pay{margin-top:1.2rem;padding:1rem 1.1rem;border-radius:16px;background:linear-gradient(135deg,var(--berry),#E8577F);color:#fff;display:flex;gap:1rem;align-items:center;}
+.pay b{font-family:var(--display);font-size:2.4rem;letter-spacing:-.04em;line-height:1;}
+.pay span{font-size:.9rem;}
+.chart{margin-top:1.2rem;}
+.chart svg{width:100%;height:auto;display:block;}
+.legend{display:flex;gap:1.2rem;font-size:.76rem;margin-top:.5rem;flex-wrap:wrap;}
+.legend i{display:inline-block;width:12px;height:3px;border-radius:2px;margin-right:.4rem;vertical-align:middle;}
+.fine{font-size:.78rem;color:var(--muted);margin-top:1rem;}
+.res .fine{color:var(--dmuted);}
+/* table */
+.tbl{margin-top:2rem;background:#fff;border-radius:26px;box-shadow:var(--sh);overflow:hidden;}
+.row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid var(--line);}
+.row:last-child{border-bottom:none;}
+.row>div{padding:1rem 1.2rem;font-size:.9rem;}
+.row>div:first-child{font-weight:600;color:var(--ink);}
+.row.head>div{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--paper);}
+.row.head>div:nth-child(3){background:var(--ink);color:#fff;}
+.row>div:nth-child(3){background:rgba(214,51,108,.035);}
+.mk{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;color:var(--ink);}
+.mk::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--c);flex:none;}
+.mk.y{--c:var(--sage-dk);}.mk.n{--c:#C9BFC4;}.mk.w{--c:var(--peach);}
+.row small{display:block;font-size:.78rem;color:var(--muted);font-weight:400;margin-top:.15rem;}
+@media(max-width:700px){.row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}.row>div:first-child{grid-column:1/-1;padding-bottom:.2rem;background:var(--paper);}.row.head>div:first-child{display:none;}}
+/* honest */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem;}
+@media(max-width:800px){.two{grid-template-columns:minmax(0,1fr);}}
+.hon{border-radius:24px;padding:1.6rem 1.7rem;}
+.hon h3{font-size:1.1rem;text-transform:uppercase;margin-bottom:.8rem;}
+.hon ul{list-style:none;display:grid;gap:.7rem;}
+.hon li{padding-left:1.4rem;position:relative;font-size:.93rem;color:var(--ink);}
+.hon li::before{content:'';position:absolute;left:0;top:.5rem;width:9px;height:9px;border-radius:50%;background:var(--c);}
+.hon li b{display:block;}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:2rem;}
+@media(max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:480px){.steps{grid-template-columns:minmax(0,1fr);}}
+.step{background:#fff;border-radius:22px;padding:1.4rem;box-shadow:0 2px 10px rgba(60,20,40,.06);}
+.step b{font-family:var(--display);font-size:2.4rem;line-height:1;background:linear-gradient(135deg,var(--peach),var(--berry));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.step h3{font-size:1rem;text-transform:uppercase;margin:.7rem 0 .3rem;}
+.step p{font-size:.88rem;}
+.offer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:center;border-radius:30px;padding:clamp(1.8rem,4vw,3rem);}
+@media(max-width:820px){.offer{grid-template-columns:minmax(0,1fr);}}
+.price{font-family:var(--display);font-size:clamp(4rem,10vw,6.5rem);line-height:.85;color:#fff;letter-spacing:-.05em;}
+.price small{display:block;font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dmuted);margin-top:.8rem;}
+.inc{list-style:none;display:grid;gap:.55rem;}
+.inc li{display:flex;gap:.6rem;align-items:flex-start;font-size:.93rem;color:#fff;}
+.inc li::before{content:'✓';display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--sage);color:#fff;font-size:.7rem;flex:none;margin-top:.15rem;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;font-size:.92rem;padding:.95rem 1.6rem;border-radius:99px;text-decoration:none;transition:transform .2s var(--ease),box-shadow .2s;}
+.btn:hover{transform:translateY(-2px);}
+.btn-light{background:#fff;color:var(--ink);}
+.btn-out{border:1.5px solid var(--dline-2);color:#fff;}
+.btn-ink{background:var(--ink);color:#fff;}
+.btn-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.6rem;}
+.src{font-size:.8rem;color:var(--muted);margin-top:1.4rem;}
+.src a{color:var(--berry-dk);}
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.2rem;font-family:var(--mono);font-size:.72rem;color:var(--muted);}
+footer .container{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+footer a{color:var(--ink);}
+</style>
+</head>
+<body>
+<header class="field">
+  <div class="container">
+    <div class="brand"><b>Trabelo</b><span>· Prepared for Jam Hairdressing</span><a href="jam-hairdressing.html">← Back</a></div>
+    <span class="eyebrow">The honest comparison</span>
+    <h1>Your own booking <span class="grad">vs Fresha.</span></h1>
+    <p class="lead">Fresha is a good product, and it isn't free. It charges <b>every month, for every bookable team member</b>, plus a cut of each new client who finds you through its app. Below is what that adds up to for Jam, using Fresha's own published prices. Move the sliders if our guesses are off.</p>
+  </div>
+</header>
+
+<main>
+<div class="container">
+  <div class="calc">
+    <div class="card">
+      <h3>Jam's numbers</h3>
+      <div class="inp"><label for="team">Bookable team members <output id="o-team">7</output></label><small>Fresha lists 7 on Jam's page. Fresha charges per bookable person.</small><input type="range" id="team" min="1" max="12" value="7" oninput="calc()"></div>
+      <div class="inp"><label for="newc">New clients a month from the Fresha app <output id="o-newc">4</output></label><small>Only clients who first find you on Fresha's marketplace. Returning clients and people who book from your Instagram or website are free. This is our guess.</small><input type="range" id="newc" min="0" max="30" value="4" oninput="calc()"></div>
+      <div class="inp"><label for="spend">Their average first visit <output id="o-spend">£45</output></label><small>Fresha takes 20% of it, minimum £4 a client.</small><input type="range" id="spend" min="15" max="150" step="5" value="45" oninput="calc()"></div>
+      <div class="sw-row"><div><b>Show prices with VAT</b><span>Fresha's prices are plus 20% VAT. Turn this off if Jam is VAT-registered and claims it back.</span></div><label class="sw"><input type="checkbox" id="vat" checked onchange="calc()" aria-label="Include VAT"><span></span></label></div>
+      <p class="fine">Not counted, because you'd pay them either way: card payment fees (any card machine charges these) and text-message top-ups.</p>
+    </div>
+    <div class="card res">
+      <h3>What it costs</h3>
+      <div class="big">
+        <div class="fr"><span>Fresha, per year</span><b id="r-fy">£0</b><small id="r-fm">£0 a month</small></div>
+        <div class="jm"><span>Jam's own site</span><b>£795</b><small>once, then about £12 a year</small></div>
+      </div>
+      <div class="bd" id="r-bd"></div>
+      <div class="pay"><b id="r-pb">0</b><span id="r-pbt">months until the website has paid for itself, compared with staying on Fresha.</span></div>
+      <div class="chart"><svg id="chart" viewBox="0 0 520 210" role="img" aria-label="Total cost over three years"></svg>
+        <div class="legend"><span><i style="background:var(--peach)"></i>Fresha, running total</span><span><i style="background:#fff"></i>Jam's own site, running total</span></div></div>
+      <p class="fine">Fresha prices from fresha.com/pricing, checked 10 November 2026. Jam's yearly cost is the web address (domain). Hosting and email confirmations are £0 on free plans at Jam's size.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <span class="eyebrow">Side by side</span>
+    <h2>Feature for feature</h2>
+    <p class="sub">Where both do the job, we say so. Where Fresha does something the website doesn't, we say that too.</p>
+    <div class="tbl">
+      <div class="row head"><div></div><div>Fresha</div><div>Jam's own site</div></div>
+      <div class="row"><div>What you pay</div><div><span class="mk w">£9.95 a month per team member</span><small>plus VAT, every month</small></div><div><span class="mk y">£795 once</span><small>plus about £12 a year for the web address</small></div></div>
+      <div class="row"><div>New clients from the app</div><div><span class="mk w">20% commission</span><small>minimum £4 per new marketplace client</small></div><div><span class="mk y">No commission, ever</span></div></div>
+      <div class="row"><div>Online booking, 24/7</div><div><span class="mk y">Yes</span></div><div><span class="mk y">Yes</span><small>on Jam's own website, no app or log-in for clients</small></div></div>
+      <div class="row"><div>Your own website and web address</div><div><span class="mk w">Add-on</span><small>Fresha "Smart Website" is £12.95 a month extra</small></div><div><span class="mk y">Included</span><small>yours to keep</small></div></div>
+      <div class="row"><div>Other salons shown on your page</div><div><span class="mk w">Yes</span><small>your Fresha page lists "venues nearby"</small></div><div><span class="mk y">Never</span></div></div>
+      <div class="row"><div>Patch tests</div><div><span class="mk y">Yes</span><small>Fresha has a patch-test feature</small></div><div><span class="mk y">Yes</span><small>books the skin test and enforces the 48 hours</small></div></div>
+      <div class="row"><div>"Colour needs a finish" rule</div><div><span class="mk n">Written in the description</span><small>clients have to read it</small></div><div><span class="mk y">Built into the booking</span><small>it won't go through without one</small></div></div>
+      <div class="row"><div>Staff holidays and time off</div><div><span class="mk y">Yes</span></div><div><span class="mk y">Yes</span><small>each stylist logs their own, from their phone</small></div></div>
+      <div class="row"><div>Change prices and hours yourself</div><div><span class="mk y">Yes</span></div><div><span class="mk y">Yes</span></div></div>
+      <div class="row"><div>Email confirmations and reminders</div><div><span class="mk y">Yes, free</span></div><div><span class="mk y">Yes, free</span></div></div>
+      <div class="row"><div>Text reminders</div><div><span class="mk w">20 free per team member a month</span><small>then 6p a text</small></div><div><span class="mk w">Optional</span><small>pay-as-you-go, a few pence a text</small></div></div>
+      <div class="row"><div>Card payments, deposits, no-show fees</div><div><span class="mk y">Yes</span><small>card fees from 1.19% + 20p</small></div><div><span class="mk n">Not included</span><small>clients pay in the salon, as now</small></div></div>
+      <div class="row"><div>Found by new people in the Fresha app</div><div><span class="mk y">Yes</span><small>this is what the 20% pays for</small></div><div><span class="mk n">No</span><small>new clients come from Google, Maps and word of mouth instead</small></div></div>
+      <div class="row"><div>Phone app for clients</div><div><span class="mk y">Yes</span></div><div><span class="mk w">Works in any phone browser</span><small>can be saved to the home screen</small></div></div>
+      <div class="row"><div>Who you talk to</div><div><span class="mk w">Fresha support</span><small>chat, email or phone</small></div><div><span class="mk y">Aidan, in Sheffield</span><small>by WhatsApp or email</small></div></div>
+      <div class="row"><div>Contract</div><div><span class="mk y">Monthly, cancel any time</span></div><div><span class="mk y">None</span><small>you own it once it's paid for</small></div></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <span class="eyebrow">Being straight with you</span>
+    <h2>Which is right for Jam?</h2>
+    <div class="two">
+      <div class="hon" style="background:var(--peach-t);--c:var(--peach)"><h3>Fresha makes more sense if…</h3><ul>
+        <li><b>Lots of your new clients find you in the Fresha app.</b>That's the one thing a website can't copy. If it's most of them, weigh that up first.</li>
+        <li><b>You want deposits or no-show fees taken by card.</b>The website doesn't take payments.</li>
+        <li><b>You'd rather not change anything.</b>Switching takes a few weeks of care, and we won't pretend it doesn't.</li></ul></div>
+      <div class="hon" style="background:var(--sage-t);--c:var(--sage-dk)"><h3>Your own site makes more sense if…</h3><ul>
+        <li><b>Most clients are regulars or come by word of mouth.</b>With 272 five-star reviews, that's likely. Then you're paying Fresha mainly for a diary.</li>
+        <li><b>You want the monthly bill gone.</b>One payment, then roughly £12 a year.</li>
+        <li><b>You want clients to book with Jam, not a marketplace.</b>Your name, your rules, no other salons next to you.</li></ul></div>
+    </div>
+    <div class="note" style="margin-top:1.2rem;font-size:.86rem;color:var(--muted);">Not sure how many new clients Fresha sends you? Fresha's reports show where clients came from. That number is the best guide to this whole decision.</div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <span class="eyebrow">If you went for it</span>
+    <h2>How the switch works</h2>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>We build it</h3><p>Your site, booking and staff area, with your real prices, team and rules. You try it all before anything changes.</p></div>
+      <div class="step"><b>02</b><h3>Bring clients over</h3><p>Fresha lets you export your client list, so your regulars are in the new system from day one.</p></div>
+      <div class="step"><b>03</b><h3>Run both for a bit</h3><p>Keep Fresha for a few weeks while bookings already made there come through, so nothing is missed.</p></div>
+      <div class="step"><b>04</b><h3>Switch off</h3><p>Update your Google, Instagram and Facebook links to the new site, then cancel Fresha.</p></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="offer field">
+      <div>
+        <span class="eyebrow">The price</span>
+        <div class="price">£795<small>One-off · no monthly fee</small></div>
+        <p style="margin-top:1.2rem;max-width:42ch;">30% to start, the rest when it's live and you're happy. The only ongoing cost is your web address, about £12 a year.</p>
+        <div class="btn-row"><a class="btn btn-light" href="jam-hairdressing-index.html">Try the demo</a><a class="btn btn-out" href="mailto:aidan@trabelo.com?subject=Jam%20website">Email Aidan</a></div>
+      </div>
+      <ul class="inc">
+        <li>A five-page website in Jam's black and white</li>
+        <li>Online booking with Jam's own rules built in</li>
+        <li>The staff area: diary, time off, prices, hours, clients and messages</li>
+        <li>A private log-in for every team member</li>
+        <li>Email confirmations and day-before reminders</li>
+        <li>Your client list moved across from Fresha</li>
+        <li>Set up on Google so people searching for a hairdresser in Sheffield can find you</li>
+        <li>Hosted for free, in Jam's own name</li>
+      </ul>
+    </div>
+    <p class="src">Sources: <a href="https://www.fresha.com/en-GB/pricing" target="_blank" rel="noopener">Fresha pricing</a> (Team plan £9.95 per bookable team member a month, 20% one-time fee on new marketplace clients with a £4 minimum, card and text rates, Smart Website £12.95 a month; rates exclude VAT) and <a href="https://www.fresha.com/a/jam-sheffield-135-oakbrook-road-sw9v5z7z" target="_blank" rel="noopener">Jam's Fresha page</a> (team list, "venues nearby"). Checked 10 November 2026. Fresha can change its prices.</p>
+  </section>
+</div>
+</main>
+<footer><div class="container"><span>Built by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Sheffield</span><span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span></div></footer>
+
+<script>
+var OURS=795,DOMAIN=12;
+function gbp(n){return '£'+Math.round(n).toLocaleString('en-GB');}
+function gbp2(n){return '£'+n.toFixed(2);}
+function calc(){
+  var team=+document.getElementById('team').value,nc=+document.getElementById('newc').value,sp=+document.getElementById('spend').value,vat=document.getElementById('vat').checked,v=vat?1.2:1;
+  document.getElementById('o-team').textContent=team;document.getElementById('o-newc').textContent=nc;document.getElementById('o-spend').textContent='£'+sp;
+  var sub=team*9.95*v,mk=nc*Math.max(.2*sp,4)*v,mon=sub+mk,yr=mon*12;
+  document.getElementById('r-fy').textContent=gbp(yr);
+  document.getElementById('r-fm').textContent=gbp2(mon)+' a month'+(vat?' inc. VAT':' ex. VAT');
+  document.getElementById('r-bd').innerHTML='<div><span>Subscription: '+team+' × £9.95'+(vat?' + VAT':'')+'</span><b>'+gbp2(sub)+'/mo</b></div><div><span>New-client commission: '+nc+' × '+gbp2(Math.max(.2*sp,4)*v)+'</span><b>'+gbp2(mk)+'/mo</b></div><div><span>Fresha over 3 years</span><b>'+gbp(yr*3)+'</b></div><div><span>Jam\'s own site over 3 years</span><b>'+gbp(OURS+DOMAIN*3)+'</b></div>';
+  var net=mon-DOMAIN/12,pb=net>0?Math.ceil(OURS/net):null;
+  document.getElementById('r-pb').textContent=pb?pb:'—';
+  document.getElementById('r-pbt').textContent=pb?(pb===1?'month':'months')+' until the website has paid for itself, compared with staying on Fresha.':'No saving at these numbers.';
+  /* chart: 36 months of running totals */
+  var W=520,H=210,L=40,R=10,T=14,Bt=28,maxY=Math.max(mon*36,OURS+DOMAIN*3)*1.08;
+  function x(m){return L+(W-L-R)*m/36;}function y(c){return T+(H-T-Bt)*(1-c/maxY);}
+  var fp='',jp='';for(var m=0;m<=36;m++){fp+=(m?'L':'M')+x(m).toFixed(1)+' '+y(mon*m).toFixed(1);jp+=(m?'L':'M')+x(m).toFixed(1)+' '+y(OURS+DOMAIN*Math.floor(m/12)).toFixed(1);}
+  var g='';for(var i=0;i<=4;i++){var val=maxY*i/4;g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(val)+'" y2="'+y(val)+'" stroke="rgba(255,255,255,.1)"/><text x="'+(L-6)+'" y="'+(y(val)+4)+'" fill="rgba(255,255,255,.5)" font-size="10" text-anchor="end" font-family="JetBrains Mono,monospace">'+(val>=1000?'£'+(val/1000).toFixed(1)+'k':'£'+Math.round(val))+'</text>';}
+  [0,12,24,36].forEach(function(m){g+='<text x="'+x(m)+'" y="'+(H-8)+'" fill="rgba(255,255,255,.5)" font-size="10" text-anchor="'+(m===36?'end':m===0?'start':'middle')+'" font-family="JetBrains Mono,monospace">'+(m?'Year '+m/12:'Now')+'</text>';});
+  var cross='';if(pb&&pb<=36){cross='<circle cx="'+x(pb)+'" cy="'+y(mon*pb)+'" r="5" fill="#D6336C" stroke="#fff" stroke-width="2"/><text x="'+Math.min(x(pb)+8,W-90)+'" y="'+(y(mon*pb)-10)+'" fill="#fff" font-size="11" font-family="Inter,sans-serif" font-weight="600">Paid off: month '+pb+'</text>';}
+  document.getElementById('chart').innerHTML=g+'<path d="'+fp+'" fill="none" stroke="#FF9F7A" stroke-width="3" stroke-linejoin="round"/><path d="'+jp+'" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>'+cross;
+}
+calc();
+</script>
+</body>
+</html>
