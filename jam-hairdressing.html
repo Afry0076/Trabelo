@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jam Hairdressing — A website demo with booking built in | Trabelo</title>
+<meta name="description" content="A free working website demo for Jam Hairdressing, Oakbrook Road, with its own online booking system. By Trabelo, Sheffield.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preload" href="fonts-jam-hairdressing/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700 800;font-display:swap;src:url(fonts-jam-hairdressing/archivo-latin.woff2) format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts-jam-hairdressing/inter-latin.woff2) format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 500;font-display:swap;src:url(fonts-jam-hairdressing/jetbrains-mono-latin.woff2) format('woff2');}
+@font-face{font-family:'Archivo Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans');size-adjust:90.4%;ascent-override:97.14%;descent-override:23.23%;line-gap-override:0%;}
+@font-face{font-family:'Inter Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans');size-adjust:107%;ascent-override:90.55%;descent-override:22.55%;line-gap-override:0%;}
+:root{--ink:#0A0A0A;--ink-2:#151515;--w:#fff;--body:rgba(255,255,255,.72);--muted:rgba(255,255,255,.5);--line:rgba(255,255,255,.1);--line-2:rgba(255,255,255,.22);
+--display:'Archivo','Archivo Fallback','Arial Black',Arial,sans-serif;--sans:'Inter','Inter Fallback',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:var(--sans);background:var(--ink);color:var(--body);line-height:1.68;font-size:16.5px;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;}
+a{color:inherit;}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+.wrap{max-width:1000px;margin:0 auto;padding:3rem 1.5rem 4rem;width:100%;flex:1;}
+.brand{display:flex;align-items:center;gap:.7rem;margin-bottom:2.8rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.brand b{font-family:var(--display);font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-.02em;text-transform:none;}
+.label{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1.2rem;}
+.label::before{content:'// ';color:#fff;}
+.jam{font-family:var(--display);font-weight:800;font-size:clamp(5rem,16vw,9.5rem);line-height:.8;letter-spacing:-.06em;color:#fff;}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.02;letter-spacing:-.025em;margin-top:1.6rem;max-width:22ch;}
+h1 .out{color:transparent;-webkit-text-stroke:1.3px #fff;}
+.lead{font-size:1.1rem;margin-top:1.4rem;max-width:64ch;}
+.lead b{color:#fff;}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:18px;overflow:hidden;margin:2.6rem 0 .8rem;}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.stat{background:var(--ink);padding:1.3rem .9rem;text-align:center;}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:2.4rem;line-height:1;color:#fff;letter-spacing:-.04em;}
+.stat span{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.5rem;}
+.note{font-family:var(--mono);font-size:.72rem;color:var(--muted);}
+.cards{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1rem;margin-top:2.6rem;}
+@media(max-width:820px){.cards{grid-template-columns:minmax(0,1fr);}}
+.opt{background:var(--ink);border:1px solid var(--line-2);border-radius:20px;padding:1.7rem;display:flex;flex-direction:column;gap:.6rem;text-decoration:none;transition:border-color .25s,background .25s,transform .25s;}
+.opt:hover{border-color:#fff;transform:translateY(-3px);}
+.opt.primary{background:#fff;color:#3B3B39;border-color:#fff;}
+.opt.primary h2,.opt.primary .go{color:var(--ink);}
+.opt.primary small{color:#62625E;}
+.opt small{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
+.opt h2{font-family:var(--display);font-weight:800;font-size:1.45rem;text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;color:#fff;}
+.opt p{font-size:.93rem;flex:1;}
+.opt .go{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:#fff;}
+.feat{margin-top:2.6rem;border:1px solid var(--line-2);border-radius:20px;overflow:hidden;}
+.feat h3{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#fff;padding:1.1rem 1.4rem;border-bottom:1px solid var(--line-2);background:var(--ink-2);}
+.feat ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;}
+@media(max-width:700px){.feat ul{grid-template-columns:minmax(0,1fr);}}
+.feat li{padding:1.1rem 1.4rem;border-bottom:1px solid var(--line);font-size:.93rem;background:var(--ink);}
+.feat li:nth-child(odd){border-right:1px solid var(--line);}
+@media(max-width:700px){.feat li:nth-child(odd){border-right:none;}}
+.feat li b{display:block;color:#fff;font-size:.96rem;margin-bottom:.15rem;}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:18px;overflow:hidden;margin-top:2.6rem;}
+@media(max-width:640px){.facts{grid-template-columns:minmax(0,1fr);}}
+.fact{background:var(--ink);padding:1.2rem 1.3rem;}
+.fact b{display:block;color:#fff;font-size:.95rem;margin-bottom:.2rem;}
+.fact span{font-size:.88rem;}
+.note-box{margin-top:2.6rem;border:1.5px dashed var(--line-2);border-radius:18px;padding:1.5rem 1.7rem;font-size:.94rem;background:var(--ink);}
+.note-box b{color:#fff;}
+.note-box p+p{margin-top:.8rem;}
+footer{border-top:1px solid var(--line);padding:1.6rem 0;font-family:var(--mono);font-size:.72rem;color:var(--muted);background:var(--ink);}
+footer .wrap{padding:0 1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;flex:none;}
+footer a{color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><b>Trabelo</b><span>· Fixed-price websites · Sheffield</span></div>
+  <span class="label">Prepared for Jam · 135 Oakbrook Road</span>
+  <div class="jam">JAM</div>
+  <h1>A website with <span class="out">its own booking</span> built in.</h1>
+  <p class="lead">Jam has <b>272 five-star reviews</b> and no website of its own. We built one so you can see it rather than read about it. It's a working demo, it's free, and you don't owe us anything. Booking is the heart of a salon site, so that's where most of the work went: a booking system that lives on <b>Jam's own site</b>, follows <b>Jam's own rules</b>, and never asks your clients for an app, an account or a card.</p>
+
+  <div class="stats">
+    <div class="stat"><b>42</b><span>Services, all priced</span></div>
+    <div class="stat"><b>4</b><span>Steps to book</span></div>
+    <div class="stat"><b>0</b><span>Apps or log-ins</span></div>
+    <div class="stat"><b>£0</b><span>To book · pay in salon</span></div>
+  </div>
+  <p class="note">Every price, time and team member comes from your Fresha listing, checked 10 November 2026.</p>
+
+  <div class="cards">
+    <a href="jam-hairdressing-index.html" class="opt primary">
+      <small>Start here</small>
+      <h2>The website</h2>
+      <p>Home, prices, team, visit and contact, all in black and white to match your logo. A live "next free chair" on the home page and every one of your 42 services with its price.</p>
+      <span class="go">Open the demo →</span>
+    </a>
+    <a href="jam-hairdressing-index.html#book" class="opt">
+      <small>Try it</small>
+      <h2>Make a booking</h2>
+      <p>Book a highlights appointment as a new colour client and watch it book the skin test 48 hours before, on its own.</p>
+      <span class="go">Book something →</span>
+    </a>
+    <a href="jam-hairdressing-index.html#diary" class="opt">
+      <small>Your side</small>
+      <h2>The salon diary</h2>
+      <p>What the team would see: every chair, every booking, the day's numbers. Bookings you make in the demo show up in white.</p>
+      <span class="go">See the diary →</span>
+    </a>
+  </div>
+
+  <div class="feat">
+    <h3>What the booking does that a booking app doesn't</h3>
+    <ul>
+      <li><b>Patch tests, sorted automatically</b>New to colour? It books the free consultation and skin test first, then won't offer a colour time less than 48 hours later.</li>
+      <li><b>No colour without a finish</b>Pick a colour without a cut or blow dry and it stops, explains why, and adds the blast off or blow dry with one tap.</li>
+      <li><b>Only the right stylists</b>Highlights only offer your colourists. Nails only offer Emma. Christian shows as "existing clients only".</li>
+      <li><b>Your discounts built in</b>NHS, blue light and students get 15% off. Clients choose it while booking and see the new price.</li>
+      <li><b>Pay in the salon</b>No deposits, no card forms, no fees taken from your bookings. Clients pay you on the day, same as now.</li>
+      <li><b>It's Jam's, not a marketplace</b>Your site, your name, your clients. No other salons listed next to you on the same page.</li>
+    </ul>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>Free to look</b><span>No deposit, no card, no obligation.</span></div>
+    <div class="fact"><b>Nothing is live</b><span>Your Fresha page is untouched. This sits on our link only.</span></div>
+    <div class="fact"><b>Not for you? Say so</b><span>That's genuinely the end of it. No chasing.</span></div>
+  </div>
+
+  <div class="note-box">
+    <p><b>A few things to know while you look.</b> Everything comes from your public Fresha page: prices, times, team, reviews, the salon photos and your "dogs welcome" line. Where we didn't know something, like your phone number, your exact opening days or your cancellation policy, there's a small dashed note instead of a guess.</p>
+    <p>The diary is filled with made-up <b>sample</b> bookings so you can picture a busy day. Anything you book in the demo is saved in your own browser only, and nobody else sees it.</p>
+    <p>This is our <b>£395 website</b>: fixed price, no deposit, and you only pay once it's finished and you're happy with it.</p>
+  </div>
+</div>
+<footer>
+  <div class="wrap">
+    <span>Built by <a href="https://trabelo.com" target="_blank" rel="noopener">Trabelo</a> · Sheffield</span>
+    <span><a href="mailto:aidan@trabelo.com">aidan@trabelo.com</a></span>
+  </div>
+</footer>
+</body>
+</html>
