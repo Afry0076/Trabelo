@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Property Inspect 4U | Certified Property Inspectors in Durban, Gauteng &amp; Cape Town</title>
+<meta name="description" id="meta-desc" content="InterNACHI-certified property inspections across South Africa: pre-purchase, pre-sale, snag list, mould, infrared, roof, asbestos and body corporate plans. Clear photo reports in 48–72 hours.">
+<!-- DEMO: hidden from Google so it never competes with propertyinspect4u.co.za -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#111111">
+<meta property="og:title" content="Property Inspect 4U: a new website idea">
+<meta property="og:description" content="A demo built by Trabelo for Property Inspect 4U.">
+<meta property="og:image" content="property-inspect-4u-photos/owners.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://propertyinspect4u.co.za/#business",
+  "name":"Property Inspect 4U","alternateName":"PI4U","slogan":"Inspect Before You Invest!",
+  "url":"https://propertyinspect4u.co.za/","telephone":"+27792986168","email":"info@propertyinspect4u.co.za",
+  "address":{"@type":"PostalAddress","addressLocality":"Ballito","addressRegion":"KwaZulu-Natal","addressCountry":"ZA"},
+  "areaServed":["Durban","KwaZulu-Natal North Coast","Gauteng","Johannesburg","Pretoria","Cape Town","Western Cape"],
+  "founder":[{"@type":"Person","name":"Trevor Davidson"},{"@type":"Person","name":"Lee Davidson"}],
+  "openingHours":"Mo-Fr 08:00-17:00",
+  "sameAs":["https://www.facebook.com/propertyinspectionsa","https://www.instagram.com/propertyinspect4u/","https://www.youtube.com/@propertyinspectionsa","https://www.tiktok.com/@propertyinspect4u"]
+}
+</script>
+<style>
+:root{
+  --ink:#111111;--char:#1A1A1C;--char2:#242427;--gold:#C6A15B;--gold2:#E7CF94;--goldd:#9C7A35;
+  --paper:#FFFFFF;--stone:#F6F3EC;--stone2:#EEE8DC;--line:rgba(17,17,17,.1);--muted:#5E5E63;--on:#F5F1E8;--on2:rgba(245,241,232,.7);
+  --ok:#2E7D4F;--warn:#C0392B;--r:20px;--shadow:0 20px 50px -26px rgba(0,0,0,.45);
+  --serif:'DM Serif Display',Georgia,serif;--sans:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{width:min(1200px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+h3{font-size:1.4rem}
+p{margin:0 0 1em}
+.eyebrow{display:inline-flex;align-items:center;gap:.6em;font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--goldd)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--gold)}
+.dark .eyebrow,.hero .eyebrow,.phero .eyebrow{color:var(--gold2)}
+.lede{font-size:1.1rem;color:var(--muted);max-width:60ch}
+.dark{background:var(--char);color:var(--on)}
+.dark .lede{color:var(--on2)}
+.gold{color:var(--gold)}
+.sec{padding:clamp(60px,8vw,104px) 0}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px;margin-bottom:36px}
+.sec-head .lede{margin:12px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;border:0;border-radius:12px;padding:.95em 1.4em;font-weight:800;text-decoration:none;font-size:.98rem;transition:transform .2s,background .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 55%,var(--goldd));color:#1a1408;box-shadow:0 12px 28px -12px rgba(198,161,91,.8)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-line{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn-wa{background:#1FAF57;color:#fff}
+.btn-sm{padding:.6em 1em;font-size:.88rem}
+.sr{position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* top strip + header */
+.strip{background:var(--ink);color:var(--on2);font-size:.82rem}
+.strip .wrap{display:flex;gap:18px;align-items:center;height:38px;overflow:hidden}
+.strip a{text-decoration:none;color:var(--on)}
+.strip .sp{margin-left:auto;display:flex;gap:16px;align-items:center}
+.strip b{color:var(--gold2)}
+@media (max-width:760px){.strip .hide-sm{display:none}}
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:72px}
+.brand img{height:58px;width:auto;margin-left:-8px}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:700;font-size:.93rem;padding:.55em .9em;border-radius:10px;color:#3a3a3e}
+.nav a:hover{background:var(--stone)}
+.nav a.on{color:var(--ink);background:var(--stone2)}
+@media (max-width:1040px){.nav,.top .btn{display:none}.top .wrap{justify-content:space-between}}
+.tabbar{display:none}
+@media (max-width:1040px){
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;background:rgba(17,17,17,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:20px;padding:6px;box-shadow:0 14px 40px -12px rgba(0,0,0,.6)}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px;border-radius:14px;text-decoration:none;color:var(--on2);font-size:.66rem;font-weight:800}
+  .tabbar a svg{width:22px;height:22px}
+  .tabbar a.on{background:rgba(255,255,255,.1);color:#fff}
+  .tabbar a.on svg{color:var(--gold)}
+  body{padding-bottom:90px}
+}
+.wafab{position:fixed;right:18px;bottom:18px;z-index:58;width:58px;height:58px;border-radius:50%;background:#1FAF57;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);text-decoration:none}
+.wafab svg{width:30px;height:30px}
+@media (max-width:1040px){.wafab{bottom:calc(96px + env(safe-area-inset-bottom));width:52px;height:52px}}
+
+.page{display:none}
+.page.on{display:block;animation:pin .4s ease both}
+@keyframes pin{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* hero */
+.hero{background:radial-gradient(900px 500px at 80% 20%,rgba(198,161,91,.22),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(198,161,91,.1),transparent 60%),var(--ink);color:var(--on);overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;min-height:600px;padding:56px 0 0}
+.hero h1{font-size:clamp(2.8rem,6.6vw,5.4rem);margin:16px 0 18px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero .lede{color:var(--on2);font-size:1.15rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 24px}
+.trust{display:flex;flex-wrap:wrap;gap:10px;padding-bottom:56px}
+.tchip{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:.5em .85em;font-size:.86rem;font-weight:700}
+.tchip .st{color:var(--gold2);letter-spacing:1px}
+.owners{position:relative;align-self:end;display:flex;justify-content:center}
+.owners .ring{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(470px,92%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(231,207,148,.35),rgba(198,161,91,.08) 60%,transparent 70%);border:1px solid rgba(231,207,148,.3)}
+.owners img{position:relative;width:min(460px,92%);height:auto}
+.finding{position:absolute;background:#fff;color:var(--ink);border-radius:16px;padding:10px;display:flex;gap:10px;align-items:center;width:250px;box-shadow:0 24px 50px -20px rgba(0,0,0,.7);font-size:.82rem;line-height:1.3;transition:opacity .5s,transform .5s}
+.finding img{width:52px;height:52px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.finding small{display:block;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--goldd)}
+.finding b{font-weight:700}
+.finding.f1{left:-4%;top:16%}
+.finding.f2{right:-2%;top:46%}
+.finding.fade{opacity:0;transform:translateY(8px)}
+@media (max-width:980px){.hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:36px}.trust{padding-bottom:10px}.owners{min-height:360px}.finding{width:220px}.finding.f1{left:0;top:10%}.finding.f2{right:0;top:50%}}
+@media (max-width:480px){.finding{width:190px;font-size:.74rem}.finding img{width:42px;height:42px}}
+
+.regions{background:var(--stone);border-bottom:1px solid var(--line)}
+.regions .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;padding:16px 0;font-weight:700;font-size:.92rem}
+.regions .lab{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.regions span.r{display:flex;align-items:center;gap:8px}
+.regions span.r::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+
+/* wizard */
+.wiz{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;align-items:start}
+.wtiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.wt{border:0;text-align:left;background:#fff;border-radius:16px;padding:16px;box-shadow:inset 0 0 0 1.5px var(--line);display:flex;gap:12px;align-items:center;font-weight:700;transition:all .2s}
+.wt span{font-size:1.5rem;width:44px;height:44px;border-radius:12px;background:var(--stone);display:grid;place-items:center;flex-shrink:0}
+.wt:hover{box-shadow:inset 0 0 0 1.5px var(--gold)}
+.wt[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.wt[aria-pressed="true"] span{background:rgba(198,161,91,.25)}
+.subq{grid-column:1/-1;display:none;flex-wrap:wrap;gap:8px;padding-top:4px}
+.subq.on{display:flex}
+.sq{border:0;border-radius:999px;padding:.5em .95em;font-weight:700;font-size:.88rem;background:var(--stone);box-shadow:inset 0 0 0 1.5px var(--line)}
+.sq[aria-pressed="true"]{background:var(--gold);color:#1a1408;box-shadow:none}
+.wres{background:var(--ink);color:var(--on);border-radius:24px;padding:28px;position:relative;overflow:hidden;min-height:100%}
+.wres::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(198,161,91,.35),transparent 70%)}
+.wres .tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px}
+.wres h3{font-size:2rem;margin-bottom:10px}
+.wres ul{margin:14px 0 20px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.wres li{display:flex;gap:10px;color:var(--on2)}
+.wres li::before{content:"✓";color:var(--gold);font-weight:800}
+.wres .also{font-size:.88rem;color:var(--on2);margin-top:14px}
+.wres .also b{color:#fff}
+@media (max-width:900px){.wiz{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:420px){.wtiles{grid-template-columns:1fr}}
+
+/* infrared */
+.ir{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.irbox{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:3/4;max-width:460px;margin-inline:auto;width:100%;user-select:none;touch-action:none;box-shadow:var(--shadow);background:#000}
+.irbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.irbox .th{clip-path:inset(0 0 0 var(--x,50%))}
+.irbox .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;background:#fff;transform:translateX(-50%);pointer-events:none}
+.irbox .handle::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.irbox .lbl{position:absolute;top:14px;padding:.3em .7em;border-radius:8px;background:rgba(0,0,0,.6);color:#fff;font-size:.75rem;font-weight:800;letter-spacing:.06em}
+.irbox .l1{left:14px}.irbox .l2{right:14px}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.tool{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px;font-size:.92rem}
+.tool b{display:block;color:#fff;margin-bottom:2px}
+.tool span{color:var(--on2);font-size:.85rem}
+@media (max-width:900px){.ir{grid-template-columns:1fr}}
+
+/* defects */
+.dstrip{display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.dcard{flex-shrink:0;width:220px;scroll-snap-align:start;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 1px 0 var(--line),0 16px 34px -24px rgba(0,0,0,.5);border:0;padding:0;text-align:left;cursor:zoom-in}
+.dcard img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.dcard .cap{padding:12px 14px;font-weight:700;font-size:.88rem;line-height:1.35}
+.dcard .cat{display:block;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--goldd);margin-bottom:3px}
+.dgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.dgrid .dcard{width:auto}
+@media (max-width:900px){.dgrid{grid-template-columns:repeat(2,1fr)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:0;border-radius:999px;padding:.55em 1em;font-weight:700;font-size:.88rem;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.chip small{opacity:.6;margin-left:4px}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:s}
+.step{background:#fff;border-radius:18px;padding:20px 16px;box-shadow:0 1px 0 var(--line);position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-size:2rem;color:var(--gold);display:block;line-height:1;margin-bottom:10px}
+.step b{display:block;margin-bottom:4px;line-height:1.25}
+.step span{color:var(--muted);font-size:.88rem;line-height:1.45;display:block}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.steps{grid-template-columns:1fr 1fr}}
+
+/* four things */
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.fcard{border-radius:18px;padding:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
+.fcard .n{font-family:var(--serif);font-size:2.4rem;color:var(--gold);line-height:1}
+.fcard b{display:block;margin:8px 0 6px;color:#fff;font-size:1.05rem}
+.fcard span{color:var(--on2);font-size:.9rem}
+@media (max-width:900px){.four{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.four{grid-template-columns:1fr}}
+
+/* reviews */
+.rtop{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;margin-bottom:24px}
+.rtop .big{font-family:var(--serif);font-size:3.4rem;line-height:1}
+.rtop .st{color:var(--gold);font-size:1.4rem;letter-spacing:2px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rv{background:#fff;border-radius:18px;padding:24px;box-shadow:0 1px 0 var(--line);display:flex;flex-direction:column;gap:10px}
+.rv .st{color:var(--gold);letter-spacing:1px}
+.rv p{margin:0;font-size:.96rem}
+.rv small{color:var(--muted);font-weight:700}
+.rv.wide{grid-column:span 2}
+@media (max-width:900px){.rgrid{grid-template-columns:1fr}.rv.wide{grid-column:auto}}
+
+/* agents band */
+.band{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:linear-gradient(135deg,var(--stone),#fff);border-radius:28px;padding:clamp(26px,4vw,48px);border:1px solid var(--line)}
+@media (max-width:860px){.band{grid-template-columns:1fr}}
+.band ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.band li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+.band li::before{content:"✓";color:var(--goldd);font-weight:800}
+
+/* page hero */
+.phero{background:radial-gradient(800px 380px at 90% 0%,rgba(198,161,91,.2),transparent 60%),var(--ink);color:var(--on);padding:clamp(44px,7vw,80px) 0 clamp(40px,6vw,60px)}
+.phero h1{font-size:clamp(2.4rem,6vw,4.2rem);margin:12px 0 12px}
+.phero .lede{color:var(--on2);margin:0}
+
+/* service explorer */
+.svx{display:grid;grid-template-columns:280px minmax(0,1fr);gap:26px;align-items:start}
+.svlist{position:sticky;top:96px;display:flex;flex-direction:column;gap:6px}
+.svb{border:0;text-align:left;background:transparent;border-radius:12px;padding:.75em .9em;font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:10px;color:#3a3a3e}
+.svb i{font-style:normal;width:32px;height:32px;border-radius:9px;background:var(--stone);display:grid;place-items:center;font-size:1rem;flex-shrink:0}
+.svb:hover{background:var(--stone)}
+.svb.on{background:var(--ink);color:#fff}
+.svb.on i{background:rgba(198,161,91,.3)}
+.svpanel{background:#fff;border-radius:26px;box-shadow:0 1px 0 var(--line),0 30px 60px -44px rgba(0,0,0,.5);overflow:hidden;animation:pin .35s both}
+.svtop{display:grid;grid-template-columns:minmax(0,1fr) 240px;background:var(--ink);color:var(--on)}
+.svtop .tx{padding:30px}
+.svtop h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin:8px 0 10px}
+.svtop p{color:var(--on2);margin:0}
+.svtop img{width:100%;height:100%;object-fit:cover;min-height:240px;max-height:340px}
+.svbody{padding:28px 30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.svbody h3{font-family:var(--sans);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--goldd);margin-bottom:10px}
+.svbody ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.svbody li{display:flex;gap:10px;line-height:1.45}
+.svbody li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:.5em;flex-shrink:0}
+.svfoot{padding:0 30px 30px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.svfoot .note{width:100%;color:var(--muted);font-size:.88rem;margin:0 0 8px}
+.svmobile{display:none}
+@media (max-width:900px){.svx{grid-template-columns:minmax(0,1fr)}.svlist{display:none}.svmobile{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none;position:sticky;top:72px;z-index:20;background:var(--paper);padding-top:10px}.svmobile::-webkit-scrollbar{display:none}.svtop{grid-template-columns:minmax(0,1fr)}.svtop img{max-height:220px}.svbody{grid-template-columns:minmax(0,1fr);padding:22px}.svtop .tx{padding:22px}.svfoot{padding:0 22px 22px}}
+
+/* spot the problem */
+.quiz{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:center;background:var(--ink);color:var(--on);border-radius:28px;padding:clamp(22px,4vw,40px)}
+.quiz .qimg{border-radius:20px;overflow:hidden;aspect-ratio:3/4;max-width:340px;width:100%;margin-inline:auto;position:relative}
+.quiz .qimg img{width:100%;height:100%;object-fit:cover}
+.qopts{display:flex;flex-direction:column;gap:10px;margin:18px 0}
+.qo{border:0;text-align:left;border-radius:14px;padding:14px 16px;background:rgba(255,255,255,.07);color:#fff;font-weight:700;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.12)}
+.qo:hover{box-shadow:inset 0 0 0 1.5px var(--gold)}
+.qo.right{background:#1f6b43;box-shadow:none}
+.qo.wrong{background:#7a2a22;box-shadow:none}
+.qscore{color:var(--gold2);font-weight:800}
+@media (max-width:860px){.quiz{grid-template-columns:1fr}}
+
+/* reports */
+.reps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rep{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 0 var(--line);border:0;padding:0;text-align:left;cursor:zoom-in}
+.rep img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;background:var(--stone)}
+.rep span{display:block;padding:12px 14px;font-weight:700;font-size:.9rem}
+@media (max-width:860px){.reps{grid-template-columns:1fr 1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.ab-ph{background:radial-gradient(circle at 50% 60%,rgba(198,161,91,.35),transparent 65%),var(--ink);border-radius:28px;padding:30px 20px 0;display:flex;justify-content:center}
+.ab-ph img{width:min(420px,100%)}
+.badges{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:20px 0}
+.badges img{width:84px;height:84px;object-fit:contain}
+.certs{display:flex;flex-wrap:wrap;gap:8px}
+.cert{font-size:.82rem;font-weight:700;background:var(--stone);border-radius:999px;padding:.4em .8em}
+@media (max-width:900px){.about{grid-template-columns:1fr}}
+.promise{border-left:4px solid var(--gold);padding:6px 0 6px 20px;font-family:var(--serif);font-size:1.45rem;line-height:1.35;margin:24px 0}
+
+/* quote */
+.qwrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:26px;align-items:start}
+.qform{background:#fff;border-radius:26px;padding:clamp(22px,3.5vw,34px);box-shadow:0 1px 0 var(--line),0 30px 70px -44px rgba(0,0,0,.45)}
+.qstep{margin-bottom:22px}
+.qstep>.lbl{display:flex;justify-content:space-between;align-items:baseline;font-weight:800;margin-bottom:10px}
+.qstep>.lbl small{font-weight:600;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.op{border:0;border-radius:12px;padding:.6em .95em;font-weight:700;font-size:.9rem;background:var(--stone);box-shadow:inset 0 0 0 1.5px var(--line)}
+.op[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.field{width:100%;border:0;border-radius:12px;padding:.85em 1em;background:var(--stone);box-shadow:inset 0 0 0 1.5px var(--line);font:inherit;color:inherit}
+.field:focus{outline:0;box-shadow:inset 0 0 0 2px var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label.fl{display:block;font-weight:800;font-size:.9rem;margin-bottom:6px}
+.range{display:flex;align-items:center;gap:14px}
+.range input{flex:1;accent-color:var(--gold)}
+.range output{font-family:var(--serif);font-size:1.8rem;min-width:5ch;text-align:right}
+.preview{background:var(--stone);border-radius:14px;padding:14px 16px;font-size:.88rem;white-space:pre-wrap;color:#333;max-height:220px;overflow:auto;border:1px dashed rgba(0,0,0,.15)}
+.sendrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.sendrow .btn{flex:1}
+.qside{display:flex;flex-direction:column;gap:16px}
+.card{background:#fff;border-radius:20px;padding:22px;box-shadow:0 1px 0 var(--line)}
+.card.dk{background:var(--ink);color:var(--on)}
+.card h3{font-size:1.35rem;margin-bottom:10px}
+.clist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.clist a,.clist div{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:700}
+.clist .ic{width:40px;height:40px;border-radius:12px;background:var(--stone);display:grid;place-items:center;flex-shrink:0}
+.clist .ic svg{width:20px;height:20px}
+.clist small{display:block;color:var(--muted);font-weight:600;font-size:.78rem}
+.next{counter-reset:n;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.next li{counter-increment:n;display:flex;gap:12px;color:var(--on2);font-size:.92rem}
+.next li::before{content:counter(n);width:26px;height:26px;border-radius:50%;background:var(--gold);color:#1a1408;font-weight:800;display:grid;place-items:center;flex-shrink:0;font-size:.8rem}
+.next li b{color:#fff}
+@media (max-width:900px){.qwrap{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+.faq details{background:#fff;border-radius:14px;margin-bottom:10px;box-shadow:0 1px 0 var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:800;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--goldd);font-size:1.3rem;line-height:1;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 18px 16px;margin:0;color:var(--muted)}
+
+/* modal */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.modal{position:fixed;left:50%;top:50%;z-index:90;width:min(560px,calc(100% - 28px));max-height:90vh;overflow:auto;background:#fff;border-radius:24px;padding:22px;transform:translate(-50%,-46%) scale(.97);opacity:0;pointer-events:none;transition:all .3s}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.x{position:absolute;top:12px;right:12px;border:0;background:var(--stone);width:36px;height:36px;border-radius:50%;font-size:1.2rem;z-index:2}
+.lb img{border-radius:16px;width:100%;max-height:68vh;object-fit:contain;background:#000}
+.lb h3{margin:14px 0 4px}
+.lb .why{background:var(--stone);border-radius:12px;padding:12px 14px;font-size:.92rem;color:#333;margin-top:10px}
+
+/* footer */
+footer{background:var(--ink);color:var(--on2);padding:56px 0 36px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer img{height:52px;width:auto;margin-bottom:12px}
+footer h4{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:#fff;margin:0 0 10px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-size:.8rem;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+@media (max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .wrap{grid-template-columns:1fr}}
+
+/* demo pill */
+.demo-pill{position:fixed;left:16px;bottom:16px;z-index:70;border:0;border-radius:999px;background:#fff;color:var(--ink);padding:.55em 1em .55em .6em;font-weight:800;font-size:.84rem;box-shadow:0 12px 30px -12px rgba(0,0,0,.45);display:flex;gap:8px;align-items:center}
+.demo-pill i{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--gold);color:#1a1408;display:grid;place-items:center;font-size:.75rem}
+@media (max-width:1040px){.demo-pill{bottom:calc(96px + env(safe-area-inset-bottom));padding:.5em}.demo-pill span{display:none}.demo-pill i{width:30px;height:30px}}
+.checks{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.93rem}
+.checks li{display:flex;gap:10px}
+.checks li::before{content:"✓";flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#F3EAD3;color:var(--goldd);display:grid;place-items:center;font-weight:800;font-size:.8rem}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,150%);z-index:95;background:var(--ink);color:#fff;border-radius:12px;padding:.7em 1.1em;font-weight:700;font-size:.9rem;opacity:0;transition:all .35s}
+.toast.on{transform:translate(-50%,0);opacity:1}
+@media (max-width:1040px){.toast{bottom:calc(100px + env(safe-area-inset-bottom))}}
+.js .reveal{opacity:.001;transform:translateY(16px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<div class="strip"><div class="wrap">
+  <a href="tel:+27792986168">📞 <b>079 298 6168</b></a>
+  <span class="hide-sm">Mon–Fri 8am–5pm</span>
+  <span class="hide-sm">info@propertyinspect4u.co.za</span>
+  <span class="sp"><a href="https://wa.me/27792986168" target="_blank" rel="noopener">WhatsApp</a><a class="hide-sm" href="https://www.facebook.com/propertyinspectionsa" target="_blank" rel="noopener">Facebook</a><a class="hide-sm" href="https://www.instagram.com/propertyinspect4u/" target="_blank" rel="noopener">Instagram</a></span>
+</div></div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#home" data-go="home" aria-label="Property Inspect 4U home"><img src="property-inspect-4u-photos/logo-1.png" alt="Property Inspect 4u: Inspect Before You Invest!" width="376" height="141"></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#home" data-go="home">Home</a>
+    <a href="#inspections" data-go="inspections">Inspections</a>
+    <a href="#findings" data-go="findings">What we find</a>
+    <a href="#about" data-go="about">About &amp; reviews</a>
+    <a href="#quote" data-go="quote">Contact</a>
+  </nav>
+  <a class="btn btn-gold btn-sm" href="#quote" data-go="quote">Get a quote</a>
+</div></header>
+
+<main>
+<!-- ================= HOME ================= -->
+<section class="page" id="page-home" data-title="Property Inspect 4U | Certified Property Inspectors in Durban, Gauteng &amp; Cape Town" data-desc="InterNACHI-certified property inspections across South Africa: pre-purchase, pre-sale, snag list, mould, infrared, roof, asbestos and body corporate plans. Clear photo reports in 48–72 hours.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <span class="eyebrow">InterNACHI® certified property inspectors</span>
+      <h1>Inspect <em>before</em><br>you invest.</h1>
+      <p class="lede">Independent home and commercial property inspections across South Africa. A certified inspector walks the property with you, and you get a clear, photo-led report within 48–72 hours.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#quote" data-go="quote">Get a quote in 60 seconds →</a>
+        <a class="btn btn-line" href="#wizard" data-scroll="wizard">Which inspection do I need?</a>
+      </div>
+      <div class="trust">
+        <span class="tchip"><span class="st">★★★★★</span> Excellent · 50 reviews</span>
+        <span class="tchip">⏱ Report in 48–72 hours</span>
+        <span class="tchip">🌡 Infrared camera &amp; moisture meter</span>
+      </div>
+    </div>
+    <div class="owners">
+      <div class="ring"></div>
+      <img src="property-inspect-4u-photos/owners.png" alt="Trevor and Lee Davidson, owner-directors of Property Inspect 4U" width="457" height="448">
+      <div class="finding f1" id="f1"></div>
+      <div class="finding f2" id="f2"></div>
+    </div>
+  </div></div>
+  <div class="regions"><div class="wrap">
+    <span class="lab">Inspecting across</span>
+    <span class="r">Durban &amp; the KZN North Coast</span><span class="r">Gauteng</span><span class="r">Cape Town &amp; Western Cape</span>
+  </div></div>
+
+  <section class="sec" id="wizard" style="scroll-margin-top:80px">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Not sure where to start?</span><h2>Which inspection do I need?</h2></div><p class="lede">Tell us what's going on and we'll point you to the right inspection, then you can get a quote for it in one tap.</p></div>
+      <div class="wiz reveal">
+        <div class="wtiles" id="wtiles"></div>
+        <div class="wres" id="wres"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark">
+    <div class="wrap ir">
+      <div class="reveal">
+        <div class="irbox" id="irbox" style="--x:50%">
+          <img src="property-inspect-4u-photos/ir-visual.jpg" alt="Distribution board as the eye sees it" draggable="false">
+          <img class="th" src="property-inspect-4u-photos/ir-thermal.jpg" alt="The same distribution board through the infrared camera, showing temperature variation" draggable="false">
+          <span class="lbl l1">WHAT YOU SEE</span><span class="lbl l2">WHAT WE SEE</span>
+          <div class="handle"></div>
+        </div>
+        <p style="text-align:center;color:var(--on2);font-size:.85rem;margin:12px 0 0">Drag across. Real photos from one of our inspections: a distribution board, then a thermal scan showing temperature variation.</p>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Infrared Certified®</span>
+        <h2 style="margin:12px 0 14px">We see what the eye can't.</h2>
+        <p class="lede">Hidden moisture behind walls, hot spots in electrical boards and missing insulation don't show up on a normal viewing. Our infrared camera finds them without opening a single wall.</p>
+        <div class="tools">
+          <div class="tool"><b>🌡 Infrared camera</b><span>Spots heat and moisture you can't see</span></div>
+          <div class="tool"><b>💧 Moisture meter</b><span>Confirms damp in walls and around windows</span></div>
+          <div class="tool"><b>⚡ Electrical testers</b><span>Socket and circuit protection checks</span></div>
+          <div class="tool"><b>🚁 Drone</b><span>For roofs, where appropriate</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background:var(--stone)">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Straight from our reports</span><h2>What we actually find.</h2></div><a class="btn btn-dark btn-sm" href="#findings" data-go="findings">See all findings &amp; sample reports →</a></div>
+      <div class="dstrip" id="dteaser"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Simple and transparent</span><h2>From quote to report in about a week.</h2></div><p class="lede">No surprises: you know exactly what happens, and when.</p></div>
+      <div class="steps reveal">
+        <div class="step"><b>Request a quote</b><span>Tell us the inspection type and property size. Our fees are based on the area.</span></div>
+        <div class="step"><b>Confirm your booking</b><span>Accept the quote and pay a 50% deposit to secure your date.</span></div>
+        <div class="step"><b>Walk &amp; talk</b><span>You're welcome to walk the property with your inspector and ask questions as you go.</span></div>
+        <div class="step"><b>Settle the balance</b><span>The remaining 50% is due once the inspection is done.</span></div>
+        <div class="step"><b>Your report</b><span>An easy-to-read report with photos and a summary of material defects, within 48–72 hours.</span></div>
+        <div class="step"><b>Keep it maintained</b><span>Plus our home maintenance book, with seasonal checklists.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Buying a home?</span><h2>Only four things really matter.</h2></div><p class="lede">A report can feel overwhelming. Most of it is maintenance tips and minor wear. The issues worth acting on fall into four categories.</p></div>
+      <div class="four reveal">
+        <div class="fcard"><span class="n">1</span><b>Major defects</b><span>For example, a structural failure.</span></div>
+        <div class="fcard"><span class="n">2</span><b>Things that lead to major defects</b><span>Like a small roof-flashing leak.</span></div>
+        <div class="fcard"><span class="n">3</span><b>Finance, occupancy &amp; insurance</b><span>Anything that could stop you financing, legally occupying or insuring the home.</span></div>
+        <div class="fcard"><span class="n">4</span><b>Safety hazards</b><span>Such as an exposed, live bus bar in the electrical panel.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background:var(--stone)">
+    <div class="wrap">
+      <div class="rtop reveal"><div><span class="eyebrow">What clients say</span><h2 style="margin-top:10px">Rated Excellent.</h2></div><div style="margin-left:auto;text-align:right"><div class="big">50</div><div class="st">★★★★★</div><small style="color:var(--muted);font-weight:700">reviews on Google &amp; Trustindex</small></div></div>
+      <div class="rgrid" id="rhome"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="band reveal">
+        <div>
+          <span class="eyebrow">For estate agents &amp; sellers</span>
+          <h2 style="margin:12px 0 14px">Inspectors don't kill deals. Surprises do.</h2>
+          <p class="lede">Since mandatory disclosure forms came in during 2022, a pre-sale inspection helps sellers complete them honestly and fully. Buyers feel protected, sellers face less risk of non-disclosure claims, and agents are seen as transparent and trustworthy.</p>
+        </div>
+        <div>
+          <ul>
+            <li>Price the property with confidence</li>
+            <li>Complete disclosure forms properly</li>
+            <li>Fewer last-minute surprises at offer stage</li>
+            <li>An independent, unbiased report</li>
+          </ul>
+          <a class="btn btn-dark" style="margin-top:20px" href="#inspections" data-go="inspections" data-svc="pre-sale">About pre-sale inspections →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= INSPECTIONS ================= -->
+<section class="page" id="page-inspections" data-title="Property Inspection Services | Pre-Purchase, Snag List, Mould, Infrared &amp; More | Property Inspect 4U" data-desc="Every Property Inspect 4U service in one place: pre-purchase, pre-sale, mould, snag list, infrared thermography, roof, water damage, move-in/out, commercial, asbestos and 10-year body corporate plans.">
+  <div class="phero"><div class="wrap"><span class="eyebrow">11 inspection services</span><h1>Inspections</h1><p class="lede">Choose an inspection to see who it's for, what we check and what you get. Every inspection follows the InterNACHI Standards of Practice and Code of Ethics.</p></div></div>
+  <section class="sec" style="padding-top:36px">
+    <div class="wrap">
+      <div class="svmobile" id="svmobile"></div>
+      <div class="svx">
+        <div class="svlist" id="svlist"></div>
+        <div id="svpanel"></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= FINDINGS ================= -->
+<section class="page" id="page-findings" data-title="What Our Property Inspections Find | Real Defect Photos &amp; Sample Reports | Property Inspect 4U" data-desc="Real photos and captions from Property Inspect 4U inspections: damp and water damage, cracks, electrical and gas issues, doors and windows. Plus sample inspection reports.">
+  <div class="phero"><div class="wrap"><span class="eyebrow">Real photos · real reports</span><h1>What we find</h1><p class="lede">Every photo here comes from one of our inspections, with the inspector's own note. Filter by type, or test your eye with "Spot the problem".</p></div></div>
+  <section class="sec" style="padding-top:40px">
+    <div class="wrap">
+      <div class="chips" id="dchips"></div>
+      <div class="dgrid" id="dgrid"></div>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="quiz reveal" id="quiz"></div>
+    </div>
+  </section>
+  <section class="sec" style="background:var(--stone)">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Sample reports</span><h2>Easy to read, clear to understand.</h2></div><p class="lede">You get a short summary of material defects first, then the full photo report. Pre-purchase reports are ready within 48–72 hours.</p></div>
+      <div class="reps reveal">
+        <button class="rep" data-rep="report-summary"><img src="property-inspect-4u-photos/report-summary.jpg" alt="Pre-purchase inspection executive summary" loading="lazy"><span>Pre-purchase: executive summary</span></button>
+        <button class="rep" data-rep="report-full"><img src="property-inspect-4u-photos/report-full.jpg" alt="Pre-purchase comprehensive report" loading="lazy"><span>Pre-purchase: comprehensive report</span></button>
+        <button class="rep" data-rep="report-snag"><img src="property-inspect-4u-photos/report-snag.jpg" alt="Builder's snag report sample" loading="lazy"><span>Builder's snag report</span></button>
+        <button class="rep" data-rep="report-snag-client"><img src="property-inspect-4u-photos/report-snag-client.jpg" alt="Snag list report, client's copy" loading="lazy"><span>Snag list: client's copy</span></button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="page" id="page-about" data-title="About Property Inspect 4U | Trevor &amp; Lee Davidson | InterNACHI Certified Inspectors" data-desc="Meet Trevor and Lee Davidson, owner-directors of Property Inspect 4U. InterNACHI Certified Professional Inspectors, rated Excellent from 50 reviews.">
+  <div class="phero"><div class="wrap"><span class="eyebrow">Owner-run · Ballito, KZN</span><h1>About us</h1><p class="lede">Unbiased, factual reports that support your asking price transparently, or make sure you're making a sound investment.</p></div></div>
+  <section class="sec">
+    <div class="wrap about">
+      <div class="ab-ph reveal"><img src="property-inspect-4u-photos/owners.png" alt="Trevor and Lee Davidson" loading="lazy"></div>
+      <div class="reveal">
+        <span class="eyebrow">Meet the owners</span>
+        <h2 style="margin:12px 0 14px">Trevor &amp; Lee Davidson</h2>
+        <p class="lede">Property Inspect 4U is owner-run by Trevor and Lee Davidson. We inspect residential and commercial properties to the InterNACHI Standards of Practice. We show you everything we inspect, explain what matters, and recommend qualified contractors when something needs a closer look.</p>
+        <div class="badges"><img src="property-inspect-4u-photos/cpi.png" alt="InterNACHI Certified Professional Inspector" loading="lazy"><img src="property-inspect-4u-photos/cpi2.png" alt="InterNACHI Certified" loading="lazy"><a class="btn btn-line btn-sm" href="https://www.nachi.org/certified-inspectors/trevor-davidson-171887" target="_blank" rel="noopener">Verify on InterNACHI ↗</a></div>
+        <p style="font-weight:800;margin-bottom:8px">InterNACHI training includes</p>
+        <div class="certs">
+          <span class="cert">Residential</span><span class="cert">Commercial</span><span class="cert">Infrared Certified®</span><span class="cert">Moisture intrusion</span><span class="cert">Mould</span><span class="cert">Roof</span><span class="cert">Plumbing</span><span class="cert">New construction</span><span class="cert">Indoor air quality</span><span class="cert">HVAC</span><span class="cert">Exterior</span><span class="cert">Deck</span><span class="cert">Safe workplace</span><span class="cert">Annual maintenance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec dark">
+    <div class="wrap" style="max-width:860px">
+      <span class="eyebrow">The inspector's promise</span>
+      <p class="promise">"If you honour us by permitting us to inspect your new home, we assure you that we will give you our very best effort. This, we promise you."</p>
+      <div class="four" style="grid-template-columns:repeat(3,1fr)">
+        <div class="fcard"><b>Walk &amp; talk</b><span>Join your inspector on the day and ask anything as you go.</span></div>
+        <div class="fcard"><b>Clear reports</b><span>Photo-led, with a short summary of material defects.</span></div>
+        <div class="fcard"><b>Always there</b><span>Join our network of clients, and call us when your house has a problem.</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" style="background:var(--stone)">
+    <div class="wrap">
+      <div class="rtop reveal"><div><span class="eyebrow">Reviews</span><h2 style="margin-top:10px">In our clients' words.</h2></div><div style="margin-left:auto;text-align:right"><div class="big">50</div><div class="st">★★★★★</div><small style="color:var(--muted);font-weight:700">rated Excellent</small></div></div>
+      <div class="rgrid" id="rall"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= QUOTE / CONTACT ================= -->
+<section class="page" id="page-quote" data-title="Get a Property Inspection Quote | Contact Property Inspect 4U" data-desc="Request a property inspection quote in 60 seconds by WhatsApp or email. Property Inspect 4U: 079 298 6168, info@propertyinspect4u.co.za. Mon–Fri 8am–5pm.">
+  <div class="phero"><div class="wrap"><span class="eyebrow">Quote in 60 seconds</span><h1>Get a quote</h1><p class="lede">Fill in what you know, and your request goes straight to our WhatsApp or inbox with everything we need to price it.</p></div></div>
+  <section class="sec" style="padding-top:40px">
+    <div class="wrap qwrap">
+      <div class="qform reveal">
+        <div class="qstep"><div class="lbl">Which inspection?</div><select class="field" id="q-svc" aria-label="Inspection type"></select></div>
+        <div class="qstep"><div class="lbl">I am…</div><div class="opts" data-q="role"><button class="op" aria-pressed="true">Buying</button><button class="op" aria-pressed="false">Selling</button><button class="op" aria-pressed="false">An estate agent</button><button class="op" aria-pressed="false">A landlord / tenant</button><button class="op" aria-pressed="false">A body corporate</button><button class="op" aria-pressed="false">A business</button></div></div>
+        <div class="qstep"><div class="lbl">Property type</div><div class="opts" data-q="ptype"><button class="op" aria-pressed="true">Freestanding house</button><button class="op" aria-pressed="false">Townhouse / sectional title</button><button class="op" aria-pressed="false">Apartment</button><button class="op" aria-pressed="false">Commercial building</button></div></div>
+        <div class="qstep"><div class="lbl">Approximate size <small>our fees are based on area</small></div><div class="range"><input type="range" id="q-size" min="40" max="1500" step="10" value="220" aria-label="Approximate size in square metres"><output id="q-sizeo">220 m²</output></div></div>
+        <div class="qstep"><div class="lbl">Where is it?</div><div class="opts" data-q="region"><button class="op" aria-pressed="true">Durban / KZN</button><button class="op" aria-pressed="false">Gauteng</button><button class="op" aria-pressed="false">Cape Town / W Cape</button><button class="op" aria-pressed="false">Elsewhere</button></div>
+          <input class="field" id="q-suburb" placeholder="Suburb or area, e.g. Ballito" style="margin-top:10px" aria-label="Suburb"></div>
+        <div class="qstep"><div class="lbl">When do you need it?</div><div class="opts" data-q="when"><button class="op" aria-pressed="false">As soon as possible</button><button class="op" aria-pressed="true">Within 2 weeks</button><button class="op" aria-pressed="false">I'm flexible</button></div></div>
+        <div class="qstep two">
+          <div><label class="fl" for="q-name">Your name</label><input class="field" id="q-name" autocomplete="name" placeholder="e.g. Thandi"></div>
+          <div><label class="fl" for="q-phone">Phone</label><input class="field" id="q-phone" autocomplete="tel" placeholder="So we can reply"></div>
+        </div>
+        <div class="qstep"><label class="fl" for="q-notes">Anything we should know? <small style="font-weight:600;color:var(--muted)">(optional)</small></label><textarea class="field" id="q-notes" rows="2" placeholder="e.g. offer accepted, transfer in 3 weeks; damp in the main bedroom"></textarea></div>
+        <div class="qstep"><div class="lbl">Your request</div><div class="preview" id="q-preview"></div></div>
+        <div class="sendrow"><a class="btn btn-wa" id="q-wa" target="_blank" rel="noopener">Send on WhatsApp</a><a class="btn btn-dark" id="q-mail">Send by email</a></div>
+        <p style="color:var(--muted);font-size:.84rem;margin:12px 0 0">This really works: it opens WhatsApp or your email with the message ready to send. No sign-ups, no fees.</p>
+      </div>
+      <div class="qside">
+        <div class="card dk reveal">
+          <h3 style="color:#fff">What happens next</h3>
+          <ol class="next">
+            <li><span><b>We send your quote</b>, based on the inspection type and property size.</span></li>
+            <li><span><b>A 50% deposit</b> confirms your booking.</span></li>
+            <li><span><b>The inspection.</b> Walk and talk with your inspector.</span></li>
+            <li><span><b>Pay the balance</b>, then your report arrives within 48–72 hours.</span></li>
+          </ol>
+        </div>
+        <div class="card reveal">
+          <h3>Talk to us</h3>
+          <ul class="clist">
+            <li><a href="tel:+27792986168"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Call</small>079 298 6168</span></a></li>
+            <li><a href="https://wa.me/27792986168" target="_blank" rel="noopener"><span class="ic" style="background:#DDF5E6;color:#1FAF57"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.1.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.3.1.4.2.5.3 0 .2 0 .8-.2 1.3z"/></svg></span><span><small>WhatsApp</small>Message us</span></a></li>
+            <li><a href="mailto:info@propertyinspect4u.co.za"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small>info@propertyinspect4u.co.za</span></a></li>
+            <li><div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><small>Hours</small>Mon–Fri, 8am–5pm</span></div></li>
+          </ul>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+            <a class="btn btn-line btn-sm" href="https://www.facebook.com/propertyinspectionsa" target="_blank" rel="noopener">Facebook</a>
+            <a class="btn btn-line btn-sm" href="https://www.instagram.com/propertyinspect4u/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn btn-line btn-sm" href="https://www.youtube.com/@propertyinspectionsa" target="_blank" rel="noopener">YouTube</a>
+            <a class="btn btn-line btn-sm" href="https://www.tiktok.com/@propertyinspect4u" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" style="background:var(--stone)">
+    <div class="wrap" style="max-width:900px">
+      <div class="sec-head reveal"><div><span class="eyebrow">Good to know</span><h2>Questions &amp; answers</h2></div></div>
+      <div class="faq" id="faq"></div>
+    </div>
+  </section>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <div><img src="property-inspect-4u-photos/logo-white.png" alt="Property Inspect 4u" loading="lazy"><p>Independent, InterNACHI-certified residential and commercial property inspections across South Africa.</p></div>
+  <div><h4>Inspections</h4><ul id="fsvc"></ul></div>
+  <div><h4>Explore</h4><ul><li><a href="#findings" data-go="findings">What we find</a></li><li><a href="#findings" data-go="findings">Sample reports</a></li><li><a href="#about" data-go="about">About &amp; reviews</a></li><li><a href="#quote" data-go="quote">Get a quote</a></li></ul></div>
+  <div><h4>Contact</h4><ul><li><a href="tel:+27792986168">079 298 6168</a></li><li><a href="https://wa.me/27792986168" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:info@propertyinspect4u.co.za">info@propertyinspect4u.co.za</a></li><li>Mon–Fri 8am–5pm</li></ul></div>
+  <div class="fine"><span>© Property Inspect 4U · Terms &amp; liability disclaimer apply</span><span>Demo website idea by <a href="https://trabelo.com" style="color:var(--gold2)">Trabelo</a>. Photos from propertyinspect4u.co.za.</span></div>
+</div></footer>
+
+<nav class="tabbar" aria-label="Quick links">
+  <a href="#home" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+  <a href="#inspections" data-go="inspections"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Inspections</a>
+  <a href="#findings" data-go="findings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>Findings</a>
+  <a href="#about" data-go="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c.8-3.5 3.6-5 7-5s6.2 1.5 7 5M16 4.5a3.5 3.5 0 0 1 0 7M19 15c1.6.7 2.6 2.4 3 5"/></svg>About</a>
+  <a href="#quote" data-go="quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Quote</a>
+</nav>
+<a class="wafab" href="https://wa.me/27792986168" target="_blank" rel="noopener" aria-label="WhatsApp us"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.1.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.3.1.4.2.5.3 0 .2 0 .8-.2 1.3z"/></svg></a>
+<button class="demo-pill" id="demo-pill"><i>T</i><span>Trabelo demo</span></button>
+<div class="toast" id="toast"></div>
+<div class="scrim" id="scrim"></div>
+<div class="modal lb" id="lb" role="dialog" aria-modal="true"><button class="x" data-close aria-label="Close">×</button><div id="lb-in"></div></div>
+<div class="modal" id="dm" role="dialog" aria-modal="true"><button class="x" data-close aria-label="Close">×</button><div id="dm-in"></div></div>
+
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+var IMG='property-inspect-4u-photos/';
+var PAGES=['home','inspections','findings','about','quote'];
+var WA='27792986168';
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+/* ---------- services (from propertyinspect4u.co.za, condensed) ---------- */
+var SVC=[
+ {id:'pre-purchase',n:'Pre-Purchase Inspection',ic:'🏡',img:'svc-pre-purchase',sum:'Buying a home? Know exactly what you\'re buying before you commit.',who:['Home buyers before (or just after) an offer','Anyone who wants leverage to negotiate repairs or price'],chk:['Structure, walls and cracks','Roof, gutters and drainage','Electrical (including a thermal scan of the board)','Plumbing, damp and moisture','Doors, windows and finishes','Safety hazards'],get:['Photo report with a summary of material defects','Report within 48–72 hours','Home maintenance book'],note:'Most issues are maintenance tips. We highlight the ones that really matter.'},
+ {id:'pre-sale',n:'Pre-Sale Inspection',ic:'🏷️',img:'svc-pre-sale',sum:'Selling? Find and fix issues before buyers do, and price with confidence.',who:['Home sellers before listing','Estate agents guiding sellers'],chk:['A full condition check of the property','Structure, roof, electrical and plumbing','Damp, moisture and water damage'],get:['A clear list of what to fix (or disclose)','Support for completing mandatory disclosure forms honestly','Fewer surprises at offer stage'],note:'Mandatory disclosure forms have applied since 2022. An inspection helps sellers complete them properly.'},
+ {id:'mould',n:'Mould Inspection',ic:'🦠',img:'svc-mould',sum:'Health first: find mould, what\'s causing it, and how far it has spread.',who:['Homes with damp smells, stains or allergy symptoms','Landlords and tenants with damp complaints'],chk:['In-depth visual inspection, including hidden areas','Moisture and humidity measurements','Air quality sampling','Surface sampling where needed'],get:['A detailed report and analysis','Clear recommendations for remediation'],note:''},
+ {id:'snag',n:'Snag List Inspection',ic:'📋',img:'svc-snag',sum:'New build? Get every defect on the snag list before you take occupation.',who:['Buyers of brand-new homes and units','Owners finishing a build or renovation'],chk:['Finishes: tiles, plaster, paint and grouting','Doors, windows and hardware','Plumbing, electrical covers and vents','Visible workmanship defects'],get:['An independent snag list for your builder','A client\'s copy to track fixes'],note:'Independent of the builder or agent, so it\'s in your interest only.'},
+ {id:'infrared',n:'Infrared Thermography',ic:'🌡️',img:'svc-infrared',sum:'See what the eye can\'t: hidden moisture, heat and energy loss.',who:['Suspected leaks without visible damage','Electrical boards and hot spots','Commercial properties and equipment'],chk:['Temperature variations in walls, ceilings and floors','Electrical boards and connections','Insulation and air leaks'],get:['Thermal images alongside normal photos','Non-intrusive, with no holes and no disruption'],note:''},
+ {id:'roof',n:'Roof Inspection',ic:'🏠',img:'svc-roof',sum:'South African sun, storms and heavy rain take their toll. Catch roof problems early.',who:['Homeowners after storms or with leaks','Buyers of older properties'],chk:['Roof covering and visible structure','Flashings and ventilation','Gutters, downpipes and drainage','Signs of leaks and water damage'],get:['A clear photo report of the roof\'s condition','What to fix now, and what to watch'],note:'A drone is used where appropriate.'},
+ {id:'water',n:'Water Damage Inspection',ic:'💧',img:'svc-water',sum:'Trace water problems to the source before they become expensive.',who:['Damp walls, blistering paint or stains','After leaks or flooding'],chk:['Roof flashing, overhangs, gutters and downpipes','Windows, doors, caulks and sealants','Foundations and slab','Moisture, temperature and humidity readings'],get:['A report on where water is getting in','Recommendations to stop it'],note:''},
+ {id:'move',n:'Move-In / Move-Out Inspection',ic:'📦',img:'svc-move',sum:'Pre- and post-occupancy records that protect landlords and tenants.',who:['Landlords and tenants','Letting agents'],chk:['Walls, floors and fittings','Appliances and functionality','Existing damage, with photos'],get:['A detailed photographic record','Fair deposit decisions and fewer disputes'],note:''},
+ {id:'commercial',n:'Commercial Property Inspection',ic:'🏢',img:'svc-commercial',sum:'Thorough inspections for offices, retail and industrial buildings.',who:['Buyers, owners and tenants of commercial property','Businesses planning maintenance'],chk:['Pre-inspection planning around your priorities','Exterior: roof, walls, windows, doors and parking','Interior: structure and finishes','Building systems'],get:['A comprehensive commercial report','Prioritised findings'],note:'By an InterNACHI-certified inspector.'},
+ {id:'asbestos',n:'Asbestos Inspection',ic:'⚠️',img:'svc-asbestos',sum:'Identify asbestos-containing materials safely and compliantly.',who:['Older buildings, roofs and ceilings','Owners and managers with legal duties'],chk:['Visual identification of possible asbestos materials','Samples sent to a laboratory for analysis'],get:['A report to support compliance with the Asbestos Abatement Regulations'],note:'Asbestos was banned in South Africa in 2008, and the regulations were updated in 2020.'},
+ {id:'bodycorp',n:'10-Year Body Corporate Plan',ic:'🏘️',img:'svc-body-corporate',sum:'The maintenance plan sectional title schemes are legally required to have.',who:['Body corporate trustees','Managing agents of sectional title schemes'],chk:['An initial assessment of the whole scheme','A tailored 10-year maintenance strategy','Scheduled follow-up inspections','Budget estimates for each item'],get:['A plan that meets the Sectional Titles Schemes Management Act','Transparent reporting for owners'],note:''}
+];
+var SBYID={};SVC.forEach(function(s){SBYID[s.id]=s;});
+
+/* ---------- real findings (their captions) ---------- */
+var CATS={water:'Water & damp',crack:'Cracks & structure',elec:'Electrical & gas',fin:'Doors, windows & finishes',out:'Outdoor & safety'};
+var WHY={water:'Water is the most common cause of serious damage. Small signs, like blistering paint or a damp plinth, often point to a bigger moisture problem.',crack:'Some cracks are cosmetic. Others point to movement or water getting in. The inspector notes size, direction and likely cause.',elec:'Electrical and gas issues can be safety hazards, one of the four categories that really matter.',fin:'Usually minor, but useful for negotiating and planning maintenance. Rotting frames can also mean water is getting in.',out:'Gates, pool equipment and outdoor structures get checked for function and safety.'};
+var DEF=[
+ ['d-boundary-water','Boundary wall water damage and needs repairing','water'],['d-blistering','Blistering paint, water damage','water'],['d-damp-mould','Damp wall with potential mould issues','water'],['d-moisture-meter','Moisture meter showing a saturated wall at the window: check caulking','water'],['d-water-ingress','Water ingress from outside','water'],['d-plinth','Unsealed apron plinth, moisture issues','water'],['d-blistering-plinth','Blistering paint 300mm above plinth: possible waterproofing issue','water'],['d-ghosting','Ghosting water damage','water'],['d-blistering-2','Blistering paint: possible damp water damage','water'],
+ ['d-crack-horizontal','Cracked wall, partially running horizontally','crack'],['d-crack-lintel','Horizontal crack above lintel: check for damp','crack'],['d-crack-pillar','3mm vertical crack near support pillar: possible moisture intrusion','crack'],['d-lintel','Window lintel cracked: possible moisture intrusion','crack'],['d-boundary-defect','Boundary wall defect','crack'],['d-patio-crack','Horizontal cracked substrate, patio','crack'],
+ ['ir-thermal','Thermal scan of the DB board showing temperature variation','elec'],['d-reverse-le','Socket tester showing reversed live/earth','elec'],['d-faulty-light','Faulty light','elec'],['d-gas-padlock','Gas housing missing padlock','elec'],['d-gas-sleeve','No protective sleeve for gas installation','elec'],
+ ['d-rotten-frame','Rotten door frame','fin'],['d-rotten-frame-2','Rotten, damaged wooden door frame','fin'],['d-door-align','Door not aligned to frame','fin'],['d-glazing','Broken glazing','fin'],['d-self-closer','Passage door from garage missing self-closer','fin'],['d-hole-plaster','Hole in plaster','fin'],['d-peeling-paint','Flaking, peeling paint','fin'],['d-tiles','Floor tile edging damaged and chipped tiles','fin'],
+ ['d-pagoda','Pagoda unsafe and requires stability','out'],['d-gate-lock','Functional gate motor with broken locking mechanism','out'],['d-gate-motor','Non-operational swing gate motor','out'],['d-gully-grill','Gully grill absent at cleanout','out'],['d-pool','Pool filtration system checked','out'],['d-decking','Decking support structure checked for stability','out']
+].map(function(d){return {img:d[0],c:d[1],cat:d[2]};});
+
+/* ---------- reviews (as posted) ---------- */
+var REV=[
+ ['Joleen','I had the pleasure of dealing with Mzwandile on my property inspection last week. He was professional, on time (in fact early) and very detailed. My report came back within 4 days. From my initial request for a quote to the final report being done, was 1 week. I highly recommend using Property Inspect 4U for any property inspections.',true],
+ ['Kapei','The communication was great, they answered all the questions we had about what the inspection covers. It is a very detailed inspection. The reports provide a lot of information and clear pictures of where areas of concern were found.'],
+ ['Candice L.','Very professional and helpful. Explained everything perfectly and took time to understand my concerns. Would definitely recommend them.'],
+ ['Nkosi D.','The inspection service provided was exceptional! The attention to detail and high standards exceeded our expectations, ensuring everything was thoroughly checked.'],
+ ['Rods C.','He conducted a remarkably thorough assessment of the entire property, leaving no stone unturned, from structural integrity and roofing to electrical, plumbing, and fine finishings. Outstanding work and exceptional value!',true]
+];
+function revHTML(list){return list.map(function(r){return '<article class="rv reveal'+(r[2]?' wide':'')+'"><span class="st">★★★★★</span><p>"'+esc(r[1])+'"</p><small>'+esc(r[0])+'</small></article>';}).join('');}
+$('rhome').innerHTML=revHTML([REV[0],REV[1],REV[2]]);
+$('rall').innerHTML=revHTML(REV);
+
+/* ---------- router ---------- */
+function go(id,noScroll){
+  if(PAGES.indexOf(id)<0)id='home';closeAll();
+  document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('on',p.id==='page-'+id);});
+  document.querySelectorAll('[data-go]').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-go')===id);});
+  var pg=$('page-'+id);document.title=pg.getAttribute('data-title').replace(/&amp;/g,'&');$('meta-desc').setAttribute('content',pg.getAttribute('data-desc'));
+  if(!noScroll)window.scrollTo(0,0);
+  try{history.replaceState(null,'',id==='home'?location.pathname+location.search:'#'+id);}catch(e){}
+  reveal();
+}
+document.addEventListener('click',function(e){
+  var a=e.target.closest('[data-go]');
+  if(a){e.preventDefault();var sv=a.getAttribute('data-svc');if(sv)showSvc(sv);go(a.getAttribute('data-go'));return;}
+  var sc=e.target.closest('[data-scroll]');if(sc){e.preventDefault();$(sc.getAttribute('data-scroll')).scrollIntoView({behavior:'smooth'});return;}
+  if(e.target.closest('[data-close]')||e.target===$('scrim'))closeAll();
+});
+var IO='IntersectionObserver' in window?new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');IO.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px'}):null;
+function reveal(){document.querySelectorAll('.page.on .reveal:not(.in)').forEach(function(el){if(IO)IO.observe(el);else el.classList.add('in');});}
+function toast(t){var el=$('toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on');},2400);}
+
+/* ---------- hero: live findings ---------- */
+(function(){var pool=DEF.filter(function(d){return d.cat!=='out';}),i=0;
+  function card(d){return '<img src="'+IMG+d.img+'.jpg" alt=""><span><small>Finding · '+CATS[d.cat]+'</small><b>'+esc(d.c)+'</b></span>';}
+  function tick(){var a=pool[i%pool.length],b=pool[(i+5)%pool.length];[['f1',a],['f2',b]].forEach(function(p,k){var el=$(p[0]);el.classList.add('fade');setTimeout(function(){el.innerHTML=card(p[1]);el.classList.remove('fade');},400+k*250);});i++;}
+  tick();setInterval(tick,4200);})();
+
+/* ---------- wizard ---------- */
+var WIZ=[
+ ['🔑','I\'m buying a home',null,['pre-purchase'],['infrared','mould']],
+ ['🏷️','I\'m selling',null,['pre-sale'],['pre-purchase']],
+ ['🏗️','It\'s a new build',null,['snag'],['infrared']],
+ ['📦','Renting: moving in or out',null,['move'],[]],
+ ['🏘️','Body corporate / sectional title',null,['bodycorp'],['roof','water']],
+ ['🏢','Commercial building',null,['commercial'],['infrared','asbestos']],
+ ['🔍','I\'ve spotted a problem',[['Damp or mould','mould',['water','infrared']],['A leak or water stains','water',['infrared','roof']],['The roof','roof',['water']],['Cracks in walls','pre-purchase',['water']],['Could it be asbestos?','asbestos',[]],['Electrical hot spots or tripping','infrared',[]]]]
+];
+var WSEL=0,WSUB=0;
+function renderWiz(){
+  $('wtiles').innerHTML=WIZ.map(function(w,i){return '<button class="wt" aria-pressed="'+(i===WSEL)+'" data-w="'+i+'"><span>'+w[0]+'</span>'+esc(w[1])+'</button>';}).join('')+
+    (WIZ[WSEL][2]?'<div class="subq on">'+WIZ[WSEL][2].map(function(s,j){return '<button class="sq" aria-pressed="'+(j===WSUB)+'" data-ws="'+j+'">'+esc(s[0])+'</button>';}).join('')+'</div>':'');
+  var w=WIZ[WSEL],main,also;
+  if(w[2]){var s=w[2][WSUB];main=s[1];also=s[2];}else{main=w[3][0];also=w[4];}
+  var S=SBYID[main];
+  $('wres').innerHTML='<span class="tag">We recommend</span><h3>'+esc(S.n)+'</h3><p style="color:var(--on2);margin:0">'+esc(S.sum)+'</p><ul>'+S.chk.slice(0,3).map(function(c){return '<li>'+esc(c)+'</li>';}).join('')+'</ul>'+
+    '<div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-gold btn-sm" href="#quote" data-go="quote" data-pick="'+S.id+'">Get a quote for this →</a><a class="btn btn-line btn-sm" style="color:#fff" href="#inspections" data-go="inspections" data-svc="'+S.id+'">More detail</a></div>'+
+    (also&&also.length?'<p class="also">Often paired with: '+also.map(function(a){return '<b>'+esc(SBYID[a].n)+'</b>';}).join(', ')+'</p>':'');
+}
+$('wtiles').addEventListener('click',function(e){var b=e.target.closest('[data-w]');if(b){WSEL=+b.getAttribute('data-w');WSUB=0;renderWiz();return;}var s=e.target.closest('[data-ws]');if(s){WSUB=+s.getAttribute('data-ws');renderWiz();}});
+document.addEventListener('click',function(e){var p=e.target.closest('[data-pick]');if(p){$('q-svc').value=p.getAttribute('data-pick');updQuote();}},true);
+
+/* ---------- infrared slider ---------- */
+(function(){var box=$('irbox'),drag=false;
+  function set(x){var r=box.getBoundingClientRect(),p=Math.max(0,Math.min(100,(x-r.left)/r.width*100));box.style.setProperty('--x',p+'%');}
+  box.addEventListener('pointerdown',function(e){drag=true;box.setPointerCapture(e.pointerId);set(e.clientX);});
+  box.addEventListener('pointermove',function(e){if(drag)set(e.clientX);});
+  box.addEventListener('pointerup',function(){drag=false;});
+  var t=0,auto=setInterval(function(){t+=.05;box.style.setProperty('--x',(50+30*Math.sin(t))+'%');},50);
+  box.addEventListener('pointerdown',function(){clearInterval(auto);},{once:true});
+})();
+
+/* ---------- findings ---------- */
+function dcard(d){return '<button class="dcard" data-d="'+d.img+'"><img src="'+IMG+d.img+'.jpg" alt="'+esc(d.c)+'" loading="lazy"><span class="cap"><span class="cat">'+CATS[d.cat]+'</span>'+esc(d.c)+'</span></button>';}
+$('dteaser').innerHTML=['d-damp-mould','ir-thermal','d-crack-pillar','d-rotten-frame','d-gas-padlock','d-moisture-meter','d-glazing','d-blistering-plinth'].map(function(k){return dcard(DEF.filter(function(d){return d.img===k;})[0]);}).join('');
+var DCAT='all';
+function renderDef(){
+  $('dchips').innerHTML='<button class="chip" aria-pressed="'+(DCAT==='all')+'" data-dc="all">All <small>'+DEF.length+'</small></button>'+Object.keys(CATS).map(function(k){return '<button class="chip" aria-pressed="'+(DCAT===k)+'" data-dc="'+k+'">'+CATS[k]+' <small>'+DEF.filter(function(d){return d.cat===k;}).length+'</small></button>';}).join('');
+  $('dgrid').innerHTML=DEF.filter(function(d){return DCAT==='all'||d.cat===DCAT;}).map(dcard).join('');
+}
+$('dchips').addEventListener('click',function(e){var b=e.target.closest('[data-dc]');if(b){DCAT=b.getAttribute('data-dc');renderDef();}});
+document.addEventListener('click',function(e){var b=e.target.closest('[data-d]');if(!b)return;var d=DEF.filter(function(x){return x.img===b.getAttribute('data-d');})[0];
+  openLB('<img src="'+IMG+d.img+'.jpg" alt="'+esc(d.c)+'"><span class="eyebrow" style="margin-top:14px">'+CATS[d.cat]+'</span><h3>'+esc(d.c)+'</h3><div class="why"><b>Why it matters:</b> '+esc(WHY[d.cat])+'</div>');});
+document.addEventListener('click',function(e){var b=e.target.closest('[data-rep]');if(b)openLB('<img src="'+IMG+b.getAttribute('data-rep')+'.jpg" alt=""><h3>'+esc(b.textContent)+'</h3>');});
+
+/* ---------- spot the problem quiz ---------- */
+var QZ=[['d-glazing','Broken glazing',['Missing window latch','Paint overspray on glass']],['d-gully-grill','Gully grill absent at the drain cleanout',['Blocked gutter','Loose paving']],['d-gas-padlock','Gas housing missing a padlock',['Gas bottle out of date','Regulator fitted upside down']],['d-rotten-frame','Rotten door frame',['Door painted the wrong colour','Hinges fitted upside down']],['d-reverse-le','Socket tester showing reversed live/earth',['Plug socket switched off','Charger left plugged in']],['d-blistering-plinth','Blistering paint 300mm above the plinth: possible waterproofing issue',['Graffiti cleaned off','Normal paint texture']]];
+var QI=0,QS=0,QA=false;
+function renderQuiz(){
+  if(QI>=QZ.length){$('quiz').innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px 0"><span class="eyebrow">Spot the problem</span><h2 style="margin:12px 0">You scored '+QS+'/'+QZ.length+'</h2><p class="lede" style="margin:0 auto 20px">'+(QS===QZ.length?'Sharp eye! But some problems are behind walls, and that\'s what our infrared camera is for.':'Some defects are easy to miss on a viewing. That\'s exactly why a trained inspector checks every room.')+'</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn btn-line" style="color:#fff" id="qagain">Play again</button><a class="btn btn-gold" href="#quote" data-go="quote">Book an inspection →</a></div></div>';$('qagain').onclick=function(){QI=0;QS=0;QA=false;renderQuiz();};return;}
+  var q=QZ[QI],opts=[q[1]].concat(q[2]);opts.sort(function(a,b){return (a.length*7+QI)%3-(b.length*5+QI)%3;});
+  $('quiz').innerHTML='<div class="qimg"><img src="'+IMG+q[0]+'.jpg" alt="A photo from a real inspection"></div><div><span class="eyebrow">Spot the problem · '+(QI+1)+' of '+QZ.length+'</span><h2 style="margin:12px 0 4px;font-size:clamp(1.7rem,3vw,2.3rem)">What did our inspector find here?</h2><p class="qscore" id="qscore">Score: '+QS+'</p><div class="qopts">'+opts.map(function(o){return '<button class="qo" data-qo="'+esc(o)+'">'+esc(o)+'</button>';}).join('')+'</div><div id="qnext"></div></div>';
+  QA=false;
+}
+$('quiz').addEventListener('click',function(e){var b=e.target.closest('[data-qo]');if(!b||QA)return;QA=true;var ok=b.getAttribute('data-qo')===QZ[QI][1];if(ok)QS++;
+  document.querySelectorAll('[data-qo]').forEach(function(x){if(x.getAttribute('data-qo')===QZ[QI][1])x.classList.add('right');else if(x===b)x.classList.add('wrong');});
+  $('qscore').textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+'Score: '+QS;
+  $('qnext').innerHTML='<button class="btn btn-gold btn-sm" id="qn">'+(QI<QZ.length-1?'Next photo →':'See your score →')+'</button>';$('qn').onclick=function(){QI++;renderQuiz();};});
+
+/* ---------- service explorer ---------- */
+var CUR='pre-purchase';
+function showSvc(id){CUR=SBYID[id]?id:'pre-purchase';renderSvc();}
+function renderSvc(){
+  var btn=function(s,cls){return '<button class="'+cls+(s.id===CUR?' on':'')+'" data-sv="'+s.id+'">'+(cls==='svb'?'<i>'+s.ic+'</i>':'')+esc(s.n)+'</button>';};
+  $('svlist').innerHTML=SVC.map(function(s){return btn(s,'svb');}).join('');
+  $('svmobile').innerHTML=SVC.map(function(s){return '<button class="chip" aria-pressed="'+(s.id===CUR)+'" data-sv="'+s.id+'">'+s.ic+' '+esc(s.n.replace(' Inspection',''))+'</button>';}).join('');
+  var REL={'pre-purchase':['d-crack-pillar','d-damp-mould','d-rotten-frame','ir-thermal'],'pre-sale':['d-blistering-plinth','d-lintel','d-gas-sleeve','d-door-align'],'snag':['d-tiles','d-door-align','d-hole-plaster','d-self-closer'],'mould':['d-damp-mould','d-moisture-meter','d-ghosting','d-blistering'],'water':['d-water-ingress','d-plinth','d-boundary-water','d-moisture-meter'],'infrared':['ir-thermal','d-moisture-meter'],'move':['d-hole-plaster','d-glazing','d-peeling-paint','d-tiles'],'bodycorp':['d-boundary-defect','d-crack-horizontal','d-gate-motor','d-pagoda']};
+  var S=SBYID[CUR],rel=(REL[CUR]||[]).map(function(k){return DEF.filter(function(d){return d.img===k;})[0];}).filter(Boolean);
+  $('svpanel').innerHTML='<div class="svpanel" key="'+S.id+'"><div class="svtop"><div class="tx"><span class="eyebrow">'+S.ic+' Inspection</span><h2>'+esc(S.n)+'</h2><p>'+esc(S.sum)+'</p></div><img src="'+IMG+S.img+'.jpg" alt="'+esc(S.n)+'" loading="lazy"></div>'+
+    '<div class="svbody"><div><h3>Ideal for</h3><ul>'+S.who.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul><h3 style="margin-top:22px">What you get</h3><ul>'+S.get.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></div><div><h3>What we check</h3><ul>'+S.chk.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></div></div>'+
+    (rel.length?'<div style="padding:0 30px 24px"><h3 style="font-family:var(--sans);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--goldd);margin-bottom:10px">Examples from our reports</h3><div class="dstrip">'+rel.map(dcard).join('')+'</div></div>':'')+
+    '<div class="svfoot">'+(S.note?'<p class="note">ℹ️ '+esc(S.note)+'</p>':'')+'<a class="btn btn-gold" href="#quote" data-go="quote" data-pick="'+S.id+'">Get a quote for a '+esc(S.n.replace('Inspection','').trim().toLowerCase())+' →</a><a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent('Hi Property Inspect 4U, I\'d like to ask about a '+S.n+'.')+'">Ask on WhatsApp</a></div></div>';
+}
+document.addEventListener('click',function(e){var b=e.target.closest('[data-sv]');if(!b)return;showSvc(b.getAttribute('data-sv'));var p=$('svpanel');if(p.getBoundingClientRect().top<0)window.scrollTo({top:window.scrollY+p.getBoundingClientRect().top-140,behavior:'smooth'});});
+$('fsvc').innerHTML=SVC.slice(0,6).map(function(s){return '<li><a href="#inspections" data-go="inspections" data-svc="'+s.id+'">'+esc(s.n)+'</a></li>';}).join('');
+
+/* ---------- quote builder (real: WhatsApp / email) ---------- */
+$('q-svc').innerHTML=SVC.map(function(s){return '<option value="'+s.id+'">'+esc(s.n)+'</option>';}).join('');
+function picked(k){var b=document.querySelector('[data-q="'+k+'"] [aria-pressed="true"]');return b?b.textContent:'';}
+document.querySelectorAll('[data-q]').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('.op');if(!b)return;g.querySelectorAll('.op').forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');updQuote();});});
+['q-svc','q-size','q-suburb','q-name','q-phone','q-notes'].forEach(function(id){$(id).addEventListener('input',updQuote);});
+function msg(){
+  var size=$('q-size').value,sub=$('q-suburb').value.trim(),notes=$('q-notes').value.trim(),name=$('q-name').value.trim(),ph=$('q-phone').value.trim();
+  return 'Hi Property Inspect 4U, please could I get a quote?\n\n'+
+    '• Inspection: '+SBYID[$('q-svc').value].n+'\n• I am: '+picked('role')+'\n• Property: '+picked('ptype')+', about '+size+' m²\n• Where: '+picked('region')+(sub?' ('+sub+')':'')+'\n• When: '+picked('when')+
+    (notes?'\n• Notes: '+notes:'')+'\n\n'+(name?'Thanks, '+name:'Thanks')+(ph?'\n'+ph:'');
+}
+function updQuote(){$('q-sizeo').textContent=$('q-size').value+' m²';var m=msg();$('q-preview').textContent=m;
+  $('q-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent(m);
+  $('q-mail').href='mailto:info@propertyinspect4u.co.za?subject='+encodeURIComponent('Quote request: '+SBYID[$('q-svc').value].n)+'&body='+encodeURIComponent(m);}
+updQuote();
+
+/* ---------- FAQ ---------- */
+var FAQ=[
+ ['How long until I get my report?','Pre-purchase reports are released within 48–72 hours, once the final payment has been received.'],
+ ['How much does an inspection cost?','Fees depend on the type of inspection and the size of the property. Use our quote builder and we\'ll come back to you with a price.'],
+ ['How do I book?','Accept your quote and pay a 50% deposit, which confirms your booking. The balance is due once the inspection is complete.'],
+ ['Can I be there during the inspection?','Yes, please do. Walk and talk with your inspector, and ask questions as you go.'],
+ ['What happens if something\'s wrong?','We show it to you, explain the problem and why it should be corrected, and may recommend a qualified contractor to take a closer look.'],
+ ['Is the inspector an expert in everything?','A property inspector is a trained generalist. They report on the property\'s condition on the day of the inspection, which isn\'t a prediction or guarantee of future events.'],
+ ['Do you do insurance inspections?','No, we don\'t do insurance inspections on property.'],
+ ['What standards do you follow?','We inspect according to the InterNACHI Home Inspection Standards of Practice and Code of Ethics.'],
+ ['What if I need to cancel?','Please give us more than 24 hours\' notice. Late cancellations, or not providing access within 30 minutes of the appointment, may mean the deposit is kept. Full terms apply.']
+];
+$('faq').innerHTML=FAQ.map(function(q){return '<details><summary>'+esc(q[0])+'</summary><p>'+esc(q[1])+'</p></details>';}).join('');
+(function(){var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:FAQ.map(function(q){return {'@type':'Question',name:q[0],acceptedAnswer:{'@type':'Answer',text:q[1]}};})});document.head.appendChild(s);})();
+
+/* ---------- modals + demo panel ---------- */
+function openLB(h){$('lb-in').innerHTML=h;$('lb').classList.add('on');$('scrim').classList.add('on');}
+function closeAll(){['lb','dm','scrim'].forEach(function(id){$(id).classList.remove('on');});}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+$('demo-pill').addEventListener('click',function(){
+  $('dm-in').innerHTML='<span class="eyebrow">Trabelo demo</span><h3 style="font-size:1.7rem;margin:10px 0 6px">Built for Property Inspect 4U</h3><p style="color:var(--muted);margin:0">A first look at what your new site could be, using your own photos, services and reviews.</p>'+
+    '<ul class="checks"><li>"Which inspection do I need?" points visitors to the right service</li><li>A 60-second quote builder that sends to your WhatsApp or email, ready to price (it really works)</li><li>Drag-to-reveal infrared slider using your own FLIR photos</li><li>34 real findings, filterable, with "why it matters"</li><li>"Spot the problem" quiz, which keeps visitors on the page</li><li>All 11 inspections on one easy page, each with a quote button</li><li>The 4 things that really matter, from your own FAQ</li><li>Fixed WhatsApp link (your current header one is missing a digit)</li><li>Fast on phones, with free hosting and no monthly fees</li></ul>'+
+    '<a class="btn btn-gold btn-sm" style="margin-top:16px" href="https://trabelo.com" target="_blank" rel="noopener">trabelo.com ↗</a>';
+  $('dm').classList.add('on');$('scrim').classList.add('on');});
+
+/* ---------- boot ---------- */
+renderWiz();renderDef();renderQuiz();renderSvc();
+var start=(location.hash||'').slice(1);go(PAGES.indexOf(start)>=0?start:'home',true);
+window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if(PAGES.indexOf(h)>=0)go(h);});
+})();
+</script>
+</body>
+</html>
