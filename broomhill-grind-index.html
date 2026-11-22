@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Grind Café Broomhill | Turkish Breakfast, Brunch &amp; Coffee in Sheffield S10</title>
+<meta name="description" id="meta-desc" content="Family-run café on Whitham Road, Broomhill. Turkish breakfasts, all-day brunch, homemade pancakes, borek and bakes from the counter, and proper coffee. Vegan and gluten-free options. Open 7 days.">
+<!-- DEMO: kept out of Google so it never competes with the real broomhillgrind.com -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1C2A22">
+<meta property="og:title" content="The Grind Café Broomhill: a new website idea">
+<meta property="og:description" content="A demo built by Trabelo for The Grind Café Broomhill, Sheffield S10.">
+<meta property="og:image" content="broomhill-grind-photos/turkish-breakfast-wide.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="broomhill-grind-photos/turkish-breakfast.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "@id": "https://broomhillgrind.com/#cafe",
+  "name": "The Grind Café Broomhill",
+  "alternateName": ["Broomhill Grind Kitchen", "Broomhill Grind"],
+  "url": "https://broomhillgrind.com/",
+  "image": "https://broomhillgrind.com/photos/turkish-breakfast.jpg",
+  "email": "primebeanslimited@gmail.com",
+  "address": {"@type": "PostalAddress", "streetAddress": "184 Whitham Road", "addressLocality": "Sheffield", "addressRegion": "South Yorkshire", "postalCode": "S10 2SS", "addressCountry": "GB"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 53.377992, "longitude": -1.4998085},
+  "servesCuisine": ["Turkish", "British", "Breakfast", "Brunch", "Coffee"],
+  "priceRange": "££",
+  "hasMenu": "https://broomhillgrind.com/menu/",
+  "acceptsReservations": "Yes, for celebrations and corporate meals",
+  "sameAs": ["https://www.instagram.com/broomhillgrindkitchen/"],
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "17:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "17:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#0E1210;--forest:#1C2A22;--green:#2A3E31;--moss:#3B5845;--sage:#AFC4AC;--mint:#DCE8D8;
+  --cream:#F8F1E6;--oat:#EFE4D2;--paper:#FCF8F2;--apricot:#E98C5D;--apricot-d:#C96A3B;--honey:#EFB850;--berry:#C24452;
+  --text:#18201B;--muted:#5C6660;--line:rgba(24,32,27,.12);--on-dark:#F4EEE3;--on-dark-2:rgba(244,238,227,.72);
+  --r:22px;--shadow:0 18px 50px -22px rgba(14,18,16,.45);
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;--sans:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;--hand:'Caveat','Segoe Print','Comic Sans MS',cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);color:var(--text);background:var(--paper);line-height:1.55;font-size:16px;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.hand{font-family:var(--hand);font-weight:700;letter-spacing:.01em}
+h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1.04;letter-spacing:-.02em;margin:0}
+h2{font-size:clamp(2rem,4.6vw,3.3rem)}
+h3{font-size:1.25rem;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.eyebrow{display:inline-flex;align-items:center;gap:.5em;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--apricot-d)}
+.dark .eyebrow,.page-hero .eyebrow{color:var(--honey)}
+.lede{font-size:1.12rem;color:var(--muted);max-width:56ch}
+.dark{background:var(--forest);color:var(--on-dark)}
+.dark .lede{color:var(--on-dark-2)}
+.sec{padding:clamp(64px,9vw,110px) 0;position:relative}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:18px 40px;margin-bottom:38px}
+.sec-head .lede{margin:14px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;border:0;border-radius:999px;padding:.95em 1.45em;font-weight:700;text-decoration:none;font-size:1rem;transition:transform .2s,background .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-hot{background:var(--apricot);color:#22140c;box-shadow:0 10px 26px -10px rgba(233,140,93,.8)}
+.btn-hot:hover{background:#F09B6E}
+.btn-ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-sm{padding:.6em 1em;font-size:.9rem}
+.sr{position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--honey);outline-offset:3px;border-radius:6px}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:50;background:rgba(14,18,16,.92);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);color:var(--on-dark);border-bottom:1px solid rgba(255,255,255,.06)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand img{height:34px;width:auto}
+.brand .hand{font-size:1.45rem;color:var(--honey);transform:rotate(-4deg) translateY(3px)}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;padding:.5em .85em;border-radius:999px;color:var(--on-dark-2);transition:background .2s,color .2s}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav a.on{color:#fff;background:rgba(255,255,255,.12)}
+.live{display:inline-flex;align-items:center;gap:8px;min-width:0;overflow:hidden;font-size:.82rem;font-weight:700;padding:.45em .85em;border-radius:999px;background:rgba(175,196,172,.14);color:var(--mint);white-space:nowrap}
+.live i{width:8px;height:8px;border-radius:50%;background:#7BD88F;box-shadow:0 0 0 0 rgba(123,216,143,.7);animation:pulse 2s infinite}
+.live.shut{background:rgba(255,255,255,.07);color:var(--on-dark-2)}
+.live.shut i{background:#E46B6B;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(123,216,143,0)}100%{box-shadow:0 0 0 0 rgba(123,216,143,0)}}
+.ordbtn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:.6em 1em;font-weight:700;font-size:.92rem;background:var(--apricot);color:#22140c;white-space:nowrap}
+.ordbtn b{min-width:22px;height:22px;border-radius:999px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.78rem;padding:0 6px}
+.ordbtn.bump{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.12)}}
+@media (max-width:1060px){.nav,.top .ordbtn{display:none}.top .live{margin-left:auto}}
+
+/* bottom app bar (phones) */
+.tabbar{display:none}
+@media (max-width:1060px){
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;background:rgba(14,18,16,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:22px;padding:6px;box-shadow:0 14px 40px -12px rgba(0,0,0,.6)}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px;border-radius:16px;text-decoration:none;color:var(--on-dark-2);font-size:.68rem;font-weight:700;letter-spacing:.02em}
+  .tabbar a svg{width:22px;height:22px}
+  .tabbar a.on{color:#fff;background:rgba(255,255,255,.1)}
+  .tabbar a.on svg{color:var(--honey)}
+  body{padding-bottom:92px}
+}
+
+/* ---------- pages ---------- */
+.page{display:none}
+.page.on{display:block;animation:pageIn .4s ease both}
+@keyframes pageIn{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- hero ---------- */
+.hero{background:radial-gradient(1100px 520px at 85% 10%,rgba(239,184,80,.16),transparent 60%),radial-gradient(800px 600px at 0% 100%,rgba(233,140,93,.14),transparent 60%),var(--forest);color:var(--on-dark);padding:clamp(40px,7vw,90px) 0 clamp(60px,8vw,100px);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.1rem);margin:16px 0 20px}
+.hero h1 em{font-style:normal;color:var(--honey);position:relative;white-space:nowrap}
+.hero h1 em svg{position:absolute;left:-2%;bottom:-.18em;width:104%;height:.36em;color:var(--apricot)}
+.hero .lede{font-size:1.18rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:500;padding:.45em .85em;border-radius:999px;background:rgba(255,255,255,.08);color:var(--on-dark)}
+.chip b{font-size:.72rem;letter-spacing:.06em;padding:.15em .45em;border-radius:6px;background:var(--sage);color:var(--forest)}
+.stack{position:relative;height:clamp(420px,46vw,560px)}
+.polaroid{position:absolute;margin:0;background:#fff;padding:10px 10px 44px;border-radius:6px;box-shadow:var(--shadow);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.polaroid img{border-radius:3px;width:100%;height:100%;object-fit:cover}
+.polaroid figcaption{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:var(--hand);font-weight:700;font-size:1.35rem;color:#2a2a2a}
+.polaroid::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(239,184,80,.55);transform:rotate(-3deg);border-radius:2px}
+.p1{width:60%;height:80%;left:2%;top:6%;transform:rotate(-5deg);z-index:2}
+.p2{width:40%;height:50%;right:1%;top:0;transform:rotate(6deg);z-index:1}
+.p3{width:38%;height:46%;right:3%;bottom:0;transform:rotate(-3deg);z-index:3}
+.stack:hover .p1{transform:rotate(-7deg) translate(-8px,-4px)}
+.stack:hover .p2{transform:rotate(9deg) translate(8px,-6px)}
+.stack:hover .p3{transform:rotate(1deg) translate(6px,6px)}
+.p1 .tag{position:absolute;left:-14px;bottom:62px;background:var(--apricot);color:#22140c;font-weight:800;font-family:var(--serif);font-size:1rem;padding:.5em .8em;border-radius:12px;transform:rotate(-6deg);box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.steam{position:absolute;right:8%;top:-4%;width:70px;height:60px;color:rgba(244,238,227,.4)}
+.steam path{animation:steam 3.2s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.6s}.steam path:nth-child(3){animation-delay:1.2s}
+@keyframes steam{0%{opacity:0;transform:translateY(10px)}40%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+@media (max-width:980px){.hero .wrap{grid-template-columns:1fr}.stack{height:400px;max-width:460px;width:100%;margin:0 auto}}
+@media (max-width:520px){.stack{height:330px}.polaroid figcaption{font-size:1.05rem}.hero h1{font-size:2.35rem}.hero h1 em{white-space:normal}.p3{width:35%;right:0}.p1{width:62%;left:0}.hero{padding-top:28px}}
+
+/* marquee (straight) */
+.marquee{background:var(--apricot);color:#22140c;overflow:hidden;padding:13px 0;position:relative;z-index:3;border-top:3px solid var(--honey)}
+.marquee-track{display:flex;gap:34px;width:max-content;animation:slide 38s linear infinite;font-family:var(--hand);font-size:1.7rem;font-weight:700;white-space:nowrap}
+.marquee-track span::after{content:"✦";margin-left:34px;font-size:1rem;vertical-align:middle;opacity:.6}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* facts: three separate cards */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.fact{display:flex;gap:16px;align-items:center;text-decoration:none;background:#fff;border-radius:var(--r);padding:20px 22px;box-shadow:0 1px 0 var(--line),0 22px 44px -30px rgba(0,0,0,.4);border-top:5px solid var(--c);transition:transform .25s,box-shadow .25s;position:relative}
+a.fact:hover{transform:translateY(-4px);box-shadow:0 1px 0 var(--line),0 28px 50px -28px rgba(0,0,0,.45)}
+.fact .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--cbg);color:var(--c);flex-shrink:0}
+.fact .ic svg{width:27px;height:27px}
+.fact small{display:block;color:var(--muted);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.fact strong{display:block;font-family:var(--serif);font-size:1.3rem;line-height:1.15}
+.fact span.sub{display:block;font-size:.86rem;color:var(--muted);margin-top:3px}
+.fact .go-arrow{margin-left:auto;font-weight:800;color:var(--c);font-size:1.2rem}
+.f-hours{--c:#2E7A47;--cbg:#DDF0E2}.f-map{--c:#C96A3B;--cbg:#FBE5D8}.f-rate{--c:#B98315;--cbg:#FBF0D2}
+@media (max-width:860px){.facts{grid-template-columns:1fr;gap:12px}}
+
+/* mood picker */
+.moods{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 14px;scrollbar-width:none;margin-bottom:22px}
+.moods::-webkit-scrollbar{display:none}
+.mood{flex-shrink:0;border:0;background:#fff;border-radius:999px;padding:.75em 1.2em;font-weight:700;box-shadow:inset 0 0 0 1.5px var(--line);display:flex;gap:8px;align-items:center;transition:all .2s}
+.mood span{font-size:1.25rem}
+.mood.on{background:var(--forest);color:#fff;box-shadow:none;transform:translateY(-2px)}
+.mood-out{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dish{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 var(--line),0 24px 50px -36px rgba(0,0,0,.45);display:flex;flex-direction:column;animation:pop .45s cubic-bezier(.2,.8,.2,1) both}
+.dish:nth-child(2){animation-delay:.07s}.dish:nth-child(3){animation-delay:.14s}
+@keyframes pop{from{opacity:.001;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.ph{aspect-ratio:4/3;background:var(--oat);position:relative;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.dish:hover .ph img{transform:scale(1.05)}
+.ph.noimg{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.7),transparent 55%),linear-gradient(135deg,var(--g1,#F4E3CB),var(--g2,#E9CFAE))}
+.ph.noimg .emo{font-size:3.6rem;line-height:1;filter:drop-shadow(0 8px 12px rgba(0,0,0,.18));animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px) rotate(-4deg)}}
+.ph.noimg .hand{font-size:1.6rem;color:#3d2f22;text-align:center;padding:0 20px;line-height:1.05}
+.soon{position:absolute;top:12px;right:12px;font-size:.7rem;font-weight:800;letter-spacing:.04em;background:rgba(255,255,255,.85);color:#5b4636;border-radius:999px;padding:.3em .7em}
+.dish .bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.dish .row{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.price{font-family:var(--serif);font-weight:800;font-size:1.15rem;color:var(--apricot-d);white-space:nowrap}
+.dish p{color:var(--muted);font-size:.93rem;margin:0}
+.dish .acts{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.linkbtn{border:0;background:none;padding:0;font-weight:700;font-size:.9rem;color:var(--green);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:860px){.mood-out{grid-template-columns:1fr 1fr}.mood-out .dish:nth-child(3){display:none}}
+@media (max-width:560px){.mood-out{grid-template-columns:1fr}.mood-out .dish:nth-child(3){display:flex}.dish .ph{aspect-ratio:16/10}}
+
+/* add buttons */
+.add{border:0;background:var(--forest);color:#fff;border-radius:999px;padding:.5em 1em;font-weight:700;font-size:.85rem;display:inline-flex;align-items:center;gap:6px;transition:all .2s;white-space:nowrap}
+.add:hover{background:var(--moss)}
+.add.added{background:#2E7A47}
+.add .n{background:var(--honey);color:#22140c;border-radius:999px;min-width:20px;height:20px;display:grid;place-items:center;font-size:.72rem;padding:0 5px}
+
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.t{font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.05em;padding:.28em .55em;border-radius:6px;line-height:1}
+.t-VG{background:#D6EFD3;color:#1E5A27}.t-V{background:#E7F0D2;color:#46621B}.t-GFO{background:#FCE9C6;color:#7A4E0A}.t-VGO{background:#E3F3E1;color:#2E6B35;box-shadow:inset 0 0 0 1px #9CCB98}.t-N{background:#F6DCD3;color:#8A3218}
+
+/* spotlight */
+.spot{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,70px);align-items:center}
+.spot-ph{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.8);aspect-ratio:4/3}
+.spot-ph img{width:100%;height:100%;object-fit:cover}
+.spot-ph .badge{position:absolute;top:18px;left:18px;background:rgba(14,18,16,.75);backdrop-filter:blur(6px);color:#fff;border-radius:999px;padding:.5em 1em;font-weight:700;font-size:.85rem}
+.spread{list-style:none;margin:24px 0 28px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.spread li{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:500;font-size:.95rem}
+.spread li span{font-size:1.25rem}
+.spot .price{color:var(--honey);font-size:2rem}
+.spot .add{background:var(--apricot);color:#22140c;padding:.8em 1.3em;font-size:.98rem}
+@media (max-width:900px){.spot{grid-template-columns:1fr}}
+
+/* counter */
+.counter-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px;align-items:start}
+.cg{margin:0;border-radius:var(--r);overflow:hidden;position:relative;box-shadow:var(--shadow)}
+.cg img{width:100%;height:100%;object-fit:cover}
+.cg:nth-child(1){aspect-ratio:1/1}.cg:nth-child(2){aspect-ratio:3/4;margin-top:50px}.cg:nth-child(3){aspect-ratio:3/4}
+.cg figcaption{position:absolute;left:12px;bottom:12px;background:var(--cream);border-radius:999px;padding:.35em .9em;font-family:var(--hand);font-weight:700;font-size:1.3rem}
+@media (max-width:760px){.counter-grid{grid-template-columns:1fr 1fr}.cg:nth-child(1){grid-column:1/-1;aspect-ratio:4/3}.cg:nth-child(2){margin-top:0}}
+
+/* reviews */
+.rv-top{display:grid;grid-template-columns:auto 1fr auto;gap:34px;align-items:center;background:#fff;border-radius:28px;padding:28px 32px;box-shadow:0 1px 0 var(--line)}
+.score{font-family:var(--serif);font-weight:800;font-size:4.6rem;line-height:.9}
+.stars{color:var(--honey);font-size:1.3rem;letter-spacing:2px}
+.bars{display:flex;flex-direction:column;gap:6px;min-width:0}
+.bar{display:grid;grid-template-columns:22px 1fr 40px;gap:10px;align-items:center;font-size:.85rem;color:var(--muted);font-weight:700}
+.bar .tr{height:10px;border-radius:9px;background:var(--oat);overflow:hidden}
+.bar .tr i{display:block;height:100%;width:0;border-radius:9px;background:var(--honey);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.themes{display:flex;flex-wrap:wrap;gap:8px;max-width:300px}
+.theme{background:var(--mint);color:var(--forest);border-radius:999px;padding:.4em .8em;font-size:.84rem;font-weight:700}
+.theme b{font-weight:800;color:var(--apricot-d)}
+.rv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.rv{background:#fff;border-radius:var(--r);padding:24px;box-shadow:0 1px 0 var(--line);display:flex;flex-direction:column;gap:12px;position:relative}
+.rv::before{content:"“";font-family:var(--serif);font-size:4.4rem;line-height:1;color:var(--apricot);position:absolute;top:8px;right:18px;opacity:.35}
+.rv .who{display:flex;gap:12px;align-items:center}
+.rv .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--moss);flex-shrink:0}
+.rv .who small{display:block;color:var(--muted)}
+.rv p{margin:0;font-size:.97rem}
+.rv .hl{background:linear-gradient(transparent 60%,rgba(239,184,80,.45) 60%)}
+.rv:nth-child(4),.rv:nth-child(5){grid-column:span 1}
+.rv.wide{grid-column:span 2}
+.rv-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:20px;color:var(--muted);font-size:.9rem}
+@media (max-width:900px){.rv-top{grid-template-columns:auto 1fr;padding:22px}.themes{grid-column:1/-1;max-width:none}.rv-cards{grid-template-columns:1fr}.rv.wide{grid-column:auto}}
+@media (max-width:480px){.rv-top{grid-template-columns:1fr}.score{font-size:3.8rem}}
+
+/* split teasers */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tease{border-radius:28px;padding:clamp(26px,4vw,44px);position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;color:#fff;isolation:isolate}
+.tease img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .7s}
+.tease::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,18,16,.05) 20%,rgba(14,18,16,.88));z-index:-1}
+.tease:hover img{transform:scale(1.05)}
+.tease h3{font-size:clamp(1.6rem,3vw,2.2rem);margin:6px 0 8px}
+.tease p{color:rgba(255,255,255,.82);margin:0 0 16px;max-width:40ch}
+.tease .hand{color:var(--honey);font-size:1.5rem}
+@media (max-width:760px){.duo{grid-template-columns:1fr}}
+
+/* ---------- page heroes ---------- */
+.page-hero{padding:clamp(44px,7vw,80px) 0 clamp(40px,6vw,64px);background:radial-gradient(900px 400px at 90% 0%,rgba(239,184,80,.14),transparent 60%),var(--forest);color:var(--on-dark);position:relative;overflow:hidden}
+.page-hero h1{font-size:clamp(2.4rem,6vw,4.4rem);margin:12px 0 14px}
+.page-hero .lede{margin:0;color:var(--on-dark-2)}
+.page-hero.photo{isolation:isolate}
+.page-hero.photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:-2}
+.page-hero.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,18,16,.92) 30%,rgba(14,18,16,.45));z-index:-1}
+
+/* ---------- menu ---------- */
+.mbar{position:sticky;top:68px;z-index:30;background:rgba(252,248,242,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 0}
+.mbar .wrap{display:flex;flex-direction:column;gap:10px}
+.scroller{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.scroller::-webkit-scrollbar{display:none}
+.mtab{flex-shrink:0;border:0;border-radius:14px;padding:.6em 1.05em;font-weight:700;font-size:.92rem;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);display:flex;align-items:center;gap:7px}
+.mtab small{font-size:.72rem;background:var(--oat);border-radius:999px;padding:.1em .5em;color:var(--muted)}
+.mtab.on{background:var(--forest);color:#fff;box-shadow:none}
+.mtab.on small{background:rgba(255,255,255,.18);color:#fff}
+.dchips{display:flex;gap:8px;align-items:center;overflow-x:auto;scrollbar-width:none}
+.dchips::-webkit-scrollbar{display:none}
+.dch{flex-shrink:0;border:0;border-radius:999px;padding:.42em .9em;font-weight:700;font-size:.83rem;background:transparent;box-shadow:inset 0 0 0 1.5px var(--line);display:flex;gap:6px;align-items:center;color:var(--muted)}
+.dch[aria-pressed="true"]{background:var(--mint);color:var(--forest);box-shadow:inset 0 0 0 1.5px var(--moss)}
+.search{position:relative;flex:1;min-width:150px;display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:.42em .9em;box-shadow:inset 0 0 0 1.5px var(--line)}
+.search input{border:0;outline:0;background:transparent;font:inherit;font-size:.9rem;width:100%}
+.mwrap{padding:34px 0 80px}
+.mpanel{background:#fff;border-radius:28px;box-shadow:0 1px 0 var(--line),0 30px 60px -48px rgba(0,0,0,.5);overflow:hidden;margin-bottom:28px;animation:pop .35s cubic-bezier(.2,.8,.2,1) both}
+.mbanner{display:grid;grid-template-columns:1fr 280px;min-height:150px;background:var(--forest);color:var(--on-dark)}
+.mbanner .tx{padding:26px 30px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.mbanner h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
+.mbanner .hand{font-size:1.45rem;color:var(--honey)}
+.mbanner img{width:100%;height:100%;object-fit:cover}
+.mbanner.noph{grid-template-columns:1fr}
+@media (max-width:640px){.mbanner{grid-template-columns:1fr 120px;min-height:120px}.mbanner .tx{padding:20px}}
+.mitems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:22px}
+.mi{border-radius:18px;background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--line);padding:18px;display:flex;gap:14px;transition:box-shadow .3s,background .3s}
+.mi.flash{background:#FFF4DC;box-shadow:inset 0 0 0 2px var(--honey)}
+.mi .thumb{width:88px;height:88px;border-radius:14px;object-fit:cover;flex-shrink:0;cursor:zoom-in;border:0;padding:0;background:none;position:relative}
+.mi .thumb img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.mi .thumb::after{content:"⤢";position:absolute;right:5px;bottom:5px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;font-size:.75rem;color:var(--ink)}
+.mi .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.mi .row{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.mi h3{font-family:var(--sans);font-weight:700;font-size:1.04rem;letter-spacing:0;line-height:1.25}
+.mi p{color:var(--muted);font-size:.92rem;margin:0}
+.mi .opts{margin:0;padding:0;list-style:none;font-size:.9rem;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.mi .opts li{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mi .opts li::before{content:"–";color:var(--apricot)}
+.mi .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:6px}
+.mitems.simple{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mitems.simple .mi{align-items:center;padding:14px 16px}
+.mitems.simple .mi .body{gap:2px}
+.mitems.simple .add{padding:.45em .8em}
+.mnote{padding:0 22px 22px;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.mitems,.mitems.simple{grid-template-columns:1fr;padding:14px;gap:10px}.mi .thumb{width:72px;height:72px}}
+.empty{padding:26px;border-radius:var(--r);background:#fff;text-align:center;color:var(--muted);display:none;margin-bottom:24px}
+.allergy{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:var(--r);background:var(--mint);color:var(--forest);font-weight:500}
+.allergy svg{flex-shrink:0;width:26px;height:26px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:.85rem;color:var(--muted);margin-top:14px}
+.legend span{display:flex;gap:6px;align-items:center}
+.how-order{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--oat);border-radius:22px;padding:18px 22px;margin-bottom:24px}
+.how-order ol{margin:0;padding:0;list-style:none;display:flex;gap:18px;flex-wrap:wrap;font-weight:700;font-size:.92rem}
+.how-order ol li{display:flex;gap:8px;align-items:center}
+.how-order ol li i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-items:center;font-size:.8rem}
+
+/* ---------- order sidebar ---------- */
+.scrim{position:fixed;inset:0;background:rgba(14,18,16,.55);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);z-index:90;background:var(--forest);color:var(--on-dark);transform:translateX(105%);transition:transform .4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 80px -30px rgba(0,0,0,.6)}
+.drawer.on{transform:none}
+.dr-head{padding:22px 22px 14px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.dr-head h3{font-size:1.7rem}
+.dr-head p{margin:4px 0 0;color:var(--on-dark-2);font-size:.9rem}
+.dr-body{flex:1;overflow:auto;padding:16px 22px}
+.dr-foot{padding:16px 22px calc(18px + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.15)}
+.xd{border:0;background:rgba(255,255,255,.1);color:#fff;width:38px;height:38px;border-radius:50%;font-size:1.3rem;line-height:1;flex-shrink:0}
+.olist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.olist li{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:rgba(255,255,255,.05);border-radius:14px;padding:10px 12px}
+.olist li .nm{font-weight:700;font-size:.95rem;line-height:1.25}
+.olist li .nm small{display:block;font-weight:500;color:var(--on-dark-2);font-size:.8rem}
+.qty{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border-radius:999px;padding:3px;font-weight:800}
+.qty button{border:0;background:transparent;color:#fff;width:28px;height:28px;border-radius:50%;font-weight:800;font-size:1rem}
+.qty button:hover{background:rgba(255,255,255,.18)}
+.oempty{text-align:center;padding:34px 14px;color:var(--on-dark-2)}
+.oempty .big{font-size:3rem;display:block;margin-bottom:8px}
+.ofield{width:100%;border:0;border-radius:12px;padding:.75em .9em;background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:.92rem;margin-top:8px}
+.ofield::placeholder{color:rgba(244,238,227,.5)}
+.ofield:focus{outline:2px solid var(--honey)}
+.olabel{display:block;font-weight:700;font-size:.85rem;margin-top:16px;color:var(--on-dark-2)}
+.tot{display:flex;justify-content:space-between;align-items:baseline}
+.tot strong{font-family:var(--serif);font-size:1.9rem;color:var(--honey)}
+.split{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0 14px;font-size:.9rem;color:var(--on-dark-2)}
+.ofab{display:none}
+@media (max-width:1060px){
+  .drawer{top:auto;left:0;width:100%;max-height:90vh;border-radius:26px 26px 0 0;transform:translateY(105%)}
+  .drawer.on{transform:none}
+  .ofab{position:fixed;right:16px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:55;border:0;border-radius:999px;padding:.8em 1.1em;background:var(--apricot);color:#22140c;font-weight:800;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);gap:8px;align-items:center}
+  .ofab.show{display:flex;animation:pop .35s both}
+}
+.toast{position:fixed;left:50%;bottom:28px;z-index:95;transform:translate(-50%,140%);background:var(--ink);color:#fff;border-radius:999px;padding:.6em .7em .6em 1.1em;display:flex;align-items:center;gap:12px;font-weight:700;font-size:.92rem;box-shadow:0 16px 40px -12px rgba(0,0,0,.6);transition:transform .35s cubic-bezier(.2,.8,.2,1);max-width:calc(100% - 24px)}
+.toast{opacity:0;pointer-events:none}.toast.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.toast button{border:0;background:var(--apricot);color:#22140c;border-radius:999px;padding:.45em .9em;font-weight:800;white-space:nowrap}
+@media (max-width:1060px){.toast{bottom:calc(100px + env(safe-area-inset-bottom))}}
+/* bill planner extras */
+.notice{background:#FFF4DC;color:#4a3a14;border-radius:14px;padding:12px 14px;font-size:.88rem;line-height:1.45;margin-bottom:14px}
+.who{margin-bottom:16px}
+.who-l{display:block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-2);margin-bottom:8px}
+.who-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pchip{display:inline-flex;align-items:center;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden}
+.pchip button{border:0;background:transparent;color:#fff;font-weight:700;font-size:.88rem;padding:.45em .9em}
+.pchip .rm{padding:.45em .7em .45em .2em;opacity:.6}
+.pchip.on{background:var(--honey)}
+.pchip.on button{color:#22140c}
+.addp{display:inline-flex;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25);overflow:hidden}
+.addp input{border:0;background:transparent;color:#fff;font:inherit;font-size:.86rem;padding:.45em .8em;width:120px;outline:0}
+.addp input::placeholder{color:rgba(244,238,227,.6)}
+.addp button{border:0;background:rgba(255,255,255,.14);color:#fff;font-weight:700;font-size:.82rem;padding:0 .8em}
+.pgroup{border-radius:16px;padding:10px;margin-bottom:10px;background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.08)}
+.pgroup.on{box-shadow:inset 0 0 0 1.5px rgba(239,184,80,.6)}
+.pg-head{display:flex;justify-content:space-between;align-items:baseline;padding:2px 4px 8px;font-size:1rem}
+.pg-head span{font-family:var(--serif);font-weight:800;color:var(--honey)}
+.pg-empty{margin:0 4px 4px;font-size:.85rem;color:var(--on-dark-2)}
+.modes{display:flex;gap:4px;background:rgba(255,255,255,.08);border-radius:999px;padding:4px;margin:10px 0}
+.modes button{flex:1;border:0;background:transparent;color:var(--on-dark-2);border-radius:999px;padding:.5em;font-weight:700;font-size:.84rem}
+.modes button.on{background:#fff;color:var(--ink)}
+.payeach{list-style:none;margin:0 0 10px;padding:0;display:flex;flex-direction:column;gap:4px;max-height:140px;overflow:auto}
+.payeach li{display:flex;justify-content:space-between;font-size:.92rem;color:var(--on-dark-2)}
+.payeach li b{color:#fff}
+.tv-list li.tv-who{font-family:var(--serif);font-size:1.05rem;color:var(--forest);border-bottom:2px solid var(--oat);padding-top:16px;justify-content:space-between}
+.tv-list li.tv-who span{color:var(--apricot-d);font-size:1rem;margin-left:0!important}
+.ct-side{display:flex;flex-direction:column;gap:16px}
+.ct-side .vcard{margin:0}
+/* counter ticket */
+.ticketview{position:fixed;inset:0;z-index:100;background:var(--paper);display:none;flex-direction:column;overflow:auto}
+.ticketview.on{display:flex;animation:pageIn .3s both}
+.tv-in{width:min(560px,100% - 32px);margin:auto;padding:32px 0}
+.tv-card{background:#fff;border-radius:26px;box-shadow:0 30px 70px -30px rgba(0,0,0,.4);overflow:hidden}
+.tv-top{background:var(--forest);color:#fff;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.tv-top .hand{color:var(--honey);font-size:1.6rem}
+.tv-table{font-family:var(--serif);font-weight:800;font-size:1.3rem;text-align:right}
+.tv-table small{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-2)}
+.tv-list{list-style:none;margin:0;padding:18px 26px}
+.tv-list li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line);font-size:1.25rem;font-weight:700}
+.tv-list li b{font-family:var(--serif);color:var(--apricot-d);min-width:2.2ch}
+.tv-list li span:last-child{margin-left:auto;font-weight:500;color:var(--muted);font-size:1rem}
+.tv-note{margin:0 26px 16px;background:#FFF4DC;border-radius:14px;padding:12px 14px;font-size:1.05rem}
+.tv-tot{display:flex;justify-content:space-between;padding:16px 26px 22px;font-family:var(--serif);font-weight:800;font-size:1.5rem}
+
+/* ---------- modals ---------- */
+.modal{position:fixed;left:50%;top:50%;z-index:90;width:min(560px,calc(100% - 28px));max-height:88vh;overflow:auto;background:var(--paper);border-radius:26px;padding:26px;transform:translate(-50%,-46%) scale(.97);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.2,.8,.2,1);box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.x{position:absolute;top:14px;right:14px;border:0;background:var(--oat);width:36px;height:36px;border-radius:50%;font-size:1.2rem;line-height:1;z-index:2}
+.lightbox img{border-radius:18px;width:100%;max-height:62vh;object-fit:cover}
+.lightbox h3{margin:16px 0 4px;font-size:1.5rem}
+
+/* ---------- our café ---------- */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.story-ph{position:relative}
+.story-ph img{border-radius:28px;aspect-ratio:4/5;max-height:600px;object-fit:cover;object-position:center 30%;width:100%;box-shadow:var(--shadow)}
+.story-ph .sticker{position:absolute;right:-12px;bottom:28px;background:var(--honey);color:#2a1d05;border-radius:50%;width:132px;height:132px;display:grid;place-items:center;text-align:center;font-family:var(--hand);font-size:1.45rem;line-height:1;transform:rotate(10deg);box-shadow:var(--shadow);padding:10px}
+.timeline{list-style:none;margin:26px 0 0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(var(--apricot) 0 6px,transparent 6px 12px)}
+.timeline li{position:relative;padding:0 0 22px 40px}
+.timeline li::before{content:"";position:absolute;left:4px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 4px var(--apricot)}
+.timeline b{display:block;font-family:var(--serif);font-size:1.15rem}
+.timeline span{color:var(--muted);font-size:.95rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stat{padding:28px;border-radius:var(--r);background:rgba(255,255,255,.06)}
+.stat strong{font-family:var(--serif);font-size:clamp(2.6rem,5vw,3.6rem);color:var(--honey);display:block;line-height:1}
+.stat span{color:var(--on-dark-2)}
+@media (max-width:760px){.stats{grid-template-columns:1fr}}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.val{padding:26px;border-radius:var(--r);background:#fff;box-shadow:0 1px 0 var(--line)}
+.val .em{font-size:2rem;display:block;margin-bottom:10px}
+.val p{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+@media (max-width:900px){.story,.values{grid-template-columns:1fr}.story-ph .sticker{right:8px}}
+.strip{display:flex;gap:14px;overflow-x:auto;padding:6px 2px 16px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.strip img{height:300px;width:auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px;scroll-snap-align:start;flex-shrink:0;cursor:zoom-in}
+
+/* ---------- celebrations ---------- */
+.cel{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,60px);align-items:start}
+.form{background:#fff;border-radius:28px;padding:clamp(22px,3.5vw,34px);box-shadow:0 1px 0 var(--line),0 30px 70px -40px rgba(0,0,0,.45)}
+.step{margin-bottom:22px}
+.step label,.step .lbl{display:block;font-weight:700;margin-bottom:10px}
+.step .lbl small{font-weight:500;color:var(--muted)}
+.opts-row{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:0;border-radius:14px;padding:.7em 1em;background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--line);font-weight:700;font-size:.92rem;display:flex;gap:8px;align-items:center}
+.opt[aria-pressed="true"]{background:var(--forest);color:#fff;box-shadow:none}
+.field{width:100%;border:0;border-radius:14px;padding:.85em 1em;background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--line);font:inherit;color:inherit}
+.field:focus{outline:0;box-shadow:inset 0 0 0 2px var(--moss)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:44px;height:44px;border-radius:50%;border:0;background:var(--oat);font-size:1.3rem;font-weight:800}
+.stepper output{font-family:var(--serif);font-weight:800;font-size:2rem;min-width:2.2ch;text-align:center}
+.ticket{display:none;text-align:center;padding:10px 0}
+.ticket .tk{background:var(--forest);color:var(--on-dark);border-radius:22px;padding:24px;margin:16px 0;text-align:left;position:relative}
+.ticket .tk::before,.ticket .tk::after{content:"";position:absolute;top:50%;width:26px;height:26px;border-radius:50%;background:#fff;margin-top:-13px}
+.ticket .tk::before{left:-13px}.ticket .tk::after{right:-13px}
+.tk dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:12px 0 0}
+.tk dt{color:var(--on-dark-2)}.tk dd{margin:0;font-weight:700}
+.perks{list-style:none;padding:0;margin:24px 0;display:flex;flex-direction:column;gap:12px}
+.perks li{display:flex;gap:12px;align-items:flex-start}
+.perks li span{font-size:1.4rem}
+.demo-note{font-size:.84rem;color:var(--muted);background:var(--oat);border-radius:12px;padding:10px 12px;margin-top:12px}
+@media (max-width:900px){.cel{grid-template-columns:1fr}}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+
+/* ---------- visit ---------- */
+.visit{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:18px;align-items:stretch}
+.vcard{background:#fff;border-radius:var(--r);padding:26px;box-shadow:0 1px 0 var(--line),0 22px 44px -34px rgba(0,0,0,.4)}
+.vcard h3{display:flex;align-items:center;gap:10px}
+.vcard h3 .ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--mint);color:var(--green)}
+.vcard h3 .ic svg{width:20px;height:20px}
+.hours{list-style:none;margin:14px 0 0;padding:0}
+.hours li{display:flex;justify-content:space-between;padding:9px 12px;border-radius:12px}
+.hours li.today{background:var(--mint);font-weight:700;color:var(--forest)}
+.hours li.today span:first-child::after{content:" · today";font-weight:500;font-size:.85rem}
+.map{border-radius:var(--r);overflow:hidden;position:relative;min-height:360px;background:radial-gradient(circle at 50% 45%,var(--moss),var(--forest));color:#fff;display:grid;place-items:center;text-align:center;padding:20px}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.map .pin{width:56px;height:56px;margin:0 auto 12px;color:var(--apricot);animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.contact-list{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:12px}
+.contact-list a,.contact-list div{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:500;word-break:break-word}
+.contact-list .ic{width:40px;height:40px;border-radius:12px;background:var(--oat);display:grid;place-items:center;flex-shrink:0}
+.contact-list .ic svg{width:20px;height:20px}
+.flag{font-size:.75rem;font-weight:800;background:#FCE9C6;color:#7A4E0A;border-radius:6px;padding:.2em .5em;margin-left:6px}
+@media (max-width:980px){.visit{grid-template-columns:1fr 1fr}.visit .map{grid-column:1/-1;order:-1}}
+@media (max-width:640px){.visit{grid-template-columns:1fr}}
+.faqgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.faqcol h3{font-size:1.15rem;margin-bottom:12px;display:flex;gap:8px;align-items:center}
+.faq details{background:#fff;border-radius:16px;margin-bottom:10px;box-shadow:0 1px 0 var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:700;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--apricot-d);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 18px 16px;margin:0;color:var(--muted)}
+@media (max-width:900px){.faqgrid{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--on-dark-2);padding:60px 0 40px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer img{height:38px;width:auto;margin-bottom:12px}
+footer h4{font-family:var(--serif);color:#fff;margin:0 0 10px;font-size:1.05rem}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;font-size:.82rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+
+/* ---------- demo layer ---------- */
+.demo-pill{position:fixed;left:16px;bottom:16px;z-index:70;border:0;border-radius:999px;background:#fff;color:var(--ink);padding:.6em 1em .6em .7em;font-weight:800;font-size:.85rem;box-shadow:0 12px 30px -12px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px}
+.demo-pill i{width:22px;height:22px;border-radius:50%;background:var(--apricot);display:grid;place-items:center;font-style:normal;font-size:.75rem}
+@media (max-width:1060px){.demo-pill{bottom:calc(96px + env(safe-area-inset-bottom));padding:.5em}.demo-pill span{display:none}.demo-pill i{width:30px;height:30px;font-size:.9rem}}
+.serp{background:#fff;border-radius:16px;padding:18px;box-shadow:inset 0 0 0 1px #e3e3e3;font-family:Arial,Helvetica,sans-serif;margin:14px 0}
+.serp .site{display:flex;gap:10px;align-items:center;font-size:.82rem;color:#202124}
+.serp .fav{width:28px;height:28px;border-radius:50%;background:var(--forest);display:grid;place-items:center;color:var(--honey);font-weight:800;font-size:.8rem}
+.serp .site small{display:block;color:#4d5156}
+.serp .ttl{color:#1a0dab;font-size:1.2rem;margin:8px 0 4px;line-height:1.3}
+.serp .dsc{color:#4d5156;font-size:.9rem;line-height:1.5}
+.serp .links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:.88rem;color:#1a0dab}
+.checks{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.93rem}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"✓";flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--mint);color:var(--forest);display:grid;place-items:center;font-weight:800;font-size:.8rem}
+.tabs2{display:flex;gap:6px;margin:14px 0 4px;background:var(--oat);border-radius:999px;padding:4px}
+.tabs2 button{flex:1;border:0;background:transparent;border-radius:999px;padding:.55em;font-weight:700;font-size:.88rem}
+.tabs2 button.on{background:#fff;box-shadow:0 2px 8px -4px rgba(0,0,0,.3)}
+
+.js .reveal{opacity:.001;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" data-go="home" aria-label="The Grind Café Broomhill, home">
+      <img src="broomhill-grind-photos/logo.png" alt="The Grind" width="340" height="156">
+      <span class="hand">Broomhill</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#home" data-go="home">Home</a>
+      <a href="#menu" data-go="menu">Menu</a>
+      <a href="#cafe" data-go="cafe">Our café</a>
+      <a href="#visit" data-go="visit">Find us</a>
+      <a href="#contact" data-go="contact">Contact</a>
+    </nav>
+    <span class="live" id="live-top" aria-live="polite"><i></i><span>Open</span></span>
+    <button class="ordbtn" id="ordbtn" data-open-order title="Plan your bill (not an online order)">🧾 Bill planner <b id="ordn">0</b></button>
+  </div>
+</header>
+
+<main>
+<!-- ======================= HOME ======================= -->
+<section class="page" id="page-home" data-title="The Grind Café Broomhill | Turkish Breakfast, Brunch &amp; Coffee in Sheffield S10" data-desc="Family-run café on Whitham Road, Broomhill. Turkish breakfasts, all-day brunch, homemade pancakes, borek and bakes from the counter, and proper coffee. Vegan and gluten-free options. Open 7 days.">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">☕ Whitham Road · Broomhill · Sheffield S10</span>
+        <h1>Broomhill's cosy corner for <em>Turkish breakfast<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 50 4, 120 4, 197 10" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></em>, brunch &amp; proper coffee.</h1>
+        <p class="lede">A family-run kitchen in the old bank on Whitham Road. Breakfast is served all day, pastries are baked in-house every morning, and there's always something good on the counter.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-hot" href="#menu" data-go="menu">Browse the menu →</a>
+          <a class="btn btn-ghost" href="#visit" data-go="visit">Find us</a>
+        </div>
+        <div class="chips">
+          <span class="chip"><b>VG</b> Vegan options</span>
+          <span class="chip"><b>GFO</b> Gluten-free options</span>
+          <span class="chip">🧒 Kids menu</span>
+          <span class="chip">☕ Open 7 days</span>
+        </div>
+      </div>
+      <div class="stack">
+        <svg class="steam" viewBox="0 0 70 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M15 55c-8-10 8-16 0-28"/><path d="M35 55c-8-10 8-16 0-28"/><path d="M55 55c-8-10 8-16 0-28"/></svg>
+        <figure class="polaroid p1"><img src="broomhill-grind-photos/turkish-breakfast.jpg" alt="The Grind Turkish breakfast spread with simit, olives, salads and jam" width="900" height="1200" fetchpriority="high"><figcaption>the Turkish breakfast</figcaption><span class="tag">£14.95</span></figure>
+        <figure class="polaroid p2"><img src="broomhill-grind-photos/pancakes-bacon.jpg" alt="Homemade pancakes with bacon, berries and maple syrup" width="720" height="960" loading="lazy"><figcaption>pancakes!</figcaption></figure>
+        <figure class="polaroid p3"><img src="broomhill-grind-photos/borek.jpg" alt="Homemade borek, fresh from the oven" width="720" height="960" loading="lazy"><figcaption>fresh borek</figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <div class="wrap">
+    <div class="facts">
+      <a class="fact f-hours reveal" href="#visit" data-go="visit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><small id="fact-hours-label">Today</small><strong id="fact-hours">8am – 5pm</strong><span class="sub" id="fact-hours-sub">Open 7 days a week</span></span><span class="go-arrow">→</span></a>
+      <a class="fact f-map reveal" href="https://www.google.com/maps/dir/?api=1&destination=184+Whitham+Rd+Sheffield+S10+2SS" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Find us</small><strong>184 Whitham Road</strong><span class="sub">Broomhill, S10 2SS · tap for directions</span></span><span class="go-arrow">↗</span></a>
+      <a class="fact f-rate reveal" href="#reviews" data-scroll="reviews"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg></span><span><small>Rated on Google</small><strong>4.6 ★ · 399 reviews</strong><span class="sub">330 of them five-star</span></span><span class="go-arrow">↓</span></a>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="eyebrow">Can't decide?</span><h2>What are you in the mood for?</h2></div>
+        <p class="lede">Tap a mood and we'll point you at the plates people come back for. Tap <b>+ Add</b> to see what it would cost in the bill planner.</p>
+      </div>
+      <div class="moods" id="moods" role="tablist" aria-label="Pick a mood"></div>
+      <div class="mood-out" id="mood-out" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="sec dark" style="overflow:hidden">
+    <div class="wrap spot">
+      <div class="spot-ph reveal"><img src="broomhill-grind-photos/turkish-breakfast-wide.jpg" alt="A full Grind Turkish breakfast laid out on the counter" width="1200" height="900" loading="lazy"><span class="badge">⭐ The one everyone photographs</span></div>
+      <div class="reveal">
+        <span class="eyebrow">House speciality</span>
+        <h2 style="margin:12px 0 14px">The Grind Turkish Breakfast</h2>
+        <p class="lede">A proper spread for one, or for sharing if you're feeling generous. Served with warm simit, a sesame-crusted Turkish bagel.</p>
+        <ul class="spread">
+          <li><span>🍳</span>Traditional menemen</li>
+          <li><span>🫒</span>Mixed olives</li>
+          <li><span>🧀</span>Feta &amp; Cheddar</li>
+          <li><span>🍓</span>Homemade jam</li>
+          <li><span>🍯</span>Honey &amp; cream</li>
+          <li><span>🥒</span>Cucumber, tomatoes &amp; peppers</li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+          <span class="price">£14.95</span>
+          <span class="tags"><span class="t t-V">V</span><span class="t t-GFO">GFO</span></span>
+          <button class="add" data-add="Grind Turkish Breakfast">+ Add to bill planner</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="eyebrow">Baked in-house, every single day</span><h2>Don't skip the counter.</h2></div>
+        <p class="lede">Cakes, pastries, borek and fresh salads are made here every morning. What's on changes daily, so ask what's just come out of the oven.</p>
+      </div>
+      <div class="counter-grid">
+        <figure class="cg reveal"><img src="broomhill-grind-photos/counter.jpg" alt="The Grind counter with croissants, cakes and bakes" width="900" height="900" loading="lazy"><figcaption>fresh every morning</figcaption></figure>
+        <figure class="cg reveal"><img src="broomhill-grind-photos/cake-counter.webp" alt="Homemade cakes, brownies and bakes on the counter" width="730" height="730" loading="lazy"><figcaption>cake o'clock</figcaption></figure>
+        <figure class="cg reveal"><img src="broomhill-grind-photos/borek.jpg" alt="Trays of homemade borek" width="720" height="960" loading="lazy"><figcaption>homemade borek</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="reviews" style="background:var(--oat);scroll-margin-top:70px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="eyebrow">What people say</span><h2>Loved in Broomhill.</h2></div>
+        <p class="lede">Real reviews from Google. The words that come up most are "friendly staff", "vegan options" and "borek".</p>
+      </div>
+      <div class="rv-top reveal">
+        <div><div class="score">4.6</div><div class="stars" aria-label="4.6 out of 5 stars">★★★★★</div><div style="color:var(--muted);font-size:.9rem;margin-top:4px">399 Google reviews</div></div>
+        <div class="bars" id="bars"></div>
+        <div class="themes"><span class="theme"><b>125</b> × friendly staff</span><span class="theme"><b>19</b> × vegan options</span><span class="theme"><b>16</b> × salads</span><span class="theme"><b>7</b> × borek</span></div>
+      </div>
+      <div class="rv-cards" id="rv-cards"></div>
+      <div class="rv-foot"><span>Reviews shown exactly as written on Google. Ratings checked November 2026.</span><a class="btn btn-dark btn-sm" href="https://www.google.com/maps/place/Broomhill+Grind+Kitchen+Cafe/@53.377992,-1.4998085,17z" target="_blank" rel="noopener">Read all 399 on Google ↗</a></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap duo">
+      <a class="tease reveal" href="#contact" data-go="contact"><img src="broomhill-grind-photos/team.jpg" alt="" loading="lazy"><span class="hand">questions · group bookings · allergies</span><h3>Got a question?</h3><p>Booking for a group, checking an allergen, or just saying hello? Send us a message and we'll get back to you.</p><span class="btn btn-hot btn-sm" style="align-self:flex-start">Get in touch →</span></a>
+      <a class="tease reveal" href="#visit" data-go="visit"><img src="broomhill-grind-photos/shopfront.jpg" alt="" loading="lazy" style="object-position:center 35%"><span class="hand">look for the flowers on the windows</span><h3>Find us on Whitham Road</h3><p>In the old bank building at 184 Whitham Road, a short stroll from the University and Weston Park.</p><span class="btn btn-ghost btn-sm" style="align-self:flex-start">Hours, map &amp; FAQs →</span></a>
+    </div>
+  </section>
+</section>
+
+<!-- ======================= MENU ======================= -->
+<section class="page" id="page-menu" data-title="Menu | The Grind Café Broomhill, Sheffield: breakfast, brunch, coffee" data-desc="The full Grind Café Broomhill menu with prices: Turkish breakfast, full English and vegan full English, homemade pancakes, Çılbır eggs, burgers, kids menu, coffee and loose-leaf tea. Filter by vegan, veggie and gluten-free.">
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Breakfast served all day</span>
+      <h1>The menu</h1>
+      <p class="lede">Everything we serve, with prices. Filter by what you eat, or tap <b style="color:#fff">+ Add</b> to work out who's having what and what it'll cost. Then order with us in the café as normal.</p>
+    </div>
+  </div>
+  <div class="mbar">
+    <div class="wrap">
+      <div class="scroller" id="mtabs" role="tablist" aria-label="Menu sections"></div>
+      <div class="dchips" aria-label="Dietary filters">
+        <button class="dch" data-diet="vegan" aria-pressed="false">🌱 Vegan</button>
+        <button class="dch" data-diet="veggie" aria-pressed="false">🥚 Veggie</button>
+        <button class="dch" data-diet="gf" aria-pressed="false">🌾 Gluten-free option</button>
+        <button class="dch" data-diet="nonut" aria-pressed="false">🥜 No nuts</button>
+        <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="sr">Search the menu</span><input id="msearch" type="search" placeholder="Search… e.g. halloumi"></label>
+      </div>
+    </div>
+  </div>
+  <div class="wrap mwrap">
+    <div class="how-order">
+      <div>
+        <span class="hand" style="font-size:1.35rem;color:var(--apricot-d)">🧾 bill planner: see the cost before you order</span>
+        <ol style="margin-top:8px"><li><i>1</i>Tap + Add on dishes</li><li><i>2</i>Add who's having what</li><li><i>3</i>Order &amp; pay in the café as normal</li></ol>
+        <p style="margin:8px 0 0;font-size:.85rem;color:var(--muted)">It's just a planner. Nothing is sent to us, and you don't pay online.</p>
+      </div>
+      <button class="btn btn-dark btn-sm" data-open-order>🧾 Open bill planner</button>
+    </div>
+    <div id="menu-out"></div>
+    <div class="empty" id="menu-empty">Nothing matches that. Try clearing a filter or the search.</div>
+    <div class="allergy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg><div>Allergies or intolerances? Please tell our team before you order. For any allergen information, ask your server and we'll go through the menu with you.<div class="legend"><span><i class="t t-VG">VG</i> Vegan</span><span><i class="t t-VGO">VGO</i> Vegan option</span><span><i class="t t-V">V</i> Vegetarian</span><span><i class="t t-GFO">GFO</i> Gluten-free option</span><span><i class="t t-N">N</i> Contains nuts</span></div></div></div>
+  </div>
+</section>
+
+<!-- ======================= OUR CAFE ======================= -->
+<section class="page" id="page-cafe" data-title="Our Café | The Grind Café Broomhill: family-run, in the old bank on Whitham Road" data-desc="The story of The Grind Café Broomhill: a family-owned café in the old bank building on Whitham Road, Sheffield. Ethically sourced coffee, pastries baked in-house every day, and a warm welcome.">
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Family-owned · Broomhill · S10</span>
+      <h1>From bank vault<br>to brunch spot.</h1>
+      <p class="lede">We're a family-owned local café, proud to serve Broomhill the finest coffee, tea and brunch in a cosy, welcoming room.</p>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="wrap story">
+      <div class="story-ph reveal"><img src="broomhill-grind-photos/shopfront.jpg" alt="The Grind Café Broomhill shopfront at night, with the name and flowers on the windows" width="900" height="1200" loading="lazy"><div class="sticker">same building,<br>better coffee</div></div>
+      <div class="reveal">
+        <span class="eyebrow">Our story</span>
+        <h2 style="margin:12px 0 16px">A Broomhill landmark, warmed up.</h2>
+        <p class="lede">For decades, 184 Whitham Road was the local bank. Now the old banking hall smells of fresh coffee and warm simit, and the only thing we count is how many pancakes leave the kitchen.</p>
+        <ol class="timeline">
+          <li><b>The bank years</b><span>A building dating back to around the 1850s. It was a Williams &amp; Glyn's branch, then RBS, until it closed in November 2018.</span></li>
+          <li><b>2022: The Grind arrives</b><span>The boards came down, and "The Grind Café Broomhill" on the windows was the first name on the building since the bank left.</span></li>
+          <li><b>Today: family-run</b><span>A Turkish-influenced kitchen, pastries baked in-house every day, and a full menu from 8am.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <section class="sec dark">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat reveal"><strong data-count="16">0</strong><span>years of hospitality experience</span></div>
+        <div class="stat reveal"><strong data-count="80" data-suffix="+">0</strong><span>tastes &amp; flavours on the go</span></div>
+        <div class="stat reveal"><strong data-count="40000" data-suffix="+">0</strong><span>customers served</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">What we care about</span><h2>Simple things, done properly.</h2></div></div>
+      <div class="values">
+        <div class="val reveal"><span class="em">🫘</span><h3>Coffee as an experience</h3><p>We source our beans ethically for the best quality and flavour in every cup, from a quick double espresso to a slow flat white.</p></div>
+        <div class="val reveal"><span class="em">🥐</span><h3>Fresh &amp; homemade</h3><p>Pastries are prepared in-house every single day, and we work with trusted suppliers so every plate is fresh and full of flavour.</p></div>
+        <div class="val reveal"><span class="em">🤍</span><h3>Room for everyone</h3><p>Vegan and gluten-free options, a kids menu, and space for a quiet morning coffee or lunch with friends.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" style="background:var(--oat);padding-top:60px">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">From the kitchen</span><h2>Have a look around.</h2></div><p class="lede">Tap any photo to see it bigger.</p></div>
+      <div class="strip" id="gallery"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ======================= VISIT ======================= -->
+<section class="page" id="page-visit" data-title="Find Us &amp; FAQs | The Grind Café Broomhill, 184 Whitham Road, Sheffield S10 2SS" data-desc="The Grind Café Broomhill is at 184 Whitham Road, Sheffield S10 2SS. Open Monday to Saturday 8am to 5pm and Sunday 9am to 5pm. Directions, opening hours, vegan and gluten-free questions, and bookings.">
+  <div class="page-hero photo">
+    <img src="broomhill-grind-photos/shopfront.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <span class="eyebrow">184 Whitham Road · Sheffield S10 2SS</span>
+      <h1>Come and<br>find us.</h1>
+      <p class="lede" id="visit-live">Open seven days a week.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+        <a class="btn btn-hot btn-sm" href="https://www.google.com/maps/dir/?api=1&destination=184+Whitham+Rd+Sheffield+S10+2SS" target="_blank" rel="noopener">Get directions ↗</a>
+        <a class="btn btn-ghost btn-sm" href="#faq" data-scroll="faq">Questions &amp; answers ↓</a>
+      </div>
+    </div>
+  </div>
+  <section class="sec" style="padding-top:50px">
+    <div class="wrap visit">
+      <div class="vcard reveal">
+        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Opening hours</h3>
+        <ul class="hours" id="hours"></ul>
+        <p style="color:var(--muted);font-size:.9rem;margin:12px 0 0">Breakfast is served all day.</p>
+      </div>
+      <div class="map reveal" id="map">
+        <div>
+          <svg class="pin" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12zm0-9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <h3 style="color:#fff">184 Whitham Road</h3>
+          <p style="color:rgba(255,255,255,.75);margin:6px 0 16px">Broomhill, Sheffield S10 2SS<br>In the old bank building</p>
+          <button class="btn btn-hot btn-sm" id="loadmap">Show the map</button>
+          <p style="color:rgba(255,255,255,.55);font-size:.78rem;margin:14px 0 0">The map only loads when you tap, so there's no tracking and no cookie banner.</p>
+        </div>
+      </div>
+      <div class="vcard reveal">
+        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>Get in touch</h3>
+        <ul class="contact-list">
+          <li><a href="mailto:primebeanslimited@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>primebeanslimited@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/broomhillgrindkitchen/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>@broomhillgrindkitchen</a></li>
+          <li><div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>Phone number <span class="flag">to add</span></div></li>
+        </ul>
+        <button class="btn btn-dark btn-sm" style="margin-top:18px" data-go="contact">Send us a message →</button>
+      </div>
+    </div>
+  </section>
+  <section class="sec" id="faq" style="background:var(--oat);scroll-margin-top:70px">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Good to know</span><h2>Questions &amp; answers.</h2></div><p class="lede">The things people ask us most. Anything else? Pop in, or drop us an email.</p></div>
+      <div class="faqgrid faq" id="faqgrid"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="page" id="page-contact" data-title="Contact | The Grind Café Broomhill, Whitham Road, Sheffield S10" data-desc="Get in touch with The Grind Café Broomhill: questions, group bookings for birthdays and corporate meals, allergy questions and feedback. Email, Instagram or send us a message.">
+  <div class="page-hero photo">
+    <img src="broomhill-grind-photos/team.jpg" alt="" loading="lazy" style="object-position:center 25%">
+    <div class="wrap">
+      <span class="eyebrow">We'd love to hear from you</span>
+      <h1>Say hello.</h1>
+      <p class="lede">Questions, group bookings, allergies or feedback. Send us a message, find us on Instagram, or just pop in for a chat.</p>
+      <div class="chips" style="margin-top:20px"><span class="chip" id="contact-live">☕ Open 7 days</span><span class="chip">📍 184 Whitham Road, S10 2SS</span></div>
+    </div>
+  </div>
+  <section class="sec" style="padding-top:50px">
+    <div class="wrap cel">
+      <div class="form reveal" id="ct-form">
+        <div id="ct-steps">
+          <h3 style="font-size:1.6rem;margin-bottom:6px">Send us a message</h3>
+          <p style="color:var(--muted);margin-bottom:20px">It comes straight to our inbox, and we'll reply by email or phone.</p>
+          <div class="step"><span class="lbl">What's it about?</span><div class="opts-row" id="topic">
+            <button class="opt" aria-pressed="true" data-v="General question">💬 General question</button>
+            <button class="opt" aria-pressed="false" data-v="Group booking">🎉 Group booking</button>
+            <button class="opt" aria-pressed="false" data-v="Allergy question">🌾 Allergy question</button>
+            <button class="opt" aria-pressed="false" data-v="Feedback">⭐ Feedback</button>
+          </div>
+          <p class="demo-note" id="topic-hint" style="display:none"></p></div>
+          <div class="step two" id="grp" style="display:none">
+            <div><label for="gdate">Date</label><input class="field" type="date" id="gdate"></div>
+            <div><span class="lbl" style="margin-bottom:6px">Roughly how many?</span><div class="stepper"><button type="button" id="gminus" aria-label="Fewer people">−</button><output id="guests">8</output><button type="button" id="gplus" aria-label="More people">+</button></div></div>
+          </div>
+          <div class="step two">
+            <div><label for="cname">Your name</label><input class="field" id="cname" autocomplete="name" placeholder="e.g. Sam"></div>
+            <div><label for="cphone">Email or phone</label><input class="field" id="cphone" autocomplete="email" placeholder="So we can reply"></div>
+          </div>
+          <div class="step"><label for="cmsg">Your message</label><textarea class="field" id="cmsg" rows="4" placeholder="How can we help?"></textarea></div>
+          <button class="btn btn-hot" style="width:100%" id="csend">Send message →</button>
+          <p class="demo-note">Demo: on the live site this goes straight to your inbox through a free form service, with no monthly fee.</p>
+        </div>
+        <div class="ticket" id="ct-ticket" aria-live="polite"></div>
+      </div>
+      <div class="ct-side">
+        <div class="vcard reveal">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Other ways to reach us</h3>
+          <ul class="contact-list">
+            <li><a href="mailto:primebeanslimited@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small style="display:block;color:var(--muted);font-size:.78rem">Email</small>primebeanslimited@gmail.com</span></a></li>
+            <li><a href="https://www.instagram.com/broomhillgrindkitchen/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><span><small style="display:block;color:var(--muted);font-size:.78rem">Instagram</small>@broomhillgrindkitchen</span></a></li>
+            <li><div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small style="display:block;color:var(--muted);font-size:.78rem">Phone</small>Number <span class="flag">to add</span></span></div></li>
+            <li><a href="#visit" data-go="visit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small style="display:block;color:var(--muted);font-size:.78rem">Visit</small>184 Whitham Road, Broomhill</span></a></li>
+          </ul>
+        </div>
+        <div class="vcard reveal" style="background:var(--forest);color:var(--on-dark)">
+          <h3 style="color:#fff">Keep us handy</h3>
+          <p style="color:var(--on-dark-2);margin:8px 0 16px;font-size:.95rem">Save our details straight into your phone's contacts, or send our page to a friend.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-hot btn-sm" id="savecard">📇 Save to contacts</button>
+            <button class="btn btn-ghost btn-sm" id="sharebtn" style="color:#fff">↗ Share with a friend</button>
+          </div>
+        </div>
+        <div class="vcard reveal">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6M12 17h.01"/></svg></span>Quick answers</h3>
+          <ul class="checks" style="margin-top:12px">
+            <li>Breakfast is served all day</li>
+            <li>Vegan and gluten-free options are marked on the menu</li>
+            <li>We take bookings for birthdays, anniversaries and corporate meals</li>
+          </ul>
+          <a class="linkbtn" href="#faq" data-go-faq style="display:inline-block;margin-top:14px">See all our questions &amp; answers →</a>
+        </div>
+        <a class="vcard reveal rv-cta" href="https://www.google.com/maps/place/Broomhill+Grind+Kitchen+Cafe/@53.377992,-1.4998085,17z" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:center;background:#FBF0D2">
+          <span style="font-size:2rem">⭐</span><span><b>Enjoyed your visit?</b><br><span style="color:var(--muted);font-size:.92rem">A Google review really helps a small family café. Thank you!</span></span><span style="margin-left:auto;font-weight:800;color:#B98315">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="broomhill-grind-photos/logo.png" alt="The Grind" width="340" height="156">
+      <p>Turkish breakfasts, brunch and proper coffee in the old bank on Whitham Road, Broomhill.</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul><li>184 Whitham Road</li><li>Sheffield S10 2SS</li><li>Mon–Sat 8am–5pm</li><li>Sun 9am–5pm</li></ul>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul><li><a href="#menu" data-go="menu">Menu</a></li><li><a href="#cafe" data-go="cafe">Our café</a></li><li><a href="#visit" data-go="visit">Find us &amp; FAQs</a></li><li><a href="#contact" data-go="contact">Contact</a></li><li><a href="https://www.instagram.com/broomhillgrindkitchen/" target="_blank" rel="noopener">Instagram ↗</a></li></ul>
+    </div>
+    <div class="fine"><span>© The Grind Café Broomhill · Prime Beans Limited</span><span>Demo website idea by <a href="https://trabelo.com" style="color:var(--honey)">Trabelo</a>. Photos from broomhillgrind.com.</span></div>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="Quick links">
+  <a href="#home" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+  <a href="#menu" data-go="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3v8a3 3 0 0 0 3 3v7M7 3v6M10 3v8a3 3 0 0 1-3 3M17 21V3c-2.5 1-4 4-4 8h4"/></svg>Menu</a>
+  <a href="#cafe" data-go="cafe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2v3M12 2v3"/></svg>Our café</a>
+  <a href="#visit" data-go="visit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Find us</a>
+  <a href="#contact" data-go="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contact</a>
+</nav>
+
+<button class="ofab" id="ofab" data-open-order aria-label="Open the bill planner"></button>
+<button class="demo-pill" id="demo-pill" aria-label="About this Trabelo demo"><i>T</i><span>Trabelo demo</span></button>
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toast-t"></span><button data-open-order>View planner</button></div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-h">
+  <div class="dr-head"><div><h3 id="dr-h">🧾 Bill planner</h3><p>Work out who's having what and what it costs, before you order.</p></div><button class="xd" data-close aria-label="Close the bill planner">×</button></div>
+  <div class="dr-body" id="dr-body"></div>
+  <div class="dr-foot" id="dr-foot"></div>
+</aside>
+<div class="ticketview" id="ticketview" role="dialog" aria-modal="true" aria-label="List to show at the counter"><div class="tv-in" id="tv-in"></div></div>
+<div class="modal lightbox" id="lightbox" role="dialog" aria-modal="true"><button class="x" data-close aria-label="Close">×</button><div id="lb-in"></div></div>
+<div class="modal" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="dm-h"><button class="x" data-close aria-label="Close">×</button><div id="demo-in"></div></div>
+
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+var IMG='broomhill-grind-photos/';
+var PAGES=['home','menu','cafe','visit','contact'];
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function money(v){return '£'+v.toFixed(2);}
+
+/* ---------------- menu data (from broomhillgrind.com/menu, spelling tidied) ---------------- */
+var SECTIONS=[
+  {id:'breakfast',name:'Breakfast',note:'served all day',img:'turkish-breakfast-wide'},
+  {id:'brunch',name:'Brunch & lunch',note:'all burgers come with chips',img:'brunch-plate'},
+  {id:'kids',name:'Kids menu',note:'for the little ones',img:'pancakes-nutella'},
+  {id:'coffee',name:'Coffee',note:'ethically sourced beans',simple:true,drink:true,img:'counter'},
+  {id:'tea',name:'Tea',note:'proper brews',simple:true,drink:true},
+  {id:'extras',name:'Extras',note:'add to any plate',simple:true}
+];
+var TABS=[['all','Full menu',['breakfast','brunch','kids','coffee','tea','extras']],['breakfast','Breakfast',['breakfast']],['brunch','Brunch & lunch',['brunch']],['kids','Kids',['kids']],['drinks','Coffee & tea',['coffee','tea']],['extras','Extras',['extras']]];
+var MENU=[
+ ['breakfast','Grind Full English Breakfast',14.95,'Sausage, bacon, poached egg, tomato, mushrooms, homemade baked beans, parmentier potatoes & toasted sourdough.',['GFO']],
+ ['breakfast','Grind Vegan Full English Breakfast',14.95,'Vegan sausage, parmentier potatoes, beetroot hummus, mushrooms, tomatoes, homemade baked beans & toasted sourdough.',['VG','GFO']],
+ ['breakfast','Grind Turkish Breakfast',14.95,'Traditional menemen, mixed olives, feta, Cheddar, homemade jam, honey & cream, cucumber, cherry tomatoes & peppers. Served with simit (Turkish bagel).',['V','GFO'],'turkish-breakfast'],
+ ['breakfast','Vegetable Omelette',7.95,'Grated carrot & courgette chopped with herbs and mixed with free-range eggs. Served with sourdough, avocado & seasonal salad.',['V','GFO'],'omelette'],
+ ['breakfast','Eggs on Toast',6.95,'Poached, scrambled or fried eggs on sourdough toast, with seasonal salad.',['V','GFO']],
+ ['breakfast','Flavoured Fried Eggs',7.95,'Two free-range fried eggs cooked in flavoured oil (chilli or smoked rosemary). Served with sourdough and seasonal salad.',['V','GFO']],
+ ['breakfast','Çılbır Turkish Eggs',12.50,'Garlic yoghurt, poached eggs, spiced chickpeas & spinach. Served with sourdough.',['V','GFO']],
+ ['breakfast','Breakfast Burrito',12.50,'Bacon, sausage, scrambled egg & Cheddar. Served with seasonal salad.',[]],
+ ['breakfast','Veggie Breakfast Burrito',12.50,'Veggie sausage, avocado, scrambled egg & Cheddar. Served with seasonal salad.',['V']],
+ ['breakfast',"Chef's Homemade Pancakes",12.50,'Made fresh to order. Choose:',[],'pancakes-bacon',[['Bacon, blueberries & maple syrup',[]],['Nutella, rocky road & whipped cream',['V','N']]]],
+ ['breakfast','Special Pancakes',13.00,'Homemade pancake with pistachio kadayif.',['V','N']],
+ ['breakfast','Toast',4.95,'Toasted sourdough with butter, homemade jam (VG), peanut butter (VG, N), marmalade or honey.',['VG','GFO']],
+ ['breakfast','Brioche French Toast',12.50,'Served with berry compote, whipped lemon mascarpone & wafer.',['V'],'french-toast'],
+ ['breakfast','Homemade Granola',12.50,'Topped with Greek yoghurt, seasonal fruit, honey & passionfruit.',['V','N','VGO']],
+ ['brunch','Classic Grind Beef or Cheese Burger',8.95,'A freshly hand-crafted Grind beef patty, grilled and served in a soft, crispy bun.',[]],
+ ['brunch','Chicken Fillet Burger',7.95,'Grind-marinated chicken fillet with lettuce and fresh tomato in a soft, crispy bun.',[]],
+ ['brunch','Chicken Wrap',9.95,'Marinated chicken with peppers, onion, tomato, paprika & oregano. Served with seasonal salad & chips.',[]],
+ ['brunch','Halloumi Stack',12.90,'Grilled halloumi, free-range poached egg, tomato, avocado, grilled bacon & za\'atar oil on ciabatta, with seasonal salad.',['GFO'],'brunch-plate'],
+ ['brunch','Cheesy Chips',3.99,'A large portion of crispy home-cooked chips topped with Cheddar.',['V']],
+ ['brunch','Ottoman Shakshuka',12.50,'Pan-fried aubergine, potatoes, garlic & herbs topped with a free-range poached egg & feta. Served with sourdough.',['V','GFO']],
+ ['brunch','BLT',8.50,'Grilled bacon, spinach, tomato chutney & paprika mayonnaise. Served with seasonal salad.',['GFO']],
+ ['brunch','Club Sandwich',12.00,'Grilled chicken & bacon, egg mayonnaise & Cheddar between three slices of sourdough. Served with seasonal salad.',['GFO']],
+ ['brunch','Salmon & Avocado',12.50,'Crushed avocado, smoked salmon & poached egg. Served with seasonal salad.',['GFO']],
+ ['kids','Fish Fingers (4)',5.50,'Served with chips, peas & seasonal salad.',[]],
+ ['kids',"Kids' Burger",6.50,'Smashed lamb or chicken burger, served with chips.',[]],
+ ['kids','Chicken Nuggets (4)',5.50,'Served with chips & seasonal salad.',[]],
+ ['kids',"Kids' Pancake",7.95,'',[]],
+ ['extras','Avocado',2.00],['extras','Bacon',2.00],['extras','Sausage',2.00],['extras','Vegan sausage',2.00],['extras','Mushrooms',2.00],['extras','Halloumi',3.90],['extras','Onion rings',3.90],['extras','Syrup (for drinks)',0.50],['extras','Extra shot of coffee',0.75],['extras','Make it iced',0.20],
+ ['coffee','Double espresso',3.00],['coffee','Latte',3.70],['coffee','Cappuccino',3.70],['coffee','Flat white',3.50],['coffee','Americano',3.20],['coffee','Mocha',3.90],['coffee','Macchiato',3.20],['coffee','Cortado',3.50],['coffee','Hot chocolate',3.70],['coffee','Chai latte',3.90],['coffee','Turmeric latte',3.90],['coffee','Beetroot latte',3.90],['coffee','Matcha latte',3.90],
+ ['tea','Yorkshire Tea',2.90],['tea','Loose-leaf tea',3.20,'Earl Grey · Red Berry · Lemon & Ginger · Rooibos · Green · Peppermint · Strawberry & Kiwi']
+].map(function(r,i){return {i:i,sec:r[0],n:r[1],p:r[2],d:r[3]||'',t:r[4]||[],img:r[5]||null,opts:r[6]||null};});
+var BYNAME={};MENU.forEach(function(m){BYNAME[m.n]=m;});
+/* dishes without a photo yet: emoji + gradient placeholder */
+var PH={'Grind Full English Breakfast':['🍳','the full works','#F7DEC0','#EBC49A'],'Grind Vegan Full English Breakfast':['🌱','all the good stuff, plant-based','#DDEFD6','#B9D9AE'],'Eggs on Toast':['🥚','your eggs, your way','#FBEBC4','#F0D08A'],'Flavoured Fried Eggs':['🌶️','chilli or smoked rosemary','#F9D9C9','#EDB59A'],'Çılbır Turkish Eggs':['🧄','garlic yoghurt + poached eggs','#F6EEDC','#E5D3AE'],'Breakfast Burrito':['🌯','breakfast, wrapped','#F5DCC2','#E4B88F'],'Veggie Breakfast Burrito':['🌯','the veggie wrap','#E3EFD3','#C4DDA6'],'Special Pancakes':['🥞','pistachio kadayif','#E6EED0','#C9D99B'],'Toast':['🍞','sourdough + homemade jam','#F7E1C6','#E8C392'],'Homemade Granola':['🥣','crunchy, fruity, homemade','#F4E6D2','#E0C7A0'],'Classic Grind Beef or Cheese Burger':['🍔','hand-crafted patty','#F3D9C4','#DDB08C'],'Chicken Fillet Burger':['🍔','marinated chicken fillet','#F6E1C9','#E6C29A'],'Chicken Wrap':['🌯','paprika & oregano chicken','#F5DECB','#E3BB98'],'Cheesy Chips':['🍟','crispy + Cheddar','#FBEDC2','#F2D27C'],'Ottoman Shakshuka':['🍆','aubergine, egg & feta','#EBDDEA','#CDB2CB'],'BLT':['🥓','a classic, done right','#F6DBD0','#E6B4A2'],'Club Sandwich':['🥪','three slices of sourdough','#F5E3CB','#E5C59A'],'Salmon & Avocado':['🥑','smoked salmon + crushed avo','#DCEFD9','#B5D9AF'],'Fish Fingers (4)':['🐟','with chips & peas','#DDEAF3','#B4CDE0'],"Kids' Burger":['🍔','lamb or chicken','#F3D9C4','#DDB08C'],'Chicken Nuggets (4)':['🍗','with chips','#FBE8C6','#EFCB86'],"Kids' Pancake":['🥞','small hands, big smiles','#F9E1C9','#EEC496']};
+function tagsHTML(t){return t.map(function(x){return '<span class="t t-'+x+'">'+x+'</span>';}).join('');}
+function allTags(m){var s=m.t.slice();if(m.opts)m.opts.forEach(function(o){o[1].forEach(function(x){if(s.indexOf(x)<0)s.push(x);});});return s;}
+function phHTML(m){
+  if(m.img)return '<div class="ph"><img src="'+IMG+m.img+'.jpg" alt="'+esc(m.n)+'" loading="lazy"></div>';
+  var p=PH[m.n]||['🍽️',m.n,'#F4E3CB','#E9CFAE'];
+  return '<div class="ph noimg" style="--g1:'+p[2]+';--g2:'+p[3]+'"><span class="emo">'+p[0]+'</span><span class="hand">'+esc(p[1])+'</span><span class="soon">📸 photo to come</span></div>';
+}
+
+/* ---------------- live open / closed ---------------- */
+var HOURS=[[9,17],[8,17],[8,17],[8,17],[8,17],[8,17],[8,17]];
+var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function london(){
+  try{var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+    var o={};p.forEach(function(x){o[x.type]=x.value;});var wd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday);
+    return {d:wd,h:parseInt(o.hour,10)%24,m:parseInt(o.minute,10)};}catch(e){var n=new Date();return {d:n.getDay(),h:n.getHours(),m:n.getMinutes()};}
+}
+function hh(h){return (h>12?h-12:h)+(h>=12?'pm':'am');}
+function status(){
+  var t=london(),H=HOURS[t.d],now=t.h+t.m/60;
+  if(now>=H[0]&&now<H[1]){var left=H[1]-now;return {open:true,tiny:left<1?'Closing soon':'Open · till '+hh(H[1]),short:left<1?'Closing soon · '+hh(H[1]):'Open now · until '+hh(H[1]),long:'We\'re open right now, until '+hh(H[1])+' today. Come on in!'};}
+  var nd=now<H[0]?t.d:(t.d+1)%7,when=now<H[0]?'today':'tomorrow';
+  return {open:false,tiny:'Closed · opens '+hh(HOURS[nd][0]),short:'Closed · opens '+hh(HOURS[nd][0])+' '+when,long:'We\'re closed right now. We open again at '+hh(HOURS[nd][0])+' '+when+'.'};
+}
+function renderLive(){
+  var s=status(),el=$('live-top');el.className='live'+(s.open?'':' shut');el.querySelector('span').textContent=innerWidth<520?s.tiny:s.short;
+  var t=london();$('fact-hours').textContent=hh(HOURS[t.d][0])+' – '+hh(HOURS[t.d][1]);
+  $('fact-hours-label').textContent='Today · '+DAYS[t.d];$('fact-hours-sub').textContent=s.short;
+  $('visit-live').textContent=s.long;$('contact-live').textContent=(s.open?'🟢 ':'☕ ')+s.short;
+  var order=[1,2,3,4,5,6,0];$('hours').innerHTML=order.map(function(d){return '<li'+(d===t.d?' class="today"':'')+'><span>'+DAYS[d]+'</span><span>'+hh(HOURS[d][0])+' – '+hh(HOURS[d][1])+'</span></li>';}).join('');
+}
+
+/* ---------------- router ---------------- */
+function go(id,noScroll){
+  if(PAGES.indexOf(id)<0)id='home';
+  closeAll();
+  document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('on',p.id==='page-'+id);});
+  document.querySelectorAll('[data-go]').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-go')===id);});
+  var pg=$('page-'+id);document.title=pg.getAttribute('data-title').replace(/&amp;/g,'&');$('meta-desc').setAttribute('content',pg.getAttribute('data-desc'));
+  if(!noScroll)window.scrollTo(0,0);
+  try{history.replaceState(null,'',id==='home'?location.pathname+location.search:'#'+id);}catch(e){}
+  reveal();if(id==='cafe')countUp();if(id==='home')bars();
+}
+document.addEventListener('click',function(e){
+  var a=e.target.closest('[data-go]');if(a){e.preventDefault();go(a.getAttribute('data-go'));return;}
+  var sc=e.target.closest('[data-scroll]');if(sc){e.preventDefault();var el=$(sc.getAttribute('data-scroll'));if(el)el.scrollIntoView({behavior:'smooth'});return;}
+  var add=e.target.closest('[data-add]');if(add){addToOrder(add.getAttribute('data-add'));return;}
+  if(e.target.closest('[data-open-order]')){openOrder();return;}
+  if(e.target.closest('[data-close]')||e.target===$('scrim'))closeAll();
+});
+
+/* ---------------- reveal, counters, review bars ---------------- */
+var IO='IntersectionObserver' in window?new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');IO.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px'}):null;
+function reveal(){document.querySelectorAll('.page.on .reveal:not(.in)').forEach(function(el){if(IO)IO.observe(el);else el.classList.add('in');});}
+var counted=false;
+function countUp(){if(counted)return;counted=true;document.querySelectorAll('[data-count]').forEach(function(el){var to=+el.getAttribute('data-count'),suf=el.getAttribute('data-suffix')||'',t0=null;
+  function f(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1600),v=Math.round(to*(1-Math.pow(1-k,3)));el.textContent=v.toLocaleString('en-GB')+suf;if(k<1)requestAnimationFrame(f);}requestAnimationFrame(f);});}
+var DIST=[[5,330],[4,27],[3,15],[2,16],[1,11]];
+$('bars').innerHTML=DIST.map(function(d){return '<div class="bar"><span>'+d[0]+'★</span><span class="tr"><i data-w="'+(d[1]/399*100).toFixed(1)+'"></i></span><span>'+d[1]+'</span></div>';}).join('');
+function bars(){setTimeout(function(){document.querySelectorAll('.bar i').forEach(function(i){i.style.width=i.getAttribute('data-w')+'%';});},300);}
+
+/* ---------------- reviews (real Google reviews, Nov 2026) ---------------- */
+var REVIEWS=[
+ ['Laura D.','2 weeks ago','My brother and I had a delicious breakfast here this morning for his birthday! <span class="hl">The Turkish food options are amazing and the counter is full of fresh delicious bakes and salads!</span> We both had the breakfast burrito and it was absolutely delicious! Full to the brim with food and good quality bacon and sausage too. Staff very kind and amenable! We will be back!','#3B5845',true],
+ ['Katie','1 month ago','The owners are absolutely lovely, and <span class="hl">all the food is homemade, including the baked goods!</span> Everything tastes so good and is full of flavour. It\'s also lovely to have the chance to enjoy some traditional Turkish dishes. The börek is absolutely amazing too — definitely one of my favourites!','#C96A3B'],
+ ['Alexa B.','1 month ago','Lovely, friendly family run café in Broomhill! One of my favourite spots to stop in the afternoon after work. <span class="hl">The staff are so welcoming</span> and there are always so many delicious sweet and savoury food options','#B98315'],
+ ['Aisha M.','3 weeks ago','A cozy spot with good coffee and a good selection of menu items. <span class="hl">The pancakes were made fresh to order and the portion is generous.</span> Staff are also friendly','#2E6B6B'],
+ ['Naomi K.','3 weeks ago','Lovely little cafe and <span class="hl">a very cute interior.</span> The food was delicious 🤤 it\'s a little pricey but still affordable, and the food is definitely worth the price. Friendly service too, will come back here again if I\'m this direction.','#7A4E8A']
+];
+$('rv-cards').innerHTML=REVIEWS.map(function(r){return '<article class="rv reveal'+(r[4]?' wide':'')+'"><div class="who"><span class="av" style="background:'+r[3]+'">'+r[0].charAt(0)+'</span><div><b>'+r[0]+'</b><small>★★★★★ · '+r[1]+' · Google</small></div></div><p>'+r[2]+'</p></article>';}).join('');
+
+/* ---------------- marquee ---------------- */
+(function(){var w=['Turkish breakfast','Çılbır eggs','pistachio kadayif pancakes','homemade borek','flat whites','beetroot lattes','brioche French toast','Ottoman shakshuka','fresh bakes daily'];var h=w.map(function(x){return '<span>'+x+'</span>';}).join('');$('marquee').innerHTML=h+h;})();
+
+/* ---------------- mood picker ---------------- */
+var COUNTER={'Homemade borek':{d:'Flaky, golden and made here. Our most talked-about bake. Ask what\'s on the counter today.',img:'borek'},'Cakes & bakes':{d:'Cakes, brownies and pastries baked in-house every morning. Ask what\'s fresh today.',img:'cake-counter',ext:'webp'}};
+var MOODS=[
+ ['🫒','Turkish feast',['Grind Turkish Breakfast','Homemade borek','Çılbır Turkish Eggs']],
+ ['🥞','Sweet tooth',["Chef's Homemade Pancakes",'Brioche French Toast','Cakes & bakes']],
+ ['🍳','Proper fry-up',['Halloumi Stack','Grind Full English Breakfast','Breakfast Burrito']],
+ ['🥗','Light & fresh',['Vegetable Omelette','Salmon & Avocado','Eggs on Toast']],
+ ['🌱','Plant-based',['Grind Vegan Full English Breakfast','Toast','Homemade Granola']],
+ ['🧒','Little ones',["Kids' Pancake",'Fish Fingers (4)',"Kids' Burger"]]
+];
+function renderMoods(){
+  $('moods').innerHTML=MOODS.map(function(m,i){return '<button class="mood'+(i===0?' on':'')+'" role="tab" aria-selected="'+(i===0)+'" data-mood="'+i+'"><span>'+m[0]+'</span>'+m[1]+'</button>';}).join('');
+  $('moods').onclick=function(e){var b=e.target.closest('[data-mood]');if(!b)return;document.querySelectorAll('.mood').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false');});b.classList.add('on');b.setAttribute('aria-selected','true');showMood(+b.getAttribute('data-mood'));};
+  showMood(0);
+}
+function showMood(i){
+  $('mood-out').innerHTML=MOODS[i][2].map(function(n){
+    var c=COUNTER[n];
+    if(c)return '<article class="dish"><div class="ph"><img src="'+IMG+c.img+'.'+(c.ext||'jpg')+'" alt="'+esc(n)+'" loading="lazy"></div><div class="bd"><div class="row"><h3>'+esc(n)+'</h3><span class="hand" style="font-size:1.25rem;color:var(--apricot-d)">from the counter</span></div><p>'+esc(c.d)+'</p></div></article>';
+    var m=BYNAME[n];
+    return '<article class="dish">'+phHTML(m)+'<div class="bd"><div class="row"><h3>'+esc(m.n)+'</h3><span class="price">'+money(m.p)+'</span></div><div class="tags">'+tagsHTML(allTags(m))+'</div><p>'+esc(m.d+(m.opts?' '+m.opts.map(function(o){return o[0];}).join(' or '):''))+'</p><div class="acts"><button class="linkbtn" data-find="'+m.i+'">See it on the menu</button><button class="add" data-add="'+esc(m.n)+'">+ Add</button></div></div></article>';}).join('');
+}
+
+/* ---------------- menu: tabs, filters, separated cards ---------------- */
+var DIET={},TAB='all';
+function passes(m){
+  var sec=SECTIONS.filter(function(s){return s.id===m.sec;})[0],t=allTags(m);
+  var q=$('msearch').value.trim().toLowerCase();
+  if(q&&(m.n+' '+m.d+' '+(m.opts?m.opts.map(function(o){return o[0];}).join(' '):'')).toLowerCase().indexOf(q)<0)return false;
+  if(sec.drink)return true;
+  if((DIET.vegan||DIET.veggie||DIET.gf)&&m.sec==='extras')return true;
+  if(DIET.vegan&&!(t.indexOf('VG')>=0||t.indexOf('VGO')>=0))return false;
+  if(DIET.veggie&&!(t.indexOf('V')>=0||t.indexOf('VG')>=0||t.indexOf('VGO')>=0))return false;
+  if(DIET.gf&&t.indexOf('GFO')<0)return false;
+  if(DIET.nonut&&m.t.indexOf('N')>=0)return false;
+  return true;
+}
+function renderTabs(){
+  $('mtabs').innerHTML=TABS.map(function(t){var c=MENU.filter(function(m){return t[2].indexOf(m.sec)>=0&&passes(m);}).length;return '<button class="mtab'+(t[0]===TAB?' on':'')+'" role="tab" aria-selected="'+(t[0]===TAB)+'" data-tab="'+t[0]+'">'+t[1]+' <small>'+c+'</small></button>';}).join('');
+}
+function renderMenu(){
+  var secs=TABS.filter(function(t){return t[0]===TAB;})[0][2],shown=0,html='';
+  SECTIONS.forEach(function(s){
+    if(secs.indexOf(s.id)<0)return;
+    var items=MENU.filter(function(m){return m.sec===s.id&&passes(m);});if(!items.length)return;shown+=items.length;
+    html+='<section class="mpanel" id="sec-'+s.id+'"><div class="mbanner'+(s.img?'':' noph')+'"><div class="tx"><h2>'+s.name+'</h2><span class="hand">'+s.note+'</span></div>'+(s.img?'<img src="'+IMG+s.img+'.jpg" alt="" loading="lazy">':'')+'</div><div class="mitems'+(s.simple?' simple':'')+'">';
+    items.forEach(function(m){
+      if(s.simple){html+='<div class="mi" data-item="'+m.i+'"><div class="body"><h3>'+esc(m.n)+'</h3><span class="price" style="font-size:1rem">'+money(m.p)+'</span>'+(m.d?'<p style="font-size:.82rem">'+esc(m.d)+'</p>':'')+'</div><button class="add" data-add="'+esc(m.n)+'" aria-label="Add '+esc(m.n)+'">'+addLabel(m.n,true)+'</button></div>';return;}
+      html+='<div class="mi" data-item="'+m.i+'">'+(m.img?'<button class="thumb" data-pic="'+m.i+'" aria-label="See a photo of '+esc(m.n)+'"><img src="'+IMG+m.img+'.jpg" alt="" loading="lazy"></button>':'')+
+        '<div class="body"><div class="row"><h3>'+esc(m.n)+'</h3><span class="price">'+money(m.p)+'</span></div>'+(m.d?'<p>'+esc(m.d)+'</p>':'')+
+        (m.opts?'<ul class="opts">'+m.opts.map(function(o){return '<li>'+esc(o[0])+' '+tagsHTML(o[1])+'</li>';}).join('')+'</ul>':'')+
+        '<div class="foot"><span class="tags">'+tagsHTML(m.t)+'</span><button class="add" data-add="'+esc(m.n)+'">'+addLabel(m.n)+'</button></div></div></div>';
+    });
+    html+='</div>'+(s.drink&&(DIET.vegan||DIET.veggie||DIET.gf||DIET.nonut)?'<p class="mnote">Filters apply to food. Ask us about milks and syrups.</p>':'')+'</section>';
+  });
+  $('menu-out').innerHTML=html;$('menu-empty').style.display=shown?'none':'block';
+  renderTabs();
+}
+$('mtabs').addEventListener('click',function(e){var b=e.target.closest('[data-tab]');if(!b)return;TAB=b.getAttribute('data-tab');if(TAB!=='all')$('msearch').value='';renderMenu();
+  var bar=document.querySelector('.mbar');if(bar.getBoundingClientRect().top<=70){window.scrollTo({top:window.scrollY+document.querySelector('.mwrap').getBoundingClientRect().top-200,behavior:'smooth'});}});
+document.querySelectorAll('.dch').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-diet'),on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);DIET[k]=on;renderMenu();});});
+$('msearch').addEventListener('input',function(){if($('msearch').value.trim())TAB='all';renderMenu();});
+$('menu-out').addEventListener('click',function(e){var p=e.target.closest('[data-pic]');if(p){var mm=MENU[+p.getAttribute('data-pic')];openLightbox(IMG+mm.img+'.jpg',mm.n,money(mm.p)+(mm.d?' · '+mm.d:''));}});
+document.addEventListener('click',function(e){var f=e.target.closest('[data-find]');if(!f)return;var m=MENU[+f.getAttribute('data-find')];
+  DIET={};document.querySelectorAll('.dch').forEach(function(b){b.setAttribute('aria-pressed','false');});$('msearch').value='';
+  TAB='all';renderMenu();go('menu');
+  setTimeout(function(){var el=document.querySelector('[data-item="'+m.i+'"]');if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash');},2400);}},150);});
+
+/* ---------------- Bill planner (sidebar) — a planner, NOT an online order ---------------- */
+var PEOPLE=['Me'],ACTIVE=0,LINES={},MODE='person',EVEN=0,TABLE='',NOTE='',first=true;
+try{var sv=JSON.parse(localStorage.getItem('grind-bill')||'{}');if(sv.p&&sv.p.length)PEOPLE=sv.p;LINES=sv.l||{};TABLE=sv.t||'';NOTE=sv.n||'';MODE=sv.m||'person';first=!Object.keys(LINES).length;}catch(e){}
+function save(){try{localStorage.setItem('grind-bill',JSON.stringify({p:PEOPLE,l:LINES,t:TABLE,n:NOTE,m:MODE}));}catch(e){}}
+function lineKey(n,w){return n+'|'+w;}
+function parseKey(k){var i=k.lastIndexOf('|');return {n:k.slice(0,i),w:+k.slice(i+1)};}
+function count(){var c=0;for(var k in LINES)c+=LINES[k];return c;}
+function inOrder(n){var c=0;for(var k in LINES)if(parseKey(k).n===n)c+=LINES[k];return c;}
+function addLabel(n,short){var q=inOrder(n);return (short?'+':'+ Add')+(q?' <span class="n">'+q+'</span>':'');}
+function personTotal(w){var t=0;for(var k in LINES){var p=parseKey(k);if(p.w===w&&BYNAME[p.n])t+=BYNAME[p.n].p*LINES[k];}return t;}
+function total(){var t=0;for(var k in LINES){var p=parseKey(k);if(BYNAME[p.n])t+=BYNAME[p.n].p*LINES[k];}return t;}
+var toastT;
+function toast(msg,withBtn){$('toast-t').textContent=msg;$('toast').querySelector('button').style.display=withBtn===false?'none':'';$('toast').classList.add('on');clearTimeout(toastT);toastT=setTimeout(function(){$('toast').classList.remove('on');},2800);}
+function addToOrder(n){if(!BYNAME[n])return;var k=lineKey(n,ACTIVE);LINES[k]=(LINES[k]||0)+1;save();refreshOrder();
+  var b=$('ordbtn');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump');
+  if(first){first=false;openOrder();return;}
+  if($('drawer').classList.contains('on'))return;
+  toast('✓ '+n+' added for '+PEOPLE[ACTIVE]+' (planner only)');}
+function refreshOrder(){
+  var c=count();$('ordn').textContent=c;$('ofab').innerHTML='🧾 Bill planner · '+money(total());$('ofab').classList.toggle('show',c>0);
+  document.querySelectorAll('.mi [data-add]').forEach(function(b){var n=b.getAttribute('data-add');b.innerHTML=addLabel(n,b.closest('.simple')!==null);});
+  renderOrder();
+}
+function renderOrder(){
+  var keys=Object.keys(LINES).filter(function(k){return LINES[k]>0&&BYNAME[parseKey(k).n];});
+  var h='<div class="notice">ℹ️ <b>This isn\'t an online order.</b> It\'s a planner to see who\'s having what and what it\'ll cost. Nothing is sent to the café. You order and pay with us as normal.</div>';
+  h+='<div class="who"><span class="who-l">Adding dishes for:</span><div class="who-chips">'+PEOPLE.map(function(p,i){return '<span class="pchip'+(i===ACTIVE?' on':'')+'"><button data-person="'+i+'">'+esc(p)+'</button>'+(i>0?'<button class="rm" data-rmperson="'+i+'" aria-label="Remove '+esc(p)+'">×</button>':'')+'</span>';}).join('')+
+     '<span class="addp"><input id="newp" placeholder="+ add a person" maxlength="14" aria-label="Add a person by name"><button id="addp" aria-label="Add person">Add</button></span></div></div>';
+  if(!keys.length){
+    h+='<div class="oempty"><span class="big">🍽️</span><b style="color:#fff">Nothing planned yet</b><br>Pick who it\'s for above, then tap <b>+ Add</b> on anything on the menu to see the cost.</div><button class="btn btn-hot" style="width:100%" data-go="menu">Browse the menu →</button>';
+    $('dr-body').innerHTML=h;$('dr-foot').innerHTML='';wirePeople();return;}
+  PEOPLE.forEach(function(p,w){
+    var mine=keys.filter(function(k){return parseKey(k).w===w;});
+    h+='<div class="pgroup'+(w===ACTIVE?' on':'')+'"><div class="pg-head"><b>'+esc(p)+'</b><span>'+money(personTotal(w))+'</span></div>';
+    if(!mine.length)h+='<p class="pg-empty">Nothing yet. Tap their name above, then + Add.</p>';
+    else h+='<ul class="olist">'+mine.map(function(k){var n=parseKey(k).n;return '<li><span class="qty"><button data-q="-1" data-k="'+esc(k)+'" aria-label="One less">−</button>'+LINES[k]+'<button data-q="1" data-k="'+esc(k)+'" aria-label="One more">+</button></span><span class="nm">'+esc(n)+'<small>'+money(BYNAME[n].p)+' each</small></span><span>'+money(BYNAME[n].p*LINES[k])+'</span></li>';}).join('')+'</ul>';
+    h+='</div>';
+  });
+  h+='<label class="olabel" for="otable">Table number <span style="font-weight:500">(if you\'ve sat down)</span></label><input class="ofield" id="otable" inputmode="numeric" placeholder="e.g. 6" value="'+esc(TABLE)+'">'+
+     '<label class="olabel" for="onote">Notes to mention when you order</label><textarea class="ofield" id="onote" rows="2" placeholder="Allergies, oat milk, no mushrooms…">'+esc(NOTE)+'</textarea>'+
+     '<button class="linkbtn" data-go="menu" style="color:var(--honey);margin-top:14px">+ Add something else</button>';
+  $('dr-body').innerHTML=h;
+  var t=total(),n=EVEN||PEOPLE.length;
+  var f='<div class="tot"><span>Total for the table</span><strong>'+money(t)+'</strong></div>';
+  f+='<div class="modes"><button data-mode="person" class="'+(MODE==='person'?'on':'')+'">Each pays for theirs</button><button data-mode="even" class="'+(MODE==='even'?'on':'')+'">Split it evenly</button></div>';
+  if(MODE==='person')f+='<ul class="payeach">'+PEOPLE.map(function(p,w){return '<li><span>'+esc(p)+'</span><b>'+money(personTotal(w))+'</b></li>';}).join('')+'</ul>';
+  else f+='<div class="split"><span>Between</span><span class="qty"><button data-split="-1" aria-label="Fewer people">−</button>'+n+'<button data-split="1" aria-label="More people">+</button></span><span><b style="color:#fff">'+money(t/n)+'</b> each</span></div>';
+  f+='<button class="btn btn-hot" style="width:100%;margin-top:6px" id="showcounter">Show this list at the counter →</button><button class="linkbtn" data-clear style="color:var(--on-dark-2);margin-top:10px;display:block;width:100%;text-align:center">Clear planner</button>';
+  $('dr-foot').innerHTML=f;
+  $('otable').oninput=function(){TABLE=this.value;save();};$('onote').oninput=function(){NOTE=this.value;save();};
+  $('showcounter').onclick=showTicket;wirePeople();
+}
+function wirePeople(){
+  var inp=$('newp');if(!inp)return;
+  function add(){var v=inp.value.trim();if(!v)return;if(PEOPLE.length>=12)return;PEOPLE.push(v.slice(0,14));ACTIVE=PEOPLE.length-1;save();renderOrder();toast('Now adding dishes for '+PEOPLE[ACTIVE],false);}
+  $('addp').onclick=add;inp.onkeydown=function(e){if(e.key==='Enter')add();};
+}
+function openOrder(){renderOrder();$('drawer').classList.add('on');$('scrim').classList.add('on');$('toast').classList.remove('on');}
+document.addEventListener('click',function(e){
+  var q=e.target.closest('[data-q]');if(q){var k=q.getAttribute('data-k');LINES[k]=Math.max(0,(LINES[k]||0)+(+q.getAttribute('data-q')));if(!LINES[k])delete LINES[k];save();refreshOrder();return;}
+  var pp=e.target.closest('[data-person]');if(pp){ACTIVE=+pp.getAttribute('data-person');renderOrder();return;}
+  var rp=e.target.closest('[data-rmperson]');if(rp){var w=+rp.getAttribute('data-rmperson'),nl={};for(var k2 in LINES){var p=parseKey(k2);if(p.w===w)continue;nl[lineKey(p.n,p.w>w?p.w-1:p.w)]=LINES[k2];}LINES=nl;PEOPLE.splice(w,1);ACTIVE=0;save();refreshOrder();return;}
+  var md=e.target.closest('[data-mode]');if(md){MODE=md.getAttribute('data-mode');EVEN=0;save();renderOrder();return;}
+  var s=e.target.closest('[data-split]');if(s){EVEN=Math.max(1,Math.min(30,(EVEN||PEOPLE.length)+(+s.getAttribute('data-split'))));renderOrder();return;}
+  if(e.target.closest('[data-clear]')){LINES={};PEOPLE=['Me'];ACTIVE=0;EVEN=0;NOTE='';TABLE='';save();refreshOrder();}
+});
+function showTicket(){
+  var t=london(),keys=Object.keys(LINES).filter(function(k){return LINES[k]>0;});
+  var body=PEOPLE.map(function(p,w){var mine=keys.filter(function(k){return parseKey(k).w===w;});if(!mine.length)return '';
+    return '<li class="tv-who">'+esc(p)+'<span>'+money(personTotal(w))+'</span></li>'+mine.map(function(k){var n=parseKey(k).n;return '<li><b>'+LINES[k]+'×</b><span>'+esc(n)+'</span><span>'+money(BYNAME[n].p*LINES[k])+'</span></li>';}).join('');}).join('');
+  $('tv-in').innerHTML='<p class="hand" style="text-align:center;font-size:1.6rem;color:var(--apricot-d);margin:0 0 6px">show this to our team when you order 👋</p><p style="text-align:center;color:var(--muted);font-size:.9rem;margin:0 0 14px">This list hasn\'t been sent anywhere. It just saves reading it all out.</p><div class="tv-card"><div class="tv-top"><div><span class="hand">The Grind · Broomhill</span><div style="font-size:.85rem;color:var(--on-dark-2)">'+DAYS[t.d]+' · '+(t.h<10?'0':'')+t.h+':'+(t.m<10?'0':'')+t.m+'</div></div><div class="tv-table"><small>Table</small>'+(TABLE?esc(TABLE):'—')+'</div></div>'+
+    '<ul class="tv-list">'+body+'</ul>'+(NOTE?'<div class="tv-note">📝 '+esc(NOTE)+'</div>':'')+'<div class="tv-tot"><span>Total</span><span>'+money(total())+'</span></div></div>'+
+    '<div style="display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap"><button class="btn btn-dark btn-sm" id="tvback">← Back to the planner</button></div>';
+  $('ticketview').classList.add('on');$('tvback').onclick=function(){$('ticketview').classList.remove('on');};
+}
+
+/* ---------------- lightbox + gallery ---------------- */
+function openLightbox(src,title,sub){$('lb-in').innerHTML='<img src="'+src+'" alt="'+esc(title)+'"><h3>'+esc(title)+'</h3><p style="color:var(--muted);margin:0">'+esc(sub||'')+'</p>';$('lightbox').classList.add('on');$('scrim').classList.add('on');}
+function closeAll(){['lightbox','demo-modal','drawer','scrim'].forEach(function(id){$(id).classList.remove('on');});$('ticketview').classList.remove('on');}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+var GAL=[['turkish-breakfast','The Grind Turkish Breakfast'],['pancakes-bacon',"Chef's homemade pancakes"],['omelette','Vegetable omelette'],['borek','Homemade borek'],['brunch-plate','Halloumi stack'],['pancakes-nutella','Pancakes, the indulgent way'],['french-toast','Brioche French toast'],['team','Say hello at the counter']];
+$('gallery').innerHTML=GAL.map(function(g){return '<img src="'+IMG+g[0]+'.jpg" alt="'+esc(g[1])+'" loading="lazy" data-g="'+g[0]+'" data-t="'+esc(g[1])+'">';}).join('');
+$('gallery').addEventListener('click',function(e){var i=e.target.closest('[data-g]');if(i)openLightbox(i.src,i.getAttribute('data-t'),'');});
+
+/* ---------------- FAQ (also given to Google as FAQ data) ---------------- */
+var FAQ=[
+ ['🥗 Food & dietary',[
+  ['Do you have vegan options?','Yes. There\'s a Grind Vegan Full English, toasted sourdough with homemade jam or peanut butter, and our homemade granola can be made vegan. Look for VG and VGO on the menu.'],
+  ['Can you do gluten-free?','Lots of our dishes come with a gluten-free option (GFO), including both full English breakfasts, the Turkish breakfast and our sandwiches. Please tell us about any allergies before you order.'],
+  ['What about nuts and allergies?','Dishes containing nuts are marked N. For any allergen information, ask your server and we\'ll go through the menu with you.'],
+  ['Is the food homemade?','Our pastries and bakes are made in-house every day, along with our baked beans, jam, granola and pancakes.']]],
+ ['☕ Visiting',[
+  ['When are you open?','Monday to Saturday 8am to 5pm, and Sunday 9am to 5pm. Breakfast is served all day.'],
+  ['Where exactly are you?','184 Whitham Road, Broomhill, Sheffield S10 2SS, in the old bank building. Look for our name and the flowers on the windows.'],
+  ['Is it OK to bring the kids?','Of course. We have a kids menu with fish fingers, a kids\' burger, chicken nuggets and a kids\' pancake.'],
+  ['What\'s the bill planner?','It\'s not online ordering. Tap + Add on dishes to see who\'s having what and what it will cost, split by person or evenly. Then order and pay with us in the café as normal. You can show the list to our team so you don\'t have to read it all out.']]],
+ ['🎉 Bookings & contact',[
+  ['Can I book a table?','We welcome bookings for birthday celebrations, anniversary parties and corporate meals. Send us a message on our contact page and we\'ll get back to you.'],
+  ['Can you cater for a group?','Tell us your rough numbers, date and what you fancy on our contact page, from Turkish breakfast spreads to cakes from the counter, and we\'ll talk it through.'],
+  ['How do I get in touch?','Use the form on our contact page, email primebeanslimited@gmail.com, message us on Instagram @broomhillgrindkitchen, or just pop in.']]]
+];
+$('faqgrid').innerHTML=FAQ.map(function(c){return '<div class="faqcol reveal"><h3>'+c[0]+'</h3>'+c[1].map(function(q){return '<details><summary>'+esc(q[0])+'</summary><p>'+esc(q[1])+'</p></details>';}).join('')+'</div>';}).join('');
+(function(){var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:[].concat.apply([],FAQ.map(function(c){return c[1];})).map(function(q){return {'@type':'Question',name:q[0],acceptedAnswer:{'@type':'Answer',text:q[1]}};})});document.head.appendChild(s);})();
+
+/* ---------------- contact form + extras ---------------- */
+(function(){
+  var guests=8,d=$('gdate'),t=new Date();t.setDate(t.getDate()+7);d.min=new Date().toISOString().slice(0,10);d.value=t.toISOString().slice(0,10);
+  var HINT={'Group booking':'We welcome bookings for birthday celebrations, anniversary parties and corporate meals. Add a date and rough numbers, and we\'ll confirm with you. Nothing is booked until we do.','Allergy question':'Tell us which dish and which allergy, and we\'ll check it for you. If it\'s urgent, please ask a member of our team in the café.','Feedback':'Thank you! Good or bad, every message is read by the family.'};
+  $('topic').addEventListener('click',function(e){var b=e.target.closest('.opt');if(!b)return;$('topic').querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');
+    var v=b.getAttribute('data-v');$('grp').style.display=v==='Group booking'?'grid':'none';var hEl=$('topic-hint');hEl.style.display=HINT[v]?'block':'none';hEl.textContent=HINT[v]||'';
+    $('cmsg').placeholder=v==='Group booking'?'What\'s the occasion? Any food ideas or dietary needs?':v==='Allergy question'?'Which dish, and which allergy?':'How can we help?';});
+  function g(n){guests=Math.max(2,Math.min(60,guests+n));$('guests').textContent=guests;}
+  $('gminus').onclick=function(){g(-1);};$('gplus').onclick=function(){g(1);};
+  $('csend').onclick=function(){
+    var name=$('cname').value.trim(),contact=$('cphone').value.trim();
+    if(!name||!contact){($('cname').value.trim()?$('cphone'):$('cname')).focus();$('csend').textContent='Add your name and a way to reply ↑';setTimeout(function(){$('csend').textContent='Send message →';},2200);return;}
+    var topic=document.querySelector('#topic [aria-pressed="true"]').getAttribute('data-v');
+    var rows='<dt>About</dt><dd>'+esc(topic)+'</dd>';
+    if(topic==='Group booking'){var dt=new Date(d.value+'T12:00:00');rows+='<dt>Date</dt><dd>'+esc(isNaN(dt)?d.value:dt.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'}))+'</dd><dt>Guests</dt><dd>about '+guests+'</dd>';}
+    rows+='<dt>Reply to</dt><dd>'+esc(contact)+'</dd>';
+    $('ct-steps').style.display='none';var tk=$('ct-ticket');tk.style.display='block';
+    tk.innerHTML='<div style="font-size:3rem">💌</div><h3 style="font-size:1.8rem">Thanks, '+esc(name)+'!</h3><p style="color:var(--muted)">Your message is with the team, and we\'ll get back to you as soon as we can.</p>'+
+      '<div class="tk"><span class="hand" style="color:var(--honey);font-size:1.4rem">message sent</span><dl>'+rows+'</dl></div>'+
+      '<button class="btn btn-dark btn-sm" id="cagain">Send another</button><p class="demo-note" style="text-align:left">Demo: on the live site this arrives in your inbox as an email, ready to reply to.</p>';
+    $('cagain').onclick=function(){tk.style.display='none';$('ct-steps').style.display='block';};
+    $('ct-form').scrollIntoView({behavior:'smooth',block:'start'});
+  };
+  /* save to contacts (.vcf) */
+  $('savecard').onclick=function(){
+    var v=['BEGIN:VCARD','VERSION:3.0','FN:The Grind Café Broomhill','ORG:The Grind Café Broomhill','ADR;TYPE=WORK:;;184 Whitham Road;Sheffield;;S10 2SS;United Kingdom','EMAIL;TYPE=WORK:primebeanslimited@gmail.com','URL:https://broomhillgrind.com','NOTE:Open Mon–Sat 8am–5pm, Sun 9am–5pm. Instagram @broomhillgrindkitchen','END:VCARD'].join('\r\n');
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([v],{type:'text/vcard'}));a.download='the-grind-cafe-broomhill.vcf';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+    toast('📇 Contact card downloaded',false);
+  };
+  /* share */
+  $('sharebtn').onclick=function(){var data={title:'The Grind Café Broomhill',text:'Turkish breakfast, brunch & coffee on Whitham Road, Broomhill',url:location.href.split('#')[0]};
+    if(navigator.share){navigator.share(data).catch(function(){});return;}
+    try{navigator.clipboard.writeText(data.url).then(function(){toast('🔗 Link copied, ready to paste',false);});}catch(e){toast(data.url,false);}};
+  /* FAQ link on contact page */
+  document.querySelector('[data-go-faq]').addEventListener('click',function(e){e.preventDefault();go('visit');setTimeout(function(){$('faq').scrollIntoView({behavior:'smooth'});},120);});
+})();
+
+/* ---------------- map (click to load) ---------------- */
+$('loadmap').addEventListener('click',function(){var f=document.createElement('iframe');f.title='Map showing The Grind Café Broomhill, 184 Whitham Road';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';
+  f.src='https://www.google.com/maps?q='+encodeURIComponent('Broomhill Grind Kitchen Cafe, 184 Whitham Rd, Sheffield S10 2SS')+'&output=embed';$('map').appendChild(f);});
+
+/* ---------------- demo layer: how it looks on Google ---------------- */
+var SEO={
+  home:{path:'',links:['Menu','Our café','Celebrations','Find us'],ex:['A proper H1 heading that says what you are and where (your current homepage has none)','Hidden "LocalBusiness" data telling Google your address, hours, map pin, menu and Instagram','Your Google name, website name and Instagram finally match','Homepage cut from 24.8 MB to under 2 MB, so it opens fast on 4G']},
+  menu:{path:' › menu',links:['Breakfast','Brunch & lunch','Kids menu','Coffee'],ex:['Every dish is real text, so Google can match searches like "Turkish breakfast Sheffield" or "vegan full English S10"','Spelling fixed (omelette, avocado, turmeric) so searches actually match','Vegan, veggie and gluten-free filters, which people actively search for','A bill planner shows who\'s having what and the cost, split by person (it\'s not online ordering)']},
+  cafe:{path:' › our-cafe',links:['Our story','Gallery'],ex:['Your story: the old bank building is a great local hook for press and Google','Your numbers (16 years, 80+ flavours, 40,000+ customers) as real text Google can read','Unique wording, not shared with the other Grind cafés']},
+  contact:{path:' › contact',links:['Send a message','Instagram','Find us'],ex:['A contact form that changes with the question: group bookings ask for a date and numbers, allergy questions ask which dish','Messages land in your inbox, free, with no monthly fee','"Save to contacts" and "Share with a friend" buttons','A gentle nudge to leave a Google review, which helps you rank']},
+  visit:{path:' › find-us',links:['Opening hours','Directions','FAQs'],ex:['11 questions and answers marked up so Google can show them','Hours update live: "Open now · until 5pm"','The map only loads on tap, so no cookie banner is needed']}
+};
+function curPage(){var p=document.querySelector('.page.on');return p?p.id.slice(5):'home';}
+function demoPanel(tab){
+  var id=curPage(),pg=$('page-'+id),s=SEO[id];
+  var h='<span class="eyebrow">Trabelo demo</span><h3 id="dm-h" style="font-size:1.6rem;margin:8px 0 2px">Built for The Grind Café Broomhill</h3>';
+  h+='<div class="tabs2"><button data-dt="google" class="'+(tab!=='new'?'on':'')+'">How Google sees it</button><button data-dt="new" class="'+(tab==='new'?'on':'')+'">What\'s new</button></div>';
+  if(tab!=='new'){
+    h+='<p style="color:var(--muted);font-size:.9rem;margin:10px 0 0">This page is set up to show in Google like this:</p>';
+    h+='<div class="serp"><div class="site"><span class="fav">G</span><span>The Grind Café Broomhill<small>https://broomhillgrind.com'+s.path+'</small></span></div><div class="ttl">'+pg.getAttribute('data-title')+'</div><div class="dsc">'+esc(pg.getAttribute('data-desc'))+'</div><div class="links">'+s.links.map(function(l){return '<span>'+l+'</span>';}).join('')+'</div></div>';
+    h+='<ul class="checks">'+s.ex.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
+    h+='<p style="font-size:.8rem;color:var(--muted);margin:14px 0 0">Preview only. Google decides the final layout, and this demo is hidden from Google so it never competes with your real site.</p>';
+  }else{
+    h+='<ul class="checks" style="margin-top:14px"><li>A live "open now" badge on every page, in UK time</li><li>A mood picker that sends hungry people straight to the right dish</li><li>The full menu first, then clear sections, with vegan, veggie, gluten-free and no-nut filters plus search</li><li>A bill planner: add people and dishes to see what each person pays. It is clearly not online ordering; they still order at the counter</li><li>Real Google reviews, shown in full</li><li>A contact page whose form changes with the question (group booking, allergy, feedback), plus Save to contacts and Share</li><li>Find us page with live hours, a tap-to-load map and 11 FAQs</li><li>An app-style bar on phones, so the menu is always one tap away</li><li>Working Instagram link (@broomhillgrindkitchen)</li><li>No WordPress, plugins or monthly hosting bill</li></ul>';
+    h+='<a class="btn btn-hot btn-sm" style="margin-top:18px" href="https://trabelo.com" target="_blank" rel="noopener">trabelo.com ↗</a>';
+  }
+  $('demo-in').innerHTML=h;
+}
+$('demo-pill').addEventListener('click',function(){demoPanel('google');$('demo-modal').classList.add('on');$('scrim').classList.add('on');});
+$('demo-in').addEventListener('click',function(e){var b=e.target.closest('[data-dt]');if(b)demoPanel(b.getAttribute('data-dt'));});
+
+/* ---------------- boot ---------------- */
+renderLive();setInterval(renderLive,60000);window.addEventListener('resize',renderLive);
+renderMoods();renderMenu();refreshOrder();
+var start=(location.hash||'').slice(1);go(PAGES.indexOf(start)>=0?start:'home',true);
+window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if(PAGES.indexOf(h)>=0)go(h);});
+})();
+</script>
+</body>
+</html>
